@@ -1,0 +1,303 @@
+%
+% e02-spamfilter.tex -- Die Mathematik hinter einem Spamfilter basieren
+%                       auf einem Bayes-Filter
+%
+% (c) 2006 Prof Dr Andreas Mueller, Hochschule Rapperswil
+% $Id: e05-google.tex,v 1.4 2008/09/09 14:22:16 afm Exp $
+%
+\rhead{Google}
+\chapter{Google Page Rank\label{pagerank}}
+
+\section{Rangfolge in Suchmaschinen}
+\index{Suchmaschine}
+Die Aufgabe einer Suchmaschine ist, diejenigen Seiten im Internet zu
+finden, welche am besten auf die Suchabfrage passen. Auf den ersten
+Blick ist dies eine einfach Aufgabe: man findet zun"achst alle Seiten,
+die den Suchbegriff enthalten, und liefert dann in erster Priorit"at
+diejenigen Seiten, die ``am besten passen''. Genau darin besteht jedoch
+das Problem. Wie misst man, wie gut eine Seite passt.
+
+\subsection{Das Problem}
+Bei der Suche in einer kleinen Dokumentmengen schr"ankt die Angabe von
+gen"ugend vielen Suchkriterien die Resultatmenge meistens so stark
+ein, dass man damit ewas Sinnvolles anfangen kann. Die Dokumentmenge
+des Internet ist jedoch so gross, dass die Suche nach einigermassen
+gebr"auchlichen W"ortern notwendigerweise zehntausend oder hunderttausende
+von Seiten liefert, die das Wort enthalten. Ohne eine sinnvolle Rangfolge
+unter den gefundenen Seiten ist es also f"ur den Benutzer unm"oglich, in
+vern"unftiger Zeit zu sinnvollen Resultaten zu kommen.
+
+Als das Internet noch relativ klein war, konnten Kriterien wie die
+Anzahl der W"orter auf einer Seite, die zum Suchbegriff passen,
+oder die ``Entfernung'' eines Synonyms von einem Suchwort dazu dienen,
+seiten zu klassifizieren. Es wurde aber schon bald klar, dass selbst
+solche verfeinerten Suchtechniken f"ur das rasch wachsende Internet
+zu wenig selektiv sein w"urden.
+
+In diesem Abschnitt stellen wir uns also die Aufgabe, ein Kriterium
+f"ur eine Rangfolge unter den Seiten des Internet zu finden, welches auch
+f"ur ein ein sehr grosses Internet mit $N$ Dokumenten erfolgreich sein kann,
+wobei $N$ mindestens $10^9$ sein soll.
+
+\subsection{Der L"osungsansatz}
+Das Internet hat eine Eigenschaft, welche fr"uhere elektronische 
+Datenbest"ande kaum hatten: Jedes Dokument kann mit beliebig vielen anderen
+Dokumenten verlinkt sein. Die Seiten-Autoren verwenden Links, um auf
+\index{Link}
+andere Dokumente zu verweisen, die einen Begriff verdeutlichen oder
+vertiefen, oder in irgend einer Art mit dem Begriff verbunden sind.
+Besonders lohnende Seiten werden von vielen Leuten gelesen, und in ihren
+eigenen Dokumenten wieder verlinkt. Die Links zeigen also jeweils zu den
+Seiten, die zu lesen sich lohnt.
+
+Ein Internet-Benutzer, der eine Seite gefunden hat, die zu lesen sich lohnt,
+wird eine Zeit lang auf dieser Seite verweilen, und dann den Links auf
+andere Seiten folgen, den offenbar verweisen die auf weiteres Material zu
+dem Thema, über das er etwas lesen m"ochte.
+
+Eine Suchmaschine ist erfolgreich, wenn Sie den Benutzern diejenigen Seiten
+liefert, welche diese erwarten. Damit ist es nicht mehr die Aufgabe des
+Suchmaschinenbetreibers zu beurteilen, welche Seite am besten passt. Er
+kann diese Information direkt aus dem Internet ablesen: die Seiten, auf die
+die meisten Links zeigen, enthalten offenbar die beliebtesten Seiten zu diesem
+Thema. Gesucht ist also eine Methode, die Links zwischen den Seiten des
+Internet zu bewerten und daraus ein Rangfolge der Seiten abzuleiten.
+
+\section{Eine wahrscheinlichkeitstheoretische L"osung}
+Die in der Vorlesung entwickelten Begriffe der bedingten Wahrscheinlichkeit
+eignen sich hervorragend, dieses Problem zu analysieren.
+
+\subsection{Wahrscheinlichkeitsinterpretation}
+Nehmen wir zun"achst an, die Surfer bekommen zuf"allig eine Seite zugewiesen,
+die Wahrscheinlichkeit, die Seite mit der Nummer $i$ zugewiesen zu erhalten
+sei $p_i$.
+Mit dieser befassen sie sich die Surfer eine Weile, bevor sie einem Link auf
+der Seite folgen, und damit auf einer anderen Seite landen. Wir stellen
+uns vereinfachend vor, dass die Surfer jeweils nach einer Minute miteinander
+auf die n"achste Seite wechseln. Mit welcher Wahrscheinlichkeit finden wir
+einen Surfer nach einer Minute auf der Seite mit der Nummer $i$?
+
+Wir bezeichnen das Ereignis, dass ein zuf"allig ausgew"ahlter Surfer gerade
+\index{Surfer}
+die Seite $i$ besucht mit $S_i$, das Ereignis, nach einer Minute die Seite
+$j$ zu besuchen, bezeichnen wir mit $S'_j$. Mit diesen Bezeichnungen ist
+$p_i=P(S_i)$. Uns interessiert die Wahrscheinlichkeit $P(S'_j)$, nach dem erste
+Wechsel die Seite $j$ zu besuchen.  Wir bezeichnen diese Wahrscheinlichkeit
+auch mit mit $p_{j,1} = P(S'_j)$.
+
+Die Wahrscheinlichkeit, auf der Seite
+$j$ zu landen h"anngt also zum einen davon ab, ob es "uberhaupt
+einen Link von $i$ auf $j$ gibt, und andererseits davon, wie wahrscheinlich
+es ist, dass der Surfer einen bestimmten Link w"ahlt.
+Ohne weiteres Wissen "uber die Seiteninhalte m"ussen wir
+annehmen, dass die Links auf einer Seite alle mit gleicher Wahrscheinlichkeit
+vom Surfer ausgew"ahlt werden. Die Wahrscheinlichkeit, dass ein Surfer, der bereits
+auf Seite $i$ ist, auf der Seite $j$ landet, ist die bedingte Wahrscheinlichkeit
+$P(S'_j|S_i)$. Das eben diskutierte Modell bedeutet
+\[
+P(S'_j|S_i)=\begin{cases}
+0&\qquad\text{Es gibt keinen Link von $i$ auf $j$}\\
+\frac1n&\qquad\text{Einer der $n$ Links auf Seite $i$ f"uhrt zu $j$}
+\end{cases}
+\]
+Die die Ereignisse $S_i$ disjunkt sind---kein Surfer darf auf mehr als einer
+Seite gleichzeitig sein---, aber auch ganz Omega "uberdecken---jeder Surfer
+ist auf irgend einer Seite---, gilt nach dem Satz "uber die totale Wahrscheinlichkeit
+\[
+P(S'_j)=\sum_{i}P(S'_j|S_i)P(S_i).
+\]
+Nat"urlich sind nur gerade diejenigen Indizes $i$ von Bedeutung, f"ur welche $P(S'_j|S_i)$
+nicht $0$ ist, also diejenige Seiten $i$, auf welchen ein Link zur Seite $j$
+vorhanden ist.
+
+Den Ausdruck kann man auch als Matrizen-Produkt interpretieren: $P(S'_j)$ l"asst sich
+als Linearkombination der Werte $P(S_i)$ schreiben. Fassen wir $P(S_i)$ in den Spaltenvektor
+$p$ zusammen, und $P(S'_j)$ in den Spaltenvektor $p'$, erhalten wir die Matrizengleichung
+\[
+p'=
+\left(\begin{matrix}p'_1\\p'_2\\p'_3\\\vdots\end{matrix}\right)
+\left(\begin{matrix}
+P(S'_1|S_1)&P(S'_1|S_2)&P(S'_1|S_3)&\dots\\
+P(S'_2|S_1)&P(S'_2|S_2)&P(S'_2|S_3)&\dots\\
+P(S'_3|S_1)&P(S'_3|S_2)&P(S'_3|S_3)&\dots\\
+\vdots&\vdots&\vdots&\ddots\\
+\end{matrix}\right)
+\left(\begin{matrix}p'_1\\p'_2\\p'_3\\\vdots\end{matrix}\right)
+=
+H\cdot p
+\]
+Die Matrix $H$ codiert also die Verlinkung des Internet.
+
+\begin{figure}
+\[\UseTips
+\entrymodifiers={++[o][F]}
+\xymatrix @=1.5cm {
+1 \ar[r] \ar[d]
+	& 3 \ar[r] \ar@(dl,dl)[dl]
+		& 5 \ar[d] \ar@/^/[r] \ar@(dr,dr)[rd]
+			& 7 \ar@/^/[d]  \ar@/^/[l]
+\ar `ul^l[lll]+/u6mm/`l^dl[lll] [lll]
+\\
+2 \ar@/^/[r]
+	& 4 \ar@/^/[l] \ar[r] \ar[ur]
+		& 6 \ar@/^/[r]
+			& 8 \ar@/^/[l] \ar@/^/[u]
+}
+\]
+\caption{Beispiel-Internet\label{google-sample}}
+\end{figure}
+Zur Illustration wollen wir das Beispiel-Internet in Abbildung \ref{google-sample}
+untersuchen. Die daraus abgeleitete $H$ Matrix ist:
+\[
+H=\left(
+\begin{matrix}
+0&0&0&0&0&0&\frac13&0\\
+\frac12&0&\frac12&\frac13&0&0&0&0\\
+\frac12&0&0&0&0&0&0&0\\
+0&1&0&0&0&0&0&0\\
+0&0&\frac12&\frac13&0&0&\frac13&0\\
+0&0&0&\frac13&\frac13&0&0&\frac12\\
+0&0&0&0&\frac13&0&0&\frac12\\
+0&0&0&0&\frac13&1&\frac13&0\\
+\end{matrix}
+\right)
+\]
+Die Summe der Elemente jeder Spalte ist $1$, denn in jeder Spalte sind ja genau
+diejenigen Elemente $n$ von $0$ verschieden, und haben den Wert $\frac1n$,
+die einem Link auf dieser Seite entsprechen.
+
+Wie gross sind die Wahrscheinlichkeiten $p_i$? Die Wahrscheinlichkeit, einen zuf"allig
+ausgew"ahlten Surfer auf einer Seite zu finden, "andert sich kurzfristig nicht, nach
+einer Minute sollten also die Surfer immer noch gleich verteilt sein. Insbesondere
+sollten gelten:
+\[
+p=Hp.
+\]
+Der Vektor $p$ ist also ein Eigenvektor der Matrix $H$ zum Eigenwert $1$.
+
+Beginnen wir mit einer beliebigen Verteilung, sollten sich die Surfer dadurch,
+dass sie den Links folgen, mit der Zeit gem"asst den Wahrscheinlichkeiten $p_i$
+auf den Seiten verteilen. Somit erwarten wir, dass ausgehend von einer beliebigen
+Verteilung, also einem beliebigen Vektor $p_0$, sich durch wiederholte Anwendung der
+Matrix $H$ der station"are Zustand $p$ automatisch ausbilden wird, also
+\[
+p=\lim_{n\to\infty}H^np_0.
+\]
+Mit dieser Methode findet man f"ur die Beispielmatrix
+\[
+p=\left(
+\begin{matrix}
+0.0600\\0.0675\\0.0300\\0.0675\\0.0975\\0.2025\\0.1800\\0.2950
+\end{matrix}
+\right).
+\]
+
+\subsection{Freier Wille}
+\index{Wille, freier}
+Unser Modell hat einen gravierenden Mangel.
+Es ist zwar richtig, dass Surfer oft den
+Links folgen, aber es kommt auch vor, dass
+Surfer spontan einen neuen URL eingeben.
+Offensichtlich passt ein solcher Schritt nicht in das bisherige Modell.
+Wir k"onnen
+ihm aber Rechnung tragen, indem wir die zwei F"alle unterscheiden:
+\begin{itemize}
+\item Ereignis $L$: Surfer folgt einem Link.
+\item Ereignis $F$: Surfer benutzt seinen freien Willen,
+um auf eine neue Seite zu kommen.
+\end{itemize}
+Wir nehmen an, dass $\Omega=L\cup F$ und $\emptyset=L\cap F$.
+Die Wahrscheinlichkeit,
+auf der Seite $j$ zu landen, wird damit
+\[
+p'_j=P(S'_j|L)P(L)+P(S_j'|F)P(F).
+\]
+Im Fall $L$ nehmen wir an, dass weiterhin die Matrix $H$ angibt, wie sich die
+die Surfer bewegen werden.
+Im Falle $F$ m"ussen wir eine Annahme dar"uber treffen,
+dass der Surfer auf Seite $j$ landen wird.
+Ohne weiteres Wissen liegt die Laplace-Annahme
+nahe, dass jede Seite genau gleich wahrscheinlich ist.
+Wir k"urzen $\alpha=P(L)$ ab und bekommen so
+\begin{equation}
+p'_j=\sum_{i}P(S'_j|S_i)\alpha p_i+\frac{1-\alpha}N.
+\label{freewilltransition}
+\end{equation}
+Wie vorher vermuten wir, dass wir den station"aren Zustand $p$ finden k"onnen,
+indem wir eine Matrix immer wieder auf eine Ausgangsverteilung anwenden k"onnen.
+Dazu m"ussen wir aber den "Ubergang von $p$ zu $p'$ als ein Matrixprodukt
+schreiben k"onnen.
+
+Betrachten wir die Matrix $A$ bestehend aus lauter Einsen:
+\[
+A=\left(\begin{matrix}
+1&1&1&\dots&1\\
+1&1&1&\dots&1\\
+1&1&1&\dots&1\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+1&1&1&\dots&1\\
+\end{matrix}\right)
+\]
+Da die Summe der $p_i$ eins ergeben muss, folgt
+\[
+Ap=\left(\begin{matrix}1\\1\\\vdots\end{matrix}\right).
+\]
+Der zweite Term auf der rechten Seite von \ref{freewilltransition}
+addiert auf jeder
+Zeile den gleichen Wert $\frac{1-\alpha}{N}$, dies entspricht genau dem Vektor
+$\frac{1-\alpha}{N}Hp$.
+Damit k"onnen wir die Gleichung \ref{freewilltransition} auch schreiben als
+\begin{equation}
+p'=\alpha Hp + \frac{1-\alpha}{N}Ap = \left(\alpha H+\frac{1-\alpha}{N}A\right)p
+\end{equation}
+\begin{definition} Die Matrix
+\[
+G=
+\alpha H+\frac{1-\alpha}{N}A
+\]
+heisst Google-Matrix.
+\index{Google-Matrix}
+\end{definition}
+
+Der station"are Zustand unter Ber"ucksichtigung des freien Willens ist also
+so beschaffen, dass gilt
+\[
+p=Gp,
+\]
+$p$ ist also ein Eigenvektor der Google-Matrix zum Eigenwert $1$.
+
+\subsection{Berechnung des PageRank}
+\index{Pagerank!Berechnung}
+Das Problem ist jetzt bereits darauf reduziert, einen Eigenvektor der
+Google-Matrix $G$ zum Eigenwert $1$ zu finden.
+Es wurde auch vermutet, dass man diesen Eigenvektor
+aus einem beliebigen Anfangszustand $p_0$ durch wiederholte Anwendung von
+$G$ finden kann, also
+\[
+p=\lim_{n\to\infty}G^np_0.
+\]
+F"ur die Link-Matrix $H$ kann das allgemein nicht gelten.
+Es lassen sich leicht einfache Modell-Internets konstruieren,
+die Gegenbeispiele dazu liefern. Es gibt Beispiele, in denen
+$H$ keinen solchen Grenzwert besitzt, oder einen Grenzwert, von dem
+viele Eintr"age $0$ sind, was bedeuten w"urde, dass diese Seiten nie besucht
+werden.
+Die Matrix $G$ hingegen besteht ausschliesslich aus positiven Eintr"agen, es
+gibt also zwischen zwei beliebigen Seiten immer einen Link, auch wenn er nur
+durch den ``freien Willen'' zur Verf"ugung gestellt wird.
+Daher ist es unm"oglich,
+dass durch die Iteration von $G$ je ein Element von $p$ zu $0$ wird.
+
+Die Geschwindigkeit der Konvergenz von $G^np_0$ h"angt davon ab, wie gross der
+zweitgr"osste Eigenwert von $G$ ist.
+Man kann zeigen, dass dieser betragsm"asssig
+nicht gr"osser als $\alpha$ ist, also
+\[
+\lambda_2\le \alpha.
+\]
+Daraus l"asst sich die Geschwindigkeit der Konvergenz von $G^np_0$ gegen $p$
+absch"atzen. In der tats"achlichen Realisierung bei Google kann nat"urlich
+f"ur $p_0$ jeweils der bei der letzten Berechnung gefundene Vektor $p$ verwendet
+werden, der ja die Verteilung der Surfer bereits relativ gut wiedergeben sollte.
+Trotzdem kann es bei der Neuberechnung von $p$ zu starken "Anderungen kommen,
+eine Erscheinung, die manchmal ``Google Dance'' genannt wird.

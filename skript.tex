@@ -1,0 +1,104 @@
+%
+% ws-skript.tex -- Skript zur Vorlesung Wahrscheinlichkeit und Statistik,
+%                  gehalten an der Hochschule Rapperswil im Wintersemester
+%                  06/07
+%
+% (c) 2006 Prof. Dr. Andreas Mueller, HSR
+% $Id: ws-skript.tex,v 1.34 2008/11/02 22:46:16 afm Exp $
+%
+\documentclass[a4paper,12pt]{book}
+\usepackage{german}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{textcomp}
+\usepackage{picins}
+\usepackage[all]{xy}
+\usepackage{txfonts}
+\usepackage{alltt}
+\usepackage{verbatim}
+\makeindex
+\begin{document}
+\pagestyle{fancy}
+\lhead{Wahrscheinlichkeit und Statistik}
+\frontmatter
+\newcommand\HRule{\noindent\rule{\linewidth}{1.5pt}}
+\begin{titlepage}
+\vspace*{\stretch{1}}
+\HRule
+\vspace*{10pt}
+\begin{flushright}
+{\Huge
+Wahrscheinlichkeitsrechnung}
+\end{flushright}
+\begin{flushright}
+{\Huge und Statistik}
+\end{flushright}
+\HRule
+\begin{flushright}
+\vspace{30pt}
+\LARGE
+Andreas M"uller
+\end{flushright}
+\vspace*{\stretch{2}}
+\begin{center}
+Hochschule f"ur Technik, Rapperswil, 2009
+\end{center}
+\end{titlepage}
+
+\newcounter{beispiel}
+\newenvironment{beispiele}{
+\bgroup\smallskip\parindent0pt\bf Beispiele\egroup
+
+\begin{list}{\arabic{beispiel}.}
+  {\usecounter{beispiel}
+  \setlength{\labelsep}{5mm}
+  \setlength{\rightmargin}{0pt}
+}}{\end{list}}
+\newenvironment{teilaufgaben}{
+\begin{enumerate}
+\renewcommand{\labelenumi}{\alph{enumi})}
+}{\end{enumerate}}
+% Loesung
+\def\swallow#1{
+%nothing
+}
+\newenvironment{loesung}{%
+\begin{proof}[L"osung]%
+\renewcommand{\qedsymbol}{$\bigcirc$}
+}{\end{proof}}
+\def\keineloesungen{%
+\renewenvironment{loesung}{\swallow\begingroup}{\endgroup}%
+}
+
+\tableofcontents
+\newtheorem{satz}{Satz}[chapter]
+\newtheorem{hilfssatz}{Hilfssatz}[chapter]
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{annahme}{Annahme}[chapter]
+\mainmatter
+\input einleitung.tex
+\input kombinatorik.tex
+\input wahrscheinlichkeit.tex
+\input laplace.tex
+\input erwartung.tex
+\input verteilung.tex
+\input c04a-verteilung.tex
+\input c04b-verteilung.tex
+\input c05-schaetzen.tex
+%\input c06-spezverteilung.tex
+%\input c07-testen.tex
+%\input c08-filter.tex
+\appendix
+%\input e01-generatoren.tex
+\input e02-spamfilter.tex
+\input e05-google.tex
+%\input e06-junkscience.tex
+%\input e07-powerlaws.tex
+\input e03-tabellen.tex
+\input skript.ind
+\end{document}

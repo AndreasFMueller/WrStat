@@ -1,0 +1,239 @@
+%
+% e06-junkscience.tex -- Die Mathematik hinter einem Spamfilter basieren
+%                       auf einem Bayes-Filter
+%
+% (c) 2006 Prof Dr Andreas Mueller, Hochschule Rapperswil
+% $Id: e06-junkscience.tex,v 1.5 2008/09/09 14:22:16 afm Exp $
+%
+\rhead{Junk Science}
+\chapter{Junk Science}
+Das Internet hat nicht nur der Wissenschaft neue Kommunikationsm"oglichkeiten
+gebracht, sondern auch allen Arten von Pseudwissenschaften,
+Aberglauben, Quacksalberei und Betr"ugern, wobei die Grenzen manchmal
+fliessen sind. In diesem Abschnitt sollen ein paar Wahrscheinlichkeitstheoretische
+"Uberlegungen zeigen, wie wahrscheinlich die von W"unschelruteng"angern,
+Gedankenlesern, Hom"oo\-pathen, Graphologen, Astrologen und anderen Betr"ugern
+und L"ugnern beanspruchten F"ahigkeiten sind, wenn man nur den Zufall wirken
+l"asst.
+
+\section{W"unschelruteng"anger}
+In einem Versuch wird einem W"unschelruteng"anger erlaubt, eine einzelne,
+unter einer von sieben identischen Abdeckungen verborgene Erzprobe allein
+mit der Hilfe seiner W"unschelrute zu finden. Sobald er sich auf eine
+der Stellen festgelegt hat, wird sie entfernt. Falls die Erzprobe darunter
+nicht gefunden wird, kann er mit den verbleibenden Stellen nochmals
+versuchen. Dies kann wiederholt werden, bis die Erzprobe gefunden wird.
+Wie viele Versuche sind im Mittel n"otig, wenn der W"unschelruteng"anger
+"uber keine besonderen F"ahigkeiten verf"ugt, sondern einfach nur r"at?
+
+Wir betrachten also die Zufallsvariable $R$, die Nummer der Runde, in der
+der W"unschelruteng"anger die Probe findet. Wenn der W"unschelruteng"anger
+nur r"at, ist die Wahrscheinlichkeit, die Probe in der $k$-ten Runde zu finden
+$\frac1{n-k+1}$. Soweit muss er jedoch erst gekommen sein. Dazu muss er in
+den vorangehenden Runden daneben geraten haben. In der erste
+Runde war die Wahrscheinlichkeit daf"ur $\frac{n-1}n$, in der zweiten
+Runde war es $\frac{n-2}{n-1}$ etc. Die Wahrscheinlichkeit, genau in der
+$k$-ten Runde die Probe zu finden ist also
+$$p_k=\frac{(n-1)(n-2)\cdots (n-k+1)}{n(n-1)\cdots(n-k+2)}\cdot\frac1{n-k+1}=\frac1n$$
+Der Erwartungswert von $R$ wird damit
+$$E(R)=\sum_{k=1}^nk\frac1n=\frac1n\cdot\sum_{k=1}^n{n(n+1)}2=\frac{n+1}2.$$
+
+Auch dieser Versuch wurde bereits durchgef"uhrt. Dabei fand der W"unschelruteng"anger
+die Probe auch nach drei Versuchen nicht. Wie gross ist die Wahrscheinlichkeit,
+die Probe in drei Versuchen durch blosses Raten zu finden? Gem"ass obigem ist
+$$P(R\le m)= \sum_{k=1}^mp_k=\frac1n\sum_{k=1}^m1=\frac{m}{n}$$
+In drei Versuchen kann man also die Probe mit Wahrscheinlichkeit $\frac37$ durch
+blosses Raten finden.
+
+\section{Psychometrie}
+Ein ``Medium'' behaupten, Gegenst"ande mit Hilfe ihrer "ubersinnlichen F"ahigkeiten
+ihren Besitzern zuordnen zu k"onnen. Dazu stellen in einem Versuch f"unf
+zuf"allig ausgew"ahlte Personen ihren Schl"usselbund und ihr Portemonnaie zur
+Ver\-f"ugung. Das Medium soll bestimmen, welcher Schl"usselbund zu welchem
+Portemonnaie geh"ort.
+Welche Anzahl von "Ubereinstimmungen kann man erwarten, wenn das ``Medium''
+"uber keinerlei "ubersinnliche F"ahigkeiten verf"ugt, sondern einfach nur r"at?
+
+Die Wahrscheinlichkeit, alle Schl"ussel richtig zuzuordnen, ist $\frac1{5!}=\frac1{120}$.
+Wir bezeichnen mit $p_k$ die Wahrscheinlichkeit, genau $k$ Schl"ussel richtig zuzuordnen,
+wir wissen also bereits $p_5=\frac1{120}$. F"ur $p_k$ mit $k<5$ zu berechnen, 
+m"ussen wir die Zahl der M"oglichkeiten z"ahlen, genau $k$ richtige Zuordnungen
+und $5-k$ falsche Zuordnungen vorzunehmen. Wenn 4 Zuordnungen richtig waren,
+muss offensichtlich auch die f"unfte richtig sein. Wenn 3 Zuordnungen richtig waren,
+k"onnen die verbleibenden zwei nur auf eine Art falsch sein, da es nur 2 m"ogliche
+Zuordnungen unter den falschen gibt, wovon die eine richtig sein muss.
+
+Mit Hilfe der Technik der erzeugenden Funktionen l"asst sich die Anzahl der
+der m"oglichen Zuordnungen mit genau $k$ richtigen bestimmen, sie ist identisch
+mit der Zahl der Permutationen von $n$ Objekten, die genau $k$ Fixpunkte haben.
+Wir bezeichnen diese Zahlen mit $e_k$.
+
+Es ist einfach zu bestimmen, wieviele Zuordnungen von $n$ Objekten auf $k$
+vorgegebenen Objekten richtig sind. Offensichtlich k"onnen nur $n-k$ Objekte
+noch verschoben werden, also gibt es $(n-k)!$ M"oglichkeiten.
+Die Anzahl der M"oglichkeiten, mindestens $k$ {\it beliebige} Objekte korrekt
+zuzuordnen ist jetzt
+$$N_k=\binom{n}{k}(n-k)!=\frac{n!}{k!(n-k)!}=\frac{n!}{k!}.$$
+Die Zahl $N_k$ l"asst sich auch so bestimmen: f"ur jede $k$-elementige
+Teilmenge von Objekten z"ahlen wir die Anzahl der Permutationen, die 
+alle diese Objekte richtig zuordnen. Wir k"onnten aber genausogut
+f"ur jede Permutation z"ahlen, wie viele $k$-elementige Mengen von Objekten
+von ihr richtig zugeordnet werden. Die Anzahl der $k$-elementigen Mengen,
+die von einer Permutation richtig zugeordnet werden ist die Anzahl der
+M"oglichkeiten, aus den richtig zugeordneten Elementen der Permutation
+deren $k$ auszuw"ahlen. Jede Zuordnung mit $t$ richtigen tr"agt also
+$\binom{t}{k}$ zu $N_k$ bei. Wenn es $e_k$ Permutationen gibt,
+die genau $k$ Objekte richtig zuordnen, bedeutet dies
+$$N_k=\sum_{t\ge 0}\binom{t}{k}e_t,\qquad k=0,1,2,\dots.$$
+Das Problem ist also gel"ost, wenn die $e_t$ aus den $N_k$ bestimmt werden k"onnen.
+
+Dazu betrachtet man die Funktionen
+$$N(x)=\sum_{k}N_kx^k$$
+und 
+$$E(x)=\sum_{k}e_kx^k.$$
+Es folgt
+\begin{align*}
+N(x)&=\sum_kN_kx^k=\sum_k\sum_t\binom{t}{k}e_tx^k\\
+&=\sum_te_t\biggl(\sum_k\binom{t}{k}x^k\biggr)\\
+&=\sum_te_t(x+1)^t\\
+&=E(x+1)
+\end{align*}
+Durch Ersetzen von $x$ durch $x-1$ folgt
+$$E(x)=N(x-1).$$
+Da die Koeffizienten $N_k$ einfach zu bestimmen sind, lassen sich auch
+die Koeffizienten von $E(x)$ durch einfaches Einsetzen einfach
+bestimmen:
+\begin{align*}
+N(x)&=\sum_{k=0}^n\frac{n!}{k!}x^k=n!\sum_{k=0}^n\frac{x^k}{k!}\\
+E(x)&=n!\sum_{k=0}^n\frac{(x-1)^k}{k!}
+\end{align*}
+Um die Wahrscheinlichkeit daf"ur zu bestimmen, genau $k$ richtige Zuordnungen nur
+durch zu Zufall zu erreichen, muss $e_k$ noch durch $n!$ geteilt werden. Somit
+ist der Koeffizient von $x^k$ in
+$$\sum_{k=0}^n\frac{(x-1)^k}{k!}$$
+die diese gesuchte Wahrscheinlichkeit.
+
+Nun wird aber der Erwartungswert gesucht. Aus
+$$\sum_{k=0}^np_kx^k=\sum_{k=0}^n\frac{(x-1)^k}{k!}$$
+erh"alt man durch Ableiten
+$$
+\sum_{k=1}^nkp_kx^{k-1}
+=\sum_{k=1}^n\frac{k(x-1)^{k-1}}{k!}
+=\sum_{k=1}^n\frac{(x-1)^{k-1}}{(k-1)!}
+=\sum_{k=0}^{n-1}\frac{(x-1)^k}{k!}
+$$
+Setzt man auf der linken Seite $x=1$ ein, entsteht die Summe zur
+Berechnung des Erwartungswertes. Auf der rechten Seite hingegen
+verschwinden alle Terme bis auf $k=0$, somit ist der Erwartungswert
+$1$.
+Interessant ist auch, dass der Erwartungswert sich nicht "andert,
+wenn man die Zahl der Teilnehmer erh"oht.
+
+Dieser Versuch wurde tats"achlich mit einem Medium durchgef"uhrt, welches
+sich diesem Versuch zu unterziehen bereit war. Das Resultat entsprach genau
+obigen Vorhersagen.
+
+\section{Eine Variante: Graphologie}
+Graphologen behaupten, aus der Handschrift einer Person ablesen zu k"onnen,
+f"ur welche Art Beruf sie geeignet w"are, und f"ur welche nicht. Deshalb
+werden sie auch immer wieder bei Personalentscheidungen herbeigezogen.
+Zwar darf jeder Entscheider f"ur sich beanspruchen, diejenigen Entscheidungshilfen
+hinzuzuziehen, die ihm am besten helfen. Wenn jedoch ein objektives
+Auswahlverfahren durchgef"uhrt werden muss, wie dies zum Beispiel bei
+"offentlich rechtlichen Anstellungen der Fall ist, muss man auch
+fordern, dass die verwendeten Entscheidungsgrundlagen einer objektiven
+"Uberpr"ufung standhalten. Bei der Graphologie darf das in Zweifel
+gezogen werden.
+
+Wie kann man dies testen? Man k"onnte einem Graphologen f"unf Schriftproben
+von sehr unterschiedlichen Berufsleuten geben, und ihm auch die Berufe
+der Autoren mitteilen. Seine Aufgabe ist sodann, die Schriftproben den
+Personen zuzuordnen. Diese Aufgabe ist vollst"andig "aquivalent zur Aufgabe,
+pers"onliche Objekte ihrem Besitzer zuzuordnen, die Analyse des vorangehenden
+Abschnittes ist daher anwendbar. Wir k"onnen mit einer Erfolgsrate von einem
+Treffer rechnen. Auch dieser Versuch ist durchgef"uhrt worden, mit genau
+diesem Resultat.
+
+Man k"onnten auch fragen, wie gross die Wahrscheinlichkeit ist, mehr als einen
+Treffer durch Raten zu erzielen.
+Dazu kann man erneut die erzeugende Funktion
+heranziehen. F"ur $n=5$ ergibt die explizite Berechnung
+$$\sum_{k=0}^5\frac{(x-1)^k}{k!}
+=\frac{x^5}{120}+\frac{x^3}{12}+\frac{x^2}{6}+\frac{3 x}{8}+\frac{11}{30}
+$$
+Die Wahrscheinlichkeit, mindestens zwei Treffer zu erzielen, ist also
+$$1-\left(\frac38+\frac{11}{30}\right)=\frac1{120}+\frac1{12}+\frac16=\frac{1+10+20}{120}=\frac{31}{120}>\frac14.$$
+Anders formuliert: bei jedem zweiten Versuch schafft es jeder, h"ochstens $3$
+Fehler zu machen. Dies d"urfte der Grund sein, warum den Graphologen
+von gewissen Leuten "uberhaupt noch Glauben geschenkt wird.
+
+Zwei Treffer von f"unf m"oglichen sind f"ur eine objektive Anstellungsentscheidung
+jedoch nicht wirklich viel, denn immerhin lag der Graphologe in der Mehrzahl
+der F"alle falsch! Wie gross ist die Wahrscheinlichkeit, durch blosses Raten
+mehr als 50\% richtig zu bestimmen? Gem"ass der gerade
+aufgelisteten Wahrscheinlichkeiten ist dies
+$\frac1{120}+\frac1{12}=\frac{11}{121}<\frac1{11}$.
+
+Andererseits sagen uns die Graphologen, dass 40\% der Bev"olkerung im falschen
+Beruf arbeitet.
+Ein Schelm, wer glaubt,
+die Graphologen wollten mit diesem
+Argument nur erkl"aren, warum sie keine h"ohere Trefferquote als $50\%$ hinkriegen!
+
+
+\section{Hom"oopathie}
+Die Hom"oopathie behauptet, dass ein Stoff, der normalerweise Krankheitssymptome
+verursacht, zur Behandlung gegen genau diese Krankheitssymptome verwendet werden
+kann, wenn man ihn nur gen"ugen stark verd"unnt. Die dabei verwendeten
+Verd"unnungen von mindestens $10^{30}$ bis "uber $10^{1000}$ sind so gering,
+dass die Wahrscheinlichkeit, "uberhaupt noch ein Wirkstoffmolek"ul in der
+L"osung vorzufinden, kleiner als $10^{-6}$ ist.
+
+In einem Versuch wurden daher in einem Versuch $2N$ Proben hergestellt,
+von denen die eine H"alfte den Wirkstoff Histamin enthielten, die anderen 
+nicht. Anschliessend wurden die Proben gem"ass den Vorschriften zur
+Herstellung hom"oopatischer Medikamente im Verh"altnis $10^{-36}$
+verd"unnt, so dass am Ende dieses Prozesses, $2N$ hom"oopatische
+Pr"aparate vorliegen, wovon die H"alfte nie mit dem Wirkstoff in
+Kontakt waren, w"ahrend die andere H"alfte gem"ass hom"oopathischer
+Lehre besonders wirkungsvoll, weil stark verd"unnt sein sollte.
+
+Nun werden alle Proben mit Zellen in Verbindung gebracht, die normalerweise
+auf diesen Wirkstoff reagieren. Nach hom"oopatischer Lehre sollten vorwiegend
+diejenigen Proben eine Reaktion hervorrufen, welche einst in Verbindung
+mit dem Wirkstoff gestanden haben. Man erwartet nat"urlich, dass 
+alle Proben gleichermassen eine Wirkung zeigen.
+
+Nehmen wir an, dass $p_0$ die Wahrscheinlichkeit ist, dass eine Probe ohne
+Wirkstoff eine Reaktion ausl"ost, und $p_1$ die Wahrscheinlichkeit, dass
+eine hom"oopatische Probe eine Wirkung ausl"ost. Wie gross muss der Unterschied
+von $p_0$ und $p_1$ sein, damit wir sicher sein k"onnen, dass das hom"oopatische
+Pr"aparat eine Wirkung hat?
+
+Da jede einzelne Probe individuell mit Wahrscheinlichkeit $p$ getestet wird, liegt
+hier eine Binomialverteilung vor. Getestet werden soll die Hypothese, dass zwei
+Binomalverteilung den gleichen Parameter haben. Dazu kann ein $\chi^2$-Test oder
+ein Kolmogoroff-Smirnov-Test verwendet werden. Um eine ungef"ahre Gr"ossenordnung
+zu bekommen, kann man aber auch die Binomialverteilung durch eine Normalverteilung
+approximieren, die beiden Normalverteilungen haben unter der Hypothese den
+gleichen Erwartungswert.
+Der $t$-Test erm"oglicht zu entscheiden, ob zwei Normalverteilungen
+verschiedenen Mittelwert haben, also $Np_0\ne Np_1$. Dazu muss man die
+Gr"osse
+$$T=\frac{\bar X - \bar Y}{\sqrt{S_X^2+S_Y^2}}\sqrt{\frac{N^2(2N-2)}{{2N}{(N-1)}}}
+=
+\frac{\bar X - \bar Y}{\sqrt{S_X^2+S_Y^2}}\sqrt{N}$$
+Bei $N=10$ Proben verwirft dieser Test die Hypothese
+auf dem Niveau $\alpha=5\%$, sobald
+$T>2.228$.
+
+Dieser Versuch wurde vor einigen Jahren vom britischen Fernsehen BBC mit der
+Unterst"utzung einiger renommierter Forschungslabors durchgef"uhrt, mit dem
+erwarteten Resultat.
+Ein anderes Resultat war auch nicht zu erwarten. Die Lehre der Hom"oopathie
+ist in sich bereits so widerspr"uchlich, dass kein Resultat mit der ganzen
+Lehre in Einklang stehen kann.
+Da im Meer alle m"oglichen Giftstoffe extrem verd"unnt vorliegen, m"ussten
+Leute, die Meerwasser aufnehmen, gem"ass hom"oopatischer Lehre gegen alle
+ihre Symptome gesch"utzt sein.
+
