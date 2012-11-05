@@ -406,7 +406,9 @@ f"ur den Aufbau des Begriffs der Wahrscheinlichkeit im n"achsten
 Abschnitt ben"otigt wird.  Damit gelangen wir zu folgender Definition
 einer Ereignis-Algebra:
 
-\begin{definition} Eine Ereignisalgebra $(\Omega,{\cal A})$ ist
+\begin{definition}
+\label{def-ereignisalgebra}
+Eine Ereignisalgebra $(\Omega,{\cal A})$ ist
 eine Menge $\Omega$ mit einer Menge ${\cal A }\subset{\cal P}(\Omega)$
 von Teilmengen von $\Omega$, die folgende Bedingungen erf"ullen:
 \begin{enumerate}
@@ -1075,10 +1077,21 @@ Wenn
 \marginpar{\tiny bedingte Wahrscheinlichkeitsfunktion}
 nun auf $(\Omega, {\cal A})$ eine Wahrscheinlichkeitsfunktion $P$
 gegeben ist, kann man auch $P_{|B}$ bilden, indem man setzt
-\[
+\begin{equation*}
 P_{|B}(A)=\frac{P(A\cap B)}{P(B)},
-\]
+\end{equation*}
 der Nenner $P(B)$ stellt dabei sicher, dass $P_{|B}(\Omega_{|B})=P_{|B}(B)=1$.
+
+
+\begin{definition}
+\label{def-bedingte-wahrscheinlichkeit}
+Die bedingte Wahrscheinlichkeit eines Ereignisses $A$ unter der Bedingung
+$B$ ist
+\[
+P(A|B)=\frac{P(A\cap B)}{P(B)}.
+\]
+\end{definition}
+
 Auch hier w"are nachzupr"ufen, dass die Rechenregeln f"ur eine
 Wahrscheinlichkeitsfunktion erf"ullt sind.
 Um also die Wahrscheinlichkeit in dieser Welt zu berechnen,
@@ -1131,6 +1144,7 @@ wahrscheinlich wird, wenn $A$ eintrifft. Das Eintreffen von $B$ h"angt also
 nicht mit dem Eintreffen von $A$ zusammen.
 
 \begin{definition}
+\label{def-unabhaengige-ereignisse}
 Die Ereignisse $A$ und $B$ heissen {\bf unabh"angig}, wenn gilt:
 \[
 P(A\cap B) = P(A)\cdot P(B).

@@ -168,6 +168,9 @@ draw drawdirections((120,85){dir 30}..(160,92)..{dir 3}(200,98), h) ;
 
 endfig;
 
+%
+% Verteilungsfunktion und Wahrscheinlichkeitsdichte der Gleichverteilung
+%
 beginfig(7)
 
 draw (-105,120)..(205,120);
@@ -193,6 +196,17 @@ label.bot(btex $a$ etex, (-34,-2));
 draw (-30,66)--(120,66) withcolor blue;
 label.bot(btex $b$ etex, (124,-2));
 draw (120,0)--(200,0) withcolor blue;
+
+pickup pencircle scaled 1pt;
+
+draw (45,220)--(45,-2) withcolor (1,0.8,0);
+draw (87.75,220)--(87.75,-2) withcolor (1,0.8,0);
+draw (2.25,220)--(2.25,-2) withcolor (1,0.8,0);
+
+label.bot(btex $E(X)$ etex, (45,0));
+
+%label.bot(btex $E(X)+\sqrt{\operatorname{var}(X)}$ etex, (87.75,0));
+%label.bot(btex $E(X)-\sqrt{\operatorname{var}(X)}$ etex, (2.25,0));
 
 pickup pencircle scaled 0.1pt;
 

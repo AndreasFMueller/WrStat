@@ -6,7 +6,7 @@
 # $Id: Makefile,v 1.2 2008/09/12 21:29:30 afm Exp $
 #
 default:	algebra verteilungsfunktion abhaengigkeit total erwartung \
-	power.eps ohm.eps verzoegerungszeit.eps
+	power.eps 
 
 verteilungsfunktion:	verteilungsfunktion.mp
 	TEX=latex mpost verteilungsfunktion.mp

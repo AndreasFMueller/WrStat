@@ -59,29 +59,31 @@ hat.
 \subsubsection{Erwartungswert und Varianz}
 \begin{satz}Sei $X$ eine in $[a,b]$ gleichverteilte Zufallsvariable,
 dann gilt
-\begin{eqnarray*}
-E(X)&=&\frac{a+b}2\\
-\operatorname{var}(X)&=&\frac{(b-a)^2}{12}
-\end{eqnarray*}
+\begin{align*}
+E(X)&=\frac{a+b}2\\
+\operatorname{var}(X)&=\frac{(b-a)^2}{12}
+\end{align*}
 \end{satz}
 \begin{proof}[Beweis]
 Mit Hilfe der Dichtefunktion berechnet man den Erwartungswert
-\begin{eqnarray*}
-E(X)&=&\int_{-\infty}^\infty \varphi(x)x\,dx=\int_a^b\frac{x}{b-a}\,dx\\
-&=&\frac1{b-a}\left[\frac12x^2\right]_a^b=\frac{b^2-a^2}{2(b-a)}=\frac{a+b}2
-\end{eqnarray*}
+\begin{align*}
+E(X)&=\int_{-\infty}^\infty \varphi(x)x\,dx=\int_a^b\frac{x}{b-a}\,dx\\
+&=\frac1{b-a}\left[\frac12x^2\right]_a^b=\frac{b^2-a^2}{2(b-a)}=\frac{a+b}2
+\end{align*}
 und die Varianz
-\begin{eqnarray*}
-E(X^2)&=&\int_{-\infty}^\infty x^2\varphi(x)\,dx=\frac1{b-a}\int_a^bx^2\,dx\\
-&=&\frac1{b-a}\left[\frac{x^3}3\right]_a^b=\frac{b^3-a^3}{3(b-a)}=\frac{a^2+ab+b^2}3\\
-\operatorname{var}(X)&=&\frac{a^2+ab+b^2}3-\frac{(b+a)^2}4\\
-&=&\frac{4a^2+4ab+4b^2-3b^2-6ab-3a^2}{12}\\
-&=&\frac{a^2-2ab+b^2}{12}=\frac13\left(\frac{b-a}2\right)^2
-\end{eqnarray*}
+\begin{align*}
+E(X^2)=&\int_{-\infty}^\infty x^2\varphi(x)\,dx=\frac1{b-a}\int_a^bx^2\,dx\\
+&=\frac1{b-a}\left[\frac{x^3}3\right]_a^b=\frac{b^3-a^3}{3(b-a)}=\frac{a^2+ab+b^2}3\\
+\operatorname{var}(X)&=\frac{a^2+ab+b^2}3-\frac{(b+a)^2}4\\
+&=\frac{4a^2+4ab+4b^2-3b^2-6ab-3a^2}{12}\\
+&=\frac{a^2-2ab+b^2}{12}=\frac13\left(\frac{b-a}2\right)^2\\
+\sqrt{\operatorname{var}(X)}&=\frac1{\sqrt{3}}\cdot\frac{b-a}2\simeq 0.57\cdot\frac{b-a}2.
+\end{align*}
 
 \end{proof}
 
-\subsubsection{Wahrscheinlichkeit einer grossen Abweichung}
+\subsubsection{*Wahrscheinlichkeit einer grossen Abweichung}
+{\small
 F"ur $\varepsilon>\frac{b-a}2$ ist die Wahrscheinlichkeit
 $P(|X-\mu|>\varepsilon)$
 einer Abweichung vom Erwartungswert $\mu=E(X)$ nat"urlich $0$,
@@ -92,7 +94,7 @@ P(|X-\mu|>\varepsilon)
 =1-\int_{\mu-\varepsilon}^{\mu+\varepsilon}\frac{1}{b-a}\,dx\\
 &=&1-\frac1{b-a}\left[x\right]_{\mu-\varepsilon}^{\mu+\varepsilon}=1-\frac{2\varepsilon}{b-a}
 \end{eqnarray*}
-
+}
 
 \subsection{Exponentialverteilung\label{section-exponentialverteilung}}
 \begin{figure}
@@ -119,11 +121,13 @@ gross ist wie die Wahrscheinlichkeit eines Zerfalls bis zur Zeit $t$:
 \[
 P(X \le t) = P(X\le t_0+t|X > t_0)
 \]
-Dies ist nat"urlich gleichbedeutend mit
+Dies ist nat"urlich gleichbedeutend mit der Wahrscheinlichkeit f"ur
+die negierten Ereignisse:
 \[
 P(X > t) = P(X > t_0+t|X > t_0)
 \]
-Aus der Definition der bedingten Wahrscheinlichkeit folgt
+Aus der Definition der bedingten Wahrscheinlichkeit
+\ref{def-bedingte-wahrscheinlichkeit} folgt
 \[
 P(X> t_0+t|X>t_0)=\frac{P(X>t_0+t\wedge X>t_0)}{P(X > t_0)}
 =\frac{P(X>t_0+t)}{P(X>t_0)}
@@ -132,39 +136,29 @@ Die Bedingung an die Verteilung wird damit zu
 \[
 P(X>t)P(X>t_0)=P(X>t+t_0).
 \]
-Mit Hilfe der Verteilungsfunktion l"asst sich dies als
+Schreiben wir jetzt $g(t)=P(X>t)=1-F(t)$, werden die Formeln
+etwas "ubersichtlicher:
 \[
-(1-F(t))(1-F(t_0))=1-F(t+t_0)
+g(t)g(t_0)=g(t+t_0).
 \]
-schreiben.
-Nehmen wir an, dass die Verteilung von $X$ eine stetige
-Wahrscheinlichkeitsdichte hat, dann ist $F$ stetig differenzierbar,
-und man kann obige Gleichung ableiten:
+Zun"achst leiten wir nach $t_0$ ab, wir nehmen ja an, dass wir
+eine stetige Zufallsvariable haben, und dass die Verteilungsfunktion
+differenzierbar sein wird.
+Wir erhalten
 \[
-F'(t)F(t_0)=-F'(t+t_0).
+g(t)g'(t_0)=g'(t+t_0).
 \]
-Geht man nun zum Grenzwert $t\to 0$ "uber, folgt
+Jetzt lassen wir $t_0$ gegen $0$ streben, und bekommen
+die Differentialgleichung
 \[
--F'(0)F(t_0)=F'(t_0).
+g'(t)=g'(0)g(t)
 \]
-$F$ ist also Funktion, die bis auf
-einen skalaren Faktor mit ihrer Ableitung "ubereinstimmt,
-die Exponentialfunktion
-ist die einzige solche Funktion, in
-\[
-F(t)=ce^{-F'(0)t}\quad\Rightarrow\quad \varphi(t)=cF'(0)e^{-F'(0)t}
-\]
-muss aber der Faktor $c$ noch bestimmt werden. Dies kann aus der
-Bedingung erfolgen, dass die Wahrscheinlichkeit f"ur einen Zerfall
-ohne zeitliche Einschr"ankung 1 sein muss, also
-\[
-1=P(X > 0)=\int_0^\infty cF'(0)e^{-F'(0)t}\,dt=\left[-ce^{-F'(0)t}\right]_0^\infty=c
-\]
-\index{radioaktiver Zerfall}
-\index{Ausfall}
-Radioaktiver Zerfall oder Ausfall erm"udungsfreier Bauteile werden also
-durch eine Verteilung beschrieben, welche eine Dichtefunktion
-gem"ass der folgenden Definition hat.
+f"ur $g(t)$.
+Diese lineare Differentialgleichung erster Ordnung
+muss als L"osung eine Exponentialfunktion haben. Da $F(t)$
+monoton w"achst, muss $g(t)$ monoton fallen, ausserdem
+muss $g(t)$ beschr"ankt bleiben. Damit bleibt nur
+$g(t)=e^{-at}$ mit einem positiven $a$.
 
 \begin{definition}
 Die Wahrscheinlichkeitsverteilung mit Dichtefunktion
@@ -174,11 +168,24 @@ Die Wahrscheinlichkeitsverteilung mit Dichtefunktion
 a e^{-a x}&\qquad x\ge 0
 \end{cases}
 \]
-heisst Exponentialverteilung.
+heisst Exponentialverteilung. Ihre Verteilungsfunktion ist
+\[
+F(x)=\begin{cases}
+0&\qquad\text{f"ur $x < 0$}\\
+1-e^{-ax}&\qquad\text{f"ur $x\ge 0$}.
+\end{cases}
+\]
 \end{definition}
 \index{Exponentialverteilung}
 \index{Verteilungsfunktion!Exponentialverteilung}
 \index{Wahrscheinlichkeitsdichte!Exponentialverteilung}
+Wir sollten noch nachrechnen, dass dies tats"achlich die richtige
+Verteilungsfunktion ist. Zun"achst w"achst sie tats"achlich monoton,
+und auch der Grenzwert f"ur $t\to\infty$ ist wie gew"unscht. Aber
+auch die Ableitung ist richtig:
+\[
+\frac{d}{dt}(1-e^{-at})=ae^{-at}\qquad\text{f"ur}\quad t>0.
+\]
 
 \subsubsection{Erwartungswert und Varianz}
 \index{Erwartungswert!der Exponentialverteilung}
@@ -186,24 +193,13 @@ heisst Exponentialverteilung.
 \index{Varianz!der Exponentialverteilung}
 \index{Exponentialverteilung!Varianz}
 \begin{satz}Eine exponentialverteilte Zufallsvariable $X$ mit Parameter
-$a$ hat die Verteilungsfunktion
-\[
-F(x)=\begin{cases}
-0&\qquad\text{f"ur $x < 0$}\\
-1-e^{-ax}&\qquad\text{f"ur $x\ge 0$}
-\end{cases}
-\]
-und folgende Erwartungswerte und Varianz:
+$a$ hat folgenden Erwartungswert und folgene Varianz:
 \begin{eqnarray*}
 E(X)&=&\frac1a\\
 \operatorname{var}(X)&=&\frac1{a^2}
 \end{eqnarray*}
 \end{satz}
 \begin{proof}[Beweis]
-Die Verteilungsfunktion ist f"ur $x\ge 0$
-\[
-F(x)=\int_0^\infty ae^{-ax}\,dx=\left[-e^{-ax}\right]_0^\infty= e^{-ax}.
-\]
 Zur Berechnung von Erwartungswert und Varianz ist es n"utzlich die Integrale
 $I_n=\int \xi^ne^{-\xi}\,d\xi$
 berechnen zu k"onnen. Diese findet man rekursiv durch partielle Integration:
@@ -214,25 +210,36 @@ I_n&=&\int \xi^ne^{-\xi}\,d\xi\\
 \end{eqnarray*}
 Um Erwartungswert und Varianz zu berechnen, verwendet man mit Vorteil die
 Variablentransformation $ax=\xi$. F"ur den Erwartungswert ergibt sich:
-\begin{eqnarray*}
-E(X)&=&\int_0^{\infty}ae^{-ax}x\,dx\\
-&=&\frac1a\int_0^{\infty}ax e^{-ax}a\,dx\\
-&=&\frac1a\int_0^{\infty}\xi e^{-\xi}\,d\xi\\
-&=&\frac1a\left[-\xi e^{-\xi}-e^{-\xi}\right]_0^\infty=\frac1a
-\end{eqnarray*}
+\begin{align*}
+E(X)&=\int_0^{\infty}ae^{-ax}x\,dx
+=\frac1a\int_0^{\infty}ax e^{-ax}a\,dx
+=\frac1a\int_0^{\infty}\xi e^{-\xi}\,d\xi\\
+&=\frac1a\left[-\xi e^{-\xi}-e^{-\xi}\right]_0^\infty=\frac1a
+\end{align*}
 Analog f"ur die Varianz:
-\begin{eqnarray*}
+\begin{align*}
+E(X^2)
+&=
+\int_0^{\infty}x^2ae^{-ax}\,dx
+=\frac1{a^2}\int_0^{\infty}(ax)^2e^{-ax}a\,dx\\
+&=\frac1{a^2}\int_0^{\infty}\xi^2e^{-\xi}\,d\xi
+=\frac1{a^2}\left[\xi^2e^{-\xi}-2\xi e^{-\xi}+2e^{-\xi}\right]_0^\infty
+=\frac2{a^2}
+\\
 \operatorname{var}(X)
-&=&E(X^2)-E(X)^2\\
-&=&\int_0^{\infty}x^2ae^{-ax}\,dx-\frac1{a^2}\\
-&=&\frac1{a^2}\int_0^{\infty}(ax)^2e^{-ax}a\,dx-\frac1{a^2}\\
-&=&\frac1{a^2}\int_0^{\infty}\xi^2e^{-\xi}\,d\xi-\frac1{a^2}\\
-&=&\frac1{a^2}\left[\xi^2e^{-\xi}-2\xi e^{-\xi}+2e^{-\xi}\right]_0^\infty
--\frac1{a^2}\\
-&=&\frac1{a^2}
-\end{eqnarray*}
+&=E(X^2)-E(X)^2=\frac2{a^2}-\left(\frac1a\right)^2=\frac1{a^2}
+\end{align*}
 \end{proof}
-\subsubsection{Wahrscheinlichkeit grosser Abweichungen}
+Die Gr"osse $\frac1a$ l"asst sich also leicht interpretiren: sie ist die
+mittlere ``Lebensdauer'', man findet sie oft unter dem K"urzel MTBF f"ur
+mean time between failure.
+Und $\sqrt{\operatorname{var}(X)}$ 
+ist genau gleich gross. 
+\index{Mean time between failure}
+\index{MTBF}
+\subsubsection{*Wahrscheinlichkeit grosser Abweichungen}
+{
+\small
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.8\hsize]{images/abwexp}
@@ -299,6 +306,48 @@ Diese Funktion f"allt monoton sehr schnell gegen 0, viel schneller
 als der Ausdruck $\frac1{u^2}$. In der Abbildung~\ref{abweichung-exponential}
 sieht man beide Schranken, die allgemeine, gegeben durch den
 Satz von Tschebyscheff, und die exakte f"ur die Exponentialverteilung.
+}
+
+\subsubsection{Anwendung}
+Ger"ate aller Art versuchen, die Lebensdauer dadurch zu erh"ohen, dass
+kritische Komponenten redundant aufgebaut werden.
+Zum Beispiel verwenden Server h"aufig zwei Disks, deren Daten
+gespiegelt sind, so dass der Ausfall eines Disks noch keinen Ausfall
+des Gesamtsystems verursacht. Wir wollen die erwartete Zeit bis zum
+Ausfall des Gesamtsystems berechnen, wenn zwei Disks verwendet werden,
+deren Zeit bis zum Ausfall exponentialverteilt ist. Weiter nehmen
+wir an, dass die Disks unabh"angig voneinander ausfallen.
+
+Sei also $X_i$ die Zeit bis zum Ausfall von Disk $i$, mit
+Verteilungsfunktion $F_{X_i}(t)=1-e^{at}$ f"ur $t\ge 0$. Gesucht
+ist die Verteilungsfunktion f"ur die Zeit $X$ bis zum Ausfall
+des Gesamtsystems, also die Funktion $F(t)=P(X\le t)$. Das Gesamtsystem
+f"allt aus, wenn beide Disks ausgefallen sind, es ist also
+\begin{align*}
+F(t)
+&=P(X\le t)=P(X_1\le t\wedge X_2\le t)\\
+&=P(X_1\le t)\cdot P(X_2\le t)
+= F_{X_1}(t) F_{X_2}(t)=(1-e^{-at})^2
+\end{align*}
+Zur Berechnung des Erwartungswertes von $X$ wird die
+Wahrscheinlichkeitsdichte ben"otigt, also die Ableitung davon:
+\[
+\varphi_{X}(t)=2(1-e^{-at})ae^{-at}.
+\]
+Damit wird der Erwartungswert
+\begin{align*}
+E(X)
+&=
+\int_{-\infty}^{\infty}t\varphi_X(t)\,dt
+=\int_0^\infty 2x(1-e^{-at})ae^{-at}\,dt
+\\
+&=2\int_0^\infty axe^{-at}\,dt - \int_0^\infty t (2a)e^{-(2a)t}\,dt
+=2\cdot\frac1a-\frac1{2a}=\frac{4-1}2\cdot\frac1a=\frac23\cdot\frac1a.
+\end{align*}
+Durch Redundanz l"asst sich die mittlere Zeit bis zu einem Ausfall
+also nur um 50\% steigern, die Kosten f"ur das Disksystem werden
+aber mehr als verdoppelt.
+
 
 \subsection{Normalverteilung\label{normalverteilung}}
 \index{Normalverteilung}
@@ -350,7 +399,7 @@ Der zweite Term kann mit Hilfe der Fehlerfunktion
 \]
 umgeformt werden:
 \[
-P(X\le x)=\frac12(1+\operatorname{erf}(\frac{x}{\sqrt{2}})).
+P(X\le x)=\frac12\biggl(1+\operatorname{erf}\biggl(\frac{x}{\sqrt{2}}\biggr)\biggr).
 \]
 \index{Fehlerfunktion}
 \index{Verteilungsfunktion!Normalverteilung}
