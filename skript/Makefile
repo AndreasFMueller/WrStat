@@ -17,8 +17,9 @@ SOURCES = einleitung.tex wahrscheinlichkeit.tex laplace.tex	\
 skript.pdf:	$(SOURCES) skript.ind
 	pdflatex skript.tex
 
-skript.ind:	skript.tex $(SOURCES)
+skript.ind:	images skript.tex $(SOURCES)
 	pdflatex skript.tex
 	makeindex skript.idx
 
-
+images:	
+	cd images; make
