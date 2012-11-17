@@ -25,3 +25,8 @@
 *.maf
 *.mtc
 *.mtc0
+skript/images/*.mpx
+skript/images/*.eps
+skript/images/*.pdf
+skript/images/*.[0-9]
+skript/images/*.[0-9][0-9]
