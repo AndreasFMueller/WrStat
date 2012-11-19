@@ -235,10 +235,10 @@ Die Poissonverteilung liefert eine Antwort auf folgende Frage. In Abschnitt
 als die Verteilung f"ur die Ausfallwahrscheinlichkeit eines ``ged"achtnislosen''
 Bauteils vorgestellt. Wir nehmen nun an, dass das Bauteil bei jedem Defekt
 sofort ersetzt wird, und fragen danach, wie wahrscheinlich es ist, dass
-wir in einem bestimmten Zeitinterval $k$ Ausf"alle beobachten.
+wir in einem bestimmten Zeitintervall $k$ Ausf"alle beobachten.
 
 Sei $X_i$ die Lebensdauer des Bauteils mit der Nummer $i$, es handelt
-sich dabei um eine exponentialverteilte Zufallsvariable. Wenn im Zeitinterval
+sich dabei um eine exponentialverteilte Zufallsvariable. Wenn im Zeitintervall
 $[0,x]$ genau $k$ Ausf"alle beobachtet wurden, dann heisst das, dass die
 Summe von $k$ Zufallsvariablen $\le x$ ist, jene von $k+1$ Zufallsvariable
 aber $>x$. Also
@@ -248,7 +248,7 @@ P(X_1+\dots+X_k\le x \wedge X_1+\dots+X_{k+1}>x)
 Wir berechnen diese Wahrscheinlichkeit in zwei Schritten.
 
 Zun"achst interessiert uns, wie gross die Wahrscheinlichkeit ist, dass im
-Interval $[0,x]$ mindestens $k$ Ausf"alle passieren, dies ist
+Intervall $[0,x]$ mindestens $k$ Ausf"alle passieren, dies ist
 $P(X_1+\dots+X_k\le x)=F_{X_1+\dots+X_k}(x)$, also die Verteilungsfunktion
 einer Summe von $k$ identisch exponentialverteilten Zufallsvariablen. Wir
 behaupten:
@@ -336,14 +336,14 @@ P_k(x)&=&P(\text{mindestens $k$ Ausf"alle})-P(\text{mindestens $k+1$ Ausf"alle})
 &=&e^{-ax}\frac{(ax)^k}{k!}
 \end{eqnarray*}
 Somit haben wir die Wahrscheinlichkeit berechnet, dass im betrachteten
-Interval genau $k$ Bauteile versagen.
+Intervall genau $k$ Bauteile versagen.
 Dies f"uhrt uns zur Definition der Poissonverteilung:
 \begin{definition} Die Poissonverteilung
 \[
 P_\lambda(k)=\frac{\lambda^k}{k!}e^{-\lambda}
 \]
 beschreibt f"ur $\lambda=ax$ die Wahrscheinlichkeit,
-dass in einem Zeitinterval $[0,x]$ genau $k$ Ereignisse eintreten, wenn
+dass in einem Zeitintervall $[0,x]$ genau $k$ Ereignisse eintreten, wenn
 die Zeit zwischen den Ereignissen exponentialverteilt ist mit Dichte
 $ae^{-ax}$.
 \end{definition}

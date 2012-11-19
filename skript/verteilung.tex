@@ -39,7 +39,7 @@ $F(x)=P(X\le x)$, zeigt die Wahrscheinlichkeit daf"ur, dass $X$ den Wert $x$ nic
 \end{figure}
 Aus einem Wahrscheinlichkeitsmass $P$ auf $\Omega$ kann man mit Hilfe
 von $X$ auch ein Wahrscheinlichkeitsmass auf $\mathbb{R}$ bilden. F"ur die
-Wahrscheinlichkeit f"ur das Interval $[a,b]\subset\mathbb{R}$ setzt
+Wahrscheinlichkeit f"ur das Intervall $[a,b]\subset\mathbb{R}$ setzt
 man einfach
 \[
 P((a,b])=P(a< X\le b)=P(X^{-1}((a,b])),
@@ -136,9 +136,9 @@ Abbildung~\ref{bildzerlegungverteilungsfunktion} dargestellt.
 Es gen"ugt offensichtlich zu zeigen, dass $F$ rechtsseitig stetig ist, also
 keine Sprungstellen bei Ann"aherung von rechts hat. Die Differenz
 $F(a+\varepsilon)-F(a)$ ist die Wahrscheinlichkeit, dass der Wert der
-Zufallsvariable in das Interval $(a,a+\varepsilon]$
+Zufallsvariable in das Intervall $(a,a+\varepsilon]$
 f"allt. Es genugt, wenn man f"ur $\varepsilon=\frac1n$ zeigen kann,
-dass $F(a+\frac1n)\to F(a)$. Das Interval $(a,a\frac1n]$ kann man
+dass $F(a+\frac1n)\to F(a)$. Das Intervall $(a,a\frac1n]$ kann man
 als Vereinigung unendlich vieler kleiner Teilintervalle
 schreiben, also
 \[
@@ -198,7 +198,7 @@ $x$-Werte (unten) einer diskreten Verteilung
 \label{bilddiskreteverteilungsfunktion}}
 \end{figure}
 Ist die Verteilungsfunktion st"uckweise konstant, dann ist
-$P((a,b])=0$ falls im Interval $(a,b]$ keine Sprungstelle
+$P((a,b])=0$ falls im Intervall $(a,b]$ keine Sprungstelle
 vorhanden ist. Ist $x_0$ eine Sprungstelle, dann ist ihr H"ohe
 \[
 \lim_{a\to x_0-}P((a,x_0])=\lim_{a\to x_0-}(F(x_0)-F(a))
@@ -294,7 +294,7 @@ E(X)
 \le
 \sum_{i}P(I_i)\overline x_i
 \]
-Da die Wahrscheinlichkeit des Intervals $I_i$ mit Hilfe der
+Da die Wahrscheinlichkeit des Intervalls $I_i$ mit Hilfe der
 Wahrscheinlichkeitsdichte berechnet werden kann:
 $P(I_i)=\int_{\underline x_i}^{\overline x_i}\varphi(\xi)\,d\xi,$
 kann man die Ungleichung noch etwas weiter fassen:
@@ -304,7 +304,7 @@ E(X)
 \le
 \sum_{i}\overline x_i\bigl(\max_{\xi\in I_i}\varphi(\xi)\bigr)(\overline x_i-\underline x_i)
 \]
-L"asst man jetzt die Intervall"ange immer kleiner werden, wird wegen der
+L"asst man jetzt die Intervalll"ange immer kleiner werden, wird wegen der
 Stetigkeit von $\varphi$ der Unterschied zwischen
 $\max_{\xi\in I_i}\varphi(\xi)$ und
 $\min_{\xi\in I_i}\varphi(\xi)$ beliebig klein, und auch jener
@@ -452,14 +452,14 @@ a^2-2ab+b^2+2b-2a+1-1
 =
 \frac1{12}\bigl((b-a+1)^2 - 1\bigr)
 \end{align*}
-Die Varianz ist also im Wesentlichen die quadrierte Intervall"ange
+Die Varianz ist also im Wesentlichen die quadrierte Intervalll"ange
 geteilt durch 12.
 
 \subsection{Stetige Gleichverteilung}
 \index{Gleichverteilung!stetig}
-\index{Gleichverteilung!auf einem Interval}
-Eine Zufallsvariable $X$ nehme die Werte im Interval $[a,b]$
-mit gleicher Wahrscheinlichkeit an, d.~h.~f"ur jedes Teilinterval
+\index{Gleichverteilung!auf einem Intervall}
+Eine Zufallsvariable $X$ nehme die Werte im Intervall $[a,b]$
+mit gleicher Wahrscheinlichkeit an, d.~h.~f"ur jedes Teilintervall
 $[\xi,\eta]\subset[a,b]$ gilt 
 \[
 P(\xi\le X\le \eta)=\frac{\xi-\eta}{b-a}.
@@ -513,7 +513,7 @@ E(X^2)
 &=
 \frac{(b-a)^2}{12}.
 \end{align*}
-Auch in diesem Fall ist die Varianz die quadrierte Intervall"ange
+Auch in diesem Fall ist die Varianz die quadrierte Intervalll"ange
 geteilt durch 12.
 
 \section{L"osungsstrategie}
@@ -695,7 +695,7 @@ voneinander, insbesondere ist $P(X_1\le x_1)=F_1(x_1)$ und
 $P(X_2\le x_2)=F_2(x_2)$.
 
 Die Wahrscheinlichkeit, dass $X_1$ in einem Intervall $(a_1,b_1]$,
-$X_2$ im Interval $(a_2,b_2]$ liegt ist 
+$X_2$ im Intervall $(a_2,b_2]$ liegt ist 
 \begin{eqnarray*}
 P(a_1<X_1\le b_1\wedge a_2<X_2\le b_2)
 &=& P(a_1<X_1\le b_1) P(a_2<X_2\le b_2)\\
@@ -825,10 +825,10 @@ $\varphi_T$ von $T$.  Zun"achst gilt nach Definition
 \[
 F_T(t)=P(XY\le t).
 \]
-Die Wahrscheinlichkeit, dass $X$ einen Wert in einem sehr schmalen Interval
+Die Wahrscheinlichkeit, dass $X$ einen Wert in einem sehr schmalen Intervall
 $[x,x+dx]$ annimmt ist $\varphi_X(x)\,dx$.
 Damit beim Eintreffen dieses Ereignisses auch das Produkt
-$XY\le t$ ist, muss $Y$ einen Wert im Interval $[0,t/x]$ annehmen.
+$XY\le t$ ist, muss $Y$ einen Wert im Intervall $[0,t/x]$ annehmen.
 Also gilt wegen der Unabh"angigkeit von $X$ und $Y$
 \begin{eqnarray*}
 P(XY\le t\;\wedge\; X\in[x,x+dx])&=&P(X\in[x,x+dx]\;\wedge\; Y\le t/x)\\

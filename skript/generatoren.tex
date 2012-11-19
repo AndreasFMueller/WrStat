@@ -125,7 +125,7 @@ w"urde jedoch zu weit f"uhren.
 
 \section{Zufallszahlen mit einer bestimmten Verteilung}
 Gem"ass dem vorangehenden Abschnitt sind wir in der Lage, 
-Zufallszahlen so zu erzeugen, dass sie in einem gegebenen Interval
+Zufallszahlen so zu erzeugen, dass sie in einem gegebenen Intervall
 gleichverteilt sind. F"ur die Simulation von Wahrscheinlichkeitsexperimenten
 braucht man aber Zufallszahlen, die eine gegebene Verteilung haben.
 Wie kann man aus gleichverteilten Zufallszahlen solche berechnen,
@@ -134,12 +134,12 @@ die einer bestimmten Verteilung gen"ugen?
 \subsection{Zufallszahlen mit Verteilungsfunktion $F$}
 Gegeben sei jetzt also eine Verteilungsfunktion $F$ mit
 Wahrscheinlichkeitsdichte $\varphi$, und ausserdem ein Zufallszahlgenerator
-$X$, also eine Zufallsvariable, mit gleichverteilten Werten im Interval
+$X$, also eine Zufallsvariable, mit gleichverteilten Werten im Intervall
 $[0,1]$. Gesucht ist eine Zufallsvariable $Y$, welche $F$ als
 Verteilungsfunktion hat. Der folgende Satz liefert eine
 einfache und effiziente L"osung dieses Problems.
 
-\begin{satz}Ist $X$ gleichverteilt im Interval $[0,1]$, und $F$ eine
+\begin{satz}Ist $X$ gleichverteilt im Intervall $[0,1]$, und $F$ eine
 invertierbare
 Verteilungsfunktion, dann ist $F^{-1}\circ X$ eine Zufallsvariable
 mit Verteilungsfunktion $F$.
@@ -151,7 +151,7 @@ der Definition:
 P(Y\le y)=P(F^{-1}\circ X\le y)=P(X\le F(y))=F(y).
 \end{equation}
 Das letzte Gleichzeitszeichen verwendet die Verteilungsfunktion der 
-Gleichverteilung im Interval: $P(x\le m)=m$.
+Gleichverteilung im Intervall: $P(x\le m)=m$.
 \end{proof}
 
 Im Allgemeinen wird eine Verteilungsfunktion nicht invertierbar sein.
@@ -170,7 +170,7 @@ F(\eta)\ge x\quad\text{f"ur alle}\quad \eta>y
 Da $F$ rechtsseitig stetig ist, ist die letzte Bedingung gleichbedeutend
 mit $F(y)\le x$. Somit hat man den allgemeineren Satz
 \begin{satz}
-Ist $X:\Omega\to\mathbb{R}$ eine im Interval $[0,1]$
+Ist $X:\Omega\to\mathbb{R}$ eine im Intervall $[0,1]$
 gleichverteilte Zufallsvariable,
 und $F$ eine Verteilungsfunktion, dann definiert die Abbildung
 \begin{equation}
@@ -186,8 +186,8 @@ kann als eine verallgemeinerte Umkehrfunktion betrachtet werden.
 F"ur invertierbare Funktionen $F$ stimmt sie mit $F^{-1}$ "uberein.
 
 Zun"achst ist $G$ wie $F$ eine monotone Funktion.
-Ist die Funktion $F$ in einem Interval konstant, dann l"asst sich ein maximales
-Interval $[a,b)$ finden, in dem $F$ konstant ist.
+Ist die Funktion $F$ in einem Intervall konstant, dann l"asst sich ein maximales
+Intervall $[a,b)$ finden, in dem $F$ konstant ist.
 F"ur alle $x\in[a,b)$ gilt dann
 \begin{equation}
 G(F(x))=\min\{\eta\,|\,F(\eta)\ge F(x)\}=\min[a,\infty)=a.
@@ -205,7 +205,7 @@ gilt dann
 \begin{equation}
 G(y)=\min\{\eta\,|\,F(\eta)\ge y\}=\min\{\eta\,|\,F(\eta)\ge F(x)\}=x,
 \end{equation}
-die Funktion $G$ ist also auf dem Interval $(F(x+),F(x))$ konstant.
+die Funktion $G$ ist also auf dem Intervall $(F(x+),F(x))$ konstant.
 
 \subsection{Gleichverteilte Zufallszahlen\label{gleichverteilte-zufallszahlen}}
 Umgekehrt ist es interessant, wenn man eine Zufallsvariable so transformieren
@@ -214,7 +214,7 @@ Beispiel n"utzlich, wenn man die Qualit"at eines Zufallszahlgenerators
 testen will. Verspricht der Zufallszahlgenerator, Zufallszahlen $X_i$ zu
 produzieren, die einer Verteilung mit Verteilungsfunktion $F$
 gen"ugen, dann sind nach Satz \ref{reduktion-auf-gleichverteilung} die
-$F(X_i)$ im Interval $[0,1]$ gleichverteilte Zufallszahlen.
+$F(X_i)$ im Intervall $[0,1]$ gleichverteilte Zufallszahlen.
 
 \section{Testen}
 Nachdem wir nun einige Verfahren kennen, mit denen Zufallszahlen
@@ -235,7 +235,7 @@ zu beschreiben, muss man normalverteilte Zufallszahlen bekommen
 k"onnen, Um den Ausfall von Komponenten eines Systems zu simulieren,
 braucht man exponentialverteilte Zufallszahlen. Im einfachsten Fall,
 der zum Beispiel auch bei Spielen meistens vorkommt, verlangt man
-auf einem Interval gleichverteilte Zufallszahlen.
+auf einem Intervall gleichverteilte Zufallszahlen.
 
 Die meisten Generatoren des vorangegangenen Abschnitts
 liefern ganze Zahlen eines Maschinentyps, also ganze Zahlen zwischen
@@ -245,14 +245,14 @@ Durch eine lineare Transformation
 x\mapsto \frac{x+M}{2M}(b-a) + a,
 \end{equation}
 welche in Gleitkommaarithmetik durchzuf"uhren ist, erh"alt man
-Zufallszahlen im Interval $[a,b]$.
+Zufallszahlen im Intervall $[a,b]$.
 Wie kann man diese Hypothese testen?
 
 Im Kapitel \ref{chapter-hypothesen-testen} hatten wir mit dem $\chi^2$-Test
 und dem Kolmogorov-Smirnov-Test zwei Verfahren kennengelernt, mit denen
 man testen kann, ob eine Stichprobe (also eine Teilfolge der Zufallsfolge
 des Generators) einer bestimmten Verteilung gen"ugt. Im vorliegenden Fall
-ist gefordert, dass die Zufallszahlen in einem Interval gleichverteilt
+ist gefordert, dass die Zufallszahlen in einem Intervall gleichverteilt
 sein sollen, wof"ur sich sowohl der $\chi^2$-Test wie auch der
 Kolmogorov-Smirnov-Test eignen. Haben die Zufallszahlen eine beliebige
 andere Verteilung mit Verteilungsfunktion $F$, kann dazu immer noch
