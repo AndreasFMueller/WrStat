@@ -320,6 +320,10 @@ Polynom in $x$, welches niemals so schnell wachsen kann wie $e^{-ax}$ kleiner
 wird. Im Grenzwert $x\to\infty$ verschwindet der zweite Summand daher und
 es gilt wie zu erwarten ist $\lim_{x\to\infty}F_k(x)=1$.
 \end{proof}
+Die hier gefundenen Verteilungen sind auch von einiger praktischer Bedeutung,
+sie heissen die Erlang-Verteilungen.
+\index{Erlang-Verteilung}
+
 Um nun die Wahrscheinlichkeit $P_k(x)$ des Auftretens von genau $k$ Ausf"allen
 ist jetzt also die Wahrscheinlichkeit, dass bis zur Zeit $x$ mindestens
 $k$ Ausf"allen aufgetreten sind minus die Wahrscheinlichkeit, dass mehr
@@ -382,3 +386,95 @@ Die Poissonverteilung $P\lambda(k)$ hat Erwartungswert
 $E(X)=\lambda$ und Varianz $\operatorname{var}(X)=\lambda$.
 \end{satz}
 
+\subsubsection{Poissonverteilung als Approximation f"ur die Binomialverteilung}
+\index{Poissonverteilung!Approximation der Binomialverteilung}
+Das folgende Experiment soll diese Anwendung motivieren: 18 mal werden zwei 
+W"urfel geworfen, und in einem $6\times 6$-Feld das Feld mit der
+erw"urfelten Zeilen- und Spalten-Nummer angekreuzt. Dabei muss man darauf
+achten, immer den gleichen W"urfel f"ur die Zeilen-Nummern zu verwenden.
+Dann wird ausgez"ahlt, wieviele Felder $k=0$, $k=1$, $k=2$,\dots\ Kreuze
+enthalten.
+
+Nat"urlich ist dies ein Bernoulli-Experiment. Die Wahrscheinlichkeit, ein
+bestimmtes Feld anzukreuzen, ist $p=\frac{1}{36}$, das Experiment
+wird $18$ mal wiederholt. Die Wahrscheinlichkeit $P(k)$, dass das Feld $k$ mal
+angekreuzt wurde, ist durch die Binomialverteilung gegeben:
+\[
+P(k)=\binom{n}{k}p^k(1-p)^{n-k}.
+\]
+
+Leider ist dieser Ausdruck f"ur grosses $n$ schwierig auszurechnen.
+Wir suchen also nach einer Approximation, die leichter auszuwerten ist.
+Dabei k"onnen wir nicht einfach $n\to\infty$ gehen lassen, denn die
+Wahrscheinlichkeit $P(k)$ w"urde dann auch anwachsen. Wir m"ussen
+gleichzeitig die Wahrscheinlichkeit kleiner machen, so dass die Rate $\lambda$,
+mit der Kreuze gemacht werden, gleich bleibt. Im Experiment wird
+die H"alfte ($\lambda=\frac{|8}{36}=\frac12$) der Felder angekreuzt.
+Die Wahrscheinlichkeit $p$ muss also mit $\lambda$ "uber die Formel
+\[
+p=\frac{\lambda}{n}
+\]
+zusammenh"angen.
+
+\begin{figure}
+\begin{center}
+\begin{tabular}{|r|r|r|r|r|}
+\hline
+$k$&Binomial&empirisch&Poisson&\\
+\hline
+0&   0.60440867 & 0.60226943 & 0.60653066 & 21.8351 \\
+1&   0.30646073 & 0.30971007 & 0.30326533 & 10.9176 \\
+2&   0.07553610 & 0.07521756 & 0.07581633 &  2.7294 \\
+3&   0.01205740 & 0.01146811 & 0.01263606 &  0.4549 \\
+4&   0.00140104 & 0.00123035 & 0.00157951 &  0.0569 \\
+5&   0.00012629 & 0.00009816 & 0.00015795 &  0.0057 \\
+6&   0.00000919 & 0.00000599 & 0.00001316 &  0.0005 \\
+7&   0.00000055 & 0.00000031 & 0.00000094 &  0.0000 \\
+8&   0.00000003 & 0.00000002 & 0.00000006 &  0.0000 \\
+9&   0.00000000 & 0.00000000 & 0.00000000 &  0.0000 \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Wahrscheinlichkeit, in einem $6\times 6$-Feld nach 18 maligem
+zuf"alligem Ankreuzen eines Feldes gefunden Verteilung der Anzahl Kreuze.
+Die Spalte ganz rechts enth"alt die erwartet Anzahl Felder mit $k$ Kreuzen.
+\label{cross36}}
+\end{figure}
+
+Damit kann man jetzt die Approximation durchf"uhren:
+\begin{align*}
+\binom{n}{k}p^k(1-p)^{n-k}
+&=
+\frac{n(n-1)(n-2)\dots(n-k+1)}{k!}\cdot \biggl(\frac{\lambda}n\biggr)^k\cdot \biggl(1-\frac{\lambda}n\biggr)^{n-k}\\
+&=
+\frac{\lambda^k}{k!}
+\cdot\frac{n}{n}
+\cdot\frac{n-1}{n}
+\cdot\frac{n-2}{n}
+\dots
+\cdot\frac{n-k+1}{n}
+\cdot
+\biggl(1-\frac{\lambda}n\biggr)^n
+\cdot
+\biggl(1-\frac{\lambda}n\biggr)^{-k}
+\end{align*}
+F"ur $n\to\infty$ strebt der letzte Term gegen $1$.
+Der zweitletzte Term strebt gegen $e^{-\lambda}$.
+Jeder der Faktoren $\frac{n-i}n$ strebt gegeben $1$, und es sind ja nur
+$k$ solche Faktoren, $k$ bleibt w"ahrend des Grenz"ubergangs unver"andert.
+Daraus leiten wir ab:
+\[
+\lim_{n\to\infty} 
+\binom{n}{k}p^k(1-p)^{n-k}
+=
+\frac{\lambda^k}{k!}e^{-\lambda}=P_{\lambda}(k),
+\]
+die Poisson-Verteilung zum Parameter $\lambda$.
+
+Wenden wir dies auf das urspr"ungliche Experiment an, also $n=36$,
+$\lambda=0.5$, finden wir die Resultate in Tabelle~\ref{cross36}. 
+Die Abweichungen in der Spalte der empirischen Resultate kommt "ubrigens
+nicht daher, dass zu wenige Versuch gemacht worden w"aren, sondern daher,
+dass wir jeweils immer alle Felder ausgez"ahlt haben. Diese sind aber nicht
+unabh"angig. Die beim Ausz"ahlen des $6\times 6$-Feldes gefundenen Werte
+sind also gar nicht die Resultate von $n$ unabh"angigen Bernoulli-Experimenten.
