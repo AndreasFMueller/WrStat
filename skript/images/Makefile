@@ -25,34 +25,34 @@ algebra: $(algebra_FILES)
 total: $(total_FILES)
 erwartung: $(erwartung_FILES)
 
-verteilungsfunktion_FILES:	verteilungsfunktion.mp
+$(verteilungsfunktion_FILES):	verteilungsfunktion.mp
 	TEX=latex mpost verteilungsfunktion.mp
 	for i in 1 2 3 4 5 6 7; \
 	do \
 		mptopdf verteilungsfunktion.$${i}; \
 	done
 
-abhaengigkeit_FILES:	abhaengigkeit.mp
+$(abhaengigkeit_FILES):	abhaengigkeit.mp
 	TEX=latex mpost abhaengigkeit.mp
 	for i in 1 2 3 4 5; \
 	do \
 		mptopdf abhaengigkeit.$${i}; \
 	done
 
-algebra_FILES:	algebra.mp
+$(algebra_FILES):	algebra.mp
 	TEX=latex mpost algebra.mp
 	for i in 1 2; \
 	do \
 		mptopdf algebra.$${i}; \
 	done
 
-total_FILES:	total.mp
+$(total_FILES):	total.mp
 	TEX=latex mpost total.mp
 	mptopdf total.1
 	pdf2ps total-1.pdf
 	ps2eps -f total-1.ps
 
-erwartung_FILES:	erwartung.mp
+$(erwartung_FILES):	erwartung.mp
 	TEX=latex mpost erwartung.mp
 	for i in 1 2 3 4; \
 	do \
