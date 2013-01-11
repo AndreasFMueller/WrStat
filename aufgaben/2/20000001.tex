@@ -1,0 +1,50 @@
+Modellraketen aus dem Spielwarenhandel verwenden eine Fallschirm aus
+Plastikfolie. Eine Schwarzpulverladung sollte diesen Fallschirm am
+Scheitelpunkt der Flugbahn auswerfen. Doch manchmal, in etwa 20\%
+der Fl"uge, l"asst die heisse
+Flamme der Ausstossladung den Fallschirm zusammenkleben. Einige
+Rocketeers pudern den Fallschirm mit Talkpuder ein, dadurch wird
+die Wahrscheinlichkeit des Verklebens halbiert.
+Zwei von f"unf Rocketeers verwenden diesen Trick.
+\begin{teilaufgaben}
+\item Wie gross ist die Wahrscheinlichkeit, dass ein Fallschirm
+verklebt?
+\item Wie gross ist die Wahrscheinlichkeit, dass eine Rakete
+ohne verklebten Fallschirm einen gepuderten Fallschirm hatte?
+\end{teilaufgaben}
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+Wir haben folgende Ereignisse:
+\begin{align*}
+P&=\{\text{Fallschirm wurde gepudert}\}\\
+V&=\{\text{Fallschirm verklebt}\}
+\end{align*}
+Und folgende Informationen "uber die Wahrscheinlichkeiten:
+\begin{align*}
+P(V|\bar P)&=0.2\\
+P(V|P)&=0.1\\
+P(P)&=0.4
+\end{align*}
+\begin{teilaufgaben}
+\item Gesucht ist $P(V)$, was man mit dem Satz "uber die totale
+Wahrscheinlichkeit berechnen kann:
+\begin{align*}
+P(V)&=P(V|P)P(P)+P(V|\bar P)P(\bar P)\\
+&=P(V|P)P(P)+P(V|\bar P)(1-P(P))\\
+&=0.1\cdot 0.4+0.2\cdot 0.6=0.16
+\end{align*}
+\item Gesucht wird $P(P|\bar V)$, dazu kann die Formel von Bayes verwendet
+werden:
+\begin{align*}
+P(P|\bar V)
+&=
+P(\bar V |P)\frac{P(P)}{P(\bar V)}
+\\
+&=(1-P(V|P))\frac{P(P)}{1-P(V)}\\
+&=
+0.9 \cdot\frac{0.4}{0.84}=0.42857
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+}{}

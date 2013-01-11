@@ -1,0 +1,113 @@
+Ein intelligenter Sensor sendet im Zeitabstand von $T=\text{5 min}$
+Messdaten an einen zentralen Server. Um "Uberlastung des Servers
+vorzubeugen, wird jedes
+Zeitinterval um einen zuf"alligen Betrag vergr"ossert oder verkleinert, so
+dass die "Ubertragung Nummer $i$ ein Zeitinterval $T_i$ nach "Ubertragung
+Nummer $i-1$ stattfindet.
+Die $T_i$ sind im Interval $[T-\delta,T+\delta]$
+gleichverteilte Zufallsvariable, $\delta = \text{1min}$.
+So ist sichergestellt, dass sich die "Ubermittlungszeitpunkt etwas verteilen.
+\begin{teilaufgaben}
+\item Finden Sie Erwartungswert und Varianz von $T_i$
+\item Pro Tag sollten im Schnitt 288 "Ubertragungen stattfinden. Wie gross
+ist die Wahrscheinlichkeit, dass 24 Stunden nach "Ubertragung Nummer $0$
+nicht mehr als 280 "Ubetragungen stattgefunden haben.
+\end{teilaufgaben}
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+\begin{teilaufgaben}
+\item F"ur eine gleichverteilte Zufallsvariable wurden Erwartungswert
+und Varianz in der Vorlesung berechnet.
+Der Erwartungswert ist der Mittelpunkt des Intervals und die
+Varianz ist $\frac1{12}l^2$, wenn $l$ die Intervall"ange ist.
+Also gilt
+\begin{align*}
+E(T_i)&=T\\
+\operatorname{var}(T_i)&=\frac13\delta^2.
+\end{align*}
+\item
+Die Frage, ob nach 24 Stunden nicht mehr als 280 "Ubertragungen
+stattgefunden haben ist gleichbedeutend damit, ob nach 280 "Ubertragungen
+die 24 Stunden schon um sind. Ist $t(N)$ also die Zeit f"ur $N$
+"ubertragungen, dann gilt
+\begin{equation}
+P(\text{nicht mehr als $N$ "Ubertragungen in 24 Stunden})
+=
+P(t(N) \ge 24\text{h}).
+\label{pt280}
+\end{equation}
+Die Zeit f"ur $N$ "Ubertragungen ist
+\[
+t(N)=\sum_{i=1}^NT_i,
+\]
+dies ist eine Zufallsvariable, die als Summe ziemlich vieler
+Zufallsvariablen mit gleicher Varianz ann"ahernd normalverteilt ist
+(zentraler Grenzwertsatz). Wir m"ussen also nur Erwartungswert und
+Varianz von $t(N)$ bestimmen, dann k"onnen wir mit Hilfe der Normalverteilung
+Wahrscheinlichkeiten wie~(\ref{pt280}) bestimmen.
+
+Es gilt
+\begin{align*}
+E(t(N))
+&=
+E\biggl(\sum_{i=1}^{N}T_i\biggr)
+= \sum_{i=1}^{280}E(T_i)=NT\\
+\operatorname{var}(t(N))
+&=
+\operatorname{var}\biggl(\sum_{i=1}^{N}T_i\biggr)
+= \sum_{i=1}^{280}\operatorname{var}(T_i)=\frac{N\delta^2}3.
+\end{align*}
+Jetzt k"onnen wir die Berechnung der Wahrscheinlichkeit~(\ref{pt280})
+durchf"uhren
+\[
+P(t(N)\ge \text{24h})=
+P\biggl(
+\frac{t(N)-E(t(N))}{\sqrt{\operatorname{var}(t(N))}}
+\ge
+\frac{\text{24h}-E(t(N))}{\sqrt{\operatorname{var}(t(N))}}
+\biggr)
+\]
+In der rechten Seite steht links eine standardnormalverteilte
+Zufallsvariable $X$, rechts eine Konstante. Also gilt
+\begin{align*}
+P(t(N)\ge \text{24h})
+&
+=
+P\biggl(
+X\ge
+\frac{\text{24h}-NT}{\sqrt{\frac{N\delta^2}3}}
+\biggr)
+=1-F_X\biggl(
+\frac{3\cdot(\text{24h}-NT)}{\sqrt{N}\delta}
+\biggr)\\
+&
+=1-F_X\biggl(
+\sqrt{\frac{3}{N}}
+\frac{\text{24h}-NT)}{\delta}
+\biggr)
+=1-F_X\biggl(
+\frac{\sqrt{3N}}{\delta}
+\left(\frac{\text{24h}}{N}-T\right)
+\biggr).
+\end{align*}
+Darin ist $F_X$ die Verteilungsfunktion einer standardnormalverteilten
+Zufallsvariable.
+
+Im vorliegenden Fall ist $T=\text{5min}$ und $N=280$ und $\delta=\text{1min}$.
+Daraus ergibt sich $\frac{\text{24h}}{280}=5.142857\text{min}$ und
+\begin{align*}
+P(t(280)\ge \text{24h})
+&=
+1-F_X(
+\sqrt{3\cdot 280}\frac{0.142857}{5}
+)
+=1-F_X(0.82807867)
+\\
+&
+=0.203813.
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+}{ }
+

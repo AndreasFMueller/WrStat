@@ -1,0 +1,48 @@
+Drei Mathematiker und drei Ingenieure treffen sich zu einem
+geselligen Nachtessen an einem runden Tisch.
+Es wird angenommen, dass die Mathematiker, wenn sie nebeneinander
+sitzen, sofort mit einem Fachgespr"ach beginnen, dem
+die Ingenieure nicht mehr folgen k"onnen und wollen. Umgekehrt
+sind die Ingenieure auch nicht besser, wenn sie alle nebeneinander
+s"assen, w"are es um die Geselligkeit des Abends ebenfalls weitgehend
+geschehen.
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, dass dieser Fall
+eintritt, wenn die Teilnehmer zuf"allig ihre Pl"atze einnehmen?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass nicht einmal zwei
+Ingenieure oder Mathematiker nebeneinander sitzen?
+\end{teilaufgaben}
+
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+Es muss gez"ahlt werden, auf wieviele Arten die Ingenieure und Mathematiker
+ihre Pl"atze einnehmen k"onnen, und auf wieviele Arten dies mit den
+jeweils genannten Einschr"ankungen m"oglich ist. Offenbar gibt es $6!=720$
+M"oglichkeiten, die Leute zu platzieren.
+\begin{teilaufgaben}
+\item Dieser Fall tritt immer dann ein, wenn drei benachbarte Pl"atze
+mit Mathematikern besetzt sind.
+Es gibt 6 M"oglichkeiten, drei Pl"atze
+nebeneinander f"ur die Mathematiker auszuw"ahlen, bestimmt durch den
+in Uhrzeigersinn jeweils ersten Mathematiker-Platz.
+Sobald die Mathematiker-Pl"atze festgelegt sind, m"ussen wir 3 Mathematiker
+auf 3 Pl"atze verteilen, das geht auf $3!$ Arten. Ebenso m"ussen wir
+3 Ingenieure auf 3 Pl"atze verteilen, was nochmals $3!$ M"oglichkeiten
+beitr"agt. Insgesamt haben wir also $6\cdot 3!\cdot 3!=6\cdot 6\cdot 6=216$
+F"alle, in denen diese unerw"unschte Situation eintritt. Die Wahrscheinlichkeit
+f"ur diesen Fall ist also $216/720=0.3$.
+\item In diesem Fall m"ussen die Mathematiker und Ingenieure abwechselnd
+Platz nehmen. Es gibt nur zwei Arten, wie man die drei Pl"atze f"ur die
+Mathematiker und die Ingenieure ausw"ahlen kann. Man kann entweder die
+Pl"atze mit geraden Nummern den Mathematikern geben, oder den Ingenieuren.
+Dann muss man die drei Mathematiker auf die drei Pl"atze platzieren,
+was auf $3!$ Arten m"oglich ist, und ausserdem die drei Ingenieure auf
+ihre drei Pl"atze, was nochmals $3!$ M"oglichkeiten gibt. Insgesamt bekommen
+wir also $2\cdot 3!\cdot 3!=2\cdot 6\cdot 6=72$ M"oglichkeiten. Die Wahrscheinlichkeit, dass dieser Fall eintritt, ist also $10\%$.
+\end{teilaufgaben}
+\end{loesung}
+}{ }
+

@@ -1,0 +1,112 @@
+Der CCD-Chip einer Digitalkamera besteht aus einer grossen Zahl einzelner
+Pixel, die w"ahrend der Blichtung vom Licht erzeugte Elektronen speichern.
+Die Zahl $X$ dieser Photoelektronen ist proportional zur Belichtungszeit.
+Sie wird jedoch verf"alscht durch zwei Effekte:
+\begin{enumerate}
+\item
+Thermisches Rauschen: Durch die thermische Bewegung der Atome
+im Kristall des CCD-Chips gehen Elektronen verloren oder kommen hinzu,
+die nichts mit dem Lichteinfall zu tun haben. Dieser zus"atzliche
+Elektronenstrom hat Erwartungswert $0$ und bekannte Varianz $\sigma_T$,
+man findet $\sigma_T$ im Datenblatt des CCD-Chip.
+\item
+Auslesefehler: Beim Auslesen der einzelnen Pixel entsteht ein Messfehler
+$\sigma_A$, der ebenfalls dem Datenblatt entnommen werden kann.
+\end{enumerate}
+Der 16 Megapixel-CCD-Chip KAF-16803 von Kodak hat Pixel, die $C = 100000$
+Elektronen fassen k"onnen (sogenannte {\it full well capacity}).
+Das thermische Rauschen verursacht in jeder
+Sekunde $\sigma_T = 3$ zus"atzliche Elektronen, der Auslesefehler
+betr"agt $\sigma_A=9$ Elektronen.
+\begin{teilaufgaben}
+\item Wie gross ist der durch thermisches Rauschen und Auslesefehler
+verursachte Fehler bei einer Belichtungszeit von $n$ Sekunden?
+\item Nach welcher Belichtungszeit "ubersteigt der Beitrag des
+thermischen Rauschens den Auslesefehler?
+\item Wie lange darf man maximal belichten, wenn 95\% der Pixel einen Fehler
+von weniger als 1\% der Full well capacity aufweisen sollen.
+\end{teilaufgaben}
+
+\begin{hinweis}
+Sie d"urfen annehmen, dass eventuell vorhandene systematische
+Fehler durch Eichung des Chips bereits entfernt worden sind.
+\end{hinweis}
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+Bei allen Zufallsvariablen d"urfen wir annehmen, dass sie normalverteilt
+sind. Der Beitrag des thermischen Rauschens ist also in jeder Sekunde
+eine normalverteilte Zufallsvariable $T_t$ mit Erwartungswert 0
+und Varianz $\sigma_T^2$.
+Der Auslesefehler ist normalverteilt mit Erwartungswert 0 und
+Varianz $\sigma_A^2$.
+\begin{teilaufgaben}
+\item In $n$ Sekunden kommen die Beitr"age des thermischen Rauschens
+f"ur jede Sekunde zusammen. Das totale thermische Rauschen ist
+also
+\[
+T=\sum_{t=1}^n T_t
+\]
+Da die einzelnen Beitr"age unabh"angig sind, d"urfen wir die Varianzen
+addieren:
+\[
+\operatorname{var}(T)
+=\sum_{t=1}^n\operatorname{var}(T_t)=n\sigma_T^2.
+\]
+Dazu kommt jetzt noch der Auslesefehler, der ebenfalls unabh"angig ist:
+\begin{align*}
+\sigma_X^2&=\sigma_A^2+n\sigma_T^2\\
+\sigma_X&=\sqrt{\sigma_A^2+n\sigma_t^2}=\sqrt{81+9n}
+\end{align*}
+\item Wir m"ussen herausfinden, f"ur welches $n$ das thermische
+Rauschen $n\sigma_T^2$ den Auslesefehler "ubersteigt:
+\[
+n\sigma_T^2>\sigma_A^2\quad\Rightarrow\quad n>\frac{\sigma_A^2}{\sigma_T^2}=\frac{81}{9}=9.
+\]
+Nach $9$ Sekunden beginnt also das thermische Rauschen zu dominieren.
+F"ur l"angere Belichtunsgzeiten ist es daher unbedingt notwendig,
+das thermische Rauschen zu reduzieren, professionelle Kameras
+schaffen dies, indem sie den CCD-Chip stark abk"uhlen.
+\item
+Die Elektronenzahl in einem Pixel nach $n$ Sekunden Belichtungszeit ist
+nach a) eine normalverteilte Zufallsvariable mit Erwartungswert
+$\mu$ (nicht bekannt, wir brauchen ihn aber auch nicht) und Varianz
+$\sigma^2=\sigma_A^1+n\sigma_T^2$. Die Wahrscheinlichkeit, dass ein Pixel
+um weniger als 1\% von $C=100000$ von $\mu$ abweicht ist
+$
+P(|X-\mu| < 1000),
+$
+sie soll mindestens $0.95$ sein. Wir suchen also $n$ so, dass
+\[
+P(|X-\mu| > 1000) = 0.95
+\]
+Nach Standardisierung bekommen wir daraus
+\[
+P\biggl(\frac{X-\mu}{\sigma}> \frac{1000}{\sigma}\biggr)=0.95.
+\]
+Die Gr"osse $(X-\mu)/\sigma$ ist eine standardnormalverteilte
+Zufallsvariable. den Wert f"ur $1000/\sigma$ k"onnen wir aus
+der Normalverteilungstabelle ablesen:
+\[
+P\biggl(\frac{X-\mu}{\sigma}> \frac{1000}{\sigma}\biggr)=0.95.
+\quad
+\Rightarrow
+\quad
+F\biggl(\frac{1000}{\sigma}\biggr)=0.975
+\quad
+\Rightarrow
+\quad
+\frac{1000}{\sigma}=1.96.
+\]
+Die letzte Gleichung ist aber eine Gleichung f"ur $n$:
+\begin{align*}
+1000&=1.96\sqrt{\sigma_A^2 + n\sigma_T^2}\\
+n&=\frac1{\sigma_T^2}\biggl(\biggl(\frac{1000}{1.96}\biggr)^2-\sigma_A^2\biggr)
+=28914.
+\end{align*}
+Man kann also gut acht Stunden belichten, bis das Rauschen bei 95\% der
+Pixel die Schranke von 1\% der maximalen Amplitude "uberschritten hat.
+\end{teilaufgaben}
+\end{loesung}
+}{ }
+

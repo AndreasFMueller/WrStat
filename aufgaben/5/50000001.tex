@@ -1,0 +1,88 @@
+Die Wahrscheinlichkeitsdichte (Dichtefunktion) einer Zufallsvariablen $X$
+sei
+\[
+\varphi(x)=\begin{cases}
+0&\qquad x<-3\\
+\frac16x+\frac12&\qquad -3\le x<0\\
+-\frac12x+\frac12&\qquad 0\le x< 1\\
+0&\qquad 1\le x
+\end{cases}
+\]
+\begin{teilaufgaben}
+\item Zeichnen Sie den Graphen von $\varphi$.
+\item Bestimmen Sie die Verteilungsfunktion von $X$ und zeichnen Sie
+auch davon einen Graphen.
+\item Berechnen Sie den Erwartungswert von $X$.
+\end{teilaufgaben}
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Der Graph diese Wahrscheinlichkeitsverteilung ist
+\begin{center}
+\includeagraphics[width=0.9\hsize]{graph-1}
+\end{center}
+\item Die Verteilungsfunktion wird bestimmt durch Integration:
+\[
+F(x)=\int_{-\infty}^x\varphi(\xi)\,d\xi.
+\]
+Offenbar m"ussen wir das Integral auf die verschiedenen Teilintervalle
+aufteilen. Im Interval $(-\infty,-1]$ ist sicher $F(x)=0$. F"ur $x$ zwischen
+$-3$ und $0$ gilt
+\begin{align*}
+F(x)&=\int_{-\infty}^x\varphi(\xi)\,d\xi =\int_{-3}^x\frac16\xi+\frac12\,d\xi
+\\
+&=
+\left[\frac1{12}\xi^2+\frac12\xi\right]_{-3}^x=\frac{x^2-9}{12}+\frac{x+3}2
+\\
+&
+=\frac{x^2+6x+9}{12}=\frac{(x+3)^2}{12}
+\end{align*}
+An der Stelle $x=0$ nimmt diese Funktion den Wert $\frac34$ an.
+Der Graph dieses Teils ist eine Parabel mit Scheitelpunkt $(-3,0)$.
+
+F"ur den Abschnitt zwischen $0$ und $1$ finden wir
+\begin{align*}
+F(x)
+&=
+\int_{-\infty}^x\varphi(\xi)\,d\xi
+=F(0)+\int_0^x\varphi(\xi)\,d\xi
+=\frac34+\int_0^x-\frac12\xi+\frac12\,d\xi\\
+&=\frac34+\left[-\frac14\xi^2+\frac12\xi\right]_0^x
+=\frac34-\frac14x^2+\frac12x
+=\frac{-x^2+2x+3}4\\
+&=1-\frac{x^2-2x+1}{4}
+=1-\frac{(x-1)^2}4
+\end{align*}
+Dieser Teil des Graphen ist eine nach unten ge"offnete Parabel mit
+Scheitelpunkt $(1,1)$.
+Der Graph diese Verteilungsfunktion ist
+\begin{center}
+\includeagraphics[width=0.9\hsize]{graph-2}
+\end{center}
+\item
+Der Erwartungswert ist das Integral
+\begin{align*}
+E(X)&=\int_{-\infty}^\infty\xi\varphi(\xi)\,d\xi
+=
+\int_{-3}^0\xi\biggl(\frac16\xi+\frac12\biggr)\,d\xi
++\int_0^1\xi\biggl(-\frac12\xi+\frac12\biggr)\,d\xi
+\\
+&=
+\int_{-3}^0\frac16\xi^2+\frac12\xi\,d\xi
++\int_0^1-\frac12\xi^2+\frac12\xi\,d\xi
+\\
+&=\left[\frac1{18}\xi^3+\frac14\xi^2\right]_{-3}^0
++\left[-\frac16\xi^3+\frac14\xi^2\right]_0^1\\
+&=\frac{27}{18}-\frac94-\frac16+\frac14
+=\frac{3}{2}-\frac94-\frac16+\frac14
+=\frac{18-27-2+3}{12}
+=-\frac{8}{12}
+\\
+&=-\frac23.
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+}{}
+

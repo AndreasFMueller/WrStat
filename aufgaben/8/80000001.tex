@@ -1,0 +1,56 @@
+Ein Forscher behauptet, vom Menschen verbreitete Umweltgifte h"atten die
+Tierpopulationen dreier Arten $A$, $B$ und $C$ unterschiedlich stark
+dezimiert. Er pr"asentiert dazu
+folgende Daten, einerseits die relativen H"aufigkeiten der Arten,
+wie sie aus langj"ahrigen Statistiken bekannt sind, und
+andereseits seine neuesten Z"ahlungen:
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Art&rel.~H"aufigkeit&gez"ahlt\\
+\hline
+$A$&0.3&47\\
+$B$&0.5&75\\
+$C$&0.2&17\\
+\hline
+\end{tabular}
+\end{center}
+Er sagt, man s"ahe den Zahlen sofort an, dass die Art $C$ "uberproportional
+stark betroffen sei.
+Hat er recht?
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+Hier geht es um die Hypothese ``Tierpopulationen wurden unterschiedlich
+stark zerst"ort''. Die Nullhypothese dazu ist ``die Tierpopulationen
+haben sich in Ihren H"aufigkeiten nicht ver"andert''. Die Hypothese
+besagt also, dass die relativen H"aufigkeiten immer noch die gleichen
+sind, $0.3$ f"ur $A$, $0.5$ f"ur $B$ und $0.2$ f"ur $C$.
+Wir testen diese Hypothese auf dem Niveau $\alpha=0.05$ mit Hilfe eines
+$\chi^2$-Testes.
+
+Dazu ist die Diskrepanz zu berechnen, offenbar wurden $n=139$ Exemplare
+gez"ahlt:
+\begin{center}
+\begin{tabular}{|c|c|c|r|r|r|}
+\hline
+Art&$p_i$&   $n_i$&$np_i$&$n_i-np_i$&$(n_i-np_i)^2/np_i$\\
+\hline
+$A$& 0.3 &     47 & 41.7 &    5.3   &   0.673621103     \\
+$B$& 0.5 &     75 & 69.5 &    5.5   &   0.435251799     \\
+$C$& 0.2 &     17 & 27.8 & $-10.8$  &   4.195683453     \\
+\hline
+   &     &$n=139$ &      &          &$D=5.304556355$    \\
+\hline
+\end{tabular}
+\end{center}
+Das Problem hat $k=2$ Freiheitsgrade, die
+kritische Diskrepanz $D_{\text{krit}}$, bei der die Hypothese
+verworfen werden m"usste, ist $D_{2,\alpha}=5.991$. Da die
+beobachtete Diskrepanz kleiner ist, kann man die Nullhypothese
+nicht verwerfen. Es gibt also noch keinen Beweis f"ur die
+Behauptung des Forschers.
+\end{loesung}
+
+}{ }
+
