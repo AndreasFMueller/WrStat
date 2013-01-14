@@ -21,6 +21,7 @@
 \usepackage{txfonts}
 \usepackage{alltt}
 \usepackage{verbatim}
+\usepackage{hyperref}
 \makeindex
 \begin{document}
 \pagestyle{fancy}
@@ -73,6 +74,12 @@ Hochschule f"ur Technik, Rapperswil, 2009
 }{\end{proof}}
 \def\keineloesungen{%
 \renewenvironment{loesung}{\swallow\begingroup}{\endgroup}%
+}
+
+\hypersetup{
+    colorlinks=true,
+    linktoc=all,
+    linkcolor=blue
 }
 
 \tableofcontents
