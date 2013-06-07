@@ -1,0 +1,3 @@
+> f <- data.frame(t = x, v = y)
+> write.csv(f, file = "daten.csv")
+> f2 <- read.csv(file = "daten.csv")
