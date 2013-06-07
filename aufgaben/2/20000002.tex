@@ -1,0 +1,72 @@
+Eine neue Werbekampagne f"ur ein schon l"anger auf dem Markt
+befindliches Produkt wird auf ihre Wirksamkeit gepr"uft.
+Dazu werden Leute befragt, ob sie den neuen Werbespot gesehen
+haben und ob sie das Produkt kennen.
+60\% der Leute, die den neuen Werbespot gesehen haben,
+k"onnen sich an das Produkt erinnern. Aber auch 40\% der
+Leute, die den Werbespot nicht gesehen haben, k"onnen sich
+an das Produkt erinnern. 20\% der Leute haben den Spot gesehen.
+\begin{teilaufgaben}
+\item Wie gross ist die Wahrscheinlichkeit, dass sich jemand
+an das Produkt erinnert?
+\item Eine befragte Person kennt das Produkt. Wie gross ist
+die Wahrscheinlichkeit, dass sie den Werbespot gesehen hat?
+\item  Eine befragte Person kennt das Produkt nicht. Wie gross
+ist die Wahrscheinlichkeit, dass Sie den Fernsehspot nicht
+gesehen hat?
+\end{teilaufgaben}
+
+\begin{loesung}
+Offenbar haben wir es mit folgenden Ereignissen zu tun:
+\begin{align*}
+W&=\{\text{hat Werbespot gesehen}\}
+\\
+E&=\{\text{kann sich an Produkt erinnern}\}
+\end{align*}
+Die Angaben in der Aufgabe bedeuten
+\begin{align*}
+P(W)&=0.2\\
+P(E|W)&=0.6\\
+P(E|\overline W)&=0.4
+\end{align*}
+\begin{teilaufgaben}
+\item Es ist $P(E)$ zu berechnen. Nach dem Satz "uber die totale
+Wahrscheinlichkeit ist
+\begin{align*}
+P(E)&=P(E|W)P(W)+P(E|\overline W)P(\overline W)\\
+&=P(E|W)P(W)+P(E|\overline W)(1-P(W))\\
+&=0.6\cdot 0.2+0.4\cdot (1-0.2)\\
+&=0.12+0.32=0.44
+\end{align*}
+\item Gesucht ist $P(W|E)$. Nach dem Satz von Bayes ist
+\begin{align*}
+P(W|E)&=P(E|W)\frac{P(W)}{P(E)}\\
+&=0.6\cdot\frac{0.2}{0.44}=\frac{3}{11}
+%0.6 * 0.2/0.44
+0.27272727272727272727
+\end{align*}
+\item Gesucht ist $P(\overline W|\overline E)$. Nat"urlich ist
+$P(\overline W|\overline E)=1-P(W|\overline E)$, es gen"ugt also,
+$P(W|\overline E)$ zu berechnen. Wiederum nach dem Satz von Bayes
+gilt
+\begin{align*}
+P(W|\overline E)
+&=
+P(\overline E|W)\frac{P(W)}{P(\overline E)}\\
+&=
+(1-P(E|W))\frac{P(W)}{1-P(E)}\\
+&=
+0.4\cdot\frac{0.2}{1-0.44}=\frac17
+=
+%0.4*(0.2/(1-0.44))
+0.14285714285714285714
+\end{align*}
+Folglich ist die gesucht Wahrscheinlichkeit
+\begin{align*}
+P(\overline W|\overline E)=1-\frac17=\frac67=
+%6/7
+0.85714285714285714285
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+

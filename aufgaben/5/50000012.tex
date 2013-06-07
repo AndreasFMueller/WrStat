@@ -1,0 +1,77 @@
+Wie gross muss $c$ sein, damit
+\[
+\varphi(x)=\begin{cases}
+c(1-x^4)\qquad&|x|\le 1\\
+0&\text{sonst}
+\end{cases}
+\]
+die Wahrscheinlichkeitsdichte einer Zufallsvariable $X$ ist? Berechnen 
+Sie auch $E(X)$ und $\operatorname{var}(X)$.
+
+\begin{loesung}
+Wir l"osen die Aufgabe f"ur die allgemeinere Funktion
+\[
+\varphi(x)=\begin{cases}
+c(1-x^{2k})\qquad&|x|\le 1\\
+0&\text{sonst}
+\end{cases}
+\]
+Sie ist eine Wahrscheinlichkeitsdichte, wenn das Integral "uber $\mathbb R$
+den Wert 1 ergibt:
+\begin{align*}
+1&=\int_{-\infty}^{\infty}\varphi(x)\,dx
+\\
+&=
+\int_{-1}^11-x^{2k}\,dx=c\biggl[x-\frac{x^{2k+1}}{2k+1}\biggr]_{-1}^1
+=c\biggl(2-\frac{2}{2k+1}\biggr)=c\frac{4k}{2k+1}
+\\
+c&=\frac{2k+1}{4k}
+\end{align*}
+Im vorliegenden Fall $k=2$ ist also $c=\frac{5}{8}$.
+
+F"ur Erwartungswert und Varianz m"ussen die Integrale von 
+$x\varphi(x)$ und $x^2\varphi(x)$ bestimmt werden:
+\begin{align*}
+E(X)
+&=
+\frac{2k+1}{4k}
+\int_{-1}^1x(1-x^{2k})\,dx
+=
+\frac{2k+1}{4k}
+\biggl[
+\frac12x^2-\frac{x^{2k+2}}{2k+2}
+\biggr]_{-1}^1=0,
+\\
+E(X^2)
+&=
+\frac{2k+1}{4k}\int_{-1}^1x^2(1-x^{2k})\,dx
+=
+\frac{2k+1}{4k}
+\biggl[
+\frac13x^3-\frac{x^{2k+3}}{2k+3}
+\biggr]_{-1}^1
+\\
+&=
+\frac{2k+1}{4k}
+\biggl(
+\frac23-\frac{2}{2k+3}
+\biggr)
+=
+\frac{2k+1}{4k}
+\cdot
+\frac{4k}{3(2k+3)}
+=
+\frac13\cdot
+\frac{2k+1}{2k+3}.
+\end{align*}
+Da $E(X)=0$ ist (was man auch aus Symmetrie"uberlegungen ohne
+Rechnen h"atte bekommen k"onnen), ist $\operatorname{var}(X)=E(X^2)$,
+im vorliegenden Fall $k=2$ also 
+$\operatorname{var}(X)=\frac{5}{3\cdot 7}=\frac{5}{21}=0.2380952$.
+
+Man beachte, dass diese verallgemeinerte Verteilung f"ur $k\to\infty$
+in eine Gleichverteilung auf dem Interval $[-1,1]$ "ubergeht, deren
+Varianz, wie in der Vorlesung gezeigt, $\frac{l^2}{12}=\frac13$ ist, wobei
+$l$ die Intervall"ange $l=2$ ist. Tats"achlich strebt der obige 
+Ausdruck f"ur $E(X^2)$ f"ur $k\to\infty$ gegen $\frac13$.
+\end{loesung}

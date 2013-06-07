@@ -1,0 +1,47 @@
+Ein Signal mit normalverteilten Werten $X$ mit Erwartungswert
+$1$ und Standardabweichung $2$ wird "uber einen Eingangsverst"arker
+geleitet, der Werte zwischen $\pm3.3$ verarbeiten kann, bevor
+er "ubersteuert wird. Wie h"aufig wird der Verst"arker "ubersteuert?
+
+\begin{loesung}
+Die Signalwerte $X$ bilden eine normalverteilte Zufallsvariable mit $\mu = 1$
+und $\sigma=2$. Gefragt ist die Wahrscheinlichkeit, dass
+$X$ ausserhalb des Intervals $[-3.3, 3.3]$ liegt. Wir l"osen dieses
+Problem mit Hilfe der Standardisierung $Z=(X-\mu)/\sigma$.
+\begin{align*}
+P(-3.3\le X\le 3.3)
+&=
+P\left(
+\frac{-3.3-\mu }{\sigma}
+\le
+\frac{X-\mu}{\sigma}
+\le
+\frac{3.3-\mu }{\sigma}
+\right)
+\\
+&=
+P\left(
+\frac{-3.3-1}{2}
+\le
+Z
+\le
+\frac{3.3-1}{2}
+\right)
+\\
+&=
+P\left(
+\frac{-3.3-1}{2}
+\le
+Z
+\le
+\frac{3.3-1}{2}
+\right)
+\\
+&=P(-2.15 \le Z \le 1.15)
+=F(1.15)-F(-2.15)\\
+&=F(1.15)-1+F(2.15)
+=0.8749+0.9842 - 1=0.8591.
+\end{align*}
+Die Wahrscheinlichkeit einer "Ubersteuerung ist also 14.09\%.
+\end{loesung}
+

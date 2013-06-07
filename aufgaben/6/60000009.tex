@@ -1,0 +1,87 @@
+Ein Dreik"onigskuchen besteht aus mehreren Teilen, von denen genau einer 
+eine kleine
+K"onigsfigur enth"alt. Ein B"acker will sich die Arbeit vereinfachen, und
+f"ugt daher die K"onigsfiguren bereits beim Mischen des Teigs hinzu,
+wobei er nat"urlich das Risiko eingeht, dass einzelne Kuchen mehrere oder
+gar keine K"onigsfiguren enthalten. Nehmen Sie an, dass der B"acker Teig
+f"ur $n$ K"onigskuchen mit je 10 Teilen mischt.
+\begin{teilaufgaben}
+\item Wie gross ist die Wahrscheinlichkeit, dass jeder Dreik"onigskuchen genau
+eine K"onigsfigur enth"alt?
+\item Wie gross ist die Wahrscheinlichkeit, dass ein Dreik"onigskuchen gar
+keine K"onigsfigur enth"alt?
+\item Wie gross ist die Wahrscheinlichkeit, dass der erste von
+10 Dreik"onigskuchen zwei oder mehr K"onigsfiguren enth"alt?
+\item Wie gross ist die Wahrscheinlichkeit, dass in einem Dreik"onigskuchen,
+welcher zwei K"onigsfiguren enth"alt, ein Teil
+beide K"onigsfiguren enth"alt?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Es gibt $n^n$ Zuteilungen von K"onigsfiguren zu K"onigskuchen.
+Davon sind $n!$ Zuteilungen, welche jedem Dreik"onigskuchen genau eine
+K"onigsfigur zuteilt, die K"onige also nur ihre ``K"onigreiche''
+vertauscht haben. Die Wahrscheinlichkeit, dass jeder Dreik"onigskuchen
+genau eine K"onigsfigur enth"alt, ist also
+$\frac{n!}{n^n}$.
+\item Wenn ein Dreik"onigskuchen keine K"onigsfigur enth"alt, dann muss
+ein anderer mehr als eine K"onigsfigur enthalten.
+Jeder der Dreik"onigskuchen enth"alt genau dann genau eine K"onigsfigur, wenn
+kein Dreik"onigskuchen keine K"onigsfigur enth"alt, also $1-\frac{n!}{n^n}$.
+\item Die Wahrscheinlichkeit, dass der erste von $n$ Kuchen genau $k$
+enth"alt ist binomialverteilt mit $p=\frac1{n}$. Man kann sich n"amlich
+vorstellen, dass das ``Einstreuen'' der K"onigsfiguren ein Experiment
+mit zwei m"oglichen Ausg"angen ist: ``Figur ist im ersten Kuchen drin''
+bzw.~``Figur ist in einem anderen Kuchen drin''. Somit ist zu bestimmen
+\begin{align*}
+P(K\ge 2)
+&=
+1 -P(K=0) - P(K=1)
+\\
+&=
+1 - \binom{n}{0}p^0(1-p)^n
+- \binom{n}{1}p(1-p)^n
+=
+1 - (1-p)^n - np(1-p)^{n-1}
+\\
+&=
+1 - \biggl(\frac{n-1}{n}\biggr)^n
+- n\frac1{n}\biggl(\frac{n-1}{n}\biggr)^{n-1}.
+\\
+&=
+1 - \biggl(\frac{n-1}{n}\biggr)^n
+- \biggl(\frac{n-1}{n}\biggr)^{n-1}.
+\\
+&=
+1 - \biggl(\frac{n-1}{n}+1\biggr) \biggl(\frac{n-1}{n}\biggr)^{n-1}.
+\\
+&=
+1 - \biggl(\frac{2n-1}{n}\biggr) \biggl(\frac{n-1}{n}\biggr)^{n-1}.
+\end{align*}
+F"ur $n=10$ findet man:
+\[
+1-\frac{19}{10}\biggl(\frac{9}{10}\biggr)^9
+=
+0.2639010709.
+\]
+\item Es gibt $10^2$ M"oglichkeiten, zwei K"onigsfiguren auf 10 Teile
+zu verteilen, bei $10$ davon sind die beiden K"onigsfiguren im gleichen
+Teil. Die Wahrscheinlichkeit ist also $\frac1{10}$.
+
+Oder: der ``erste'' K"onig markiert ein Teil, und wir m"ussen jetzt
+die Wahrscheinlichkeit bestimmen, dass der ``zweite'' K"onig in
+das gleiche Teil kommt. Diese ist nat"urlich $\frac1{10}$.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Mit Hilfe der Stirling-Formel kann man die Wahrscheinlichkeit absch"atzen:
+\[
+\frac{n!}{n^n}
+=
+\sqrt{2\pi n}\frac1{e^n}\to0\quad\text{f"ur}\quad n\to\infty.
+\]
+Die Wahrscheinlichkeit, dass jeder Dreik"onigskuchen genau eine K"onigsfigur
+enth"alt, wird also immer kleiner, je gr"osser die Anzahl der Kuchen wird.
+\end{diskussion}

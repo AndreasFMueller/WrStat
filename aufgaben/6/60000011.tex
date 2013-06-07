@@ -1,0 +1,99 @@
+In seinem Buch ``Why people believe weird things'' beschreibt Michael
+Shermer den folgenden Test f"ur aussersinnliche Wahrnehmung
+(ESP, extra sensory perception), den er bei der Association for Research and Enlightenment in Virginia Beach, Virginia, selbst miterlebt hat:
+die ``sendende'' Person konzentriert sich
+auf eines von f"unf Symbolen, die ``empfangende'' Person konzentriert sich 
+auf die Stirn der sendenden Person und versucht das Symbol zu erkennen.
+Mit Hilfe einer ESP-Machine wird dann gez"ahlt, wie oft der ``Empf"anger''
+das Symbol richtig erkannt hat.
+\begin{center}
+\includeagraphics[width=0.6\hsize]{esp-machine.png}
+\end{center}
+Das Experiment wird 25 mal wiederholt. Der Versuchsleiter erkl"arte:
+``5 richtige ist Durchschnitt, 3 bis 7 ist Zufall,
+alles "uber 7 ist ein Hinweis auf aussersinnliche Wahrnehmung''.
+\begin{teilaufgaben}
+\item Wie wahrscheinlich ist, dass ein v"ollig unbegabter ``Empf"anger''
+mehr als 7 Symbole richtig empf"angt?
+\item Beschreiben Sie einen Test, mit dem man mit grosser Zuverl"assigkeit
+ESP-begabte ``Empf"anger'' identifizieren k"onnte.
+%\item Welchen Prozentsatz der Bev"olkerung wird von Ihrem Test als
+%ESP-begabt erkannt, selbst wenn es ESP nicht gibt?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Ein Empf"anger, der nur zuf"allige Antworten gibt, w"ahlt
+die richtige Antwort mit Wahrscheinlichkeit $p=\frac15$.
+Seine Anzahl $X$ richtiger Antworten in 25 Versuchen ist binomialverteilt mit
+$p=0.2$ und $n=25$. Gesucht ist die Wahrscheinlichkeit
+\begin{align*}
+P(X > 7)&= 1 - P(X\le 7)\\
+P(X\le 7)&=\sum_{k=0}^7\binom{25}{k}
+\biggl(\frac15\biggr)^k
+\biggl(1-\frac15\biggr)^{25-k}
+ = 0.1091228
+\end{align*}
+(gerechnet mit R).
+Da die Binomialverteilung etwas unhandlich zu berechnen ist, kann man sie
+dank des relativ grossen $n=25$ gut durch die Binomialverteilung
+mit $\mu=np=5$ und $\sigma^2=np(1-p)=25\cdot\frac{4}{25}=4$
+approximieren.
+\[
+P(X\le 7)=P\biggl(\frac{X-\mu}{\sigma}\le \frac{7-\mu}{\sigma}\biggr)
+=
+0.8413447
+\]
+Die Gr"osse $\frac{X-\mu}{\sigma}$ ist angen"ahrt standardnormalverteilt.
+Noch etwas besser wird das Result allerdings, wenn man statt $7$ den
+Wert $7.5$ nimmt:
+\[
+P\biggl(Z\le\frac{7.5-\mu}{\sigma}\biggr)
+=
+P\biggl(Z\le \frac{7.5-2}{2}\biggr)
+=
+P(Z\le 1.25)=0.8943502\\
+\]
+Die Wahrscheinlichkeit, mehr als 7 Symbole richtig zu Raten ist
+also $1-0.8943502= 0.1056498$.
+\item
+Wir verwenden einen Test mit $\alpha=0.01$.
+Der Empf"anger muss eine so grosse Zahl Symbole richtig erkennen,
+dass dies nur mit Wahrscheinlichkeit kleiner als $\alpha$ zuf"allig
+passieren kann.
+Die Zahl $k$ der richtigen Antworten muss also so gew"ahlt sein,
+dass $P(X\ge k) \le \alpha$ ist f"ur binomialverteiltes $X$ mit $p=\frac15$
+und $n=25$. Wie in a) approximieren wir dies durch die Normalverteilung
+suchen also $k$ so, dass $P(X\ge k)\le\alpha$ unter der Annahme, dass
+$X$ normalverteilt ist mit $\mu=5$ und $\sigma=2$.
+\begin{align*}
+P\biggl(Z\le \frac{k - \mu}{\sigma}\biggr)&\ge 1-\alpha=0.99\\
+\frac{k-5}2&\ge 2.326348\\
+k&\ge 2\cdot 2.326348 + 5=9.652696
+\end{align*}
+Von ESP kann man also mit grosser Sicherheit erst dann sprechen, wenn
+ein Kandidat mindestens 10 Symbole richtig empf"angt.
+Bei etwas sorgf"altiger Approximation, d.~h.~unter Ber"ucksichtigung
+der Klassengrenzen bei halbzahligen $x$-Werten, findet man, dass
+$k\ge 10.15270$ sein muss, man also erst bei mindestens 11 richtig
+empfangenen Symbolen von den ESP-F"ahigkeiten der Testperson
+"uberzeugt sein kann.
+\item
+Die Wahrscheinlichkeit, 10 (11) oder mehr Symbole richtig zu empfangen,
+selbst wenn man nicht "uber ESP-F"ahigkeiten verf"ugt, kann wie in
+a) berechnet werden. Man findet die folgenden Resultate:
+\begin{center}
+\begin{tabular}{|r|r|r|r|}
+\hline
+$k$&$1-P(X\le k)$&$1-P(Z\le k)$&$1-P(Z\le k+\frac12)$\\
+\hline
+ 9&0.01733&0.02275&0.01222\\
+10&0.00555&0.00621&0.00298\\
+11&0.00154&0.00135&0.00058\\
+\hline
+\end{tabular}
+\end{center}
+Darin ist $X$ die binomialverteilte Zufallsvariable mit $n=25$ und $p=\frac12$,
+und $Z$ ist die normalverteilte Approximation mit $\mu=5$ und $\sigma=2$.
+\end{teilaufgaben}
+\end{loesung}

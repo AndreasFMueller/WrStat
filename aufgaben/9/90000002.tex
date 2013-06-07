@@ -1,0 +1,111 @@
+In der Vorlesung wurde gezeigt, dass die Geschwindigkeit der "Uberschallrakete
+``Chicago'' bestimmt werden konnte. Dazu wurde ein Messger"at gebaut,
+welches mit Hilfe eines Kalman-Filters aus der Beschleunigung die
+Geschwindigkeit bestimmt hat. Dabei wurde ein Zeitschritt von $\Delta t=0.01s$
+verwendet.
+\begin{teilaufgaben}
+\item Modellieren Sie das System.
+"Uberlegen Sie sich plausible Werte f"ur die Systemfehler $Q$.
+Gehen Sie von einer Beschleunigungsunsicherheit von $1g$
+aus.
+\item Modellieren Sie den Messprozess. Verwenden Sie den Wert $1g$ f"ur
+den Messfehler.
+\item Stellen Sie die Kalman-Filter-Formeln f"ur Pr"adiktor- und
+Korrektor-Schritt zusammen.
+\item Verwenden Sie die Daten im File {\tt data.csv} als Input zu einem
+Kalman-Filter, den Sie zum Beispiel in Octave implementieren k"onnen.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die Modellierung wurde schon in der Vorlesung kurz gezeigt:
+\[
+x_k=\begin{pmatrix}v_k\\a_k\end{pmatrix},\qquad
+\varphi_k=\begin{pmatrix}1&\Delta t\\0&1\end{pmatrix}.
+\]
+Die Matrix der Systemfehler enth"alt ungef"ahre Gr"ossen f"ur die Dinge,
+die vernachl"assigt worden sind. Das Modell nimmt an, dass die
+Beschleunigung konstant ist.
+Das ist zwar weitgehend richtig, aber es gibt Schwankungen durch
+nicht konstanten Abbrand und durch die "Anderung der Masse der
+Rakete (die Beschleunigung nimmt zu). Erfahrungsgem"ass ist die
+Massenabnahme der dominante Beitrag, die Beschleunigung "andert sich
+dabei um ca $1g$ im Laufe des Abbrandes des Motors (innert 1 Sekunde).
+Die Beschleunigungsfehler bewegen sich also im Bereich von $1g$, entsprechend
+ist die Geschwindigkeit pro Zeitschritt mit einer Unsicherheit von
+$0.01\text{m/s}$ behaftet.
+\[
+Q=\begin{pmatrix}
+(0.01g)^2&0\\
+0&(1g)^2
+\end{pmatrix}
+\]
+\item
+Der Messprozess extrahiert aus dem Zustandsvektor die Beschleunigung
+\[
+H=\begin{pmatrix}0&1\end{pmatrix}.
+\]
+Da nur ein Messfehler vorhanden ist, n"amlich derjenige des
+Beschleunigungssensors, ist die Matrix
+\[
+R=\begin{pmatrix}
+(1g)^2
+\end{pmatrix}.
+\]
+\item Pr"adiktorschritt:
+\begin{align*}
+\hat x_{k|k-1}&=
+\begin{pmatrix}1&\Delta t\\0&1\end{pmatrix}
+\hat x_{k-1}
+\\
+P_{k|k-1}&=
+\begin{pmatrix}1&\Delta t\\0&1\end{pmatrix}P_k
+\begin{pmatrix}1&0\\\Delta t&1\end{pmatrix}
++
+Q_k
+\end{align*}
+Im Korrektorschritt wir die Kalman-Matrix gebraucht, eine
+$2\times 1$-Matrix, also ein Spaltenvektor
+\[
+K=
+\begin{pmatrix}k_1\\k_2\end{pmatrix}
+\]
+Korrektorschritt:
+\begin{align*}
+\hat x_k
+&=
+\begin{pmatrix}k_1\\k_2\end{pmatrix}z_k
++
+\begin{pmatrix}
+1&-k_1\\
+0&1-k_2
+\end{pmatrix}
+\hat x_{k|k-1}
+\\
+P_k
+&=
+(I-KH)P_{k|k-1}(I-KH)^t+KRK^t
+\\
+&=
+\begin{pmatrix}
+1&-k_1\\
+0&1-k_2
+\end{pmatrix}
+P_{k|k-1}
+\begin{pmatrix}
+1&0\\
+-k_1&1-k_2
+\end{pmatrix}
++
+R
+\begin{pmatrix}
+k_1^2&k_1k_2\\
+k_1k_2&k_2^2
+\end{pmatrix}
+\end{align*}
+\item
+Das folgende Octave-Programm f"uhrt die Berechnung durch.
+\verbatimainput{kalman-expanded.m}
+\end{teilaufgaben}
+\end{loesung}
+

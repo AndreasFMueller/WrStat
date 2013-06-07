@@ -1,0 +1,94 @@
+Zwei Standardfamilien (2 Eltern, 2 nicht erwachsene Kinder) und eine
+Einelternfamilie mit 2 (nicht erwachsenen) Kinden gehen zusammen Skifahren,
+insgesamt 11 Personen.
+Sie stehen bei einem vierpl"atzigen Sessellift an und bem"uhen sich,
+m"oglichst zusammen Sessel zu besteigen. Tats"achlich gelingt es
+ihnen, zwei Sessel mit 4 Familienmitgliedern und einen dritten
+Sessel mit drei Mitgliedern zu besetzen.
+\begin{teilaufgaben}
+\item Auf wieviele Arten k"onnen sich die Familienmitglieder auf
+die drei Sessel des Sessellifts verteilen?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass sich auf dem ersten
+Sessel nur Erwachsene befinden?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass sich auf dem letzten Sessel
+genau ein Kind befindet?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item F"ur den ersten Sessel m"ussen 4 Personen aus der Gesellschaft
+von 11 Personen ausgew"ahlt werden, was auf $\binom{11}{4}=330$
+Arten m"oglich ist. F"ur jede solche Wahl m"ussen jetzt 4 Personen
+aus den verbleibenden 7 f"ur den zweiten Sessel gew"ahlt werden,
+was auf $\binom{7}{4}=35$ Arten m"oglich ist. Insgesamt gibt es
+also 
+\[
+\binom{11}{4}\binom{7}{4}=330\cdot 35=11550
+\]
+M"oglichkeiten.
+
+Man k"onnte nat"urlich auch beim letzten Sessel beginnen, f"ur
+den 3 von 11 Personen ausgew"ahlt werden m"ussen. F"ur den 
+zweitletzten Sessel m"ussen dann 4 Personen aus den verbleibenden
+8 ausgew"ahlt werden, also 
+\[
+\binom{11}{3}\binom{8}{4}=165\cdot 70=11550
+\]
+M"oglichkeiten, wie vorhin.
+\item
+Um die Wahrscheinlichkeit zu berechnen muss man die z"ahlen, auf
+wieviele Arten die Mitglieder verteilt werden k"onnen, so dass
+auf dem ersten Sessel genau 4 Erwachsene platziert werden.
+Dazu m"ussen f"ur den ersten Sessel 4 aus 5 Erwachsenen gew"ahlt werden,
+f"ur den zweiten Sessel 4 aus den verbleibenden 7 Personen. Insgesamt
+gibt es also
+\[
+\binom{5}{4}\binom{7}{4}=5\cdot 35=175
+\]
+M"oglichkeiten. Die gesuchte Wahrscheinlichkeit ist daher
+\[
+P(\text{nur Erwachsene auf dem ersten Sessel})=
+\frac{175}{11550}=0.01515152.
+\]
+\item
+Wieder muss gez"ahlt werden, auf wieviele Arten eines der 6 Kinder
+und 2 der 5 Erwachsenen 
+f"ur
+den letzten Sessel ausgew"ahlt werden k"onnen, es gibt also
+\[
+\binom{6}{1}\binom{5}{2}\binom{8}{4}=6\cdot 10\cdot70=4200
+\]
+M"oglichkeiten, die Personen so zu verteilen, dass auf dem dritten
+Sessel genau ein Kinde Platz findet. Die Wahrscheinlichkeit daf"ur ist
+also
+\[
+P(\text{genau ein Kind auf dem dritten Sessel})=\frac{4200}{11550}=0.3636364.
+\]
+\end{teilaufgaben}
+Die Wahrscheinlichkeiten in b) und c) k"onnte man auch mit der
+hypergeometrischen Verteilung berechnen. F"ur b) muss man von
+den 11 Personen 4 f"ur den ersten Sessel ausw"ahlen.
+Die Wahrscheinlichkeit,
+dass alle vier Erwachsene sind, ist
+die gleiche, wie bei einer Lotterie, in der f"unf aus elf Zahlen gezogen wurde,
+mit 4 Markierungen vier Richtige zu erreichen:
+\[
+\frac{
+\binom{5}{4}\binom{6}{0}
+}{
+\binom{11}{4}
+}
+=\frac{5}{330}\simeq 0.01515
+\]
+Oder analog in c):
+\[
+\frac{
+\binom{6}{1}\binom{5}{2}
+}{
+\binom{11}{3}
+}
+=\frac{6\cdot 10}{165}\simeq 0.3636.
+\]
+\end{loesung}

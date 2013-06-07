@@ -1,0 +1,76 @@
+Zwei faire W"urfel werden geworfen. Die W"urfel, die eine Sechs
+zeigen, bleiben liegen, mit den anderen wird ein zweites Mal gew"urfelt.
+Welche Gesamtpunktzahl kann man erwarten?
+Wie "andert sich das Resultat, wenn man statt der Sechser die Einer
+beh"alt?
+
+\begin{loesung}
+Die Aufgabe spricht zwar von zwei W"urfeln, aber eigentlich kann man
+jeden dieser W"urfel f"ur sich betrachten, denn was mit einem W"urfel
+im Laufe des Spieles passiert h"angt nur davon ab, was er selbst
+anzeigt.
+
+Wir haben also zwei F"alle zu unterscheiden: entweder zeigt der
+W"urfel im ersten Wurf eine Sechs, dann bleibt er so liegen,
+oder er zeigt keine Sechs, dann wird er nochmals geworfen.
+Der erste Fall tritt mit Wahrscheinlichkeit $\frac16$ ein,
+der zweite mit Wahrscheinlicheit $\frac56$. Im ersten Fall
+erziehlt man die Augenzahl $6$, im zweiten die erwartete
+Augenzahl eines einzelnen W"urfels, also $3.5$. Der erwartete
+Wert ist daher
+\[
+\frac16\cdot 6 +\frac56\cdot\frac72=\frac{12+35}{12}=\frac{47}{12}=3.916666
+\]
+Nun ist aber der Erwartungswert zweier solcher W"urfel
+gefragt, also das Doppelte: $7.833333$.
+
+Wenn man die Einer statt die Sechser behalten will, k"onnte man
+auch das bisherige Spiel spielen, dann aber die Augenzahl
+$x$ durch $7-x$ ersetzen. Dann wird f"ur jeden W"urfel auch
+die erwartete Augenzahl durch $7-E(X)$ ersetzt, f"ur zwei
+W"urfel erhalten wir also $12-7.833333 = 6.166666$.
+
+Will man trotzdem die drei F"alle gesondert untersuchen (wie
+viele Pr"fungsteilnehmer es versucht haben), kann man wie
+folgt vorgehen.
+Als Resultat des ersten Wurfes sind drei F"alle zu betrachten, die
+der Anzahl der Sechser in diesem Wurf entsprechen.
+\begin{itemize}
+\item[0:] Kein Sechser, dieser Fall tritt mit Wahrscheinlichkeit
+$\frac{25}{36}$ ein.  In diesem Fall wirft man beide W"urfel nochmals,
+dabei ist die erwartete Augenzahl $7$.
+\item[1:] Genau ein Sechser, dieser Fall tritt mit Wahrscheinlichkeit
+$\frac{10}{26}$ ein.  In diesem Fall wirft man einen W"urfel nochmals,
+wobei man im Mittel die Augenzahl $3.5$ erwartet.  Zusammen mit dem
+bereits erziehlten Sechser ist die erwartete Gesamtpunktzahl in diesem
+Fall also $9.5$.
+\item[2:] Genau zwei Sechser, dieser Fall tritt mit Wahrscheinlichkeit
+$\frac{1}{36}$ ein.  In diesem Fall wirft man nicht nochmals, die
+erziehlte Punktzahl ist $12$.
+\end{itemize}
+Aus diesen F"allen kann man jetzt die erwartete Punktzahl zusammensetzen:
+\[
+7\cdot \frac{25}{36}
++
+9.5\cdot \frac{10}{36}
++
+12\cdot\frac{1}{36}
+=
+\frac{175+95+12}{36}=\frac{282}{36}=\frac{47}{6}
+=7.8333333
+\]
+F"ur die Einer "andert sich der erwartete Wert wie folgt:
+\[
+7\cdot \frac{25}{36}
++
+4.5\cdot \frac{10}{36}
++
+2\cdot\frac{1}{36}
+=
+\frac{175+45+2}{36}=\frac{222}{36}=\frac{37}{6}
+=6.1666666.
+\]
+Offenbar ist die Resultatverbesserung bei den Einern viel dramatischer
+als bei den Sechsern.
+\end{loesung}
+

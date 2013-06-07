@@ -1,0 +1,65 @@
+Die Zufallsvariable $X$ hat eine symmetrische Verteilung, im
+Interval $[0,1]$ ist ihre Verteilungsfunktion $F(x)=\frac12(1+x^n)$.
+\begin{teilaufgaben}
+\item
+Berechnen Sie den Erwartungswert von $X$.
+\item
+Berechnen Sie ihre Varianz von $X$.
+\item
+Was passiert, wenn man $n$ beliebig gross werden l"asst?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Da $X$ symmetrisch verteilt ist, ist $E(X)=0$.
+\item
+F"ur die Varianz braucht man ausser dem Erwartungswert auch noch
+den quadratischen Mittelwert.  F"ur seine Berechnung braucht man die
+Dichtefunktion $\varphi(x)=F'(x)$. Ausserdem kann man die Symmetrie
+von $\varphi(x)$ ausnutzen.
+\begin{align*}
+E(X^2)
+&=
+\int_{-\infty}^{\infty}x^2\varphi(x)\,dx
+=
+2\int_{0}^{\infty}x^2\varphi(x)\,dx
+=2\int_0^1 x^2 F'(x)\,dx\\
+&=
+2[x^2F(x)|_0^1-2\int_0^12xF(x)\,dx
+\\
+&=
+2F(1)-20\cdot F(0)-2\int_0^1x(1+x^n)\,dx
+\\
+&=
+2-2\left[
+\frac12x^2+\frac1{n+2}x^{n+2}
+\right]_0^1
+\\
+&=
+2-2\biggl(\frac12+\frac1{n+2}\biggr)
+=
+1-\frac{2}{n+2}
+=
+\frac{n}{n+2}
+\end{align*}
+Man kann das Integral nat"urlich auch konventioneller ausrechnen:
+\begin{align*}
+E(X^2)&=2\int_0^1x^2\cdot\frac{n}2x^{n-1}\,dx
+=
+n\int_0^1x^{n+1}\,dx=n\left[\frac{x^{n+2}}{n+2}\right]_0^1
+=\frac{n}{n+2}
+\end{align*}
+Daraus lesen wir f"ur die Varianz ab
+\[
+\operatorname{var}(X)=E(X^2)-E(X)^2=E(X^2)=\frac{n}{n+2}.
+\]
+\item
+F"ur $n\to\infty$ strebt die Varianz gegen $1$, der Erwartungswert
+bleibt nat"urlich $0$. Man kann das auch der Verteilungsfunktion
+ansehen: Sie wird zu einer Stufenfunktion, die an den Stellen
+$\pm 1$ je eine Stufe der H"ohe $\frac12$ hat. Dies bedeutet
+nat"urlich, dass im Limes $n\to\infty$ nur noch die Werte $\pm1$ mit
+Wahrscheinlichkeit auftreten werden.
+\end{teilaufgaben}
+\end{loesung}
+

@@ -1,0 +1,170 @@
+Drei Maschinen $M_i$, $1\le i\le 3$, produzieren Bauteile, wobei $p(M_i)$
+der Anteil der von der Maschine $M_i$ produzierten Bauteile ist.
+Durch eine Kontrollmessung werden die Bauteile anschliessen in
+drei Klassen eingeteilt: $A$, $B$ und Ausschuss $U$. Folgende statistischen
+Informationen sind bekannt:
+\begin{enumerate}
+\item Insgesamt werden 10\% Ausschuss produziert.
+\item Der Ausstoss an Klasse $B$ Teilen ist doppelt so gross wie
+der Ausstoss an Klasse A Teilen.
+\item Die Maschine $M_3$ ist zu wenig pr"azise, um "uberhaupt
+Klasse $A$ Teile zu produzieren.
+\item Die Maschine $M_1$ produziert nur 2\% Ausschuss und gleichviele
+Klasse $A$ wie Klasse $B$ Teile.
+\item Maschine $M_1$ ist doppelt so produktiv wie Maschine $M_2$, welche
+wiederum doppelt so produktiv ist wie Maschine $M_3$.
+\item Maschine $M_2$ produziert 4\% Ausschuss.
+\end{enumerate}
+Beantworten Sie damit die folgenden Fragen:
+\begin{teilaufgaben}
+\item
+Wie gross ist der Gesamtausstoss von Kategorie $A$ Teilen?
+\item
+Wieviel Ausschuss produziert die Maschine $M_3$?
+\item
+Welchen Anteil haben die drei Maschinen an den Kategorie-$B$-Teilen?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir "ubersetzen zun"achst die Aussagen der Aufgabenstellung
+in Wahrscheinlichkeitsaussagen. Dabei bezeichnen wir mit $M_k$ das
+Ereignis, dass ein Teil auf der Maschine Nummer $k$ gefertigt
+worden ist, und mit $A$, $B$ und $U$ die Ereignisse, dass das Teil
+in die entsprechenden Klassen f"allt.
+\begin{enumerate}
+\item $P(U)=0.1$                                %
+\item $P(B)=2P(A)$                              %
+\item $P(A|M_3)=0$
+\item $P(A|M_1)=P(B|M_1)$, $P(U|M_1)=0.02$
+\item $P(M_1)=2P(M_2)$, $P(M_2)=2P(M_3)$
+\item $P(U|M_2)=0.04$                           % 
+\end{enumerate}
+In den Teilaufgaben werden die folgenden Gr"ossen gesucht:
+\begin{teilaufgaben}
+\item $P(A)$
+\item $P(U|M_3)$
+\item $P(M_1|B)$, $P(M_2|B)$, $P(M_3|B)$
+\end{teilaufgaben}
+
+Aus den ersten zwei Gleichungen ermittelt man
+\[
+P(B)=0.6\qquad P(A)=0.3
+\]
+Damit l"asst sich Teilaufgabe a) bereits l"osen.
+
+Aus der dritten Aussage folgt
+\begin{align*}
+1&=P(A|M_1)+P(B|M_1)+P(U|M_1)=2P(A|M_1)+0.02
+\\
+\Rightarrow\quad
+P(A|M_1)&=P(B|M_1)=0.49.
+\end{align*}
+Aus der f"unften Aussage folgt
+\[
+1=P(M_1)+P(M_2)+P(M_3)=7P(M_3)
+\quad\Rightarrow\quad
+P(M_3)=\frac17.
+\]
+
+Die Wahrscheinlichkeit von $U$ ist einerseits in der ersten Aussage
+gegeben, andererseits kann man sie mit dem Satz "uber die totale
+Wahrscheinlichkeit auch schreiben als
+\begin{align*}
+0.1=P(U)
+&=P(U|M_1)P(M_1)+P(U|M_2)P(M_2)+P(U|M_3)P(M_3)
+\\
+&=0.02\cdot 4P(M_3)+0.04\cdot 2P(M_3)+P(U|M_3)P(M_3)
+\\
+7\cdot 0.1&=4\cdot 0.02+2\cdot 0.04+P(U|M_3)
+\\
+0.54&=P(U|M_3)
+\end{align*}
+Damit ist die Teilaufgabe b) gel"ost.
+Mit dem Satz "uber die totale Wahrscheinlichkeit f"ur $A$ findet man
+\begin{align*}
+0.3=P(A)&=
+P(A|M_1)P(M_1)
++
+P(A|M_2)P(M_2)
++
+P(A|M_3)P(M_3)
+\\
+&=
+0.49\cdot 4P(M_3)
++
+P(A|M_2)\cdot 2P(M_3)
+\\
+&=
+(4\cdot 0.49
++
+2P(A|M_2))P(M_3)
+\\
+7\cdot 0.3
+&=4\cdot 0.49+2P(A|M_2)
+\\
+P(A|M_2)&=0.07
+\end{align*}
+Da nun $P(U|M_2)$ bereits bekannt ist, und zusammen mit $P(A|M_2)$
+und $P(B|M_2)$ $1$ ergeben muss, folgt
+\[
+P(B|M_2)=1-P(A|M_2)-P(U|M_2)=1-0.07-0.04=0.89
+\]
+Ebenso kann man den Satz "uber die totale Wahrscheinlichkeit auch
+f"ur $B$ anwenden und findet
+\begin{align*}
+0.6=P(B)
+&=
+P(B|M_1)P(M_2)
++
+P(B|M_2)P(M_2)
++
+P(B|M_3)P(M_3)
+\\
+&=
+0.49\cdot 4P(M_3)
++
+P(B|M_2)\cdot 2P(M_3)
++
+P(B|M_3)P(M_3)
+\\
+&=
+(4\cdot 0.49
++
+2P(B|M_2)
++
+P(B|M_3))P(M_3)
+\\
+7\cdot 0.6
+&=
+4\cdot 0.49+2\cdot 0.89 +P(B|M_3)
+\\
+P(B|M_3)&=0.46
+\end{align*}
+Damit sind jetzt alle Wahrscheinlichkeiten $P(B|M_i)$, $P(B)$ und
+$P(M_i)$ bekannt, und mit dem Satz von Bayes kann man auch $P(M_i|B)$
+berechnen:
+\begin{align*}
+P(M_1|B)&=
+P(B|M_1)\frac{P(M_1)}{P(B)}
+\\
+&=0.49\cdot\frac{4\cdot\frac17}{0.6}
+=0.466666
+\\
+P(M_2|B)&=
+P(B|M_2)\frac{P(M_2)}{P(B)}
+\\
+&=0.89\cdot\frac{2\cdot\frac17}{0.6}
+=0.423810
+\\
+P(M_3|B)&=
+P(B|M_3)\frac{P(M_3)}{P(B)}
+\\
+&=0.46\cdot\frac{\frac17}{0.6}
+=0.109523
+\end{align*}
+Zur Kontrolle:
+\[
+0.466666+0.423810+0.109523=0.999999.
+\]
+\end{loesung}
+

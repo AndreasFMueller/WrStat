@@ -1,0 +1,25 @@
+Auf dem Kleinplaneten Z"urch grassiert eine Epidemie, 40\% der 10000 Bewohner
+(auch Z"urcher genannt) sind
+erkrankt. Zur Erforschung der Krankheit wird ein Screening durchgef"uhrt,
+100 Z"urcher werden untersucht. Wie gross ist die Wahrscheinlichkeit,
+bei genau 40 von ihnen die Krankeit zu finden?
+
+\begin{loesung}
+Es gibt $\binom{10000}{100}$ M"oglichkeiten, eine Stichprobe von
+100 Z"urchern aus der Gesamtbev"olkerung zu entnehmen. F"ur eine
+Stichprobe mit genau 40 Krankheitsopfern kann entnommen
+werden, indem man auf
+$\binom{4000}{40}$ Arten 40 kranke, und f"ur jede solche Wahl
+auf $\binom{6000}{60}$ Arten
+gesunde Z"urcher ausw"ahlt. Dies ist auf
+\[
+\binom{4000}{40}\binom{6000}{60}
+\]
+Arten m"oglich.
+Die gesucht Wahrscheinlichkeit ist somit
+\[
+\frac{\binom{4000}{40}\binom{6000}{60}}{\binom{10000}{100}}=
+0.08162
+\]
+\end{loesung}
+

@@ -1,0 +1,94 @@
+Ein Gl"ucksspiel wird wie folgt gespielt. Der Spieler bezahlt seinen
+Einsatz $a$. Dann wir einerseits ein
+Rouletterad gedreht, andererseits ein W"urfel geworfen. Falls
+die beiden Zahlen teilerfremd sind, verliert man den Einsatz, falls
+sie einen gemeinsamen Teiler $>1$ haben, gewinnt man so viel, wie
+der Teiler angibt.
+\begin{teilaufgaben}
+\item Wie gross ist der gr"osstm"ogliche Gewinn?
+\item Wie gross ist der wahrscheinlichste Gewinn?
+\item Wie gross darf $a$ h"ochstens sein, damit sich das Spiel langfristig
+f"ur den Spieler lohnt (oder anders herum, welchen minimalen Einsatz $a$
+muss das Spielcasino verlangen, damit es nicht ``drauflegt'')?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die gr"osstm"ogliche Augenzahl ist $6$, die kommt auch als gemeinsamer
+Teiler vor, also ist  der gr"osstm"ogliche Gewinn $6$.
+\item
+Die m"oglichen Gewinne sind $2$, $3$ und $6$. Wir m"ussen abz"ahlen,
+wie h"aufig jeder dieser Gewinne vorkommt. Dies geschieht am einfachsten
+mit folgender Tabelle, in der vertikal die W"urfelzahl, horizontal die
+Roulettradzahl und in den Zellen der Gewinn dargestellt ist.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\\
+\hline
+&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2\\
+\hline
+&&&3&&&3&&&3&&&3&&&3&&&3&&&3&&&3&&&3&&&3&&&3&&&3\\
+\hline
+&&2&&4&&2&&4&&2&&4&&2&&4&&2&&4&&2&&4&&2&&4&&2&&4&&2&&4\\
+\hline
+&&&&&5&&&&&5&&&&&5&&&&&5&&&&&5&&&&&5&&&&&5&\\
+\hline
+&&2&3&2&&6&&2&3&2&&6&&2&3&2&&6&&2&3&2&&6&&2&3&2&&6&&2&3&2&&6\\
+\hline
+\end{tabular}
+\end{center}
+Daraus liest man die folgenden H"aufigkeiten f"ur die einzelnen
+Gewinne ab:
+\begin{center}
+\begin {tabular}{|c|c|c|}
+\hline
+Gewinn&H"aufigkeit&Wahrscheinlichkeit\\
+\hline
+2&39&$\frac{39}{222}=\frac{13}{37}$\\
+3&18&$\frac{18}{222}=\frac9{111}=\frac3{37}$\\
+4&9&$\frac{9}{222}=\frac9{111}=\frac3{37}$\\
+5&7&$\frac7{222}$\\
+6&6&$\frac{6}{222}=\frac3{111}=\frac1{37}$\\
+\hline
+\end {tabular}
+\end{center}
+\item Mit den in der vorangegangen Teilaufgabe berechneten Wahrscheinlichkeiten
+kann man jetzt auch den erwarteten Gewinn ausrechnen, er ist der
+Erwartungswert der Zufallsvariable $X$, die den Gewinn angibt:
+\begin{align*}
+a=E(X)&=2\cdot \frac{39}{222}+3\cdot\frac{18}{222}+4\cdot\frac{9}{222}
++5\cdot\frac{7}{222}+6\cdot\frac6{222}
+\\
+&=\frac{
+2\cdot 39+3\cdot 18+4\cdot 9+5\cdot 7 +6\cdot 6
+}{222}
+\\
+&=\frac{ 239 }{222}
+\simeq 1.07657657657657657657
+\end{align*}
+\end{teilaufgaben}
+Leider hatte sich in der Aufgabenstellung ein Druckfehler eingeschlichen,
+es war von gemeinsamem Teiler $> 0$ die Rede, was nat"urlich unsinnig ist,
+denn Teiler sind immer $> 0$. Die meisten Kandidaten haben dies stillschweigend
+in Teiler $>1$ "ubersetzt, was auch richtig ist, weil ausdr"ucklich
+gesagt wird, dass f"ur teilerfremde Zahlen (als gemeinsamer Teiler $= 1$)
+kein Gewinn ausbezahlt wird.
+
+Auch wurde nicht festgehalten,
+dass die Nullen keinen Gewinn bringen, wie das beim Roulette-Rad so
+"ublich ist. Die Null ist durch jede Zahl teilbar. Wenn also das Roulette-Rad
+eine Null zeigt, ist der Gewinn gleich gross wie die Augenzahl des W"urfels,
+in der H"aufigkeitentabelle kommt also in jeder Zeile noch ein zus"atzliches
+Elementarereignis dazu. Der Erwartungswert wird damit zu
+\[
+a=E(X)=
+\frac{2\cdot 40+3\cdot 19+4\cdot 10+5\cdot 8+6\cdot 7}{222}
+=
+\frac{259}{222}
+\simeq
+1.1666666
+\]
+\end{loesung}
+

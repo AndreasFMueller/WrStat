@@ -1,0 +1,34 @@
+Eine faire M"unze wird vier mal geworfen und die Anzahl ``Kopf'' gez"ahlt.
+Wenn $k$ mal Kopf erscheint, wird ein Gewinn ausbezahlt, der der $k+1$-ten
+Primzahl entspricht. Wie gross ist die Varianz des Gewinns?
+
+\begin{loesung}
+$E(X)$ ist bereits berechnet worden, wir brauchen nur noch den
+Erwartungswert der quadrierten Werte:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Anzahl Kopf&Gewinn $g$&$g^2$&$P(X=g)$&$P(X=g)\cdot g^2$\\
+\hline
+$0$&$ 2$&$  4$&$\frac1{16}$&$\frac{  4}{16}$\\
+$1$&$ 3$&$  9$&$\frac4{16}$&$\frac{ 36}{16}$\\
+$2$&$ 5$&$ 25$&$\frac6{16}$&$\frac{150}{16}$\\
+$3$&$ 7$&$ 49$&$\frac4{16}$&$\frac{196}{16}$\\
+$4$&$11$&$121$&$\frac1{16}$&$\frac{121}{16}$\\
+\hline
+&&&&$\frac{507}{16}=31.6875$\\
+\hline
+\end{tabular}
+\end{center}
+Die Varianz ist jetzt
+\[
+\operatorname{var}(X)
+=E(X^2)-E(X)^2
+=\frac{507}{16}-\left(\frac{83}{16}\right)^2
+=\frac{507\cdot 16 - 83^2}{16^2}=\frac{1223}{256}=4.77734375
+\]
+Wir k"onnen also sagen dass die Gewinne im Mittel
+etwa um $\pm2.186$ Einheiten um den Mittelwert $5.188$
+streuen.
+\end{loesung}
+

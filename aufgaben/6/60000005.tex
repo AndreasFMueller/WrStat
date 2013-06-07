@@ -1,0 +1,45 @@
+In einer Numb3rs Folge bemerkt Charlie, dass trockene Spaghetti beim
+Biegen jeweils
+in mindestens drei Teile brechen. Nachmessen der dazu n"otigen Kr"afte
+ergibt, dass bei 1N 95\% der Spaghetti gebrochen sind, dass aber 90\%
+der Spaghetti eine Kraft von 0.5N tragen k"onnen. Wie gross d"urfte
+die Kraft sein, bei der das Spaghetti bricht? Wie gross ist ihre Varianz?
+
+\begin{loesung}
+Die Kraft, bei der das Spaghetti bricht, ist eine normalverteilte
+Zufallsvariable $X$, wir m"ussen $\mu$ und $\sigma$ dieser Verteilung
+bestimmen. Aus der Aufgabenstellung wissen wir
+\begin{align*}
+P(X \le 1)&=0.95\\
+P(X < 0.5)&=0.1
+\end{align*}
+Standardisierung ergibt
+\begin{align*}
+P\biggl(\frac{X-\mu}{\sigma} \le \frac{1-\mu}{\sigma}\biggr)&=0.95\\
+P\biggl(\frac{X-\mu}{\sigma} < \frac{0.5-\mu}{\sigma}\biggr)&=0.1
+\end{align*}
+Aus der Tabelle der Standardnormalverteilung weiss man
+\begin{align*}
+p(1.6449)&=0.95\\
+p(-1.2816)&=0.1
+\end{align*}
+also folgt das Gleichungssystem
+\begin{align*}
+\frac{1-\mu}{\sigma}&=1.6449\\
+\frac{0.5-\mu}{\sigma}&=-1.2816
+\end{align*}
+welches gleichbedeutend ist mit
+\begin{align*}
+1&=\mu+1.6449\sigma\\
+0.5&=\mu-1.2816\sigma
+\end{align*}
+Die Differenz ergibt
+\[
+0.5 = 2.9265\sigma\quad\Rightarrow\quad \sigma = 0.17085
+\]
+Daraus kann man jetzt auch $\mu$ bestimmen:
+\[
+\mu = 1-1.6449\sigma =  0.71896.
+\]
+\end{loesung}
+

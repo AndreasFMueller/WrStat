@@ -1,0 +1,34 @@
+Die Wahrscheinlichkeit dass ein Individuen auf eine Impfung
+mit Komplikationen reagiert ist 0.001.
+Bei der Impfung von 2000 Personen muss also im Schnitt
+mit zwei Impfzwischenf"allen gerechnet werden.
+Wie gross ist die Wahrscheinlichkeit, dass es
+bei der Impfung von 2000 Individuen genau $2$ Impfzwischenf"alle
+gibt? Stellen Sie eine Tabelle auf, die die Anzahl Wahrscheinlichkeit
+der Anzahl Impfzwischenf"alle darstellt.
+
+\begin{loesung}
+Wir d"urfen annehmen, dass die Anzahl $X$ der Impfzwischenf"alle
+poissonverteilt ist mit $\lambda=2$. Dann ist
+$$P(X=2)=\frac{e^{-2}2^2}2=0.27067.
+$$
+\begin{center}
+\begin{tabular}{|c|l|}
+\hline
+$k$&$P_\lambda(k)$\\
+\hline
+0&$0.135335$\\
+1&$0.270671$\\
+2&$0.270671$\\
+3&$0.180447$\\
+4&$0.0902235$\\
+5&$0.0360894$\\
+6&$0.0120298$\\
+7&$0.00343709$\\
+8&$0.000859272$\\
+9&$0.000190949$\\
+10&$0.0000381899$\\
+\hline
+\end{tabular}
+\end{center}
+\end{loesung}

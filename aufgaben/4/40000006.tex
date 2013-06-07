@@ -1,0 +1,73 @@
+Bei einem Positionsbestimmungssystem eines Roboters sendet ein rotierender
+Laserstrahl regelm"assig einen Impuls zu einem am Rande des Spielfeldes
+stehenden Empf"anger, der daraus die $x$-Koordinaten bestimmen kann,
+wobei nat"urlich auch ein Messfehler entsteht.
+Da sich der Roboter auch drehen kann, ist die Zeit zwischen den Impulsen
+nicht immer gleich, und manchmal wird der Laser auch von Hindernissen, zum
+Beispiel von anderen Robotern verdeckt. Folgende Werte wurden gemessen
+\begin{center}
+\begin{tabular}{|r|r|}
+\hline
+$t$&$x$\\
+\hline
+0&-3\\
+1&-3\\
+3&-1\\
+5&2\\
+\hline
+\end{tabular}
+\end{center}
+Geben sie die bestm"ogliche Sch"atzung an f"ur den Zeitpunkt,
+zu dem der Roboter die Marke $x=0$ "uberquert hat.
+
+\begin{loesung}
+Die bestm"ogliche Sch"atzung f"ur die Bewegung des Roboters erh"alt
+man mit linearer Regression.
+\begin{center}
+\begin{tabular}{|c|rr|rr|r|}
+\hline
+$i$&$t_i$&$x_i$&$t_i^2$&$x_i^2$&$t_ix_i$\\
+\hline
+1&0&$-3$& 0&9&$ 0$\\
+2&1&$-3$& 1&9&$-3$\\
+3&3&$-1$& 9&1&$-3$\\
+4&5&$ 2$&25&4&$10$\\
+\hline
+&9&$-5$&35&23&4\\
+\hline
+\end{tabular}
+\end{center}
+Aus den Formeln f"ur die Koeffizienten der Regressionsgeraden finden
+wir
+\begin{align*}
+a&=\frac{4\cdot 4 -9\cdot(-5)}{4\cdot 35-9^2}=\frac{61}{59}
+\simeq 1.03389830508474576271
+\\
+b&=\frac14\cdot (-5)-a\frac14\cdot 9
+=-\frac54-\frac{61\cdot 9}{59\cdot 4}
+=-\frac{5\cdot 59+61\cdot 9}{4\cdot 59}
+=-\frac{844}{236}
+=-\frac{211}{59}
+\simeq
+-3.57627
+\end{align*}
+Die beste Sch"atzung ist also der Wert von $t$, der
+$at+b=0$ erf"ullt, also
+\[
+t=-\frac{b}{a}=\frac{844}{236}\cdot\frac{59}{61}
+=\frac{844}{4\cdot 61}=\frac{844}{244}
+=\frac{211}{61}
+\simeq 3.459016
+\]
+Man kann die Regression auch mit vertauschten Rollen von $t$ und $x$
+durchf"uhren, was f"ur die sp"ater verlangte Berechnung von $t$
+einfacher ist, aber ein leicht anderes Resultat ergibt. In diesem
+Fall sind die Koeffizienten $a$ und $b$:
+\begin{align*}
+a&=0.910448\\
+b&=3.38806
+\end{align*}
+Daraus ergibt sich der Wert von $t$ durch Einsetzen von $x$=0, ist
+also identisch mit $b$: $t=b$.
+\end{loesung}
+

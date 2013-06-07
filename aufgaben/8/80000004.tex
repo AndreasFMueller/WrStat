@@ -1,0 +1,66 @@
+Das Organisationskomite eines j"ahrlich wiederholten Anlasses muss
+eines von vier Wochenenden daf"ur ausw"ahlen.
+Das Wetter ist ein wichtiger, kaum vorhersagbarer Faktor.
+Dar"uber, welches der vier zur Auswahl stehenden Wochenenden
+in der Vergangenheit jeweils das beste war, wurde eine Statistik
+erstellt:
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+Wochenende&Anzahl ``bestes''&Anzahl ``schlechtestes''\\
+\hline
+1&5&11\\
+2&10&8\\
+3&11&9\\
+4&10&8\\
+\hline
+\end{tabular}
+\end{center}
+Im OK entbrennt jetzt ein Streit. Die einen sagen, das erste Wochenende
+musse man gar nicht mehr in Betracht ziehen, es sei kaum brauchbar.
+Die anderen sagen, der Unterschied sei zu klein, und f"uhren ins Feld,
+dass der etwas fr"uhere Termin f"ur die Besucherzahlen besser ist.
+Wer hat recht?
+
+\begin{loesung}
+Die Datenmenge ist knapp gen"ugend, um die Hypothese
+dass die Wahrscheinlichkeit, das beste oder schlechteste Wochenende zu sein,
+f"ur alle vier Wochenenden gleich gross ist.
+Dazu muss die Diskrepanz berechnet werden.
+\begin{center}
+\begin{tabular}{|crrrr|}
+\hline
+$i$& $n_i$& $p_i$&$n_i-np_i$&$(n_i-np_i)^2/np_i$\\
+\hline
+  1&     5&$0.25$&$ 4$&$1.7777$\\
+  2&    10&$0.25$&$-1$&$0.1111$\\
+  3&    11&$0.25$&$-2$&$0.4444$\\
+  4&    10&$0.25$&$-1$&$0.1111$\\
+\hline
+   &$n=36$&      &      &$D=2.4444$\\
+\hline
+\end{tabular}
+\end{center}
+F"ur drei Freiheitsgrade und $\alpha=0.05$ m"usste die Diskrepanz
+aber den kritischen Wert $D_{\text{krit}}=7.815$ "ubersteigen, damit
+man die Nullhypothese verwerfen kann.
+
+Verwendet man statt der Statistik f"ur das ``beste'' Wochenende
+die Statistik f"ur das ``schlechteste'' Wochenende, findet man
+\begin{center}
+\begin{tabular}{|crrrr|}
+\hline
+$i$& $n_i$& $p_i$&$n_i-np_i$&$(n_i-np_i)^2/np_i$\\
+\hline
+  1&    11&$0.25$&$-2$&$0.4444$\\
+  2&     8&$0.25$&$1$&$0.1111$\\
+  3&     9&$0.25$&$0$&$0.0000$\\
+  4&     8&$0.25$&$1$&$0.1111$\\
+\hline
+   &$n=36$&      &      &$D=0.6666$\\
+\hline
+\end{tabular}
+\end{center}
+was noch weiter davon entfernt ist, signifikant zu sein.
+\end{loesung}
+

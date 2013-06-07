@@ -1,0 +1,58 @@
+$A$ und $B$ sind beide fleissige Leser, aber auch ziemlich
+kritisch: nur 10\% der B"ucher, die $A$ liest, gefallen ihm.
+In der Diskussion merkt
+$B$, dass er 80\% der B"ucher, die $A$ gut findet, auch gut findet,
+und 90\% der B"ucher, die $A$ nicht gefallen, ihm auch nicht
+gefallen.
+\begin{teilaufgaben}
+\item Welcher Prozentsatz der B"ucher gef"allt $B$ "uberhaupt?
+\item Wie h"aufig sind B"ucher, die sowohl $A$ als auch $B$ gut finden?
+\item Wie wahrscheinlich ist, dass $A$ ein Buch gut findet, welches
+$B$ schon f"ur gut befunden hat? K"onnte es sich f"ur $A$ zum Beispiel
+lohnen, nur noch B"ucher zu lesen, die $B$ empfehlen kann?
+\end{teilaufgaben}
+
+\begin{loesung}
+Die B"ucher sind offenbar die Elementarereignisse $\omega$.
+Sei $A$ das Ereignis, dass $A$ ein Buch $\omega$ gut findet,
+und $B$ entsprechend das Ereignis, dass $B$ ein Buch gut findet.
+Wir haben folgende Wahrscheinlichkeiten:
+\begin{align*}
+P(A)&=0.1\\
+P(B|A)&=0.8\\
+P(\bar B|\bar A)&=0.9
+\end{align*}
+\begin{teilaufgaben}
+\item
+Nach dem Satz "uber die totale Wahrscheinlichkeit ist die Wahrscheinlichkeit
+$P(B)$, dass $B$ ein Buch gut findet:
+\begin{align*}
+P(B)
+&=
+P(B|A)P(A) + P(B|\bar A)P(\bar A)
+\\
+&=
+P(B|A)P(A) + P(B|\bar A)(1-P(A))
+\\
+&=
+P(B|A)P(A) + (1-P(\bar B|\bar A))(1-P(A))
+\\
+&=
+0.8\cdot 0.1+0.1\cdot 0.9=0.08 + 0.09=0.17
+\end{align*}
+\item
+Nach der Definition der bedingten Wahrscheinlichkeit
+ist 
+\[
+P(B|A)=\frac{P(A\cap B)}{P(A)}
+\quad\Rightarrow\quad
+P(A\cap B)=P(B|A)P(A)=0.8\cdot 0.1=0.08.
+\]
+\item Gesucht ist $P(A|B)$. Nach dem Satz von Bayes ist
+\[
+P(A|B)=P(B|A)\frac{P(A)}{P(B)}=0.8\cdot\frac{0.1}{0.17}=0.47059
+\]
+Wenn $A$ sich an die Empfehlungen von $B$ hielte, w"urde er wesentlich
+h"aufiger mit einem Buch zufrieden sein.
+\end{teilaufgaben}
+\end{loesung}

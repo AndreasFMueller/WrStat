@@ -1,0 +1,75 @@
+Eine Zufallsvariable $X$ hat die Wahrscheinlichkeitsdichte
+\[
+\varphi(x)=\begin{cases}
+0&\qquad |x|>1\\
+|x|&\qquad |x|\le 1
+\end{cases}
+\]
+\begin{teilaufgaben}
+\item Bestimmen Sie die Verteilungsfunktion.
+\item Bestimmen Sie Erwartungswert und Varianz von $X$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die Verteilungsfunktion ist
+\[
+F(x)=\int_{-\infty}^x\varphi(\xi)\,d\xi
+\]
+Wir behandeln die F"alle $x<-1$, $-1<x<0$, $0<x<1$ und $1<x$
+separat. F"ur $x<-1$ und $x>1$ ist $\varphi(x)=0$, d.~h.~die
+Verteilungsfunktion "andert sich in diesem Bereich nicht mehr,
+$F(x)=0$ f"ur $x<-1$ und $F(x)=1$ f"ur $x>1$.
+
+F"ur $x\in[-1,0]$ ist
+\begin{align*}
+F(x)&=\int_{-\infty}^x\varphi(\xi) \,d\xi
+=
+\int_{-1}^x|\xi|\,d\xi
+=
+\int_{-1}^x-\xi\,d\xi
+\\
+&=\left[-\frac12\xi^2\right]_{-1}^x
+=-\frac12x^2+\frac12=\frac12(1-x^2)
+\end{align*}
+F"ur $x\in[0,1]$ ist
+\begin{align*}
+F(x)
+&=
+\int_{-\infty}^x \varphi(\xi)\,d\xi
+=
+F(0)+\int_0^x|\xi|\,d\xi
+=
+\frac12+\int_0^x\xi\,d\xi
+\\
+&=
+\frac12+\left[
+\frac12\xi^2
+\right]_0^x
+=\frac12(1+x^2)
+\end{align*}
+Insgesamt ist also die Verteilungsfunktion
+\[
+F(x)
+=
+\begin{cases}
+0&\qquad x<-1\\
+\frac12(1-x^2)&\qquad -1\le x < 0\\
+\frac12(1+x^2)&\qquad 0\le x <1\\
+1&\qquad 1 \le x
+\end{cases}
+\]
+\item
+Da $\varphi$ eine gerade Funktion ist, ist $E(X)=0$.
+Wegen $E(X)=0$ ist die Varianz
+\begin{align*}
+\operatorname{var}(X)&=E(X^2)
+=
+\int_{-\infty}^\infty \xi^2\varphi(\xi)\,d\xi
+=
+\int_{-1}^1\xi^2|\xi|\,d\xi
+=2\int_0^1\xi^3\,d\xi=2\left[\frac14\xi^4\right]_0^1=\frac12
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+

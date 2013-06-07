@@ -1,0 +1,18 @@
+Beim Spiel ``Ligretto'' erh"alt jeder Spieler 40 Karten mit den
+Zahlen $1$ bis $10$ in vier verschiedenen Farben. Die Karten werden
+zu Beginn des Spieles gemischt, und dann vier Karten aufgedeckt.
+Wie gross ist die Wahrscheinlichkeit, genau zwei Karten mit der
+Zahl $1$ aufzudecken?
+
+\begin{loesung}
+Dieses Problem ist gleichwertig mit einer Lotterie, bei der
+aus 40 Karten deren vier gezogen werden. Gefragt wird danach,
+wie gross die Wahrscheinlichkeit ist, zwei richtige zu treffen.
+Diese Wahrscheinlichkeit wird mit der hypergeometrischen Verteilung
+berechnet:
+\[
+p=\frac{\binom{36}{2}\binom{4}{2}}{\binom{40}{4}}
+=\frac{630\cdot 6}{91390}=0.041361.
+\]
+\end{loesung}
+

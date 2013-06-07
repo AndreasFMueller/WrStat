@@ -1,0 +1,77 @@
+Bei einem Wahrscheinlichkeitsexperiment tritt das Ereignis $A$
+mit einer Wahrscheinlichkeit $p=P(A)$ ein. Dieses Experiment wird
+$n$ mal wiederholt, die Zufallsvariable $X$ ist die Anzahl der
+Versuche, bei denen $A$ eingetreten ist.
+\begin{teilaufgaben}
+\item Berechnen Sie die Wahrscheinlichkeit, dass $A$ genau $k$
+mal eingetreten ist: $P(X=k)$.
+\item Berechnen Sie den Erwartungswert $E(X)$ f"ur $n=1,2$ und $3$.
+\item Stellen Sie eine Formel f"ur $E(X)$ auf.
+\item K"onnen Sie $E(X)$ auch berechnen f"ur $n=1000$?
+\end{teilaufgaben}
+{\it Hinweis:} F"ur d) betrachten Sie
+\[
+(x+y)^n=\sum_{k=0}^n\binom{n}{k}x^ky^{n-k},
+\]
+und berechnen sie die Ableitung beider Seiten.
+Setzen Sie dann $x=p$ und $y=1-p$ ein. Alternativ k"onnen Sie die
+Anzahl als die Summe von $n$ Instanzen der Zufallsvariable $\chi_A$
+betrachten.
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Man kann $k$ Versuche, bei denen $A$ eingetreten ist, auf
+$\binom{n}{k}$ Arten aus der Versuchsreihe von $n$ Versuchen
+ausw"ahlen. Eine bestimmte Reihenfolge von Versuchen hat die
+Wahrscheinlichkeit $p^k(1-p)^{n-k}$, also ist die gesuchte
+Wahrscheinlichkeit
+\[
+P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}.
+\]
+\item
+F"ur $n=2$ gilt
+\[
+E(X)=
+0\cdot (1-p)^2+1\cdot 2\cdot p(1-p)+2p^2=2p-2p^2+2p^2=2p.
+\]
+F"ur $n=3$ gilt
+\begin{align*}
+E(X)&=0\cdot (1-p)^3+1\cdot 3p(1-p)^2+2\cdot 3p^2(1-p)+3\cdot p^3\\
+&=3p-6p^2+3p^3+6p^2-6p^3+3p^3=3p.
+\end{align*}
+\item
+Aus der Wahrscheinlichkeit des Wertes $k$ folgt
+\[
+E(X)=\sum_{k=0}^n\underbrace{\phantom{\binom{n}{k}}k}_{\text{Wert}}\cdot
+\underbrace{\binom{n}{k}p^k(1-p)^{n-k}}_{\text{Wahrscheinlichkeit}}.
+\]
+\item Mit dem Hinweis berechnet man
+\begin{align*}
+(x+y)^n&=\sum_{k=0}^n\binom{n}{k}x^ky^{n-k},\\
+\frac{d}{dx}
+(x+y)^n&= \sum_{k=0}^n \frac{d}{dx} \binom{n}{k}x^ky^{n-k},\\
+n(x+y)^{n-1}&=\sum_{k=0}^nk\binom{n}{k}x^{k-1}y^{n-k}\\
+n(p+1-p)^{n-1}&=\sum_{k=0}^nk\binom{n}{k}p^{k-1}(1-p)^{n-k}
+\end{align*}
+Der Ausdruck auf der rechten Seite ist fast der Erwartungswert, nur
+der Exponent von $p$ ist um eins zu klein. Man kann aber die ganze
+Gleichung mit $x$ bzw.~mit $p$ multiplizieren:
+\begin{align*}
+nx(x+y)^{n-1}&=\sum_{k=0}^nk\binom{n}{k}x^ky^{n-k}\\
+np(p+1-p)^{n-1}&=\sum_{k=0}^nk\binom{n}{k}p^k(1-p)^{n-k}
+\end{align*}
+Ersetzt man jetzt $x=p$ und $y=1-p$
+entsteht auf der rechten
+Seite der Erwartungswert, also
+\[
+np=E(X).
+\]
+Betrachtet man $X$ als Summe von $n$ Instanzen der Zufallsvariable
+$\chi_A$, die wir einzeln mit $Y_i$ bezeichnen, dann gilt
+\[
+E(X)=E(Y_1+\cdot+Y_n)=E(\chi_A)+\dots +E(\chi_A)=nP(A).
+\]
+\end{teilaufgaben}
+\end{loesung}
+

@@ -1,0 +1,51 @@
+Wir haben von den Mythbusters leider keine exakten Daten "uber den
+Benzinverbrauch des Testautos mit und ohne ``Golfball''-Dellen.
+Nehmen Sie an, es seien f"ur den Verbrauch die folgenden Werte in ml/km
+gemessen worden:
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+Fahrt&Verbrauch mit Dellen&Verbrauch ohne Dellen\\
+\hline
+1&86&103\\
+2&97&97\\
+3&102&104\\
+\hline
+\end{tabular}
+\end{center}
+Kann man daraus schliessen, dass die Dellen eine Wirkung haben?
+
+\begin{loesung}
+Die mittleren Verbrauchswerte sind 95ml/km mit und 101.3ml/km ohne
+Dellen. Allerdings ist die Testgr"osse f"ur den $t$-Test
+$T=1.21635$ und die ist gr"osser als der kritische Wert f"ur
+einen einseitigen, und damit leichter zu bestehenden $t$-Test mit
+$3+3-2=4$ Freiheitsgraden und
+$\alpha=0.05$: $t_{\text{krit}}=2.1318$
+%[1]  86.13225  97.83724 102.09296
+%> y <- rnorm(m = 110, sd = 12, m);
+%> y
+%[1] 102.75746  97.15253 104.07669
+%> mean(x)
+%[1] 95.35415
+%> var(x)
+%[1] 68.31045
+%> mean(y)
+%[1] 101.3289
+%> var(y)
+%[1] 13.51658
+%> 
+%> sx2 = var(x) 
+%> sy2 = var(y)
+%> 
+%> sp2 = ((n- 1) * sx2 + (m-1) * sy2)/(n+m-2)
+%> sp2
+%[1] 40.91352
+%> 
+%> t = sqrt(n * m * (n+m-2)/(n+m)) * (mean(x) - mean(y)) / sqrt(sp2)
+%> t
+%[1] -2.288029
+%> 
+
+\end{loesung}
+

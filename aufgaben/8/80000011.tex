@@ -1,0 +1,70 @@
+F"ur eine Website wurde die Besucherstatistik
+in Tabelle~\ref{80000011:besucher}
+erhoben. Am 24.~Oktober 2006 war die Website in der Zeitung erw"ahnt worden,
+am 25. wurden einige Dinge auf der Website umgestellt, und auf zwei externen
+Websites wurden Links hierhin hinzugef"ugt.
+Nun ist unter den Marketingverantwortlichen der Streit entbrannt,
+ob der pl"otzliche Anstieg der Besucherzahlen am 24.~Oktober 2006
+auf den Zeitungsartikel zur"uckzuf"uhren war, oder eher eine zuf"allige
+Schwankung war.
+Das Hauptargument f"ur das Lager derjeningen, die an eine zuf"allige Schwankung
+glauben ist der Einbruch der Besucherzahlen am 23.~Oktober 2006.
+K"onnen Sie dieses Argument widerlegen, wobei Sie sich
+h"ochstens mit einer Wahrscheinlichkeit von 10\% einen Fehler gestatten?
+
+\begin{table}
+\begin{center}
+\begin{tabular}{lcl}
+Datum&Besucher&\\
+16. 10.&41&\rule{41mm}{5pt}\\
+17. 10.&40&\rule{40mm}{5pt}\\
+18. 10.&39&\rule{39mm}{5pt}\\
+19. 10.&44&\rule{44mm}{5pt}\\
+20. 10.&36&\rule{36mm}{5pt}\\
+21. 10.&42&\rule{42mm}{5pt}\\
+22. 10.&45&\rule{45mm}{5pt}\\
+23. 10.&33&\rule{33mm}{5pt}\\
+24. 10.&50&\rule{50mm}{5pt}\\
+25. 10.&48&\rule{48mm}{5pt}\\
+26. 10.&39&\rule{39mm}{5pt}\\
+27. 10.&42&\rule{42mm}{5pt}\\
+28. 10.&53&\rule{53mm}{5pt}\\
+29. 10.&45&\rule{45mm}{5pt}\\
+30. 10.&39&\rule{39mm}{5pt}\\
+31. 10.&37&\rule{37mm}{5pt}\\
+\end{tabular}
+\end{center}
+\caption{Besucherzahlen auf einer Website\label{80000011:besucher}}
+\end{table}
+
+\begin{loesung}
+Wir testen die Hypothese, dass der Wert vom 24. Oktober der gleichen
+Normalverteilung folgt wie die acht Werte davor. Die Werte nach
+dem 24.~Oktober d"urfen nicht einbezogen werden, denn durch die
+Website-Ver"anderungen und die externen Links werden sich die
+Besucherzahlen ganz bestimmt ver"andert haben.
+
+Sie $b_i$ die Besucherzahl am $i$-ten Oktober,
+Dann haben die ersten acht Besucherzahlen als Mittelwert
+$$\mu=\frac18\sum_{i=16}^{23}b_i=\frac18(41+40+39+44+36+42+45+33)=40$$
+und als empirische Varianz
+\begin{align*}
+\sigma^2&=\frac17\sum_{i=16}^{23}(b_i-\mu)^2\\
+&=\frac17(1^2+0^2+1^2+4^2+4^2+2^2+5^2+7^2)\\
+&=\frac17(1 + 0 + 1 + 16 + 16 + 4 + 25 + 49)\\
+&=\frac{112}{7}=16.\\
+\sigma&=\sqrt{16}=4
+\end{align*}
+Auf dem Niveau $\alpha=0.1$ verwerfen wir die Hypothese, wenn der gemessene
+neue Wert gr\"osser ist als $\mu + 1.6449\sigma$
+(siehe Normalverteilungstabelle). F"ur die Beobachtung
+vom 24. Oktober gilt $b_{24}-\mu=10 > 1.6449\cdot 4$, die Hypothese
+muss also verworfen werden, mit einer Fehlerwahrscheinlichkeit von 10\%
+ist der Anstieg der Besucherzahlen am 24.~Oktober also nicht zuf"allig,
+und damit liegt ein urs"achlicher Zusammenhang mit dem Zeitungsartikel nahe.
+
+Betrachtet man nur Abweichungen auf eine Seite, w"are ein einseitiger Test
+ebenso zweckm"assig. Dazu ist eine Abweichung von $1.2816\cdot 4=5.1264$,
+was nat"urlich zur gleichen Schlussfolgerung f"uhrt.
+\end{loesung}
+

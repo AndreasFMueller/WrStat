@@ -1,0 +1,88 @@
+Eine faire M"unze wird 12 mal geworfen und gez"ahlt, wie h"aufig die
+M"unze Kopf zeigt.
+\begin{teilaufgaben}
+\item Berechnen Sie die Wahrscheinlichkeit exakt, dass mindestens vier mal
+und h"ochstens sieben mal Kopf geworfen wird.
+\item Approximieren Sie dieselbe Gr"osse mit Hilfe einer Normalverteilung.
+\item Erkl"aren Sie gegebenenfalls die Abweichung zwischen den Resultaten
+von a) und b)
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Exakte Berechnung mit der Binomialverteilung:
+\begin{align*}
+P(4\le X\le 7)&=\sum_{k=4}^7\binom{12}{k}
+\biggl(\frac12\biggr)^k
+\biggl(\frac12\biggr)^{(12-k)}
+\\
+&=\frac1{2^{12}}\sum_{k=4}^{7}\binom{12}{k}
+\\
+&=\frac1{4096}\biggl(
+\binom{12}{4}+
+\binom{12}{5}+
+\binom{12}{6}+
+\binom{12}{7}
+\biggr)
+\\
+&=\frac{495+792+924+792}{4096}
+=
+\frac{3003}{4096}=0.73315
+\end{align*}
+\item
+F"ur eine Approximation mit der Normalverteilung brauchen wir Erwartungswert
+und Varianz, f"ur die vorliegende Binomialverteilung sind dies
+\begin{align*}
+E(K) &=np=6
+&\Rightarrow\quad\mu&=6
+\\
+\operatorname{var}(K)&=np(1-p)=\frac{12}{4}=3
+&\Rightarrow\quad\sigma&=\sqrt{3}
+\end{align*}
+Die Approximation ist dann
+\begin{align*}
+P(4\le X\le 7)
+&\simeq
+P\biggl(
+\frac{-2}{\sqrt{3}}\le \frac{X-6}{\sqrt{3}}\le \frac1{\sqrt{3}}
+\biggr)
+\\
+&=F(\frac1{\sqrt{3}})-F(-\frac2{\sqrt{3}})
+=F(\frac1{\sqrt{3}})-(1-F(\frac2{\sqrt{3}}))
+\end{align*}
+wobei $F$ die Verteilungsfunktion der Standardnormalverteilung ist. Aus
+der Tabelle erh"alt man
+\begin{align*}
+P(4\le X\le 7)
+&\simeq
+F(0.57735) - (1-F(1.1547))
+\\
+&=0.7182 + 0.8765 - 1=0.5947
+\end{align*}
+\item
+F"ur die Anwendbarkeit der Normalapproximation ist die Anzahl $n=12$
+eher etwas gering, so dass man nicht unbedingt mit einer guten Approximation
+rechnen darf.
+
+Die Approximation ist aber auch noch aus einem anderen Grund schlecht.
+Die Normalverteilung beschreibt eine Verteilung, bei der auch Zwischenwerte
+zwischen den ganzen Zahlen m"oglich sind. Die Binomialverteilung l"asst
+dagegen nur ganze Zahlen als Werte zu. Die Aussage, dass die Normalverteilung
+die Binomialverteilung approximiere, bezieht sich aber nur auf die
+Verteilungsfunktion, welche im Falle der Normalverteilung auch die
+Zwischenwerte ber"ucksichtigt. Eine etwas genauere "Ubersetzung
+ist wohl, dass die Zwischenwerte der normalverteilten Zufallsvariablen,
+die auf $k$ gerundet werden m"ussten, der Wahrscheinlichkeit der Zahl
+$k$ bei der Binomialverteilung entsprechen. Das bedeutet, dass die
+Wahrscheinlichkeit der Zahl $k$ etwa $F(k+\frac12)-F(k-\frac12)$
+entsprechen m"usste.
+Entsprechen kann man eine
+bessere Approximation erwarten, indem man als Grenzen
+$3.5$ und $7.5$ verwendet, in diesem Fall ergibt sich
+\[
+P(3.5\le X\le 7.5)=F(0.86603)-F(-1.44338)=0.73230,
+\]
+was ausserordentlich gut stimmt.
+\end{teilaufgaben}
+\end{loesung}
+

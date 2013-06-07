@@ -1,0 +1,72 @@
+Ein App f"ur Skifahrer soll mit Hilfe von GPS alle Bewegungen
+eines Skifahrers auf Pisten und Skiliften aufzeichnen.
+Auch die Neigung der Pisten sollen aufgezeichnet werden.
+Dabei muss ber"ucksichtigt werden, dass sowohl die
+Positionsmessungen als auch die H"ohe nicht ohne Messfehler
+bestimmt werden k"onnen.  Die beste L"osung f"ur diese Art
+von Problem w"are nat"urlich ein Kalmanfilter, dazu w"aren
+aber Informationen "uber Systemfehler n"otig, die stark vom Fahrstil
+eines Skisportlers abh"angt.  Daher wird folgende einfachere
+Strategie verwendet: Aus den jeweils 4 letzten Positionsmessungen
+wird ein m"oglichst guter Steigungswert bestimmt.
+\begin{center}
+\begin{tabular}{cc}
+Distanz [m]&H"ohenunterschied [m]\\
+\hline
+ 0&    0\\
+50&$-27$\\
+92&$-47$\\
+130&$-67$\\
+\hline
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item
+Welche Gel"andeneigung hat die Piste an dieser Stelle?
+\item
+Wie weit unter dem Ausgangspunkt befindet sich der Skifahrer
+voraussichtlich nach 150m Fahrt?
+\end{teilaufgaben}
+
+\begin{loesung}
+Die Steigung kann mit Hilfe von linearer Regression ermittelt werden.
+\begin{center}
+\begin{tabular}{|c|rr|rr|r|}
+\hline
+$i$&$x_i$&$x_i^2$&$y_i$&$y_i^2$&$x_iy_i$\\
+\hline
+1&  0&    0&$   0$&   0&$    0$\\
+2& 50& 2500&$ -27$& 729&$ -1350$\\
+3& 92& 8464&$ -47$&2209&$ -4324$\\
+4&130&16900&$ -67$&4489&$ -8710$\\
+\hline
+ &272&27864&$-141$&7427&$-14384$\\
+\hline
+\end{tabular}
+\end{center}
+Die Formeln f"ur $a$ und $b$ liefern
+\begin{align*}
+a
+&=\frac{4\cdot(-14384)-272\cdot (-141)}{4\cdot 27864 - 272^2}
+\\
+&=
+\frac{-57536+38352}{111456-73984}
+=
+\frac{19184}{37472}=-0.51195559350982066609
+\\
+b
+&=
+\frac14(-141)-a\frac14272
+=-35.25 + 0.51195559\cdot 68=-0.43701964133219470588
+\end{align*}
+\begin{teilaufgaben}
+\item Der beste Steigungswert ist also $-0.51195559$, oder etwa 51\%.
+\item Setzt man in den linearen Ausdruck $ax+b$ f"ur $x$ den Wert
+150 ein, erh"alt man den erwarteten H"ohenunterschied
+\[
+a\cdot 150 + b= 
+-77.2303586678052946193.
+\]
+\end{teilaufgaben}
+\end{loesung}
+

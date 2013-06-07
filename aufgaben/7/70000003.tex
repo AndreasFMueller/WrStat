@@ -1,0 +1,43 @@
+Die Varianz der Augenzahl $X$ eines W"urfels wurde in der Vorlesung
+berechnet. Wirft man einen W"urfel dreimal, kann man mit der
+``alten'' Sch"atzformel die Varianz bestimmen:
+\[
+\hat\sigma^2=\frac1n\sum_{i=1}^3x_i^2-\biggl(\frac1n\sum_{i=1}^3x_i\biggr)^2.
+\]
+F"uhren Sie dies mit dem Computer 10000 mal durch, und berechnen Sie den
+Mittelwert. Vergleichen Sie mit der theoretischen Varianz und dem
+korrigierten Varianz-Sch"atzer.
+
+\begin{loesung}
+Die Rechnung kann man zum Beispiel mit folgendem Octave/Matlab-Programm
+durchf"uhren:
+\verbatimainput{var.m}
+Das Programm berechnet zuerst einen Vektor von 3 Zufallszahlen zwischen 1
+und 6. Dann wird die Varianz nach der alten Sch"atzformel als Element
+dem Vektor {\tt a} hinzugef"ugt. Am Schluss wird die Varianz des Vektors
+{\tt a} berechnet.
+
+Die Berechnung dauert einige Sekunden und ergibt immer wieder
+"ahnliche Werte:
+\[
+1.9663,\quad 
+1.9384,\quad
+1.9088,\quad
+1.9668.
+\]
+Der theoretische Wert f"ur die Varianz ist jedoch
+\[
+\frac{n^2-1}{12}=\frac{6^2-1}{12}=\frac{35}{12}=2.9167.
+\]
+Der Unterschied r"uhrt vom in der Vorlesung abgeleiteten Korrekturfaktor
+$\frac{n}{n-1}=\frac32$ her. Mit dem Korrekturfaktor liefert der Sch"atzer die
+Werte
+\[
+2.9494,\quad 
+2.9076,\quad
+2.8632,\quad
+2.9602,
+\]
+was recht gut mit den theoretischen Werten "ubereinstimmt.
+\end{loesung}
+

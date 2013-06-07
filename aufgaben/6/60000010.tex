@@ -1,0 +1,72 @@
+Ein Schiessbudenbetreiber m"ochte seine G"aste dazu animieren,
+l"angere Serien zu schiessen. Dazu verspricht er jedem, der eine
+gewisse Punktzahl "uberschreitet, eine Sonderpr"amie.
+\begin{teilaufgaben}
+\item
+Die Kunden schiessen 20 Schuss auf 10er Scheiben. Um sein Risiko
+zu kontrollieren schreibt er sich die Resultat seiner Kunden auf,
+und findet heraus, dass sie im Mittel 70 Punkte erzielen, mit einer
+Varianz von 36. Damit die Aktion gen"ugend Wirkung entfaltet,
+muss die Sonderpr"amie auch tats"achlich von Zeit zu Zeit
+gewonnen werden, er glaubt, dass ein Gewinn der Sonderpr"amie
+bei jedem zwanzigsten Kunden diesen Effekt haben sollte. Wie
+muss er die Punkte-Limite f"ur die Pr"amie ansetzen, damit dies
+passiert?
+\item
+Die Kunden schiessen 30 Schuss auf vorbeifahrende Fig"urchen, die
+sie erfahrungsgem"ass in zwei Dritteln der F"alle treffen. Wie
+gross muss der Schiessbudenbetreiber die f"ur die Sonderpr"amie
+zu erziehlende Anzahl Treffer ansetzen, damit die Sonderpr"amie
+etwa von jedem hundertsten Kunden gewonnen wird?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die erziehlte Punktzahl eines Gastes ist eine Zufallsvariable $X$.
+$X$ ist angen"ahert normalverteilt mit $\mu=70$ und
+$\sigma=6$. Gesucht ist die Schranke $x_0$ so dass
+$P(X\ge x_0)=0.05$ oder $P(X\le x_0)=F_X(x_0)=0.95$.
+Da $X$ nicht standardnormalverteilt ist, k"onnen wir $x_0$ nicht
+aus der Normalverteilungstabelle erhalten, wir k"onnen dies aber
+durch Standardisierung korrigieren:
+\begin{align*}
+P(X\le x_0)
+&=
+P\left(\frac{X-\mu}{\sigma}\le\frac{x_0-\mu}{\sigma}\right)
+=
+P\left(Z\le \frac{x_0-\mu}{\sigma}\right)
+\end{align*}
+$Z=(X-\mu)/\sigma$, den Wert f"ur $(x_0-\mu)/\sigma=1.6449$ erhalten
+wir aus der Quantilen-Tabelle der Normalverteilung. Also ist
+$x_0=\mu +1.6449\sigma=70 + 1.6449\cdot 6=79.8694$ anzusetzen.
+\item
+Die Zahl $X$ der Treffer ist binomialverteilt mit $E(X) = np=20$ und
+$\operatorname{var}(X)=np(1-p)=30\cdot\frac23\cdot\frac13=\frac{60}{9}$,
+$\sigma = \frac23\sqrt{15}=2.58199$.
+Gesucht ist der Wert $x_0$ so, dass $P(X>x_0)=0.01$, oder
+$P(X\le x_0)=F_X(x_0)=0.99$. Wieder durch Standardisierung bekommt
+man
+\begin{align*}
+P(X\le x_0)
+&=
+P\left(
+\frac{X-\mu}{\sigma}\le\frac{x_0-\mu}{\sigma}
+\right)
+=
+P\left(
+Z\le \frac{x_0-\mu}{\sigma}
+\right)
+\end{align*}
+$Z$ ist angen"ahert Standardnormalverteilt, also bekommt man aus
+der Quantilen-Tabelle:
+\[
+\frac{x_0-\mu}{\sigma}=2.3263
+\quad
+\Rightarrow
+\quad
+x_0=\mu+2.236\cdot \sigma=20 + 2.3236\cdot 2.58199 = 25.9995.
+\]
+\end{teilaufgaben}
+\end{loesung}
+

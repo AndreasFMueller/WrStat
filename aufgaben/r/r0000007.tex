@@ -1,0 +1,43 @@
+Graphik. Ein Bild sagt mehr als tausend Worte. Die von R erzeugten
+Graphiken haben eine hohe Qualit"at, erfordern jedoch etwas "Ubung.
+Meist beginnt man damit, ein leeres Koordinatennetz zu zeichen, in welches
+man dann die Daten einf"ugt.
+\begin{teilaufgaben}
+\item Erzeugen Sie mit dem Befehl \verb+plot(0, 0, type = "0")+ eine
+leeres Koordinatenkreuz.
+\item Lesen Sie in der Hilfefunktion nach, welche zus"atzlichen
+Argumente die Funktion {\tt plot} versteht, und setzen sie Titel,
+Untertitel, Bezeichnung der Achsen.
+\item Lesen Sie in der Hilfefunktion unter {\tt plot.defaults} die
+weiteren m"oglichen Einstellungen nach, und f"ugen Sie ihrem Plot-Befehl
+Argumente hinzu, damit nur der $t$-Bereich zwischen 1 und 10 und der
+$v$-Bereich zwischen $-10$ und $10$ geplottet wird.
+\item F"ugen Sie jetzt die Punkte aus dem Frame {\tt f} mit Hilfe des
+Plot-Befehls {\tt points} in roter Farbe hinzu.
+\item Erzeugen Sie einen Vektor von ganzzahligen $x$-Werten zwischen 1
+und 10. Berechnen Sie die dazugeh"origen $y$-Werte nach der Formel $y=2x-11$.
+Zeichnen Sie die Linien, die die aus {\tt x} und {\tt y} gebildeten
+Punkte verbinden mit Hilfe der Funktion {\tt points}.
+\item Die so erzeugte Graphik hat noch nicht Publikationsqualit"at, da
+sie bisher nur als Bitmap-Bild auf dem Bildschirm ausgegeben wurde.
+Mit dem Befehl {\tt pdf} k"onnen Sie den Namen eines PDF-Files angeben,
+in welches die Graphik ausggeben werden soll. Erzeugen sie die eben
+generierte Graphik erneut, diesmal aber in einem PDF-File.
+\end{teilaufgaben}
+
+\begin{loesung}
+Die PDF-Graphik kann mit folgendem Script erzeugt werden:
+\verbatimainput{aufg7.R}
+Es erzeugt als Resultat Abbildung~\ref{r0000007:aufg7}.
+
+Auf einigen Plattformen muss das Graphik-Device explizit geschlossen
+werden, damit das PDF-File ge"offnet werden kann, dies erreicht man
+mit dem Befehl {\tt dev.off()}.
+\begin{figure}
+\begin{center}
+\includeagraphics[width=\hsize]{aufg7.pdf}
+\end{center}
+\caption{L"osung zu Aufgabe 7\label{r0000007:aufg7}}
+\end{figure}
+\end{loesung}
+

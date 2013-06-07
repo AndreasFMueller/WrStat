@@ -1,0 +1,20 @@
+Die Zufallsvariable $X$ sei die Zahl der K"opfe, die beim
+wiederholten Werfen einer fairen M"unze auftreten, bis zum
+ersten Mal eine Zahl erscheint. Bestimmen Sie Wahrscheinlichkeitsverteilung
+und Verteilungsfunktion von $X$.
+
+\begin{loesung}
+Die Wahrscheinlichkeit, dass genau $k$ mal hintereinander Kopf geworfen
+wird, und dann einmal Zahl, ist $p^{k+1}$, $p=\frac12$. Also ist die
+Wahrscheinlichkeitsverteilung
+\[
+P(K=k)=2^{-k-1},\qquad k\ge 0.
+\]
+Die Verteilungsfunktion ist f"ur ganzzahlige Werte $x$ die Summe
+\[
+F(x)=\sum_{k=0}^x2^{-k-1}=\frac12\sum_{k=0}^x p^k=\frac12 \frac{1-p^{x+1}}{1-p}
+=1-p^{x+1},
+\]
+wie man mit der Summenformel f"ur die geometrische Reihe ausrechnen kann.
+\end{loesung}
+

@@ -28,6 +28,9 @@
 \usepackage{algorithmic}
 \usepackage{makeidx}
 \usepackage{paralist}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{environ}
 \makeindex
 \begin{document}
 \pagestyle{fancy}
@@ -56,6 +59,11 @@ Andreas M"uller
 Hochschule f"ur Technik, Rapperswil, 2011-2013
 \end{center}
 \end{titlepage}
+\hypersetup{
+        colorlinks=true,
+        linktoc=all,
+        linkcolor=blue
+}
 \rhead{Inhaltsverzeichnis}
 \tableofcontents
 \newenvironment{beispiel}[1][Beispiel]{%
@@ -72,7 +80,7 @@ Hochschule f"ur Technik, Rapperswil, 2011-2013
 \chapter{Ereignisse und ihre Wahrscheinlichkeit}
 \input 2.tex
 \chapter{Wahrscheinlichkeit und Kombinatorik}
-%\input 3.tex
+\input 3.tex
 \chapter{Erwartungswert und Varianz}
 \input 4.tex
 \chapter{Wahrscheinlichkeitsverteilung}
@@ -80,10 +88,31 @@ Hochschule f"ur Technik, Rapperswil, 2011-2013
 \chapter{Ein Katalog von Wahrscheinlichkeitsverteilungen}
 \input 6.tex
 \chapter{Sch"atzen}
-%\input 7.tex
+\input 7.tex
 \chapter{Testen}
 \input 8.tex
 \chapter{Filtern}
-%\input 9.tex
+\input 9.tex
+\chapter{Einf"uhrung in die Software R}
+Die Aufgaben in diesem Kapitel sind als Lernaufgabe gedacht, mit deren
+Hilfe man sich mit der Bedienung der Software R vertraut machen kann.
+R ist freie Software, Sie k"onnen Sie von \url{www.r-project.org}
+herunterladen und kostenfrei benutzen.
+
+Die Versionen von R f"ur Windows und Mac OS X haben ein GUI und eine darin
+integrierte Hilfefunktion, welche die ersten Schritte vereinfacht. Alle
+Versionen haben eine Kommandozeilen-Version, welche gen"ugt, die nachstehend
+beschriebenen Probleme zu l"osen.
+
+Nat"urlich kann diese "Ubungsserie nur einen ersten Einblick in die
+Funktionen von R bieten. Tausende von Funktionen sind in dem "uber 3000
+Seiten starken Benutzerhandbuch dokumentiert, ausserdem kann R durch
+zugeladene ``packages'' erweitert werden. Es existiert ein grosses Netzwerk
+von Zusatz-Packages, die aus dem CRAN, dem Comprehensive R Archive
+Network (nach dem Muster des CPAN f"ur Perl) heruntergeladen werden
+k"onnen.
+
+\bigskip
+\input r.tex
 \input aufgabensammlung.ind
 \end{document}

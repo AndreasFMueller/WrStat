@@ -1,0 +1,66 @@
+Ein noch in der Entwicklung befindlicher Feuermelder gibt bei Feuer in 95\%
+der F"alle Alarm. Wenn dagegen kein Feuer brennt, gibt der Feuermelder
+nur in 0.01\% der F"alle einen (falschen) Alarm. Allerdings sind
+Zimmerbr"ande auch einigermassen selten, die Wahrscheinlichkeit
+ist sicher kleiner als $0.0001$.
+
+\begin{teilaufgaben}
+\item Wie wahrscheinlich ist ein Alarm?
+\item Wie wahrscheinlich ist es, dass es tats"achlich brennt, wenn
+der Feuermelder Alarm gibt?
+\item Wie wahrscheinlich ist es, dass der Feuermelder zwar keinen
+Alarm gibt, es aber trotzdem brennt?
+\end{teilaufgaben}
+
+\begin{loesung}
+In dieser Aufgabe geht es um die zwei Ereignisse
+\begin{align*}
+A&=\{\text{Alarm ausgel"ost}\}
+\\
+F&=\{\text{Feuer}\}
+\end{align*}
+Aus der Aufgabenstellung sind die folgenden bedingten Wahrscheinlichkeiten
+bekannt:
+\begin{align*}
+P(A|F)&=0.95
+\\
+P(A|\overline F)&=0.0001
+\\
+P(F)&=0.0001
+\end{align*}
+\begin{teilaufgaben}
+\item Gesucht ist $P(A)$, also
+\begin{align*}
+P(A)&=P(A|F)P(F)+P(A|\overline F)P(\overline F)
+\\
+&=0.05\cdot 0.0001+0.0001\cdot(1-0.0001)\simeq 0.00019499
+\end{align*}
+\item
+Gesucht ist die bedingte Wahrscheinlichkeit $P(F|A)$
+\begin{align*}
+P(F|A)
+&=
+P(A|F) \frac{P(F)}{P(A)}
+\\
+&=0.05\cdot\frac{0.0001}{P(A)}\simeq0.4872
+\end{align*}
+Dieser Feuermelder ist also unbrauchbar unzuverl"assig, nur bei etwa der
+H"alfte der Alarme brennt es auch tats"achlich.
+\item Gesucht ist die bedingte Wahrscheinlichkeit $P(F|\overline A)$.
+\begin{align*}
+P(F|\overline A)
+&=
+P(\overline A|F)\frac{P(F)}{P(\overline A)}=
+\\
+&=
+(1-P(A|F))\frac{P(F)}{1-P(A)}
+\\
+&=
+0.95\cdot \frac{0.0001}{1-P(A)}\simeq0.000005,
+\end{align*}
+es ist also ausserordentlich unwahrscheinlich, dass es brennt,
+wenn der Feuermelder keinen Alarm gibt, das hat aber vor allem auch
+mit der geringen Wahrscheinlichkeiten von Br"anden zu tun.
+\end{teilaufgaben}
+\end{loesung}
+

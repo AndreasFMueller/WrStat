@@ -1,0 +1,38 @@
+Berechnen Sie Erwartungswert und Varianz der Zufallsvariable mit der
+Verteilungsfunktion
+\[
+F(x)=\begin{cases}
+0&\qquad x\le -1\\
+\frac12(1+x^3)&\qquad -1\le x\le 1\\
+1&\qquad 1\le x
+\end{cases}.
+\]
+
+\begin{loesung}
+F"ur die Berechnung brauchen wir die Ableitung von $F$:
+\[
+F'(x)=\begin{cases}
+0&\qquad x\le -1\\
+\frac32x^2&\qquad -1\le x\le 1\\
+0&\qquad 1\le x
+\end{cases}.
+\]
+
+Es gilt
+\begin{align*}
+E(X)
+&=\int_{-\infty}^{\infty}x F'(x)\,dx
+=\int_{-1}^1x \frac32x^2\,dx
+=\frac32\int_{-1}^1x^3\,dx
+=\frac38\left[x^4\right]_{-1}^1
+=\frac38\cdot 0=0\\
+E(X^2)
+&=\int_{-\infty}^{\infty}x^2 F'(x)\,dx
+=\int_{-1}^1x^2 \frac32x^2\,dx
+=\frac32\int_{-1}^1x^4\,dx=\frac3{10}\left[x^5\right]_{-1}^1
+=\frac3{10}\cdot 2=\frac35.
+\end{align*}
+F"ur eine Zufallsvariable mit $E(X)=0$ ist $E(X^2)$ auch gleich
+die Varianz, also $\operatorname{var}(X)=\frac35.$
+\end{loesung}
+

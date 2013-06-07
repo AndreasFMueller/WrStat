@@ -1,0 +1,56 @@
+Sei $X$ eine im Interval $[a,b]$ gleichverteilten Zufallsvariable.
+\begin{teilaufgaben}
+\item Berechnen Sie das sogenannte dritte Moment $E(X^3)$ von $X$
+\item Die ``Schiefe'' einer Verteilung ist der Ausdruck
+\[
+\frac{E((X-E(X))^3)}{\operatorname{var}(X)^{\frac32}}
+=
+\frac{E(X^3)-3E(X)\operatorname{var}(X)-E(X)^3}{\operatorname{var}(X)^{\frac32}}.
+\]
+Berechnen Sie die Schiefe.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+F"ur $E(X^3)$ k"onnen wir einfach drauflos rechnen:
+\begin{align*}
+E(X^3)
+&=
+\int_{-\infty}^\infty x^3\varphi(x)\,dx
+=
+\int_a^bx^3\frac1{b-a}\,dx
+=
+\frac1{b-a}\left[\frac14x^4\right]_a^b
+\\
+&=
+\frac14\frac{b^4-a^4}{b-a}
+=
+\frac{b^3+b^2a+ba^2+a^3}{4}
+\end{align*}
+\item Aus der Berechnung des dritten Momentes kann man jetzt
+die Schiefe ableiten, wobei wir zur Vereinfachung zun"achst
+nur den Z"ahler ausrechnen:
+\begin{align*}
+\text{Schiefe}
+&=
+E(X^3)-3E(X)\operatorname{var}(X)-E(X)^3
+\\
+&=
+\frac{b^3+b^2a+ba^2+a^3}{4}
+-3\frac{a+b}2\frac{(b-a)^2}{12}
+-\frac{(a+b)^3}{8}
+\\
+&=
+\frac18\bigl(
+2(b^3+b^2a+ba^2+a^3)
+-(a^3-a^2b-ab^2+b^3)
+\\
+&\qquad
+-(a^3+3a^2b+3ab^2+b^3)
+\bigr)
+=0
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+

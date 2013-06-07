@@ -1,0 +1,50 @@
+Eine Firma vertreibt Zements"acke \`a 100kg. Die Abf"ullmaschinen weisen
+eine Standardabweichung von einem Kilogramm auf.
+
+Zur Kontrolle der Ehrlichkeit des Betriebes werden durch einen Kontrolleur
+von Zeit zu Zeit 25 S"acke zuf"allig herausgegriffen und gewogen. Liegt
+das durchschnittliche Gewicht der 25 S"acke unter 99.4kg, werden weitere
+Untersuchungen eingeleitet.
+
+Nun beschliesst die Leitung des Betriebs, in Zukunft nur noch durchschnittlich
+99.8kg abzuf"ullen, bei gleicher Standardabweichung. Wie gross ist die
+Wahrscheinlichkeit das der Betrieb erwischt wird und weitere, wahrscheinlich
+verh"angnisvolle Untersuchungen "uber sich ergehen lassen muss.
+
+\begin{loesung}
+Man darf annehmen, dass die Abf"ullmenge pro Sack nach der neuen Regelung
+eine Normalverteilte Zufallsvariable mit Mittelwert $\mu=99.8\text{kg}$ und
+$\sigma=1\text{kg}$ ist. Bei der Kontrolle werden 25 S"acke $X_1,\dots,X_{25}$
+gewogen und der Mittelwert gebildet:
+\[
+X=\frac1{25}(X_1+\cdots +X_{25}).
+\]
+Der Mittelwert von $X$ ist $99.8\text{kg}$, f"ur die Varianz gilt
+\[
+\operatorname{var}(X)=\frac1{25}\operatorname{var}{X_1}=\frac1{25},
+\]
+also f"ur die Standardabweichung
+\[
+\sigma(X)=\frac15=0.2\text{kg}.
+\]
+Folglich ist $(X-99.8)/0.2$ eine standardnormalverteilte Zufallsvariable.
+
+Gefragt ist nun die Wahrscheinlichkeit, dass $X<99.4$ wird, denn dies ist ja
+das bei der Kontrolle angewandte Kriterium. Damit ist
+\begin{align*}
+P(X<99.4)
+&=P\left(\frac{X-99.8}{0.2} < \frac{99.4-99.8}{0.2}\right)\\
+&=P\left(\frac{X-99.8}{0.2} < -2\right)
+\end{align*}
+Es soll also ermittelt werden, wie gross die Wahrscheinlichkeit $p$ ist, dass
+eine standardnormalverteilte Zufallsvariable einen Wert $<-2$ annimmt.
+Da in der Tabelle der Normalverteilung nur positive $x$ dargestellt sind,
+muss man $1-p$ berechnen, also die Wahrscheinlichkeit, dass $X>100.2$,
+oder
+\[
+P(X<99.4)=1-P\left(\frac{X-99.8}{0.2}>2\right)
+=1-0.9772=0.0228,
+\]
+wobei man den Zahlenwerte in der Tabelle der Normalverteilung bei $x=2$ abliest.
+\end{loesung}
+

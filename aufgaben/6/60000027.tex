@@ -1,0 +1,62 @@
+Die Funktionsf"ahigkeit eines Ger"ates h"angt kritisch von einem etwas
+heiklen Bauteil ab, welches zur Verbesserung der Verf"ugbarkeit redundant
+ausgef"uhrt ist. Das Ger"at kann also selbst beim Ausfall der einen
+Komponente noch weiterlaufen. Die einzelne Komponente hat eine mittlere
+Lebensdauer von einem Jahr.
+\begin{teilaufgaben}
+\item Wie wahrscheinlich ist der Ausfall des Bauteils innerhalb der
+ersten Betriebswoche?
+\item Wie wahrscheinlich ist ein Ausfall des Ger"ates innerhalb der
+ersten Woche?
+\item Die Autoren der Wartungsvorschriften k"onnen sich im folgenden Punkt
+nicht einigen. Der eine will verlangen, dass das Ger"at bei der j"ahrlichen
+Revision ausgetauscht werden muss, der andere will dies nur tun, wenn
+die kritische Komponente kaputt ist.
+Der erste behauptet, die Zuverl"assigkeit werde so erh"oht, der zweite
+stellt sich auf den Standpunkt, sein Vorschlag sei genauso zuverl"assig,
+aber viel billiger. Wer hat recht? Wie wahrscheinlich ist, dass nach der
+zweiten Variante das Ger"at ausgetauscht werden muss?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Da es sich um einen Prozess ohne Ged"achtnis handelt, k"onnen wir
+annehmen, dass der erste Ausfall nach einem Zeitinterval auftreten
+wird, dessen L"ange $X$ exponentialverteilt ist mit $a=\frac1{1\text{Jahr}}$.
+Damit ist
+\begin{align*}
+P\left(X\le \frac{7}{365}\right)
+&=
+F_X\left(\frac{7}{365}\right)\\
+&=
+1-e^{-\frac{7}{365}}
+\simeq
+0.01899535277127424748
+\end{align*}
+\item
+Das Ger"at f"allt aus, wenn beide Bauteile innerhalb der ersten
+Woche ausfallen. Die Wahrscheinlichkeit daf"ur ist
+\[
+P\biggl(X_1\le \frac{7}{365}\wedge X_2\le \frac{7}{365}\biggr)
+=F_X\biggl(\frac{7}{365}\biggr)^2=0.000361.
+\]
+\item
+Da es sich um einen Prozess ohne Ged"achtnis handelt, bringt es
+nichts, das Ger"at auszutauschen, wenn die beiden redundanten Komponenten
+noch funktionsf"ahig sind. Da sie nicht altern, sind sie, sofern sie
+noch ganz sind, neuwertig.
+Der Fall, dass eine Komponente kaputt ist, die andere aber noch ganz,
+ist
+\begin{align*}
+&\quad P(X_1 < 365)\cdot P(X_2>365)
++P(X_1 > 365)\cdot P(X_2<365)
+\\
+&=
+2F(365)\,(1-F(365))
+\\
+&=
+2(1-e^{-1})(1-1+e^{-1})=2e^{-1}(1-e^{-1})=0.4650883
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+

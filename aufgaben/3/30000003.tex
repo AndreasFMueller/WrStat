@@ -1,0 +1,99 @@
+Dominosteine enthalten zwei Felder, in denen die Augenzahlen
+0 bis 6 eingetragen sind.
+\begin{teilaufgaben}
+\item Wieviele verschiedene Dominosteine gibt es?
+\item Wir nehmen an, wir z"ogen aus einem vollst"andigen Satz verschiedener
+Dominosteine jeweils einen Stein.
+Wie gross ist die erwartete Augensumme?
+\item
+Wie gross die Wahrscheinlichkeit, einen Stein mit genau der
+erwarteten Augensumme zu ziehen?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Dominosteine sind Paare von Zahlen aus $\{0,1,2,3,4,5,6\}$, wobei
+wir $(x,y)$ und $(y,x)$ als gleich zu betrachten haben. Wir k"onnen die
+Steine daher so anordnen, dass $x\ge y$, es ergibt sich dann folgende
+Darstellung aller Elementarereignisse:
+\[
+\begin{matrix}
+(0,0)&(1,0)&(2,0)&(3,0)&(4,0)&(5,0)&(6,0)\\
+     &(1,1)&(2,1)&(3,1)&(4,1)&(5,1)&(6,1)\\
+     &     &(2,2)&(3,2)&(4,2)&(5,2)&(6,2)\\
+     &     &     &(3,3)&(4,3)&(5,3)&(6,3)\\
+     &     &     &     &(4,4)&(5,4)&(6,4)\\
+     &     &     &     &     &(5,5)&(6,5)\\
+     &     &     &     &     &     &(6,6)
+\end{matrix}
+\]
+Die gesucht Anzahl ist also die Summe der Zahlen von 1 bis 7,
+\[
+\sum_{k=1}^7k=\frac{7(7+1)}2=28.
+\]
+\item Ersetzt man den Dominostein $(x,y)$ durch den Stein $(6-x,6-y)$,
+ensteht ein Stein mit der Augenzahl $12-(x+y)$. Durch die genannte
+Ersetzung werden die Dominosteine aufeinander abgebildet, die Dominosteine
+mit Augensumme $\ge12$ kommen also genau gleich oft vor wie jene mit
+Augensumme $\le12$, und zu ``komplement"aren'' Augensummen (also Augensummen,
+die sich zu 12 addieren) jeweils auch in gleicher Zahl. Daher ist
+der Erwartungswert bei dieser Operation ebenfalls unver"andert,
+\[
+E(X+Y)= 12-E(X+Y)\quad\Rightarrow\quad E(X+Y)=6.
+\]
+Alternativ kann man dies auch aus der obigen Auflistung aller
+Elementarereignisse abz"ahlen. Es ergibt sich die folgende Tabelle
+der m"oglichen Augensummen:
+\begin{center}
+\begin{tabular}{|l|rrrrrrrrrrrrr|}
+\hline
+Augensumme & 0& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11& 12\\
+\hline
+Anzahl     & 1& 1& 2& 2& 3& 3& 4& 3& 3& 2&  2&  1&  1\\
+\hline
+\end{tabular}
+\end{center}
+Wieder erkennt man die Symmetrie der Anzahlen, woraus man bereits
+ablesen k"onnte, dass der Erwartungswert der Augensumme $6$ ist.
+Man kann ihn aber auch explizit ausrechnen:
+\begin{align*}
+E(X+Y)&=
+\frac1{28}(
+0\cdot 1+
+1\cdot 1+
+2\cdot 2+
+3\cdot 2+
+4\cdot 3+
+5\cdot 3+
+6\cdot 4\\
+&\qquad +
+7\cdot 3+
+8\cdot 3+
+9\cdot 2+
+10\cdot 2+
+11\cdot 1+
+12\cdot 1
+)
+\\
+&=
+\frac1{28}(1+4+6+12+15+24+21+24+18+20+11+12)\\
+&=
+\frac{168}{28}=6.
+\end{align*}
+\item
+Die folgenden Dominosteine haben Augensumme 6:
+\[
+\{\text{Augensumme 6}\}
+=\{
+(0,6),\;
+(1,5),\;
+(2,4),\;
+(3,3)\}.
+\]
+Also ist die Wahrscheinlichkeit, die Augensumme 6 zu erreichen
+\[
+P(\text{Augensumme 6})=\frac{4}{28}=\frac17=0.14285714285714285714.
+\]
+\end{teilaufgaben}
+\end{loesung}
+

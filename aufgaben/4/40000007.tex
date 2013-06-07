@@ -1,0 +1,164 @@
+Beim Spiel ``Eile mit Weile'' wird in jeder Runden nach folgenden Regeln
+verfahren.
+W"urfelt man eine Zahl zwischen 1 und 5, darf man mit der Spielfigur
+um eine entsprechende Zahl Felder vorw"arts. W"urfelt man dagegen
+eine 6, darf man 12 Felder vorr"ucken, und nochmals nach den
+gleichen Regeln w"urfeln. W"urfelt man aber dreimal hintereinander
+eine 6, wird man damit bestraft, dass man auf die Startposition
+zur"uck muss, man kommt also nicht weiter.
+\begin{teilaufgaben}
+\item Sei $N$ das Ereignis, ``normal'' zu W"urfeln, also alles ausser drei
+Sechser. $Z$ sei dagegen das Ereignis, 3 Sechser zu w"urfeln. Wie gross
+sind die Wahrscheinlichkeiten von $N$ und $Z$.
+\item Wie weit kommt man pro Runde im Mittel?
+\item Wie wahrscheinlich ist, dass man in 10 Runden mindestens einmal
+ganz an den Anfang zur"uck musste?
+\item Wie viele Runden m"ussen gespielt werden, damit die Wahrscheinlichkeit,
+dass man im Laufe des Spieles auf den Anfang zur"uck musste, gr"osser als 50\%
+wird?
+\item Wie weit ist man im Schnitt nach vier Runden?
+\item Bonusfrage: Wie weit ist man im Schnitt nach $n$ Runden?
+\end{teilaufgaben}
+
+\begin{loesung}
+Es sind folgende Ereignisse m"oglich
+\begin{center}
+\begin{tabular}{|ccc|c|r|r|r|}
+\hline
+1.&2.&3.&$p_i$&$x_i$&$p_i\cdot x_i$&$p_i\cdot x_i^2$\\
+\hline
+1& & &              &$         1$&$   \frac{1}{6}=\frac{ 36}{6^3}$&$\frac{   36}{6^3}$\\
+2& & &              &$         2$&$   \frac{2}{6}=\frac{ 72}{6^3}$&$\frac{  144}{6^3}$\\
+3& & &$    \frac16 $&$         3$&$   \frac{3}{6}=\frac{108}{6^3}$&$\frac{  324}{6^3}$\\
+4& & &              &$         4$&$   \frac{4}{6}=\frac{144}{6^3}$&$\frac{  576}{6^3}$\\
+5& & &              &$         5$&$   \frac{5}{6}=\frac{180}{6^3}$&$\frac{  900}{6^3}$\\
+\hline
+6&1& &              &$   12+1=13$&$\frac{13}{6^2}=\frac{ 78}{6^3}$&$\frac{ 1014}{6^3}$\\
+6&2& &              &$   12+2=14$&$\frac{14}{6^2}=\frac{ 84}{6^3}$&$\frac{ 1176}{6^3}$\\
+6&3& &$\frac1{6^2} $&$   12+3=15$&$\frac{15}{6^2}=\frac{ 90}{6^3}$&$\frac{ 1350}{6^3}$\\
+6&4& &              &$   12+4=16$&$\frac{16}{6^2}=\frac{ 96}{6^3}$&$\frac{ 1536}{6^3}$\\
+6&5& &              &$   12+5=17$&$\frac{17}{6^2}=\frac{102}{6^3}$&$\frac{ 1734}{6^3}$\\
+\hline
+6&6&1&              &$12+12+1=25$&$               \frac{ 25}{6^3}$&$\frac{  625}{6^3}$\\
+6&6&2&              &$12+12+1=26$&$               \frac{ 26}{6^3}$&$\frac{  676}{6^3}$\\
+6&6&3&$\frac1{6^3} $&$12+12+1=27$&$               \frac{ 27}{6^3}$&$\frac{  729}{6^3}$\\
+6&6&4&              &$12+12+1=28$&$               \frac{ 28}{6^3}$&$\frac{  784}{6^3}$\\
+6&6&5&              &$12+12+1=29$&$               \frac{ 29}{6^3}$&$\frac{  841}{6^3}$\\
+6&6&6&              &zur"uck     &                                &                   \\
+\hline
+ & & &              &            &$\frac{1125}{6^3}=\frac{1125}{216}$
+                                                                  &$\frac{12445}{6^3}=\frac{12445}{216}$\\
+\hline
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item Aus der Tabelle liest man die Wahrscheinlichkeit f"ur $Z$ in der letzten
+Zeile ab: $P(Z)=\frac1{216}$. Da $Z\cup N=\Omega$ ist
+$P(N)=1-P(Z)=\frac{215}{216}=0.9953704$.
+\item
+Erwartungswert und Varianz der Anzahl Felder, um die man in einer Runde vorr"ucken kann,
+kann man wie folgt daraus berechnen:
+\begin{align*}
+E(X)
+&=\frac{1125}{216}\simeq 5.208333
+\\
+\operatorname{var}(X)
+&= E(X^2)-E(X)^2\\
+&=\frac{12445}{216}-\left(\frac{1125}{216}\right)^2\\
+&=\frac{12445\cdot 216  - 1125^2}{216^2}\\
+&=\frac{1422495}{46656}\simeq 30.489\\
+\sqrt{\operatorname{var}(X)}&\simeq 5.522
+\end{align*}
+\item
+Die Wahrscheinlichkeit, in einer Runde nicht an den Anfang zur"uck
+zu m"ussen ist $P(N)$. Die Wahrscheinlichkeit, dass man dieses
+Gl"uck in 10 Runden jedes mal hat, ist $P(N)^{10}$. Die Wahrscheinlichkeit,
+mindestens einmal zur"uck zu m"ussen ist also $1-P(N)^{10}=0.04534360167$.
+\item
+Man muss $n$ finden so dass $1-P(N)^n>\frac12$, also
+\begin{align*}
+P(N)^n<\frac12\\
+n\log P(N)&<\log\frac12\\
+n>\frac{\log\frac12}{\log P(N)}\simeq 149.3729
+\end{align*}
+Man beachte, dass die Richtung des Vergleichszeichens im zweitletzten Schritt
+in der zweitletzten  Schritt kehrt, weil $\log P(N) < 0$. Man muss also mindestens
+150 Runden spielen.
+\item
+G"abe es die Regel nicht, dass man nach drei Sechsern zur"uck muss,
+w"are die gesuchte Gr"osse einfach $4 E(X)$. Da man aber
+jederzeit ``zur"uckgeworfen'' werden kann, kommt es nur darauf an,
+wie viele ``ungest"orte'' Runden man spielen konnte.
+Wir unterscheiden die Ereignisse $Z$, drei Sechser, zur"uck auf die
+Anfangsposition und $N$, normaler Wurf. Die Wahrscheinlichkeiten f"ur
+die Ereignisse sind
+\begin{align*}
+P(Z)&= \frac1{216}\\
+P(N)&= 1-P(Z)=\frac{6^3-1}{6^3}=\frac{215}{216}
+\end{align*}
+Dann sind folgende Szenarien m"oglich:
+\begin{center}
+\begin{tabular}{|cccc|c|c|c|}
+\hline
+1&2&3&4&$p$&$y$&$p\cdot y$\\
+\hline
+ * & * & * &$Z$&$P(Z)$&$0$&$0$\\
+ * & * &$Z$&$N$&$P(Z)P(N)$&$E(X)$&$P(Z)P(N)$\\
+ * &$Z$&$N$&$N$&$P(Z)P(N)^2$&$2E(X)$&$2P(Z)P(N)^2$\\
+$Z$&$N$&$N$&$N$&$P(Z)P(N)^3$&$3E(X)$&$3P(Z)P(N)^3$\\
+$N$&$N$&$N$&$N$&$P(N)^4$&$4E(X)$&$4    P(N)^4$\\
+\hline
+\end{tabular}
+\end{center}
+Die Summe der Werte in der mit $p$ angeschriebenen Spalte sind
+\begin{align*}
+P(Z)\biggl(\sum_{k=0}^3 P(N)^k\biggr) + P(N)^4
+&=
+(1-P(N))\biggl(\sum_{k=0}^3 P(N)^k\biggr) + P(N)^4\\
+&=
+(1-P(N)^4) + P(N)^4
+=1
+\end{align*}
+Der Erwartungswert ist die Summe der Werte in der letzten
+Spalte, also
+\begin{align*}
+E(S_4)
+&=
+P(Z)\biggl(\sum_{k=0}^3kP(N)^k\biggr)+4P(N)^4
+\end{align*}
+Allgemein f"ur $n$ Runden wird analog gelten
+\begin{align*}
+E(S_n)&=P(Z)\biggl(\sum_{k=0}^{n-1} kP(N)^k\biggr) + nP(N)^n
+\end{align*}
+F"ur die Reihe gilt mit der Abk"urzung $p=P(N)$
+\begin{align*}
+\sum_{k=1}^{n-1}kp^k
+&=p\frac{d}{dp}\sum_{k=0}^{n-1}p^k
+ =p\frac{d}{dp}\frac{1-p^n}{1-p}\\
+&= \frac{(n-1) p^{n+1}-n p^n+p}{(1-p)^2}
+\end{align*}
+Somit ist der Erwartungswert $E(S_n)$
+\begin{equation}
+E(S_n)
+=
+\frac{(n-1) p^{n+1}-n p^n+p}{1-p}+np^n
+=\frac{p(1-p^n)}{1-p}
+\label{40000007:eile}
+\end{equation}
+F"ur $n=4$ und $p=\frac{215}{216}$ folgt
+$
+E(S_4)=
+3.9539175
+$.
+\item Wurde in der vorangegangenen Teilaufgabe bereits
+beantwortet.
+\end{teilaufgaben}
+Die Formel (\ref{40000007:eile}) f"ur $E(S_n)$ ist etwas "uberraschend,
+sie bedeutet,
+dass man im ``Eile mit Weile'' nur schwer sehr grosse Distanzen
+erreichen kann. F"ur $n\to\infty$ strebt $E(S_n)$
+wegen $p^n\to 0$ gegen den Wert $p/(1-p)=215$.  Und darin ist die
+M"oglichkeit, dass andere Mitspieler eine Spielfigur wieder auf den
+Anfang zur"ucksetzen k"onnen, noch gar nicht ber"ucksichtigt.
+\end{loesung}
+

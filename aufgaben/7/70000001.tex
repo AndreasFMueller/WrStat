@@ -1,0 +1,44 @@
+Die Zufallsvariable $X$ sei exponentialverteilt mit Parameter $a$.
+Finden Sie einen Sch"atzer, der $\frac1a$ aus Messungen $x_1,\dots,x_n$
+von $X$ bestimmt. Ist Ihr Sch"atzer konsistent und/oder erwartungstreu?
+
+\begin{loesung}
+Das Maximum Likelihood-Prinzip gibt eine Methode, mit der man einen
+Sch"atzer finden kann. Aus der Dichtefunktion
+\[
+\varphi(x,a)=\begin{cases}
+ae^{-ax}&\qquad x \ge 0\\
+0&\qquad\text{sonst}
+\end{cases}
+\]
+kann man die Likelihood-Funktion
+\[
+L(x_1,\dots,x_n,a)=\varphi(x_1,a)\dots\varphi(x_n,a)=
+\begin{cases}
+a^ne^{-a(x_1+x_2+\dots+x_n)}&\qquad \text{alle $x_i \ge 0$}\\
+0&\qquad\text{sonst}
+\end{cases}
+\]
+Jetzt muss $a$ so gew"ahlt werden, dass $L(x_1,\dots,x_n,a)$
+maximal wird.
+Da die Funktion $e^x$ monoton ist, wird die Likelihood-Funktion
+genau dann maximal, wenn der Exponent
+$-a(x_1+x_2+\dots+x_n)$ m"oglichst gross ist.
+Wir leiten daher nach $a$ ab:
+\begin{align*}
+\frac{d}{da}L(x_1,\dots,x_n,a)&=na^{n-1}e^{-a(x_1+\dots+x_n)}-a^n(x_1+\dots+x_n)e^{-a(x_1+\dots+x_n)}\\
+&=a^n
+\left(\frac{n}a-(x_1+\dots+x_n)\right)
+e^{-a(x_1+\dots+x_n)}=0
+\end{align*}
+Der Exponentialfaktor ist immer positiv, also muss der Klammerausdruck
+verschwinden:
+\[
+\left(\frac{n}a-(x_1+\dots+x_n)\right)=0
+\quad\Rightarrow\quad
+\frac1a=\frac{x_1+\dots+x_n}{n}.
+\]
+Der gefundene Sch"atzer ist der Sch"atzer f"ur den Erwartungswert,
+welcher nat"urlich konsistent und erwartungstreu ist.
+\end{loesung}
+

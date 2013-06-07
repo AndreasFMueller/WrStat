@@ -1,0 +1,24 @@
+Eine faire M"unze wird vier mal geworfen und die Anzahl ``Kopf'' gez"ahlt.
+Wenn $k$ mal Kopf erscheint, wird ein Gewinn ausbezahlt, der der $k+1$-ten
+Primzahl entspricht. Welchen Gewinn k"onnen Sie erwarten?
+
+\begin{loesung}
+Wir erhalten die folgenden Wahrscheinlichkeiten und Gewinne
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Anzahl Kopf&Gewinn $g$&$P(X=g)$&$P(X=g)\cdot g$\\
+\hline
+$0$&$2$&$\frac1{16}$&$\frac2{16}$\\
+$1$&$3$&$\frac4{16}$&$\frac{12}{16}$\\
+$2$&$5$&$\frac6{16}$&$\frac{30}{16}$\\
+$3$&$7$&$\frac4{16}$&$\frac{28}{16}$\\
+$4$&$11$&$\frac1{16}$&$\frac{11}{16}$\\
+\hline
+&&&$\frac{83}{16}$\\
+\hline
+\end{tabular}
+\end{center}
+Somit ist der erwartete Gewinn $E(X)=\frac{83}{16}=5.1875$.
+\end{loesung}
+

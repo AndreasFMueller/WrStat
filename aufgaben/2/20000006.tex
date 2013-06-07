@@ -1,0 +1,48 @@
+Innerhalb einer Risikogruppe weiss man folgendes "uber die Wirksamkeit
+der Grippeimpfung:
+\begin{enumerate}
+\item 24\% der nicht geimpften erkranken.
+\item Die Impfung halbiert die Erkrankungswahrscheinlichkeit.
+\item Die Impfkampagne hat die Wahrscheinlichkeit
+auf 18\% gesenkt.
+\end{enumerate}
+\begin{teilaufgaben}
+\item Welcher Teil der Gruppe hat sich impfen lassen?
+\item Wie gross ist die Wahrscheinlichkeit, dass ein erkrankter
+bereits geimpft war?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir haben mit folgenden Ereignissen zu tun:
+\begin{align*}
+I&=\{\text{Patient ist geimpft}\}\\
+K&=\{\text{Patient ist erkrankt}\}
+\end{align*}
+Die Aussagen in der Aufgaben bedeuten
+\begin{enumerate}
+\item $P(K|\bar I)=0.24$
+\item $P(K|I)=0.12$
+\item $P(K)=0.18$
+\end{enumerate}
+\begin{teilaufgaben}
+\item
+Der Satz "uber die totale Wahrscheinlichkeit bedeutet
+\begin{align*}
+P(K)&=P(K|I)P(I)+P(K|\bar I)P(\bar I)
+\\
+0.18&=0.12\cdot P(I)+0.24\cdot (1-P(I))
+\\
+0.18-0.24&=(0.12-0.24)\cdot P(I)
+\\
+P(I)&=\frac{-0.06}{-0.12}=\frac12
+\end{align*}
+Die H"alfte hat sich impfen lassen.
+\item
+Der Satz von Bayes liefert:
+\[
+P(I|K)=P(K|I)\frac{P(I)}{P(K)}=0.12\cdot\frac{0.5}{0.18}=\frac13.
+\]
+Ein Drittel der Kranken ist also bereits geimpft.
+\end{teilaufgaben}
+\end{loesung}
+

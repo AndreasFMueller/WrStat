@@ -1,0 +1,43 @@
+In einer Z"undholzfabrik wird die Qualit"atssicherung wie folgt gehandhabt.
+Die Maschine, die die H"olzer abl"angt ist auf die L"ange $l=5\text{cm}$ eingestellt.
+Abweichungen nach oben oder unten bis 5\% von dieser L"ange werden toleriert,
+l"angere H"olzer passen nicht mehr in die Schachteln. Es stellt sich
+heraus, dass 10\% der abgel"angten H"olzer als zu kurz und 5\% als zu
+lange ausgeschieden werden. Wie gross ist die mittlere L"ange der abgel"angten
+H"olzer, und welche Standardabweichung hat die L"ange?
+
+\begin{loesung}
+Wir d"urfen Annehmen, dass die L"ange $X$ eines Streichholzes eine
+normalverteilte Zufallsvariable mit Erwartungswert $\mu$ und Varianz
+$\sigma^2$ ist. Wir wissen, dass
+\begin{align*}
+P(X<0.95 l)&=0.1&P\left(\frac{X-\mu}{\sigma}<\frac{0.95l-\mu}{\sigma}\right)&=0.1\\
+P(X>1.05l)&=0.05&P\left(\frac{X-\mu}{\sigma}>\frac{1.05l-\mu}{\sigma}\right)&=0.05
+\end{align*}
+Daraus ergibt sich das Gleichungssystem
+\begin{align*}
+0.95l-\mu&=-1.281552\sigma\\
+1.05l-\mu&=1.644854\sigma
+\end{align*}
+Die Differenz der beiden Gleichungen liefert
+\[
+0.1l=2.926405\sigma\qquad\Rightarrow\qquad
+\sigma=0.03417162l.
+\]
+Aus der halben Summe der beiden Gleichungen folgt
+\[
+l-\mu=0.1816510\sigma\qquad\Rightarrow\qquad\mu=l-0.00620731l
+=0.9937927l
+\]
+F"ur die eingestellte L"ange von $l=5\text{cm}$ folgt
+\begin{align*}
+\mu&=
+4.9689635
+\text{cm}
+\\
+\sigma&=
+1.7085810
+\text{mm}
+\end{align*}
+\end{loesung}
+

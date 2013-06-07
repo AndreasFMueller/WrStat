@@ -1,0 +1,193 @@
+Bei einem W"urfelspiel wird mit zwei W"urfeln gew"urfelt. Wenn
+auf beiden W"urfeln die gleiche Augenzahl erscheint, man nennt dies
+einen Pasch, darf
+der Spieler noch ein zweites Mal w"urfeln.
+\begin{teilaufgaben}
+\item Wie gross ist die Wahrscheinlichkeit, ein zweites Mal w"urfeln
+zu d"urfen (Ereignis $P$)?
+\item Wie gross ist die Wahrscheinlichkeit, 10 zu erreichen,
+wenn man im ersten Wurf zwei gleiche gew"urfelt hat?
+\item Wie gross ist die
+Wahrscheinlichkeit, mehr als 10 zu w"urfeln (Ereignis $Z$)?
+\end{teilaufgaben}
+
+\begin{loesung}
+Teilaufgabe b) kann auf zwei
+Arten verstanden werden konnte: ``10 erreicht'' konnte
+entweder heissen, dass in beiden W"urfen mindestens 10 gew"urfelt wurde,
+oder es konnte heissen, dass in beiden W"urfen exakt 10 gew"urfelt wurde.
+Dies hat Auswirkungen auf b), nicht aber auf c).
+
+\begin{teilaufgaben}
+\item von 36 m"oglichen Ausg"angen beim W"urfeln mit zwei W"urfeln
+f"uhren 6 auf einen Pasch, die Wahrscheinlichkeit eines Pasches
+ist also $P(P)=\frac16$.
+\item
+Wie in der Einleitung zur L"osung erw"ahnt, betrachten wir hier beide
+M"oglichkeiten, die Aufgabe zu verstehen. Zun"achst der Fall, in
+dem mindestens Zehn gew"urfelt wird.
+
+Bezeichnet man das Ereignis, die totale Augenzahl 10 zu erreichen (womit
+wir meinen, dass wir sie auch "ubertreffen k"onnen), mit
+$Q$, dann wird die bedingte Wahrscheinlichkeit $P(Q|P)$ gesucht.
+
+Je nach Augenzahl im ersten Wurf ist die Wahrscheinlichkeit
+daf"ur verschieden, zusammen mit dem zweiten Wurf 10 zu erreichen.
+Man muss also das Ereignis $Q$ in die verschieedenen F"alle eines
+Pasches zerlegen. Sei also $P_k$ das Ereignis, dass im ersten Wurf
+ein $k$-er-Pasch geworfen worden ist. Jede Augenzahl ist in diesem
+ersten Wurf gleich wahrscheinlich, also
+\[
+P(P_1|P) = P(P_2|P) = P(P_3|P)
+P(P_4|P) = P(P_5|P) = P(P_6|P)=\frac16.
+\]
+Bei einem $k$-er-Pasch im ersten Wurf muss man im zweiten Wurf die
+Augensumme $10-2k$
+erreichen, wenn das Ereignis $Q$ eintreten soll.
+Sei $A_l$ das Ereignis, im zweiten Wurf die Augensumme $\ge l$
+zu erreichen. Dann ist
+\begin{align*}
+P(Q|P)
+&=P(P_1|P) P(A_8) + P(P_2|P) P(A_6) + P(P_3|P) P(A_4) \\
+&\qquad + P(P_4|P)P(A_2) + P(P_5|P) P(A_0) + P(P_6|P) P(A_{-2})
+\\
+&=\frac1{6}(P(A_8) + P(A_6) + P(A_4) + P(A_2) + 1 + 1),
+\end{align*}
+da $P(P_k|P)=\frac1{6}$. F"ur die Wahrscheinlichkeiten $P(A_l)$ muss man
+jetzt nur noch z"ahlen, wieviele Kombination von Augenzahlen die
+verlangte Augensumme ergeben, die folgende Tabelle zeigt die
+Resultate:
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+$l$&$P(A_l)$\\
+\hline
+$-2$&1\\
+0&1\\
+2&1\\
+4&$\frac{33}{36}$
+\\
+6&$\frac{26}{36}$
+\\
+8&$\frac{15}{36}$
+\\
+\hline
+\end{tabular}
+\end{center}
+Die gesuchte Wahrscheinlichkeit ist daher
+\[
+P(Q|P)
+=
+\frac1{6}\biggl(\frac{15}{36} + \frac{26}{36} + \frac{33}{36} + 1 + 1 + 1\biggr)
+=
+\frac1{216}(15 + 26 + 33 + 36 + 36 + 36)
+=
+\frac{182}{216}.
+\]
+
+Man k"onnte die Teilaufgabe b) auch so verstehen, dass exakt die
+Augenzahl 10 erreicht werden muss. Wir bezeichnen dieses Ereignis
+mit $E$. In diesem Fall bleiben obige
+Formeln bestehen, wenn $A_l$ jetzt bedeutet, dass man im zweiten
+Wurf genau die Augensumme $l$ erreicht. Zur Vermeidung von Verwechslungen
+schreiben wir $B_l$ f"ur das Ereignis, exakt die Augensumme $l$ erreicht.
+F"ur diese $B_l$ ergibt sich
+folgende modifizierte Tabelle:
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+$l$&$P(B_l)$\\
+\hline
+$-2$&0\\
+0&0\\
+2&$\frac{1}{36}$\\
+4&$\frac{3}{36}$\\
+6&$\frac{5}{36}$\\
+8&$\frac{5}{36}$\\
+\hline
+\end{tabular}
+\end{center}
+und die gesuchte Wahrscheinlichkeit wird
+\begin{align*}
+P(E|P)
+&=P(P_1|P) P(B_8) + P(P_2|P) P(B_6) + P(P_3|P) P(B_4) \\
+&\qquad + P(P_4|P)P(B_2) + P(P_5|P) P(B_0) + P(P_6|P) P(B_{-2})\\
+&=
+\frac1{6}\biggl(\frac{5}{36} + \frac{5}{36} + \frac{3}{36} + \frac{1}{36} + 0 + 0\biggr)
+\\
+&=
+\frac1{216}(5 + 5 + 3 + 1 + 0 + 0)
+=
+\frac{14}{216}=\frac{7}{108}=0.0648148.
+\end{align*}
+
+\item
+Es wird $P(Z)$ gesucht.
+In der Teilaufgabe b) haben wir entweder das Ereignis
+$Q$ untersucht, welches auch noch die F"alle umfasst, in denen genau
+die Augensumme $10$ erzielt wird, oder das Ereignis $E$, exakt die Augensumme
+10 zu erzielen. Es gilt nat"urlich
+\[
+Z\cup E = Q,\qquad Z\cap E=\emptyset.
+\]
+also
+\[
+P(Z)=P(Q)-P(E).
+\]
+Auf jeden Fall muss man die F"alle unterschiedlich behandeln, in denen
+im ersten Wurf ein Pasch erzielt wurde oder eben nicht. Zusammensetzen
+kann man dann das Resultat wieder mit dem Satz "uber die totale
+Wahrscheinlichkeit. Es gilt
+\begin{align*}
+P(Q)&=P(Q|P)P(P) + P(Q|\bar P)P(\bar P)\\
+P(E)&=P(E|P)P(P) + P(E|\bar P)P(\bar P)
+\end{align*}
+Bekannt sind aus Teilaufgabe a) die Wahrscheinlichkeiten
+$P(P)=\frac16$
+$P(\bar P)=1-P(P)=1-\frac16=\frac56$. Man muss jetzt also nur noch die
+bedingten Wahrscheinlichkeiten ermitteln.
+
+Je nachdem, wie man die Teilaufgabe b) interpretiert hat, hat man $P(Q|P)$
+oder $P(E|P)$ bereits bestimmt. Man muss also zun"achst nach dem gleichen
+Muster die noch fehlende bedingte Wahrscheinlichkeit ausrechnen.
+
+Ausserdem braucht man noch die Wahrscheinlichkeiten $P(Q|\bar P)$ und
+$P(E|\bar P)$. Diese ermittelt man durch abz"ahlen der F"alle, in denen
+das Ereignis $Q$ bzw.~$E$ ohne Pasch eintritt, also insbesondere in nur
+einem Wurf.
+
+Im Falle des Ereignisses $Q$, also mindestens Augenzahl 10, geschieht dies
+mit den Elementarereignissen $\{(4,6),(4,5),(5,4),(6,4)\}$, also bei 4 der 30
+m"oglichen Elementarreignisse ohne Pasch\footnote{In $\bar P$ sind tritt
+niemals ein Pasch auf, wenn man also Wahrscheinlichkeiten in dieser Menge
+berechnet, darf man keinen Pasch mitz"ahlen, weder bei den
+g"unstigen Erreignissen noch bei den Ereignissen der Grundgesamtheit.}.
+Im Falle von $E$, also exakt
+der Augenzahl $10$ geschieht es hingegen in nur zwei dieser
+F"alle $\{(4,6), (6,4)\}$, also mit Wahrscheinlichkeit $\frac{2}{30}$.
+
+Damit kann man jetzt die Wahrscheinlichkeiten zusammensetzen:
+\begin{align*}
+P(Q)&=P(Q|P)P(P) + P(Q|\bar P)P(\bar P)\\
+    &=\frac{182}{216}\cdot\frac16 + \frac4{30}\cdot\frac56\\
+    &=\frac{182}{216}\cdot\frac16 + \frac4{6}\cdot\frac16\\
+    &=\frac{182}{216}\cdot\frac16 + \frac{24}{216}
+    &=\frac{206}{216}\\
+P(E)&=P(E|P)P(P) + P(E|\bar P)P(\bar P)\\
+    &=\frac{14}{216}\cdot\frac16 + \frac2{30}\cdot\frac56\\
+    &=\frac{14}{216}\cdot\frac16 + \frac2{6}\cdot\frac16\\
+    &=\frac{14}{216}\cdot\frac16 + \frac{12}{216}\\
+    &=\frac{26}{216}
+\end{align*}
+Damit bekommt man jetzt f"ur $P(Z)$ aus
+\[
+P(Z)=P(Q)-P(E)
+=
+    \frac{206}{216}
+    -\frac{26}{216}
+=\frac{180}{216}=\frac56=0.83333
+\]
+\end{teilaufgaben}
+
+\end{loesung}
+

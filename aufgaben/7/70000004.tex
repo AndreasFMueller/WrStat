@@ -1,0 +1,115 @@
+Sei $X_1,X_2,X_3$ eine Stichprobe von Messungen einer im
+Intervall $[0,1]$ gleichverteilten Zufallsvariable $X$,
+d.~h.~alle $X_i$ haben die gleiche Verteilung. Betrachten Sie die folgenden
+zwei Sch"atzer f"ur den Erwartungswert von der Verteilung:
+\begin{align*}
+\hat\mu_1&=\frac{X_1+X_2+X_3}3\\
+\hat\mu_2&=\operatorname{med}(X_1,X_2,X_3)
+\end{align*}
+Beide Gr"ossen $\hat\mu_1$ und $\hat\mu_2$ sind Zufallsvariablen.
+\begin{teilaufgaben}
+\item
+Berechnen Sie die Varianz von $\hat\mu_1$.
+\item
+Simulieren Sie das Experiment auf dem Computer, und berechnen Sie
+$\hat\mu_2$ 10000 mal, und ermitteln Sie die Varianz.
+\item
+Welcher Sch"atzer hat die gr"ossere Varianz?
+\item
+Bonusaufgabe:
+K"onnen Sie die Varianz von $\hat\mu_2$ auch theoretisch
+berechnen?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die Varianz von $\hat\mu_1$ kann mit den Rechenregeln bestimmt werden:
+\begin{align*}
+\operatorname{var}(\hat\mu_1)&=\operatorname{var}\biggl(\frac{X_1+X_2+X_3}3\biggr)
+\\
+&=\frac19(
+\operatorname{var}(X_1)+
+\operatorname{var}(X_2)+
+\operatorname{var}(X_3)
+)
+=\frac13\operatorname{var}(X).
+\end{align*}
+Die Varianz von $X$ wurde in der Vorlesung berechnet:
+$\operatorname{var}(X)=\frac1{12}$. Also ist
+$\operatorname{var}(\hat\mu_1)=\frac1{36}=0.027778$.
+\item Die Simulation kann mit folgendem Programm durchgef"uhrt werden:
+\verbatimainput{med.m}
+Es ergibt in f"unf verschiedenen L"aufen:
+\[
+0.050045,\quad
+0.049567,\quad
+0.049557,\quad
+0.049983,\quad
+0.050909.
+\]
+\item
+Aus dem empirischen Resultat kann man vermuten dass der Mittelwert
+deutlich weniger Varianz hat als der Median.
+\item
+Um die Varianz des Medians berechnen zu k"onnen braucht man dessen
+Verteilungsfunktion.
+Sei $F(x)$ die Verteilungsfunktion der Zufallsvariablen $X$.
+Dann gilt f"ur $Z=\operatorname{med}(X_1,X_2,X_3)$:
+\begin{align*}
+F_Z(x)&=P(Z\le x)\\
+&=P(X_1\le x\wedge X_2\le x\wedge X_3 > x)
++P(X_2\le x\wedge X_3\le x\wedge X_1 > x)\\
+&\qquad+P(X_3\le x\wedge X_1\le x\wedge X_2 > x)
++ P(X_1\le x\wedge X_2\le x\wedge X_3\le x)\\
+&=3\cdot P(X_1\le x\wedge X_2\le x\wedge X_3 > x) 
++ P(X_1\le x\wedge X_2\le x\wedge X_3\le x)\\
+&=3\cdot P(X_1\le x)\cdot P(X_2\le x)\cdot P(X_3 > x)\\
+&\qquad
++P(X_1\le x)\cdot P(X_2\le x)\cdot P(X_3\le x)\\
+&=3\cdot F(x)\cdot F(x)\cdot (1-F(x))+F(x)^3=3F(x)^2-3F(x)^3
+\end{align*}
+Daraus kann man jetzt die Dichtefunktion finden:
+\begin{align*}
+\varphi_Z(x)
+&=
+6F'(x)F(x)-6F'(x)F(x)^2=6\varphi(x)F(x)(1-F(x))
+\end{align*}
+Die Funktionen $F(x)$ und $\varphi(x)$ sind bekannt:
+\begin{align*}
+F(x)&=\begin{cases}
+0&\quad x \le 0\\
+x&\quad 0<x\le1\\
+1&\quad 1 < x
+\end{cases},
+&
+\varphi(x)
+&=\begin{cases}
+0&\quad x \le 0\\
+1&\quad 0<x\le1\\
+0&\quad 1 < x
+\end{cases}
+\end{align*}
+Damit kann man jetzt $E(Z^2)$ berechnen:
+\begin{align*}
+E(Z^2)&=\int_{-\infty}^{\infty}x^2 \varphi(x)\,dx=\int_{-\infty}^{\infty}
+x^2
+6\varphi(x)F(x)(1-F(x))
+\,dx
+\\
+&=6\int_0^1x^2\cdot x(1-x)\,dx=6\int_0^1x^3-x^4\,dx\\
+&=
+6\biggl[
+\frac14x^4-\frac15x^5
+\biggr]_0^1=6\biggl(\frac14-\frac15\biggr)=6\frac{5-4}{20}=\frac3{10}=0.3.
+\end{align*}
+Die Varianz ist daher
+\[
+\operatorname{var}(Z)=E(Z^2)-E(Z)^2=0.3 - 0.5^2=0.05.
+\]
+Das Resultat stimmt gut mit dem in den Simulationen in b) gefunden Wert
+"uberein. Der Median ist also zwar ein konsistenter und (mindestens f"ur
+drei Messwerte) erwartungstreuer Sch"atzer f"ur $\mu$, aber er ist
+dem Mittelwert durch seine gr"ossere Varianz unterlegen.
+\end{teilaufgaben}
+\end{loesung}
+

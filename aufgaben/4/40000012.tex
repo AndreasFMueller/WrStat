@@ -1,0 +1,70 @@
+Ein Ingenieur hat die Idee, ein Autofocus-System f"ur unendlich weit
+entfernte punktf"ormige
+Lichtquellen (Sterne) nach folgendem Prinzip zu bauen.
+Solange das System nicht scharf gestellt ist,
+ist das Bild des Sterns eine Kreisfl"ache.
+Mit einem Schrittmotor kann das Objektiv bewegt werden, wodurch der Kreis
+seinen Durchmesser ver"andert. Die Messung des Durchmessers ist 
+nat"urlich mit einem Fehler behaftet (Pixelgr"osse des CCD Sensors,
+Luftunruhe).
+F"ur verschiedene Positionen des Schrittmotors misst man folgende
+Durchmesser:
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Position&Durchmesser\\
+\hline
+10&22\\
+20&17\\
+30&12\\
+40&5\\
+\hline
+\end{tabular}
+\end{center}
+Welche Schrittmotorposition soll angefahren werden, um Scharfstellung
+(Focus) zu erreichen?
+
+\begin{loesung}
+Man kann davon ausgehen, dass der Zusammenhang zwischen Durchmesser
+des Bildes und der Position des Objektivs linear ist, dies ist der
+Strahlensatz. Wir bezeichnen die Position mit $x$ und den Durchmesser
+mit $y$ und suchen eine bestm"ogliche Approximation $y=ax+b$ mit
+Hilfe linearer Regression. Dazu muss man die Summen der Messwerte und
+ihrer Quadrate und Produkte ermitteln.
+\begin{center}
+\begin{tabular}{|c|rr|rrr|}
+\hline
+$i$&$x_i$&$y_i$&$x_i^2$&$y_i^2$&$x_iy_i$\\
+\hline
+1& 10&22& 100&484& 220\\
+2& 20&17& 400&289& 340\\
+3& 30&12& 900&144& 360\\
+4& 40& 5&1600& 25& 200\\
+\hline
+ &100&56&3000&942&1120\\
+\hline
+\end{tabular}
+\end{center}
+Aus den Formeln f"ur die lineare Regression findet man jetzt die
+Koeffizienten $a$ und $b$:
+\begin{align*}
+a&=\frac{
+%\displaystyle
+4\sum_{i=1}^4 x_iy_i-\sum_{i=1}^4x_i\sum_{i=1}^4y_i
+}{
+%\displaystyle
+4\sum_{i=1}^4x_i^2-\bigl(\sum_{i=1}^4 x_i\bigr)^2
+}
+=
+\frac{4\cdot 1120-100\cdot 56}{4\cdot 3000-100^2}=\frac{-1120}{2000}=-0.56
+\\
+b&=\frac14\sum_{i=1}^4y_i-a\frac14\sum_{i=1}^4x_i
+=14 - a\cdot 25=28
+\end{align*}
+Die optimale lineare Approximation ist also $y=28-0.56x$.
+Fokus bedeutet Durchmesser $y=0$, dies wird f"ur die Schrittmotorposition
+$x_f$ erreicht:
+\[
+ax_f+b=0\quad\Rightarrow\quad x_f=-\frac{b}{a}=\frac{28}{0.56}=50
+\]
+\end{loesung}

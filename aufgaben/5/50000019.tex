@@ -1,0 +1,36 @@
+Berechnen Sie die Wahrscheinlichkeitsverteilung der Anzahl
+richtiger Zahlen beim Schweizer Zahlenlotto.
+
+\begin{hinweis}
+Die Werte der Wahrscheinlichkeitsverteilung
+der hypergeometrischen Verteilung k"onnen
+in $R$ mit {\tt dhyper} berechnet werden.
+\end{hinweis}
+
+\begin{loesung}
+Beim Schweizer Zahlenlotten werden 6 aus 45 Zahlen
+gezogen. Die zu untersuchenden Verteilungsfunktion ist die
+Zahl $K$ der Zahlen der Ziehung, die mit dem Lottozettel
+"ubereinstimmen.
+Die Wahrscheinlichkeit, dass $K=k$,
+wird durch die hypergeometrische Verteilung berechnet:
+\[
+P(K=k)=\frac{\binom{6}{k}\binom{39}{6-k}}{\binom{45}{6}}
+\]
+\begin{center}
+\begin{tabular}{|c|l|}
+\hline
+Anzahl richtige&Wahrscheinlichkeit\\
+\hline
+0& 0.4005646\\
+1& 0.4241273\\
+2& 0.1514740\\
+3& 0.02244060\\
+4& 0.001364631\\
+5& 0.00002872907\\
+6& 0.0000001227738\\
+\hline
+\end{tabular}
+\end{center}
+\end{loesung}
+

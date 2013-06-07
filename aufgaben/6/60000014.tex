@@ -1,0 +1,23 @@
+Wirft man einen fairen W"urfel 600 mal, erwartet man im Mittel
+etwa 100 Sechser. Wie gross ist die Wahrscheinlichkeit,
+mehr als 15 von dieser Zahl abzuweichen?
+
+\begin{loesung}
+Die Anzahl der Sechser ist binomialverteilt mit $p=\frac16$
+und $n=600$. Der Erwartungswert ist $np=100$ und die
+Varianz $\sigma^2=np(1-p)=600\frac16\frac56=\frac{500}6$,
+also $\sigma=9.12870929175276855761$.
+
+Wir k"onnen die Normalapproximation der Normalverteilung verwenden,
+also
+\begin{align*}
+P(85\le X\le 115)
+&=
+P\left(\frac{85-100}{\sigma}\le\frac{X-100}{\sigma}\le\frac{115-100}{\sigma}\right)
+\\
+&=
+2F(1.64317)-1=2\cdot 0.9498-1=0.8996
+\end{align*}
+Die Wahrscheinlichkeit, dass $X$ ausserhalb dieses Intervals liegt,
+ist also $0.1004$.
+\end{loesung}

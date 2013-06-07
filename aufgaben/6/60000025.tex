@@ -1,0 +1,11 @@
+Mit welcher Wahrscheinlichkeit wird ein Bauteil, das eine mittlere Lebensdauer
+von 1000 Tagen hat, "alter als 500 Tage?
+
+\begin{loesung}
+Die Lebensdauer ist exponentialverteilt, also
+$F(t)=1-e^{t/1000}$. Die Wahrscheinlichkeit, "alter als 500 Tage
+zu werden ist
+\[
+P(T > 500)=1-P(T\le 500)=1-F(500)=e^{-\frac12}=0.606531.
+\]
+\end{loesung}

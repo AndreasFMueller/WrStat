@@ -1,0 +1,47 @@
+Unz"ahlige ``Experten'' versuchen immer wieder, uns zu erkl"aren,
+wie sich die diversen Krisen unserer Zeit entwickeln werden. Nur
+selten wird dabei zur"uckgeschaut, und nachgesehen, wie die Auguren
+sich in der Vergangenheit vertippt haben. Nehmen wir an, einer
+dieser Propheten behaupte von sich, am h"aufigsten eine am besten
+zutreffende
+Prognose gemacht zu haben, basierend auf folgenden Zahlen:
+\begin{center}
+\begin{tabular}{cc}
+\hline
+Experte&Anzahl am besten zutreffende Prognosen\\
+\hline
+A&17\\
+B&10\\
+C&8\\
+D&6\\
+\hline
+\end{tabular}
+\end{center}
+Tats"achlich sieht seine Bilanz beeindruckend aus. Aber
+kann man daraus wirklich schliessen, dass er der Beste ist?
+
+\begin{loesung}
+Man kann die Hypothese, alle Experten h"atten die gleiche Wahrscheinlichkeit,
+die am besten zutreffende Prognose zu ver"offentlichen, mit einem $\chi^2$-Test
+testen. Dazu berechnet man die Diskrepanz mit Hilfe folgender Tabelle
+\begin{center}
+\begin{tabular}{|c|crrrr|}
+\hline
+Experte&
+$i$& $n_i$& $p_i$&$n_i-np_i$&$(n_i-np_i)^2/np_i$\\
+\hline
+A&  1&    17&$0.25$&$6.75$ &$4.4451$\\
+B&  2&    10&$0.25$&$-0.25$&$0.0061$\\
+C&  3&     8&$0.25$&$-2.25$&$0.4939$\\
+D&  4&     6&$0.25$&$-4.25$&$1.7622$\\
+\hline
+ &   &$n=41$&      &      &$D=6.7073$\\
+\hline
+\end{tabular}
+\end{center}
+Die kritische Diskrepanz f"ur $\alpha=0.05$ und drei Freiheitsgrade ist
+$D_{\text{krit}}=7.815$, die beobachtete Diskrepanz ist also nicht
+gross genug, um die Nullhypothese zu verwerfen. Damit gibt es keinen
+Beweis, dass Experte $A$ besser ist also die anderen drei.
+\end{loesung}
+

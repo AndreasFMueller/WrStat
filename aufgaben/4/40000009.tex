@@ -1,0 +1,87 @@
+Ein Venustransit ist ein seltenes astronomisches Ereignis, bei dem
+der Planet Venus vor der Sonnescheibe durchzieht.
+Aus Beobachtungen der Dauer eines Transits von verschiedenen Standorten
+auf der Erde aus konnte im 18.~Jahrhundert erstmals der Abstand
+zwischen Erde und Sonne mit hoher Genauigkeit (Fehler $< 2\%$) ermittelt
+werden. Solche Transite sind sehr selten, in keinem Jahrhundert gibt es
+mehr als deren zwei. Viel h"aufiger sind Merkurtransite, die aber wegen
+der Kleinheit des Planeten Merkur schwieriger zu beobachten sind.
+In einem kleinen Teleskop ist Merkur als einziger schwarzer Pixel
+sichtbar. Auch ist der Zeitpunkt, zu dem Merkur die Sonnescheibe
+verl"asst, weniger genau beobachtbar. Daher wurde folgendes Messverfahren
+vorgeschlagen: in regelm"assigen Zeitabstanden wird der Abstand des
+Merkur vom Rand der Sonne gemessen, und dann extrapoliert, wann genau
+Merkus die Sonne verl"asst. Die Messresultate sind:
+\begin{center}
+\begin{tabular}{cc}
+Zeit [min]&Abstand [Pixel]\\
+\hline
+0&17\\
+1&13\\
+2&10\\
+3&8\\
+4&3\\
+\hline
+\end{tabular}
+\end{center}
+Finden sie eine bestm"ogliche Sch"atzung f"ur den Zeitpunkt, zu dem
+Merkur die Sonnenscheibe verl"asst.
+
+\begin{loesung}
+Die bestm"ogliche Sch"atzung kann mittels linearer Regression
+gefunden werden. Sei $T$ die Zeit, und $X$ der Abstand in Pixeln,
+dann m"ussen empirischen Erwartungswerte f"ur $T$, $T^2$, $X$ und $X^2$
+ermittelt werden. Dazu verwendet man folgende Tabelle:
+\begin{center}
+\begin{tabular}{|c|rr|rr|r|}
+\hline
+$i$&$t_i$&$t_i^2$&$x_i$&$x_i^2$&$t_ix_i$\\
+\hline
+0& 0& 0&17&289& 0\\
+1& 1& 1&13&169&13\\
+2& 2& 4&10&100&20\\
+3& 3& 9& 8& 64&24\\
+4& 4&16& 3&  9&12\\
+\hline
+ &10&30&51&631&69\\
+\hline
+\end{tabular}
+\end{center}
+Die Formeln f"ur die Koeffizienten der Regressionsgeraden liefern
+mit $n=5$:
+\begin{align*}
+a&=
+\frac{n\sum_i t_ix_i -\sum_it_i\sum_ix_i}{n\sum_it_i^2-(\sum_i t_i)^2}
+\\
+&=\frac{5\cdot 69 - 10\cdot 51}{5\cdot 30 - 10^2}=\frac{-165}{50}=-3.3
+\\
+b&=\frac1n\sum_ix_i-a\frac1n\sum_it_i\\
+&=\frac15\cdot 51-(-3.3)\cdot \frac15\cdot 10=\frac{51+3.3 \cdot 10}5= 16.8
+\end{align*}
+Die beste Approximation ist also $x(t)=16.8-3.3t$.
+Jetzt muss der Zeitpunkt $t$ gefunden werden, zu dem $x(t)=0$ gilt,
+also
+\[
+16.8-3.3t=0\qquad\Rightarrow\qquad t=16.8/3.3=5.090909
+\]
+Merkur verl"asst also nach 5 Minuten und 5 Sekunden die Sonnescheibe.
+
+Man kann die Aufgabe auch mit vertauschten Rollen von $t$ und $x$
+l"osen. Dann braucht man am Ende nur noch $x=0$ einzusetzen, wegen
+$t(x)=ax+b$ ist also $b$ genau das gesuchte Resultat. Die Formeln
+f"ur $a$ und $b$ werden in diesem Fall zu
+\begin{align*}
+a&=
+\frac{n\sum_i x_it_i -\sum_it_i\sum_it_i}{n\sum_ix_i^2-(\sum_i x_i)^2}
+\\
+&=\frac{5\cdot 69 - 10\cdot 51}{5\cdot 631 - 51^2}=\frac{-165}{554}=-0.297833935
+\\
+b&=\frac1n\sum_it_i-a\frac1n\sum_ix_i\\
+&=\frac15\cdot 10-(-0.297833935)\cdot\frac15\cdot 51=\frac{10+ 0.297833935\cdot 51}5= 5.0379.
+\end{align*}
+In diesem Fall verl"asst Merkur die Sonnenscheibe also schon nach 5 Minuten
+und 3 Sekunden. Aus diesem Unterschied kann man auch ablesen, dass man
+mehr Genauigkeit als ein paar Sekunden mit diesem Verfahren niemals
+wird erhalten k"onnen.
+\end{loesung}
+

@@ -1,0 +1,83 @@
+Gegeben ist das Modell-Internet mit folgender Link-Struktur
+\begin{teilaufgaben}
+\item Berechnen Sie die Google-Matrix {\bf ohne} freien Willen und bestimmen
+Sie die Besuchswahrscheinlichkeiten $p(S_i)$.
+\item Berechnen Sie die Google-Matrix {\bf mit} freiem Willen mit
+$\alpha=0.9$ und bestimmen
+Sie die Besuchswahrscheinlichkeiten $p(S_i)$.
+\end{teilaufgaben}
+\[\UseTips
+\entrymodifiers={++[o][F]}
+\xymatrix @-1mm {
+1 \ar[r] \ar@(dr,dr)[rd] & 2 \ar[d] \ar@(dl,dl)[dl]\\
+4 \ar[u] & 3 \ar[l]
+}
+\]
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Verlinkungsmatrix dieses Modell-Internets ist
+\[
+H=\left(\begin{matrix}
+0&0&0&1\\
+\frac12&0&0&0\\
+\frac12&\frac12&0&0\\
+0&\frac12&1&0
+\end{matrix}\right)
+\]
+Die Eigenvektoren k"onnen zum Beispiel mit Mathematica gefunden
+werden:
+{\tt v = First[Eigenvectors[H]];
+v/Apply[Plus, v]
+}
+Der zweite Befehl sorgt daf"ur, dass die Summe der Elemente $1$ wird,
+wie das von einem Vektor verlangt werden muss, der Wahrscheinlichkeiten
+darstellen soll.
+
+Mit Hilfe des in der Vorlesung vergef"uhrten Iterationsalgorithmus
+kann man folgenden Eigenvektor zum Eigenwert $1$ finden:
+\[
+\left(\begin{matrix}
+0.307692\\
+0.153846\\
+0.230769\\
+0.307692
+\end{matrix}\right)
+\]
+Man kann dies auch mit Hilfe des beigef"ugten kleinen Programms
+{\tt google.cpp} herausfinden.
+Dass die Seiten $1$ und $4$ gleich bewertet sind ist darauf zur"uckzuf"uhren,
+dass alle Besucher von Seite $4$ unbedingt auf Seite $1$ weitergeleitet
+werden, somit m"ussen die beiden Seiten gleich viele Besucher haben.
+\item
+Bei der Ber"ucksichtigung des Freien Willens wird die Matrix zu
+\[
+\alpha H+\frac{1-\alpha}N A
+=
+\left(\begin{matrix}
+0.025&0.025&0.025&0.925\\
+0.475&0.025&0.025&0.025\\
+0.475&0.475&0.025&0.025\\
+0.025&0.475&0.925&0.025
+\end{matrix}\right),
+\]
+wobei die Matrix $A$ aus lauter Einsen besteht.
+\[
+\left(\begin{matrix}
+0.300761\\
+0.160342\\
+0.232496\\
+0.306401\\
+\end{matrix}\right)
+\]
+Man kann sehen, dass die Einf"uhrung des ``freuen Willens'' die
+Unterbewertung der Seite $2$ etwas anhebt auf Kosten der
+"uberbewerteten Seiten $1$ und $4$.
+
+Interessant ist auch, dass selbst die Verwendung sehr kleine Werte von
+$\alpha$ nahe $0$ nicht zu einer "Anderung der Rangfolge der vier
+Seiten f"uhrt.
+\end{teilaufgaben}
+\end{loesung}
+

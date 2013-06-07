@@ -1,0 +1,74 @@
+In einem Ger"at sollen zwei Beschleunigungssensoren verwendet
+werden. Ein AD22279, welcher einen etwas gr"osseren Messbereich von
+$\pm37g$ hat, aber eine etwas beschr"ankte Grenzfrequenz von nur 400Hz.
+Erg"anzt werden soll er durch einen Dreiachssensor ADIS16240,
+der weniger Strom braucht und ausserdem eine deutlich h"ohere
+Grenzfrequenz von 1600Hz hat, daf"ur aber nur bis $\pm19g$ messen kann.
+Das Datenblatt gibt f"ur den ADIS16240 eine Standardabweichung von
+$24\text{m}g$ an, beim AD22279 findet man $22\text{m}g$.
+Um wieviele Prozent kann man den Fehler, gemessen mit
+der Standardabweichung maximal korrigieren, wenn man beide
+Messwerte geeignet mittelt.
+
+\begin{loesung}
+Die beiden Sensoren liefern Werte $X_1$ und $X_2$, die
+beide normalverteilt sind mit gleichem $\mu$, aber verschiedenen
+Varianzen. Gesucht ist der gewichtete Mittelwert
+\[
+X=tX_1+(1-t)X_2
+\]
+so, dass die Varianz $\operatorname{var}(X)$ minimal wird.
+
+Nach den Rechenregeln ist die Varianz von $X$:
+\[
+\operatorname{var}(X)=t^2\operatorname{var}(X_1)+(1-t)^2\operatorname{var}(X_2).
+\]
+Das Minimum finden wir durch Nullsetzen der Ableitung:
+\begin{align*}
+0=\frac{d}{dt}\operatorname{var}(X)
+&=
+2t\operatorname{var}(X_1)-2(1-t)\operatorname{var}(X_2)
+\\
+&=
+2t(\operatorname{var}(X_1)+\operatorname{var}(X_2)) -2\operatorname{var}(X_2)
+\\
+\Rightarrow\qquad
+t&=\frac{\operatorname{var}(X_2)}{\operatorname{var}(X_1)+\operatorname{var}(X_2)}
+=\frac{\sigma_2^2}{\sigma_1^2+\sigma_2^2}
+\\
+1-t&=
+\frac{\sigma_1^2}{\sigma_1^2+\sigma_2^2}
+\end{align*}
+Setzt man dies ein, erh"alt man die verbleibende Varianz
+\begin{align*}
+\operatorname{var}(X)
+&=
+\biggl(
+\frac{\sigma_2^2}{\sigma_1^2+\sigma_2^2}
+\biggr)^2
+\sigma_1^2
++
+\biggl(
+\frac{\sigma_1^2}{\sigma_1^2+\sigma_2^2}
+\biggr)^2
+\sigma_2^2
+\\
+&=\frac{\sigma_1^2\sigma_2^4+\sigma_1^4\sigma_2^2}{(\sigma_1^2+\sigma_2^2)^2}
+=\frac{\sigma_1^2\sigma_2^2(\sigma_2^2+\sigma_1^2)}{(\sigma_1^2+\sigma_2^2)^2}
+\\
+&=
+\frac{\sigma_1^2\sigma_2^2}{\sigma_1^2+\sigma_2^2}
+\end{align*}
+Unter Verwendung der Zahlen aus der Aufgabenstellung
+$\sigma_1=0.024$ und $\sigma_2=0.022$ findet man f"ur
+den minimalen Fehler
+\[
+\frac{\sigma_1^2\sigma_2^2}{\sigma_1^2+\sigma_2^2}=\frac{0.022^2\cdot 0.024^2}{0.022^2+0.024^2}=0.000263
+\quad\Rightarrow\quad
+\sigma
+=0.016
+\]
+Man kann also den Fehler von $0.022\text{m}g$ auf
+$0.016\text{m}g$ reduzieren, eine Reduktion um 32\%.
+\end{loesung}
+

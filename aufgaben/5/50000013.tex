@@ -1,0 +1,51 @@
+Seien $X$ und $Y$  unabh"angige Zufallsvariablen mit Verteilungsfunktionen
+$F_X$ bzw.~$F_Y$ und Wahrscheinlichkeitsdichten $\varphi_X$ bzw.~$\varphi_Y$.
+Berechnen Sie die Wahrscheinlichkeitsdichte von $\min(X,Y)$
+
+\begin{loesung}
+Wir wenden den Standardalgorithmus an:
+\begin{align*}
+F_{\min(X,Y)}(x)
+&=
+P(\min(X,Y)\le x)
+\\
+&=P(X\le x\vee Y\le x)
+\\
+&=P(X\le x) + P(Y\le x) - P(X\le x\wedge Y\le x)
+\\
+&=P(X\le x) + P(Y\le x) - P(X\le x)P(Y\le x)
+\\
+&=F_X(x)+F_Y(x)-F_X(x)F_Y(x)
+\\
+\varphi_{\min(X,Y)}(x)
+&=
+\varphi_X(x)+\varphi_Y(x)-\varphi_X(x)F_Y(x)-\varphi_Y(x)F_X(x)
+\end{align*}
+Wir k"onnten aber auch anders vorgehen. Zun"achst halten wir fest,
+dass
+\[
+F_X(x)=P(X\le x)
+\quad
+\Rightarrow
+\quad
+P(X>x)=1-F_X(x).
+\]
+Folglich ist
+\begin{align*}
+F_{\min(X,Y)}(x)
+&=
+1-P(\min(X,Y) > x)
+\\
+&=
+1-P(X>x\wedge Y>x)
+\\
+&=1-P(X>x)P(Y>x)
+\\
+&=1-(1-F_X(x))(1-F_Y(x))
+\\
+&=
+F_X(x)+F_Y(x)-F_X(x)F_Y(x).
+\end{align*}
+wie vorhin.
+\end{loesung}
+

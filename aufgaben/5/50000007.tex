@@ -1,0 +1,46 @@
+R"uben werden nach der Ernte von einer Maschine nach Durchmesser
+in drei Kategorien sortiert. D"unne R"uben haben einen Durchmesser
+kleiner als 1cm, dicke einen solchen gr"osser als 2.5cm. In einem
+Fall fallen 5\% der R"uben in die Kategorie der d"unnen R"uben,
+aber 25\% in die Kategorie der dicken R"uben. Wie dick sind
+die R"uben im Mittel?
+
+\begin{loesung}
+Wir k"onnen annehmen, dass der Durchmesser eine normalverteilte
+Zufallsvariable $X$ ist
+mit Mittelwert $\mu$ und Standardabweichung $\sigma$. Aus den
+Angaben in der Aufgabenstellung folgt
+\begin{align*}
+P(X>2.5)&= 0.25\\
+P(X<1)&= 0.05
+\end{align*}
+Wir standardisieren:
+\begin{align*}
+P(X>2.5)&=P\left(
+\frac{X-\mu}{\sigma}>\frac{2.5-\mu}{\sigma}
+\right)=0.25
+\\
+P(X<1)&=P\left(
+\frac{X-\mu}{\sigma}<\frac{1-\mu}{\sigma}
+\right)0.05
+\end{align*}
+Mit Hilfe der Tabelle der Quantilen der Normalverteilung finden
+wir jetzt die Gleichungen
+\begin{align*}
+\frac{2.5-\mu}{\sigma}&=0.6745
+\\
+\frac{1-\mu}{\sigma}&=-1.6449
+\end{align*}
+oder
+\begin{align*}
+2.5&=\mu+0.6745\sigma\\
+1&=\mu-1.6449\sigma
+\end{align*}
+Dieses lineare Gleichungssystem kann nach $\mu$ und $\sigma$ aufgel"ost
+werden, man findet
+\[
+\mu=2.06379,\qquad
+\sigma=0.64672.
+\]
+\end{loesung}
+

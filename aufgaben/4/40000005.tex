@@ -1,0 +1,85 @@
+Bei einem mikromechanischen Sensor wird eine Temperaturabh"angigkeit
+der Sensorwerte in Neutrallage des Sensors festgestellt,
+die wahrscheinlich auf die thermische
+Ausdehnung zur"uckzuf"uhren ist. Man weiss ja, dass sich
+ein Stab proportional zu seiner Temperatur verl"angert. Folgende
+Temperatur- und Sensorwerte sind gemessen worden:
+\begin{center}
+\begin{tabular}{l|c|c|c|c|c}
+Temperatur&270&280&290&300\\
+\hline
+Sensorwert&3021&3432&3867&4302\\
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item Bestimmen sie m"oglichst genau den Zusammenhang zwischen
+Sensorwerten $S$ und Temperaturwerten $T$.
+\item Bei welcher Temperatur "uberschreitet der erwartete Sensorwert
+die Marke $4000$?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Berechnung der Regressionskoeffizienten nach dem bekannten
+Schema ergibt
+\[
+S=-8536.8 + 42.78\cdot T
+\]
+\item
+Der Wert $4000$ wird also bei
+\[
+T=\frac{4000 + 8536.80}{42.78}=293.1
+\]
+"uberschritten.
+\end{teilaufgaben}
+Die manuelle Berechnung der Koeffizienten kann mit folgender Tabelle
+erfolgen:
+\begin{center}
+\begin{tabular}{|c|r|r|r|r|r|}
+\hline
+&$T$&$T^2$&$S$&$S^2$&$ST$\\
+\hline
+1&270&72900& 3021& 9126441& 815670\\
+2&280&78400& 3432& 11778624& 960960\\
+3&290&84100& 3867& 14953689& 1121430\\
+4&300&90000& 4302& 18507204& 1290600\\
+\hline
+$\sum$&1140& 325400& 14622& 54365958& 4188660\\
+\hline
+\end{tabular}
+\end{center}
+Daraus kann die Summen ablesen, mit denen die Koeffizienten berechnet
+werden:
+\begin{align*}
+a&=\frac{n\sum ST-\sum S\sum T}{n\sum T^2-(\sum T)^2}
+\\
+&=
+\frac{
+4\cdot 4188660 - 14622\cdot 1140
+}{
+4\cdot 325400 - 1140^2
+}
+=
+\frac{
+85560
+}{
+2000
+}
+\frac{85560}{2000}
+=42.78
+\\
+b&=\textstyle \frac1n\sum S-a\frac1n\sum T
+\\
+&=
+\frac14\cdot 14622-42.78\cdot\frac14\cdot 1140
+=-8536.8
+\end{align*}
+Vertauscht man die Rollen von $T$ und $S$ ergibt sich mit der
+gleichen Methode die Beziehung
+\[
+T=0.02337\cdot S +199.56733
+\]
+Setzt man darin $S=4000$ ein, erh"alt man direkt
+$293.04733$.
+\end{loesung}
+

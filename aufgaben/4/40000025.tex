@@ -1,0 +1,66 @@
+In Aufgabe~\ref{40000024} wurde ein Experiment betrachtet, welches
+$n$ mal durchgef"uhrt wird, wobei gez"ahlt wurde, wie oft das Ereignis
+$A$, welches Wahrscheinlichkeit $P(A)=p$ hat, eingetreten ist. Die
+betrachtete Zufallsvariable $X$ war die Anzahl ``Kopf''. Es wurde
+mit Hilfe eines Tricks gefunden, dass $E(X)=np$.
+\begin{teilaufgaben}
+\item
+K"onnen Sie diesen Trick verallgemeinern, so dass sich damit auch $E(X^2)$
+berechnen l"asst?
+\item Wie gross ist $\operatorname{var}(X)$?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Man musste dort
+\[
+E(X)=\sum_{k=0}^nk\cdot \binom{n}{k}p^k(1-p)^{n-k}
+\]
+berechnen.
+Der Trick bestand darin, die binomische Formel abzuleiten:
+\[
+\frac{d}{dx}(x+y)^n=n(x+y)^{n-1}
+=\frac{d}{dx}\sum_{k=0}^n\binom{n}{k}x^ky^{n-k}
+=\sum_{k=0}^nk\binom{n}{k}x^{k-1}y^{n-k}
+\]
+Bis auf einen fehlenden Faktor $x$ ergibt die rechte Seite genau
+die gesuchten Ausdruck, wenn man $x=p$ und $y=1-p$ setzt. Multipliziert
+man mit $x$ bekommt man
+\begin{equation}
+nx(x+y)^{n-1}
+=
+\sum_{k=0}^nk\binom{n}{k}x^ky^{n-k}.
+\label{formel}
+\end{equation}
+
+Um jetzt die $E(X^2)$ zu berechnen, muss die Summe
+\[
+E(X^2)=\sum_{k=0}^n\underbrace{\phantom{\binom{n}{k}}k^2}_{\text{Wert}}\cdot\underbrace{\binom{n}{k}p^k(1-p)^{n-k}}_{\text{Wahrscheinlichkeit}}
+\]
+ausgewertet werden. Dazu leitet man den Ausdruck (\ref{formel}) nochmals
+ab, und bekommt
+\[
+n(x+y)^{n-1}+n(n-1)x(x+y)^{n-2}
+=
+\sum_{k=0}^nk^2\cdot \binom{n}{k}x^{k-1}y^{n-k}.
+\]
+Wieder steht auf der rechten Seite bis auf einen Faktor $x$ der gesuchte
+Ausdruck, oder
+\[
+nx(x+y)^{n-1}+n(n-1)x^2(x+y)^{n-2}
+=
+\sum_{k=0}^nk^2\cdot \binom{n}{k}x^{k}y^{n-k}.
+\]
+Ersetzt man jetzt wieder $x=p$ und $y=1-p$, bekommt man $x+y=1$ und daher
+\[
+E(X^2)=np+n(n-1)p^2.
+\]
+\item
+Die Varianz kann man jetzt mit der Definition $\operatorname{var}(X)=E(X^2)-E(X)^2$ ausrechnen:
+\[
+\operatorname{var}(X)=np+n(n-1)p^2-(np)^2=np +n^2p^2-np^2-n^2p^2=np(1-p).
+\]
+\end{teilaufgaben}
+\end{loesung}
+

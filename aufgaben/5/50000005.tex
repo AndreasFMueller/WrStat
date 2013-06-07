@@ -1,0 +1,55 @@
+Eine Zufallsvariable $X$ hat die Wahrscheinlichkeitsdichte
+\[
+\varphi_X(x)=\begin{cases}
+0&\qquad x <-1.5\\
+a&\qquad -1.5\le x<-0.5\\
+0&\qquad -0.5\le x<0.5\\
+a&\qquad 0.5\le x<1.5\\
+0&\qquad 1.5<x
+\end{cases}
+\]
+\begin{teilaufgaben}
+\item Wie gross muss $a$ sein?
+\item Bestimmen Sie die Verteilungsfunktion.
+\item Bestimmen Sie Erwartungswert und Varianz.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item $a$ muss so gross ein, dass
+\[
+1=\int_{-\infty}^\infty \varphi_X(x)\,dx=
+\int_{-1.5}^{-0.5}a\,dx+\int_{0.5}^{1.5}a\,dx=2a
+\]
+gilt, also $a=\frac12$.
+\item Die Verteilungsfunktion ist eine Stammfunktion von $\varphi_X(x)$.
+Da die $\varphi_X(x)$ st"uckweise konstant ist, ist $\varphi_X(x)$
+st"uckweise linear:
+\[
+F_X(x)=\begin{cases}
+0&\qquad x <-1.5\\
+\frac12(x+1.5)=\frac12x+\frac34&\qquad -1.5\le x<-0.5\\
+\frac12&\qquad -0.5\le x<0.5\\
+\frac12+\frac12(x-0.5)=\frac12x+\frac14&\qquad 0.5\le x<1.5\\
+1&\qquad 1.5<x
+\end{cases}.
+\]
+\item Da die Verteilungsfunktion symmetrisch ist, ist $E(X)=0$, und
+f"ur die Varianz gilt die vereinfachte Formel $\operatorname{var}(X)=E(X^2)$.
+Dies kann man mit Hilfe eines Integrals ausrechnen:
+\begin{align*}
+\operatorname{var}(X)
+&=\int_{-\infty}^\infty \varphi_X(x)\,dx\\
+&=\int_{-1.5}^{-0.5}x^2\cdot\frac12\,dx+\int_{0.5}^{1.5} x^2\cdot \frac12\,dx\\
+&=2\int_{0.5}^{1.5}\frac{x^2}2\,dx=\int_{0.5}^{1.5}x^2\,dx\\
+&=\left[\frac13x^3\right]_{0.5}^{1.5}
+ =\frac13\left(\frac32\right)^3-\frac13\left(\frac12\right)^3
+=\frac13\left(\frac{27}8-\frac18\right)=
+\\
+&=\frac{26}{24}=\frac{13}{12}
+\simeq 1.08333333333333333333
+\end{align*}
+
+\end{teilaufgaben}
+\end{loesung}
+

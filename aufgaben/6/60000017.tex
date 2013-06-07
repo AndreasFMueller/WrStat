@@ -1,0 +1,44 @@
+Bei einem einzelnen Wurf von 5 W"urfeln treten 5 Sechser nur mit
+einer Wahrscheinlichkeit von $6^{-5}$ auf. An einem Abend werden
+an einer grossen Zahl von Spieltischen 10000 W"urfe geworfen.
+Wie wahrscheinlich ist es, dass insgesamt genau 4 mal 5 Sechser
+auftreten.
+
+\begin{loesung}
+Im Mittel treten auf 10000 W"urfe $\lambda=10000\cdot 6^{-5}\simeq 1.28601$
+solche
+Kombinationen auf. Mit der Poissonverteilung kann man jetzt die
+Wahrscheinlichkeit von 4 solchen W"urfen berechnen:
+\[
+P_\lambda(k=4)=\frac{\lambda^4}{4!}e^{-\lambda}
+=
+0.0314963=3.14963\%.
+\]
+Spielt man dieses Spiel an 250 Tagen im Jahr (ein Ruhetag pro Woche),
+wird dieses Ereignis (genau 4 mal 5 Sechser im ersten Wurf) sogar
+an etwa 8 Abenden eintreten.
+
+Man kann auch eine Tabelle
+der Wahrscheinlichkeit f"ur genau $k$ solche Ausnahmew"urfe aufstellen:
+\begin{center}
+\begin{tabular}{|c|l|}
+\hline
+$k$&$P_\lambda(k)$\\
+\hline
+0&$0.276372$\\
+1&$0.355416$\\
+2&$0.228534$\\
+3&$0.0979656$\\
+4&$0.0314962$\\
+5&$0.00810086$\\
+6&$0.0017363$\\
+7&$0.000318984$\\
+8&$0.0000512771$\\
+9&$0.00000732697$\\
+\hline
+\end{tabular}
+\end{center}
+"Uber das ganze Jahr erwartet man also sogar zwei Abende,
+an denen 5 mal 5 Sechser im ersten Wurf geworfen werden.
+\end{loesung}
+

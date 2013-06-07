@@ -1,0 +1,95 @@
+Betrachten Sie die Funktion
+\[
+\varphi(x)=\begin{cases}
+0&\qquad x < 0 \\
+a(1 - x)&\qquad 0 \le x < 1\\
+0&\qquad x>1
+\end{cases}
+\]
+\begin{teilaufgaben}
+\item Wie muss $a$ gew"ahlt werden, damit $\varphi$ eine Dichtefunktion
+ist?
+\item Wie lautet die zugeh"orige Verteilungsfunktion $F$?
+\item Sei $X$ eine Zufallsvariable mit Verteilungsfunktion $F$, berechnen
+Sie $E(X)$ und $\operatorname{var}(X)$.
+\item Wie wahrscheinlich ist das Ereignis $\{ X > \frac12\}$?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Damit $\varphi$ eine Dichtefunktion ist, muss $a$ so gew"ahlt sein,
+dass das Integral von $\varphi$ "uber $\mathbb R$ den Wert 1 hat.
+\begin{align*}
+\int_{\mathbb R}\varphi(x)
+&=
+\int_{0}^{1}a(1-x)\,dx=a\left[x-\frac12x^2\right]_0^1
+=
+\frac{a}2
+\end{align*}
+Die richtige Wahl f"ur $a$ ist also $2$.
+\item
+Die Teilfunktion f"ur das Interval $[0,1]$ ist
+\[
+F(x)=\int_{0}^x 2(1-\xi)\,d\xi
+=
+2\left[\xi - \frac12\xi^2\right]_0^x
+=
+2(x-\frac12x^2)
+=
+2x-x^2.
+\]
+Ausserhalb dieses Intervals ist die Verteilungsfunktion konstant, also:
+\[
+F(x)=\begin{cases}
+0&\qquad x < 0\\
+2x-x^2
+&\qquad 0 \le x < 1\\
+1&\qquad x\ge1
+\end{cases}
+\]
+\item
+Erwartungswert:
+\begin{align*}
+E(X)&=\int_{\mathbb R} x\varphi(x)\,dx
+=
+\int_0^1x\cdot 2(1-x)\,dx
+=
+2\int_0^1 x-x^2\,dx
+\\
+&=
+2\left[\frac12x^2-\frac13x^3\right]_0^1
+=2\biggl(\frac12-\frac13\biggr)
+=2\biggl(\frac3{6}-\frac{2}{6}\biggr)
+=\frac2{6}=\frac13.
+\end{align*}
+F"ur die Varianz wird zus"atzlich $E(X^2)$ ben"otig:
+\begin{align*}
+E(X^2)
+&=
+\int_{\mathbb R} x^2\varphi(x)\,dx
+=
+\int_0^1x^2\cdot 2(1-x)\,dx
+=
+2\int_0^1 x^2-x^3\,dx
+\\
+&=\left[\frac23x^3-\frac24x^4\right]_0^1
+=\frac23-\frac12=\frac4{6}-\frac{3}{6}=\frac{1}{6}.
+\end{align*}
+Damit kann jetzt die Varianz berechnet werden
+\[
+\operatorname{var}(X)=E(X^2)-E(X)^2=\frac{1}{6}-\left(\frac{1}{3}\right)^2
+=\frac16-\frac19=\frac3{18}-\frac2{18}
+=\frac{1}{18}=0.0555555.
+\]
+\item
+Die Wahrscheinlichkeit kann direkt mit der Verteilungsfunktion
+berechnet werden, indem man $x=\frac12$ einsetzt:
+\[
+P(X>\frac12)
+=
+1-F(\frac12)=1-\biggl(2\cdot \frac12-\frac14\biggr)=\frac14.
+\]
+\end{teilaufgaben}
+\end{loesung}
+

@@ -1,0 +1,110 @@
+Regelm"assig gibt die Departementsverteilung im Bundesrat zu reden.
+Nehmen wir an, alle $n$ Bundesr"ate sind wiedergew"ahlt worden,
+und bestimmen jetzt eine neue Departementsverteilung.
+\begin{teilaufgaben}
+\item Wieviele m"ogliche Departementsverteilungen gibt es insgesamt?
+\item Sei $A_i$ die Menge aller Departementsverteilungen, bei denen
+Bundesrat $i$ sein Departement beh"alt. Wie gross ist $|A_i|$?
+\item Was bedeuten $A_i\cap A_j$ und $A_i\cap A_j\cap A_k$,
+wobei $i$, $j$ und $k$ alle verschieden sind. Wieviele Elemente
+enthalten $A_i\cap A_j$ und $A_i\cap A_j\cap A_k$?
+\item Zeichnen Sie das Ereignis ``Bundesr"ate 1 und 2 behalten ihr Departement,
+Bundesrat 5 wechselt''.
+\item Zeichnen Sie das Ereignis $A=\{\text{mindestens ein Bundesrat beh"alt sein Departement}\}$.
+\item Bestimmen Sie $P(A)$ f"ur den Fall $n=3$.
+\item Wie gross ist die Wahrscheinlichkeit, dass bei zuf"alliger
+Departementsverteilung kein Bundesrat sein altes Departement weiterf"uhrt?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Anzahl Permutationen: $n!$.
+\item Departement eines Bundesrates ist festgelegt, die verbleibenden
+$(n-1)$ Bundesr"ate k"onnen beliebig auf $n-1$ Departemente verteilt
+werden: Permutationen von $n-1$ Elementen, also $|A_i|=(n-1)!$.
+\item Die Eregnisse und ihre Kardinalit"aten sind
+\begin{align*}
+A_i\cap A_j&=\{\text{Bundesr"ate $i$ und $j$ behalten ihr Departement}\}
+\\
+|A_i\cap A_j|&=(n-2)!
+\\
+A_i\cap A_j\cap A_k&=\{\text{Bundesr"ate $i$, $j$ und $k$ behalten ihr Departement}\}
+\\
+|A_i\cap A_j\cap A_k|&=(n-3)!
+\end{align*}
+Behalten $k$ Bundesr"ate ihr Departement, m"ussen die "ubrigen
+$n-k$ Departemente auf  die verbleibenden $n-k$ Bundesr"ate verteilt
+werden, was auf $(n-k)!$ Arten m"oglich ist.
+\item
+\item $A$ ist die Vereinigung aller Ereignisse $A_i$:
+\[
+A=\bigcup_{i=1}^nA_i.
+\]
+\item
+Dazu muss man zun"achst $|A|$ bestimmen.
+Obwohl in der Aufgabe nur der Fall $n=4$ verlangt war, und sich dieser
+Fall direkt aufschreiben l"asst, f"uhren wir hier zun"achst die allgemeine
+Rechnung f"ur beliebiges $n$ durch.
+Es gilt
+\begin{align*}
+|A|&=\sum_{i}|A_i| - \sum_{i\ne j}|A_i\cap A_j| + \sum_{i,j,k}|A_i\cap A_j\cap A_k|-\dots-(-1)^n|A_1\cap\dots\cap A_n|
+\\
+&=
+n\cdot (n-1)!
+-\binom{n}{2}\cdot (n-2)!
++\binom{n}{3}\cdot (n-3)!
+-\dots
+-(-1)^n
+\binom{n}{n}\cdot (n-n)!
+\\
+&=\sum_{k=1}^n(-1)^{k-1}\binom{n}{k}(n-k)!
+=\sum_{k=1}^n(-1)^{k-1}\frac{n!}{k!(n-k)!}(n-k)!
+\\
+&=n!\sum_{k=1}^n(-1)^{k-1}\frac{1}{k!}
+\end{align*}
+denn die Summe aus Schnitten von $k$ verschiedenen Mengen hat
+$\binom{n}{k}$ Summanden (es m"ussen $k$ verschiedenen Indizes
+aus den $n$ m"oglichen Indizes ausgew"ahlt werden), die alle
+den gleichen Betrag $(n-k)!$ haben.
+
+F"ur den Fall $n=3$ erh"alt man
+\begin{align*}
+|A|
+&=
+3\cdot 2! - \binom{3}{2}\cdot 1! + \binom{3}{3}\cdot 0! 
+\\
+&=
+3! - 3\cdot 1! + 1\cdot 0!
+\\
+&=
+6-3+1=4,
+\end{align*}
+Was man nat"urlich auch durch die direkte Anwendung der Ein-/Ausschalt-Formeln
+oder durch Ausz"ahlen der m"oglichen Departementsverteilungen finden kann\footnote{Verteilungen ohne Fixpunkte sind nur die beiden zyklischen Vertauschungen,
+also gibt es genau $4$ Departementsverteilungen in $A$}.
+Die Wahrscheinlichkeit von $A$ ist also $P(A)=\frac{4}{6}\simeq0.666666$.
+\item
+$P(\bar A)=1-P(A)\simeq 0.333333$.
+\end{teilaufgaben}
+Da die Kardinalit"at von $\Omega\setminus A$
+\[
+|\Omega\setminus A|
+= n!\biggl(1-\frac1{1!}+\frac1{2!}-\frac1{3!}+\dots+(-1)^n\frac1{n!}\biggr)
+\]
+ist, ist
+\[
+P(\bar A)
+= 1-\frac1{1!}+\frac1{2!}-\frac1{3!}+\dots+(-1)^n\frac1{n!}
+\]
+Die Summe auf der rechten Seite ist aber die beim $(n+1)$-ten Term
+abgebrochene Reihenentwicklung von $e^{-1}$. Daher kann man auch
+den Grenzwert f"ur $n\to\infty$ berechnen:
+\[
+\lim_{n\to\infty}P(\bar A)
+= 1-\frac1{1!}+\frac1{2!}-\frac1{3!}+\dots=e^{-1}
+\simeq 0.367879
+\]
+Ebenso erkennt man, dass die L"osung von Teilaufgabe g) relativ
+nahe an $e^{-1}$ ist.
+\end{loesung}
+

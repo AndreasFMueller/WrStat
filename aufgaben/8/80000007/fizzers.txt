@@ -1,0 +1,16 @@
+> d <- read.csv("fizzers.csv")
+> d
+   color count
+1  white   187
+2 yellow   141
+3  green   136
+4 orange   167
+5   pink   128
+6    red    96
+
+> chisq.test(d$count)
+
+	Chi-squared test for given probabilities
+
+data:  d$count 
+X-squared = 35.0702, df = 5, p-value = 1.457e-06

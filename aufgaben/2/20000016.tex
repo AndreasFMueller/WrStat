@@ -1,0 +1,32 @@
+Die Elementarereignisse $\Omega=\{1,2,3,4,5,6,7,8\}$ haben je die gleiche
+Wahrscheinlichkeit. Ausserdem seien die folgenden Ereignisse gegeben:
+\begin{align*}
+A&=\{1,2,3,4\}\\
+B&=\{2,3,4,5\}\\
+C&=\{4,6,7,8\}
+\end{align*}
+\begin{teilaufgaben}
+\item Berechnen Sie $P(A\cap B\cap C)$
+\item Berechnen Sie $P(A)P(B)P(C)$
+\item Sind $A$, $B$ und $C$ unabh"angig?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die Schnittmenge ist $A\cap B\cap C=\{4\}$, also ist
+\[
+P(A\cap B\cap C)=\frac18|A\cap B\cap C|=\frac18
+\]
+\item Da alle drei Mengen $A$, $B$ und $C$ vier Elemente haben,
+ist $P(A)=P(B)=P(C)=\frac{4}{8}=\frac12$
+\item Es ist zu untersuchen, ob $P(A\cap B)=P(A)P(B)$ und analog f"ur
+die anderen Paare.
+\begin{align*}
+A\cap B&=\{2,3,4\}&P(A\cap B)=\frac38&\ne P(A)P(B)=\frac14\\
+A\cap C&=\{4\}&P(A\cap C)=\frac18&\ne P(A)P(C)=\frac14\\
+B\cap C&=\{4\}&P(B\cap C)=\frac18&\ne P(B)P(C)=\frac14
+\end{align*}
+Somit sind die drei Ereignisse nicht unabh"angig.
+\end{teilaufgaben}
+\end{loesung}
+

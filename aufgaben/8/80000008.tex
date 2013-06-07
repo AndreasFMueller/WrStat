@@ -1,0 +1,60 @@
+Ein Zufallszahlgenerator f"ur im Interval $[0,1]$ gleichverteilte
+Zufallszahlen hat die Zahlen
+\begin{center}
+\begin{tabular}{ccc}
+0.27667& 0.00040& 0.43987\\
+0.12173& 0.00412& 0.03695\\
+0.00741& 0.20949& 0.00398
+\end{tabular}
+\end{center}
+erzeugt.
+\begin{teilaufgaben}
+\item Ist dies ein guter Zufallszahlgenerator?
+\item Angenommen, der Zufallszahlgenerator w"are von h"ochster
+Qualit"at, dann kann es trotzdem vorkommen, dass er beim oben
+skizzierten Tests mit neun Zufallszahlen durchf"allt.
+Wie oft erwarten Sie dies bei $n$ Durchf"uhrungen des Tests?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir testen die Zahlen mit einem Kolmogorov-Smirnov-Test.
+F"ur $n=9$ und $\alpha=0.01$ ist der kritische Wert
+$K_{\text{krit}}=1.43878$. Die Werte von
+$K_n^-$ und $K_n^+$ sind:
+\begin{center}
+\begin{tabular}{|rrrr|}
+\hline
+$j$&$x_j$&$\frac{j}n-F(x_j)$&$F(x_j)-\frac{j-1}n$\\
+\hline
+$1$&$0.00040$&$0.1107111$&$ 0.0004000$\\
+$2$&$0.00398$&$0.2182422$&$-0.1071311$\\
+$3$&$0.00412$&$0.3292133$&$-0.2181022$\\
+$4$&$0.00741$&$0.4370344$&$-0.3259233$\\
+$5$&$0.03695$&$0.5186056$&$-0.4074944$\\
+$6$&$0.12173$&$0.5449367$&$-0.4338256$\\
+$7$&$0.20949$&$0.5682878$&$-0.4571767$\\
+$8$&$0.27667$&$0.6122189$&$-0.5011078$\\
+$9$&$0.43987$&$0.5601300$&$-0.4490189$\\
+\hline
+&&$\operatorname{max}=0.61222$&$\operatorname{max}= 0.00040$\\
+&&$K_n^+=1.83666$&$K_n^-= 0.00127$\\
+\hline
+\end{tabular}
+\end{center}
+Da $K_n^+>K_{\text{krit}}$ muss die Hypothese verworfen werden, dass
+die Zufallszahlen gleichverteilt seien.
+\item Die Wahrscheinlichkeit f"ur ein negatives Testresultat unter der
+Annahme von Gleichverteilung ist $n\alpha$.
+\end{teilaufgaben}
+Die Berechnung kann nat"urlich auch mit R erfolgen. Wenn man die Daten
+als CSV File der Form
+\verbatimainput{ks.csv}
+vorliegen hat, kann man die Berechnung der $K$-Werte mit folgendem
+R-Skript durchf"uhren:
+\verbatimainput{ks.R}
+Der Output ist:
+\verbatimainput{ks.log}
+\end{loesung}
+

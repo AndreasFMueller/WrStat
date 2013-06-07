@@ -1,0 +1,48 @@
+Die Ladung eines Raketenmotors vom Typ J570W besteht aus 9 zylindrischen
+Treibstoffbl"ocken, den sogenannten Grains,
+die je 99g Treibstoff enthalten. Zur Vereinfachung der Qualit"atssicherung
+m"ochte man jetzt statt jedes einzelne Grain nur noch das Gesamtpaket
+aus 9 Grains
+w"agen. Die Messungen zeigen, dass die Mittelwerte recht gut eingehalten
+werden, im Mittel enth"alt ein Grain 98g Treibstoff (die gesetzlich erlaubte
+Abweichung ist viel gr"osser), und die Standardabweichung eines Pakets
+ist 10g. Welcher Prozentsatz aller Grains enth"alt mehr als 100g Treibstoff?
+
+\begin{loesung}
+Die Treibstoffmenge ist eine normalverteilte Zufallsvariable $X_i$
+($i$ ist die Nummer des Grains)
+mit Mittelwert $\mu$ und
+Standardabweichung $\sigma$. Die Treibstoffmenge in einem
+Paket ist daher auch normalverteilt mit Mittelwert $9\mu$ und
+Varianz
+\[
+\operatorname{var}(X_1+\dots+X_9)=9\operatorname(X_i)=9\sigma^2
+\]
+Die Standardabweichung des Paketes ist also $3\sigma$. Die Messungen
+zeigen, dass $3\sigma=10g$, also $\sigma=3.3333g$. Der Mittelwert
+eines Paketes ist
+\[
+E(X_1+\dots+X_9)=9E(X)=9\mu=9\cdot 98\text{g} = 882\text{g}.
+\]
+Die Wahscheinlichkeit daf"ur, dass ein Grain mehr als 100g Treibstoff
+enth"alt, kann jetzt mit der Normalverteilung berechnet werden:
+\begin{align*}
+P(X>100\text{g})
+&=
+P\biggl(\frac{X-\mu}{\sigma}>\frac{100-\mu}{\sigma}\biggr)
+=
+P\biggl(Z>\frac{100-98}{\frac{10}{3}}\biggr)
+=
+P\biggl(Z>\frac{3}{5}\biggr)
+=
+P(Z > 0.6)
+\end{align*}
+wobei $Z$ die standardnormalverteilte Zufallsvariable $(X-\mu)/\sigma$ ist.
+Die
+Verteilungsfunktion der Standardnormalverteilung hat gem"ass
+Tabelle bei $0.6$
+den Wert $0.7257$, die Wahrscheinlichkeit f"ur einen Wert gr"osser
+als $0.6$ ist also $0.2743$, mehr als 27\% der Grains haben mehr
+als 100g Treibstoff.
+\end{loesung}
+

@@ -1,0 +1,176 @@
+Am Samstag, 7.~11.~2009 wurde in Kaltbrunn die
+Bilderfolge in Abbildung~1 fotographiert. Sie zeigen den Start
+einer 75cm (im Bild 48Pixel) langen Rakete mit einer Bildrate von
+30 Bildern pro Sekunde.
+Durch Ausmessen des gut definierten Anfangspunktes der Flamme findet
+man die folgenden Punkte in Pixel-Koordinaten:
+\begin{center}
+\begin{tabular}{l|ccccc}
+Horizontal&47&146&246&345&443\\
+\hline
+Vertikal (von oben)&438&411&356&273&161
+\end{tabular}
+\end{center}
+\begin{figure}
+\begin{center}
+\includeagraphics[width=0.8\hsize]{stummel.jpg}
+\end{center}
+\caption{Bildfolge eines Raketenstarts mit 30 Bildern pro Sekunde}
+\end{figure}
+\begin{teilaufgaben}
+\item Rechnen Sie die Datenpunkte Meter f"ur die vertikale Achse
+und Sekunden f"ur die horizontale Achse, speichern sie diese Daten
+im gleichen Datenframe unter den Namen {\tt t} und {\tt y}.
+\item Unter der Annahme konstanter Beschleunigung (die im vorliegenden Fall
+ziemlich genau zutrifft) bewegt sich die Rakete nach einem Gesetz
+der Form
+\[
+y=\frac12at^2+bt+c,
+\]
+die Konstanten $a$, $b$ und $c$ sind noch zu bestimmen. Diese Aufgabe
+kann sehr effizient mit Hilfe eines nichtlinearen Modells in R erledigt
+werden. Dazu dient die Funktion {\tt nls}.
+\item Verwenden Sie den Ansatz der Methode der kleinsten Quadrate, um
+eine m"oglichst gute Approximation einer quadratischen Funktion
+$c+bt+\frac12at^2$ an die Datenpunkte zu finden.
+\item Mit welcher Beschleunigung startete die Rakete im photographierten
+Zeitinterval?
+\end{teilaufgaben}
+
+\begin{figure}
+\begin{center}
+\includeagraphics[width=0.8\hsize]{rakete.pdf}
+\end{center}
+\caption{Nichtlineare Regression f"ur das Raketenproblem}
+\end{figure}
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Daten werden zun"achst in ein File {\tt raw.csv}
+geschrieben, welches folgenden Inhalt hat:
+\verbatimainput{raw.csv}
+Dann kann man diese Daten in eine Daten-Frame einlesen,
+und die n"otigen Umrechnungen gleich durch neue Spalten im
+Datenframe abbilden:
+\verbatimainput{raw.R}
+\item
+Die Daten im Datenframe k"onnen jetzt verwendet werden, um
+das Polynom anzupassen. Dazu muss man die Formel, die angepasst
+werden soll, in f"ur R verst"andlicher Form formulieren.
+\verbatimainput{formula.R}
+Diese Formel ist das erste Argument der Funktion {\tt nls}, welche
+das nichtlineare Modell anpasst:
+\verbatimainput{fit.R}
+Aus dem Output der {\tt summary}-Funktion
+kann man ablesen, dass $a=398=50.6g$ ist.
+\item Wir gehen davon aus, dass $X$ und $Y$ Zufallsvariablen sind, und
+suchen die Werte $a$, $b$ und $c$ derart, dass die mittlere quadratische
+Abweichung, also
+$\Delta(a,b,c)=E((Y-(aX^2+bX+c))^2)$ so klein wie m"oglich ist.
+Die Extremstellen finden wir aus den Ableitungen von $\Delta(a,b,c)$ nach
+den Parametern:
+\begin{align*}
+\frac{\partial \Delta}{\partial a}
+&=
+E(2(Y-aX^2-bX-c)X^2)
+\\
+&=
+2E(YX^2)-2aE(X^4)-2bE(X^3)-2cE(X^2)
+\\
+\frac{\partial \Delta}{\partial b}
+&=
+E(2(Y-aX^2-bX-c)X)
+\\
+&=
+2E(YX)-2aE(X^3)-2bE(X^2)-2cE(X)
+\\
+\frac{\partial \Delta}{\partial c}
+&=E(2(Y-aX^2-bX-c))
+\\
+&=
+2E(Y)-2aE(X^2)-2bE(X)-2c
+\\
+\end{align*}
+F"ur die Werte $a$, $b$, $c$ finden wir also das lineare Gleichungssystem
+\[
+\begin{pmatrix}
+E(X^4)&E(X^3)&E(X^2)\\
+E(X^3)&E(X^2)&E(X)\\
+E(X^2)&E(X)&1
+\end{pmatrix}
+\begin{pmatrix}
+a\\b\\c
+\end{pmatrix}
+=
+\begin{pmatrix}
+E(YX^2)\\E(YX)\\E(Y)
+\end{pmatrix}
+\]
+Zur Berechnung der Funktion rechnen wir die Daten erst auf SI Einheiten
+um. Aus der L"ange der Rakete bekommen wir die Umrechnungsformel
+$Y=\frac{438}{48} - \frac{0.75}{48}y$ f"ur die H"ohe.
+Da der Bildabstand 100 Pixel
+betr"agt, zwischen den Bildern aber $\frac{1}{30}=0.03333$ Sekunden verstreichen,
+ist die Umrechung f"ur die Zeit $X=\frac{1}{3000}=0.00033333$. Damit
+lassen sich die Zeiten und H"ohen ebenso wie die ben"otigten Erwartungswerte
+berechnen:
+\begin{center}
+\begin{tabular}{rrrrrrrr}
+\hline
+$X$&$Y$&$X^2$&$X^3$&$X^4$&$XY$&$X^2Y$\\
+\hline
+0.015667&2.2812&0.000245&0.0000038&0.00000006&0.035740&0.00055\\
+0.048667&2.7031&0.002368&0.0001152&0.00000561&0.131552&0.00640\\
+0.082000&3.5625&0.006724&0.0005513&0.00004521&0.292125&0.02395\\
+0.115000&4.8594&0.013225&0.0015208&0.00017490&0.558828&0.06426\\
+0.147667&6.6094&0.021805&0.0032199&0.00047548&0.975984&0.14412\\
+\hline
+0.081800&4.0031&0.008874&0.0010822&0.00014025&0.398845&0.04786\\
+\hline
+\end{tabular}
+\end{center}
+Daraus kann man jetzt die L"osung f"ur das Gleichungssystem ablesen:
+\[
+\begin{pmatrix}
+a\\b\\c
+\end{pmatrix}
+=\begin{pmatrix}
+0.0001402&0.0010823&0.0088737\\
+0.0010823&0.0088737&0.0818000\\
+0.0088737&0.0818000&1.0000000
+\end{pmatrix}^{-1}
+\begin{pmatrix}
+0.047860\\
+0.398846\\
+4.003125
+\end{pmatrix}
+\]
+Seine L"osung ist der Vektor
+\[
+\begin{pmatrix}
+   205.35561\\
+    -0.82335\\
+     2.24822
+\end{pmatrix}
+\]
+Zu seiner Berechnung kann das folgende Matlab-Programm verwendet werden:
+\verbatimainput{qregr.m}
+\item
+Unter der Annahme konstanter Beschleunigung folgt,  dass sich die
+Rakete nach einem quadratischen $s=s_0+v_0t+\frac12a_0t^2$ bewegt.
+Das Resultat von Teilaufgabe a) zeigt, dass die Beschleunigng
+\[
+a_0=2a\simeq410.71122\frac{\text{m}}{\text{s}^2}\simeq42g
+\]
+betr"agt.
+\end{teilaufgaben}
+In der folgenden Abbildung wurde die in Teilaufgabe b) gefunden Kurve
+in die Graphik hineingezeichnet:
+\begin{figure}
+\begin{center}
+\includeagraphics[width=0.8\hsize]{kurve.jpg}
+\end{center}
+\caption{Bildsequenz des Raketenstarts mit Parabel\label{bildmitkurve}}
+\end{figure}
+\end{loesung}
+

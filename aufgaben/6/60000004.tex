@@ -1,0 +1,49 @@
+Folgendes Experiment soll herauszufinden erlauben, ob aussersinnliche
+Wahrnehmung existiert.
+Zwanzig mal wird einer Versuchsperson in einem Web-Browser die Wahl zwischen
+zwei Fenstern angeboten. Die Versuchsperson soll vorhersagen,
+in welchem Fenster ein Bild erscheinen wird. Es wird gez"ahlt,
+wie oft die Versuchsperson das Fenster richtig vorhersagt.
+\begin{teilaufgaben}
+\item Wieviele Male muss die Versuchsperson richtig vorhersagen,
+damit man behaupten kann, es g"abe aussersinnliche Wahrnehmung?
+\item Dieses Experiment wurde mit verschiedenen Personen
+und mit verschiedenen Kategorien von Bildern durchgef"uhrt,
+insgesamt "uber 1000 mal. Wie oft erwarten Sie, dass das
+Experiment aussersinnliche Wahrnehmung beweisen wird?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Angenommen es gibt keine mit diesem Experiment nachweisbare
+aussersinnliche Wahrnehmung, dann ist die Wahrscheinlichkeit, das
+richtige Fenster vorherzusagen, $p=\frac12$. Die Zahl der richtigen
+Vorhersagen ist eine binomialverteilte Zufallsvariable $X$ mit
+Erwartungswert $np=20\cdot\frac12=10$ und Varianz
+$np(1-p)=20\frac12\bigl(1-\frac12\bigr)=5$. Gesucht ist jetzt
+der kritische Wert $x_{\text{krit}}$ derart, dass
+$P(|X-10| > x_{\text{krit}})=0.95$. Dann wird $X$ nur in 5\% aller
+Experimente um mehr als $x_{\text{krit}}$ vom Erwartungswert 10 abweichen.
+
+Da die Verteilungsfunktion einer binomialverteilten Zufallsvariable
+m"uhsam zu berechnen ist, approximieren wir sie durch eine Normalverteilung,
+wir nehmen also an, dass $X$ normalverteilt ist mit $\mu = 10$
+und $\sigma^2=5$. Dann ist $(X-10)/\sqrt{5}$ standardnormalverteilt.
+Die Quantilentabelle der Normalverteilung liefert, dass der Betrag
+von $(X-10)/\sqrt{5}$
+nur in 5\% aller Experimente 1.6449 "ubersteigt. Also ist der kritische
+Wert f"ur $X$
+\[
+x_{\text{krit}} =  \mu + 1.6449 \sigma =  13.67801.
+\]
+\item
+Immer noch unter der Annahme, dass es keine Aussersinnliche Wahrnehmung
+gibt, wird das eben beschriebene Experiment in 5\% aller Experimente
+einen Wert von $X$ ergeben, der weiter als $3.67801$ von $10$ entfernt
+ist. Bei 1000 Experimenten erwartet man also ungef"ahr 50 Durchf"uhrungen,
+in denen man glaubt, aussersinnliche Wahrnehmung zu sehen.
+\end{teilaufgaben}
+Rechnet man mit $\alpha = 0.01$ an Stelle von $\alpha = 0.05$,
+ergibt sich als kritischer Wert $x_{\text{krit}}=15.20188$.
+\end{loesung}
+

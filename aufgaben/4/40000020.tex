@@ -1,0 +1,37 @@
+Keith Devlin hat dem Monty Hall Problem eine Kolumne auf www.maa.org
+gewidmet: http://www.maa.org/devlin/devlin\_07\_03.html. Am Ende
+fordert er den Leser heraus, sein Verst"andnis des Problems an
+Hand der folgenden Variante zu beweisen:
+\medskip
+
+Finally, just to see how well you have done on this teaser, suppose
+you are playing a seven door version of the game. You choose three
+doors. Monty now opens three of the remaining doors to show you
+that there is no prize behind it. He then says, ``Would you like to
+stick with the three doors you have chosen, or would you prefer to
+swap them for the one other door I have not opened?'' What do you
+do? Do you stick with your three doors or do you make the 3 for 1
+swap he is offering?
+
+\begin{loesung}
+Nat"urlich m"ussen wir wieder die Ereignisse $E$ und $F=\bar E$ unterscheiden,
+wobei $E$ der Fall ist, dass hinter einer der drei T"uren der ersten Wahl
+bereits der Preis verborgen ist.  Dieser Fall tritt mit Wahrscheinlichkeit
+$P(E)=\frac37$ ein.
+Die Gewinnwahrscheinlichkeit mit der Wechselstrategie ist
+\begin{align*}
+P(W)&=P(W|E)P(E)+P(W|F)P(F)\\
+&=0\cdot \frac37+1\cdot\frac47=\frac47
+\end{align*}
+F"ur die sture Strategie gilt stattdessen
+\begin{align*}
+P(B)&=P(B|E)P(E)+P(B|F)P(F)\\
+&=1\cdot \frac37+0\cdot\frac47=\frac37
+\end{align*}
+Auch hier ist also die Wechselstrategie mit $P(W)=\frac47$
+erfolgreicher als $B$ mit $P(B)=\frac37$, obwohl man
+nach dem Wechsel nur noch eine einzige T"ur zur Auswahl hat, f"ur
+die die tr"ugerische Intuition nur eine Wahrscheinlichkeit von
+$\frac17$ "ubrig hat.
+\end{loesung}
+
