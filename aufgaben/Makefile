@@ -18,7 +18,7 @@ aufgabensammlung.ind:	$(TEXFILES)
 	makeindex aufgabensammlung.idx
 
 clean:
-	rm -f *.dvi *.log aufgabensammlung.pdf
+	rm -f *.dvi *.log ?.tex aufgabensammlung.pdf
 
 1.tex:	buildchapter.sh 1/*.tex
 	./buildchapter.sh 1 > 1.tex
