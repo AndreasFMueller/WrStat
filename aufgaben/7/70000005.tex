@@ -1,0 +1,80 @@
+In der Stadt Z"urich waren gem"ass Volksz"ahlung 2010 die Religionen
+wie folgt verteilt:
+\begin{center}
+\begin{tabular}{|l|r|r|}
+\hline
+Religion&Einwohner&prozentual\\
+\hline
+Christen&   250535&68.9\%\\
+Muslime &    20888& 5.8\%\\
+Juden   &     4903& 1.4\%\\
+Andere  &     6859& 1.9\%\\
+Keine   &    80088&22.1\%\\
+\hline
+\end{tabular}
+\end{center}
+Ein Politiker stellt in der Schulklasse seines Sohnes folgende
+Verteilung fest
+\begin{center}
+\begin{tabular}{|l|r|r|}
+\hline
+Religion&Sch"uler&prozentual\\
+\hline
+Christen&      13&    59.1\%\\
+Muslime &       4&    18.2\%\\
+Juden   &       1&     4.5\%\\
+Andere  &       0&     0.0\%\\
+Keine   &       4&    18.2\%\\
+\hline
+\end{tabular}
+\end{center}
+Ihm f"allt vor allem die grosse Abweichung bei den Muslimen
+zu Lasten der Christen ins Auge, was er in seiner Wahlkampagne
+sofort ausschlachtet und den Niedergang der christlichen Kultur
+bejammert.
+Er behauptet sogar, die Zahlen aus der Volksz"ahlung w"urden die
+Realit"at nicht richtig wiedergeben. Hat er recht?
+
+\begin{loesung}
+Es geht um die Frage, ob die in der Schulklasse beobachtete Religionsverteilung
+stark genug von der in der Volksz"ahlung erhobenen Verteilung abweicht,
+dass man behaupten kann, dass die Schulklasse eine andere Religionsverteilung
+besitzt.
+Diese Frage kann mit Hilfe eines Hypothesentests basierend auf der
+$\chi^2$-Verteilung beantwortet werden. Die Nullhypothese ist:
+\begin{quotation}
+\parindent 0pt
+Die Religionsverteilung in der Schulklasse ist die gleiche wie in
+der Gesamtbev"olkerung gem"ass Volksz"ahlung.
+\end{quotation}
+Wir m"ussen die Diskrepanz berechnen:
+\begin{center}
+\begin{tabular}{|c|l|r|r|r|r|r|r|}
+\hline
+$i$&Religion&Einwohner&$p_i$    &$n_i$&$np_i$    &$n_i-np_i$&$(n_i-np_i)^2/np_i$\\
+\hline
+1  &Christen&   250535&0.6897   &   13&15.1725   &-2.1725   &0.3111\\
+2  & Muslime&    20888&0.0575   &    4& 1.2650   & 2.7350   &5.9133\\
+3  &   Juden&     4903&0.0135   &    1& 0.2969   & 0.7030   &1.6647\\
+4  &  Andere&     6859&0.0189   &    0& 0.4154   &-0.4154   &0.4154\\
+5  &   Keine&    80088&0.2205   &    4& 4.8502   &-0.8502   &0.1490\\
+\hline
+   &        &         &         &$n=22$&         &          &$D=8.4536$\\
+\hline
+\end{tabular}
+\end{center}
+Wir verlangen f"ur unseren Test $\alpha=5\%$, die $\chi^2$-Tabelle
+f"ur 4 Freiheitsgrade liefert einen kritischen Wert der Diskrepanz
+von $D_{\text{krit}}=9.488$. Da der beobachtete Wert $D=8.4536$
+nicht gr"osser ist als der kritische Wert, gibt es keinen Grund an
+der Nullhypothese zu zweifeln.
+\end{loesung}
+
+\begin{bewertung}
+Chi-Quadrat-Test ({\bf X}) 1 Punkt,
+Hypothese ({\bf H}) 1 Punkt,
+Freiheitsgrade ({\bf F}) 1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 1 Punkt,
+Kritische Diskrepanz ({\bf K}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}

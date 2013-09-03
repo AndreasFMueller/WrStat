@@ -1,0 +1,83 @@
+Von einer Messgr"osse $X$ mit Erwartungswert $1$ und Varianz $1$
+kann ein Sensor jeweils nur die positiven Werte messen.
+Da man die negativen Werte nicht ``sieht'', wird der Mittelwert 
+den Erwartungswert "ubersch"atzen.
+Wir m"ochten gerne wissen, um wieviel der Mittelwert den Erwartungswert
+von $X$ "ubersch"atzt.
+Wie gross wird der Mittelwert einer sehr grossen Zahl von Sensorwerten sein?
+
+\begin{hinweis}
+$\int xe^{-\frac{x^2}2}\,dx = -e^{-\frac{x^2}2}.$
+\end{hinweis}
+
+\begin{loesung}
+Wir m"ussen den Erwartungswert der Werte von $X$ berechnen, die gr"osser
+als $0$ sind. Es ist klar dass die Dichtefunktion etwa so aussieht:
+\[
+\varphi(x)=\begin{cases}
+0&\qquad x<0\\
+\frac1{\sqrt{2\pi}}e^{-\frac{(x-1)^2}2}&\qquad x\ge 0
+\end{cases}
+\]
+Allerdings stimmt die Normierung nicht, da wir die Werte $x < 0$ weggelassen
+haben, ist das Integral "uber die ganze reelle Achse jetzt nicht mehr $1$,
+sondern geringer. Durch diesen Wert mu"ssen wir teilen. Das Integral ist
+\[
+\frac1{\sqrt{2\pi}}
+\int_{0}^\infty
+e^{-\frac{(x-1)^2}2}\,dx=
+P(X > 0).
+\]
+Der Korrekturfaktor, durch den zu teilen ist, ist also $P(X>0)$.
+
+Die Wahrscheinlichkeit, dass $X>0$ ist, ist f"ur $\mu=E(X)$
+\begin{align*}
+P(X>0)&=P(X_s > -\mu)=1-P(X_s\le-\mu)=1-F(-\mu)=F(\mu),
+\end{align*}
+wobei $X_s$ eine standardnormalverteilte Zufallsvariable und $F$ die
+Verteilungsfunktion der Standardnormalverteilung ist.
+
+Die Wahrscheinlichkeitsdichte der Sensorwerte ist
+\[
+\varphi(x)=\begin{cases}
+\displaystyle
+\frac1{F(\mu)\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}2}&\qquad x > 0\\
+0&\qquad\text{sonst}
+\end{cases}
+\]
+Damit kann man jetzt
+den Erwartungswert der Werte $X>\mu$ berechnen:
+\begin{align*}
+E(X| X > 0)
+&=
+\frac1{F(\mu)}\cdot\frac1{\sqrt{2\pi}}\int_0^\infty x\,e^{-\frac{(x-\mu)^2}2}\,dx
+\\
+&=
+\mu + \frac1{F(\mu)}\cdot\frac1{\sqrt{2\pi}}\int_{-\mu}^\infty x\,e^{-\frac{x^2}2}\,dx
+\\
+&=
+\mu + \frac1{F(\mu)}
+\cdot\frac1{\sqrt{2\pi}}
+\left[
+-e^{-\frac{x^2}2}
+\right]_{-\mu}^\infty
+=\mu + \frac{e^{-\frac{\mu^2}2}}{F(\mu)\sqrt{2\pi}}
+\end{align*}
+Setzen wir $\mu=1$ ein, bekommen wir
+\begin{align*}
+E(X|X>0)
+&
+=
+1+\frac{e^{-\frac12}}{F(1)\sqrt{2\pi}}
+=
+1+\frac{e^{-\frac12}}{0.8413\cdot \sqrt{2\pi}}=1.28761526746599708760
+\end{align*}
+Wir "ubersch"atzen also den Erwartungswert von $X$ um mehr als 28\%.
+\end{loesung}
+
+\begin{bewertung}
+Normalverteilung ({\bf N}) 1 Punkt,
+Problemanalyse ({\bf A}) 1 Punkt,
+Korrektur der Normierung ({\bf K}) 1 Punkt,
+Formel f"ur Erwartungswert ({\bf E}) 1 Punkt,
+\end{bewertung}
