@@ -4,9 +4,29 @@
 % (c) 2006 Prof. Dr. Andreas Mueller, HSR
 % $Id: c01-wahrscheinlichkeit.tex,v 1.24 2008/09/15 23:49:57 afm Exp $
 %
-\rhead{Elementare Kombinatorik}
-\chapter{Elementare Kombinatorik\label{chapter-kombinatorik}}
+\rhead{Kombinatorik}
+\chapter{Kombinatorik\label{chapter-kombinatorik}}
 \index{Kombinatorik}
+\section{Motivation}
+Wenn man Aussagen "uber die (noch nicht definierte) Wahrscheinlichkeit
+machen will, mit welcher ein Ereignis eintreten kann, sollte man sich
+zun"achst einen "Uberblick dar"uber verschaffen, was es denn f"ur
+Alternativen gibt. Wenn man mit einem W"urfel eine Eins w"urfelt, ist
+das nicht mehr sehr beeindruckend, wenn man erf"ahrt, dass es ein
+Tetraederw"urfel mit nur vier Seiten war. 
+
+In den letzten Jahren konnte man immer wieder h"oren, die Naturkonstanten
+in unserem Universum seien unwahrscheinlich genau aufeinander abgestimmt,
+genau so dass es m"oglich sei, dass intelligentes Leben entstand.
+Nat"urlich ist das Unsinn, denn unwahrscheinlich w"urde ja wohl
+heissen, dass es sehr viele Alternativen gibt, in denen eben kein
+intelligentes Leben entsteht. Dummerweise haben wir f"ur so eine Aussage
+gar nicht gen"ugend Experimente, wir haben nun mal nur ein einziges
+Universum, ganz abgesehen davon, dass wir keine Ahnung dar"uber haben,
+was es genau f"ur Bedingungen braucht, damit intelligentes Leben
+entstehen kann.
+
+\section{Ziele}
 Die Kombinatorik befasst sich mit z"ahlbaren diskreten Strukturen,
 insbesondere versucht sie Antworten zu geben auf Fragen die
 typischerweise mit ``Auf wieviele Arten \dots'' beginnen, zum Beispiel:
@@ -21,7 +41,7 @@ In diesem Kapitel wollen wir jedoch nur eine "Ubersicht "uber die
 wichtigsten Z"ahl-Techniken zusammenstellen, damit sie uns sp"ater
 bei der Berechnung von Wahrscheinlichkeiten zur Verf"ugung stehen.
 
-\section{Produktregel\label{kombinatorik-produktregel}}
+\section{Produktregel: Die F"ur--jedes--gibt--es--Regel\label{kombinatorik-produktregel}}
 \index{Produktregel}
 $k$ Position m"ussen unabh"angig von einander markiert werden, wobei
 $n$ verschiedene Markierungen zur Verf"ugung stehen. Da die einzelnen
@@ -32,9 +52,9 @@ $n^k$.
 Stehen an den Positionen $i\in\{1,\dots,k\}$ jeweils die $n_i$
 Wahlm"oglichkeiten
 zur Verf"ugung, ist die Gesamtzahl der M"oglichkeiten:
-$$
+\[
 n_1\cdot n_2\cdots n_k=\prod_{i=1}^kn_i.
-$$
+\]
 Die Produktregel ist immer dann anwendbar wenn man das Entstehen
 aller M"oglichkeiten aus den Wahlm"oglichkeiten an jeder Position
 mit einem Satz wie dem folgenden beschreiben kann
@@ -119,18 +139,18 @@ F"ur das dritte Objekt verbleiben jetzt noch $n-2$ Pl"atze,
 was die bisher gefundenen M"oglichkeiten auf $n(n-1)(n-2)$
 erh"oht. So geht es weiter bis zum letzten Objekt, f"ur welches
 genau ein Platz "ubrig bleibt. Es folgt
-$$
+\[
 P_n=n(n-1)(n-2)\dots 2\cdot 1=n!
-$$
+\]
 
 Man kann f"ur $P_n$ auch eine Rekursionsformel finden. Um $n$ Objekte
 zu platzieren, muss man zun"achst einen Platz f"ur das erste Objekt
 platzieren, was auf $n$ Arten m"oglich ist. F"ur jede solche Wahl
 muss man dann $n-1$ Objekte platzieren, daf"ur gibt es $P_{n-1}$
 M"oglichkeiten. Also muss gelten
-$$
+\[
 P_n=nP_{n-1}.
-$$
+\]
 L"ost man die Rekursion auf, ergibt sich wieder $P_n=n!$.
 
 
@@ -240,15 +260,15 @@ unabh"angig voneinander erzeugt, obwohl sie uns nicht
 interessieren. Wir erhalten also soviel mal zu viele L"osungen, wie
 es Permutationen von $k$ Objekten gibt. Man muss also noch durch
 $P_k=k!$ teilen:
-$$
+\[
 C^n_k=\frac{n(n-1)(n-2)\cdots(n-k+1)}{k!}.
-$$
+\]
 Durch Erweitern mit $(n-k)!$ bekommt man eine etwas
 kompaktere Formel:
-$$
+\[
 C^n_k=\frac{n(n-1)(n-2)\cdots(n-k+1)\cdot(n-k)(n-k-1)\cdots2\cdot 1}{k!(n-k)!}
 =\frac{n!}{k!(n-k)!}
-$$
+\]
 
 Auch f"ur diese Gr"osse kann man eine Rekursionsformel finden.
 Die Zahl der Auswahlen von $k$ Elementen aus $n$ gibt es
@@ -258,20 +278,20 @@ dass man zun"achst das erste Element in die Auswahl nimmt, und dann
 aus den verbleibenden Elementen deren $k-1$ hinzuf"ugt. Es muss also
 gelten:
 \index{Rekursionsformel!der Binomialkoeffizienten}
-$$
+\[
 C^n_k=C^{n-1}_{k-1}+C^{n-1}_{k}
-$$
+\]
 Diese Rekursionsformel ist aber identisch mit der Rekursionsformel
 der Binomialkoeffizienten, also gilt
 \index{Binomialkoeffizient}
-$$
+\[
 C^n_k=\binom{n}{k}.
-$$
+\]
 
 \begin{beispiele}
 \item In einen Wald mit 1000 B"aumen schl"agt f"unfmal der Blitz ein.
 Wir d"urfen annehmen, dass kein Baum zweimal getroffen, denn der
-Einschlag wird den Baum ziemlich zerst"oren. Auf wieviele Arten
+Einschlag wird den Baum weitgehend zerst"oren. Auf wieviele Arten
 k"onnen die getroffenen B"aume im Wald verteilt sein?
 
 \begin{loesung}
@@ -306,7 +326,7 @@ werden. Dies ist auf
 \[
 \binom{29}{4}=23751
 \]
-arten m"oglich.
+Arten m"oglich.
 \end{loesung}
 
 \item\label{meisterschaft}
@@ -356,6 +376,54 @@ Bei den M"annern f"uhrt die analoge Rechnung auf
 \]
 Ein bestimmter Mann ist also bei 3 von 4 Delegationen nicht dabei,
 eine bestimmte Frau aber nur bei 2 von 4.
+\item Ein Medium behauptet, er k"onnen durch Handauflegen ersp"uren, ob
+der Gegenstand in einer Schachtel f"ur ein Gewaltverbrechen verwendet
+worden sei.
+Daher wird folgender Test durchgef"uhrt.
+$n=6$
+Schachteln werden pr"apariert, und eine enth"alt ein Messer,
+welches in einem Mordfall als Tatwaffe verwendet worden war.
+Die anderen f"unf enthalten je eine Lindor Schoggikugel frisch aus der Packung.
+Wir d"urfen annehmen, dass die Schoggikugeln nicht f"ur ein Gewaltverbrechen
+verwendet worden sind. Das Medium soll jetzt erf"uhlen, in welcher
+Schachtel die Tatwaffe steckt. Weil das ziemlich schwierig ist, erlauben
+wir dem Medium zwei Tips und sind zufrieden wenn eine der beiden
+gew"ahlten Schachteln die Tatwaffe enth"alt. Wie viele M"oglichkeiten gibt
+es f"ur das Medium Erfolg oder Misserfolg zu haben?
+Wie sieht es aus, wenn man $n$ gr"osser macht?
+
+\begin{loesung}
+Es gibt offenbar $\binom{6}{2}$ M"oglichkeiten, zwei Schachteln auszuw"ahlen,
+aber nur $\binom{5}{2}$ M"oglichkeiten, zwei Schachteln auszuw"ahlen,
+die die Tatwaffe nicht enthalten.
+\[
+\binom{6}{2}=15,\qquad\binom{5}{2}=10.
+\]
+Es gibt also 5 M"oglichkeiten f"ur Erfolg, und 10 M"oglichkeiten
+f"ur Misserfolg.
+
+Offenbar kann man das auch f"ur beliebige $n$ ausrechnen. Aus $n$
+Schachteln $2$ ausw"ahlen ist auf $\binom{n}2$ Arten m"oglich, in
+$\binom{n-1}2$ F"allen findet man die Tatwaffe nicht. Die Erfolgsf"alle
+sind
+\[
+\binom{n}2-\binom{n-1}2
+=\frac{n(n-1)}2-\frac{(n-1)(n-2)}2
+=\frac{n-1}2(n-(n-2))=n-1.
+\]
+Die Erfolgsquote ist also
+\[
+\frac{n-1}{\displaystyle\binom{n}2}=\frac{n-1}{\displaystyle\frac{n(n-1)}2}=\frac2n.
+\]
+Man kann daraus schliessen, dass ein Medium, welches nichts kann,
+trotzdem in $2$ von $n$ F"allen die Tatwaffe finden wird.
+Wenn wir also einen Betr"uger von einem echten Medium unterscheiden
+wollen, m"ussen wir die Zahl $n$ so gross w"ahlen, dass nur ganz
+wenige Betr"uger eine Chance haben. Verlangen wir $n=20$, dann
+besteht immer noch jeder zehnte Betr"uger den Test. Offenbar ist unser
+Test viel zu leicht.
+\end{loesung}
+
 \end{beispiele}
 Die Zahl der Kombinationen kann in Octave/Matlab mit der Funktion
 {\tt nchoosek} berechnet werden. Die Aufgabe~\ref{meisterschaft}
@@ -444,48 +512,48 @@ Als einf"uhrendes
 Beispiel betrachten wir nochmals die Bestimmung von $C^n_k$.
 Statt jeden Wert von $C^n_k$ einzeln zu bestimmen, packen wir
 die Koeffizienten zusammen in eine Funktion
-$$
+\[
 p_n(z)=C^n_0+C^n_1z +C^n_2z^2+\dots+C^n_{n-1}z^{n-1}+C^n_nz^n.
-$$
+\]
 Interpretieren wir zun"achst $p_1(z)$. Die Koeffizienten dieses
 Polynoms geben an, auf wieviele Arten man kein Element aus einer
 einelementigen Menge ausw"ahlen kann, bzw.~auf wieviele Arten man 
 ein Element ausw"ahlen kann. Beides ist genau auf eine Art m"oglich,
 also
-$$
+\[
 p_1(z)=1+z
-$$
+\]
 Betrachten wir jetzt $p_1(z)^n$. Beim Ausmultiplizieren des
 Produktes 
-$$
+\[
 p_1(z)^n= (1+z)(1+z)\cdots(1+z),
-$$
+\]
 stellt sich die Frage, wie viele Summanden $z^k$ f"ur jedes
 $k$ auftreten werden.
 Damit $z^k$ ensteht, muss in $k$ Faktoren das $z$ gew"ahlt werden,
 und in den anderen $n-k$ Faktoren die $1$. Dies ist auf $C^n_k$
 Arten m"oglich, wir haben also gezeigt, dass
-$$
+\[
 p_n(z)=(1+z)^n=\sum_{k=1}^n \binom{n}{k}z^k
-$$
+\]
 ist, woraus
-$$
+\[
 C^n_k=\binom{n}{k}
-$$
+\]
 folgt.
 
 Alternativ kann man zu diesem Resultat auch wie folgt gelangen.
 Wir kennen bereits die Rekursionsformel
-$$
+\[
 C^n_k=C^{n-1}_{k-1}+C^{n-1}_k
-$$
+\]
 "Ubersetzt in die erzeugende Funktion heisst dies, dass die Koeffizienten
 f"ur den oberen Index $n-1$
 um eine Stelle verschoben und dann addiert werden m"ussen,
 um die Koeffizienten f"ur den oberen Index $n$ zu ergeben. Verschiebt
 man die Koeffizienten von $p_{n-1}(z)$ um $1$,
 erh"alt man die erzeugende Funktion
-$$
+\[
 C^{n-1}_0z
 +C^{n-1}_1z^2
 +C^{n-1}_2z^3
@@ -493,36 +561,36 @@ C^{n-1}_0z
 +C^{n-1}_{n-2}z^{n-1}
 +C^{n-1}_{n-1}z^n
 =zp_{n-1}(z)
-$$
+\]
 Den Koeffizienten $C^{n-1}_{k-1}$ entspricht also die
 erzeugende Funktion $zp_{n-1}(z)$,
 den Koeffizienten $C^{n-1}_k$ dagegen die erzeugende Funktion $p_{n-1}(z)$.
 Die Rekursionsformel f"ur $C^n_k$ l"asst sich also in die Formel
-$$
+\[
 p_n(z)=p_{n-1}(z)+zp_{n-1}(z)=(1+z)p_{n-1}(z)
-$$
+\]
 "ubersetzen. Daraus folgt wieder $p_n(z)=(1+z)^n$.
 
 Falls die erzeugende Funktion auf dem Wert $1$ ausgewertet werden kann,
 liefert sie die Summe aller Glieder der Folge:
-$$
+\[
 \sum_{k=0}^\infty a_k=p(1).
-$$
+\]
 F"ur die Binomialkoeffizienten ergibt sich:
-$$
+\[
 \sum_{k=0}^\infty\binom{n}{k}=p_n(1)=(1+1)^n=2^n.
-$$ 
+\]
 
 Die erzeugende Funktion einer unendlichen Folge $a_0,a_1,a_2,\dots$ ist
 die Potenzreihe
-$$
+\[
 a_0+a_1z+a_2z^2+a_3z^3+\dots=\sum_{k=0}^\infty a_kz^k
-$$
+\]
 Die erzeugende Funktion der Folge der Binomialkoeffizienten $\left(\binom{n}{k}\right)_{0\le k\le  n}$ ist also die Funktion $(1+z)^n$.
 Die erzeugende Funktion der konstanten Folge $1,1,1,\dots$ ist
-$$
+\[
 1+z+z^2+z^3+\dots=\sum_{k=0}^\infty z^k=\frac1{1-z}
-$$
+\]
 
 \begin{beispiele}
 \item 
