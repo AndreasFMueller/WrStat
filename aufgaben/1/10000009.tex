@@ -1,0 +1,79 @@
+Ein W"unschleruteng"anger soll mit folgendem Test getestet werden:
+Unter zehn Beh"altern soll er den einen Beh"alter finden, unter dem
+ein Glas Wasser versteckt ist. Dreizehn mal darf er versuchen, wir
+glauben ihm aber seine F"ahigkeit erst, wenn er davon sieben mal
+erfolgreich war. Auf wieviele Arten k"onnen sich mindestens sieben
+Erfolge ergeben, und wieviele Versuchsausg"ange gibt es ingesamt?
+
+\begin{loesung}
+In einem Versuch hat der W"unschelruteng"anger genau 10 Wahlm"oglichkeiten,
+aber nur genau eine M"oglichkeit, erfolgreich zu sein.
+Insgesamt gibt es also $10^13$ M"oglichkeiten. 
+
+Genau sieben richtige kann man erreichen, indem man zuerst 7 Positionen
+f"ur die erfolgreichen Versuche ausw"ahlt, was auf $\binom{13}{7}$
+Arten m"oglich ist. Zu jeder dieser Erfolgsm"oglichkeiten kann man jetzt
+noch auf $9^6$ Arten die falschen Beh"alter ausw"ahlen. Entsprechend
+kann man genau $k$ von $n$ richtige auf 
+\[
+\binom{n}{k}9^k
+\]
+Arten erreichen. Um die Anzahl M"oglichkeiten f"ur mindestens $k$ richtige
+zu bestimmen, muss man jetzt nur noch die Summe
+\[
+\sum_{k=7}^{n}
+\binom{n}{k}9^{n-k}
+\]
+ausrechnen. Im vorliegenden Fall mit $n=13$ bekommt man
+\begin{align*}
+&\binom{13}{7}9^6
++
+\binom{13}{8}9^5
++
+\binom{13}{9}9^4
++
+\binom{13}{10}9^3
++
+\binom{13}{11}9^2
++
+\binom{13}{12}9^1
++
+\binom{13}{13}9^0
+\\
+&=
+1716\cdot 531441
++
+1287\cdot 59049
++
+715\cdot 6561
++
+286\cdot 729
++
+78\cdot 81
++
+13\cdot 9
++
+1\cdot 1
+\\
+&=
+911952756
++
+75996063
++
+4691115
++
+208494
++
+6318
++
+117
++
+1
+\\
+&=
+992854864
+\end{align*}
+Nur in 992854864 von 10000000000000 F"allen, oder in 
+$0.0099285\%$ der F"alle kann man also diesen Test bestehen, wenn man
+nicht "uber die behauptete F"ahigkeit verf"ugt.
+\end{loesung}

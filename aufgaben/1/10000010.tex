@@ -1,0 +1,83 @@
+Aus einem Artikel von der Website der Zeitung 20min vom 11.~September:
+\begin{quotation}
+Der erste Kandidat glaubte, mit einem Holzstück ``St"orfelder'' im Raum
+orten und abwehren zu k"onnen.
+Bei 50 Versuchen war er aber bloss 30 Mal erfolgreich. Um statistisch
+ein relevantes Ergebnis zu liefern, h"atte er mindestens 40 Treffer gebraucht.
+\end{quotation}
+Auf wieviele Arten kann man diesen Test bestehen, wieviele Versuchsausg"ange
+gabe es "uberhaupt.
+
+\begin{loesung}
+Wer gehen davon aus, dass der Kandidat in jedem Versuch entscheiden musste,
+ob St"orfelder anwesend waren oder nicht. Es gibt also in jedem Versuch
+zwei m"ogliche Ausg"ange. In einer Versuchsreihe von 50 Versuchen gibt
+es also $2^{50}$ m"ogliche Ausg"ange.
+
+$k$ Mal richtig tippen kann man auf
+$\binom{50}{k}$ Arten. Um in dem Test erfolgreich zu sein, muss man also
+\begin{align*}
+\sum_{k=40}^{50}\binom{50}{k}
+&=
+\binom{50}{40}
++
+\binom{50}{41}
++
+\binom{50}{42}
++
+\binom{50}{43}
++
+\binom{50}{44}
++
+\binom{50}{45}
++
+\binom{50}{46}
++
+\binom{50}{47}
++
+\binom{50}{48}
++
+\binom{50}{49}
++
+\binom{50}{50}
+\\
+&=
+10272278170
++
+2505433700
++
+536878650
++
+99884400
++
+15890700
+\\
+&\qquad+
+2118760
++
+230300
++
+19600
++
+1225
++
+50
++
+1
+%\\
+%&=
+%10272278170
+%+
+%2505433700
+%+
+%536878650
+%+
+%118145036
+\\
+&=13432735556.
+\end{align*}
+Der Anteil der F"alle, in denen man ohne besondere F"ahigkeiten 
+erfolgreich sein kann, ist also $13432735556/2^{50}=0.0000119$,
+oder einer von 100000 F"allen. Wer den Test besteht, kann also ziemlich
+sicher etwas, wenngleich nicht ganz klar ist, was eigentlich.
+\end{loesung}
