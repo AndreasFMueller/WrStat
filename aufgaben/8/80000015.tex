@@ -1,0 +1,53 @@
+Das schweizer Zahlenlotto publiziert die H"aufigkeit der einzelnen
+Zahlen auf seiner Website \url{http://www.swisslos.ch}. Zum Beispiel
+wurden die Gl"uckszahlen mit folgender H"aufigkeit gezogen:
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Zahl&H"aufkeit\\
+\hline
+1&11\\
+2&12\\
+3&11\\
+4&13\\
+5& 9\\
+6&18\\
+\hline
+\end{tabular}
+\end{center}
+Man stellt fest, dass $6$ doppelt so h"aufig ist wie $5$. Kann man schliessen,
+dass die Ziehungen unfair sind?
+
+\begin{loesung}
+Man kann die beobachtete Verteilung mit einen $\chi^2$-Test
+gegen die Nullhypothese testen, die besagt,
+dass alle Zahlen die gleiche Wahrscheinlichkeit $p=\frac16$ haben.
+Die Berechnung der Diskrepanz ergibt
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}|>{$}c<{$}|>{$}c<{$}|>{$}r<{$}|>{$}r<{$}|}
+\hline
+i&n_i&   p_i&   np_i&n_i - np_i&(n_i-np_i)^2/np_i\\
+\hline
+1& 11&0.1666&12.3333&   -1.3333&      0.144144144\\
+2& 12&0.1666&12.3333&   -0.3333&      0.009009009\\
+3& 11&0.1666&12.3333&   -1.3333&      0.144144144\\
+4& 13&0.1666&12.3333&    0.3333&      0.036036036\\
+5&  9&0.1666&12.3333&   -3.3333&      0.900900900\\
+6& 18&0.1666&12.3333&    5.6666&      2.603603604\\
+\hline
+ &74&      &        &          & D=   3.837837837\\
+\hline
+\end{tabular}
+\end{center}
+Die kritische Diskrepanz für $6-1=5$ Freiheitsgrade und $\alpha = 0.05$
+ist $D_{\text{krit}}=11.070$. Da $D<D_{\text{krit}}$ gibt es keinen Grund,
+an der Nullhypothese zu zweifeln.
+\end{loesung}
+
+\begin{diskussion}
+Der analoge Test l"asst sich auch f"ur die Lottozahlen durchf"uhren.
+Als Diskrepanz findet man $D=47.3473$, aber der kritische Wert der
+Diskrepanz f"ur 41 Freiheitsgrade ist $D_{\text{krit}}=56.9424$.
+Auch f"ur die Lottozahlen gibt es keinen Grund, an der Hypothese zu
+zweifeln, dass diese gleichverteilt sind.
+\end{diskussion}
