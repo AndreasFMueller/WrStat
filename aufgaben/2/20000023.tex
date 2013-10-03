@@ -1,0 +1,80 @@
+"Uber die Todesf"alle in der originalen Star Trek Fernsehserie wurden
+detaillierte Statistiken gef"uhrt:
+\begin{center}
+\begin{tabular}{|l|l|r|r|}
+\hline
+Funktion&Uniformfarbe&Bestand&Todesf"alle\\
+\hline
+Command&Gold&55&9\\
+Science&Blau&136&7\\
+Engineering and Support&Rot&239&24\\
+&Unbekannt&&15\\
+\hline
+\end{tabular}
+\end{center}
+Die Enterprise (NGC-1701) hat einen Bestand von 430 Mann.
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, dass ein wissenschaftlicher Mitarbeiter
+ums Leben kommt?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass ein Toter zum Wissenschaftsteam
+geh"ort?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass jemand ums Leben kommt, der
+nicht zum Kommando geh"ort?
+\item 
+Die Sicherheitsabteilung (Security) innerhalb von Engineering and Support
+hat 90 Mitglieder, wovon 18 ums Leben gekommen sind.
+Haben Security-Mitarbeiter eine h"ohere Wahrscheinlichkeit umzukommen?
+\item
+Wie gross ist die Todesfallwahrscheinlichkeit f"ur ein Redshirt, welches
+nicht Security-Mitglied ist?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir verwenden folgende Ereignisse:
+\begin{align*}
+G&=\{\text{Goldshirts}\}\\
+B&=\{\text{Blueshirts}\}\\
+R&=\{\text{Redshirts}\}\\
+S&=\{\text{Security}\}\subset R\\
+T&=\{\text{in der originalen Star Trek Serie gestorben}\}
+\end{align*}
+\begin{teilaufgaben}
+\item
+$
+P(T|B)=\frac{7}{136}=0.0515
+$
+\item
+$
+P(B|T)=\frac{7}{40}=0.175
+$
+\item
+$
+P(T|\bar G)=\frac{31}{375}=0.0827
+$
+\item
+In a) haben wir bereits $P(T|B)$ berechnet, f"ur den Vergleich
+brauchen wir aber noch alle anderen bedingten Wahrscheinlichkeiten:
+\begin{align*}
+P(T|S)&=\frac{18}{90}=0.2
+\\
+P(T|G)&=\frac{9}{55}=0.164
+\\
+P(T|R)&=\frac{24}{239}=0.1
+\end{align*}
+Daraus lesen wir ab, dass Security tats"achlich ein gef"ahrlicher
+Job ist.
+\item
+$P(T|R\setminus S)=\frac{6}{149}=0.0403$.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Ein Star Trek Mythos besagt, dass Redshirts besonders gef"ahrlich
+leben. Die Aufgabe zeigt, dass dies nicht zutrifft.
+Redshirts leben zwar deutlich gef"ahrlicher als Blueshirts, aber
+dies r"uhrt vollst"andig von Security her. Die Todesfallwahrscheinlichkeit
+f"ur ein Nicht-Security Redshirt ist sogar geringer als f"ur Blueshirts.
+\end{diskussion}

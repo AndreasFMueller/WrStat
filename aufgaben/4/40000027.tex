@@ -1,0 +1,48 @@
+Im Spiel {\it Dungeons and Dragons} werden K"ampfe zwischen Spielern und
+Monstern wie folgt ausgetragen.
+Der Spieler w"urfelt mit einem Ikosaederw"urfel eine Zahl.
+Falls sie mindestens den Wert
+$a$ erreicht, der im wesentlichen die Panzerungsst"arke
+des Monsters bestimmt ist, ist sein Angriff erfolgreich. Dann muss aber noch der
+Schaden ermittelt werden, der dem Monster durch den Angriff zugef"ugt wird.
+Dazu w"urfelt der Spieler nochmals mit einem 10er-W"urfel, und addiert die
+eine Konstante $b$ dazu, die durch die Wahl der Angriffswaffe bestimmt ist.
+Dies ergibt die Punktzahl, die dem Monster abgezogen wird.
+Falls der Ikosaederw"urfel die Zahl 20 zeigt, ist das Erw"urfeln des
+Schadens nicht n"otig, in diesem Fall wird automatisch der maximale
+Schaden angerichtet. Wie gross ist der erwartete Schaden?
+
+\begin{loesung}
+Es sind offenbar drei F"alle zu unterscheiden:
+\begin{enumerate}
+\item Der Ikosaederw"urfel zeigt eine Zahl unter $a$, dann ist der Schaden
+$S=0$. Dieser Fall tritt mit Wahrscheinlichkeit $\frac{a-1}{20}$ ein.
+\item Der Ikosaederw"urfel zeigt eine Zahl zwischen $a$ und $19$,
+dann ist der Schaden $W+b$, wobei $W$ das Resultat des 10er-W"urfels ist.
+Der erwartete Schaden in diesem Fall ist $E(W+b)=E(W)+b=\frac{11}2 + b$.
+Dieser Fall tritt mit Wahrscheinlichkeit $\frac{20-a}{20}$ ein.
+\item Der Ikosaederw"urfel zeigt 20, dann ist der Schaden $S=b + 10$,
+dieser Fall tritt mit Wahrscheinlichkeit $\frac1{20}$ ein.
+\end{enumerate}
+Damit kann man den erwarteten Schaden berechnen:
+\begin{align*}
+E(S)&=\frac{a-1}{20}\cdot 0 + \frac{20-a}{20}\cdot \biggl(\frac{11}2+b\biggr)
++\frac1{20}\cdot (b+10)
+\\
+&=
+\frac1{20}\biggl(
+(20-a)\biggl(\frac{11}2+b\biggr)+b+10
+\biggr)
+\\
+&=
+\frac1{20}\biggl(
+110 -\frac{11a}2+20b-ab + b + 10
+\biggr)
+\\
+&=
+\frac1{20}\biggl(
+120 -\frac{11a}2+21b-ab
+\biggr).
+\end{align*}
+Insbesondere h"angt der Schaden nicht linear von den Werten $a$ und $b$ ab.
+\end{loesung}
