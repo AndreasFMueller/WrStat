@@ -140,7 +140,7 @@ void	test(const matrix& m, int n) {
 }
 
 int	main(int argc, char *argv[]) {
-	int	n = 20;
+	int	n = 100;
 	double	alpha = 0.1;
 	int	c;
 	matrixfactory	f;

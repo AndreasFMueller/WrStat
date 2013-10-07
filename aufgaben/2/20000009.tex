@@ -35,15 +35,75 @@ Der zweite Befehl sorgt daf"ur, dass die Summe der Elemente $1$ wird,
 wie das von einem Vektor verlangt werden muss, der Wahrscheinlichkeiten
 darstellen soll.
 
-Mit Hilfe des in der Vorlesung vergef"uhrten Iterationsalgorithmus
-kann man folgenden Eigenvektor zum Eigenwert $1$ finden:
+Da man aber den Eigenwert weiss, kann man auch $(H-E)p=0$ l"osen, was
+mit dem Gaussalgorithmus effizient m"oglich ist:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+     -1&      0& 0& 1\\
+\frac12&     -1& 0& 0\\
+\frac12&\frac12&-1& 0\\
+      0&\frac12& 1&-1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+      1&      0& 0&     -1\\
+      0&     -1& 0&\frac12\\
+      0&\frac12&-1&\frac12\\
+      0&\frac12& 1&     -1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+      1&      0& 0&      -1\\
+      0&      1& 0&-\frac12\\
+      0&      0&-1& \frac34\\
+      0&      0& 1&-\frac34\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+      1&      0& 0&      -1\\
+      0&      1& 0&-\frac12\\
+      0&      0& 1&-\frac34\\
+      0&      0& 0&       0\\
+\hline
+\end{tabular}
+\end{align*}
+Die letzte Variable is frei w"ahlbar, setzen wir sie auf $1$, erhalten wir
+als L"osungsvektor
 \[
-\left(\begin{matrix}
+\begin{pmatrix}1\\\frac12\\\frac34\\1\end{pmatrix}.
+\]
+Dieser Vektor hat nicht die gew"unschte Normierung: F"ur einen Vektor
+von Wahrscheinlichkeiten m"ussen die Komponenten sich zu $1$ aufaddieren.
+Dies kann man aber immer erreichen, indem man durch die Summe der Komponenten
+teilt:
+\[
+p=\frac{4}{13}\begin{pmatrix}1\\\frac12\\\frac34\\1\end{pmatrix}=
+\begin{pmatrix}
 0.307692\\
 0.153846\\
 0.230769\\
 0.307692
-\end{matrix}\right)
+\end{pmatrix}.
+\]
+
+Auch mit Hilfe des in der Vorlesung vergef"uhrten Iterationsalgorithmus
+kann man folgenden Eigenvektor zum Eigenwert $1$ finden:
+\[
+\begin{pmatrix}
+0.307692\\
+0.153846\\
+0.230769\\
+0.307692
+\end{pmatrix}
 \]
 Man kann dies auch mit Hilfe des beigef"ugten kleinen Programms
 {\tt google.cpp} herausfinden.
