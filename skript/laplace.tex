@@ -546,7 +546,7 @@ P(A_{\text{Zahnarztgehilfin}}|B_{\text{Frau}})&=&\frac{|A_{\text{Zahnarztgehilfi
 P(A_{\text{Zahnarztgehilfin}}|B_{\text{Mann}})&=&\frac{|A_{\text{Zahnarztgehilfin}}\cap B_{\text{Mann}}|}{|B_{\text{Mann}}|}=0\\
 \end{eqnarray*}
 
-\section{Ziegen und Autos}
+\section{Ziegen und Autos\label{ziegen:autos}}
 Marylin vos Savant hat in einer Kolumne ein Gedankenexperiment vorgstellt.
 In einer Quiz-Show muss der Kandidat eine von drei T"uren w"ahlen, wobei
 sich hinter einer der T"uren ein Auto versteckt, hinter den anderen zweien
@@ -587,6 +587,224 @@ P(G)=P(G|A)P(A)+P(G|Z)P(Z)=0\cdot\frac13+1\cdot\frac23=\frac23.
 \]
 Mit der Wechselstrategie ist also die Wahrscheinlichkeit, zu gewinnen,
 doppelt so gross, wechseln lohnt sich also auf jeden Fall.
+
+\section{Deal or no Deal}
+Wir analysieren die folgende vereinfachte Form des Spiels Deal or no Deal.
+Eine Anzahl $n$ von Koffern steht f"ur den Kandidaten zur Wahl.
+Die Koffer enthalten viele kleine Preise, die wir als wertlos betrachten,
+doch einer der Koffer enth"alt einen grossen Preis.
+In jeder Runde w"ahlt der Kandidat einen Koffer. Der Moderator "offnet
+dann einen wertlosen Koffer und gibt dem Kandidaten die Wahl, seine Wahl
+zu "andern.
+Mit dieser Wahl steigt der Kandidat dann auch in die n"achste Rund ein.
+
+\subsection{Ereignisse und Wahrscheinlichkeiten}
+Dieses Spiel ist offenbar eine iterierte Variante des Ziegen-Problems.
+Wir verwenden die Ereignisse 
+\[
+W_k=\{\text{Wahl in Runde $k$ ist der Gewinn}\},
+\]
+und interessieren uns f"ur die Wahrscheinlichkeit $P(W_k)$, in Runde
+$k$ zu gewinnen.
+In der ersten Runde ist die Wahl eines Koffers ein Laplace-Ereignis,
+es gilt daher $P(W_1)=\frac1n$.
+
+In jedem Fall gilt
+\begin{align*}
+P(W_{k+1})
+&=
+P(W_{k+1}|W_k)\cdot P(W_k) + P(W_{k+1}|\overline{W}_k)\cdot  P(\overline{W}_k)\\
+P(\overline{W}_{k+1})
+&=
+P(\overline{W}_{k+1}|W_k)\cdot P(W_k) + P(\overline{W}_{k+1}|\overline{W}_k)\cdot  P(\overline{W}_k)\\
+&=
+(1-P(W_{k+1}|W_k))\cdot P(W_k) + (1-P(W_{k+1}|\overline{W}_k))\cdot  P(\overline{W}_k),
+\end{align*}
+was wir auch in Matrixform schreiben k"onnen:
+\[
+\begin{pmatrix}
+P(W_{k+1})\\P(\overline{W}_{k+1})
+\end{pmatrix}
+=
+\begin{pmatrix}
+P(W_{k+1}|W_k)&P(W_{k+1}|\overline{W}_k)\\
+1-P(W_{k+1}|W_k)&1-P(W_{k+1}|\overline{W}_k)\\
+\end{pmatrix}
+\begin{pmatrix}
+P(W_{k})\\P(\overline{W}_{k})
+\end{pmatrix}
+=
+A_k
+\begin{pmatrix}
+P(W_{k})\\P(\overline{W}_{k})
+\end{pmatrix}.
+\]
+
+\subsection{Strategien}
+Wenn der Kandidat aufgefordert wird, seine Wahl zu "uberdenken, muss
+er sich f"ur eine von zwei Strategien entscheiden. Er kann bei seiner
+Wahl bleiben, oder er kann seine Wahl revidieren und zu einem anderen
+Koffer wechseln.
+Wir machen die Wahl der Bleibe-Strategie durch einen Apostroph 
+deutlich, wir schreiben in diesem Fall also $A'_k$, w"ahrend $A_k$
+f"ur die Wechsel-Strategie reserviert bleibt.
+
+Falls der Kandidat die Bleibe-Strategie w"ahlt, "andert sind die
+bedingten Wahrscheinlichkeiten von $W_{k+1}$:
+\[
+\left.
+\begin{aligned}
+P(W_{k+1}|W_k)
+&=
+1
+\\
+P(W_{k+1}|\overline{W}_k)
+&=
+0
+\end{aligned}
+\;
+\right\}\quad\Rightarrow\quad A'_k=\begin{pmatrix}1&0\\0&1\end{pmatrix}=E.
+\]
+Bei verwenden der Bleibe-Strategie "andert sich die Gewinn-Wahrscheinlichkeit
+also nicht.
+
+W"ahlt der Kandidat jedoch die Wechsel-Strategie, verliert er zwar
+die Gewinnchancen, falls $W_k$ eingetroffen ist, aber er gewinnt
+eine Gewinnchance, falls $W_k$ nicht eingetroffen ist.
+In Runde $k$ stehen beim Wechseln $n-k-1$ Koffer zur Auswahl. Auch dies
+ist ein Laplace-Experiment, die Wahrscheinlichkeit, mit der Wahl eines
+anderen Koffers zu gewinnen, ist $\frac1{n-k-1}$. Folglich gilt in
+diesem Fall:
+\[
+\left.
+\begin{aligned}
+P(W_{k+1}|W_k)
+&=
+0
+\\
+P(W_{k+1}|\overline{W}_k)
+&=
+\frac1{n-k-1}
+\end{aligned}
+\;
+\right\}\quad\Rightarrow\quad
+A_k=\begin{pmatrix}0&\alpha \\1&1-\alpha \end{pmatrix},\quad \alpha=\frac1{n-k-1}.
+\]
+
+\subsection{Der Spezialfall $n=3$}
+In diesem Fall kann das Spiel nur eine Runde haben, die zudem genau gleich
+abl"auft wie das Spiel der Ziegen und Autos in Abschnitt~\ref{ziegen:autos}.
+Die Wahrscheinlichkeit mit der ersten Wahl zu gewinnen ist $P(W_1)=\frac13$.
+Je nach gew"ahlter Strategie sind die Gewinnwahrscheinlichkeiten:
+\begin{align*}
+&\text{Bleiben:}&
+\begin{pmatrix}P(W_2)\\P(\overline{W}_2)\end{pmatrix}
+&=A'_1\begin{pmatrix}P(W_1)\\P(\overline{W}_1)\end{pmatrix}
+=E\begin{pmatrix}P(W_1)\\P(\overline{W}_1)\end{pmatrix}
+=\begin{pmatrix}\frac13\\\frac23\end{pmatrix}
+\\
+&\text{Wechseln:}&
+\begin{pmatrix}P(W_2)\\P(\overline{W}_2)\end{pmatrix}
+&=A_1\begin{pmatrix}P(W_1)\\P(\overline{W}_1)\end{pmatrix}
+=\begin{pmatrix}0&1\\1&0\end{pmatrix}\begin{pmatrix}P(W_1)\\P(\overline{W}_1)\end{pmatrix}
+=\begin{pmatrix}P(\overline{W}_1)\\P(W_1)\end{pmatrix}
+=\begin{pmatrix}\frac23\\\frac13\end{pmatrix}
+\end{align*}
+Durch die Wahl der Wechsel-Strategie gewinnt der Kandidat also einen Vorteil,
+seine Gewinnwahrscheinlichkeit ist doppelt so gross wie bei Wahl der
+Bleibe-Strategie, genau das in Abschnitt \ref{ziegen:autos} gefundene
+Resultat.
+
+\subsection{"Anderung der Gewinnwahrscheinlichkeit in einer Runde}
+In einer Runde "andert sich die Gewinnwahrscheinlichkeit nur, wenn
+die Wechsel-Strategie angewendet wird.
+Ist $p$ die Gewinnwahrscheinlichkeit zu Beginn der Runde, dann ist sie
+nach der Runde
+\begin{equation}
+\begin{pmatrix}
+0&\alpha\\
+1&1-\alpha
+\end{pmatrix}
+\begin{pmatrix}p\\1-p\end{pmatrix}
+=
+\begin{pmatrix}\alpha(1-p)\\p+(1-\alpha)(1-p)\end{pmatrix}.
+\label{wahrscheinlichkeits-verbesserung}
+\end{equation}
+Selbstverst"andlich ist die zweite Komponente
+\[
+p+(1-\alpha)(1-p)=p+1-\alpha-p+\alpha p
+=1-\alpha+\alpha p=1-\alpha(1-p),
+\]
+die beiden Komponenten summieren sich also wieder zu $1$, wie das f"ur
+Wahrscheinlichkeiten sein muss.
+
+Unter welchen Voraussetzungen wird die Gewinnwahrscheinlichkeit gr"osser?
+Aus (\ref{wahrscheinlichkeits-verbesserung}) k"onnen wir ablesen, dass
+eine Verbesserung der Gewinnwahrscheinlichkeit nur m"oglich ist, wenn
+gilt
+\[
+p<\alpha(1-p)
+\qquad\text{oder}\qquad
+\alpha>\frac{p}{1-p}
+\qquad\text{oder}\qquad
+\frac{\alpha}{\alpha + 1}>p.
+\]
+In Runde $k$ ist $\alpha=\frac{1}{n-k-1}$, die Wahrscheinlichkeit kann
+also nur dann wachsen, wenn
+\[
+p <\frac{\alpha}{\alpha + 1}
+=
+\frac{\displaystyle \frac1{n-k-1}}{\displaystyle\frac{1}{n-k-1}+1}
+=
+\frac1{n-k-1} \cdot \frac{n-k-1}{n-k}=\frac1{n-k}.
+\]
+
+Die einzige M"oglichkeit, eine Wahrscheinlichkeit gr"osser als 0.5 zu
+erreichen, besteht f"ur $k=n-2$, wo $\alpha=1$. In jeder anderen Runde
+ist die maximal erreichbare Gewinnwahrscheinlichkeit nicht gr"osser
+als $\frac12$.
+
+\subsection{Iteration}
+Ausgehend von den Wahrscheinlichkeiten von $W_1$ "andert sich die
+Gewinnwahrscheinlichkeit in jedem Schritt entsprechen der gew"ahlten
+Strategie.
+Da die Bleibe-Strategie die Wahrscheinlichkeiten nicht "andert, sind
+nur die Runden von Interesse, in denen der Kandidat die Wechsel-Strategie
+anwendet.
+Seien $k_1, k_2,\dots,k_r$ die Nummern der Runden, in denen der
+Kandidat die Wechsel-Strategie angewendet hat,
+wobei nat"urlich $k_1 < k_2 < \dots < k_r$ gelten muss.
+Das Spiel hat genau $n-2$ Runden, 
+
+Dann sind die Gewinnwahrscheinlichkeiten
+\[
+\begin{pmatrix}
+P(W_{n-2})\\
+P(\overline{W}_{n-2})\\
+\end{pmatrix}
+=
+A_{k_r}A_{k_{r-1}}\dots A_{k_2}A_{k_1}
+\begin{pmatrix}P(W_1)\\P(\overline{W}_1)\end{pmatrix}.
+\]
+Die Folge von Strategiewahlen entscheidet also vollst"andig "uber die
+Gewinnwahrscheinlichkeit. 
+
+\subsection{Optimale Strategie}
+Wir streben an, eine m"oglichst grosse Gewinnwahrscheinlichkeit zu
+erreichen. Dazu muss offensichtlich die Wechsel-Strategie angewendet
+werden, es fragt sich also nur, wann man dies tun soll. 
+In der letzten Runde des Spiels ist $\alpha=1$ maximal, 
+nur in dieser Runde ist es "uberhaupt m"oglich, die Gewinnwahrscheinlichkeit
+gr"osser als $\frac12$ zu erreichen.
+Wenn man also eine m"oglichst grosse Gewinnwahrscheinlichkeit erreichen
+will, dann sollte man die Wechselstrategie nur verwenden, wenn man damit
+die Gewinnwahrscheinlichkeit reduzieren kann, um dann im letzten 
+Schritt die Gewinnwahrscheinlichkeit m"oglichst gross zu machen.
+
+Daraus k"onnen wir ableiten, dass die beste Strategie ist, immer die
+Bleibe-Strategie zu verwenden ausser im letzten Schritt, wo die
+Wechsel-Strategie angewendet wird. Mit dieser Strategie kann man
+die Gewinnwahrscheinlichkeit $\frac{24}{25}= 96\%$ erreichen.
 
 \section{Roulette}
 \index{Roulette}
