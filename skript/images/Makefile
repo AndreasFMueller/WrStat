@@ -27,7 +27,7 @@ erwartung: $(erwartung_FILES)
 
 $(verteilungsfunktion_FILES):	verteilungsfunktion.mp
 	TEX=latex mpost verteilungsfunktion.mp
-	for i in 1 2 3 4 5 6 7; \
+	for i in 1 2 3 4 5 6 7 8 9 10; \
 	do \
 		mptopdf verteilungsfunktion.$${i}; \
 	done

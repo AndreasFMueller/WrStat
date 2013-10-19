@@ -13,6 +13,35 @@ diskreter Verteilungen.
 \index{Gleichverteilung!Erwartungswert}
 \index{Gleichverteilung!Varianz}
 \index{Gleichverteilung!Verteilungsfunktion}
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Name&diskrete Gleichverteilung\\
+\hline
+Wahrscheinlichkeit&$\displaystyle P(k)=\frac1n$\\
+Verteilungsfunktion&$\displaystyle
+\begin{cases}
+0&\qquad x \le 1\\
+{\displaystyle \frac{\left\lfloor x\right\rfloor}n}&\qquad 1\le x\le n\\
+1&\qquad x \ge n
+\end{cases}
+$\\
+Erwartungswert&$\displaystyle \frac{n+1}2$\\
+Varianz&$\displaystyle \frac{n^2-1}{12}$\\
+Median&$\displaystyle \frac{n+1}2$\\
+\hline
+Anwendungen&\begin{minipage}{3.7in}%
+$\bullet$ Laplace-Ereignisse aller Art\\
+$\bullet$ W"urfel\\
+$\bullet$ Roulette
+\end{minipage}\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Datenblatt der diskreten Gleichverteilung\label{datenblatt:diskretegleichverteilung}}
+\end{table}
+
 Bereits in Abschnitt \ref{section-laplace-ereignisse}
 wurden endliche Wahrscheinlichkeitsr"aume
 untersucht, bei denen alle Elementarereignisse mit gleicher Wahrscheinlichkeit
@@ -39,6 +68,28 @@ E(X^2)&=&\sum_{k=1}^nk^2p(k)=\frac1n\sum_{k=1}^nk^2=\frac1n\cdot\frac{n(1+3n+2n^
 
 \subsection{Binomialverteilung\label{section-binomialverteilung}}
 \index{Bernoulli-Experiment}
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Name&Binomialverteilung\\
+\hline
+Wahrscheinlichkeit&$\displaystyle P(k)=\binom{n}{k}p^k(1-p)^{n-k}$\\
+Verteilungsfunktion&$\displaystyle F(k)=\sum_{i=0^k}\binom{n}{i}p^i(1-p)^{n-i}$\\
+Erwartungswert&$\displaystyle np$\\
+Varianz&$\displaystyle np(1-p)$\\
+\hline
+Anwendungen&\begin{minipage}{3.7in}%
+$\bullet$ Anzahl Eintreten eines Bernoulli-Experimentes\\
+$\bullet$ 
+\end{minipage}\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Datenblatt der Binomialverteilung\label{datenblatt:binomialverteilung}}
+\end{table}
+
+
 Der Wurf einer M"unze ist der Spezialfall eines Versuches mit
 zwei m"oglichen Ausg"angen $\{0,1\}$, bei dem die beiden Ausg"ange als
 gleich wahrscheinlich angesehen werden. Es sind durchaus auch
@@ -177,6 +228,31 @@ und nur in 5\% aller F"alle werden wir dies zu unrecht tun.
 \index{hypergeometrische Verteilung!Varianz}
 \index{Varianz!hypergeometrische Verteilung}
 \index{Erwartungswert!hypergeometrische Verteilung}
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Name&Hypergeometrische Verteilung\\
+\hline
+Wahrscheinlichkeit&$\displaystyle
+h(k|N;m;n)=
+\left.\binom{M}{k}\binom{N-M}{n-k}\right/\binom{N}{n}
+$\\
+Erwartungswert&$\displaystyle n\frac{M}{N}$\\
+Varianz&$\displaystyle
+n\frac{M(N-M)(N-n)}{N^2(N-1)}
+$\\
+\hline
+Anwendungen&\begin{minipage}{3.7in}%
+$\bullet$ Lotto\\
+$\bullet$ 
+\end{minipage}\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Datenblatt der hypergeometrischen Verteilung\label{datenblatt:hypergeometrischeverteilung}}
+\end{table}
+
 Die hypergeometrische Verteilung wurde bereits in Definition
 \ref{hypergeometrischeverteilung} angetroffen. $h(k|N;M;n)$ ist die
 Wahrscheinlichkeit dass in einer $n$ Elemente umfassenden Stichprobe aus
@@ -230,6 +306,28 @@ und Varianz
 \end{satz}
 
 \subsection{Poissonverteilung\label{section-poissonverteilung}}
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Name&Poissonverteilung\\
+\hline
+Wahrscheinlichkeit&$\displaystyle
+P_\lambda(k)=\frac{\lambda^k}{k!}e^{-\lambda}
+$\\
+Erwartungswert&$\displaystyle \lambda$\\
+Varianz&$\displaystyle \lambda$\\
+\hline
+Anwendungen&\begin{minipage}{3.7in}%
+$\bullet$ Anzahl Ereignisse mit exponentialverteilten Intervallen\\
+$\bullet$ Approximation der Binomialverteilung f"ur seltene Ereignisse, die
+mit Rate $\lambda$ eintreten
+\end{minipage}\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Datenblatt der Poissonverteilung\label{datenblatt:poissonverteilung}}
+\end{table}
 Die Poissonverteilung liefert eine Antwort auf folgende Frage. In Abschnitt
 \ref{section-exponentialverteilung} wurde die Exponentialverteilung
 als die Verteilung f"ur die Ausfallwahrscheinlichkeit eines ``ged"achtnislosen''
