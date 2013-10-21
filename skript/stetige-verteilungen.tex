@@ -16,29 +16,62 @@ Verteilungen vorgestellt.
 
 \subsection{Gleichverteilung\label{section-gleichverteilung-stetig}}
 \begin{table}
+\renewcommand{\arraystretch}{1.5}
 \begin{center}
 \begin{tabular}{|l|l|}
 \hline
-Name&\\
+Name&Gleichverteilung\\
 \hline
-Dichtefunktion&$\displaystyle
+Dichtefunktion&
+\begin{minipage}{3.7in}
+\vskip5pt
+$\displaystyle
 \begin{cases}
 \frac1{b-a}&\qquad a\le x\le b\\
 0&\qquad\text{sonst}
 \end{cases}
-$\\
-Verteilungsfunktion&$\displaystyle
+$
+\end{minipage}
+\\[8pt]
+Verteilungsfunktion&
+\begin{minipage}{3.7in}
+\vskip5pt
+$\displaystyle
 \begin{cases}0&\qquad x\le a\\
 \frac{x-a}{b-a}&\qquad x \le a \le b\\
 1&\qquad x>b\end{cases}
-$\\
-Erwartungswert&$\displaystyle \frac{a+b}2$\\
-Varianz&$\displaystyle \frac{(b-a)^2}{12}$\\
-Median&$\displaystyle \frac{(b-a)^2}{12}$\\
-$P(|X-E(X)|>\varepsilon)$&$\displaystyle 1-\frac2\varepsilon{b-a}$ f"ur $\varepsilon<\frac{b-a}2$ \\
+$
+\end{minipage}
+\\[8pt]
+Erwartungswert&
+\begin{minipage}{3.7in}
+\vskip3pt
+$\displaystyle \frac{a+b}2$
+\end{minipage}
+\\[8pt]
+Varianz&
+\begin{minipage}{3.7in}
+\vskip3pt
+$\displaystyle \frac{(b-a)^2}{12}$
+\end{minipage}
+\\[8pt]
+Median&
+\begin{minipage}{3.7in}
+\vskip3pt
+$\displaystyle \frac{a+b}{2}$
+\end{minipage}
+\\[8pt]
+$P(|X-E(X)|>\varepsilon)$&
+\begin{minipage}{3.7in}
+\vskip3pt
+$\displaystyle 1-\frac{2\varepsilon}{b-a}$ f"ur $\varepsilon<\frac{b-a}2$
+\end{minipage}
+\\[10pt]
 \hline
 Anwendungen&\begin{minipage}{3.7in}%
+\strut
 $\bullet$ Verteilung von Zufallszahlen
+\strut
 \end{minipage}\\
 \hline
 \end{tabular}
@@ -152,27 +185,33 @@ P(|X-\mu|>\varepsilon)
 
 \subsection{Exponentialverteilung\label{section-exponentialverteilung}}
 \begin{table}
+\renewcommand{\arraystretch}{2}
 \begin{center}
 \begin{tabular}{|l|l|}
 \hline
 Name&Exponentialverteilung\\
 \hline
 Dichtefunktion&$\displaystyle\frac1a e^{-ax}$\\
-Verteilungsfunktion&$a-e^{-ax}$\\
+Verteilungsfunktion&$1-e^{-ax}$\\
 Erwartungswert&$\displaystyle \frac1a$\\
 Varianz&$\displaystyle \frac1{a^2}$\\
-Median&$\displaystyle \frac1a\log 2$\\
-$P(|X-E(X)|>\varepsilon)$&$
+Median&$\displaystyle \frac1a\log 2$\\[8pt]
+$P(|X-E(X)|>\varepsilon)$&
+\begin{minipage}{3.7in}
+$
 \begin{cases}
 e^{-a\varepsilon-1}&\qquad\text{f"ur $\varepsilon > \frac1a$}\\
 1-e^{a\varepsilon-1}+e^{-a\varepsilon-1}&\qquad\text{f"ur $\varepsilon \le \frac1a$}
 \end{cases}
 $
-\\
+\end{minipage}
+\\[10pt]
 \hline
 Anwendungen&\begin{minipage}{3.7in}%
+\strut
 $\bullet$ Prozess ohne Erinnerungsverm"ogen\\
 $\bullet$ Radioaktivit"at
+\strut
 \end{minipage}\\
 \hline
 \end{tabular}
@@ -435,23 +474,32 @@ aber mehr als verdoppelt.
 \subsection{Normalverteilung\label{normalverteilung}}
 \index{Normalverteilung}
 \begin{table}
+\renewcommand{\arraystretch}{2}
 \begin{center}
 \begin{tabular}{|l|l|}
 \hline
 Name&Normalverteilung\\
 \hline
-Dichtefunktion&$\frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$\\
+\setlength{\extrarowheight}{2pt}
+Dichtefunktion&$\displaystyle\frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$\\
 Verteilungsfunktion&keine elementare Funktion\\
 Erwartungswert&$\mu$\\
 Varianz&$\sigma^2$\\
 Median&$\mu$\\
 $P(|X-E(X)|>\varepsilon)$&keine einfache Formel\\
 \hline
-Anwendungen&\begin{minipage}{3.7in}%
+%\setlength{\extrarowheight}{50pt}
+Anwendungen&
+\begin{minipage}{3.7in}%
+\vskip4pt
+\strut
 $\bullet$ Messwerte\\
-$\bullet$ Summe vieler kleiner Einfl"usse vergleichbar grosser Varianz\\
+$\bullet$ Summe vieler kleiner Einfl"usse vergleichbar grosser Varianz
+(Zentraler Grenzwertsatz)
+\\
 $\bullet$ Approximation der Binomialverteilung
-\end{minipage}\\
+\strut
+\end{minipage}\\[21pt]
 \hline
 \end{tabular}
 \end{center}
@@ -1277,22 +1325,33 @@ Fehlers, {\tt nu} ist die Zahl der Freiheitsgrade.
 
 \subsection{Potenzgesetze} \label{potenzgesetze}
 \begin{table}
+\renewcommand{\arraystretch}{2}
 \begin{center}
 \begin{tabular}{|l|l|}
 \hline
 Name&Potenzverteilung, Pareto-Verteilung\\
 \hline
-Dichtefunktion&$\displaystyle
+Dichtefunktion&
+\begin{minipage}{3.7in}
+\vskip5pt
+$\displaystyle
 \begin{cases}
 \frac{\alpha-1}{x_{\text{min}}}^{1-\alpha}x^{-\alpha}&\qquad x>x_{\text{min}}\\
 0&\qquad\text{sonst}
 \end{cases}
-$\\
-Verteilungsfunktion&$\displaystyle
+$
+\end{minipage}
+\\[15pt]
+Verteilungsfunktion&
+\begin{minipage}{3.7in}
+\vskip3pt
+$\displaystyle
 \begin{cases}
 1-\biggl(\frac{x}{x_{\text{min}}}\biggr)^{1-\alpha}&\qquad x>x_{\text{min}}\\
 0&\qquad\text{sonst}
-\end{cases} $\\
+\end{cases} $
+\end{minipage}
+\\
 Erwartungswert&$\displaystyle\frac{\alpha-1}{\alpha-2}x_{\text{min}}$,
 undefiniert f"ur $\alpha\ge 2$\\
 Varianz&$\displaystyle
@@ -1303,12 +1362,15 @@ $P(|X-E(X)|>\varepsilon)$&$\displaystyle $ \\
 Median&$2^{\frac1{\alpha-1}}x_{\text{min}}$\\
 \hline
 Anwendungen&\begin{minipage}{3.7in}%
+\vskip5pt
+\strut
 $\bullet$ H"aufkeitsverteilung f"ur skaleninvariante Prozesse\\
 $\bullet$ Einkommensverteilung\\
 $\bullet$ Gr"osse und H"aufigkeit von Mondkratern\\
 $\bullet$ Verkaufszahlen von B"uchern\\
 $\bullet$ Einwohnerzahlen von St"adten
-\end{minipage}\\
+\strut
+\end{minipage}\\[28pt]
 \hline
 \end{tabular}
 \end{center}
