@@ -11,12 +11,19 @@ PPPP = Laufnummer der Aufgabe
 
 Kapitelnummern
 
-C  Kapitel
-1  Grundlagen
-2  Sprachen
-3  Regulaere Sprachen
-4  Stackautomaten und kontextfreie Sprachen
-5  Turing Maschinen
-6  Entscheidbarkeit
-7  Komplexitaetstheorie
-8  Turing-Vollstaendigkeit
+C      Kapitel
+1      Kombinatorik
+2      Ereignisse und Wahrscheinlichkeit
+3      Wahrscheinlichkeit und Kombinatorik
+4      Erwartungswert und Varianz
+5      Wahrscheinlichkeitsverteilung
+6      Ein Katalog von Wahrscheinlichkeitsverteilungen
+6001   Gleichverteilung
+6002   Exponentialverteilung
+6003   Normalverteilung
+6004   Binomialverteilung
+6005   Poissonverteilung
+7      Schätzen
+8      Hypothesen testen
+9      Filtern
+r      Einführung in R
