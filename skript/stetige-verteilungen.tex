@@ -15,6 +15,70 @@ Verteilungen vorgestellt.
 \section{Stetige Wahrscheinlichkeitsverteilungen}
 
 \subsection{Gleichverteilung\label{section-gleichverteilung-stetig}}
+\begin{table}
+\renewcommand{\arraystretch}{1.5}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Name&Gleichverteilung\\
+\hline
+Dichtefunktion&
+\begin{minipage}{3.7in}
+\vskip5pt
+$\displaystyle
+\begin{cases}
+\frac1{b-a}&\qquad a\le x\le b\\
+0&\qquad\text{sonst}
+\end{cases}
+$
+\end{minipage}
+\\[8pt]
+Verteilungsfunktion&
+\begin{minipage}{3.7in}
+\vskip5pt
+$\displaystyle
+\begin{cases}0&\qquad x\le a\\
+\frac{x-a}{b-a}&\qquad x \le a \le b\\
+1&\qquad x>b\end{cases}
+$
+\end{minipage}
+\\[8pt]
+Erwartungswert&
+\begin{minipage}{3.7in}
+\vskip3pt
+$\displaystyle \frac{a+b}2$
+\end{minipage}
+\\[8pt]
+Varianz&
+\begin{minipage}{3.7in}
+\vskip3pt
+$\displaystyle \frac{(b-a)^2}{12}$
+\end{minipage}
+\\[8pt]
+Median&
+\begin{minipage}{3.7in}
+\vskip3pt
+$\displaystyle \frac{a+b}{2}$
+\end{minipage}
+\\[8pt]
+$P(|X-E(X)|>\varepsilon)$&
+\begin{minipage}{3.7in}
+\vskip3pt
+$\displaystyle 1-\frac{2\varepsilon}{b-a}$ f"ur $\varepsilon<\frac{b-a}2$
+\end{minipage}
+\\[10pt]
+\hline
+Anwendungen&\begin{minipage}{3.7in}%
+\strut
+$\bullet$ Verteilung von Zufallszahlen
+\strut
+\end{minipage}\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Datenblatt der Gleichverteilung\label{datenblatt:gleichverteilung}}
+\end{table}
+
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.8\hsize]{images/verteilungsfunktion-7}
@@ -96,11 +160,69 @@ P(|X-\mu|>\varepsilon)
 \end{eqnarray*}
 }
 
+%\begin{table}
+%\begin{center}
+%\begin{tabular}{|l|l|}
+%\hline
+%Name&\\
+%\hline
+%Dichtefunktion&$\displaystyle$\\
+%Verteilungsfunktion&$\displaystyle$\\
+%Erwartungswert&$\displaystyle$\\
+%Varianz&$\displaystyle $\\
+%Median&$\displaystyle $\\
+%$P(|X-E(X)|>\varepsilon)$&$\displaystyle $ \\
+%\hline
+%Anwendungen&\begin{minipage}{3.7in}%
+%$\bullet$ \\
+%$\bullet$ 
+%\end{minipage}\\
+%\hline
+%\end{tabular}
+%\end{center}
+%\caption{Datenblatt der XXXverteilung\label{datenblatt:XXXverteilung}}
+%\end{table}
+
 \subsection{Exponentialverteilung\label{section-exponentialverteilung}}
+\begin{table}
+\renewcommand{\arraystretch}{2}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Name&Exponentialverteilung\\
+\hline
+Dichtefunktion&$\displaystyle\frac1a e^{-ax}$\\
+Verteilungsfunktion&$1-e^{-ax}$\\
+Erwartungswert&$\displaystyle \frac1a$\\
+Varianz&$\displaystyle \frac1{a^2}$\\
+Median&$\displaystyle \frac1a\log 2$\\[8pt]
+$P(|X-E(X)|>\varepsilon)$&
+\begin{minipage}{3.7in}
+$
+\begin{cases}
+e^{-a\varepsilon-1}&\qquad\text{f"ur $\varepsilon > \frac1a$}\\
+1-e^{a\varepsilon-1}+e^{-a\varepsilon-1}&\qquad\text{f"ur $\varepsilon \le \frac1a$}
+\end{cases}
+$
+\end{minipage}
+\\[10pt]
+\hline
+Anwendungen&\begin{minipage}{3.7in}%
+\strut
+$\bullet$ Prozess ohne Erinnerungsverm"ogen\\
+$\bullet$ Radioaktivit"at
+\strut
+\end{minipage}\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Datenblatt der Exponentialverteilung\label{datenblatt:exponentialverteilung}}
+\end{table}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\hsize]{graphics/expphi}
-\includegraphics[width=0.8\hsize]{graphics/expF}
+%\includegraphics[width=0.8\hsize]{graphics/expphi}
+%\includegraphics[width=0.8\hsize]{graphics/expF}
+\includegraphics[width=0.8\hsize]{images/verteilungsfunktion-8}
 \end{center}
 \caption{Dichtefunktion (oben) und Verteilungsfunktion (unten) der Exponentialverteilung
 \label{bildexponentialverteilung}}
@@ -351,10 +473,43 @@ aber mehr als verdoppelt.
 
 \subsection{Normalverteilung\label{normalverteilung}}
 \index{Normalverteilung}
+\begin{table}
+\renewcommand{\arraystretch}{2}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Name&Normalverteilung\\
+\hline
+\setlength{\extrarowheight}{2pt}
+Dichtefunktion&$\displaystyle\frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$\\
+Verteilungsfunktion&keine elementare Funktion\\
+Erwartungswert&$\mu$\\
+Varianz&$\sigma^2$\\
+Median&$\mu$\\
+$P(|X-E(X)|>\varepsilon)$&keine einfache Formel\\
+\hline
+%\setlength{\extrarowheight}{50pt}
+Anwendungen&
+\begin{minipage}{3.7in}%
+\vskip4pt
+\strut
+$\bullet$ Messwerte\\
+$\bullet$ Summe vieler kleiner Einfl"usse vergleichbar grosser Varianz
+(Zentraler Grenzwertsatz)
+\\
+$\bullet$ Approximation der Binomialverteilung
+\strut
+\end{minipage}\\[21pt]
+\hline
+\end{tabular}
+\end{center}
+\caption{Datenblatt der Normalverteilung\label{datenblatt:normalverteilung}}
+\end{table}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\hsize]{graphics/normphi}
-\includegraphics[width=0.8\hsize]{graphics/normF}
+%\includegraphics[width=0.8\hsize]{graphics/normphi}
+%\includegraphics[width=0.8\hsize]{graphics/normF}
+\includegraphics[width=\hsize]{images/verteilungsfunktion-9}
 \end{center}
 \caption{Dichtefunktion (oben) und Verteilungsfunktion (unten) der Normalverteilung\label{bildnormalverteilung}}
 \end{figure}
@@ -745,12 +900,13 @@ $S_n$ mindestens f"ur sehr grosse $n$ etwas auszusagen, selbst
 wenn "uber die einzelnen Beitr"age $X_i$ nur sehr wenig bekannt ist.
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\hsize]{graphics/zgws}
+%\includegraphics[width=0.8\hsize]{graphics/zgws}
+\includegraphics[width=\hsize]{images/verteilungsfunktion-10}
 \end{center}
 \caption{Zum zentralen Grenzwertsatz: die Wahrscheinlichkeitsdichte
-der standardisierten Summe von bis zu vier im Intervall
-$[-\sqrt{3},\sqrt{3}]$ gleichverteilten Zufallsvariablen (schwarze Kurven)
-konvergiert gegen die Standardnormalverteilung (rot).\label{zgws}}
+der standardisierten Summe von bis zu vier 
+gleichverteilten Zufallsvariablen (oben)
+konvergiert gegen die Standardnormalverteilung (unten).\label{zgws}}
 \end{figure}
 
 Der zentrale Grenzwertsatz besagt nun, dass die Verteilungsfunktionen
@@ -1150,14 +1306,14 @@ sind, kann also verworfen werden, wenn $\sum_{i=1}^nX_i^2$ eine gewisse
 Schranke $M$ "uberschreitet. Die Wahrscheinlichkeit, dass die Hypothese
 verworfen wird, obwohl sie eigentlich zutrifft, ist
 \[
-P(\sum_{i=1}^nX_i^2>M).
+P\biggl(\sum_{i=1}^nX_i^2>M\biggr).
 \]
 Will man die Wahrscheinlichkeit eines solchen Irrtums klein halten, muss
 $M$ entsprechend gross gew"ahlt werden. Wie gross definiert die
 $\chi^2$-Verteilung. Soll die Fehlerwahrscheinlichkeit $p$ sein,
 dann muss $M$ so gew"ahlt werden, dass 
 \[
-P(\sum_{i=1}^nX_i^2>M)=\int_M^\infty \gamma_{\frac12,\frac{n}2}(t)\,dt = p.
+P\biggl(\sum_{i=1}^nX_i^2>M\biggr)=\int_M^\infty \gamma_{\frac12,\frac{n}2}(t)\,dt = p.
 \]
 Die Schranke $M$ ist f"ur verschiedene Werte von $p$ in Abh"angigkeit
 von der Anzahl Freiheitsgrade tabelliert, oder kann mit dem Computer
@@ -1168,6 +1324,58 @@ vorhanden, der Parameter \verb+p+ ist die Wahrscheinlichkeit eines
 Fehlers, {\tt nu} ist die Zahl der Freiheitsgrade.
 
 \subsection{Potenzgesetze} \label{potenzgesetze}
+\begin{table}
+\renewcommand{\arraystretch}{2}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Name&Potenzverteilung, Pareto-Verteilung\\
+\hline
+Dichtefunktion&
+\begin{minipage}{3.7in}
+\vskip5pt
+$\displaystyle
+\begin{cases}
+\frac{\alpha-1}{x_{\text{min}}}^{1-\alpha}x^{-\alpha}&\qquad x>x_{\text{min}}\\
+0&\qquad\text{sonst}
+\end{cases}
+$
+\end{minipage}
+\\[15pt]
+Verteilungsfunktion&
+\begin{minipage}{3.7in}
+\vskip3pt
+$\displaystyle
+\begin{cases}
+1-\biggl(\frac{x}{x_{\text{min}}}\biggr)^{1-\alpha}&\qquad x>x_{\text{min}}\\
+0&\qquad\text{sonst}
+\end{cases} $
+\end{minipage}
+\\
+Erwartungswert&$\displaystyle\frac{\alpha-1}{\alpha-2}x_{\text{min}}$,
+undefiniert f"ur $\alpha\ge 2$\\
+Varianz&$\displaystyle
+\biggl(
+\frac{\alpha-1}{\alpha -3}-\biggl(\frac{\alpha-1}{\alpha-2}\biggr)^2
+\biggr)x_{\text{min}}^2$, undefiniert f"ur $\alpha \ge 3$\\
+$P(|X-E(X)|>\varepsilon)$&$\displaystyle $ \\
+Median&$2^{\frac1{\alpha-1}}x_{\text{min}}$\\
+\hline
+Anwendungen&\begin{minipage}{3.7in}%
+\vskip5pt
+\strut
+$\bullet$ H"aufkeitsverteilung f"ur skaleninvariante Prozesse\\
+$\bullet$ Einkommensverteilung\\
+$\bullet$ Gr"osse und H"aufigkeit von Mondkratern\\
+$\bullet$ Verkaufszahlen von B"uchern\\
+$\bullet$ Einwohnerzahlen von St"adten
+\strut
+\end{minipage}\\[28pt]
+\hline
+\end{tabular}
+\end{center}
+\caption{Datenblatt der Potenzverteilung\label{datenblatt:potenzverteilung}}
+\end{table}
 Die Normalverteilung beschreibt physikalische Gr"ossen sehr erfolgreich,
 die vor allem in einer bestimmten Gr"osse vorkommen. Menschen sind zum
 Beispiel im Durchschnitt etwa 1.80m gross, Abweichungen kommen vor, sind
@@ -1189,10 +1397,14 @@ Mass\-stab gelten. Die Form des Graphen von $\varphi(x)$ darf sich nicht "andern
 wenn wir zu einer anderen Skala "ubergehen.
 F"ur jede Zahl $b>0$ muss es also eine Konstante $g(b)$ geben, 
 so dass
-$$\varphi(bx)=g(b)\varphi(x).$$
+\[
+\varphi(bx)=g(b)\varphi(x).
+\]
 Aus diesem Zusammenhang folgt sofort, dass
 $\varphi(b)=g(b)\varphi(1)$ und weiter 
-$$\varphi(bx)=\frac{\varphi(b)\varphi(x)}{p(1)}.$$
+\[
+\varphi(bx)=\frac{\varphi(b)\varphi(x)}{p(1)}.
+\]
 Leitet man dies nach $b$ ab und setzt $b=1$ erh"alt man
 \begin{align*}
 x\varphi'(bx)&=\frac{\varphi'(1)p(x)}{\varphi(1)}\\
@@ -1214,11 +1426,12 @@ Der Exponent $-\alpha$ ist immer negativ da $\varphi'(1)<0$ sein muss.
 
 \begin{definition}
 Eine Verteilung mit der Dichtefunktion
-$$\varphi(x)=\begin{cases}
+\[
+\varphi(x)=\begin{cases}
 Cx^{-\alpha}&\qquad x>x_{\min}\\
 0&\qquad\text{sonst}
 \end{cases}
-$$
+\]
 heisst Potenzgesetz.
 \end{definition}
 Damit dies eine Wahrscheinlichkeitsverteilung definiert, muss $C$
@@ -1247,21 +1460,24 @@ nur f"ur $\alpha > 1$ m"oglich.
 \begin{satz}
 Die Dichtefunktion einer nach einem Potenzgesetz verteilten Zufallsvariablen
 ist 
-$$\varphi(x)=\begin{cases}
+\[
+\varphi(x)=\begin{cases}
 \displaystyle
 \frac{\alpha-1}{x_{\min}^{1-\alpha}}
 x^{-\alpha}&\qquad x>x_{\min}
 \\
 0&\qquad\text{sonst},
 \end{cases}
-$$
+\]
 wobei $\alpha>1$ gelten muss.
 \end{satz}
 
 Nach einem Potenzgesetz verteilte Zufallsvariablen kann man daran
 erkennen, dass die Dichtefunktion in einer doppelt logarithmischen
 Darstellung eine Gerade ist. Wegen
-$$\log p(x)=-\alpha \log x+\log C$$
+\[
+\log p(x)=-\alpha \log x+\log C
+\]
 ist die Steigung der Geraden $-\alpha$.
 
 \subsubsection{Erwartungswert und Varianz}
@@ -1319,19 +1535,19 @@ E(X^2)-E(X)^2
 \begin{satz}
 Ist $X$ verteilt nach einem Potenzgesetz mit Exponent $\alpha$, dann
 existiert f"ur $\alpha>2$ ein Erwartungswert
-$$
+\[
 E(X)
 =
 \frac{\alpha-1}{\alpha-2}x_{\min}
-$$
+\]
 und f"ur $\alpha >3$ auch eine Varianz
-$$
+\[
 \operatorname{var}(X)
 =
 \biggl(
 \frac{\alpha-1}{\alpha-3}-\biggl(\frac{\alpha-1}{\alpha-2}\biggr)^2
 \biggr)x_{\min}^2
-$$
+\]
 \end{satz}
 
 \subsubsection{Median} \label{subsubsection-median}
@@ -1368,13 +1584,15 @@ x_{\frac12}&=2^{\frac1{\alpha-1}}x_{\min}
 \begin{satz}
 Ist die Zufallsvariable $X$ nach einem Potenzgesetz mit Exponent $\alpha>1$
 verteilt, existiert der Median
-$$x_{\frac12}=2^{\frac1{\alpha-1}}x_{\min}.$$
+\[
+x_{\frac12}=2^{\frac1{\alpha-1}}x_{\min}.
+\]
 \end{satz}
 
 \subsubsection{Die 80/20-Regel}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\hsize]{images/power}
+\includegraphics[width=\hsize]{images/power}
 \end{center}
 \caption{Kurven $(P(x),W(x))$ f"ur verschiedene Werte von $\alpha$\label{wp}}
 \end{figure}
@@ -1411,8 +1629,10 @@ W(x)=\frac%
 \label{wx}
 \end{equation}
 Nach den bisher durchgef"uhrten Rechnungen ist
-$$W(x)=\left(\frac{x}{x_{\min}}\right)^{2-\alpha}
-=P(x)^{\frac{\alpha-2}{\alpha-1}}$$
+\[
+W(x)=\left(\frac{x}{x_{\min}}\right)^{2-\alpha}
+=P(x)^{\frac{\alpha-2}{\alpha-1}}
+\]
 Die Abbildung \ref{wp} zeigt den Zusammenhang zwischen $P(x)$ und $W(x)$
 f"ur verschiedene Werte von $\alpha$
 
@@ -1474,13 +1694,16 @@ eines Histogramms eine lineare Regression durchf"uhren.
 Eine Maximum-Likelihood-Sch"atzung f"uhrt jedoch direkter zum
 Ziel.
 Mit der Dichtefunktion
-$$\varphi(x)=\frac{\alpha-1}{x_{\min}}\left(\frac{x}{x_{\min}}\right)^{-\alpha}$$
+\[
+\varphi(x)=\frac{\alpha-1}{x_{\min}}\left(\frac{x}{x_{\min}}\right)^{-\alpha}
+\]
 wird die Likelihoodfunktion
-$$
+\[
 L(\alpha;x_1,\dots,x_n)=
 \left(\frac{\alpha-1}{x_{\min}}\right)^n
 \prod_{i=1}^n
-\left(\frac{x_i}{x_{\min}}\right)^{-\alpha}$$
+\left(\frac{x_i}{x_{\min}}\right)^{-\alpha}
+\]
 $\alpha$ ist so zu bestimmen, dass $L(\alpha;x_1,\dots,x_n)$ maximal
 wird.
 Dies ist gleichbedeutend damit, dass der nat"urliche 

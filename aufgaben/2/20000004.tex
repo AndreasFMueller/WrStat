@@ -33,7 +33,7 @@ P(F)&=0.0001
 \begin{align*}
 P(A)&=P(A|F)P(F)+P(A|\overline F)P(\overline F)
 \\
-&=0.05\cdot 0.0001+0.0001\cdot(1-0.0001)\simeq 0.00019499
+&=0.95\cdot 0.0001+0.0001\cdot(1-0.0001)= 0.00019499
 \end{align*}
 \item
 Gesucht ist die bedingte Wahrscheinlichkeit $P(F|A)$
@@ -42,7 +42,7 @@ P(F|A)
 &=
 P(A|F) \frac{P(F)}{P(A)}
 \\
-&=0.05\cdot\frac{0.0001}{P(A)}\simeq0.4872
+&=0.95\cdot\frac{0.0001}{P(A)}\simeq0.4872
 \end{align*}
 Dieser Feuermelder ist also unbrauchbar unzuverl"assig, nur bei etwa der
 H"alfte der Alarme brennt es auch tats"achlich.
@@ -55,10 +55,12 @@ P(\overline A|F)\frac{P(F)}{P(\overline A)}=
 &=
 (1-P(A|F))\frac{P(F)}{1-P(A)}
 \\
-&=
-0.95\cdot \frac{0.0001}{1-P(A)}\simeq0.000005,
+&\simeq
+0.05\cdot \frac{0.0001}{0.99981}
+\simeq
+0.000005
 \end{align*}
-es ist also ausserordentlich unwahrscheinlich, dass es brennt,
+es ist also recht unwahrscheinlich, dass es brennt,
 wenn der Feuermelder keinen Alarm gibt, das hat aber vor allem auch
 mit der geringen Wahrscheinlichkeiten von Br"anden zu tun.
 \end{teilaufgaben}

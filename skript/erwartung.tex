@@ -60,9 +60,42 @@ in der Praxis eigentlich nur die erste L"osung. Warum?
 Wenn wir von ``im Mittel zu erwartendem Ausgang'' sprechen wollen, brauchen
 wir Versuchsresultate, die sich auch tats"achlich ``mitteln'' lassen.
 Elementarereignisse sind Realisierungen eines Versuchs und somit der
-rechnerischen Verkn"upfung nicht zug"anglich. Somit muss den Elementarereignissen
+rechnerischen Verkn"upfung nicht zug"anglich.
+Somit muss den Elementarereignissen
 ein Wert in einem Wertebereich zugeordnet werden, in dem
 Berechnungen m"oglich sind.
+
+\subsection{Wurf eines W"urfels}
+Wirft man einen W"urfel, zeigt dieser ein Bild mit einem oder mehreren Punkten, 
+dies sind die Elementarereignisse:
+\[
+\Omega = \{
+\epsdice{1},
+\epsdice{2},
+\epsdice{3},
+\epsdice{4},
+\epsdice{5},
+\epsdice{6}
+\}.
+\]
+Leute, die Zahlen kennen, k"onnen diese Bilder auch als Zahlen interpretieren.
+Sie verwenden die Abbildung
+\[
+X\colon \Omega \to \{1,2,3,4,5,6\}
+\]
+mit den Werten
+\begin{align*}
+\epsdice{1}&\mapsto 1,\\
+\epsdice{2}&\mapsto 2,\\
+\epsdice{3}&\mapsto 3,\\
+\epsdice{4}&\mapsto 4,\\
+\epsdice{5}&\mapsto 5,\\
+\epsdice{6}&\mapsto 6.
+\end{align*}
+Dass diese Zuordnung von Elementarereignissen zu Zahlenwerten tats"achlich
+ein zus"atzlicher Schritt ist, sieht man zum Beispiel auch daran, dass
+in Spielen f"ur Kinder, die die Zahlen noch nicht kennen, Farbw"urfel
+verwendet werden, und keine Zuordnung von Zahlenwerten vorgenommen wird.
 
 Die Menge $\Omega$ der Elementarereignisse beschreibt alle m"oglichen W"urfe
 des W"urfels. Wenn wir uns nur f"ur die gezeigte Augenzahl interessieren,
@@ -80,6 +113,23 @@ A_6=\{\omega\in\Omega\;|\;X(\omega) = 6\}.
 In $\mathbb{Z}\subset\mathbb{R}$ kann nat"urlich gerechnet werden, und
 auch eine intuitive Vorstellung davon, was ``im Mittel'' etwa heissen
 k"onnte, ist bereits vorhanden.
+
+\subsection{Definition}
+Zufallsvariable sind als Funktionen, die Elementarereignissen Werte zuordnen.
+Daher k"onnten wir als Definition verwenden
+\begin{definition}
+Eine Zufallsvariable $X$ ist eine Funktion $X\colon \Omega\to\mathbb R$.
+\end{definition}
+
+Wir erarten nat"urlich, dass die Mengen
+\begin{align*}
+A&=\{\omega\in\Omega\,|\,X(\omega)=a\}\\
+B&=\{\omega\in\Omega\,|\,b\le X(\omega)\le c\}
+\end{align*}
+Ereignisse sind.
+Da wir uns "uber die mengentheoretischen Vorasussetzugen an Ereignisse
+kaum Gedanken gemacht haben, ist dies f"ur uns keine Einschr"ankung,
+aber die technisch korrekte Definition w"are:
 
 \begin{definition}
 Eine Zufallsvariable $X$ ist eine Funktion $X\colon \Omega\to \mathbb R$,
@@ -511,7 +561,7 @@ unabh"angig, wenn die Ereignisse $\{\omega|X(\omega)\le x\}$
 und $\{\omega|Y(\omega)\le y\}$ f"ur alle $x,y\in\mathbb R$
 unabh"angig sind, also
 \[
-P((X\le x)\wedge(Y\le y))=P(X\le x)P(Y\le y)\forall x,y\in\mathbb{R}.
+P((X\le x)\wedge(Y\le y))=P(X\le x)\,P(Y\le y)\quad\forall x,y\in\mathbb{R}.
 \]
 \end{definition}
 \index{Produktregel!f\"ur den Erwartungswert}

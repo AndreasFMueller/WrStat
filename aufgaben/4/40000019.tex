@@ -1,0 +1,34 @@
+Im Spiel {\it Dungeons and Dragons} werden viele verschiedene W"urfel
+verwendet, die Zahlen zwischen $1$ und $n$ anzeigen k"onnen. Sei $X_n$ 
+die Augenzahl eines solchen W"urfels mit maximaler Augenzahl $n$. 
+Berechnen Sie $E(X_n)$ und $\operatorname{var}(X_n)$.
+
+\begin{hinweis}
+Verwenden Sie
+\begin{align*}
+\sum_{k=1}^nk&=\frac{n(n+1)}2,&
+\sum_{k=1}^nk^2&=\frac{n(n+1)(2n+1)}6.
+\end{align*}
+\end{hinweis}
+
+\begin{loesung}
+F"ur den Erwartungswert gilt
+\begin{align*}
+E(X_n)&=\sum_{i=1}^n i\cdot \frac1n=\frac1n\sum_{i=1}^ni
+=\frac1n\cdot\frac{n(n+1)}2=\frac{n+1}2.
+\end{align*}
+F"ur die Varianz muss zus"atzlich $E(X_n^2)$ ermittelt werden.
+Unter Verwendung des Hinweises findet man
+\begin{align*}
+E(X_n^2)&=\sum_{i=1}^n i^2\cdot \frac1n=\frac1n\sum_{i=1}^ni^2
+=\frac1n\cdot\frac{n(n+1)(2n+1)}6
+=\frac{(n+1)(2n+1)}6,\\
+\operatorname{var}(X_n)&=E(X_n^2)-E(X_n)^2
+=\frac{(n+1)(2n+1)}6-\frac{(n+1)^2}4\\
+&=\frac{(n+1)(4n + 2 - 3n - 3)}{12}
+=\frac{(n+1)(n - 1)}{12}
+=\frac{n^2-1}{12}.
+\end{align*}
+Dieses Resultate stimmt f"ur $n=6$ mit dem bekannten Resultate f"ur einen
+``gew"ohnlichen'' W"urfel "uberein.
+\end{loesung}

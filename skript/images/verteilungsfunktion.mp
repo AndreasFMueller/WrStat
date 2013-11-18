@@ -215,4 +215,266 @@ draw (120,0)--(120,220);
 
 endfig;
 
+%
+% Verteilungsfunktion and Wahrscheinlichkeitsverteilung der Gleichverteilung
+%
+beginfig(8)
+
+pickup pencircle scaled 1pt;
+
+draw(-55,150)..(255,150);
+draw(0,145)..(0,255);
+
+pickup pencircle scaled 1.5pt;
+draw (-50,150)--
+(0,150.00)
+..(25,172.11)
+..(50,189.34)
+..(75,202.76)
+..(100,213.21)
+..(125,221.34)
+..(150,227.68)
+..(175,232.62)
+..(200,236.46)
+..(225,239.46)
+..(250,241.79)
+withcolor(0.0,0.0,1.0);
+
+pickup pencircle scaled 1pt;
+
+draw(-55,0)..(255,0);
+draw(0,-5)..(0,105);
+
+pickup pencircle scaled 1.5pt;
+draw (-50,0)--(0,0) withcolor(0.0,0.0,1.0);
+draw (0,100.00)
+..(25,77.88)
+..(50,60.65)
+..(75,47.23)
+..(100,36.78)
+..(125,28.65)
+..(150,22.31)
+..(175,17.37)
+..(200,13.53)
+..(225,10.53)
+..(250,8.20)
+withcolor(0.0,0.0,1.0);
+
+draw (0,-5)--(0,255) withcolor(1.0,0.8,0.0);
+draw (100,-5)--(100,255) withcolor(1.0,0.8,0.0);
+draw (200,-5)--(200,255) withcolor(1.0,0.8,0.0);
+
+label.lrt(btex $0$ etex, (0,0));
+label.lrt(btex $E(X)$ etex, (100,0));
+label.bot(btex $x$ etex, (250,0));
+label.lft(btex $1$ etex, (-3,250));
+pickup pencircle scaled 1pt;
+draw (-3,250)--(3,250);
+
+picture q;
+q = thelabel.ulft(btex \scriptsize Wahrscheinlichkeit etex, (0,0));
+draw q rotated 90 shifted (0,250);
+
+picture r;
+r = thelabel.ulft(btex \scriptsize Dichte etex, (0,0));
+draw r rotated 90 shifted (0,100);
+
+endfig;
+
+%
+% Verteilungsfunktion und Wahrscheinlichkeitsdichte der Normalverteilung
+%
+beginfig(9)
+
+pickup pencircle scaled 1pt;
+
+draw (-310,0)--(310,0);
+draw (0,-10)--(0,110);
+
+draw (-300,-2)--(-300,2);
+draw (-200,-2)--(-200,2);
+draw (-100,-2)--(-100,2);
+draw ( 100,-2)--( 100,2);
+draw ( 200,-2)--( 200,2);
+draw ( 300,-2)--( 300,2);
+
+pickup pencircle scaled 1.5pt;
+
+draw
+((-300,0.13)
+..(-275,0.29)
+..(-250,0.62)
+..(-225,1.22)
+..(-200,2.27)
+..(-175,4.00)
+..(-150,6.68)
+..(-125,10.56)
+..(-100,15.86)
+..(-75,22.66)
+..(-50,30.85)
+..(-25,40.12)
+..(0,50.00)
+..(25,59.87)
+..(50,69.14)
+..(75,77.33)
+..(100,84.13)
+..(125,89.43)
+..(150,93.31)
+..(175,95.99)
+..(200,97.72)
+..(225,98.77)
+..(250,99.37)
+..(275,99.70)
+..(300,99.86))
+shifted (0,150)
+withcolor(0.0,0.0,1.0);
+
+pickup pencircle scaled 1pt;
+
+draw (-310,150)--(310,150);
+draw (0,140)--(0,260);
+draw (-300,148)--(-300,152);
+draw (-200,148)--(-200,152);
+draw (-100,148)--(-100,152);
+draw ( 100,148)--( 100,152);
+draw ( 200,148)--( 200,152);
+draw ( 300,148)--( 300,152);
+
+pickup pencircle scaled 1.5pt;
+
+draw (-300,1.11090)
+..(-275,2.27942)
+..(-250,4.39369)
+..(-225,7.95595)
+..(-200,13.53353)
+..(-175,21.62652)
+..(-150,32.46525)
+..(-125,45.78334)
+..(-100,60.65307)
+..(-75,75.48396)
+..(-50,88.24969)
+..(-25,96.92332)
+..(0,100)
+..(25,96.92332)
+..(50,88.24969)
+..(75,75.48396)
+..(100,60.65307)
+..(125,45.78334)
+..(150,32.46525)
+..(175,21.62652)
+..(200,13.53353)
+..(225,7.95595)
+..(250,4.39369)
+..(275,2.27942)
+..(300,1.11090)
+withcolor(0.0,0.0,1.0);
+
+draw (0,-5)--(0,255) withcolor(1.0,0.8,0.0);
+draw (-100,-5)--(-100,255) withcolor(1.0,0.8,0.0);
+draw (100,-5)--(100,255) withcolor(1.0,0.8,0.0);
+
+label.lrt(btex $E(X)$ etex, (0,0));
+label.llft(btex $0$ etex, (0,0));
+
+label.lrt(btex $\mathstrut\sigma$ etex, (100,0));
+label.llft(btex $\mathstrut-\sigma$ etex, (-100,0));
+
+picture q;
+q = thelabel.ulft(btex Wahrscheinlichkeit etex, (0,0));
+draw q rotated 90 shifted (0,250);
+
+picture r;
+r = thelabel.ulft(btex Dichte etex, (0,0));
+draw r rotated 90 shifted (0,100);
+
+endfig;
+
+%
+% Faltung von Gleichverteilungen
+%
+beginfig(10)
+
+
+pickup pencircle scaled 1pt;
+draw(-310,500)--(310,500);
+draw(0,495)--(0,605);
+
+pickup pencircle scaled 1.5pt;
+draw (-300,500)--(-173.21,500) withcolor(0.0,0.0,1.0);
+draw (-173.21,590.0)--(173.21,590.0) withcolor(0.0,0.0,1.0);
+draw (173.21,500)--(300,500) withcolor(0.0,0.0,1.0);
+pickup pencircle scaled 0.1pt;
+draw (-173.21,500)--(-173.21,590.0) withcolor(0.0,0.0,1.0);
+draw (173.21,590.0)--(173.21,500) withcolor(0.0,0.0,1.0);
+
+pickup pencircle scaled 1pt;
+draw(-310,400)--(310,400);
+draw(0,395)--(0,490);
+
+pickup pencircle scaled 1.5pt;
+draw ((-300,0)--(-244.95,0)--(0,90)--(244.95,0)--(300,0)) shifted (0,400) withcolor(0.0,0.0,1.0);
+
+pickup pencircle scaled 1pt;
+draw(-310,300)--(310,300);
+draw(0,295)--(0,390);
+
+pickup pencircle scaled 1.5pt;
+draw (-300,300){dir 0}..(-200,311.25)..(-100,360)
+..(0,390)
+..(100,360)..(200,311.25)..{dir 0}(300,300) withcolor(0.0,0.0,1.0);
+
+pickup pencircle scaled 1pt;
+draw(-310,200)--(310,200);
+draw(0,195)--(0,290);
+
+pickup pencircle scaled 1.5pt;
+draw ((-300,1.5){dir 1.068}
+..(-173.21,15)
+..(0,90)
+..(173.21,15)
+..{dir -1.068}(300,1.5))
+shifted (0,200)
+withcolor(0.0,0.0,1.0);
+
+pickup pencircle scaled 1pt;
+draw(-310,50)--(310,50);
+draw(0,40)--(0,150);
+
+draw (-100,45)--(-100,605) withcolor(1.0,0.8,0.0);
+draw (0,45)--(0,605) withcolor(1.0,0.8,0.0);
+draw (100,45)--(100,605) withcolor(1.0,0.8,0.0);
+
+pickup pencircle scaled 1.5pt;
+
+draw ((-300,1.11090*0.9)
+..(-275,2.27942*0.9)
+..(-250,4.39369*0.9)
+..(-225,7.95595*0.9)
+..(-200,13.53353*0.9)
+..(-175,21.62652*0.9)
+..(-150,32.46525*0.9)
+..(-125,45.78334*0.9)
+..(-100,60.65307*0.9)
+..(-75,75.48396*0.9)
+..(-50,88.24969*0.9)
+..(-25,96.92332*0.9)
+..(0,100*0.9)
+..(25,96.92332*0.9)
+..(50,88.24969*0.9)
+..(75,75.48396*0.9)
+..(100,60.65307*0.9)
+..(125,45.78334*0.9)
+..(150,32.46525*0.9)
+..(175,21.62652*0.9)
+..(200,13.53353*0.9)
+..(225,7.95595*0.9)
+..(250,4.39369*0.9)
+..(275,2.27942*0.9)
+..(300,1.11090*0.9))
+shifted(0,50)
+withcolor(0.0,0.0,1.0);
+
+
+endfig;
+
 end
