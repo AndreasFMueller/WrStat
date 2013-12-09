@@ -36,7 +36,7 @@ P(X\le 7)&=\sum_{k=0}^7\binom{25}{k}
 \end{align*}
 (gerechnet mit R).
 Da die Binomialverteilung etwas unhandlich zu berechnen ist, kann man sie
-dank des relativ grossen $n=25$ gut durch die Binomialverteilung
+dank des relativ grossen $n=25$ gut durch die Normalverteilung
 mit $\mu=np=5$ und $\sigma^2=np(1-p)=25\cdot\frac{4}{25}=4$
 approximieren.
 \[
@@ -78,22 +78,22 @@ der Klassengrenzen bei halbzahligen $x$-Werten, findet man, dass
 $k\ge 10.15270$ sein muss, man also erst bei mindestens 11 richtig
 empfangenen Symbolen von den ESP-F"ahigkeiten der Testperson
 "uberzeugt sein kann.
-\item
-Die Wahrscheinlichkeit, 10 (11) oder mehr Symbole richtig zu empfangen,
-selbst wenn man nicht "uber ESP-F"ahigkeiten verf"ugt, kann wie in
-a) berechnet werden. Man findet die folgenden Resultate:
-\begin{center}
-\begin{tabular}{|r|r|r|r|}
-\hline
-$k$&$1-P(X\le k)$&$1-P(Z\le k)$&$1-P(Z\le k+\frac12)$\\
-\hline
- 9&0.01733&0.02275&0.01222\\
-10&0.00555&0.00621&0.00298\\
-11&0.00154&0.00135&0.00058\\
-\hline
-\end{tabular}
-\end{center}
-Darin ist $X$ die binomialverteilte Zufallsvariable mit $n=25$ und $p=\frac12$,
-und $Z$ ist die normalverteilte Approximation mit $\mu=5$ und $\sigma=2$.
+%\item
+%Die Wahrscheinlichkeit, 10 (11) oder mehr Symbole richtig zu empfangen,
+%selbst wenn man nicht "uber ESP-F"ahigkeiten verf"ugt, kann wie in
+%a) berechnet werden. Man findet die folgenden Resultate:
+%\begin{center}
+%\begin{tabular}{|r|r|r|r|}
+%\hline
+%$k$&$1-P(X\le k)$&$1-P(Z\le k)$&$1-P(Z\le k+\frac12)$\\
+%\hline
+% 9&0.01733&0.02275&0.01222\\
+%10&0.00555&0.00621&0.00298\\
+%11&0.00154&0.00135&0.00058\\
+%\hline
+%\end{tabular}
+%\end{center}
+%Darin ist $X$ die binomialverteilte Zufallsvariable mit $n=25$ und $p=\frac12$,
+%und $Z$ ist die normalverteilte Approximation mit $\mu=5$ und $\sigma=2$.
 \end{teilaufgaben}
 \end{loesung}
