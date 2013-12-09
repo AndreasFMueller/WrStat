@@ -1,0 +1,28 @@
+Ein Bibliotheksfunktion liefert zwischen $0$ und $1$ gleichverteilte
+Zufallszahlen. Wie gross ist die Wahrscheinlichkeit, dass die Summe
+zweier solcher Zufallszahlen den Wert $0.5$ nicht "uberschreitet?
+
+\begin{loesung}
+Wir haben zwei gleichverteilte Zufallsvariablen $X_1$ und $X_2$. 
+In der Vorlesung wurde besprochen, wie man die Dichtefunktion
+von $X=X_1+X_2$ durch Faltung ermitteln kann.
+Im Falle der Gleichverteilung haben wir dies durchgef"uhrt,
+wir wissen, dass die Dichtefunktion von $X$
+eine ``Dreiecksfunktion'' mit Basis $[0,1]$ und H"ohe $1$ ist.
+Die Verteilungsfunktion kann man daher durch Integrieren bestimmen:
+\[
+F_X(x)=\begin{cases}
+0&\qquad x\le 0\\
+\frac12x^2&\qquad 0\le x\le 1\\
+1-\frac{(x-2)^2}2&\qquad1\le x\le 2\\
+1&\qquad x\ge 2
+\end{cases}
+\]
+Man kann sich allerdings die Arbeit f"ur den Teil $1\le x\le 2$ sparen,
+wir brauchen nur den Teil $0\le x\le 1$.
+Daraus kann man die gesuchte Wahrscheinlichkeit ablesen:
+\[
+P(X\le 0.5)=F_X(0.5)=\frac120.5^2=0.125.
+\]
+\end{loesung}
+
