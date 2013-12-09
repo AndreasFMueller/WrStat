@@ -1,0 +1,31 @@
+> religionen = c("Christen", "Muslime", "Juden", "Andere", "Keine")
+> einwohner = c(250535, 20888, 4903, 6859, 80088)
+> schueler = c(13, 4, 1, 0, 4)
+> n = sum(schueler)
+> 
+> wahrscheinlichkeit = einwohner / sum(einwohner)
+> wahrscheinlichkeit
+[1] 0.68966039 0.05749946 0.01349674 0.01888112 0.22046230
+> 
+> t <- data.frame(religionen = religionen, einwohner = einwohner, p = wahrscheinlichkeit, schueler = schueler)
+> t$npi = n * t$p
+> t$delta = t$schueler - t$npi
+> t$q = (t$delta * t$delta) / t$npi
+> t
+  religionen einwohner          p schueler        npi      delta         q
+1   Christen    250535 0.68966039       13 15.1725286 -2.1725286 0.3110807
+2    Muslime     20888 0.05749946        4  1.2649880  2.7350120 5.9133290
+3      Juden      4903 0.01349674        1  0.2969282  0.7030718 1.6647457
+4     Andere      6859 0.01888112        0  0.4153846 -0.4153846 0.4153846
+5      Keine     80088 0.22046230        4  4.8501705 -0.8501705 0.1490236
+> sum(t$q)
+[1] 8.453564
+> 
+> chisq.test(schueler, p = wahrscheinlichkeit) 
+
+	Chi-squared test for given probabilities
+
+data:  schueler 
+X-squared = 8.4536, df = 4, p-value = 0.0763
+
+> 
