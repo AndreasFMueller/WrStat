@@ -1,0 +1,29 @@
+Aus f"unf Messungen einer normalverteilten Gr"osse wurde der Erwartungswert
+$\mu$ und die Varianz $\sigma^2$ ermittelt.
+Wegen der kleinen Zahl von Messungen sind beide mit einer gewisssen
+Unsicherheit behaftet, $\mu$ und  $\sigma^2$ sind Zufallsvariablen.
+Die Gr"osse
+\begin{equation}
+Z=\frac{X-\mu(X_1,\dots,X_n)}{\sigma(X_1,\dots,X_n)},
+\label{80000018:1}
+\end{equation}
+die in der Standardisierung immer verwendet worden ist, ist daher
+nicht mehr standardnormalverteilt, sondern $t$-verteilt, mit $n-1$ 
+Freiheitsgraden. Finden Sie ein Interval, in das die Werte von $X$
+mit Wahrscheinlichkeit $0.95$ hineinfallen.
+
+\begin{loesung}
+Zun"achst m"ussen wir ein Interval finden, in das die Werte von
+$Z$ mit Wahrscheinlichkeit $0.95$ hineinfallen. Wir suchen dazu in
+der Tabelle der Verteilungsfunktion der $t$-Verteilung Zahlen $t_+$
+und $t_-$ so, dass $X$ mit Wahrscheinlichkeit $2.5\%$ gr"osser als $t_+$
+ist und mit Wahrscheinlichkeit $2.5\%$ kleiner als $t_-$. Die Tabelle
+der $t$-Verteilung liefert f"ur $p=0.975$ und $k=5-1=4$ den Wert
+$t_+=2.7764$. Entsprechend ist $t_-=-2.7764$. Aufl"osen von
+(\ref{80000018:1}) nach $X$ liefert
+\begin{align*}
+t_\pm &=\frac{x_{\pm}-\mu}{\sigma}\\
+x_\pm&=\mu +t_\pm\sigma = \mu \pm 2.7764\sigma.
+\end{align*}
+Das gesuchte Interval ist also $[\mu-2.7764\sigma,\mu+2.7764\sigma]$.
+\end{loesung}

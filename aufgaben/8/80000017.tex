@@ -1,0 +1,54 @@
+Bei der Produktion von Wein ist der Zuckergehalt des unvergorenen
+Traubensaftes ein entscheidender Indikator f"ur die Qualit"at des
+hergestellten Weines. Der Zuckergehalt h"angt von der Traubensorte,
+der Bodenqualit"at, der Besonnung und nat"urlich vom Wetter ab.
+Um die Qualit"at zweier Weinberge zu vergleichen, werden jeweils
+f"unf Proben
+des frisch gepressten Traubensaftes auf ihren Zuckergehalt hin
+untersucht. Dabei ergaben sich folgende Messwerte
+
+\begin{center}
+\begin{tabular}{|c|cc|}
+\hline
+Messung&Weinberg A&Weinberg B\\
+\hline
+1&134.0&195.0\\
+2&181.0&168.0\\
+3&167.0&206.0\\
+4&192.0&184.0\\
+5&169.0&178.0\\
+\hline
+$\mu$ &168.6&186.2\\
+\hline
+\end{tabular}
+\end{center}
+Besteht ein signifkanter Unterschied zwischen den zwei Weinbergen?
+
+\begin{loesung}
+Die Frage kann mit einem $t$-Test beantwortet werden.
+Die Nullhypothese ist, dass sich die beiden Erwartungswerte
+nicht unterscheiden. F"ur den $t$-Test muss die Statistik $T$
+berechnet werden, die aus den Varianzen der Messwerte 
+bestimmt werden k"onnen. Mit dem Sch"atzer f"ur die Varianz
+bekommt man
+\begin{align*}
+\sigma_A^2&=475.3&
+\sigma_B^2&=218.2.
+\end{align*}
+Die Statistik ist
+\begin{align*}
+T&=\frac{\mu_A-\mu_B}{\sqrt{4\sigma_A^2+4\sigma_B^2}}\sqrt{\frac{5\cdot5\cdot 8}{10}}
+=\frac{168.6-186.2}{2\sqrt{475.3+218.2}}2\sqrt{5}
+=\frac{-17.6\sqrt{5}}{\sqrt{693.5}}
+\\
+&=-1.4944
+\end{align*}
+Der kritische $t$-Wert f"ur $\alpha=5\%$ f"ur $8$ Freiheitsgrade liegt
+bei $t_{\text{krit}}=1.8595$. Da der beobachtete $t$-Wert den kritischen
+nicht "uberschreitet, gibt es keinen Grund, an der Nullhypothese
+zu zweifeln.
+
+Obwohl der Unterschied zwischen den beiden Mittelwerten mehr als 10\%
+des kleineren Mittelwertes ausmacht, reicht dies nicht. Die Streuung
+der Werte ist zu gross.
+\end{loesung}

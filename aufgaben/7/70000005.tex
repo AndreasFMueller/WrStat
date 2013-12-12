@@ -1,0 +1,28 @@
+Von einer normalveteilten Zufallsvariable $X$ sind Erwartungswert $\mu$
+und Varianz $\sigma^2$ bekannt. Finden Sie ein Intervall, welches
+$95\%$ der Beobachtungen von $X$ enth"alt.
+
+Ein solches Interval heisst ein $\alpha$-Vertrauensinterval.
+
+\begin{loesung}
+Gesucht sind Werte $x_\pm$ so, dass 
+\[
+P(x_-\le X\le x_+)=0.95
+\]
+Durch Standardisierung wird daraus
+\[
+P\biggl(\frac{x_--\mu}{\sigma}\le \frac{X-\mu}{\sigma} \le \frac{x_+-\mu}{\sigma}\biggr)
+=0.95
+\]
+Da $Z=(X-\mu)/\sigma$ standardnormalverteilt ist, kann man aus der
+Tabelle der Normalverteilung die Werte
+\[
+z_\pm=\frac{x_\pm -\mu}{\sigma}=\pm1.9600
+\]
+herauslesen. Aufgel"ost nach $x_\pm$ findet man
+\[
+x_\pm = \mu\pm1.9600\sigma.
+\]
+Das gesuchte Interval ist also $[\mu-1.96\sigma,\mu+1.96\sigma]$.
+\end{loesung}
+
