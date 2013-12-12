@@ -191,7 +191,7 @@ P(|X-\mu|>\varepsilon)
 \hline
 Name&Exponentialverteilung\\
 \hline
-Dichtefunktion&$\displaystyle ae^{-ax}$\\
+Dichtefunktion&$\displaystyle \frac1ae^{-ax}$\\
 Verteilungsfunktion&$1-e^{-ax}$\\
 Erwartungswert&$\displaystyle \frac1a$\\
 Varianz&$\displaystyle \frac1{a^2}$\\
@@ -224,7 +224,8 @@ $\bullet$ Radioaktivit"at
 %\includegraphics[width=0.8\hsize]{graphics/expF}
 \includegraphics[width=0.8\hsize]{images/verteilungsfunktion-8}
 \end{center}
-\caption{Dichtefunktion (oben) und Verteilungsfunktion (unten) der Exponentialverteilung
+\caption{Verteilungsfunktion (oben) und Dichtefunktion (unten) der
+Exponentialverteilung
 \label{bildexponentialverteilung}}
 \end{figure}
 Bei radioaktiven Stoffen und bei gewissen Bauteilen stellt man fest,
@@ -511,7 +512,7 @@ $\bullet$ Approximation der Binomialverteilung
 %\includegraphics[width=0.8\hsize]{graphics/normF}
 \includegraphics[width=\hsize]{images/verteilungsfunktion-9}
 \end{center}
-\caption{Dichtefunktion (oben) und Verteilungsfunktion (unten) der Normalverteilung\label{bildnormalverteilung}}
+\caption{Verteilungsfunktion (oben) und Dichtefunktion (unten) der Normalverteilung\label{bildnormalverteilung}}
 \end{figure}
 Die Normalverteilung, auch Gaussverteilung genannt, ist von grosser praktischer
 Bedeutung. In sehr vielen Anwendungssituationen darf man davon ausgehen,
@@ -1336,7 +1337,7 @@ Dichtefunktion&
 \vskip5pt
 $\displaystyle
 \begin{cases}
-\frac{\alpha-1}{x_{\text{min}}}^{1-\alpha}x^{-\alpha}&\qquad x>x_{\text{min}}\\
+\frac{\alpha-1}{x_{\min}}^{1-\alpha}x^{-\alpha}&\qquad x>x_{\text{min}}\\
 0&\qquad\text{sonst}
 \end{cases}
 $
@@ -1353,11 +1354,11 @@ $\displaystyle
 \end{minipage}
 \\
 Erwartungswert&$\displaystyle\frac{\alpha-1}{\alpha-2}x_{\text{min}}$,
-undefiniert f"ur $\alpha\ge 2$\\
+undefiniert f"ur $\alpha\le 2$\\
 Varianz&$\displaystyle
 \biggl(
 \frac{\alpha-1}{\alpha -3}-\biggl(\frac{\alpha-1}{\alpha-2}\biggr)^2
-\biggr)x_{\text{min}}^2$, undefiniert f"ur $\alpha \ge 3$\\
+\biggr)x_{\text{min}}^2$, undefiniert f"ur $\alpha \le 3$\\
 $P(|X-E(X)|>\varepsilon)$&$\displaystyle $ \\
 Median&$2^{\frac1{\alpha-1}}x_{\text{min}}$\\
 \hline
