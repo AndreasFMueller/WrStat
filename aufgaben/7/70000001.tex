@@ -21,10 +21,14 @@ a^ne^{-a(x_1+x_2+\dots+x_n)}&\qquad \text{alle $x_i \ge 0$}\\
 \]
 Jetzt muss $a$ so gew"ahlt werden, dass $L(x_1,\dots,x_n,a)$
 maximal wird.
-Da die Funktion $e^x$ monoton ist, wird die Likelihood-Funktion
-genau dann maximal, wenn der Exponent
-$-a(x_1+x_2+\dots+x_n)$ m"oglichst gross ist.
-Wir leiten daher nach $a$ ab:
+
+Die Funktion $e^{-a(x_1+\dots+x_n)}$ nimmt f"ur gr"ossers $a$ monoton ab,
+wird die Likelihood-Funktion f"ur mit zunehmendem $a$ immer kleiner. F"ur
+sehr kleine Werte von $a$ sorgt der Faktor $a^n$ umgekehrt daf"ur dass
+die Likelihood-Funktion klein wird. Das Maximum muss also irgendwo
+zwischen diesen beiden Extremen liegen.
+
+Um das Maximum zu finden, leiten wir nach $a$ ab:
 \begin{align*}
 \frac{d}{da}L(x_1,\dots,x_n,a)&=na^{n-1}e^{-a(x_1+\dots+x_n)}-a^n(x_1+\dots+x_n)e^{-a(x_1+\dots+x_n)}\\
 &=a^n
