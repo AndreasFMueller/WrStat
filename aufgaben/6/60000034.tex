@@ -1,0 +1,67 @@
+Marrons glac\'es sind kandierte Kastanien, sie sind in S"udfrankreich
+erfunden worden, kurz nachdem die Kreuzfahrer den Zucker nach Westeuropa
+gebracht haben. Ein Hersteller von Marrons glac\'es hat bis anhin
+jeweils 10 St"uck in eine recheckige Schachtel in einer $2\times 5$
+Anordnung verkauft. Ein neues Marketing soll dem Produkt zu mehr
+Umsatz verhelfen. Eine Werbeagentur hat daher eine neue quadratische Schachtel 
+f"ur $3\times 3$ Kastanien kreiert, die einen gr"osseren Eindruck
+macht als die alten rechteckigen Schachteln. Auf den alten Schachteln
+war das Gewicht 220g aufgedruckt, tats"achlich war das mittlere
+Gewicht des Inhalts aber 230g, das aufgedruckte Gewicht wurde
+nur in 5\% der F"alle unterschritten. Die neuen Schachteln werden mit
+200g angeschrieben. Wie wahrscheinlich ist, dass dieses Gewicht unterschritten
+wird?
+
+\begin{loesung}
+Die Zufallsvariable $X$ ist die Masse eines Marron glac\'e. $X$ ist
+normalverteilt mit $\mu = 23\text{g}$. Die Varianz $\sigma^2$ ist vorerst
+noch nicht bekannt.
+
+Sei $Y$ die Masse von 10 Marrons glac\'es, sie haben ein mittleres Gewicht von
+$E(Y)=10\mu$, die Varianz ist $\operatorname{var}(Y)=10\sigma^2$.
+Die Wahrscheinlichkeit daf"ur, dass $Y$ kleiner als $220$g ist, ist
+\[
+P(Y<220)=P\biggl(\frac{Y-10\mu}{\sqrt{10}\sigma}<\frac{220-230}{\sqrt{10}\sigma}\biggr)=0.05.
+\]
+Da $(Y-10\mu)/\sqrt{10}\sigma$ eine standardnormalverteilte Zufallsvariable
+ist, kann man den Wert der rechten Seite der Ungleichung aus der
+Normalverteilungstabelle ablesen:
+\begin{align*}
+-1.644854&= \frac{220-230}{\sqrt{10}\sigma}\\
+-1.644854&= -\frac{10}{\sqrt{10}\sigma}\\
+\sigma &= \frac{\sqrt{10}}{1.644854}=1.922528\\
+\end{align*}
+Da jetzt auch $\sigma$ bekannt ist, kann man auch die Wahrscheinlichkeit
+berechnen, dass die Masse $Z$ von 9 Marrons glac\'es 200g unterschreitet:
+\begin{align*}
+P(Z<200)
+&=
+P\biggl(\frac{Z-9\mu}{\sqrt{9}\sigma}<\frac{200-9\mu}{\sqrt{9}\sigma} \biggr)
+\\
+&=
+P\biggl(\frac{Z-207}{3\sigma}<\frac{-7}{3\sigma} \biggr)
+\end{align*}
+Die Zufallsvariable $(Z-207)/3\sigma$ ist standardnormalverteilt, somit
+kann die Wahrscheinlichkeit aus der Normalverteilungstabelle abgelesen
+werden f"ur
+\[
+x=-\frac{7}{3\sigma}=-\frac{7\cdot1.644854}{3\sqrt{10}}=-1.213680
+\]
+Die Tabelle oder R lieferen
+\[
+P(Z<200)=1-F(1.213680)=1-0.887565=0.112435.
+\]
+\end{loesung}
+
+
+\begin{bewertung}
+Anwendung der Normalverteilung ({\bf N}) 1 Punkt,
+Bestimmung von $\mu$ ({\bf M}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Bestimmung der Standardabweichung des Gewichts einer Anzahl Kastanien ({\bf K}) 1 Punkt,
+Verteilung f"ur 9 Kastanien ({\bf 9}) 1 Punkt,
+Wahrscheinlichkeit ({\bf W}) 1 Punkt.
+\end{bewertung}
+
+
+
