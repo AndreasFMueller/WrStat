@@ -1,0 +1,63 @@
+$6\%$ aller Kinder zwischen 6 und 12 Jahre haben schlechte Z"ahne.
+Von den Kindern mit schlechten Z"ahnen essen zwei Drittel mindestens eine
+Tafel Schokolade pro Woche oder trinken w"ochentlich mindestens
+dreimal ein S"ussgetr"ank. Von den Kindern mit guten Z"ahnen tun dies
+nur 17\%.
+\begin{teilaufgaben}
+\item Wie gross ist die Wahrscheinlichkeit, dass ein Kind, das "uberm"assig
+Schokolade isst, schlechte Z"ahne hat?
+\item Wie gross ist dei Wahrscheinlichkeit, dass ein Kind, das nicht
+"ubrerm"assig Schokolade isst, gute Z"ahne hat?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir verwenden die Ereignisse
+\begin{align*}
+Z&=\{\text{Kind hat gute Z"ahne}\}
+\\
+S&=\{\text{Kind konsumiert viel Schokolade}\}
+\end{align*}
+Wir wissen aus der Aufgabenstellung folgende Wahrscheinlichkeiten:
+\begin{align*}
+P(\bar Z)&=0.06\\
+P(S|\bar Z)&=\frac23\\
+P(S|Z)&=0.17.
+\end{align*}
+\begin{teilaufgaben}
+\item Gesucht ist $P(\bar Z|S)$. Der Satz von Bayes liefert
+\[
+P(\bar Z|S)= P(S|\bar Z) \frac{P(\bar Z)}{P(S)}.
+\]
+Darin kennen wir $P(S)$ nicht, k"onnen es aber aus dem Satz von der
+totalen Wahrscheinlichkeit bekommen:
+\[
+P(S)=P(S|Z)P(Z)+P(S|\bar Z)P(\bar Z)
+=0.17\cdot (1-0.06)+\frac23\cdot 0.06=0.1998.
+\]
+Damit finden wir das Resultat
+\[
+P(\bar Z|S)=\frac23\cdot \frac{0.06}{0.1998}=0.2002
+\]
+Ein F"unftel der Kinder, die "uberm"assig Schokolade essen, haben
+schlechte Z"ahne.
+\item Gesucht ist $P(Z|\bar S)$. Aus dem Satz von Bayes folgt wieder
+\[
+P(Z|\bar S)=P(\bar S|Z)\frac{P(Z)}{P(\bar S)}=(1-P(S|Z))\frac{P(Z)}{P(\bar S)}
+=(1-0.17)\frac{1-0.06}{1-0.2002}=0.975.
+\]
+97.5\% der Kinder, die nicht "uberm"assig Schokolade essen, haben gute 
+Z"ahne.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Ereignisse ({\bf E}) 1 Punkt,
+"Ubersetzung der bedingten Wahrscheinlichkeiten ({\bf W}) 1 Punkt,
+Satz von Bayes ({\bf B}) 1 Punkt,
+Satz von der Totalen Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Resultat a) ({\bf A}) 1 Punkt,
+Resultat b) ({\bf B}) 1 Punkt.
+\end{bewertung}
+
+
+
