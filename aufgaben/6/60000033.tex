@@ -1,0 +1,72 @@
+2.9 Mio von 317 Mio Amerikanern glauben, an sich Symptome einer 
+Entf"uhrung durch Ausserirdische festgestellt zu haben.
+Wie gross ist die Wahrscheinlichkeit, in einem Dorf mit 1000
+Einwohnern weniger als 6 Leute zu finden, die glauben, von
+Ausserirdischen entf"uhrt worden zu sein.
+
+\begin{loesung}
+Entf"uhrung durch Ausserirdische ist ein seltenes Ph"anomen,
+die Wahrscheinlichkeit daf"ur ist $p=2.9/317=0.00914826498$, also
+weniger als 1\%.
+
+Die Wahrscheinlichkeit f"ur die Anzahl Ereignisse kann mit der
+Poissonverteilung approximiert werden. Entf"uhrungen durch
+Ausserirdische treten mit einer Rate von $\lambda = 9.14$ pro 1000 Einwohner
+auf. Die Wahrscheinlichkeit, dass genau $k$ Entf"uhrungen in 1000
+Einwohnern auftreten, ist daher
+\[
+P_\lambda(k)=e^{-\lambda}\frac{\lambda^k}{k!}.
+\]
+F"ur die gesuchte Wahrscheinlichkeit von h"ochstens 5 Einwohnern, die glauben,
+von Ausserirdischen entf"uhrt worden zu sein, gilt
+\begin{align*}
+P(\text{h"ochstens 5 Entf"uhrungen})
+&=
+\sum_{k=0}^5P_\lambda(k)=\sum_{k=0}^5 e^{-\lambda}\frac{\lambda^k}{k!}
+=e^{-\lambda}\sum_{k=0}^5\frac{\lambda^k}{k!}
+\\
+&=e^{-\lambda}\biggl(
+1+\lambda+\frac{\lambda^2}{2}+\frac{\lambda^3}{6}+\frac{\lambda^4}{24}+\frac{\lambda^5}{120}
+\biggr)
+=0.106979.
+\end{align*}
+
+Alternativ kann man die Wahrscheinlichkeit f"ur h"ochstens 5 Einwohner, die
+glauben, von Ausserirdischen entf"uhrt worden zu sein auch mit der
+Binomialverteilung ausrechnen, allerdings wegen der grossen
+Binomialkoeffizienten nur mit dem Computer
+\begin{align*}
+P(\text{h"ochstens 5 Entf"uhrungen})
+&=
+\sum_{k=0}^5\binom{1000}{k}p^k(1-p)^{1000-k}
+=0.1058988
+\end{align*}
+(mit R gerechnet).
+
+Die Normalverteilung als Approximation der Binomialverteilung funktioniert
+dagegen nicht. Die vorliegende Binomialverteilung hat Erwartungswert
+$\mu = np=9.14$ und Varianz $np(1-p)=9.14 * (1-0.00914)=9.0564604$.
+Die Standardabweichung ist also $\sigma = 3.00939$. Damit bek"ame man
+\begin{align*}
+P(\text{h"ochstens 5 Entf"uhrungen})
+&=
+P(X\le 5)=P\biggl(\frac{X-\mu}{\sigma}\le \frac{5-\mu}{\sigma}\biggr)\\
+&=F(-1.37569)=0.08445881,
+\\
+P(\text{h"ochstens 6 Entf"uhrungen})
+&=P(-1.0434)=0.1483815,
+\\
+P(\text{h"ochstens 5.5 Entf"uhrungen})
+&=P(-1.20954)=0.1132277.
+\end{align*}
+Alle drei Werte sind relativ weit weg vom korrekten Wert.
+\end{loesung}
+
+\begin{bewertung}
+Ansatz mit Poisson-Verteilung ({\bf P}) 1 Punkt,
+Wahrscheinlichkeit f"ur Einzelfall ({\bf W}) 1 Punkt,
+Rate $\lambda$ ({\bf L}) 1 Punkt,
+Summe ({\bf S}) 1 Punkt,
+Resultat ({\bf R}) 2 Punkt.
+\end{bewertung}
+
