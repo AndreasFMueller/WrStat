@@ -1,0 +1,94 @@
+Das Auslesen der Pixel eines CCD-Chips einer Digitalkamera funktioniert
+wie folgt: Der Inhalt aller Pixel werden gemeinsam eine Zeile nach unten
+geschoben,
+die untersten Pixel werden dadurch in eine spezielle Auslesezeile geschoben,
+die dann digitalisiert wird. Insbesondere wandern also alle Pixel vertikal
+durch die Spalte, bis sie in der Auslesezeile ankommen.
+W"ahrend dieses Prozesses, der ja auch Zeit braucht, akkumuliert sich
+ein zus"atzliches St"orsignal. Je l"anger der Pixelinhalt auf dem Chip
+bleibt, desto mehr zus"atzliches Signal akkumuliert sich:
+\begin{center}
+\includeagraphics[width=0.8\hsize]{Biasthermaly.png}
+\end{center}
+%(von \url{http://canburytech.net/QSI532/BiasFrames.html}).
+Misst man in einer Spalte eines dunklen Bildes die Pixelwerte $v$ an
+einzelnen Positionen $y$, und erh"alt folgende Werte:
+\begin{center}
+\begin{tabular}{|r|r|}
+\hline
+$y$&$v$\\
+\hline
+   0& 28\\
+ 500& 26\\
+1000& 25\\
+1500& 22\\
+\hline
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item Welchen Wert erwarten Sie in Zeile 800?
+\item Um wieviel nimmt der Pixelwert pro Zeile im Mittel zu?
+\item Wie gut ist die Approximation, die Sie in a) verwendet haben?
+\end{teilaufgaben}
+
+\begin{loesung}
+Man kann das zus"atzliche Signal als lineare Funktion $v=ay+b$ betrachten.
+Gesucht ist also Werte f"ur $a$ und $b$ so, dass die Gerade m"oglichst
+gut zu den vorgegebenen Werten passt. Diese Aufgabe wird von der linearen
+Regression gel"ost.
+
+Damit die Zahlen nicht so gross werden, verwenden wir als Massenheit entlang
+der $y$-Achse Hunderter.
+
+\begin{center}
+\begin{tabular}{|>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+i&y&v&y^2&v^2&yv\\
+\hline
+1& 0& 28&  0& 784&  0\\
+2& 5& 26& 25& 676&130\\
+3&10& 25&100& 625&250\\
+4&15& 22&225& 484&330\\
+\hline
+ &30&101&350&2569&710\\
+\hline
+\end{tabular}
+\end{center}
+Die Formeln f"ur die lineare Regression liefern jetzt f"ur die Koeffizienten
+$a$ und $b$
+\begin{align*}
+a&=\frac{n\sum yv -\sum y\sum v}{n\sum y^2-(\sum y)^2}
+=\frac{4\cdot 710- 30\cdot 101}{4\cdot 350 - 30^2}
+=-\frac{190}{500}=-0.38\\
+b&=\frac1n\sum v-a\frac1n\sum y
+=\frac14\cdot101 +0.38\cdot\frac14\cdot 30
+=8.35
+\end{align*}
+Damit lassens ich jetzt die Teilaufgaben beantworten:
+\begin{teilaufgaben}
+\item Wir berechnen den Pixelwert f"ur $y=8$:
+\[
+v=ay+b=-0.38\cdot 8 + 28.1=25.06.
+\]
+\item 
+Die Zunahme pro 100 Zeilen wird durch den Wert $-a$ angegeben, pro
+Zeile nimmt das Signal also um $0.0038$.
+\item 
+Die Qualit"at kann mit dem Regressionskoeffizienten beurteilt werden.
+Dieser ist:
+\begin{align*}
+r&=\frac{n\sum yv-\sum y\sum v}{\sqrt{n\sum y^2-(\sum y)^2}\sqrt{n\sum v^2-(\sum v)^2}}
+\\
+&=\frac{4\cdot 710-30\cdot 101}{\sqrt{4\cdot 350-30^2}\sqrt{4\cdot 2569 - 101^2}}
+=\frac{-190}{\sqrt{500}\sqrt{75}}=-0.981155781.
+\end{align*}
+Da dieser Wert sehr nahe bei $-1$ ist, kann man von einer guten Approximation
+ausgehen.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+L"osungsansatz mit Linearer Regression ({\bf L}) 1 Punkt,
+Berechnung der Koeffizienten $a$ und $b$ ({\bf A} und {\bf B}) 2 Punkte,
+jede Teilaufgabe 1 Punkt.
+\end{bewertung}
