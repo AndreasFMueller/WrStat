@@ -1,0 +1,111 @@
+Der Kabarettist Ursus Wehrli ist 2011 mit seiner Aktion,
+einen Parkplatz in Z"urich Oerlikon aufzur"aumen, in die Schlagzeilen
+gelangt.
+Der Prozess des Aufr"aumens stellt aus einer beliebigen Anordnung der
+Autos eine ganz bestimmte her:
+\begin{center}
+\includeagraphics[width=\hsize]{parkplatz.jpg}
+\end{center}
+Die Aufr"aumregel scheint zu sein, dass die Autos nach Fraben in drei Gruppen
+aufgeteilt werden: weiss und grau links (A),
+blau bis gr"un in der Mitte (B), rot und gelb rechts (C). Innerhalb der Gruppen
+wird dann der Farbkreis zur Hilfe genommen, um die richtige Anordnung
+der Autos zu finden.
+
+Wir untersuchen das Parkplatzaufr"aumproblem f"ur einen kleineren
+Parkplatz mit 25 Parkfeldern: 5 f"ur Gruppe A und je 10 f"ur Gruppe B und C.
+Auf dem Parkplatz werden 3 Autos der Gruppe A, 8 der Gruppe B und 7 der
+Gruppe C abgestellt.
+\begin{teilaufgaben}
+\item Auf wieviele Arten k"onnen die Autos auf dem Parkplatz abgestellt
+werden, wenn die Aufr"aumregeln nicht befolgt werden.
+\item Auf wieviele Arten kann man die Autos abstellen, wenn man nur
+die Zuordnung der Autos zu den Gruppen einh"alt, aber innerhalb 
+der Gruppen Unordnung zul"asst?
+\item Selbst wenn die Autos jeder Gruppe in der richtigen farblichen
+Reihenfolge aufgestellt werden, gibt es immer noch verschiedene
+M"oglichkeiten, je nach dem, welche Parkfelder leer bleiben. Auf
+wieviele Arten kann man die Autos in richtiger farblicher Reihenfolge,
+aber mit m"oglicherweise verschiedenen leeren Parkfeldern, aufstellen?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Es m"ussen Parkfelder f"ur $3 + 8 + 7 = 18$ Autos auf einem
+Parkplatz mit $25$ Parkfeldern ausgew"ahlt werden
+werden, was auf $\binom{25}{18}=480700$ Arten m"oglich ist.
+Auf den $18$ ausgew"ahlten Parkfeldern sind $18!=6402373705728000$
+verschiedene Anordnungen m"oglich.
+Insgesamt ergeben sich also
+\[
+\binom{25}{18}\cdot 18!=480700 \cdot 6402373705728000=3077621040343449600000
+=3.0776\cdot10^{21}
+\]
+M"oglichkeiten.
+
+Man kann zu diesem Resultat auch wie folgt gelangen.
+F"ur das erste Auto stehen $n$ Parkpl"atze zur Verf"ugung, f"ur das zweite
+$n-1$ usw. bis zum $k$-ten Auto, f"ur welches noch $n-k+1$ Parkpl"atze
+zur Auswahl stehen. Die Autos k"onnen daher auf
+\[
+25\cdot
+24\cdot
+23\cdot
+\dots
+\cdot
+8
+=
+3077621040343449600000
+=3.0776\cdot10^{21}
+\]
+Arten abgestellt werden.
+\item Man kann $k$ Autos auf $n$ Parkfelder auf $\binom{n}{k}k!$ Arten
+abstellen. F"ur jede der $\binom{n_A}{k_A}k_A!$ Anordnungen in Gruppe A gibt es 
+$\binom{n_B}{k_B}k_B!$ Anordnungen in Gruppe B, und analog f"ur Gruppe C.
+Die Gesamtzahl der Anordungen ist also
+\begin{align*}
+\binom{n_A}{k_A}k_A!
+\binom{n_B}{k_B}k_B!
+\binom{n_C}{k_C}k_B!
+&=
+\binom{5}{3}3!
+\binom{10}{8}8!
+\binom{10}{7}7!
+\\
+&=10\cdot 6\cdot 45\cdot 40320\cdot 120\cdot 5040=65840947200000=6.584\cdot10^{13}.
+\end{align*}
+\item Innerhalb der Gruppen ist die Reihenfolge eindeutig bestimmt, aber
+die Platzierung der leeren Felder ist frei.
+Wenn in einer Gruppe mit $k$ Autos und $n$ Parkfeldern deren $n-k$
+leer bleiben m"ussen,
+dann kann man diese auf $\binom{n}{n-k}=\binom{n}{k}$ Arten ausw"ahlen.
+F"ur jede der $\binom{5}{2}=\binom{5}{3}$ Wahlen der leeren Parkfelder
+f"ur Gruppe A gibt es $\binom{10}{2}=\binom{10}{8}$ Wahlen der
+leeren Parkfelder f"ur Gruppe B, und analog f"ur Gruppe C.
+Die Gesamtzahl der Anordnungen ist also
+\[
+\binom{5}{2}
+\binom{10}{2}
+\binom{10}{3}
+=
+\binom{5}{3}
+\binom{10}{8}
+\binom{10}{7}
+=10\cdot 45\cdot 120=54000.
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+In jeder Teilaufgabe: L"osungsweg ({\bf L}) 1 Punkt, korrektes numerisches
+Resultat ({\bf R}) 1 Punkt. Speziell:
+\begin{teilaufgaben}
+\item H"aufig wurde die M"oglichkeit der Vertauschung, also der Faktor
+$18!$ vergessen.
+\item Wesentlich f"ur den Punkt ({\bf L}) ist die Kombination mit Hilfe
+der Produktregel.
+\item Auch hier ist wesentlich die Verwendung der Produktregel.
+\end{teilaufgaben}
+\end{teilaufgaben}
+\end{bewertung}
