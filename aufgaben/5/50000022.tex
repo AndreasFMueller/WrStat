@@ -1,0 +1,78 @@
+Es wird behauptet, die Zufallsvariable $X$ h"atte die
+Wahrscheinlichkeitsdichte
+\[
+\varphi(x)=\begin{cases}
+     0&\qquad x < 0,\\
+2(1-x)&\qquad 0\le x < 1,\\
+     0&\qquad x \ge 1.
+\end{cases}
+\]
+\begin{teilaufgaben}
+\item Ist $\varphi$ "uberhaupt eine Wahrscheinlichkeitsdichte?
+\item Bestimmen Sie die Verteilungsfunktion $F_X(x)$.
+\item An welcher Stelle erreicht die Verteilungsfunktion den Wert 0.5?
+\item Bestimmen Sie den Erwartungswert $E(X)$.
+\item Bestimmen Sie die Varianz $\operatorname{var}(X)$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Damit $\varphi(x)$ eine Wahrscheinlichkeitsdicht ist, muss man 
+kontrollieren, ob $\int_{-\infty}^\infty\varphi(x)\,dx=1$ gilt. Das
+wird sich in Teilaufgabe $b$ automatisch ergeben.
+\item Die Verteilungsfunktion ist das Integral der Dichtefunktion.
+Nur der ``mittlere'' Teil f"ur $0\le x\le 1$
+der Verteilungsfunktion ist interessant:
+\[
+F_X(x)=\int_{-\infty}^x\varphi(\xi)\,d\xi =\int_0^x2(1-\xi)\,d\xi=
+\left[2(\xi-\frac12\xi^2)\right]_0^x=2x-x^2.
+\]
+Also ist die Verteilungsfunktion
+\[
+F_X(x)=\begin{cases}
+     0&\qquad x < 0\\
+2x-x^2&\qquad 0\le x < 1\\
+     1&\qquad x \ge 1
+\end{cases}
+\]
+Damit ist auch klar, dass $\varphi(x)$ tats"achlich ein Dichtefunktion ist.
+\item $F_X(x)=0.5$ impliziert
+\begin{align*}
+2x-x^2&=\frac12\\
+x^2-2x+\frac12&=0\\
+x_\pm=1\pm\sqrt{1-\frac12}=1\pm\sqrt{\frac12}
+\end{align*}
+Nur der Wert f"ur das negative Vorzeichen ist im Interval $[0,1]$, das gesuchte
+$x$ ist also
+\[
+x=1-\sqrt{\frac12}=0.29289322.
+\]
+\item
+Der Erwartungswert ist
+\begin{align*}
+E(X)&=\int_{-\infty}^{\infty}x\varphi(x)\,dx
+=\int_0^12x-2x^2\,dx=\left[ x^2-\frac23x^3\right]_0^1=1-\frac23=\frac13.
+\end{align*}
+\item Die Varianz kann mit der Formel
+$\operatorname{var}(X)=E(X^2)-E(X)^2$ bestimmt werden:
+\begin{align*}
+E(X^2)&=\int_{-\infty}^{\infty}x^2\varphi(x)\,dx
+\int_0^1 2x^2-2x^3\,dx
+=\left[\frac23x^3-\frac12x^4\right]_0^1
+=\frac23-\frac12=\frac16,
+\\
+\operatorname{var}(X)&=E(X^2)-E(X)^2=\frac16 - \frac19=\frac1{18}=0.055555.
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item Normalisierungsbedingung ({\bf N}) 1 Punkt.
+\item Verteilungsfunktion ({\bf V}) 1 Punkt.
+\item Median ({\bf M}) 1 Punkt.
+\item Erwartungswert ({\bf E}) 1 Punkt.
+\item Varianzformel ({\bf F}) 1 Punkt, Berechnung der Varianz ({\bf R}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
