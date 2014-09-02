@@ -1,0 +1,65 @@
+Indem man eine Kugel an sieben ``gleichm"assig'' verteilten Seiten
+abflacht, kann man einen ``Siebnerw"urfel'' herstellen:
+\begin{center}
+\includeagraphics[width=0.5\hsize]{wuerfel.jpg}
+\end{center}
+Auf \url{http://www.thingiverse.com:93539} findet man ein File, mit dessen
+Hilfe man diesen W"urfel mit dem 3D-Drucker herstellen kann.
+Beim Ausprobieren des W"urfels in 210 W"urfen wurden folgende Resultate
+gez"ahlt:
+\begin{center}
+\begin{tabular}{|l|rrrrrrr|}
+\hline
+Augenzahl    &  1&  2&  3&  4&  5&  6&  7\\
+\hline
+Anzahl W"urfe& 26& 30& 29& 34& 31& 30& 30\\
+\hline
+\end{tabular}
+\end{center}
+Ist dieser W"urfel fair?
+
+\begin{loesung}
+Wir machen einen $\chi^2$-Test mit der Nullhypothese: ``alle Augenzahlen
+sind gleich wahrscheinlich''. Die sieben m"oglichen Versuchsausg"ange
+haben die Wahrscheinlichkeiten $p_1=p_2=\dots=p_7=\frac17$. Die 
+Berechnung der Diskrepanz ergibt:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|>{$}r<{$}|>{$}c<{$}|>{$}r<{$}|>{$}r<{$}|}
+\hline
+i&   p_i&    n_i& np_i&n_i-np_i&(n_i-np_i)^2/np_i\\
+\hline
+1&0.0333&     26&   30&      -4&    0.5333\\
+2&0.0333&     30&   30&       0&    \\
+3&0.0333&     29&   30&      -1&    0.0333\\
+4&0.0333&     34&   30&       4&    0.5333\\
+5&0.0333&     31&   30&       1&    0.0333\\
+6&0.0333&     30&   30&       0&    \\
+7&0.0333&     30&   30&       0&    \\
+\hline
+ &      &n = 210&     &        &D=   1.1333\\
+\hline
+\end{tabular}
+\end{center}
+Wir w"ahlen f"ur den Test $\alpha=5\%$, der kritische Wert der
+$\chi^2$-Verteilung mit $7-1=6$ Freiheitsgraden ist $D_{\text{krit}}=12.592$.
+Da $D<D_{\text{krit}}$ gibt es keinen Grund, an der Hypothese zu
+zweifeln. Nach aktuellem Wissenstand ist der Siebnerw"urfel also fair.
+
+Die Diskrepanz ist in diesem Fall sogar kleiner als die $p=0.05$ Quantile,
+der kritische Wert daf"ur ist $1.635$. Wegen $D<1.635$ kann man also
+mit Wahrscheinlichkeit $>0.95$ sogar vermuten, dass die Zahlen
+fabriziert waren. Das waren sie aber nicht, die Zahlen sind mit einem
+eigens zu diesem Zweck ausgedruckten W"urfel erw"urfelt worden.
+\end{loesung}
+
+\begin{bewertung}
+Hypothesentest mit $\chi^2$ ({\bf X}) 1 Punkt,
+Hypothese/Nullhypthese ({\bf H}) 1 Punkt,
+Wahl eines geeigneten $\alpha$ ({\bf A}) 1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 1 Punkt,
+Ermittlung der kritischen Diskrepanz aus der $\chi^2$-Tabelle ({\bf K})
+1 Punkt (richtige Anzahl Freiheitsgrade),
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+
+
