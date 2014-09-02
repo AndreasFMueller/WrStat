@@ -1,0 +1,101 @@
+Es wird behauptet, die Zufallsvariable $X$ h"atte die Wahrscheinlichkeitsdichte
+\[
+\varphi(x)=\begin{cases}
+0&\qquad x\le 0\\
+\frac12\sin x&\qquad 0\le x\le \pi\\
+0&\qquad x > \pi
+\end{cases}
+\]
+\begin{teilaufgaben}
+\item Ist $\varphi$ "uberhaupt eine Wahrscheinlichkeitsdichte?
+\item Bestimmen Sie die Verteilungsfunktion $F_X(x)$.
+\item An welcher Stelle erreicht die Verteilungsfunktion den Wert $0.5$?
+\item Bestimmen Sie den Erwartungswert $E(X)$.
+\item Bestimmen Sie die Varianz $\operatorname{var}(X)$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+$\varphi(x)\ge 0$ und es gilt
+\[
+\int_{-\infty}^\infty\varphi(x)=\int_0^\pi\frac12\sin x\,dx
+=
+\frac12\left[-\cos x\right]_0^\pi=\frac12(1+1)=1,
+\]
+also ist $\varphi$ eine Wahrscheinlichkeitsdichte.
+\item
+Die Verteilungsfunktion ist eine Stammfunktion, interessant ist nur
+der Teil f"ur $0\le x\le \pi$:
+\[
+\int_{-\infty}^x\varphi(\xi)\,d\xi
+=
+\int_0^x\frac12\sin\xi\,d\xi
+=
+\frac12\left[-\cos\xi\right]_0^\xi=\frac12(1-\cos x).
+\]
+Die Verteilungsfunktion ist daher:
+\[
+F_X(x)=\begin{cases}
+0&\qquad x\le 0\\
+\frac12(1-\cos x)&\qquad 0\le x\le \pi\\
+1&\qquad x > \pi.
+\end{cases}
+\]
+\item Die Verteilungsfunktion erreicht den Wert an der Stelle $x$, f"ur die
+\begin{align*}
+F_X(x)=\frac12(1-\cos x)&=\frac12\\
+1-\cos x&=1\\
+\cos x&=0\\
+x&=\frac{\pi}2
+\end{align*}
+gilt.
+\item
+Der Erwartungswert ist
+\begin{align*}
+E(X)
+&=
+\int_{-\infty}^\infty x\varphi(x)\,dx
+=
+\int_0^\pi x\cdot\frac12\sin x\,dx
+=
+\frac12
+\left[\sin x-x\cos x\right]_0^\pi=\frac{\pi}2.
+\end{align*}
+\item
+F"ur die Varianz brauchen wir nur noch den Erwartungswert von $X^2$:
+\begin{align*}
+E(X^2)
+&=
+\int_{-\infty}^\infty x^2\varphi(x)\,dx
+=
+\frac12\int_{-\infty}^\infty x^2\sin x\,dx
+=
+\frac12\int_0^\pi x^2\sin x\,dx 
+\\
+&=
+\frac12\left[
+2x\sin x-(2-x^2)\cos x
+\right]_0^\pi
+=
+\frac12\pi^2-2
+\\
+\operatorname{var}(X)&=E(X^2)-E(X)^2=
+\frac12\pi^2-2-\biggl(\frac{\pi}2\biggr)^2
+=\frac{\pi^2}4-2
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item 1 Punkt
+\item 1 Punkt
+\item 1 Punkt
+\item 1 Punkt
+\item 1 Punkt
+\item Erwartungswert von $X^2$ ($\textbf{X}^2$) 1 Punkt,
+Varianzberechung (\textbf{V}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
