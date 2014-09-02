@@ -4,7 +4,7 @@
 # (c) 2009 Prof Dr Andreas Mueller
 # $Id$
 #
-all:	skript.pdf
+all:	skript.pdf checklist.pdf
 
 SOURCES = einleitung.tex wahrscheinlichkeit.tex laplace.tex	\
 	erwartung.tex verteilung.tex stetige-verteilungen.tex	\
@@ -23,3 +23,6 @@ skript.ind:	images skript.tex $(SOURCES) images-subdir
 
 images-subdir:	
 	cd images; make
+
+checklist.pdf:	checklist.tex
+	pdflatex checklist.tex
