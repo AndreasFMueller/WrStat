@@ -1,0 +1,71 @@
+F"ur einen Multiple Choice Test mit 50 Fragen mit drei m"oglichen Antworten
+pro Frage, wovon nur eine richtig ist, soll die f"ur
+Bestehen des Testes n"otige Anzahl $k$ korrekt beantworteter Fragen
+festgelegt werden.
+\begin{teilaufgaben}
+\item Wie gross muss $k$ sein, damit ein Kandidat,
+der nichts kann, und die Fragen nur nach dem Zufallsprinzip beantwortet,
+nur mit einer Wahrscheinlichkeit von h"ochstens 0.1\% den Test besteht?
+\item Wie gross ist die Wahrscheinlichkeit, dass ein Kandidat, der jede
+einzelne Frage mit Wahrscheinlichkeit $0.7$ richtig beantwortet, den
+Test nicht besteht?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die Anzahl der richtig beantworteten Fragen ist binomialverteilt
+mit $n=50$ und $p=\frac13$. Die Wahrscheinlichkeit, dass die Zahl $X$
+der korrekten Antworten die Schranke $k$ "uberschreitet, ist $P(X\ge k)$.
+Zur einfacheren Rechnung kann dies mit der Normalverteilung f"ur
+$\mu = np$ und $\sigma^2=np(1-p)$ approximiert werden. Durch Standardisierung
+findet man dann
+\begin{align*}
+0.001=P(X>k)
+&=
+P\biggl(
+\frac{X-np}{\sqrt{np(1-p)}}>\frac{k-np}{\sqrt{np(1-p)}}
+\biggr)
+\\
+\frac{k-np}{\sqrt{np(1-p)}}&=3.0902
+\\
+k&= np+3.0902\cdot \sqrt{np(1-p)}
+=26.967333333.
+\end{align*}
+Man muss also verlangen, dass 27 Fragen richtig beantwortet werden.
+
+Mit Hilfe der Binomialverteilung und einem Programm wie R kann man den
+Wert auch direkt bekommen:
+\texttt{qbinom(0.999, 50, 1/3)}
+liefert den Wert $27$.
+\item
+Auch hier kann man die Normalapproximation verwenden:
+\begin{align*}
+P(X\le k)&=
+P\biggl(
+\frac{X-np}{\sqrt{np(1-p)}}\le\frac{k-np}{np(1-p)}
+\biggr)
+\\
+&=F\biggl(
+\frac{k-np}{np(1-p)}
+\biggr)
+=F(-1.543)=1-F(1.543)=1-0.9385=0.0615.
+\end{align*}
+Ein Kandidat, der nur eine Treffsicherheit von $70\%$ hat, hat also
+immer noch sehr gute Chancen, den Test zu bestehen.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Binomialverteilung (\textbf{B}) 1 Punkt,
+Normalapproximation, d.~h.~die Formeln $\mu=np$ und $\sigma=\sqrt{np(1-p)}$
+(\textbf{N}) 1 Punkt,
+\begin{teilaufgaben}
+\item
+Standardisierter $x$-Wert ($3.0902$, \textbf{X}) 1 Punkt,
+Wert f"ur $k$ (\textbf{K}) 1 Punkt,
+\item
+Standardsierter $x$-Wert (\textbf{Y}) 1 Punkt,
+Wahrscheinlichkeit (\textbf{W}) 1 Punkt,
+\end{teilaufgaben}
+\end{bewertung}
+
