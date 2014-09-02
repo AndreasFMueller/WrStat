@@ -1,0 +1,75 @@
+Ein System soll Laboranten ihre Arbeit erleichtern und Pulver auf mg genau
+automatisch abw"agen.
+Zur Verf"ugung steht ein steuerbares Pulverf"orderungsger"at und eine Waage.
+Allerdings l"asst sich das Pulverf"orderungsger"at nicht sofort stoppen,
+es l"auft immer noch genau eine Sekunde weiter.
+Die F"orderungsgeschwindigkeit ist jedoch in jedem F"ordervorgang
+konstant, kann aber zwischen Vorg"angen und zwischen verschiedenen
+Pulvern varieren. Das Abw"agesystem misst daher laufend die bereits 
+gef"orderte Menge. Folgende Massen wurden gemessen:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|}
+\hline
+t\text{[s]}&m\text{[mg]}\\
+\hline
+0&1\\
+1&12\\
+2&20\\
+3&31\\
+4&39\\
+\hline
+\end{tabular}
+\end{center}
+Wann soll das F"orderger"at angehalten werden, um m"oglichst genau
+60\,mg des Pulvers abzuw"agen?
+
+\begin{loesung}
+Mit linearer Regression kann der lineare Zusammenhang zwischen der F"orderzeit
+$t$ und der F"ordermenge $m$ gefunden werden. Dazu m"ussen verschiedene Summen
+von Werten von $t$ und $m$ und ihren Produkten gebildet werden.
+\begin{center}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+ t&  m&t^2& m^2& tm\\
+\hline
+ 0&  1&  0&   1&  0\\
+ 1& 12&  1& 144& 12\\
+ 2& 20&  4& 400& 40\\
+ 3& 31&  9& 961& 93\\
+ 4& 39& 16&1521&156\\
+\hline
+10&103& 30&3027&301\\
+\hline
+\end{tabular}
+\end{center}
+Daraus kann man Steigung einer optimalen linearen Approximation $M=aT+b$
+bestimmen mit Hilfe der bekannten Formeln:
+\begin{align*}
+a&=\frac{n\sum tm -\sum t\sum m}{n\sum t^2-(\sum t)^2}
+=\frac{5\cdot 301-10\cdot 103}{5\cdot 30-10^2}
+=\frac{1505-1030}{150-100}
+=\frac{475}{50}=9.5\\
+b&=\frac15\sum m-a\frac15\sum t
+=\frac15\cdot 103-9.5\cdot \frac15\cdot 10=1.6
+\end{align*}
+Die beste Approximation f"ur $m$ ist also $m=9.5t+1.6$. Um die Masse
+60mg zu erreichen, muss der F"ordermechanismus zur Zeit $t$ aufh"oren
+zu f"ordern, also wenn
+\begin{align*}
+60&=9.5t+1.6\\
+t&=6.147
+\end{align*}
+Da der F"ordermechanismus jeweils noch eine Sekunde weiterl"auft, muss
+er zur Zeit $t=5.147\text{s}$ angehalten werden.
+\end{loesung}
+
+
+\begin{bewertung}
+Lineare Regression (\textbf{L}) 1 Punkt,
+Berechnung von Summen (\textbf{R}) 2 Punkte,
+Berechung von $a$ (\textbf{A}) und $b$ (\textbf{B}) je 1 Punkt,
+Berechnung der Stoppzeit (\textbf{T}) 1 Punkt.
+\end{bewertung}
+
+
+
