@@ -1,0 +1,67 @@
+In einem Bohrloch soll festgestellt werden, in welcher Art von Gestein
+sich der Bohrkopf gerade befindet. Dazu wird ein Messger"at verwendet, welches
+die nat"urliche Radioaktivit"at der Gesteine misst, insbesondere die
+Gammastrahlung.
+In Vergleichsmessungen wurde festgestellt, dass sich Schiefer
+und Dolomit dadurch unterscheiden, dass in Schiefer das Messger"at
+in 95\% der F"alle eine Strahlungsintensit"at von gr"osser als 60 (in den
+nicht weiter interessierenden Einheiten des Messger"ates) anzeigt,
+in Dolomit aber nur in 7\% der F"alle.
+Ausserdem ist bekannt, dass in den zu untersuchenden Bohrl"ochern
+Schiefer mit einer H"aufigkeit von 40\% vorkommt, Dolomit aber mit 60\%.
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, dass das Messger"at mehr als 60
+Einheiten anzeigt?
+\item
+Mit welcher Wahrscheinlichkeit liegt tats"achlich Schiefer vor, wenn 
+das Messger"at mehr als 60 anzeigt?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass Dolomit vorliegt, wenn
+das Messger"at weniger also 60 anzeigt?
+\end{teilaufgaben}
+
+
+\begin{loesung}
+Wir verwenden die Ereignisse
+\begin{align*}
+A&=\{\text{Messger"at zeigt mehr als 60 an}\}\\
+S&=\{\text{es liegt Schiefer vor}\}\\
+D&=\{\text{es liegt Dolomit vor}\}
+\end{align*}
+Aus der Aufgabenstellung sind folgende Wahrscheinlichkeiten bekannt:
+\begin{align*}
+P(A|S)&=0.95&
+P(S)&=0.4\\
+P(A|D)&=0.07&
+P(D)&=0.6
+\end{align*}
+\begin{teilaufgaben}
+\item Mit dem Satz von der totalen Wahrscheinlichkeit findet man
+\[
+P(A)=P(A|S)P(S)+P(A|D)P(D)=0.95\cdot 0.4+0.07\cdot 0.6=0.422.
+\]
+\item Gesucht ist offenbar die bedingte Wahrscheinlichkeit $P(S|A)$. Der
+Satz von Bayes liefert
+\begin{align*}
+P(S|A)&=P(A|S)\frac{P(S)}{P(A)}=0.95\cdot\frac{0.4}{0.422}=0.900.
+\end{align*}
+\item
+Gesucht ist in diesem Fall die bedingte Wahrscheinlichkeit $P(D|\bar A)$:
+\[
+P(D|\bar A)=P(\bar A|D)\frac{P(D)}{P(\bar A)}
+=(1-P(A|D))\frac{P(D)}{1-P(A)}=0.93 \cdot \frac{0.6}{0.578}=0.965.
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+
+\begin{bewertung}
+Ereignisse ({\bf E}) 1 Punkt,
+"Ubersetzung der bedingten Wahrscheinlichkeiten ({\bf W}) 1 Punkt,
+Satz von Bayes ({\bf B}) 1 Punkt,
+Satz von der totalen Wahrscheinlichkeit, Teilaufgabe a) ({\bf T}) 1 Punkt,
+Wahrscheinlichkeit f"ur Schiefer $P(S|A)$ b) ({\bf S}) 1 Punkt,
+Resultat $P(\bar S|\bar A)$ c) ({\bf C}) 1 Punkt.
+\end{bewertung}
+
