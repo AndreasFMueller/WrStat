@@ -1,0 +1,86 @@
+In Lourdes sollen angebliche Kranke durch Wunder geheilt werden.
+Die katholische Kirche hat in der 156-j"ahrigen Geschichte des Wallfahrtsortes
+in den Pyren"aen bisher 69 solche Wunder proklamiert, das letzte im Jahre 2013.
+Es f"allt auch auf, dass die Anzahl der Wunder abgenommen hat, obwohl
+die Zahl der j"ahrlichen Besucher auf bis zu 5 Mio angestiegen ist:
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline
+Zeitperiode&Wunderheilungen\\
+\hline
+1858--1907 &35\\
+1908--1957 &25\\
+1958--heute& 9\\
+\hline
+\end{tabular}
+\end{center}
+Ausgehend von der ``Wunderrate'' der Jahre 1908-1957, wie gross ist die
+Wahrscheinlichkeit, dass in der Zeit zwischen 1958 und heute nicht mehr
+als 9 Wunder stattfinden?
+
+\begin{loesung}
+Wunder sind offenbar seltene Ereignisse, man sollte deren Anzahl daher
+mit einer Poisson-Verteilung modellieren k"onnen. Die Wunderrate in den
+Jahren 1908--1957 war $0.5$ pro Jahr.
+Die Anzahl $X$ der Wunder in der Zeitperiode
+seit 1958 sollte daher Poisson-verteilt sein mit einer Rate von $0.5$ 
+Wundern pro Jahr, oder $\lambda=57\cdot0.5 =28.5$ Wundern in der
+ganzen Zeitperiode.
+Die Wahrscheinlichkeit, nicht mehr als $9$ Wunder zu beobachten,
+ist daher:
+\begin{align*}
+P(X\le 9)
+&=
+\sum_{k=0}^9 P_\lambda(k)=e^{-\lambda}\sum_{k=0}^9 \frac{\lambda^k}{k!}
+\end{align*}
+Zur Berechnung von $P(X\le 9)$ stellen wir folgende Tabelle auf:
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+$k$&$P_\lambda(k)=e^{-\lambda}\frac{\lambda^k}{k!}$\\
+\hline
+  0&$4.1938\cdot 10^{-13}$\\
+  1&$1.1952\cdot 10^{-11}$\\
+  2&$1.7032\cdot 10^{-10}$\\
+  3&$1.6180\cdot 10^{-9}$\\
+  4&$1.1529\cdot 10^{-8}$\\
+  5&$6.5713\cdot 10^{-8}$\\
+  6&$3.1214\cdot 10^{-7}$\\
+  7&$1.2708\cdot 10^{-6}$\\
+  8&$4.5274\cdot 10^{-6}$\\
+  9&$1.4337\cdot 10^{-5}$\\
+%  0&$1.4032\cdot 10^{-15}$\\
+%  1&$4.7990\cdot 10^{-14}$\\
+%  2&$8.2064\cdot 10^{-13}$\\
+%  3&$9.3553\cdot 10^{-12}$\\
+%  4&$7.9987\cdot 10^{-11}$\\
+%  5&$5.4711\cdot 10^{-10}$\\
+%  6&$3.1186\cdot 10^{-9}$\\
+%  7&$1.5236\cdot 10^{-8}$\\
+%  8&$6.5135\cdot 10^{-8}$\\
+%  9&$2.4751\cdot 10^{-7}$\\
+\hline
+   &$2.0526\cdot 10^{-5}$\\
+%   &$3.3164\cdot 10^{-7}$\\
+\hline
+\end{tabular}
+\end{center}
+Die Wahrscheinlichkeit, nicht mehr als 9 Wunder seit 1958 zu beobachten,
+ist also nur $P(X\le 9)=0.000020526$.
+Die tats"achlich beobachtet Zahl der Wunder ist also viel zu klein,
+oder in den Jahren 1908--1957 war die katholische Kirche viel wundergl"aubiger.
+\end{loesung}
+
+\begin{diskussion}
+Informationen "uber die angeblichen Wunder von Lourdes findet man auf
+der Website \url{http://de.lourdes-france.org/vertiefen/heilungen-und-wunder/die-geheilten-von-lourdes}.
+\end{diskussion}
+
+\begin{bewertung}
+Verwendung der Poisson-Verteilung (\textbf{P}) 1 Punkt,
+Bestimmung der Wunderrate, d.~h.~des Parameters $\lambda$ (\textbf{L}) 1 Punkt,
+Summe von Poisson-Wahrscheinlichkeiten (\textbf{S}) 1 Punkt,
+Berechnung der Terme (\textbf{R}) 2 Punkte,
+Berechnung der Gesamtwahrscheinlichkeit (\textbf{W}) 1 Punkt.
+\end{bewertung}
+
