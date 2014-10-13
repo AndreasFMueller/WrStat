@@ -1,0 +1,63 @@
+In einer Simulation wird ein W"urfel 47000 mal geworfen, und der Mittelwert
+der Augenzahlen sowie die Wahrscheinlichkeit f"ur einen Sechser empirisch
+ermittelt.
+
+\begin{teilaufgaben}
+\item Wie gross ist die Wahrscheinlichkeit, dass der Mittelwert um mehr
+als 0.01 vom Erwartungswert abweicht?
+\item Wie gross ist die Wahrscheinlichkeit, dass die relative H"aufigkeit
+f"ur einen Sechser um mehr als 0.01 von $\frac16$ abweicht?
+\item Die Tschebyscheff-Ungleichung ist nur eine Absch"atzung, die
+tats"achlichen Wahrscheinlichkeiten k"onnen wesentlich geringer sein.
+F"uhren Sie selbst eine Simulation und ermitteln Sie empirisch die
+Wahrscheinlichkeit f"ur eine Abweichung der genannten Gr"osse. 
+Stimmt die Gr"ossenordung der in a) und b) gefundenen Wahrscheinlichkeit?
+\end{teilaufgaben}
+
+
+\begin{loesung}
+Offenbar geht es um ein wiederholtes Experiment mit $n=47000$ Versuchen
+und eine Abweichung der interessierenden Gr"osse von $\varepsilon=0.01$.
+\begin{teilaufgaben}
+\item
+Das Gesetz der grossen Zahlen von Bernoulli sagt, dass 
+\[
+P(|M_n-E(X)|>\varepsilon) \le
+\frac{\operatorname{var}(X)}{n\varepsilon^2}.
+\]
+Die Varianz f"ur einen M"unzwurf wurde in der Vorlesung berechnet, sie ist
+$\operatorname{var}(X)=\frac{35}{12}.$
+Einsetzen der Werte ergibt
+\[
+P(|M_n-E(X)|>\varepsilon)\le
+\frac{\operatorname{var}(X)}{n\varepsilon^2}
+=\frac{35}{12\cdot 47000\cdot 0.01^2}=0.62
+\]
+Im worst case erwartet man also in mehr als der H"alfte der Durchf"uhrungen
+dieses Experimentes eine Abweichung von mehr als  0.01.
+\item
+Aus dem Gesetz der grossen Zahlen von Bernoulli haben wir folgende Formel
+f"ur die Wahrscheinlichkeit einer Abweichung der relativen H"aufigkeit von
+der Wahrscheinlichkeit hergeleitet:
+\[
+P(|h_n-p(A)|>\varepsilon)\le \frac{P(A)(1-P(A))}{n\varepsilon^2}.
+\]
+Im vorliegenden Fall ist $P(A)=\frac16$, Einsetzen der Werte ergibt
+\[
+P(|h_n-p(A)|>\varepsilon)\le \frac{P(A)(1-P(A))}{n\varepsilon^2}
+=\frac{\frac16(1-\frac16)}{47000\cdot 0.01^2}
+=\frac{5}{36\cdot 47000\cdot 0.01^2}
+=0.03
+\]
+Nur in drei Prozent der Versuche wird man eine Abweichung relativen
+H"aufigkeit von der tats"achlichen Wahrscheinlichkeit von mehr als 0.01
+finden.
+\item Eine Simulation mit 100000 Wiederholungen des in der Aufgabe
+beschriebenen Experimentes ergibt, eine Wahrscheinlichkeit von 0.204
+f"ur eine Abweichung des Mittelwertes von mehr als 0.01 vom tats"achlichen
+Wert. In 100000 Versuchen wich die relative H"aufigkeit kein einziges
+Mal mehr als 0.01 vom theoretischen Wert ab.
+\end{teilaufgaben}
+\end{loesung}
+
+
