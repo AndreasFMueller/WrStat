@@ -1,0 +1,104 @@
+Die Funktion
+\[
+\varphi(x)=\begin{cases}
+0&\qquad x< -1\\
+\frac34(1-x^2)&\qquad -1\le x\le 1\\
+0&\qquad x > 1
+\end{cases}
+\]
+sei die Wahrscheinlichkeitsdichte der unabh"angigen Zufallsvariablen
+$X$ und $Y$.
+\begin{teilaufgaben}
+\item Berechnen Sie die Verteilungsfunktion von $X$.
+\item Berechnen Sie Erwartungswert und Varianz von $X$.
+\item Berechnen Sie die Wahrscheinlichkeitsdichte von $X+Y$.
+\end{teilaufgaben}
+
+\begin{hinweis}
+Verwenden Sie f"ur Teilaufgabe c) eine Computeralgebrasystem oder einen
+entsprechenden Taschenrechner.
+\end{hinweis}
+
+\begin{loesung}
+Wir kontrollieren, dass $\varphi$ wirklich eine Wahrscheinlichkeitsverteilung
+ist:
+\begin{align*}
+\int_{-\infty}^{\infty}\varphi(x)\,dx
+=
+\int_{-1}^1 \frac34(1-x^2)\,dx
+=
+\frac34\left[
+x-\frac13x^3
+\right]_{-1}^1=\frac34(1-\frac13-(-1)+\frac13(-1))=\frac34\cdot\frac43=1.
+\end{align*}
+\begin{teilaufgaben}
+\item Die Verteilungsfunktion ist Stammfunktion von $\varphi$:
+\begin{align*}
+F(x)&=0&&\text{f"ur $x < -1$}\\
+F(x)&=1&&\text{f"ur $x > 1$}\\
+F(x)&=\int_{-\infty}^x\varphi(\xi)\,d\xi =\int_{-1}^x\frac34(1-\xi^2)\,d\xi
+\\
+&=
+\frac34\left[
+\xi -\frac13\xi^3
+\right]_{-1}^x
+=\frac34(x-\frac13x^3-(-1)+\frac13(-1))
+\\
+&=-\frac14x^3+\frac34x+\frac12&&\text{f"ur $-1\le x\le 1$}
+\end{align*}
+\item Erwartungswert und Varianz k"onnen mit den Standardformeln gefunden 
+werden:
+\begin{align*}
+E(X)&
+\int_{-\infty}^{\infty}x\varphi(x)\,dx=\int_{-1}^1x \frac34(1-x^2)\,dx
+=\frac34\left[\frac12x^2-\frac14x^4\right]_{-1}^1
+=0\\
+\operatorname{var}(X)&=E(X^2)=
+\int_{-\infty}^{\infty}x^2\varphi(x)\,dx=\int_{-1}^1x^2\frac34(1-x^2)\,dx
+=\frac34\left[\frac13x^3-\frac15x^5\right]_{-1}^1\\
+&=\frac34\left(\frac13-\frac15+\frac13-\frac15\right)
+=\frac34\left(\frac23-\frac25\right)
+=\frac32\cdot\frac{5-3}{15}=\frac15.
+\end{align*}
+\item
+Die Wahrscheinlichkeitsdichte von $X+Y$ kann durch Faltung erhalten werden:
+\begin{align*}
+\varphi_{X+Y}&=\varphi*\varphi(x)
+=\int_{-\infty}^{\infty}\varphi(\xi)\varphi(x-\xi)\,d\xi
+=\int_{-1}^1\frac34(1-\xi^2)\varphi(x-\xi)\,d\xi
+\end{align*}
+Die Funktion $\varphi(x-\xi)$ verschwindet f"ur $\xi$-Werte ausserhalb
+des Intervals $[x-1,x+1]$, es gen"ugt also, das Integral aber dieses
+Interval zu erstrecken. F"ur $x\ge 0$ bedeutet dies, dass nur noch
+"uber $[x-1,1]$ integriert werden muss. F"ur diese $x$ gilt also:
+\begin{align*}
+\varphi*\varphi(x)
+&=
+\int_{x-1}^1 \frac34(1-\xi^2)\varphi(x-\xi)\,d\xi
+=
+\int_{x-1}^1 \frac34(1-\xi^2)\frac34(1-(x-\xi)^2)\,d\xi
+\end{align*}
+F"ur die Berechnung des letzten Integrals verwendet man am besten
+ein Computeralgebrasystem, zum Beispiel Maxima:
+\verbatimainput{maximaintegration}
+Dies gilt jedoch nur f"ur $0\le x \le 2$. Die Dichtefunktion ist
+aber symmetrisch, also gilt
+\[
+\varphi*\varphi(x)=\varphi*\varphi(-x).
+\]
+Mit der Abk"urzung
+\[
+f(x)=-\frac3{160}x^5+\frac38x^3-\frac34x^2+\frac35
+\]
+gilt jetzt also
+\[
+\varphi(x)=\begin{cases}
+0&x<-2\\
+f(-x)&-2\le x\le 0\\
+f(x)&0\le x \le 2\\
+0&x>2
+\end{cases}
+\]
+\end{teilaufgaben}
+\end{loesung}
+
