@@ -1,0 +1,29 @@
+Sie $X$ eine Zufallsvariable mit Verteilungsfunktion $F(x)=F_X(x)$, und
+sei\[
+Z=\frac{X-\mu}{\sigma},
+\]
+wobei $\mu$ und $\sigma$ beliebige Zahlen sind mit $\sigma > 0$.
+
+\begin{teilaufgaben}
+\item Bestimmen Sie die Verteilungsfunktion der Zufallsvariablen $Z$.
+\item Bestimmen Sie die Dichtefunktion der Zufallsvariablen $Z$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Wir verwenden den Standardalgorithmus:
+\begin{align*}
+F_Z(z)&=P(Z\le z)
+=P\biggl(\frac{X-\mu}{\sigma}\le z\biggr)
+=P(X\le \sigma z+\mu)=F_X(\sigma z+\mu).
+\end{align*}
+Die Verteilungsfunktion von $Z$ ist also $F_Z(z)=F_X(\sigma z+\mu)$.
+\item Die Dichtefunktion ist die Ableitung der Verteilungsfunktion:
+\begin{align*}
+\varphi_Z(z)&=\frac{d}{dz}F_Z(z)
+=\frac{d}{dz}F_X(\sigma z+ \mu)
+=F_X'(\sigma z+ \mu)\cdot \sigma=\sigma\varphi_X(\sigma z+\mu).
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
