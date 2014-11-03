@@ -1,0 +1,52 @@
+Schreiben Sie ein Programm, mit welchem Sie Zufallszahlen mit der
+Verteilungsfunktion
+\[
+F(x)=\begin{cases}
+0&\qquad x< 0\\
+1-e^{-x}&\qquad x\ge 0
+\end{cases}
+\]
+erzeugen k"onnen. Wir nennen diese Zufallswerte die Zufallsvariable $X$.
+\begin{teilaufgaben}
+\item Bestimmen Sie durch Simulation den Erwartungswert und die Varianz
+von $X$.
+\item Wieviele Zufallszahlen m"ussen Sie ber"ucksichtigen, damit Ihre
+Simulationsrechnung mit Wahrscheinlichkeit 1\% einen auf drei Stellen
+nach dem Komma genauen Wert liefert?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die Zufallsvariable $F(X)$ ist gleichverteilt, d.~h.~man kann aus
+einer gleichverteilten Zufallsvariablen $Y$ durch Anwendung der Inversen
+Funktion $F^{-1}$ eine Zufallsvariable mit Verteilungsfunktion $F$ bekommen.
+Die inverse Funktion ist f"ur positive $y$:
+\begin{align*}
+y&=F(x)=1-e^{-x}\\
+e^{-x}&=1-y\\
+x&=-\log(1-y)
+\end{align*}
+Die verlangten Simulationen lassen sich mit dem Program
+\verbatimainput{sim.expanded.c} 
+durchf"uhren. Man findet $E(X)\simeq 1$ und $\operatorname{var}(X)\simeq 1$.
+\item
+Das Gesetz der grossen Zahlen von Bernoulli besagt, dass 
+eine Abweichung des Mittelwertes $M_n$ von mehr als $\varepsilon= 0.0005$
+vom Erwartungswert die Wahrscheinlichkeit
+\[
+P(|M_n-\mu| \le \varepsilon)\le \frac{\operatorname{var}(X)}{n\varepsilon^2}
+\]
+hat. Die Simulation hat die Varianz $1$ geliefert.
+Um die Schranke von 1\% zu unterschreiten braucht es also
+\[
+\frac1{n\varepsilon^2}\le 0.01
+\qquad\Rightarrow\qquad
+\frac1{0.01\cdot 0.0005^2}=400000000\le n,
+\]
+400Mio Zufallswerte m"ussen gemittelt werden. Experimentell findet man
+jedoch, dass viel weniger Werte auch ausreichen, dies hat wieder mit der
+Tatsache zu tun, dass die Tschebyscheff-Ungleichung sehr grob ist, und
+daher f"ur ``gute'' Zufallsvariablen zu weite Schranken findet.
+\end{teilaufgaben}
+\end{loesung}
+

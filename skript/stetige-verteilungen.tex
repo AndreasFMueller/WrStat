@@ -191,7 +191,7 @@ P(|X-\mu|>\varepsilon)
 \hline
 Name&Exponentialverteilung\\
 \hline
-Dichtefunktion&$\displaystyle \frac1ae^{-ax}$\\
+Dichtefunktion&$\displaystyle ae^{-ax}$\\
 Verteilungsfunktion&$1-e^{-ax}$\\
 Erwartungswert&$\displaystyle \frac1a$\\
 Varianz&$\displaystyle \frac1{a^2}$\\
@@ -368,7 +368,8 @@ ist genau gleich gross.
 \includegraphics[width=0.8\hsize]{graphics/abwexp}
 \end{center}
 \caption{Wahrscheinlichkeit f"ur eine grosse Abweichung bei einer
-Exponentialverteilten Zufallsvariable, oben die durch den Satz von Tschebyscheff egebene Schranke (gr"un), unten die exakte Rechnung mit
+Exponentialverteilten Zufallsvariable, oben die durch den Satz von Tschebyscheff
+gegebene Schranke (gr"un), unten die exakte Rechnung mit
 Hilfe der Exponentialvereteilung (rot)\label{abweichung-exponential}}
 \end{figure}
 Wir k"onnen nun auch die Wahrscheinlichkeit einer grossen Abweichung
@@ -465,7 +466,7 @@ E(X)
 =\int_0^\infty 2x(1-e^{-at})ae^{-at}\,dt
 \\
 &=2\int_0^\infty axe^{-at}\,dt - \int_0^\infty t (2a)e^{-(2a)t}\,dt
-=2\cdot\frac1a-\frac1{2a}=\frac{4-1}2\cdot\frac1a=\frac23\cdot\frac1a.
+=2\cdot\frac1a-\frac1{2a}=\frac{4-1}2\cdot\frac1a=\frac32\cdot\frac1a.
 \end{align*}
 Durch Redundanz l"asst sich die mittlere Zeit bis zu einem Ausfall
 also nur um 50\% steigern, die Kosten f"ur das Disksystem werden
