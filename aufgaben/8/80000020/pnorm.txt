@@ -1,0 +1,5 @@
+> resistors <- read.csv("eevblogresistors.csv")
+> m <- mean(resistors$resistance)
+> s <- sqrt(var(resistors$resistance))
+> pnorm(1005, m = m, s = s) - pnorm(995, m = m, s = s)
+[1] 0.9967232

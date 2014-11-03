@@ -1,0 +1,7 @@
+> ks.test(resistors$resistance + runif(400, min = -0.001, max = 0.001), "pnorm")
+
+        One-sample Kolmogorov-Smirnov test
+
+data:  resistors$resistance + runif(400, min = -0.001, max = 0.001)
+D = 1, p-value < 2.2e-16
+alternative hypothesis: two-sided

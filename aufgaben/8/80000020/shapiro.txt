@@ -1,0 +1,7 @@
+> shapiro.test(resistors$resistance)
+
+        Shapiro-Wilk normality test
+
+data:  resistors$resistance
+W = 0.9795, p-value = 1.87e-05
+
