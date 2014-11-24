@@ -1,0 +1,58 @@
+Im Youtube-Video \url{https://www.youtube.com/watch?v=QPKKQnijnsM} wird
+gesagt, dass die 1\%-Topverdiener in Amerika 40\% des Einkommens
+verdienen. Nehmen Sie an, dass die Einkommen potenzverteilt sind.
+\begin{teilaufgaben}
+\item
+Berechnen Sie den zugeh"origen Gini-Koeffizienten $\alpha$.
+\item
+Welchen Anteil am Volkseinkommen verdienden diejenigen, welche
+weniger als das Median-Einkommen verdienen?
+\item
+Im Video erf"ahrt man auch, dass die unteren 80\% der Amerikaner nur
+7\% des Volkseinkommens verdienen. 
+Auf welchen Gini-Koeffizienten l"asst dies schliessen?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+In der Diskussion der 80/20-Regeln in der Vorlesung wurde die Formel
+\[
+\alpha=\frac{\lambda-2}{\lambda-1},\qquad \lambda=\frac{\log 0.8}{\log 0.2}
+\]
+hergeleitet. Angewendet auf die vorliegende Situation ergibt sich
+\[
+\lambda=\frac{\log 0.4}{\log 0.01}=0.19897
+\qquad
+\Rightarrow
+\qquad
+\alpha=\frac{\lambda - 2}{\lambda - 1}=2.2484
+\]
+\item
+Die Beziehung zwischen $P(x)$ und $W(x)$ f"ur eine Potenzverteilung erlaubt
+uns nun auch, den Anteil der 50\%-Topverdiener ($P(x)=0.5$) zu berechnen.
+In der Vorlesung wurde hergeleitet, dass 
+\[
+W(x)=P(x)^\frac{\alpha - 2}{\alpha - 1}=P(x)^\lambda
+\]
+gilt. Mit $P(x)=0.5$ und dem oben gefundenen Wert von $\lambda$
+folgt
+\[
+W(x)=0.5^{0.19897}=0.87117
+\]
+Die Leute, die weniger als das Medianeinkommen verdienen, verdienen zusammen
+nicht einmal $13\%$ des Volkseinkommens.
+\item
+Wenn die unteren 80\% nur 7\% verdienen, dann verdienen die 20\%-Topverdiener
+93\%, es liegt also eine 93/20-Regel vor. Mit den bekannten Formeln finden
+wir den Gini-Koeffizienten
+\[
+\lambda=\frac{\log 0.97}{\log 0.2}=0.018925
+\qquad\Rightarrow\qquad
+\alpha=\frac{\lambda - 2}{\lambda - 1}=2.0193
+\]
+Die Ungleichheit scheint also noch viel gr"osser zu sein, als
+man nach Teilaufgabe a) h"atte vermuten k"onnen.
+\end{teilaufgaben}
+\end{loesung}
+
