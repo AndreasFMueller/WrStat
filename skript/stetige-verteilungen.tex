@@ -1402,29 +1402,24 @@ so dass
 \[
 \varphi(bx)=g(b)\varphi(x).
 \]
-Aus diesem Zusammenhang folgt sofort, dass
-$\varphi(b)=g(b)\varphi(1)$ und weiter 
-\[
-\varphi(bx)=\frac{\varphi(b)\varphi(x)}{p(1)}.
-\]
 Leitet man dies nach $b$ ab und setzt $b=1$ erh"alt man
 \begin{align*}
-x\varphi'(bx)&=\frac{\varphi'(1)p(x)}{\varphi(1)}\\
-x\varphi'(x)&=\frac{\varphi'(1)}{\varphi(1)}\varphi(x)
+x\varphi'(bx)&=g'(1)\varphi(x)\\
 \end{align*}
 Dies ist eine gew"ohnliche lineare Differentialgleichung
 erster Ordnung, die man mit Separation der Variablen
 l"osen kann
 \begin{align*}
-\frac{\varphi'(x)}{\varphi(x)}&=\frac{\varphi'(1)}{\varphi(1)}\frac1x
+\frac{\varphi'(x)}{\varphi(x)}&=g'(1)\frac1x
 \\
-\int\frac{\varphi'(x)}{\varphi(x)}\,dx&=\frac{\varphi'(1)}{\varphi(1)}\int\frac{dx}x + c
+\int\frac{\varphi'(x)}{\varphi(x)}\,dx&=g'(1)\int\frac{dx}x + c
 \\
-\log \varphi(x)&=\frac{\varphi'(1)}{\varphi(1)}\log x+c
+\log \varphi(x)&=g'(1)\log x+c
 \\
-\varphi(x)&=Cx^{-\alpha}\qquad\text{mit $\alpha=-\frac{\varphi'(1)}{\varphi(1)}$}
+\varphi(x)&=Cx^{-\alpha}\qquad\text{mit $\alpha=-g'(1)$}
 \end{align*}
-Der Exponent $-\alpha$ ist immer negativ da $\varphi'(1)<0$ sein muss.
+Der Exponent $-\alpha$ ist immer negativ, also $\alpha > 0$,
+da $g'(1)<0$ sein muss.
 
 \begin{definition}
 Eine Verteilung mit der Dichtefunktion
