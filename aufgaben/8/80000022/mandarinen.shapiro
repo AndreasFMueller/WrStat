@@ -1,0 +1,6 @@
+> shapiro.test(d)
+
+	Shapiro-Wilk normality test
+
+data:  d
+W = 0.8809, p-value = 2.844e-05
