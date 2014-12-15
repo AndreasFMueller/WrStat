@@ -1,5 +1,5 @@
 W"ahrend eines Spazierganges wurden von einem GPS-Empf"anger die
-Positionsdaten im File \texttt{gps.csv} aufgezeichnet.
+$(x,y)$-Positionsdaten im File \texttt{gps.csv} aufgezeichnet.
 In einer fr"uhren Messung wurde ermittelt, dass der mittlere Positionsfehler
 des GPS-Empf"angers bei ca 3m liegt.
 Ermitteln Sie zu jedem Zeitpunkt die bestm"ogliche Sch"atzung 
@@ -18,10 +18,17 @@ den Positionsdaten zu filtern. Dazu muss zun"achst ein Modell formuliert
 werden. Ein Spaziergang spielt sich mit mehr oder weniger konstanter
 Geschwindigkeit ab, das Modell darf also annehmen, dass die Geschwindigkeit
 konstant ist. Als Zustandsvariablen f"ur das Modell kann man also die
-Position $s_k$ und die Geschwindigkeit $v_k$ in einem Vektor kombinieren.
+zweidimensionalen Positionen und die zweidimensionalen Geschwindigkeit
+in einem vierdimensionalen Vektor kombinieren.
 Die Zeitentwicklung kann durch die Matrix
 \begin{equation}
-x_{k+1}=\varphi x_k=\begin{pmatrix}1&\Delta t\\0&1\end{pmatrix}
+x_{k+1}=\varphi x_k=
+\begin{pmatrix}
+1&\Delta t & 0 & 0       \\
+0&    1    & 0 & 0       \\
+0&    0    & 1 & \Delta t\\
+0&    0    & 0 & 1
+\end{pmatrix}
 \end{equation}
 beschrieben werden. Die Systemfehler beschreiben das Ausmass, in
 welchem die tats"achliche Zeitentwicklung von der modellierten
@@ -42,12 +49,17 @@ als
 \[
 Q=
 \begin{pmatrix}
-\sigma_1^2&0\\0&\sigma_2^2
+\sigma_1^2&0&0&0\\
+0&\sigma_2^2&0&0\\
+0&0&\sigma_1^2&0\\
+0&0&0&\sigma_2^2
 \end{pmatrix}
 =
 \begin{pmatrix}
-1\text{m}^2&0\\
-0&1\left(\frac{\text{m}}{\text{s}}\right)^2
+1\text{m}^2&0&0&0\\
+0&1\left(\frac{\text{m}}{\text{s}}\right)^2&0&0\\
+0&0&1\text{m}^2&0\\
+0&0&0&1\left(\frac{\text{m}}{\text{s}}\right)^2
 \end{pmatrix}
 \]
 Die Werte in der Matrix $Q$ sind naturgem"ass etwas unsicher, sie k"onnen
@@ -55,11 +67,18 @@ sp"ater dazu benutzt werden, den Filter zu tunen.
 
 Der GPS-Empf"anger liefert nur die Position, also ist die Messmatrix
 \[
-H=\begin{pmatrix}1&0\end{pmatrix}.
+H=
+\begin{pmatrix}
+1&0&0&0\\
+0&0&1&0
+\end{pmatrix}.
 \]
 Die Messfehler sind ebenfalls bekannt, die $R$-Matrix ist
 \[
-R=\begin{pmatrix}\varrho^2\end{pmatrix}.
+R=\begin{pmatrix}
+\varrho^2&0\\
+0&\varrho^2
+\end{pmatrix}.
 \]
 Damit ist der Messprozess vollst"andig beschrieben.
 
@@ -86,7 +105,17 @@ Die Berechnung der inversen Matrix in der Formel f"ur $K_{k+1}$ ist
 unproblematisch, da es sich bei $HP_{k+1|k}H^t$ um eine $1\times 1$-Matrix
 handelt.
 Diesen Kalman-Filter kann man sehr einfach in Octave implementieren:
-\verbatiminput{90000004/k.m}
+{\small
+\verbatimainput{kalman.m.expand}
+}
+\begin{figure}
+\includeagraphics[width=\hsize]{positions.pdf}
+\caption{Gefilterte Positionen}
+\end{figure}
+\begin{figure}
+\includeagraphics[width=\hsize]{velocities.pdf}
+\caption{Gefilterte Geschwindigkeiten}
+\end{figure}
 \end{loesung}
 
 

@@ -12,7 +12,7 @@ Die Laufzeit der Messfunktion ist eine Zufallsvariable $\Delta$.
 Wir d"urfen annehmen, dass $\Delta$ normalverteilt mit Erwartungswert
 $\delta$ und Varianz $\sigma^2=\sigma_0^2$ ist. Die tats"achliche Laufzeit $X_i$ eines
 Durchgangs durch die Messschleife ist daher ebenfalls normalverteilt
-mit Erwartungswert $\mu_0=60\,[s]$ und Varianz $\sigma_0^2=3\,[s^2]$.
+mit Erwartungswert $\mu_0=60\,[s]$ und Varianz $\sigma_0^2=9\,[s^2]$.
 Die Gesamtzeit $X$ f"ur
 $n$ Schleifendurchl"aufe ist daher
 \[
@@ -29,7 +29,7 @@ ist $P(X > 86400) = 1-P(X\le 86400)$.
 Durch Standardisierung finden wir
 \[
 P(X\le 86400)=P\biggl(
-\frac{X-n\mu_0}{\sqrt{n\sigma}}\le \frac{86400-n\mu_0}{\sqrt{n\sigma_0^2}}
+\frac{X-n\mu_0}{\sqrt{n}\sigma}\le \frac{86400-n\mu_0}{\sqrt{n\sigma_0^2}}
 \biggr)
 =P\biggl(
 Z\le\frac{(1440-n)\cdot 60}{\sqrt{n}\sigma_0}
