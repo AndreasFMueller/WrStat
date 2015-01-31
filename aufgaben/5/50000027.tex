@@ -1,0 +1,100 @@
+Eine Zufallsvariable $X$ ist auf dem Intervall $[0,1]$ so verteilt, dass die
+Wahrscheinlichkeitsdichte
+\[
+\varphi_X(x)=\begin{cases}
+0&\qquad x < 0\\
+ax^{18}&\qquad 0\le x \le 1\\
+0&\qquad x > 1\\
+\end{cases}
+\]
+ist.
+\begin{teilaufgaben}
+\item Wie gross ist $a$?
+\item Welchen Wert hat der Median von $X$?
+\item Bestimmen Sie $E(X)$ und $\operatorname{var}(X)$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Zun"achst muss $a$ so gew"ahlt werden, dass tats"achlich eine
+Wahrscheinlichkeitsdichte vorliegt. Dazu muss gelten
+\begin{align*}
+1
+&=
+\int_{-\infty}^{\infty} \varphi(x)\,dx
+=
+\int_0^1 ax^{18}\,dx
+=
+\left[
+\frac{a}{19}x^{19}
+\right]_0^1
+=\frac{a}{19}
+\\
+\Rightarrow \qquad a&= 19.
+\end{align*}
+\item
+Zur Bestimmung des Medians m"ussen wir dasjenige $x$ finden, f"ur das 
+$F(x)=0.5$ ist. Dazu berechnen wir
+\begin{align*}
+\frac12
+&=
+F(x)
+=
+\int_{-\infty}^x \varphi(\xi)\,d\xi
+=
+\int_{-\infty}^x 19\xi^{18}\,d\xi
+=
+\left[
+\frac{19}{19}\xi^{19}
+\right]_0^x
+=x^{19}
+\\
+\frac12&=x^{20}\\
+x&=0.965936
+\end{align*}
+\item
+F"ur den Erwartungswert und die Varianz berechnen wir
+\begin{align*}
+E(X)
+&=
+\int_{-\infty}^\infty x\varphi(x)\,dx
+=
+\int_0^1x\cdot 19x^{18}\,dx
+=
+\left[
+\frac{19}{20}x^{20}
+\right]_0^1
+=\frac{19}{20}=0.95
+\\
+E(X^2)
+&=
+\int_{-\infty}^\infty x^2\varphi(x)\,dx
+=
+\int_0^1x^2\cdot 19x^{18}\,dx
+=
+\left[
+\frac{19}{21}x^{21}
+\right]_0^1
+=\frac{19}{21}
+\simeq 0.904761
+\\
+\operatorname{var}(X)
+&=
+E(X^2)-E(X)^2
+=
+\frac{19}{21}-\biggl(\frac{19}{20}\biggr)^2
+=
+\frac{19}{8400}=0.0022619.
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Bestimmung von $a$ ({\bf A}) 1 Punkt,
+L"osungsweg zur Berechnung des Medians ({\bf D}) 1 Punkt,
+Medianwert ({\bf M}) 1 Punkt,
+Werte f"ur $E(X)$ ({\bf E}),
+$E(X^2)$  ({\bf 2}) und $\operatorname{var}(X)$ ({\bf V}) je ein Punkt.
+\end{bewertung}
+
