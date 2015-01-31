@@ -1,0 +1,152 @@
+Ein bekanntes Spielsystem im Roulette ist die Verdoppelung: man beginnt
+mit dem Minimaleinsatz auf Rot, und solange man verliert,
+was mit Wahrscheinlichkeit $p=\frac{19}{37}$ passiert,
+verdoppelt man den Einsatz.
+So holt man dann das verlorene Geld wieder zur"uck,
+wenn der Gewinn endlich eintritt, wobei der
+doppelte Einsatz ausbezahlt wird.
+Die Casinos begegnen dieser Strategie mit der Limitierung der Eins"atze.
+Ausserdem ist das Verfahren ziemlich langwierig,
+denn man kann jedesmal nur den Minimaleinsatz gewinnen.
+
+Ein Spieler m"ochte das Verfahren etwas beschleunigen, und verdreifacht
+den Einsatz jedesmal, wenn er verliert. So macht er seine Verluste mehr
+als wett, sollte also schneller zu Geld kommen. Da er so auch schneller
+den Maximaleinsatz erreicht, muss er aber auch h"aufiger damit rechnen,
+den gesamten Einsatz zu verlieren.
+Nehmen Sie an, dass der Maximaleinsatz das Zehnfache des Minimaleinsatzes ist.
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, dass der Spieler seine Strategie
+bis zu einem Gewinn durchziehen kann?
+\item
+Mit welchem mittleren Gewinn kann der Spieler rechnen?
+\item
+Ist diese Strategie besser oder schlechter als die klassische
+Verdoppelungsstrategie?
+\end{teilaufgaben}
+
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Der Spieler kann seine Strategie wegen des Maximaleinsatzes maximal 
+"uber drei Runden durchziehen. Wenn er in der dritten Runde nicht gewinnt,
+hat er seinen Einsatz verloren.
+Die Wahrscheinlichkeit nichts zu gewinnen, ist die Wahrscheinlichkeit,
+dreimal hintereinander zu verlieren, also $p^3$.
+Die Wahrscheinlichkeit zu gewinnen, ist also $1-p^3=0.86459$.
+\item
+Es gibt vier Szenarien: entweder
+gewinnt er in Runde 1, 2 oder 3, oder er verliert alles.
+Die Wahrscheinlichkeiten daf"ur und die m"oglichen Gewinne sind in 
+der folgenden Tabelle zusammengestellt
+\begin{center}
+\begin{tabular}{|l|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|}
+\hline
+Szenario         &\text{Wahrscheinlichkeit}&\text{Aufwand}&\text{Ertrag}&\text{Gewinn}\\
+\hline
+Gewinn in Runde 1& (1-p)            &1      &2     &1\\
+Gewinn in Runde 2& p(1-p)           &1+3    &6     &2\\
+Gewinn in Runde 3& p^2(1-p)         &1+3+9  &18    &5\\
+Verlust          & p^3              &1+3+9  &0     &-13\\
+\hline
+\end{tabular}
+\end{center}
+Zur Kontrolle k"onnen wir nachrechnen, dass sich die Wahrscheinlichkeiten
+aller vier Szenarien tats"achlich  zu $1$ summieren:
+\[
+(1-p) + p(1-p) + p^2(1-p) + p^3
+=
+1-p + p - p^2 +p^2 - p^3 + p^3 = 1.
+\]
+Der Erwartungswert f"ur den Gewinn ist also
+\begin{align*}
+E(G)
+&=
+(1-p) + 2 p(1-p) + 5p^2(1-p)-13p^3
+=
+1-p+2p -2p^2+5p^2-5p^3-13p^3
+\\
+&=
+1+p+3p^2-18p^3
+=
+f(p)
+\end{align*}
+Setzt man darin den Wert $p=\frac{19}{37}$ ein, erh"alt man
+\[
+E(G)=f\biggl(\frac{19}{37}\biggr)
+=
+-\frac{6727}{50653}
+=
+-0.13281.
+\]
+Im Mittel verliert der Spieler also, wof"ur nat"urlich die niedrige
+Einsatzlimite verantwortlich ist.
+\item
+Wir m"ussen dieselbe Rechnung f"ur die Verdoppelungsstrategie durchf"uhren.
+Diese gestattet uns aber, eine Runde l"anger im Spiel zu bleiben.
+Wir erhalten:
+\begin{center}
+\begin{tabular}{|l|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|}
+\hline
+Szenario&\text{Wahrscheinlichkeit}&\text{Aufwand}&\text{Ertrag}&\text{Gewinn}\\
+\hline
+Gewinn in Runde 1& (1-p)          &1      &2     &1\\
+Gewinn in Runde 2& p(1-p)         &1+2    &4     &1\\
+Gewinn in Runde 3& p^2(1-p)       &1+2+4  &8     &1\\
+Gewinn in Runde 4& p^3(1-p)       &1+2+4+8&16    &1\\
+Verlust          & p^4            &1+2+4+8&0     &-16\\
+\hline
+\end{tabular}
+\end{center}
+Der erwartete Gewinn ist daher
+\[
+E(G)
+=
+(1-p)
++p(1-p)
++p^2(1-p)
++p^3(1-p)
+-16p^4
+=1-17p^4
+=
+-\frac{341296}{1874161}=-0.18211.
+\]
+Die neue Strategie ist also etwas weniger verlustreich, aber nicht
+viel besser.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Teilaufgabe a) ({\bf A}) 1 Punkt,
+Zerlegung in 4 Szenarien ({\bf S}) 1 Punkt,
+Wahrscheinlichkeiten ({\bf W}) 1 Punkt,
+Ertr"age/Gewinne f"ur die verschiedenen Szenarion ({\bf G}) 1 Punkt,
+erwarteter Gewinn ({\bf E}) 1 Punkt,
+erwarteter Gewinn f"ur die Verdoppelungsstrategie ({\bf V}) 1 Punkt,
+\end{bewertung}
+
+\begin{diskussion}
+Man kann die Gewinnerwartung bei der Verdoppelungsstrategie bei limitierten
+Eins"atzen explizit ausrechnen. Wenn die Verdoppelungsstrategie "uber
+maximal $n$ Runden gespielt werden kann, dann ist der erwartete Gewinn
+\begin{align*}
+E(G)
+&=
+(1-p) + p(1-p) + \dots + p^{n-1}(1-p) - 2^np^n
+=1-(2^n+1)p^n
+=1-(2p)^n-p^n.
+\end{align*}
+Darin kann der letzte Term vernachl"assigt werden, da er wegen $p<1$
+gegen $0$ strebt.
+Der zweitletzte Term dagegen strebt gegen $-\infty$, denn 
+\[
+2p=2\frac{19}{37}=\frac{38}{37}>1.
+\]
+Die Verdoppelungsstrategie ist also in real existierenden Casinos ruin"os,
+je l"anger man die Strategie spielen kann, desto gr"osser wird der zu
+erwartende Verlust, ja er w"achst sogar exponentiell mit der Limite an.
+Ein Spielkasino ist also nicht grossz"ugig, wenn es eine hohe Limite erlaubt,
+sondern gierig.
+\end{diskussion}
