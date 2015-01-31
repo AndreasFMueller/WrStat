@@ -1,0 +1,120 @@
+Im deutschen Sprachraum ist im Weinbau das Mass ``Oechslegrad'', auch
+$\mathstrut^\circ\text{Oe}$,
+f"ur die
+Angabe des Zuckergehaltes von Traubensaft "ublich. Je mehr 
+$\mathstrut^\circ\text{Oe}$
+ein Traubensaft hat, desto gr"osser ist der Gehalt an Zucker, und desto
+gr"osser kann der Alkoholgehalt des fertigen Weines werden.
+
+Der Zusammenhang zwischen Oechslegraden und Zuckergehalt in Volumen-Prozenten
+ist linear. Doch Juristen und Gesetzgeber scheinen selbst von so einer einfachen
+Formel "uberfordert, denn in der deutschen Weinverordnung von 1995 steht
+in Paragraph 17: 
+\begin{quote}
+Die Ermittlung des nat"urlichen Alkoholgehalts in Volumenprozent (\%vol)
+aus den Oechslegraden (Grad Oe) erfolgt nach der in der Anlage 8
+aufgef"uhrten Tabelle. F"ur andere Umrechnungen ist die Tabelle nicht
+anzuwenden.
+\end{quote}
+Es folgt dann eine umfangreiche
+Tabelle, die den Alkoholgehalt f"ur jeden Oechslegrad von 40 bis
+150 angibt. Dies ist umso ungl"ucklicher, als schon viel h"ohere
+Werte gemessen wurden, im Rekordsommer 2003 zum Beispiel $331^\circ\text{Oe}$.
+Es gibt also keine gesetzteskonforme Zuckergehaltangabe f"ur diesen Saft.
+Wenn man die Werte der Tabelle plottet, scheinen
+sie relativ stark um die erwartete Gerade zu streuen. Finden Sie die
+urspr"ungliche Gerade m"oglichst genau aus den unten ausgew"ahlten
+Datenpunkten.
+\begin{center}
+\begin{tabular}{|r|r|}
+\hline
+$\mathstrut^\circ$Oe&\%vol\\
+\hline
+ 40& 4.4\\
+ 80&10.6\\
+120&16.9\\
+150&21.5\\
+\hline
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item
+Wieviele Oechslegrade hat ein Traubensaft mit 15 Volumenprozent Zuckergehalt?
+\item
+Was m"usste bei einem Wert von $160^\circ\text{Oe}$ f"ur ein Zuckergehalt 
+herauskommen?
+\item 
+Welchen Zuckergehalt hat der im Text genannte Saft aus dem Rekordsommer 2003?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir bezeichnen die Oechslegrad-Werte mit $x$ und den Alkoholgehalt in
+Volumenprozent mit $y$.
+Die optimal passende Gerade kann mit linearer Regression gefunden werden.
+Dazu berechnen wir die Summen der Werte, Quadrate und Produkte der Zahlen
+aus der Tabelle
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+i     &x_i& y_i&x_i^2& y_i^2&x_iy_i\\
+\hline
+1     & 40& 4.4& 1600& 19.36&   176\\
+2     & 80&10.6& 6400&112.36&   848\\
+3     &120&16.9&14400&285.61&  2028\\
+4     &150&21.5&22500&462.25&  3225\\
+\hline
+\Sigma&390&53.4&44900&879.58&  6277\\
+\hline
+\end{tabular}
+\end{center}
+Mit den Formeln f"ur die lineare Regression k"onnen jetzt die Koeffizienten
+f"ur den linearen Zusammenhang zwischen $x$ und $y$ gefunden werden.
+\begin{align*}
+a
+&=
+\frac{4\cdot 6277 - 390 \cdot 53.4}{4\cdot 44900 - 390^2}
+=
+\frac{4282}{27500}
+\simeq
+0.1557090909
+\\
+b
+&= \frac{53.4}{4} - a\frac{390}{4}
+=
+13.35 -a \cdot 37.5
+\simeq
+-1.831636363
+\end{align*}
+Wir finden daher die urspr"ungliche Umrechnungsformel
+\[
+y=0.1557090909x-1.831636363
+\]
+Damit k"onnen jetzt die Urspr"unglichen Fragen beantwortet werden:
+\begin{teilaufgaben}
+\item 
+Ein Saft mit 15 Volumenprozent Zuckergehalt hat $108.1^\circ\text{Oe}$.
+\item 
+$160^\circ\text{Oe}$ enspricht ein Zuckergehalt von 23.08 Volumenprozent.
+\item 
+$331^\circ\text{Oe}$ enspricht ein Zuckergehalt von 49.71 Volumenprozent.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Es ist interessant, dass weder das Gesetz noch die zugeh"orige Verordnung
+die im Vergleich zur Masszahlumrechnung viel schwierigere Frage "uberhaupt
+tangiert, wie der Zuckergehalt gemessen werden muss.
+Immerhin k"onnte zum Beispiel die Temperatur einen merklichen Einfluss
+auf solche Messungen haben.
+\end{diskussion}
+
+\begin{bewertung}
+Lineare Regression ({\bf L}) 1 Punkt,
+Berechnung der Steigung $a$ ({\bf S}) 1 Punkt,
+Berechnung des Abschnittes $b$ ({\bf I}) 1 Punkt,
+L"osung f"ur die Teilaufgaben
+a) ({\bf A}),
+b) ({\bf B}) und
+c) ({\bf C}) je 1 Punkt.
+\end{bewertung}
+
