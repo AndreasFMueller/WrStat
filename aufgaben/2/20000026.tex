@@ -1,0 +1,88 @@
+%
+% based on http://www.askamathematician.com/2011/10/q-what-is-bayes-rule-and-how-do-i-use-it-in-daily-life/
+%
+Jemand klagt "uber einen Husten, der einfach nicht weggehen will.
+Er k"onnte verursacht sein durch eine allergische Reaktion oder durch
+eine Bronchitis. Er nimmt ein anti-allergisches Medikament und
+nach einer Stunde ist der Husten weg. Er vermutet daher, das es tats"achlich
+eine allergische Reaktion war.
+
+Solche Medikamente sind recht wirkungsvoll, in einem von drei F"allen
+verschwindet ein allergischer Husten nach der Einnahme des Medikamentes.
+W"are der Husten durch eine Bronchitis bedingt, w"urde das (wahrscheinlich
+vor allem Dank des Placebo-Effektes) nur in einem von 10 F"allen passieren.
+Andererseits ist Bronchitis die etwa f"unf mal h"aufigere Ursache f"ur
+Husten.
+
+Was ist wahrscheinlicher: dass der Husten durch eine Allergie verursacht
+war oder dass eine Bronchitis im Spiel war?
+
+\begin{loesung}
+Wir verwenden folgende Ereignisse
+\begin{align*}
+A&=\{\text{Husten ist durch eine Allergie verursacht}\}
+\\
+B&=\{\text{Husten ist durch eine Bronchitis verursacht}\}
+\\
+M&=\{\text{Husten verschwindet nach Medikamenteinnahme}\}
+\end{align*}
+Wir kennen folgende Wahrscheinlichkeiten:
+\begin{align*}
+P(M|A)&=0.33333\\
+P(M|B)&=0.1\\
+P(B)&=5P(A)&P(A)+P(B)&=1\\
+\Rightarrow\quad P(A)&=\frac16&P(B)=&\frac56
+\end{align*}
+Gefragt wird jetzt nach den Wahrscheinlichkeiten $P(A|M)$ und $P(B|M)$.
+Nach dem Satz von Bayes gilt
+\[
+P(A|M)=\frac{P(A)}{P(M)}P(M|A)
+\]
+Wir brauchen also $P(M)$, dies k"onnen wir aber mit dem Satz
+"uber die totale Wahrscheinlichkeit ausrechnen:
+\[
+P(M)
+=
+P(M|A)P(A)+P(M|B)P(B)
+=
+\frac13\cdot\frac16+\frac1{10}\cdot\frac56
+=
+\frac1{18}+\frac1{12}=\frac{5}{36}
+=
+0.1388888
+\]
+Damit k"onnen wir jetzt die gesuchte Wahrscheinlichkeit ausrechnen
+\[
+P(A|M)
+=
+\frac{P(A)}{P(M)}P(M|A)
+=
+\frac{1/6}{0.138888}\frac13
+=
+0.4
+\]
+Andererseits ist nat"urlich
+\[
+P(B|M)
+=
+\frac{P(B)}{P(M)}P(M|B)
+=
+\frac{5/6}{0.138888}\frac1{10}
+=
+0.6,
+\]
+d.~h.~es ist wahrscheinlicher, dass der Husten durch eine Bronchitis
+verursacht war.
+\end{loesung}
+
+
+\begin{bewertung}
+Wahl zweckm"assiger Ereignisse ({\bf E}) 1 Punkt,
+Identifikation der gegeben Wahrscheinlichkeiten ({\bf I}) 1 Punkt,
+Berechnung von $P(A)$ ({\bf A}) 1 Punkt,
+Satz von Bayes ({\bf B}) 1 Punkt,
+Satz von der totalen Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Berechnung von $P(A|M)$ ({\bf W}) 1 Punkt
+\end{bewertung}
+
+
