@@ -1,0 +1,60 @@
+Zwei Mathematiker beginnen beim Skifahren eine Diskussion dar"uber, 
+wer von den beiden der schnellere Fahrer sei.
+Nat"urlich k"onnten Sie einfach an einem Rennen teilnehmen, doch
+als Mathematiker sind sie sich der Tatsache bewusst, dass eine
+Einzelmessung immer mit Fehlern behaftet ist, und dass es daher
+zu einer reinen Zufallsentscheidung kommen k"onnte. Sie einigen sich daher
+auf folgendes Protokoll. Jeder f"ahrt einen vorgegebenen Parcours
+drei Mal, w"ahrend ihn der andere mit der Handykamera filmt.
+Danach werden die Filme ausgewertet, um die Zeit f"ur den Parcours
+zu ermitteln. Sie messen folgende Fahrzeiten:
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+        &Fahrer A&Fahrer B\\
+\hline
+1.~Fahrt&  31.6  &  32.5  \\
+2.~Fahrt&  27.8  &  32.9  \\
+3.~Fahrt&  31.9  &  31.3  \\
+\hline
+\end{tabular}
+\end{center}
+Offenbar war das knapp: in den beiden ersten Fahrten ist Fahrer A schneller,
+in der letzten aber Fahrer B.
+Welcher Fahrer ist besser?
+
+\begin{loesung}
+Wir machen einen $t$-Test f"ur die Mittelwerte.
+Die Nullhypothese lautet
+\begin{quote}
+Die beiden Fahrer haben normalverteilte Fahrzeiten mit gleichem
+Mittelwert und gleicher Varianz.
+\end{quote}
+Der kritische Wert f"ur $3+3-2=4$ Freiheitsgrade und $\alpha=5\%$
+ist $t_{\text{krit}}=2.1318$.
+Die Berechnung von Mittelwert und Varianz sowie der Teststatistik $T$
+liefert
+\begin{align*}
+\mu_A&=30.43
+&
+\mu_B&=32.23
+\\
+\sigma_A&=2.29
+&
+\sigma_B&=0.83
+\\
+T&=-1.77
+\end{align*}
+Dies ist betragsm"assig kleiner als der kritische Wert,
+man kann also nicht sagen, dass einer der Skifahrer schneller sei.
+\end{loesung}
+
+\begin{bewertung}
+$t$-Test ({\bf T}) 1 Punkt,
+Nullhypothese ({\bf N}) 1 Punkt,
+Berechnung des $t$-Wertes ({\bf T}) 1 Punkt,
+Anzahl Freiheitsgrade ({\bf F}) 1 Punkt,
+Wahl von $\alpha$ und Bestimmung des kritischen $t$-Wertes ({\bf A}),
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+
