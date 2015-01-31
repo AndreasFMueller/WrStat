@@ -1,0 +1,107 @@
+In Europa sind 9\% der M"anner farbenfehlsichtig (``farbenblind'').
+Bei Frauen ist diese erblich bedingte Sehschw"ache sehr viel seltener,
+nur 0.8\% der Frauen sind farbenfehlsichtig.
+\begin{teilaufgaben}
+\item
+F"ur die Pr"ufung WrStat sind 91 M"anner angemeldet.
+Wie gross ist die Wahrscheinlichkeit, dass kein Pr"ufungsteilnehmer
+farbenfehlsichtig ist?
+\item
+An der HSR studierten im Jahre 2013 1291
+M"anner\footnote{Zahlen aus dem Jahresbericht 2013 der HSR},
+Wie gross ist die Wahrscheinlichkeit, dass h"ochstens 100 davon
+farbenfehlsichtig sind?
+\item 
+An der HSR studierten im Jahre 2013 217 Frauen. Wie gross ist die
+Wahrscheinlichkeit, unter ihnen mehr als drei farbenfehlsichtige
+zu finden?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Wahrscheinlichkeit, nicht farbenfehlsichtig zu sein ist $0.91$, die
+Wahrscheinlichkeit, dass 91 Kandidaten alle nicht farbenfehlsichtig sind
+ist $0.91^{91}=0.000187399$.
+\item
+Die Anzahl $X$ der farbenfehlsichtigen ist binomialverteilt mit $n=1291$ und
+$p=0.09$. Wir erwarten also etwa $np=116.19$ farbenfehlsichtige M"anner,
+Farbenfehlsichigkeit ist also nicht selten. Um $P(X\le 100)$ zu
+berechnen, approximieren wir die Binomialverteilung mit einer Normalverteilung
+mit $\mu=np=116.19$ und $\sigma=\sqrt{np(1-p)}=10.28265$.
+\begin{align*}
+P(X\le 100)
+&=
+P\biggl(
+\frac{X-\mu}{\sigma}\le \frac{100-\mu}{\sigma}
+\biggr)
+=
+P\biggl(
+\frac{X-\mu}{\sigma}\le -1.5745
+\biggr)
+=
+1-F(1.5745)
+=
+0.0576744
+\end{align*}
+Die Wahrscheinlichkeit, h"ochstens 100 farbenfehlsichtige M"anner unter
+der m"annlichen Studentenschaft zu finden, ist also nur 5.8\%, ist sind
+also fast sicher mehr als 100 m"annliche Studenten an der HSR
+farbenfehlsichtig.
+\item
+Die Anzahl $X$ der farbenfehlsichtigen Frauen ist ebenfalls binomialverteilt
+mit $n=217$ und $p=0.008$. Wir erwarten also $np=1.73$ farbenfehlsichtige
+Frauen. Offenbar ist Farbenfehlsichtigkeit unter Frauen selten, und wir
+k"onnen als Approximation der Anzahlverteilung eine Poissonverteilung mit
+$\lambda = np$ verwenden.
+Die Wahrscheinlichkeit, h"ochstens drei farbfehlsichtige Frauen zu finden
+ist
+\begin{align*}
+P(X\le 3)&=\sum_{k=0}^3 e^{-\lambda}\frac{\lambda^k}{k!}=
+e^{-\lambda}\biggl(
+1+\lambda +\frac{\lambda^2}{2}+\frac{\lambda^3}{6}
+\biggr)
+=
+0.9013518
+\\
+P(X>3)&=1-P(X\le 3)=
+0.0986481
+\end{align*}
+Mit 90\%-iger Wahrscheinlichkeit gibt es also nicht mehr als drei
+farbenfehlsichtige Frauen unter der weblichen Studentenschaft
+der HSR im Jahre 2013.
+
+Alternativ k"onnte man die Wahrscheinlichkeit auch direkt mit der 
+Binomialverteilung ausrechnen:
+\begin{align*}
+P(X\le 3)
+&=
+\sum_{k=0}3\binom{217}{k}p^k(1-p)^{217-k}=0.9021338
+\\
+P(X>3)&=1-P(X\le 3)=0.0978662.
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Teilaufgabe a) ({\bf A}) 1 Punkt,
+Teilaufgabe b) Normalapproximation:
+Parameter $\mu$ und $\sigma$ ({\bf P}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Berechnung der Wahrscheinlichkeit ({\bf W}) 1 Punkt,
+Teilaufgabe c) Approximation mit Poisson: Parameter $\lambda$ ({\bf L}) 1 Punkt,
+Berechnung der Wahrscheinlichkeit (Summe) ({\bf P}) 1 Punkt.
+\end{bewertung}
+
+\begin{diskussion}
+In Teilaufgabe a) wird nur ein ein einzelner Term der Summe der
+Binomialverteilung ausgewertet, daf"ur ist die Normalapproximation viel
+zu ungenau.
+In Teilaufgabe b) kann man nicht die Poisson-Verteilung benutzen, denn
+man interessiert sich f"ur eine Approximatino mit vielen Termen in der
+N"ahe des Erwartungswertes, die Poisson-Reihe hat genau gleich viele
+Terme wie die Binomial-Summe.
+In Teilaufgabe c) kann man nicht die Normalapproximation benutzen, weil
+man sich f"ur Wahrscheinlichkeiten ganz am Rand des Definitionsbereiches
+interessiert.
+\end{diskussion}
