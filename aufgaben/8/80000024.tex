@@ -1,0 +1,70 @@
+Ein W"urfelhersteller m"ochte einen neuen 32er-W"urfel auf den Markt
+bringen.
+Die Form dazu hat er sich bei einem Hersteller von ``Globen'' abgeschaut: 
+\begin{center}
+\includeagraphics[width=0.5\hsize]{globus.jpg}
+\end{center}
+Diese Geschenkartikel werden aus acht Kartonteilen zusammengesteckt, es
+entsteht eine Approximation einer Kugel, mit insgesamt 32 Fl"achen.
+F"ur einen ersten Test z"ahlt er beim ``w"urfeln'' nur, in welcher Zone
+der W"urfel landet: Nordpolarregion, Tropen n"ordlich des "Aquators,
+Tropen s"udlich des "Aquators, S"udpolarregion.
+Dabei erh"alt der die folgenden Daten:
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+Zone       &Anzahl\\
+\hline
+Nordpol    & 10\\
+Tropen nord& 20\\
+Tropen s"ud& 14\\
+S"udpol    & 6\\
+\hline
+\end{tabular}
+\end{center}
+Soll er das Projekt weiter verfolgen?
+
+
+\begin{loesung}
+Wenn das Projekt Erfolg haben soll, m"ussen die vier Zonen gleich h"aufig
+vorkommen, wir f"uhren daher einen $\chi^2$-Test auf Gleichverteilung
+durch.
+Die Nullhypothese ist
+\begin{quote}
+Alle Zonen sind gleich wahrscheinlich.
+\end{quote}
+Dazu berechnen wir die Diskrepanz:
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Zone       & $n_i$ & $p_i$ & $np_i$ & $(n_i-np_i)^2/np_i$ \\
+\hline
+Nordpol    &  10   & 0.25  & 12.5   & 0.50 \\
+Tropen nord&  20   & 0.25  & 12.5   & 4.50 \\
+Tropen s"ud&  14   & 0.25  & 12.5   & 0.18 \\
+S"udpol    &   6   & 0.25  & 12.5   & 3.38 \\
+\hline
+           &$n=50$ &       &        & 8.56 \\
+\hline
+\end{tabular}
+\end{center}
+Wir erhalten also als Diskrepanz $D=8.56$.
+F"ur $\alpha$ w"ahlen wir den Wert $\alpha=5\%$.
+Der kritische Wert f"ur $\chi^2$ f"ur 3 Freiheitsgrade ist 
+$D_{\text{krit}}=7.815$, wird also von der gefundenen Diskrepanz
+"uberschritten.
+Die Nullhypothese muss also verworfen werden, auf der Basis dieser
+Form ist nicht damit zu rechnen, dass man einen fairen W"urfel
+erhalten wird, das Projekt hat wenig Aussicht auf Erfolg.
+\end{loesung}
+
+\begin{bewertung}
+$\chi^2$-Test ({\bf X}) 1 Punkt,
+Nullhypothese ({\bf N}) 1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Korrekte Zahl der Freiheitsgrade und Bestimmung der kritische Diskrepanz
+({\bf K}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+
