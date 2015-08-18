@@ -1,0 +1,60 @@
+Im Sommer verschenkte Coop in einer Aktion Rubbelkarten, mit denen
+man Zutaten f"ur Grilliaden gewinnen konnte.
+Jede Karte enthielt vier Rubbelfelder, drei mit einer Grillflamme,
+eine mit einem traurigen Smiley (Bild mitte).
+Der Teilnehmer muss drei Felder freirubbeln, wenn dabei nur die Grillflammen
+erscheinen, gewinnt er (Bild rechts).
+\begin{center}
+\includeagraphics[width=\hsize]{gratta.jpg}
+\end{center}
+In einem Coop-Laden werden die Karten freiz"ugig verschenkt, und ein Kunde
+nimmt einen ganzen Stapel von 100 Karten mit, in der Hoffnung so die Zutaten
+f"ur ein ganze Grillparty zu gewinnen.
+
+\begin{teilaufgaben}
+\item Wie gross ist die Wahrscheinlichkeit, in einem einzelnen Rubbelspiel zu
+gewinnen?
+\item Wie gross ist die Wahrscheinlichkeit, dass der Kunde mit seinem 
+Kartenstapel mindestens  30 Gewinne erzielt?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Der Spieler muss sich entscheiden, welches Feld er {\em nicht} freirubbeln will.
+Mit Wahrscheinlichkeit $\frac14$ w"ahlt er dabei den traurigen Smiley,
+er gewinnt also mit Wahrscheinlichkeit $p=\frac14$.
+\item
+Die Anzahl der Gewinne ist binomialverteilt mit Parametern $n=100$ und
+$p=\frac14$.
+Wir m"ussen die Wahrscheinlichkeit ausrechnen, dass die Anzahl $K$ der
+Gewinne $\ge 30$ ist. 
+Wir verwenden dazu die Normalapproximation der Binomialverteilung.
+Wir verwenden die Parameter
+\[
+\begin{aligned}
+\mu&=np = 100\cdot \frac14=25\\
+\sigma^2&=np(1-p)=100\cdot\frac14\cdot\frac34=18.75&&\Rightarrow&\sigma&=4.33
+\end{aligned}
+\]
+Die gesuchte Wahrscheinlichkeit ist
+\begin{align*}
+P(K\ge 30)
+&=1-P(K \le 29)
+\simeq
+1-F\biggl(\frac{29.5-\mu}{\sigma}\biggr)
+=
+1-F\biggl(\frac{29.5-25}{4.33}\biggr)
+\\
+&=
+1-F(1.03923)=1-0.85065=0.1493.
+\end{align*}
+Mit R kann man die Wahrscheinlichkeit f"ur die Binomialverteilung
+auch direkt ausrechnen:
+\[
+P(K\ge 30)
+=1-P(K\le 29)=0.1495,
+\]
+in sehr guter "Ubereinstimmung mit der approximativen Berechnung.
+\end{teilaufgaben}
+\end{loesung}
