@@ -1,0 +1,64 @@
+In einer kleinen Gemeinde waren bei den vorletzten Wahlen die
+Stimmen f"ur die f"unf Parteien wie folgt wie folgt verteilt:
+\begin{center}
+\begin{tabular}{ll|r}
+Partei                   &    &Prozentsatz\\
+\hline
+Extrem linke Partei      &ELP & 10\%\\
+Nicht so linke Partei    &NLP & 25\%\\
+Genau in der Mitte Partei&GIMP& 13\%\\
+Eher rechte Partei       &ERP & 21\%\\
+Total rechte Partei      &TRP & 31\%\\
+\hline
+\end{tabular}
+\end{center}
+Bei den n"achsten Wahlen wurden folgende Stimmen gez"ahlt:
+\begin{center}
+\begin{tabular}{ll|rr}
+Partei                   &    &Stimmen&Anteil\\
+\hline
+Extrem linke Partei      &ELP &  6    & 8.4\%\\
+Nicht so linke Partei    &NLP & 14    &19.7\%\\
+Genau in der Mitte Partei&GIMP&  8    &11.3\%\\
+Eher rechte Partei       &ERP & 18    &25.4\%\\
+Total rechte Partei      &TRP & 25    &35.2\%\\
+\hline
+\end{tabular}
+\end{center}
+Offenbar haben die rechten Parteien dazugewonnen, und die linken
+eher verloren.
+Kann man auf Grund dieser Zahlen von einem Rechtsrutsch sprechen?
+
+\begin{loesung}
+Die erste Tabelle liefert die Wahrscheinlichkeit, dass ein Stimmb"urger
+f"ur eine gewisse Partei stimmt.
+Es wird die Frage gestellt, ob die letzten Wahlen signifikant von dieser
+Wahrscheinlichkeitsverteilung abweichen.
+Tun sie es, kann man tats"achlich davon sprechen, dass unter den
+Stimmb"urgern ein Sinneswandel stattgefunden hat, andernfalls handelt
+es sich um eine zuf"allige Verschiebung.
+Ob die Stimmenzahlen zur Verteilung passen, kann mit einem $\chi^2$-Test
+beantwortet werden.
+Dazu berechnen wir die Diskrepanz:
+\begin{center}
+\begin{tabular}{|l|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+$i$ &p_i & n_i&np_i &n_i-np_i&(n_i-np_i)^2/np_i\\
+\hline
+ELP &0.10&   6& 7.10&   -1.10& 0.170423        \\
+NLP &0.25&  14&17.75&   -3.75& 0.792254        \\
+GIMP&0.13&   8& 9.23&   -1.23& 0.163911        \\
+ERP &0.21&  18&14.91&    3.09& 0.640382        \\
+TRP &0.31&  25&22.01&    2.99& 0.406184        \\
+\hline
+    &    &n=71&     &        &D=2.173151       \\
+\hline
+\end{tabular}
+\end{center}
+F"ur $\alpha=5\%$ liest man aus der Tabelle der $\chi^2$-Verteilung
+f"ur $k=5-1=4$ Freiheitsgrade einen kritischen Wert $D_{\text{krit}}=9.488$
+f"ur die Diskrepanz ab.
+Da $D<D_{\text{krit}}$ folgt, dass es keinen Hinweis darauf gibt, dass
+sich die Wahrscheinlichkeiten seit den vorletzten Wahlen ver"andert haben.
+Von einem Rechtsrutsch kann also keinesfalls die Rede sein.
+\end{loesung}
