@@ -1,0 +1,101 @@
+Flash-Speicherzellen verlieren mit der Zeit die darin gespeicherte Ladung.
+Im Datenblatt des Microcontrollers Atmel ATtiny25 steht:
+\begin{center}
+\includeagraphics[width=\hsize]{retention.pdf}
+\end{center}
+Das bedeutet, dass die
+Wahrscheinlichkeit $10^{-6}$ sei\footnote{Genauer: die Wahrscheinlichkeit
+ist kleinar als $10^{-6}$, f"ur die Zwecke dieser Aufgaben gehen wir vom
+worst case aus, dass also die Wahrscheinlichkeit genau $10^{-6}$ ist.}
+f"ur den Verlust eines Datenbits innerhalb
+von 100 Jahren bei $25^\circ$C.
+\begin{teilaufgaben}
+\item Bestimmen Sie die mittlere Lebensdauer eines Bits.
+\item Nach welcher Zeit ist die H"alfte der Bits verloren gegangen?
+\item Wie gross ist die Wahrscheinlichkeit, dass ein Bit nach 20000
+Jahren verloren gegangen ist?
+\item Wieviele Bits gehen im Mittel in dem 2kByte umfassenden Flash-Speicher
+des ATtiny25 in 20000 Jahren verloren?
+\item Wie gross ist die Wahrscheinlichkeit, dass nach 20000 Jahren
+in dem 2kByte umfassenden Flashspeicher des Chips
+weniger als 3 Bits verloren gegangen sind?
+\end{teilaufgaben}
+
+\begin{hinweis}
+Da die Wahrscheinlichkeiten in dieser Aufgabe sehr klein sind, k"onnen
+in den Formeln f"ur die Verteilungsfunktionen lineare N"aherungen
+verwendet werden.
+\end{hinweis}
+
+\begin{loesung}
+Wir gehen davon aus, dass die Zeit bis zum Zerfall eines Bits 
+exponentialverteilt ist, und m"ussen zun"achst den Parameter $a$
+aus den Angaben der Aufgabe bestimmen.
+
+Die Wahrscheinlichkeit, dass ein Bit nach 100 Jahren verloren gegangen
+ist, ist
+\begin{equation}
+P(T < t) = 10^{-1}=
+1-F(t)=1-e^{-at}
+=at-\frac{a^2t^2}{2!}+\frac{a^3t^3}{3!}-\frac{a^4t^4}{4!}+\dots
+\label{60000034:potenzreihe}
+\end{equation}
+Da die Lebensdauer $1/a$ eines Bits offenbar sehr lang ist, ist $at$
+eine so kleine Zahl, dass man alle auf $at$ folgenden Terme
+in (\ref{60000034:potenzreihe}) vernachl"assigen kann. Es folgt, dass
+\[
+a=\frac{10^{-6}}{100\text{ Jahre}}=10^{-8}\frac{1}{\text{Jahr}}
+\]
+\begin{teilaufgaben}
+\item
+Die mittlere Lebensdauer eines Bits ist daher $1/a=10^8$~Jahre.
+\item
+Die Halbwertszeit ist auch der Median, der in der Vorlesung als
+\[
+\operatorname{med} T=\frac1a\log 2=6.9314\cdot10^{7} \text{ Jahre}
+\]
+bestimmt worden ist (Siehe auch ``Datenblatt'' der Exponentialverteilung).
+\item
+Es ist $P(T\le t)$ mit $t=20000\text{ Jahre}$ zu bestimmen:
+\[
+P(T\le t)
+=
+F(t)
+=
+1-e^{-at}
+=
+at-\frac{a^2t^2}{2!}+\frac{a^3t^3}{3!}-\dots
+\]
+Da $at=10^{-8}\cdot 2\cdot 10^4=2\cdot 10^{-4}$ sehr klein ist, kann man die 
+Terme h"oherer Ordnung vernachl"assigen, und bekommt
+\[
+P(T\le t) \simeq 2\cdot 10^{-4}.
+\]
+\item 
+Das Experiment ``Geht das Bit in 20000 Jahren verloren'' wird
+f"ur alle $2048\cdot 8$ Bits des Flash-Speichers wiederholt, und es
+wird gez"ahlt, wie oft der Fall eingetreten ist.
+Dies ist ein Binomial-Experiment mit $p=2\cdot 10^{-4}$ und $n=16384$.
+Die erwartete Anzahl Ausf"alle ist $np=3.2768$.
+\item
+Ausf"alle von einzelnen Zellen in 20000 sind offenbar seltene Ereignisse,
+die mit der Poissonverteilung modelliert werden k"onnen.
+In der vorangegangenen Teilaufgabe wurde der Erwartungswert der Anzahl
+der Ausf"alle zu $\lambda = 3.2768$ ermittelt, dies ist auch der Parameter
+der Poisson-Verteilung.
+Die Wahrscheinlichkeit f"ur h"ochstens drei ausgefallene Bits ist
+\begin{align*}
+P(k\le 3)&=e^{-\lambda}\sum_{k=0}^3\frac{\lambda^k}{k!}
+\\
+&=e^{-\lambda}\biggl(
+1+\frac{\lambda}{1!}
++
+\frac{\lambda^2}{2!}
++
+\frac{\lambda^3}{3!}
+\biggr)
+=0.5854
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
