@@ -1,0 +1,106 @@
+Betrachten Sie die Wahrscheinlichkeitsdichte mit dem Graphen
+\begin{center}
+\includeagraphics[]{graph-1.pdf}
+\end{center}
+\begin{teilaufgaben}
+\item Finden Sie die Verteilungsfunktion.
+\item Bestimmen Sie Erwartungswert und Varianz einer Zufallsvariable
+mit dieser Verteilung.
+\end{teilaufgaben}
+
+\begin{loesung}
+Die Wahrscheinlichkeitsdichte ist 
+\[
+\varphi(x)=\begin{cases}
+\frac12+\frac14x&\qquad -1\le x\le 1\\
+0&\qquad\text{sonst.}
+\end{cases}
+\]
+\begin{teilaufgaben}
+\item
+\begin{figure}
+\centering
+\includeagraphics[]{graph-2.pdf}
+\caption{Graph der Verteilungsfunktion der Verteilung von
+Aufgabe~\ref{50000028}
+\label{50000028:verteilungsfunktion}}
+\end{figure}
+Die Verteilungsfunktion ist die Stammfunktion von $\varphi$.
+F"ur das Interval zwischen $-1$ und $1$ gilt
+\begin{align*}
+\int_{-1}^x\varphi(\xi)\,d\xi
+&=
+\biggl[\frac12 \xi+\frac18\xi^2\biggr]_{-1}^x
+=
+\frac18x^2+\frac12x+\frac{3}{8}.
+\end{align*}
+Die Verteilungsfunktion ist daher
+\[
+F(x)=\begin{cases}
+0&\qquad x \le -1\\
+\frac18x^2+\frac12x+\frac{3}{8}
+&\qquad -1 < x\le 1\\
+1&\qquad x >1
+\end{cases}
+\]
+Der Graph der Verteilungsfunktion ist in
+Abbildung~\ref{50000028:verteilungsfunktion} dargestellt.
+\item
+\begin{figure}
+\centering
+\includeagraphics[]{graph-3.pdf}
+\caption{Graph der Wahrscheinlichkeitsdichte von Aufgabe~\ref{50000028}
+mit eingezeichnetem Erwartungswert und Standardabweichung
+\label{50000028:varianz}}
+\end{figure}
+Um Erwarungswert und Varianz zu bestimmen, m"ussen wir die Erwartungswerte
+$E(X)$ und $E(X^2)$ berechnen:
+\begin{align*}
+E(X)&=
+\int_{-\infty}^\infty x\varphi(x)\,dx
+=
+\int_{-1}^{1}
+\frac12x+\frac14x^2
+\,dx
+=
+\biggl[
+\frac14x^2+\frac1{12}x^3
+\biggr]_{-1}^{1}
+=\frac1{6},
+\\
+E(X^2)
+&=
+\int_{-\infty}^\infty x^2\varphi(x)\,dx
+=
+\int_{-1}^{1}
+\frac12x^2+\frac14x^3
+\,dx
+=
+\biggl[
+\frac16x^3+\frac1{16}x^4
+\biggr]_{-1}^{1}
+=\frac1{3}.
+\end{align*}
+Daraus kann man jetzt die Varianz ablesen:
+\[
+\operatorname{var}(X) = E(X^2)-E(X)^2=\frac1{3}-\biggl(\frac1{6}\biggr)^2
+=\frac{11}{36}=0.305555.
+\]
+Diese Resultate sind in Abbildung~\ref{50000028:varianz} in den Graphen
+der Wahrscheinlichkeitsdichte eingezeichnet.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item Dichtefunktion ({\bf D}) 1 Punkt,
+Integration ({\bf V}) 1 Punkt,
+\item
+Erwartungswert $E(X)$ ({\bf E}) 1 Punkt,
+Erwartungswert $E(X^2)$ ({\bf E2)} 1 Punkt
+Varianzformel $\operatorname{var}(X)=E(X^2)-E(X)^2$ ({\bf F}) 1 Punkt,
+Varianz $\operatorname{var}(X)$ ({\bf V}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
+
