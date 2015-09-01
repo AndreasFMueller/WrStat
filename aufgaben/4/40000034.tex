@@ -1,0 +1,96 @@
+Je w"armer es ist, desto schneller zirpen die Grillen.
+Folgende Daten wurden erhoben:
+\begin{center}
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}}
+T\text{[$\mathstrut^\circ$C]}&N \text{[Zirpen/15 Sekunden]}\\
+\hline
+%14.44&18\\
+%15.55&20\\
+15&20\\
+%17.77&21\\
+%18.88&23\\
+19&23\\
+%20&27\\
+%21.66&30\\
+22&30\\
+%23.88&34\\
+25&39\\
+\hline
+\end{tabular}
+\end{center}
+Es wird vermutet, dass die Anzahl der Zirplaute pro 15 Sekunden
+linear von der Temperatur abh"angt.
+Finden Sie eine solche Gesetzm"assigkeit und beurteilen Sie ihre Qualit"at.
+
+\begin{loesung}
+Ein lineare Abh"angigkeit kann mit der Methode der linearen Regression
+gefunden werden.
+Dazu m"ussen die Summen der Messwerte und ihrer Produkte berechnet 
+werden:
+\begin{center}
+\begin{tabular}{|>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+     i&t_i&n_i&t_i^2& n_i^2&t_in_i\\
+\hline
+     1& 15& 20&  225&  400&    300\\
+     2& 19& 23&  361&  529&    437\\
+     3& 22& 30&  484&  900&    660\\
+     4& 25& 39&  625& 1521&    975\\
+\hline
+\Sigma& 81&112& 1695& 3350&   2372\\
+\hline
+\end{tabular}
+\end{center}
+Mit diesen Daten kann man jetzt die Koeffizienten des besten linearen
+Zusammenhangs zwischen $T$ und $N$ ermitteln:
+\begin{align*}
+a&=\frac{E(TN)-E(T)E(N)}{E(T^2)-E(T)^2}
+=\frac{\frac14\cdot 2372-\frac14\cdot81\cdot\frac14\cdot112}{\frac14\cdot1695-\frac1{4^2}81^2}
+=\frac{4\cdot 2372-81\cdot 112}{4\cdot 1695-81^2}
+=\frac{416}{219}=1.89954337899
+\\
+b&=E(N)-aE(T)=\frac14\cdot 112 - a \frac14\cdot 81=-10.46575.
+\end{align*}
+Man kommt so auf einen linearen Zusammenhang der Form
+\[
+N=1.8995\cdot T-10.465
+\]
+Die Qualit"at kann man mit Hilfe des Regressionskoeffizienten $r$ beurteilen.
+Es gilt
+\begin{align*}
+r
+&=
+\frac{\operatorname{cov}(T,N)}{\sqrt{\operatorname{var}(T)\operatorname{var}(N)}}
+\frac{ E(NT) - E(N)E(T) }{\sqrt{E(N^2)-E(N)^2}\sqrt{E(T^2)-E(T)^2}}
+=
+\frac{4\cdot 2372-112\cdot 81}{\sqrt{4\cdot 3350-112^2}\sqrt{4\cdot 1695-81^2}}
+\\
+&=
+\frac{416}{\sqrt{856}\sqrt{219}}
+=
+0.96080
+\end{align*}
+Dies zeigt, dass die lineare Approximation recht gut ist.
+Dies best"atigt auch die Abbildung~\ref{40000034:linear}.
+\begin{figure}
+\centering
+\includeagraphics[]{graph-1.pdf}
+\caption{Linearer Zusammenhang zwischen Temperatur und Zirph"aufigkeit
+\label{40000034:linear}}
+\end{figure}
+\end{loesung}
+
+\begin{diskussion}
+Dies ist eine Adaption einer Aufgabe aus der zweiten Auflage von 
+{\em Statistics for Dummies}.
+\end{diskussion}
+
+\begin{bewertung}
+Ansatz Lineare Regression ({\bf LR}) 1 Punkt,
+Berechnung der Summen ({\bf T}) 2 Punkte,
+Berechnung von $a$ ({\bf A}) 1 Punkt,
+Berechnung von $b$ ({\bf B}) 1 Punkt,
+Regressionskoeffizient als Mass f"ur Qualit"at ({\bf R}) 1 Punkt.
+\end{bewertung}
+
+
