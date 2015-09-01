@@ -49,6 +49,21 @@ P(K\ge 30)
 &=
 1-F(1.03923)=1-0.85065=0.1493.
 \end{align*}
+
+Etwas weniger genau wird es, wenn man statt 29.5 den Wert 30 verwendet:
+\begin{align*}
+P(K\ge 30)
+&=1-P(K \le 29)
+\simeq
+1-F\biggl(\frac{30-\mu}{\sigma}\biggr)
+=
+1-F\biggl(\frac{30-25}{4.33}\biggr)
+\\
+&=
+1-F(1.1547)=1-0.8759=0.1241
+\end{align*}
+
+
 Mit R kann man die Wahrscheinlichkeit f"ur die Binomialverteilung
 auch direkt ausrechnen:
 \[
@@ -58,3 +73,17 @@ P(K\ge 30)
 in sehr guter "Ubereinstimmung mit der approximativen Berechnung.
 \end{teilaufgaben}
 \end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Wahrscheinlichkeit ({\bf W}) 1 Punkt,
+\item
+Binomialverteilung ({\bf B}) 1 Punkt,
+Normalapproximation ({\bf N}) 1 Punkt,
+Parameter ({\bf P}) 1 Punkt,
+Verteilungsfunktion und Standardisierung ({\bf S}) 1 Punkt,
+Kumulative Wahrscheinlichkeit ({\bf K}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
