@@ -17,7 +17,7 @@ Jahren verloren gegangen ist?
 \item Wieviele Bits gehen im Mittel in dem 2kByte umfassenden Flash-Speicher
 des ATtiny25 in 20000 Jahren verloren?
 \item Wie gross ist die Wahrscheinlichkeit, dass nach 20000 Jahren
-in dem 2kByte umfassenden Flashspeicher des Chips
+in dem 2kByte umfassenden Flash\-speicher des Chips
 weniger als 3 Bits verloren gegangen sind?
 \end{teilaufgaben}
 
@@ -78,7 +78,7 @@ wird gez"ahlt, wie oft der Fall eingetreten ist.
 Dies ist ein Binomial-Experiment mit $p=2\cdot 10^{-4}$ und $n=16384$.
 Die erwartete Anzahl Ausf"alle ist $np=3.2768$.
 \item
-Ausf"alle von einzelnen Zellen in 20000 sind offenbar seltene Ereignisse,
+Ausf"alle von einzelnen Zellen in 20000 Jahren sind offenbar seltene Ereignisse,
 die mit der Poissonverteilung modelliert werden k"onnen.
 In der vorangegangenen Teilaufgabe wurde der Erwartungswert der Anzahl
 der Ausf"alle zu $\lambda = 3.2768$ ermittelt, dies ist auch der Parameter
@@ -98,4 +98,13 @@ P(k\le 3)&=e^{-\lambda}\sum_{k=0}^3\frac{\lambda^k}{k!}
 \end{align*}
 \end{teilaufgaben}
 \end{loesung}
+
+\begin{bewertung}
+Exponentialverteilung ({\bf E}) 1 Punkt,
+Wert f"ur $a$ ({\bf A}) 1 Punkt,
+Halbwertszeit ({\bf H}) 1 Punkt,
+Ausfallwahrscheinlichkeit f"ur 20000 Jahre ({\bf L}) 1 Punkt,
+Ausfallwahrscheinlichkeit in $8*2048$ bits ({\bf F}) 1 Punkt,
+Ausfallwahrscheinlichkeit f"ur drei bits ({\bf D}) 1 Punkt.
+\end{bewertung}
 
