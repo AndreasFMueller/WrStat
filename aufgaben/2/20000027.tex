@@ -1,0 +1,70 @@
+In einer Stadt bieten zwei Taxiunternehmen Taxidienste an, die einen mit
+gr"unen, die anderen mit blauen Taxis. 85\% der Taxis sind gr"un.
+Ein Taxi ist in einen Unfall mit Fahrerflucht verwickelt.
+Ein Zeuge sagt, das Taxi sei blau gewesen.
+In einem Test fand man heraus, dass der Zeuge in 80\% der Versuche
+die Farbe richtig erkannte.
+Wie gross ist die Wahrscheinlichkeit, dass das Taxi gr"un war?
+
+\begin{loesung}
+Wir verwenden folgende Ereignisse:
+\begin{align*}
+G&=\{\text{Taxi ist gr"un}\}\\
+B&=\{\text{Taxi ist blau}\}\\
+Z&=\{\text{Zeuge erkennt Farbe gr"un}\}\\
+Y&=\{\text{Zeuge erkennt Farbe blau}\}
+\end{align*}
+Die Wahrscheinlichkeiten sind
+\begin{align*}
+P(G)&=0.85\\
+P(B)&=P(\bar G)=0.15\\
+P(Z|G)&=0.8 &&\Rightarrow& P(Y|G)&=1-P(Z|G)=0.2\\
+P(Y|B)&=0.8 &&\Rightarrow& P(Z|B)&=1-P(Y|B)=0.2
+\end{align*}
+Aussserdem gilt nat"urlich $Z=\bar Y$, und daher $P(Z)=1-P(Y)$.
+
+Die Aufgabe fragt nach der Wahrscheinlichkeit, dass das Taxi gr"un war,
+obwohl der Zeuge es als blau identifiziert hat.
+Dies ist die bedingte Wahrscheinlichkeit $P(G|Y)$. Nach dem Satz von
+Bayes gilt
+\[
+P(G|Y)=P(Y|G)\frac{P(G)}{P(Y)}.
+\]
+Wir brauchen also zuerst $P(Y)$, was wir mit dem Satz "uber die totale
+Wahrscheinlichkeit bestimmen k"onnen:
+\begin{align*}
+P(Y)
+&=
+P(Y|B)P(B) + P(Y|G)P(G)\\
+&=
+0.8 \cdot 0.15 + 0.2 \cdot 0.85\\
+&=0.29
+\end{align*}
+Damit k"onnen wir jetzt die bedingte Wahrscheinlichkeit berechnen
+\begin{align*}
+P(G|Y)
+&=
+P(Y|G)\frac{P(G)}{P(Y)}
+=
+0.2\frac{0.85}{0.29}
+=
+0.586
+\end{align*}
+Die Wahrscheinlichkeit ist also fast 59\%, dass das Taxi trotz der
+Zeugenaussage gr"un war.
+\end{loesung}
+
+\begin{bewertung}
+Wahl zweckm"assiger Ereignisse ({\bf E}) 1 Punkt,
+Identifikation der gegeben Wahrscheinlichkeiten ({\bf I}) 1 Punkt,
+Satz von der totalen Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Berechnung von $P(Y)$ ({\bf Y}) 1 Punkt,
+Satz von Bayes ({\bf B}) 1 Punkt,
+Berechnung von $P(G|Y)$ ({\bf W}) 1 Punkt.
+\end{bewertung}
+
+\begin{diskussion}
+Diese Aufgabe hat George Smoot in einem TEDx-Talk beschrieben
+(\url{http://tedxtalks.ted.com/video/You-are-a-simulation-physics-ca}).
+\end{diskussion}
+
