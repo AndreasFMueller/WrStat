@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Copyleft
+%% Walter A. Kehowski
+%% Department of Mathematics
+%% Glendale Community College
+%% walter.kehowski@gcmail.maricopa.edu
+%% \begin{linsys}{2}
+%% -x & + & 4y & = & 8\\
+%% -3x & - & 2y & = & 6
+%% \end{linsys}
+%%%%%%%%%%%%%%%%%%%%%%%
+%\makeatletter
+%% math-mode column types ------------------
+\newcolumntype{\linsysR}{>{$}r<{$}}
+\newcolumntype{\linsysL}{>{$}l<{$}}
+\newcolumntype{\linsysC}{>{$}c<{$}}
+\newenvironment{linsys}[1]{%
+\begin{tabular}{*{#1}{\linsysR@{\;}\linsysC}@{\;}\linsysR}}%
+{\end{tabular}}
+%\makeatother
+\endinput
