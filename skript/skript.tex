@@ -67,6 +67,11 @@ Hochschule f"ur Technik, Rapperswil, 2009-2014
 \begin{enumerate}
 \renewcommand{\labelenumi}{\alph{enumi})}
 }{\end{enumerate}}
+% Beispiel
+\newenvironment{beispiel}[1][Beispiel]{%
+\begin{proof}[\bf #1]%
+\renewcommand{\qedsymbol}{$\bigcirc$}%
+}{\end{proof}}
 % Loesung
 \def\swallow#1{
 %nothing
@@ -93,7 +98,9 @@ Hochschule f"ur Technik, Rapperswil, 2009-2014
 \mainmatter
 \input einleitung.tex
 \input kombinatorik.tex
-%\input wahrscheinlichkeit.tex
+\input wahrscheinlichkeit.tex
+\input spamfilter.tex
+\input google.tex
 %\input laplace.tex
 %\input erwartung.tex
 %\input verteilung.tex
@@ -104,8 +111,6 @@ Hochschule f"ur Technik, Rapperswil, 2009-2014
 %\input filter.tex
 \appendix
 %\input e01-generatoren.tex
-%\input spamfilter.tex
-%\input google.tex
 %\input junkscience.tex
 \input tabellen.tex
 \input skript.ind

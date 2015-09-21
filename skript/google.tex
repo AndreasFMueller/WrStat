@@ -5,10 +5,9 @@
 % (c) 2006 Prof Dr Andreas Mueller, Hochschule Rapperswil
 % $Id: e05-google.tex,v 1.4 2008/09/09 14:22:16 afm Exp $
 %
-\rhead{Google}
-\chapter{Google Page Rank\label{pagerank}}
+\section{Anwendung: Google Page Rank\label{pagerank}}
 
-\section{Rangfolge in Suchmaschinen}
+\subsection{Rangfolge in Suchmaschinen}
 \index{Suchmaschine}
 Die Aufgabe einer Suchmaschine ist, diejenigen Seiten im Internet zu
 finden, welche am besten auf die Suchabfrage passen. Auf den ersten
@@ -17,7 +16,7 @@ die den Suchbegriff enthalten, und liefert dann in erster Priorit"at
 diejenigen Seiten, die ``am besten passen''. Genau darin besteht jedoch
 das Problem. Wie misst man, wie gut eine Seite passt.
 
-\subsection{Das Problem}
+\subsubsection{Das Problem}
 Bei der Suche in einer kleinen Dokumentmengen schr"ankt die Angabe von
 gen"ugend vielen Suchkriterien die Resultatmenge meistens so stark
 ein, dass man damit ewas Sinnvolles anfangen kann. Die Dokumentmenge
@@ -30,7 +29,7 @@ vern"unftiger Zeit zu sinnvollen Resultaten zu kommen.
 Als das Internet noch relativ klein war, konnten Kriterien wie die
 Anzahl der W"orter auf einer Seite, die zum Suchbegriff passen,
 oder die ``Entfernung'' eines Synonyms von einem Suchwort dazu dienen,
-seiten zu klassifizieren. Es wurde aber schon bald klar, dass selbst
+Seiten zu klassifizieren. Es wurde aber schon bald klar, dass selbst
 solche verfeinerten Suchtechniken f"ur das rasch wachsende Internet
 zu wenig selektiv sein w"urden.
 
@@ -39,7 +38,7 @@ f"ur eine Rangfolge unter den Seiten des Internet zu finden, welches auch
 f"ur ein ein sehr grosses Internet mit $N$ Dokumenten erfolgreich sein kann,
 wobei $N$ mindestens $10^9$ sein soll.
 
-\subsection{Der L"osungsansatz}
+\subsubsection{Der L"osungsansatz}
 Das Internet hat eine Eigenschaft, welche fr"uhere elektronische 
 Datenbest"ande kaum hatten: Jedes Dokument kann mit beliebig vielen anderen
 Dokumenten verlinkt sein. Die Seiten-Autoren verwenden Links, um auf
@@ -53,7 +52,7 @@ Seiten, die zu lesen sich lohnt.
 Ein Internet-Benutzer, der eine Seite gefunden hat, die zu lesen sich lohnt,
 wird eine Zeit lang auf dieser Seite verweilen, und dann den Links auf
 andere Seiten folgen, den offenbar verweisen die auf weiteres Material zu
-dem Thema, über das er etwas lesen m"ochte.
+dem Thema, "uber das er etwas lesen m"ochte.
 
 Eine Suchmaschine ist erfolgreich, wenn Sie den Benutzern diejenigen Seiten
 liefert, welche diese erwarten. Damit ist es nicht mehr die Aufgabe des
@@ -63,15 +62,15 @@ die meisten Links zeigen, enthalten offenbar die beliebtesten Seiten zu diesem
 Thema. Gesucht ist also eine Methode, die Links zwischen den Seiten des
 Internet zu bewerten und daraus ein Rangfolge der Seiten abzuleiten.
 
-\section{Eine wahrscheinlichkeitstheoretische L"osung}
+\subsection{Eine wahrscheinlichkeitstheoretische L"osung}
 Die in der Vorlesung entwickelten Begriffe der bedingten Wahrscheinlichkeit
 eignen sich hervorragend, dieses Problem zu analysieren.
 
-\subsection{Wahrscheinlichkeitsinterpretation}
+\subsubsection{Wahrscheinlichkeitsinterpretation}
 Nehmen wir zun"achst an, die Surfer bekommen zuf"allig eine Seite zugewiesen,
 die Wahrscheinlichkeit, die Seite mit der Nummer $i$ zugewiesen zu erhalten
 sei $p_i$.
-Mit dieser befassen sie sich die Surfer eine Weile, bevor sie einem Link auf
+Mit dieser befassen sich die Surfer eine Weile, bevor sie einem Link auf
 der Seite folgen, und damit auf einer anderen Seite landen. Wir stellen
 uns vereinfachend vor, dass die Surfer jeweils nach einer Minute miteinander
 auf die n"achste Seite wechseln. Mit welcher Wahrscheinlichkeit finden wir
@@ -85,24 +84,27 @@ $p_i=P(S_i)$. Uns interessiert die Wahrscheinlichkeit $P(S'_j)$, nach dem erste
 Wechsel die Seite $j$ zu besuchen.  Wir bezeichnen diese Wahrscheinlichkeit
 auch mit mit $p_{j,1} = P(S'_j)$.
 
-Die Wahrscheinlichkeit, auf der Seite
-$j$ zu landen h"anngt also zum einen davon ab, ob es "uberhaupt
+Die Wahrscheinlichkeit, auf der Seite $j$ zu landen,
+h"angt also zum einen davon ab, ob es "uberhaupt
 einen Link von $i$ auf $j$ gibt, und andererseits davon, wie wahrscheinlich
 es ist, dass der Surfer einen bestimmten Link w"ahlt.
 Ohne weiteres Wissen "uber die Seiteninhalte m"ussen wir
 annehmen, dass die Links auf einer Seite alle mit gleicher Wahrscheinlichkeit
-vom Surfer ausgew"ahlt werden. Die Wahrscheinlichkeit, dass ein Surfer, der bereits
+vom Surfer ausgew"ahlt werden (Laplace-Experiment).
+Die Wahrscheinlichkeit, dass ein Surfer, der bereits
 auf Seite $i$ ist, auf der Seite $j$ landet, ist die bedingte Wahrscheinlichkeit
 $P(S'_j|S_i)$. Das eben diskutierte Modell bedeutet
 \[
 P(S'_j|S_i)=\begin{cases}
-0&\qquad\text{Es gibt keinen Link von $i$ auf $j$}\\
-\frac1n&\qquad\text{Einer der $n$ Links auf Seite $i$ f"uhrt zu $j$}
+0&\qquad\text{es gibt keinen Link von $i$ auf $j$}\\
+\frac1n&\qquad\text{einer der $n$ Links auf Seite $i$ f"uhrt zu $j$}
 \end{cases}
 \]
-Die die Ereignisse $S_i$ disjunkt sind---kein Surfer darf auf mehr als einer
-Seite gleichzeitig sein---, aber auch ganz Omega "uberdecken---jeder Surfer
-ist auf irgend einer Seite---, gilt nach dem Satz "uber die totale Wahrscheinlichkeit
+Die Ereignisse $S_i$ sind disjunkt, kein Surfer darf auf mehr als einer
+Seite gleichzeitig sein.
+Ausserdem "uberdecken sie ganz $\Omega$, jeder Surfer ist auf irgend einer
+Seite.
+Daher gilt nach dem Satz "uber die totale Wahrscheinlichkeit
 \[
 P(S'_j)=\sum_{i}P(S'_j|S_i)P(S_i).
 \]
@@ -148,7 +150,8 @@ Die Matrix $H$ codiert also die Verlinkung des Internet.
 \caption{Beispiel-Internet\label{google-sample}}
 \end{figure}
 Zur Illustration wollen wir das Beispiel-Internet in Abbildung \ref{google-sample}
-untersuchen. Die daraus abgeleitete $H$ Matrix ist:
+untersuchen.
+Die daraus abgeleitete $H$-Matrix ist:
 \[
 H=\left(
 \begin{matrix}
@@ -164,7 +167,7 @@ H=\left(
 \right)
 \]
 Die Summe der Elemente jeder Spalte ist $1$, denn in jeder Spalte sind ja genau
-diejenigen Elemente $n$ von $0$ verschieden, und haben den Wert $\frac1n$,
+diejenigen Elemente $n$ von $0$ verschieden und haben den Wert $\frac1n$,
 die einem Link auf dieser Seite entsprechen.
 
 Wie gross sind die Wahrscheinlichkeiten $p_i$? Die Wahrscheinlichkeit, einen zuf"allig
@@ -193,7 +196,7 @@ p=\left(
 \right).
 \]
 
-\subsection{Freier Wille}
+\subsubsection{Freier Wille}
 \index{Wille, freier}
 Unser Modell hat einen gravierenden Mangel.
 Es ist zwar richtig, dass Surfer oft den
@@ -267,7 +270,7 @@ p=Gp,
 \]
 $p$ ist also ein Eigenvektor der Google-Matrix zum Eigenwert $1$.
 
-\subsection{Berechnung des PageRank}
+\subsubsection{Berechnung des PageRank}
 \index{Pagerank!Berechnung}
 Das Problem ist jetzt bereits darauf reduziert, einen Eigenvektor der
 Google-Matrix $G$ zum Eigenwert $1$ zu finden.

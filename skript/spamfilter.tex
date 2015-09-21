@@ -5,8 +5,7 @@
 % (c) 2006 Prof Dr Andreas Mueller, Hochschule Rapperswil
 % $Id: e02-spamfilter.tex,v 1.3 2008/09/09 14:22:16 afm Exp $
 %
-\rhead{Spamfilter}
-\chapter{Spamfilter\label{spamfilter}}
+\section{Anwendung: Spamfilter\label{spamfilter}}
 \index{Spam}
 \index{Spamfilter}
 Etwa drei Viertel aller auf dem Internet transportierten Email-Meldungen
@@ -24,11 +23,11 @@ Paul Graham mit seinem Artikel ``A Plan for Spam'' \url{http://www.paulgraham.co
 einem Produkt erfolgreich umsetzen konnte.
 
 Sp"ater wurde sein empirisches Verfahren als eine Anwendung des Satzes von
-Bayes auch mathematisch verstanden, Ziel dieses Anhangs ist, die mathematischen
-Prinzipien hinter einem auf Bayes-Filterung basierenden Spamfilter
-zu beschreiben.
+Bayes auch mathematisch verstanden, Ziel dieses Abschnitts ist,
+die mathematischen Prinzipien hinter einem auf Bayes-Filterung
+basierenden Spamfilter zu beschreiben.
 
-\section{Grundprinzip}
+\subsection{Grundprinzip}
 Damit ein Spamfilter auf Wahrscheinlichkeitsbasis funktionieren kann, muss
 zun"achst eine Datengrundlage geschaffen werden, was der Benutzer dadurch
 tut, dass er Spam-Messages in einen eigenen Ordner aussortiert.
@@ -54,7 +53,7 @@ Message Spam ist, denn dazu m"ussen wir wie folgt vorgehen:
 \begin{enumerate}
 \item feststellen, ob das Wort ``Viagra'' in der Message enthalten ist
 \item im positiven Fall $P(S|V)$ bestimmen und entscheiden, ob Spam vorliegt,
-im negativen analog mit $P(S|\bar V)$.
+im negativen Fall analog mit $P(S|\bar V)$.
 \end{enumerate}
 Wir m"ussen also $P(S|V)$ ermitteln. Aus den bekannten Gr"ossen ist dies
 mit dem Satz von Bayes sofort m"oglich:
@@ -64,7 +63,7 @@ P(S|V)=\frac{P(V|S)P(S)}{P(V)}.
 Diese Formel zeigt auch, dass W"orter, die in Spam h"aufig, in normalen
 Mails aber selten sind, die Wahrscheinlichkeit f"ur Spam hochtreiben.
 
-\section{Kombinierte Kriterien}
+\subsection{Kombinierte Kriterien}
 Ein leistungsf"ahger Spamfilter wird aber nicht nur ein einziges Kriterium
 untersuchen, sondern er wird versuchen, Kombinationen von Kriterien, die
 auf Spam hinweisen, zu erkennen und entsprechend die Wahrscheinlichkeit
@@ -75,7 +74,7 @@ dass die Wahrscheinlichkeit berechnet werden soll, dass eine Message
 Spam ist, wenn bereits zwei Spam-Kriterien $X$ und $Y$ eingetreten
 sind. Es ist also $P(S|X\cap Y)$ gesucht.
 
-Bekannt ist wiederum alles, was sich durch ausz"ahlen von Messages
+Bekannt ist wiederum alles, was sich durch Ausz"ahlen von Messages
 in einem festen Bestand von Meldungen ermitteln l"asst. Man sagt,
 der Filter sei mit diesen Meldungen trainiert worden. Zum Beispiel
 sind folgende Gr"ossen bekannt: $P(X)$, $P(X|S)$ und analog f"ur $Y$.
@@ -85,7 +84,7 @@ F"ur die Berechnung von $P(S|X\cap Y)$ verwendet man jetzt wieder
 den Satz von Bayes:
 \begin{eqnarray}
 P(S|X\cap Y)&=&\frac{P(X\cap Y|S)P(S)}{P(S)}\nonumber\\
-&=&\frac{P(X\cap Y|S)P(S)}{P(X\cap Y|S)P(S)+P(X\cap Y|\bar S)P(\bar S)}\\
+&=&\frac{P(X\cap Y|S)P(S)}{P(X\cap Y|S)P(S)+P(X\cap Y|\bar S)P(\bar S)}
 \end{eqnarray}
 Das Problem mit dieser Formel ist, dass wir $P(X\cap Y|S)$ normalerweise
 nicht kennen. Normalerweise wird keine Statistik dar"uber gef"uhrt, mit
@@ -98,16 +97,16 @@ auch das Wort ``Cialis'', die Ereignisse sind also abh"angig.
 Wir brauchen hier eine etwas st"arkere Form der Unabh"angigkeit von $X$ und $Y$,
 n"amlich die Bedingung, dass $X$ und $Y$ bei Einschr"ankung auf $S$
 oder $\bar S$ unabh"angig sind. Dann gilt $P(X\cap Y|S)=P(X|S)P(Y|S)$
-uns sinngem"ass f"ur $\bar S$.
+und sinngem"ass f"ur $\bar S$.
 
 Damit kann nun die Formel umgeformt werden:
 \begin{eqnarray}
 P(S|X\cap Y)&=&\frac{P(X\cap Y|S)P(S)}{P(X\cap Y|S)P(S)+P(X\cap Y|\bar S)P(\bar S)}\nonumber\\
-&=&\frac{P(X|S)P(Y|S)P(S)}{P(X|S)P(Y|S)P(S)+P(X|\bar S)P(Y|\bar S)P(\bar S)}\\
+&=&\frac{P(X|S)P(Y|S)P(S)}{P(X|S)P(Y|S)P(S)+P(X|\bar S)P(Y|\bar S)P(\bar S)}
 \end{eqnarray}
 Im Prinzip k"onnte man an dieser Stelle aufh"oren, denn man hat ja jetzt
 alles, was man braucht. Trotzdem ist diese Formel noch etwas unpraktisch.
-Es w"are doch viel besser, wenn man zun"achste alle Wahrscheinlichkeiten
+Es w"are doch viel besser, wenn man zun"achst alle Wahrscheinlichkeiten
 daf"ur ermitteln k"onnte, unter denen eine Message Spam ist, wenn ein
 einzelnes Kriterium eingetreten ist, also $P(S|X)$, und dann nur noch
 mit diesen rechnen, um $P(S|X\cap Y)$ zu bestimmen.

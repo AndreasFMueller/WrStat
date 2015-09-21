@@ -1,15 +1,17 @@
 %SourceDoc ws-skript.tex
 %
-% c01-wahrscheinlichkeit.tex -- 1. Kapitel, Wahrscheinlichkeitsbegriff
+% wahrscheinlichkeit.tex -- 1. Kapitel, Wahrscheinlichkeitsbegriff
 %
-% (c) 2006 Prof. Dr. Andreas Mueller, HSR
-% $Id: c01-wahrscheinlichkeit.tex,v 1.24 2008/09/15 23:49:57 afm Exp $
+% (c) 2006-2015 Prof. Dr. Andreas Mueller, HSR
 %
 \rhead{Ereignisse und Wahrscheinlichkeit}
-\chapter{Ereignisse und ihre Wahrscheinlichkeit\label{chapter-ereignisse-und-wahrscheinlichkeit}}
+\chapter{Ereignisse und ihre Wahrscheinlichkeit
+\label{chapter-ereignisse-und-wahrscheinlichkeit}}
+
 Es ist unm"oglich den Ausgang eines Sportwettkampfes vorauszusagen.
 Trotzdem trauen sich viele Leute zu, auf Grund ihrer Kenntnisse "uber den
-Trainingsstand der Sportler ihrer fr"uheren Leistungen, Prognosen abzugeben.
+Trainingsstand der Sportler oder ihrer fr"uheren Leistungen,
+Prognosen abzugeben.
 Sie sind sich dabei oft so sicher, dass sie bereit sind, Geld auf ihren Tipp
 zu wetten.
 Eine solche Prognose ist nicht immer gleich schwierig. Wenn an der
@@ -40,52 +42,305 @@ f"ur die Begriffe ``Ereignis'' und ``Wahrscheinlichkeit''.  Mit geeigneten
 Rechengesetzen sollte die Wahrscheinlichkeit berechnet werden k"onnen,
 und wir sollten eine rationale Grundlage f"ur Sportwetten finden k"onnen.
 
-\section{Ereignisse\label{section-begriffe}}
-\index{Ereignis}
-Zun"achst brauchen wir mathematisch scharfe Begriffe f"ur die Begebenheiten
-in der realen Welt, welche wir mit der Wahrscheinlichkeitsrechnung behandeln
-wollen. Wenn die Wahrscheinlichkeitsrechnung in die Lage versetzen soll,
-darauf wetten zu k"onnen, das etwas passiert oder eben nicht, dann braucht
-sie offensichtlich eine Definition des Begriffes {\bf Ereignis}.
-\marginpar{\tiny Begriff des Ereignisses}
-Ereignisse treten ein, oder eben nicht.
-Als solche kann man Ereignisse oft mit einfachen S"atzen festhalten:
+\section{Versuche und Versuchsausg"ange}
+Die Wahrscheinlichkeitsrechnung befasst sich also mit dem Ausgang von
+Versuchen.
+Das in der Einleitung beschriebene Fussballspiel ist ein solches Experiment.
+Nat"urlich interessiert den Fussballfan viel mehr als das Ergebnis,
+f"ur die Zwecke der Sportwetten gen"ugen jedoch die Schlussresultate.
+"Ahnliche Experimente kann man sich in grosser Zahl ausdenken:
 \begin{enumerate}
-\item Der Blitz hat in den Baum eingeschlagen.
-\item Der W"urfel zeigt eine Sechs.
-\item Das Flugzeug ist "uber die Piste hinausgerast.
-\item Hans hatte einen Sechser im Lotto.
+\item
+\index{Munzwurf@M\"unzwurf}
+Der Wurf einer M"unze ist ebenfalls ein Experiment mit, wenigstens
+im Prizip, drei Versuchsausg"angen: Kopf oder Zahl, ganz selten k"onnte
+die M"unze auch auf der Kante stehen bleiben.
+\item
+\index{Wurfel@W\"urfel}
+Ein weiteres Experiment ist der Wurf eines W"urfels. Klassische W"urfel
+haben sechs Seitenfl"achen, die verschiedene Augenzahlen zeigen.
+Nach jeder Durchf"uhrung des Experimentes zeigt der W"urfel ein neues
+Resultat, das Experiment hat sechs verschiedene Ausg"ange.
+\item
+Der gleichzeitige Wurf zweier verschiedenfarbiger W"urfel ist eine Experiment
+mit 36 verschiedenen m"oglichen Ausg"angen:
+\begin{center}
+\def\e#1#2{\epsdice{#1}\,\epsdice{#2}}
+\begin{tabular}{|c|cccccc|}
+\hline
+&\epsdice{1}&\epsdice{2}&\epsdice{3}&\epsdice{4}&\epsdice{5}&\epsdice{6}\\
+\hline
+\epsdice{1}&\e{1}{1}&\e{1}{2}&\e{1}{3}&\e{1}{4}&\e{1}{5}&\e{1}{6}\\
+\epsdice{2}&\e{2}{1}&\e{2}{2}&\e{2}{3}&\e{2}{4}&\e{2}{5}&\e{2}{6}\\
+\epsdice{3}&\e{3}{1}&\e{3}{2}&\e{3}{3}&\e{3}{4}&\e{3}{5}&\e{3}{6}\\
+\epsdice{4}&\e{4}{1}&\e{4}{2}&\e{4}{3}&\e{4}{4}&\e{4}{5}&\e{4}{6}\\
+\epsdice{5}&\e{5}{1}&\e{5}{2}&\e{5}{3}&\e{5}{4}&\e{5}{5}&\e{5}{6}\\
+\epsdice{6}&\e{5}{1}&\e{6}{2}&\e{6}{3}&\e{6}{4}&\e{6}{5}&\e{6}{6}\\
+\hline
+\end{tabular}
+\end{center}
+\item 
+Der gleichzeitige Wurf zweier ununterscheidbarer W"urfel ist ein 
+ein ganz "ahnliches Experiment, aber die Zahl der Versuchsausg"ange
+ist kleiner.
+Da die W"urfel nicht unterscheidbar sind, kann man das Paar 5--6 nicht
+vom Paar 6--5 unterschieden.
+Man kann beim Auflisten der Versuchsausg"ange die Paare immer aufsteigend
+ordnen, es bleiben also nur die folgenden Versuchsausg"ange m"oglich:
+\begin{center}
+\def\e#1#2{\epsdice{#1}\,\epsdice{#2}}
+\begin{tabular}{|c|cccccc|}
+\hline
+&\epsdice{1}&\epsdice{2}&\epsdice{3}&\epsdice{4}&\epsdice{5}&\epsdice{6}\\
+\hline
+\epsdice{1}&\e{1}{1}&\e{1}{2}&\e{1}{3}&\e{1}{4}&\e{1}{5}&\e{1}{6}\\
+\epsdice{2}&        &\e{2}{2}&\e{2}{3}&\e{2}{4}&\e{2}{5}&\e{2}{6}\\
+\epsdice{3}&        &        &\e{3}{3}&\e{3}{4}&\e{3}{5}&\e{3}{6}\\
+\epsdice{4}&        &        &        &\e{4}{4}&\e{4}{5}&\e{4}{6}\\
+\epsdice{5}&        &        &        &        &\e{5}{5}&\e{5}{6}\\
+\epsdice{6}&        &        &        &        &        &\e{6}{6}\\
+\hline
+\end{tabular}
+\end{center}
+Es bleiben also nur noch 
+\[
+1+2+\dots +6=\sum_{i=1}^6=\frac{6\cdot(6+1)}2=21
+\]
+Versuchsausg"ange m"oglich.
+Das heisst aber noch lange nicht, dass der Versuchsausgange
+\epsdice{2}\,\epsdice{3} gleich wahrscheinlich ist wie 
+\epsdice{3}\,\epsdice{3}, denn letzterer kann nur auf genau eine
+Art entstehen, w"ahrend es f"ur \epsdice{2}\,\epsdice{3}
+zwei M"oglichkeiten gibt.
+\item 
+Ein Gewitter tobt "uber einem Wald. 
+Es ist m"oglich, dass ein Blitz in einen Baum einschl"agt,
+die meisten B"aume werden jedoch verschont bleiben.
+Wir k"onnen dieses Experiment zwar nicht jederzeit durchf"uhren,
+aber wir k"onnen einfach auf das n"achste Gewitter warten.
+Ist der Baum getroffen, k"onnen wir ihn auch nicht wieder verwenden,
+aber wir k"onnen die Beobachtung an einem anderen, vergleichbaren
+Baum wiederholen.
+\item
+\index{Ebola}
+Menschen, die sich mit Ebola-Viren anstecken, sterben sehr h"aufig
+an dieser Krankheit.
+Auch hier liegt ein Experiment vor, welches wir nicht nach belieben
+durchf"uhren d"urfen, doch wir k"onnen darauf warten, dass jemand
+erkrankt, und dann vergleichbare Krankheitsf"alle untersuchen.
+\item
+Die Messung mit einem Messger"at ist ebenfalls ein wiederholbares
+Experiment, der Versuchsausgang ist der vom Messger"at angezeigte
+Messwert.
 \end{enumerate}
-In diesen S"atzen steckt implizit die Beschreibung eines Experimentes oder
-Vorgangs, die Feststellung h"alt nur den Ausgang fest:
+
+Bevor also Aussagen "uber die Wahrscheinlichkeit gemacht werden k"onnen,
+muss definiert werden, welches Experiment genau durchgef"uhrt worden ist.
+Nur Experimente, die im Prinzip wiederholbar sind, sind der Untersuchung
+durch die Wahrscheinlichkeitsrechnung zug"anglich.
+Die Aussage: ``die Wahrscheinlichkeit, dass die Naturkonstanten des
+Universums so sind, dass intelligentes Leben entstehen kann, ist\dots''
+ist nicht nur deshalb Unsinn, weil wir nicht wissen, welche
+Voraussetzungen zu intelligentem Leben f"uhren, sondern vor allem wegen
+der Tatsache, dass wir keine anderen Universen zur Verf"ugung haben, in denen
+wir die Frage nach intelligentem Leben erneut stellen k"onnten.
+
+Ein logisches Argument kann nicht eine Wahrscheinlichkeit haben,
+richtig oder falsch zu sein.
+Ein Argument ist einfach richtig oder falsch.
+Die Voraussetzungen f"ur das logische Argument sind vielleicht Beobachtungen
+in der Natur, also Versuchsausg"ange anderer Experimente, und sie
+k"onnen das Argument st"utzen, aber ein richtiges Argument wird nicht
+falsch, wenn die Voraussetzungen nicht mehr erf"ullt sind, sondern einfach
+nur nicht anwendbar.
+Ein besonders krasses Beispiel f"ur v"olliges Unverst"andnis
+dieser Grundtatsache ist die Conservapedia-Seite {\em Counterexamples
+to an Old Earth}\footnote{\url{http://www.conservapedia.com/Counterexamples\_to\_an\_Old\_Earth}}.
+
+F"ur die Zwecke der Wahrscheinlichkeitsrechnung ist der genaue Ablauf
+eines Experimentes gegenstandslos, nur das Resultat interessiert.
+Wir f"uhren daher die folgenden Begriffe in:
+
+\begin{definition}
+Der Ausgang eines Experimentes heisst {\em Elementarereignis}, die
+Menge aller Elementarereignisse wird mit $\Omega$ bezeichnet.
+Ein Elementarereignis $\omega$ ist also ein Element von $\Omega$,
+$\omega\in\Omega$.
+\index{Elementarereignis}
+\end{definition}
+
+Die Menge $\Omega$ der Elementarereignisse f"ur jedes der Beispiele weiter
+oben ist:
 \begin{enumerate}
-\item Beim letzten Gewitter gabe es nat"urlich eine grosse
-Zahl von Blitzen.
-Am Ende des Gewitters stand fest, dass einer der Blitze den Baum
-getroffen hat.
-\item Der W"urfel kann eine komplizierte Bahn beschreiben, und wenn
-er nach dem W"urfeln auf dem Tisch liegt, kann er in verschiedene
-Richtungen orientiert sein. Entscheidend ist jedoch nur das Ergebnis,
-welche Zahl oben liegt.
-\item Die meisten Flugzeuge starten oder landen erfolgreich, d.~h.~sie
-heben ab oder kommen rechtzeitig zum Stillstand. Hin und wieder
-endet ein Start- oder Landeversuch jedoch mit einem anderen Ausgang,
-in diesem Fall eben damit, dass das Flugzeugt "uber die Piste
-hinausgerast ist.
-\item Hans hat einen Lottozettel ausgef"ullt, und die Lottogesellschaft
-hat Lottozahlen gezogen. Danach wurde der Lottozettel mit den Zufallszahlen
-verglichen. Der Ausgang dieses Experiments zeigt sechs "Ubereinstimmungen.
+\item $\Omega=\{\text{Kopf},\text{Zahl}\}$
+\item $\Omega=\{\epsdice{1},
+\epsdice{2},
+\epsdice{3},
+\epsdice{4},
+\epsdice{5},
+\epsdice{6}\}$
+\item $\Omega$ besteht aus allen Paaren von Augenzahlen.
+\item $\Omega$ besteht aus allen Paaren von Augenzahlen, in denen die
+zweite Zahl mindestens so gross ist wie die erste:
+{
+\def\e#1#2{\epsdice{#1}\,\epsdice{#2}}
+\def\p{\phantom{\epsdice{1}\,\epsdice{1},\,}}
+\begin{align*}
+\Omega=\{
+           &\e{1}{1},\e{1}{2},\e{1}{3},\e{1}{4},\e{1}{5},\e{1}{6},\\
+           &\p       \e{2}{2},\e{2}{3},\e{2}{4},\e{2}{5},\e{2}{6},\\
+           &\p       \p       \e{3}{3},\e{3}{4},\e{3}{5},\e{3}{6},\\
+           &\p       \p       \p       \e{4}{4},\e{4}{5},\e{4}{6},\\
+           &\p       \p       \p       \p       \e{5}{5},\e{5}{6},\\
+           &\p       \p       \p       \p       \p       \e{6}{6}
+\}
+\end{align*}
+}
+\item $\Omega=\{\text{Baum vom Blitz getroffen},\text{Baum verschont}\}$
+\item $\Omega=\{\text{an Ebola gestorben},\text{Ebola "uberlebt}\}$
+\item Die Menge der Elementarereignisse ist die Menge aller m"oglichen
+Messwerte, also $\Omega=\mathbb{R}$ oder eine Teilmenge davon.
 \end{enumerate}
-Dieser Begriff des Ereignisses ist offenbar sehr weit gespannt.
-Um ihn in mathematische brauchbare Form zu bringen,
-muss man sich zun"achst "uberlegen, welche Eigenschaften Ereignisse haben
-sollen.
 
-Bevor wir eine mathematische Beschreibung von Ereignissen versuchen,
-wollen wir deshalb an einem popul"aren Beispiel die relevanten Ereignisse
-formulieren.
+\section{Ereignisalgebra\label{section-ereignisse}}
+Die Modellierung von Versuchsausg"angen mit der Menge $\Omega$
+allein ist nicht in der Lage, zus"atzliche Eigenschaften eines
+Versuchsausgangs wiederzugeben.
+Sie muss daher um den Begriff des Ereignisses erweitert werden.
 
-\subsection{AIDS-Test\label{aids-test-intro}}
+\subsection{Ereignisse}
+Oft sind die einzelnen Versuchsausg"ange nicht von Interesse.
+Viele W"urfelspiele mit zwei W"urfeln haben besondere Regeln, wenn
+der Spieler zwei gleiche Augenzahlen wirft, einen sogenannten {\em Pasch}.
+Die Regeln sind unabh"angig vom Wert, es z"ahlt nur die Tatsache,
+dass die beiden Augenzahlen gleich sind.
+Das Ereignis ``Pasch'' ist eingetreten, wenn der Versuchsausgang, also das
+Paar von Augenzahlen, in der Menge
+\[
+\def\e#1{\epsdice{#1}\,\epsdice{#1}}
+P=\{
+\e{1},
+\e{2},
+\e{3},
+\e{4},
+\e{5},
+\e{6}
+\}
+\]
+liegt.
+
+Auch einzelne Messwerte sind oft nicht interessant. 
+Ein "Uberspannungsereignis tritt zum Beispiel ein, wenn die Spannung
+einen Wert "uberschreitet, oder wenn das Elementarereignis, also der Messwert,
+in der Menge
+\[
+U=
+\{x\in\mathbb R\,|\, x > x_{\text{Limite}}\}
+\]
+liegt.
+
+Solche zusammengesetzten Ereignisse sind also immer Teilmengen von $\Omega$.
+Wir k"onnen dies als eine Definition des Begriffs des Ereignisses
+verwenden.
+
+\begin{definition}
+Ist $\Omega$ eine Menge von Versuchsausg"angen, dann heisst eine Teilmenge
+$A\subset\Omega$ ein Ereignis.
+Man sagt, das Ereignis $A$ ist eingetreten, wenn bei einer Durchf"uhrung des
+Experimentes ein Versuchsausgang $\omega\in A$ aufgetreten ist.
+\end{definition}
+
+\begin{beispiel}
+\begin{figure}
+\centering
+\caption{Ereignisse zum Experiment ``Person im Ebola-Gebiet''
+\label{image-ebola}}
+\end{figure}
+
+In Abbildung~\ref{image-ebola} sind m"ogliche Ereignisse eines Experiments
+dargestellt, bei dem ein zuf"allig ausgew"ahlte Person daraufhin untersucht
+wurde, ob sie mit Ebola in Kontakt kam, daran erkrankte und inzwischen
+verstorben ist.
+Der einzelne Versuchsausgang ist also die Person, die f"ur die
+Untersuchung ausgew"ahlt wurde. 
+Die Menge $\Omega$ ist die Menge aller Personen.
+Folgende Ereignisse wurden untersucht:
+\begin{align*}
+K&=\{\omega\in\Omega\,|\,\text{$\omega$ ist mit Ebola in Kontakt gekommen}\}
+\\
+E&=\{\omega\in\Omega\,|\,\text{$\omega$ ist an Ebola erkrankt}\}
+\\
+T&=\{\omega\in\Omega\,|\,\text{$\omega$ ist verstorben}\}
+\end{align*}
+Es gilt nat"urlich $E\subset K$, denn wer an Ebola erkrankt, muss mit
+Ebola in Kontakt gekommen sein. 
+Das umgekehrte gilt nicht, man kann durchaus mit Ebola in Kontakt
+kommen, ohne daran zu erkranken.
+
+Es gilt nicht, dass $E\subset T$, denn einerseits gibt es Personen, die
+Ebola "uberlebt haben, und andererseits gibt es an Ebola erkrankte,
+die zur Zeit des Experiments noch nicht verstorben sind.
+Die Menge $E\cap T$ besteht aus denjenigen Personen, die an Ebola
+erkrankt waren und verstorben sind.
+Dies heisst aber nicht, dass sie an Ebola gestorben sind.
+\end{beispiel}
+
+Zwei Ereignisse $A$ und $B$ k"onnen bei der Durchf"uhrung des Experimentes
+gleichzeitig eintreten.
+Der Versuchsausgang $\omega$ ist also so beschaffen, dass mit ihm sowohl
+$A$ als auch $B$ eintreten, dass also $\omega\in A$ und $\omega\in B$,
+oder $\omega \in A\cap B$.
+
+Tritt ein Ereignis $A$ bei einer Versuchsdurchf"uhrung nicht ein, dann trat
+ein Versuchsausgang $\omega$ auf, der nicht zu $A$ geh"ort,
+also $\omega\in\Omega\setminus A$.
+Dies bedeutet aber, dass das Ereignis $\Omega\setminus A=\overline{A}$
+eingetreten ist.
+
+Zwei Ereignisse sind speziell.
+Die Menge $\Omega\subset\Omega$ hat die Eigenschaft, dass jeder denkbare
+Versuchsausgang per Definition in $\Omega$ liegt, das Ereignis $\Omega$
+tritt also immer ein. $\Omega$ heisst daher auch das sichere Ereignis.
+\index{Ereignis!sicheres}
+Die leere Menge $\emptyset\subset\Omega$ hat genau die gegenteilige
+Eigenschaft: was auch immer geschieht, was auch immer f"ur ein 
+Elementarereignis $\omega$ realisiert wird, in $\emptyset$ kann es
+nicht drin sein, also wird $\emptyset$ nie eintreten. $\emptyset$
+heisst daher auch das unm"ogliche
+Ereignis.
+\index{Ereignis!unm\"ogliches}
+
+Diese Beispiele zeigen, dass die Modellierung von Ereignissen als Teilmengen
+von $\Omega$
+mit der umgangsprachlichen Sprechweise von Ereignissen "ubereinstimmt.
+Die Tabelle~\ref{begriffe-zusammenfassung}
+fasst die gebr"auchlichsten Mengenoperationen und die zugeh"orige
+Sprechweise f"ur Ereignisse zusammen.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+Begriff&Modell\\
+\hline
+Elementarereignis&$\omega$\\
+alle Elementarereignisse&$\Omega$\\
+Ereignis&$A\subset\Omega$\\
+sicheres Ereignis&$\Omega$\\
+unm"ogliches Ereignis&$\emptyset$\\
+$A$ und $B$&$A\cap B$\\
+$A$ oder $B$&$A\cup B$\\
+$A$ hat $B$ zur Folge, $A\Rightarrow B$&$A\subset B$\\
+nicht $A$&$\Omega\setminus A$\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Begriffe der Wahrscheinlichkeitstheorie und ihre mathematischen
+Modellierung\label{begriffe-zusammenfassung}}
+\end{table}
+
+\subsection{Beispiele}
+\subsubsection{AIDS-Test}
 Wenn sich jemand im Bezug auf AIDS riskant verhalten hat, dann ist
 eine seiner Sorgen, dass der AIDS-Test nicht sofort das richtige
 Resultat anzeigt. Und selbst wenn er die notwendige Frist abgewartet
@@ -98,7 +353,7 @@ an HIV erkrankt. Gl"uck haben diejenigen, bei denen der Test nicht
 anspricht, und die auch tats"achlich gesund sind.
 
 
-\subsection{Euromillions}
+\subsubsection{Euromillions}
 \index{Euromillions}
 \begin{figure}
 \includegraphics[width=\hsize]{graphics/euromillions}
@@ -166,7 +421,7 @@ etwas gewonnen haben, n"amlich wenn sie 5, 4 oder 2 richtige Zahlen
 gehabt hat (R"ange 3, 6 bzw.~10). Oder sie k"onnte mit 3, 1 oder 0
 richtigen Zahlen nichts gewonnen haben.
 \item {\it Hermann hatte richtige Zahlen und Sterne.} Hermann hatte
-als 1, 2, 3, 4 oder 5 richtige Zahlen {\bf und}
+als 1, 2, 3, 4 oder 5 richtige Zahlen {\em und}
 1 oder 2 richtige
 Sterne.
 \item {\it Es trifft nicht zu, dass Hilary einen richtigen Stern hat.}
@@ -174,138 +429,10 @@ Sterne.
 Dieses Ereignis nimmt auf die Ziehung "uberhaupt keinen Bezug,
 trotzdem beschreibt es einen m"oglichen Ausgang des Experimentes.
 \end{itemize}
-Wir stellen fest, dass Ereignisse mit {\bf und} (beide Ereignisse sind
-eingetreten) und {\bf oder} (eines der Ereignisse ist
+Wir stellen fest, dass Ereignisse mit {\em und} (beide Ereignisse sind
+eingetreten) und {\em oder} (eines der Ereignisse ist
 eingetreten) verkn"upft werden k"onnen. Ausserdem k"onnen 
 Ereignisse negiert werden.
-
-\subsection{Eigenschaften von Ereignissen}
-Man kann aus Ereignissen neue Ereignisse bilden:
-\begin{enumerate}
-\item Dass zwei Ereignisse gleichzeitig eintreten ist ebenfalls ein
-Ereignis.
-\item Dass von zwei Ereignissen eines eintreten kann, ist ebenfalls
-ein Ereignis.
-\item Dass ein Ereignis nicht eintritt, ist ebenfalls ein Ereignis.
-\end{enumerate}
-Ausserdem kann es sein, dass ein Ereignis nur eintreten kann, wenn ein
-anderes Ereignis bereits eingetreten ist.
-
-Ereignisse brauchen nicht etwas unteilbares
-zu sein, denn wenn man ``genauer hinschaut'',
-kann ein Ereignis aus einer
-grossen Zahl von Einzelereignissen bestehen, die das beobachtete Resultat
-herbeif"uhren. Wenn man einen Stapel Karten mischt, sich aber nur daf"ur
-interessiert, welche Farbe die oberste Karte hat, ist dies offenbar mit einer
-sehr grossen Zahl von m"oglichen Anordnungen der "ubrigen Karten m"oglich.
-Umgekehrt ist es sehr gut m"oglich, dass es keine praktische M"oglichkeit
-gibt, ``genauer hinzuschauen'', in diesem Fall l"asst sich ein Ereignis
-nicht weiter zerteilen, man k"onnte von einem Elementarereignis\marginpar{\tiny Elementarereignis} sprechen.
-\index{Elementarereignis}
-
-Manchmal interessiert bei einem Versuchsverlauf nur ein einziges Attribut,
-zum Beispiel wird sich niemand f"ur alle Einzelheiten eines Versuchs
-interessieren die zu einem bestimmten Messwert gef"uhrt haben. Die Messung 
-gruppiert also Ereignisse, die zu einem bestimmten Messwert f"uhren, zu
-einem gr"osseren Ereignis.
-
-\subsection{Mathematische Modellierung von Ereignissen}
-Die Mengenlehre bildet den nat"urlichen Rahmen f"ur die Operationen,
-die wir f"ur Ereignisse ben"otigen.
-Die Elementarereignisse sind gute Kandidaten daf"ur, eine geeignete
-Grundmenge abzugeben. Ereignisse
-\marginpar{\tiny Ereignisse als Mengen}
-k"onnen mehrere Elementarereignisse umfassen, die alle zum gleichen
-``Ausgang'' f"uhren.
-Sie sind also Mengen von Elementarereignissen. Um die Begriff festzulegen
-verwenden wir f"ur die Menge der Elementarereignisse den Buchstaben $\Omega$.
-Elementarereignisse sind also Elemente $\omega\in\Omega$, Ereignisse sind
-Teilmengen $A\subset\Omega$.
-
-Beispiel: Der Wurf eines W"urfels ist ein Zufallsexperiment, von dem im
-Moment nur die oben liegende Zahl als Ausgang interessiert, nicht die 
-komplizierte Flugbahn des W"urfels, bis er endlich ruhig liegt.
-Elementarereignisse sind in dieser Sicht die Zahlen
-$\Omega = \{1, 2, 3, 4, 5, 6\}$.
-Ereignisse sind Teilmengen von $\Omega$. Das Ereignis
-``es wurde eine gerade Augenzahl geworfen'' ist die Menge $\{2, 4, 6\}$.
-
-Bei\marginpar{\tiny Eintreten von Ereignissen} einem Zufallsexperiment
-wird irgend eines der m"oglichen
-Elementarereignisse in $\Omega$ realisiert, nennen wir es $\omega$.
-Das Ereignis $A\subset\Omega$
-tritt ein, wenn $\omega\in A$ ist. Im W"urfelbeispiel tritt das Ereignis
-``es wurde eine ganze Zahl geworfen'' also zum Beispiel ein, wenn eine
-2, 4 oder 6 gew"urfelt wird.
-
-Zwei Ereignisse $A\subset\Omega$ und $B\subset\Omega$ treten bei einem
-Versuch gleichzeitig\marginpar{\tiny Gleichzeitiges Eintreten von Ereignissen}
-ein, wenn das realisierte Elementarereignis
-$\omega$ sowohl in $A$ als auch in $B$ liegt, also $\omega\in A\cap B$.
-Wenn die Ereignisse $A=\{\hbox{gerade Zahl}\}$ und
-$B=\{\hbox{durch $3$ teilbare Zahl}\}$ gleichzeitig eintreten, dann
-gilt
-\[
-A\cap B = \{2, 4, 6\} \cap \{3, 6\} = \{6\},
-\]
-es wurde also eine $6$ gew"urfelt.
-
-Zwei Ereignisse sind speziell.
-Die Menge $\Omega\subset\Omega$ hat die Eigenschaft, dass jeder denkbare
-Versuchsausgang per Definition in $\Omega$ liegt, das Ereignis $\Omega$
-tritt also immer ein. $\Omega$ heisst daher auch das\marginpar{\tiny sicheres Ereignis} sichere Ereignis.
-\index{Ereignis!sicheres}
-Die leere Menge $\emptyset\subset\Omega$ hat genau die gegenteilige
-Eigenschaft: was auch immer geschieht, was auch immer f"ur ein 
-Elementarereignis $\omega$ realisiert wird, in $\emptyset$ kann es
-nicht drin sein, also wird $\emptyset$ nie eintreten. $\emptyset$
-heisst daher auch das unm"ogliche
-Ereignis\marginpar{\tiny unm"ogliches Ereignis}.
-\index{Ereignis!unm\"ogliches}
-
-\begin{table}
-\begin{center}
-\begin{tabular}{|l|c|}
-\hline
-Begriff&Modell\\
-\hline
-Elementarereignis&$\omega$\\
-alle Elementarereignisse&$\Omega$\\
-Ereignis&$A\subset\Omega$\\
-sicheres Ereignis&$\Omega$\\
-unm"ogliches Ereignis&$\emptyset$\\
-$A$ und $B$&$A\cap B$\\
-$A$ oder $B$&$A\cup B$\\
-$A$ hat $B$ zur Folge, $A\Rightarrow B$&$A\subset B$\\
-nicht $A$&$\Omega\setminus A$\\
-\hline
-\end{tabular}
-\end{center}
-\caption{Begriffe der Wahrscheinlichkeitstheorie und ihre mathematischen
-Modellierung\label{begriffe-zusammenfassung}}
-\end{table}
-
-Auch andere Mengenoperationen und Relationen haben Entsprechungen
-in der Begriffswelt der Ereignisse. Sind $A$ und $B$ zwei Ereignisse
-mit $A\subset B\subset\Omega$, dann tritt offensichtlich $B$ auf
-jeden Fall dann ein, wenn $A$ eingetreten ist. Wird n"amlich $\omega\in A$
-realisiert, dann ist auch $\omega\in B$. Man kann auch sagen, $A$ impliziert
-$B$, oder $A$ hat $B$ zur Folge, $A\Rightarrow B$.
-
-Die Vereinigungsmenge\marginpar{\tiny Vereinigung von Ereignissen}
-zweier Ereignisse $A$ und $B$ besteht aus jenen
-Elementarereignissen, die in $A$ oder in $B$ liegen. $A\cup B$ tritt
-also ein, wenn das realisierte Elementarereignis $\omega\in A$
-oder $\omega\in B$ liegt.
-
-Das Ereignis\marginpar{\tiny negiertes Ereignis}
-``$A$ tritt nicht ein'', oder $\lnot A$, besteht aus
-jenen Elementarereignissen, die nicht in $A$ liegen,
-also $\lnot A=\Omega\setminus A$.
-
-Die eben entwickelten Begriffe sind in der Tabelle
-\ref{begriffe-zusammenfassung} zusammengefasst.
-\index{Ereignisalgebra}
 
 \subsection{Produkte}
 \begin{figure}
@@ -363,48 +490,41 @@ X_4\cap Y_3&=&\{(4,3)\}\\
 X_5\cap S_7&=&\{(5,2)\}\\
 X_5\cap D_1&=&\{(5,4), (5,6)\}\\
 \end{eqnarray*}
-%Beweise: "Ubungsaufgaben.
-
-%Allgemein lassen sich also zwei Ereignisalgebren $(\Omega_1,{\cal A}_1)$
-%\marginpar{\tiny Produkt von Ereignisalgebren}
-%und $(\Omega_2,{\cal A}_2)$ zu einer neuen Ereignisalgebra
-%kombinieren, indem man deren Kreuzprodukt 
-%$(\Omega, {\cal A})=(\Omega_1,{\cal A}_1)\times(\Omega_2,{\cal A}_2)$
-%bildet. Die Menge der Elementarereignisse ist $\Omega = \Omega_1\times\Omega_2$,
-%aber die Menge der Ereignisse $\cal A$ ist nicht so leicht anzugeben.
-%Ausser aus den Produkte von je einem Ereignis aus ${\cal A}_1$ und
-%${\cal A}_2$ sind auch alle Durchschnitte, Vereinigungen und Komplemente
-%von solchen Produkten in $\cal A$.
-
-\subsection{*Abbildungen}
-Wir betrachten wieder das Beispiel $(\Omega,\cal A)$
-zweier unterscheidbarer W"urfel. Daneben
-interessieren wir uns daf"ur, dass eine bestimmte Summe von Augenzahlen
-gew"urfelt wird. Die m"oglichen Ausg"ange (Elementarereignisse)
-f"ur diese zweite Art von
-Experiment ist die Menge der ganzen Zahlen von 1 bis 12,
-$\Omega'=\{n\in\mathbb N\;|\;1 \le n \le 12\;\}$, und die
-Menge der Ereignisse ist die Menge aller Teilmengen
-${\cal A}'={\cal P}(\Omega')$.
-
-Offensichtlich gibt es eine Abbildung $s\colon \Omega\to\Omega'$, die 
-die Summe der Augenzahlen ausrechnet:
-\[
-s\colon\Omega\to\Omega':(x,y)\mapsto x+y
-\]
-Das Eintreten eines bestimmten Elementarereignisses $a \in\Omega'$
-bedeutet jetzt, dass in $\Omega$ das Ereignis $S_a$ eingetreten
-ist. 
 
 \subsection{Formale Definition}
-Im Allgemeinen wird es gen"ugen, Mengen von Ereignissen
-$A\subset\Omega$ zu betrachten, f"ur die sich alle obigen
-Operationen durchf"uhren lassen. Die Menge aller Teilmengen von
-$\Omega$, die Potenzmenge ${\cal P}(\Omega)$ erf"ullt diese Bedingung,
+Damit obige Definition von Ereignissen funktioniert, m"ussen
+alle Operationen in der Tabelle~\ref{begriffe-zusammenfassung}
+ausf"uhrbar sein.
+Die Menge aller Teilmengen von $\Omega$, die Potenzmenge
+$P(\Omega)$ erf"ullt diese Bedingung,
 ist aber sehr gross und hat sehr wenig n"utzliche Struktur, die
 f"ur den Aufbau des Begriffs der Wahrscheinlichkeit im n"achsten
-Abschnitt ben"otigt wird.  Damit gelangen wir zu folgender Definition
-einer Ereignis-Algebra:
+Abschnitt ben"otigt wird.
+Insbesondere stellt sich heraus, dass es nicht m"oglich ist,
+den Begriff der Wahrscheinlichkeit konsistent zu definieren, wenn
+Ereignisse beliebige Teilmengen einer unendlichen Menge $\Omega$
+sein d"urfen.
+
+Ein Beispiel f"ur diese Situation sind die Messwerte, in diesem
+Fall ist $\Omega=\mathbb R$ unendlich.
+Es werden aber auch nicht alle Teilmengen von $\mathbb R$ ben"otigt.
+Es wird gen"ugen, wenn wir alle Intervalle zur Verf"ugung haben sowie
+alle Mengen, die sich daraus durch endlich viele Mengenoperationen
+konstruieren lassen.
+Statt der Menge $P(\Omega)$ wird also eine kleinere Menge $\cal A$
+von Ereignissen verwendet.
+Man kann zeigen, dass sich aus der Menge der Intervalle immer 
+eine Menge von Ereignissen konstruieren l"asst, in der alle
+n"otigen Operationen ausgef"uhrt werden k"onnen, und in der sich
+die sp"ater einzuf"uhrende Wahrscheinlichkeit konsistent definieren
+l"asst.
+
+Die Einschr"ankung auf $\cal A$ hat mindestens im Rahmen dieser
+Vorlesung keine praktischen Konsequenzen, alle interessierenden
+Ereignisse sind von vornherein in $\cal A$, und damit auch alle daraus
+abgeleiteten Ereignisse.
+
+Wir nennen eine solche Menge von Ereignissen eine Ereignis-Algebra:
 
 \begin{definition}
 \label{def-ereignisalgebra}
@@ -437,7 +557,7 @@ Schlussfolgerungen ziehen:
 (A\cup B) \setminus ((A\setminus B) \cup (B\setminus A))\in{\cal A}$.
 \end{enumerate}
 
-\section{Beispiele\label{section-beispiele}}
+\section{Weitere Beispiele von Ereignisalgebren\label{section-beispiele}}
 \subsection{Dominosteine}
 Die Menge aller m"oglichen Dominosteine wurde bereits fr"uher untersucht.
 Jetzt m"ochten wir darin einzelne Ereignisse auszeichnen. Wir beschreiben
@@ -535,9 +655,10 @@ Q&=\{\text{totale Augensumme $\ge 10$}\}\\
 Wir mathematisieren das Beispiel des AIDS-Tests.
 Die Diskussion in \ref{aids-test-intro} f"uhrt uns vor Augen,
 dass wir hier mit zwei verschiedenen Ereignissen zu tun haben. 
-Das Experiment besteht offenbar darin, dass wir jemanden Untersuchen,
-die Menge Elementarereignisse ist also die Menge aller betrachteten Personen.
-Darin unterschieden wir:
+Das Experiment besteht offenbar darin, dass wir jemanden untersuchen,
+die Menge der Elementarereignisse ist also die Menge aller betrachteten
+Personen.
+Darin unterscheiden wir:
 \begin{align*}
 H&=\{\text{Person hat HIV}\}\\
 T&=\{\text{Person hat positiven AIDS-Test}\}
@@ -546,119 +667,6 @@ Es ist klar, dass $H\ne T$. Es gibt Personen, die zwar HIV haben, bei
 denen der Test dies aber noch nicht zeigen kann, $H\setminus T\ne \emptyset$.
 Andererseits gibt es falsche positive Testresultate,
 $T\setminus H\ne\emptyset$. 
-
-%\subsection{Zwei ununterscheidbare W"urfel}
-%Wir stellen uns zwei vollkommen ununterscheidbare W"urfel vor. Genau
-%genommen ist dies in der makroskopischen Welt nicht m"oglich, es l"asst
-%sich da immer ein Unterscheidungsmerkmal finden. In der mikroskopischen
-%Welt hingegen gibt es durchaus ununterscheidbare Teilchen, die in
-%verschiedenen Zust"anden sein k"onnen, wir k"onnten diese als
-%ununterscheidbare W"urfel ansehen.
-%
-%Wenn wir uns wieder nur f"ur den Ausgang des W"urfelns mit den zwei
-%ununterscheidbaren W"urfeln interessieren, d"urfen wir das Resultat
-%$(x,y)$ nicht mehr von $(y,x)$ unterscheiden. Bei unterscheidbaren
-%W"urfeln war dies m"oglich, die erste Position war f"ur die
-%Augenzahl des roten W"urfels reserviert. Daher ist die Menge der
-%m"oglichen Ausg"ange nun nur noch
-%$\{(x,y)|1\le x,y\le 6\wedge x\le y\}$.
-
-%\subsection{Ein komplexeres Beispiel: die Fussball WM 2006}
-%Betrachten wir alle m"oglichen Spiele an einer Fussball WM.
-%Offensichtlich ist dies eine ungeheuer grosse Menge. An Stammtischen
-%rund um die Welt wurden alle m"oglichen F"alle diskutiert, wie
-%Spiele anders h"atten ausgehen k"onnen. Und selbst alle dies Theorien
-%machen nur einen kleinen Teil aller m"ogliche Spiele aus.
-%Wir bezeichnen diese Menge mit $\Sigma$.
-%Jedes Element $x\in\Sigma$ ist also ein denkbares
-%Spiel. "Uber jedes Spiel gibt es sehr viel Information, zum Beispiel
-%hat jedes Spiel zwei Teilnehmermannschaften, selbst dann, wenn diese
-%dem Match fernbleiben, wie im Spiel Schweiz -- Togo beinahe geschehen.
-%
-%Bei der tats"achlichen Durchf"uhrung der WM werden nur einige ganz wenige
-%dieser Spiele tats"achlich real. W"ahrend den Fussballfans nat"urlich unz"ahlige
-%Einzelheiten eines Spiels wichtig sind, z"ahlt am Schluss nur noch die Zahl
-%der Tore, die die beiden Mannschaften erzielt haben. An der Fussball WM 2006
-%fand zum Beispiel ein Spiel Schweiz gegen S"udkorea statt. Auch dieses Spiel
-%h"atte auf viele Arten ausgehen k"onnen, die Menge
-%$$\{\text{Die Schweiz spielt gegen S"udkorea}\}\subset\Sigma$$
-%ist also eine Teilmenge aller m"oglichen Spiele. Wenn man sich heute noch
-%an den Ausgang des Spieles erinnert, kennt man nur noch die Menge
-%$$\sigma=\{\text{Die Schweiz besiegt S"udkorea 2 : 0}\}\subset\Sigma.$$
-%Aber selbstverst"andlich ist auch dies eine sehr grosse Menge,
-%die Stadionbesucher am 23.~Juni 2006 in Hannover
-%haben ein Realisation $x\in\sigma$ gesehen.
-%
-%Die WM selbst besteht aus einer Folge von Spielen. Nach einem genau
-%bestimmten Spielplan finden zun"achst die Gruppenspiele statt, an deren
-%Ende feststeht, wer die Achtelfinals bestreiten darf. Dann treten
-%jeweils zwei Mannschaften gegeneinander an, wobei jeweils der
-%Verlierer ausscheidet. Der H"ohepunkt ist dann das Finalspiel ganz
-%am Schluss, der Sieger in diesem Spiel ist Weltmeister. In der Welt
-%des Fussballs ist ein m"oglicher Verlauf eine Folge von Spielen
-%$$(\sigma_1,\dots,\sigma_N)\in\Sigma\times\dots\times\Sigma=\Sigma^N$$
-%Wir bezeichnen die Menge aller m"oglichen Abl"aufe der Fussball WM
-%mit $\Omega$, f"ur einen richtigen Fussballfan ist $\Omega$ f"ur
-%einige Wochen alle vier Jahre das Universum.
-%
-%Die Tatsache, dass die Schweiz an den Achtelfinals teilnahm, l"asst sich
-%jetzt so ausdr"ucken:
-%$$\omega=\{v=(s_1,\dots,s_N)\in\Omega\;|
-%\;\text{Schweiz ist Teilnehmer von $s_x$ oder $s_y$}\}\subset\Omega.$$
-%Die Achtelfinalteilnahme ist zweifellos etwas, was man gerne als ein Ereignis
-%bezeichnen m"ochte. WM-Ereignisse sind also Teilmengen von $\Omega$.
-%
-%Das Ereignis der Achtelfinalteilnahme $A_{\text{Achtelfinal}}$ umfasst also alle
-%Verl"aufe der WM, bei denen es die Schweiz in den Achtelfinal
-%geschafft hat. In $A$ sind nat"urlich auch Verl"aufe drin, bei
-%welchen die Schweiz gegen andere Mannschaften als die Ukraine
-%antritt, ja es gibt sogar Verl"aufe, bei denen die Schweiz in den
-%Achtelfinals gewinnt und weiter erfolgreich ist bis zum Sieg im
-%Final. Zum Leidwesen unz"ahliger Fussballfans ist keiner dieser
-%Verl"aufe realisiert worden.
-%
-%F"ur die Stammtischdiskussion von besonderer Bedeutung sind die Ereignisse
-%$$A_X=\{(s_1,\dots,s_N)\in\Omega\;|\;\text{$X$ spielt im Final}\}$$
-%oder
-%$$A_{X,Y}=\{(s_1,\dots,s_N)\in\Omega\;|
-%\;\text{$X$ und $Y$ spielen im Final}\}$$
-%Offensichtlich gilt
-%$$A_{X,Y}=A_X\cap A_Y$$
-%Viele Schweizer Fussballfans hatten sich folgende Strategie
-%zurechtgelegt: Wenn die Schweiz nicht bis in den Final kommt, dann
-%w"are ein Finalspiel mit Brasilien ihr Wunschverlauf. Diese Fans
-%interessierten sich f"ur das Ereignis
-%$$\{v\in\Omega\;|\; \text{Die Schweiz oder Brasilien spielt im Final}\}=
-%A_{\text{Schweiz}}\cup A_{\text{Brasilien}}$$
-%Nat"urlich geh"ort dazu auch der Fall
-%$$A_{\text{Schweiz},\text{Brasilien}} \subset
-%A_{\text{Schweiz}}\cup A_{\text{Brasilien}}$$
-%also ein Finalspiel zwischen Brasilien und der Schweiz, was mindestens
-%f"ur Fans ein ganz besonderes Ereignis gewesen w"are.
-%
-%Offenbar sind also Teilmengen von $\Omega$ gut geeignete Abstraktionen,
-%um Ereignisse zu beschreiben. Logische Verkn"upfungen zwischen
-%Ereignissen lassen sich durch die Mengenoperationen ausdr"ucken,
-%man kann damit rechnen wie man es in der elementaren Mengenlehre
-%gelernt hat. Zum Beispiel kann man das Ereignis $A_X \cap
-%A_Y\cap A_Z$ berechnen. Wenn die Mannschaften $X$, $Y$ und
-%$Z$ alle verschieden sind, entspr"ache ein Element dieser Menge
-%einem WM-Verlauf, bei dem drei verschiedene Mannschaften im Final
-%gegeneinander antreten. Da ein Spiel immer nur zwei Teilnehmer hat,
-%kann dies nicht eintreffen:
-%$$A_X \cap A_Y\cap A_Z = \emptyset\qquad\text{f"ur $X$, $Y$ und $Z$ verschieden}$$
-%Man sagt, die Ereignisse $A_X$, $A_Y$ und $A_Z$ seien
-%unvereinbar, ihr Durchschnitt ist das unm"ogliche Ereignis.
-%Ebenso l"asst sich ausdr"ucken, dass die WM 
-%stattgefunden hat, die ganze Menge $\Omega$ ist ebenfalls ein
-%Ereignis, das sichere Ereignis.
-%
-%Das Ereignis 
-%$$\bar A_{\text{Schweiz}}=\Omega\setminus A_{\text{Schweiz}}$$
-%umfasst alle WM-Verl"aufe, bei denen die Schweiz nicht am Final teilnimmt.
-%Da man die Mannschaften kennt, kann man $\bar A_{\text{Schweiz}}$
-%als Vereinigung aller Ereignisse mit anderen Finalteilnehmern schreiben:
-%$$\bar A_{\text{Schweiz}}=\bigcup_{X,Y\ne \text{Schweiz}} A_{X,Y}$$
 
 \subsection{Messwertalgebra}
 \begin{table}
@@ -740,22 +748,23 @@ $\{R\ge 0.990\}$&14\\
 \end{center}
 
 Etwas formaler: Eine Genauigkeitsangabe bei einem Messwert definiert
-ein Intervall, innerhalb dessen sich ein Messwert befinden muss. Wir
+ein Intervall, in dem sich ein Messwert befinden muss. Wir
 fordern also, dass $\cal A$ alle Intervalle der Form $[a,b]\subset\mathbb R$
-enthalten muss. Aber auch die Aussage ``der Messwert ist kleiner als $a$''
+enthalten muss.
+Aber auch die Aussage ``der Messwert ist kleiner als $a$''
 muss einem Ereignis in $\cal A$ entsprechen, also m"ussen auch Intervalle,
 die sich ins unendliche erstrecken in $\cal A$ sein:
 
 \begin{eqnarray*}{}
 (-\infty,r]&=&\{x\in\mathbb R\;|\;x \le r\} \in \cal A\\
 % Hack: \; brauchts, damit eqnarray nicht meint [ leite ein Argument ein
-\;[r,\infty)&=&\{x\in\mathbb R\;|\;x \ge r\} \in \cal A\\
+\;[r,\infty)&=&\{x\in\mathbb R\;|\;x \ge r\} \in \cal A
 \end{eqnarray*}
 
 Da wir Komplemente bilden k"onnen, m"ussen auch die offenen Intervalle
 \begin{eqnarray*}
 \overline{[a,\infty)}&=&\mathbb R\setminus [a,\infty)=(-\infty,a)\in\cal A\\
-\overline{(-\infty,b]}&=&\mathbb R\setminus (-\infty,b]= (b,\infty)\in\cal A\\
+\overline{(-\infty,b]}&=&\mathbb R\setminus (-\infty,b]= (b,\infty)\in\cal A
 \end{eqnarray*}
 Ereignisse sein. Ein beliebiges offenes Intervall l"asst sich
 als Durchschnitt zweier solcher Intervalle ausdr"ucken:
@@ -770,14 +779,57 @@ in diesem Falle sehr kompliziert.
 
 \section{Wahrscheinlichkeit\label{section-wahrscheinlichkeit}}
 In der Einleitung haben wir das Ereignis diskutiert, dass die Schweizer
-Nati ein bestimmtes Spiel an Fussball WM gewinnt. Wir sind zum Schluss
+Nati ein bestimmtes Spiel an Fussball WM gewinnt.
+Wir sind zum Schluss
 gekommen dass wir nicht wissen k"onnen, was bei der konkreten
-Durchf"uhrung des Experimentes passieren wird. Falls der Gegner
+Durchf"uhrung des Experimentes passieren wird.
+Falls der Gegner
 stark ist, zum Beispiel Deutschland, dann wird ein Sieg wohl auch
 dann kaum je eintreten, wenn man das Spiel viele Male wiederholt.
 Das wenigstens verbinden wir mit einem unwahrscheinlichen Ereignis.
-Trotzdem kann das Ereignis eintreten, wie die letzte EM gezeigt hat.
+Trotzdem kann das Ereignis eintreten.
 
+\subsection{Verschiedene Wahrscheinlichkeitsbegriffe}
+Die Wahrscheinlichkeit soll ein Mass daf"ur sein, dass Ereignis
+eintritt.
+Es gibt verschiedene Ans"atze, wie wir zu einem solchen Mass kommen
+k"onnten:
+\begin{itemize}
+\item 
+Je h"aufiger ein Ereignis eintritt, desto gr"osser sollte die
+Wahrscheinlichkeit sein. 
+Dies setzt voraus, dass das Experiment im Prinzip beliebig oft wiederholbar 
+ist.
+Man nennt dies den {\em frequentistischen} Ansatz.
+\item
+Die Wahrscheinlichkeit ist ein Mass f"ur die pers"onliche
+"Uberzeug, dass ein Ereignis eintreten wird.
+Im Unterschied zum frequentistischen Ansatz sollte man bei diesem
+Ansatz einem Ereignis auch dann eine Wahrscheinlichkeit geben k"onnen,
+wenn sich ein Experiment nicht wirklich wiederholen l"asst.
+Dies ist der Bayessche Ansatz.
+\item
+Wir k"onnten eine Reihe von Axiomen postulieren, nach denen sich
+die Wahrscheinlichkeit zu verhalten hat, und dann zu untersuchen,
+ob ein solches Objekt tats"achlich existiert.
+\end{itemize}
+In allen F"allen ergibt sich eine Reihe von Gesetzm"assigkeiten
+oder Formeln, die die jeweiligen Wahrscheinlichkeitsbegriffe 
+erf"ullen m"ussen.
+Soll die Wahrscheinlichkeit eine objektive Gr"osse sein, dann
+muss f"ur wiederholbare Experimente die f"ur den Bayesschen
+Ansatz n"otige pers"onliche "Uberzeugung direkt mit der H"aufigkeit
+des Eintretens zusammenh"angen.
+Der frequentistische und der Bayessche Ansatz werden also in diesem
+Fall "ubereinstimmen.
+Die Axiome im axiomatischen Ansatz sind nat"urlich genau die
+Rechenregeln, die man sowohl im frequentistischen Ansatz wie
+auch im Bayesschen Ansatz von der Wahrscheinlichkeit erwartet.
+Man darf daher davon ausgehen, dass die drei Ans"atze die gleichen
+Resultate liefern, sie unterscheiden sich h"ochstens in der Interpretation
+der Resultate.
+Wir werden daher im folgenden vor allem den am leichtesten zu
+verstehenden frequentistischen Ansatz verfolgen.
 
 \subsection{Wahrscheinlichkeit als relative H"aufigkeit}
 Wir wollen nun einen Begriff der Wahrscheinlichkeit einf"uhren, der
@@ -787,18 +839,17 @@ wahrscheinlich'' heissen soll ``in der Mehrzahl der F"alle'', dann
 bedeutet das offensichtlich, dass man eine gr"ossere Zahl von
 Experimenten durchf"uhren soll, und dann die F"alle z"ahlen soll,
 in denen das Ereignis tats"achlich eingetreten ist. Deren Anteil
-an der Gesamtzahl heisst relative H"aufigkeit und ist eine erste,
+an der Gesamtzahl heisst {\em relative H"aufigkeit} und ist eine erste,
 etwas pr"azisere Fassung des Begriffs der Wahrscheinlichkeit. 
 
 Grundlegend f"ur die Wahrscheinlichkeitsrechnung ist die aus der
-\marginpar{\tiny Wahrscheinlichkeit als relative H"aufigkeit}
 \index{Wahrscheinlichkeit!als relative H\"aufigkeit}
 Erfahrung mit einer grossen Zahl von Versuchen gewonnene Zuversicht,
 dass die relative H"aufigkeit mit wachsender Anzahl Versuche gegen
 eine Gr"osse $P(A)$ strebt. Man verwendet diese Annahme daher als
 Definition. Wiederholt
 man ein Experiment $N$ Male, und tritt dabei das Ereignis $A$
-genau $n$ mal ein, dann erwartete man dass der Quotient $\frac{n}{N}$
+genau $n$ mal ein, dann erwartete man, dass der Quotient $\frac{n}{N}$
 eine gute N"aherung f"ur $P(A)$ ist. Je "ofter man das Experiment
 wiederholt, desto n"aher sollte der Quotient der Gr"osse $P(A)$
 kommen, also
@@ -807,7 +858,6 @@ P(A) := \lim_{N\to\infty}\frac{n}{N}.
 \]
 
 Leider ist es nur selten praktikabel, das Experiment tats"achlich
-\marginpar{\tiny Problematik der experimentellen Bestimmung von $P$}
 sehr h"aufig zu wiederholen.  Bei der Pr"ufung neuer Medikamente
 zum Beispiel hindern moralische Bedenken daran, eine grosse
 Zahl von Experimenten mit Menschen durchzuf"uhren. Bei der
@@ -816,7 +866,6 @@ Einschlagswahrscheinlichkeit eines Asteroiden auf der Erde hat man
 ganz einfach keine Kontrolle "uber das Experiment.
 
 Das Ziel der Wahrscheinlichkeitstheorie ist daher, 
-\marginpar{\tiny Eigenschaften der Wahrscheinlichkeit}
 die Abbildung $P\colon {\cal A}\to\mathbb{R}$
 abstrakt zu definieren, und geeignete Axiome zu postulieren, die
 der eben skizzierten intuitiven Vorstellung der Wahrscheinlichkeit
@@ -835,38 +884,47 @@ festgehalten.
 \begin{description}
 \item[Wertebereich.]F"ur jedes beliebige Ereignis $A\subset \Omega$
 gilt
-\[
+\begin{equation}
 0\le P(A)\le 1.
-\]
+\label{p-wertebereich}
+\end{equation}
 \item[Sicheres Ereignis.] F"ur das sichere Ereignis gilt
-\[
+\begin{equation}
 P(\Omega) = 1.
-\]
+\label{p-sicheresereignis}
+\end{equation}
 \item[Vereinigung.] Sind die Ereignisse $A_1,A_2,\dots$ paarweise
 disjunkt, also $A_i\cap A_j=\emptyset$ f"ur $i\ne j$, dann gilt
-\[
+\begin{equation}
 P(A_1\cup A_2\cup \dots) = P(A_1) + P(A_2) + \dots
-\]
+\label{p-summenformel}
+\end{equation}
 \end{description}
 
 Die Forderung "uber die Vereinigung kann nat"urlich nur dann "uberhaupt
-\marginpar{\tiny Technisches Problem: abz"ahlbare Vereinigung}
-formuliert, wenn die Vereinigung auch wirklich ein Ereignis, also in
-$\cal A$ ist. Bisher wissen wir nur, dass endliche
+formuliert werden, wenn die Vereinigung auch wirklich ein Ereignis ist, also in
+$\cal A$ ist.
+Bisher wissen wir nur, dass endliche
 Vereinigungen von Ereignissen gebildet werden k"onnen, jetzt m"ussen
 wir fordern, dass
 auch unendliche Vereinigungen von Ereignissen wieder Ereignisse sind.
 D.h. wir setzen im Folgenden voraus, dass in einer
 Ereignisalgebra in Erweiterung des ersten Axioms auch gilt:
 
-\begin{itemize}
-\it
-\item[ ] abz"ahlbare Vereinigungen von Elementen von $\cal A$ sind ebenfalls
-in $\cal A$, d.h. falls $A_i\in{\cal A}$ f"ur $i\in\mathbb{N}$, dann ist
+\begin{definition}
+$\cal A$ heisst 
+$\sigma$-Algebra, wenn 
+abz"ahlbare Vereinigungen von Elementen von $\cal A$ ebenfalls
+in $\cal A$ sind, d.~h.~falls $A_i\in{\cal A}$ f"ur $i\in\mathbb{N}$, dann ist
 \[
 A_1\cup A_2\cup\dots=\bigcup_{i=0}^{\infty}A_i \in{\cal A}.
 \]
-\end{itemize}
+\end{definition}
+
+In allen praktischen F"allen ist diese technische Bedingung automatisch
+erf"ullt, oder man kann erzwingen, dass sie erf"ullt ist.
+F"ur die Praxis ist dies also keine Einschr"ankung, man kann immer davon
+ausgehen, dass die Vereinigungsformel~(\ref{p-summenformel}) ``funktioniert''.
 
 \subsection{Beispiel: W"urfeln}
 Beim W"urfeln mit einem W"urfel erwartet man, dass jeder m"ogliche
@@ -903,30 +961,34 @@ kann hingegen schwierig sein. Eine Computer-Simulation des
 W"urfel-Experiments zeigt zum Beispiel die Resultate in Tabelle
 \ref{wuerfel-simulation}. Offensichtlich ist selbst mit $10^8$
 W"urfen die Wahrscheinlichkeit erst auf drei Stellen nach dem Komma
-berechnet.
+genau.
 
 \subsection{Folgerungen aus den Axiomen}
 \begin{satz}Es gilt
 \begin{enumerate}
 \item Die Wahrscheinlichkeit des unm"oglichen Ereignisses ist
-\[
+\begin{equation}
 P(\emptyset) = 0.
-\]
+\label{p-emptyset}
+\end{equation}
 \item Die Wahrscheinlichkeit des komplement"aren Ereignisses
 ist
-\[
+\begin{equation}
 P(\bar A) = P(\Omega\setminus A) = 1 -P(A).
-\]
+\label{p-negation}
+\end{equation}
 \item Die Wahrscheinlichkeit der Differenz der Ereignisse $A$ und $B$
 ist
-\[
+\begin{equation}
 P(A\setminus B) = P(A) - P(A\cap B)
-\]
+\label{p-negation}
+\end{equation}
 \item Die Wahrscheinlichkeit der Vereinigung zweier beliebiger Ereignisse
 ist
-\[
+\begin{equation}
 P(A\cup B) = P(A) + P(B) - P(A\cap B)
-\]
+\label{p-union}
+\end{equation}
 (Ein-/Ausschaltformel).
 \index{Ein-/Ausschaltformel}
 \end{enumerate}
@@ -971,7 +1033,7 @@ Also gilt
 \begin{eqnarray*}
 P(A\cup B)&=&P(A\setminus B) + P(A\cap B) + P(B\setminus A)\\
 &=&P(A) - P(A\cap B) + P(A\cap B) + P(B) - P(A\cap B)\\
-&=&P(A) + P(B) - P(A\cap B)\qedhere\\
+&=&P(A) + P(B) - P(A\cap B).
 \end{eqnarray*}
 \end{proof}
 Damit stehen uns Rechenregeln zur Verf"ugung, mit deren Hilfe wir
@@ -979,12 +1041,12 @@ die Wahrscheinlichkeit beliebiger Ereignisse auf der Basis einiger
 weniger Annahmen berechnen k"onnen.
 
 \subsection{Wahrscheinlichkeit als Mass}
-\marginpar{\tiny Analogie Wahrscheinlichkeit und Fl"achenmessung}
 Die Wahrscheinlichkeitsfunktion $P$ hat genau die Eigenschaften,
-die man von einer Fl"achenmessung erwartet. Die Gesamtfl"ache
-disjunkte Fl"achenst"ucke berechnet man, indem man den Fl"acheninhalt
-der einzelnen Fl"achenst"ucke summiert. Das leere Fl"achenst"uck
-hat keinen Inhalt. Einzig die zus"atzliche Forderung $P(\Omega)=1$, welche
+die man von einer Fl"achenmessung erwartet.
+Die Gesamtfl"ache disjunkter Fl"achenst"ucke berechnet man,
+indem man den Fl"acheninhalt der einzelnen Fl"achenst"ucke summiert.
+Das leere Fl"achenst"uck hat keinen Inhalt.
+Einzig die zus"atzliche Forderung $P(\Omega)=1$, welche
 sicherstellt, dass die Wahrscheinlichkeit nicht gross werden kann,
 hat keine Entsprechung.
 
@@ -998,7 +1060,6 @@ sehr schlechten Dart-Spieler zu, dessen Pfeile gleichm"assig verteilt auf
 die Scheibe treffen.
 
 Diese
-\marginpar{\tiny Beispiel: Meteoriteneinschlag}
 "Uberlegung kann jedoch dazu verwendet werden, die Wahrscheinlichkeiten
 eines Meteoriteneinschlages in der Schweiz und im F"urstentum Liechtenstein
 miteinander zu vergleichen. Wir erwarten, dass die Wahrscheinlichkeit
@@ -1012,7 +1073,6 @@ die Wahrscheinlichkeit f"ur einen Meteoriteneinschlag im L"andle ist also
 "uber 258mal kleiner.
 
 Umgekehrt k"onnte man die Idee zu einer Fl"achenberechnungs- oder
-\marginpar{\tiny Monte Carlo Integration}
 Integra\-tions\-methode ausbauen. Um den Fl"acheninhalt einer unregelm"assigen
 Teilmenge
 eines Rechteckes in der Ebene zu bestimmen, simuliert man mit dem
@@ -1024,28 +1084,271 @@ eine gen"ugende Genauigkeit zu erreichen. Es kann aber durchaus
 zu einem praktikablen Verfahren verfeinert werden (Monte Carlo Methoden).
 
 Wegen
-\marginpar{\tiny Definition Wahrscheinlichkeitsmass und Wahrscheinlichkeitsraum}
 der Analogie zu einer Fl"achenmessung heisst eine
-Wahrscheinlichkeitsfunktion $P$ oft auch ein {\bf Wahrscheinlichkeitsmass}. Das
-Tripel $(\Omega,{\cal A}, P)$ heisst ein {\bf Wahrscheinlichkeitsraum}.
+Wahrscheinlichkeitsfunktion $P$ oft auch ein {\em Wahrscheinlichkeitsmass}. Das
+Tripel $(\Omega,{\cal A}, P)$ heisst ein {\em Wahrscheinlichkeitsraum}.
+
+\section{Laplace-Experimente}
+Bisher sind wir nicht in der Lage, die Wahrscheinlichkeit eines Ereignisses
+zu berechnen, wir k"onnen nur mit Hilfe der Axiome aus bereits bekannten
+Wahrscheinlichkeiten neue Wahrscheinlichkeiten berechnen.
+F"ur die Berechnung der Wahrscheinlichkeiten ist zus"atzliche
+Information n"otig.
+
+Bei Experimenten mit endlich vielen Ausg"angen ist es manchmal gerechtfertigt
+anzunehmen, dass alle Versuchsausg"ange gleich h"aufig und damit gleich
+wahrscheinlich sind.
+Von einem guten W"urfel erwarten wir, dass er alle Seiten gleich h"aufig
+zeigt, eine symmetrische M"unze sollte Kopf und Zahl etwa gleich h"aufig
+zeigen.
+Unter dieser Annahme k"onnen wir die Wahrscheinlichkeit berechnen:
+
+\begin{definition}
+Ein Experiment mit $n=|\Omega|$ Ausg"angen heisst ein {\em Laplace-Experiment},
+wenn jeder Versuchsausgang gleich wahrscheinlich mit Wahrscheinlichkeit
+\[
+P(\{\omega\})=\frac1n,\qquad\omega\in\Omega
+\]
+ist.
+\end{definition}
+
+Da Laplace-Experimente nur endliche viele Ausg"ange haben, kann man aus
+den Axiomen auch jede andere Wahrscheinlichkeit berechnen:
+
+\begin{satz}
+Bei einem Laplace-Experiment tritt das Ereignis $A\subset\Omega$ mit
+Wahrscheinlichkeit
+\[
+P(A)=\frac{|A|}{|\Omega|}
+\]
+ein.
+\end{satz}
+Damit ist die Berechnung der Wahrscheinlichkeit auf das Z"ahlen der 
+Versuchsausg"ange in $A$ reduziert, also auf eine Kombinatorik-Aufgabe.
+
+\subsection{M"unze werfen}
+\index{Munze@{M\"unze, faire}}
+Wirft man eine M"unze, kann sie nur auf einer von zwei Seiten landen,
+die Elementarereignisse sind also $\Omega = \{\text{Kopf}, \text{Zahl}\}$.
+Die mathematisch idealisierte M"unze ist so d"unn, dass sie nicht auf
+der Kante stehen kann. Nach allgemeiner Erfahrung funktioniert f"ur
+solche M"unzen der Ansatz von Laplace, d.h. $P(\text{Kopf}) = \frac12$
+und $P(\text{Zahl})=\frac12$.
+
+Selbstverst"andlich gibt es auch M"unzen, f"ur die die Laplace-Annahme
+nicht funktioniert, gebogene M"unzen fallen zum Beispiel bevorzugt auf die
+nach aussen gew"olbte Fl"ache.
+
+\subsection{W"urfeln}
+\index{Wurfel@{W\"urfel, fairer}}
+W"urfel haben sechs Seiten, die gem"ass Laplace mit gleicher
+Wahrscheinlichkeit obenliegen werden, die Wahrscheinlichkeit jedes
+Resultates ist also gleich $P(i) = \frac16, i\in\{1,2,3,4,5,6\}$.
+Wird eine Seite des W"urfels beschwert, f"allt er bevorzugt auf diese
+Seite, und die Wahrscheinlichkeiten sind nicht mehr gleich.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.8\hsize]{graphics/Wuerfel5}
+\end{center}
+\caption{Verschiedene Spielw"urfel\label{bild-spielwuerfel}}
+\end{figure}
+Man kann auch aus anderen geometrischen K"orpern ``W"urfel'' bauen, die
+eine gr"ossere Zahl von Ausg"angen erm"oglichen. Ein Dodekaeder hat
+zw"olf Seiten, ein Ikosaeder sogar deren 20, aber auch andere Formen
+sind realisierbar, siehe Abbildung~\ref{bild-spielwuerfel}. Der Einfachheit
+halber gehen wir im Folgenden immer von sechsseitigen W"urfeln aus.
+
+Das Werfen eines solchen W"urfels erzeugt die folgenden Elementarereignisse
+oder Versuchsergebnisse:
+\[
+\Omega=\{1,2,3,4,5,6\}.
+\]
+Nach dem Laplace'schen Ansatz wird jedem Elementarereignis die
+Wahrscheinlichkeit $\frac16$ zugeschrieben. Damit lassen sich
+Wahrscheinlichkeiten berechnen:
+\begin{align*}
+P(\text{``gerade Zahl''})=P(\{2,4,6\})&=\frac36=0.5\\
+P(\text{``durch 3 teilbar''})=P(\{3,6\})&=\frac26=0.333\\
+P(< 7)=P(\Omega)&=\frac66=1
+\end{align*}
+
+\subsection{Zwei W"urfel}
+In verschiedenen Spielen wird mit zwei W"urfeln gespielt, wobei nur
+deren Augensumme interessiert. Die Ereignisalgebra dazu wurde bereits
+fr"uher vorgestellt, die Elementarereignisse sind Paare $(i,j)$ aus
+den Augenzahlen der beiden W"urfel. Die Menge der Elementarereignisse
+ist also
+\begin{eqnarray*}
+\Omega=&\{&\\
+&&(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),\\
+&&(2,1),(2,2),(2,3),(2,4),(2,5),(2,6),\\
+&&(3,1),(3,2),(3,3),(3,4),(3,5),(3,6),\\
+&&(4,1),(4,2),(4,3),(4,4),(4,5),(4,6),\\
+&&(5,1),(5,2),(5,3),(5,4),(5,5),(5,6),\\
+&&(6,1),(6,2),(6,3),(6,4),(6,5),(6,6),\\
+&\},&
+\end{eqnarray*}
+und $|\Omega|=36$. Wenn nur die Augensumme interessiert, dann will
+man offensichtlich die Ereignisse
+\begin{align*}
+A_2&=\{\Sigma=2\}=\{(1,1)\}\\
+A_3&=\{\Sigma=3\}=\{(1,2),(2,1)\}\\
+A_4&=\{\Sigma=4\}=\{(1,3),(2,2),(3,1)\}\\
+&\vdots\\
+A_{12}&=\{\Sigma=12\}=\{(6,6)\}
+\end{align*}
+untersuchen.
+Diese Ereignisse sind einfach auszuz"ahlen, und damit kann man auch
+die Wahrscheinlichkeiten bestimmen:
+\begin{align*}
+P(A_2)=P(A_{12})&=\frac{1}{36},\\
+P(A_3)=P(A_{11})&=\frac{2}{36},\\
+P(A_4)=P(A_{11})&=\frac{3}{36},\\
+P(A_5)=P(A_9)&=\frac{4}{36},\\
+P(A_6)=P(A_8)&=\frac{5}{36},\\
+P(A_7)&=\frac{7}{36}.
+\end{align*}
+
+\subsection{Geburtstagsproblem}
+Wie gross ist die Wahrscheinlichkeit, dass unter $n$ Personen zwei
+am gleichen Tag Geburtstag haben? Hierbei nimmt man an, dass
+jeder Tag im Jahr etwa gleich h"aufig als Geburtstag
+vorkommt\footnote{Dies ist
+jedoch nicht ganz richtig, wie Geb"arabteilungen in Spit"alern
+best"atigen k"onnen. Auch haben gr"osser Stromausf"alle h"aufig
+einen Geburtenzuwachs ungef"ahr neun Monate sp"ater zur Folge.}.
+Ein Elementarereignis muss also jeder der $n$ Personen ein
+Geburtsdatum aus den $366$ m"oglichen zuweisen. Dies kann man so
+formulieren:
+\[
+\omega=(d_1, d_2, d_3,\dots,d_n)
+\]
+Dabei ist $d_1$ das Geburtsdatum der ersten Person, $d_2$ das
+Geburstdatum der zweiten Person, etc. Der Einfachheit halber kann
+man f"ur die $d_i$ einfach Zahlen zwischen 1 und 366 nehmen.
+
+$\Omega$ besteht also aus allen m"oglichen Auswahlen von Geburtstagen
+f"ur die $n$ Personen:
+\begin{eqnarray*}
+\Omega=&\{&\\
+&&(1,1,1,\dots,1),\\
+&&(2,1,1,\dots,1),\\
+&&(3,1,1,\dots,1),\\
+&&\dots\\
+&&(365,1,1,\dots,1),\\
+&&(366,1,1,\dots,1),\\
+&&(1,2,1,\dots,1),\\
+&&(2,2,1,\dots,1),\\
+&&\dots\\
+&&(366,366,366,\dots,366)\\
+&\}&
+\end{eqnarray*}
+Man kann hier auch erkennen, dass $|\Omega|=366^n$ ist.
+
+Gefragt ist nun das Ereignis
+``zwei Personen haben am gleichen Tag Geburtstag''.
+Selbstverst"andlich d"urfen dabei auch alle am gleichen Tag
+Geburstag haben, oder es darf zwei Paare geben, die jeweils
+"ubereinstimmende Geburtstage haben. Es darf einfach nicht
+sein, dass alle Geburtstage verschieden sind. Also ist eigentlich
+gemeint:
+\begin{eqnarray*}
+A&=&\{\text{``zwei haben am gleichen Tag Geburstag''}\}\\
+&=&\{\text{``nicht alle Geburtstage sind verschieden''}\}\\
+&=&\overline{\{\text{``alle Geburstage sind verschieden''}\}}.
+\end{eqnarray*}
+In dieser letzten Form ist die Wahrscheinlichkeit einfacher zu
+berechnen. Es gilt ja:
+\begin{eqnarray*}
+P(A)&=&P(\{\text{``zwei haben am gleichen Tag Geburstag''}\})\\
+&=&1-P(\{\text{``alle Geburstage sind verschieden''}\})
+\end{eqnarray*}
+Die Anzahl der Geburtstagsverteilungen, bei denen alle Geburtstage
+verschieden sind, ist einfach zu ermitteln: F"ur die erste Person
+kann man $366$ Geburtstage ausw"ahlen, f"ur die zweite $365$, die
+dritte $364$ etc. Insgesamt hat man
+\[
+366\cdot365\cdot364\dots(366-n+1)
+\]
+M"oglichkeiten. Also ist die Wahrscheinlichkeit, dass unter $n$
+Personen zwei am gleichen Tag Geburtstag haben:
+\[
+P(A)=1-\frac{366\cdot365\cdot364\dots(366-n+1)}{366^n}.
+\]
+Man kann diese Wahrscheinlichkeiten mit einem kleinen Programm
+ausrechnen, und findet die Resultate in
+Tabelle~\ref{geburtstagswahrscheinlichkeit}.
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$n$&$P$&$n$&$P$&$n$&$P$&$n$&$P$\\
+\hline
+1&0.0000
+&11&0.1408
+&21&0.4428
+&31&0.7295\\
+2&0.0027
+&12&0.1666
+&22&0.4748
+&32&0.7524\\
+3&0.0082
+&13&0.1939
+&23&0.5063
+&33&0.7740\\
+4&0.0163
+&14&0.2226
+&24&0.5373
+&34&0.7944\\
+5&0.0271
+&15&0.2523
+&25&0.5677
+&35&0.8135\\
+6&0.0404
+&16&0.2829
+&26&0.5972
+&36&0.8313\\
+7&0.0561
+&17&0.3143
+&27&0.6258
+&37&0.8479\\
+8&0.0741
+&18&0.3461
+&28&0.6534
+&38&0.8633\\
+9&0.0944
+&19&0.3783
+&29&0.6799
+&39&0.8775\\
+10&0.1166
+&20&0.4106
+&30&0.7053
+&40&0.8905\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Wahrscheinlichkeit daf"ur, dass unter $n$ Personen zwei
+am gleichen Tag Geburtstag haben.\label{geburtstagswahrscheinlichkeit}}
+\end{table}
+Ab $n=23$ kann man also wetten, dass zwei Personen am gleichen Tag
+Geburtstag haben.
 
 \section{Bedingte Wahrscheinlichkeit}
 \index{Wahrscheinlichkeit!bedingte}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\hsize]{images/algebra-1}
+\includegraphics{images/algebra-1}
 \end{center}
 \caption{Ereignisalgebra mit ausgezeichneten Ereignis $B$\label{bedingt1}}
 \end{figure}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\hsize]{images/algebra-2}
+\includegraphics{images/algebra-2}
 \end{center}
-\caption{Ereignisalgebra wie in Abbildung \ref{bedingt1} eingeschr"ankt auf das Ereignis $B$}
+\caption{Ereignisalgebra wie in Abbildung \ref{bedingt1} eingeschr"ankt auf das Ereignis $B$\label{bedingt2}}
 \end{figure}
-In
-\marginpar{\tiny\raggedright Wahrscheilichkeit ``unter Umst"anden''}
-der Praxis fragt man oft nach der Verkettung von Umst"anden: hat ein
+In der Praxis fragt man oft nach der Verkettung von Umst"anden: hat ein
 Patient bessere Heilungschancen wenn er dieses neue Medikament nimmt?
 Man k"onnte das auch so formulieren: ist das Ereignis
 ``Patient wird gesund, unter der Voraussetzung, dass er das Medikament nimmt''
@@ -1053,12 +1356,11 @@ wahrscheinlicher als das Ereignis ``Patient wird gesund''? Wir m"ussen
 also aus der Ereignisalgebra der Patienten eine neue bilden, die nur
 aus den Patienten besteht, welche das Medikament genommen haben.
 
-Wenn
-\marginpar{\tiny eingeschr"ankte Ereignisalgebra}
-$(\Omega, {\cal A})$ eine Ereignisalgebra ist, und 
-$B\in{\cal A}$ ein Ereignis, dann kann man eine neue Ereignisalgebra
-$(\Omega_{|B}, {\cal A}_{|B})$ wie folgt bilden. Die Menge der
-Elementarereignisse ist
+Wenn $(\Omega, {\cal A})$ eine Ereignisalgebra ist, und 
+$B\in{\cal A}$ ein Ereignis (Abbildung~\ref{bedingt1}),
+dann kann man eine neue Ereignisalgebra
+$(\Omega_{|B}, {\cal A}_{|B})$ wie folgt bilden (Abbildung~\ref{bedingt2}).
+Die Menge der Elementarereignisse ist
 \[
 \Omega_{|B}=B
 \]
@@ -1067,21 +1369,21 @@ und die Menge der Ereignisse
 {\cal A}_{|B}=\{A\cap B\;|\; A\in{\cal A}\}.
 \]
 Es w"are noch nachzupr"ufen, dass diese Menge alle Axiome einer
-Ereignisalgebra erf"ullt sind, dies wird weiter unten nachgeholt.
+Ereignisalgebra erf"ullt sind\footnote{Da dies technischen Feinheiten 
+f"ur die Zwecke dieses Skripts von untergeordneter Bedeutung sind, verzichten
+wir auf die explizite Verifikation.}.
 Diese Konstruktion macht $B$ zum sicheren Ereignis, d.h. in der ``Welt''
-$(\Omega_{|B},{\cal A}_{|B})$ trifft $B$ immer ein.
+$(\Omega_{|B},{\cal A}_{|B})$ trifft $B$ immer ein (Abbildung~\ref{bedingt2}).
 In $(\Omega_{|B},{\cal A}_{|B})$ muss man also davon ausgehen, dass $B$
 bereits eingetroffen ist.
+Man liest $\Omega_{|B}$ auch als ``$\Omega$ bedingt $B$''.
 
-Wenn
-\marginpar{\tiny bedingte Wahrscheinlichkeitsfunktion}
-nun auf $(\Omega, {\cal A})$ eine Wahrscheinlichkeitsfunktion $P$
+Wenn nun auf $(\Omega, {\cal A})$ eine Wahrscheinlichkeitsfunktion $P$
 gegeben ist, kann man auch $P_{|B}$ bilden, indem man setzt
 \begin{equation*}
 P_{|B}(A)=\frac{P(A\cap B)}{P(B)},
 \end{equation*}
 der Nenner $P(B)$ stellt dabei sicher, dass $P_{|B}(\Omega_{|B})=P_{|B}(B)=1$.
-
 
 \begin{definition}
 \label{def-bedingte-wahrscheinlichkeit}
@@ -1090,6 +1392,7 @@ $B$ ist
 \[
 P(A|B)=\frac{P(A\cap B)}{P(B)}.
 \]
+Man liest dies auch als ``Wahrscheinlichkeit von $A$ bedingt $B$''.
 \end{definition}
 
 Auch hier w"are nachzupr"ufen, dass die Rechenregeln f"ur eine
@@ -1103,7 +1406,7 @@ $P(A\cap B)$ aufzustellen, die uns bisher fehlen.
 \subsection{Wahrscheinlichkeit von $A\cap B$}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\hsize]{images/abhaengigkeit-1}
+\includegraphics{images/abhaengigkeit-1}
 \end{center}
 \caption{Unabh"angige Ereignisse. Die Ereignisse sind so dargestellt,
 dass ihre Wahrscheinlichkeit proportional zur Fl"ache ist. $P(A)$ und $P(B)$
@@ -1112,7 +1415,7 @@ Rechtecks teilen. $P(A\cap B)=P(A)\cdot P(B)$\label{unabhaengig}}
 \end{figure}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\hsize]{images/abhaengigkeit-2}
+\includegraphics{images/abhaengigkeit-2}
 \end{center}
 \caption{Abh"angige Ereignisse. $P(A\cap B)$ ist offensichtlich viel kleiner
 als $P(A)\cdot P(B)$. $A$ wird unwahrscheinlicher, wenn bereits $B$ eingetreten
@@ -1145,7 +1448,7 @@ nicht mit dem Eintreffen von $A$ zusammen.
 
 \begin{definition}
 \label{def-unabhaengige-ereignisse}
-Die Ereignisse $A$ und $B$ heissen {\bf unabh"angig}, wenn gilt:
+Die Ereignisse $A$ und $B$ heissen {\em unabh"angig}, wenn gilt:
 \[
 P(A\cap B) = P(A)\cdot P(B).
 \]
@@ -1174,8 +1477,8 @@ Bestimmung der Wahrscheinlichkeit werden nur diejenigen Experimente
 ber"ucksichtigt, bei denen das Ereignis $B$ eingetreten ist.
 Alle anderen Experimente interessieren nicht.
 
-\subsubsection{Beispiele: Autounf"alle und Alkohol}
-Wenn jemand sagt 50\%
+\subsubsection{Beispiel: Autounf"alle und Alkohol}
+Wenn jemand sagt, 50\%
 der t"odlichen Autounf"alle geschehen unter Alkoholeinfluss, dann
 meint er genau genommen eigentlich folgendes. Wir machen ein Experiment,
 bei dem wir jeden Autounfall untersuchen. Das Ereignis $T$ umfasst alle
@@ -1208,7 +1511,7 @@ man
 P(L|\bar R)=0.01.
 \]
 Der Artikel liefert aber keine Auskunft dar"uber, wieviele der
-Lungenkrebskranken Raucher sind, denn das w"are die Wahrscheinlichkeit
+lungenkrebskranken Raucher sind, denn das w"are die Wahrscheinlichkeit
 $P(R|L)$.
 
 \subsubsection{Zusammenhang zwischen $P(A\cap B)$, $P(A|B)$ und $P(B|A)$}
@@ -1228,6 +1531,7 @@ $P(B|A)$&\begin{minipage}[t]{3.0in}\strut Wahrscheinlichkeit, dass $B$ eintritt,
 \hline
 \end{tabular}
 \end{center}
+(Vergleiche auch Abbildung~\ref{condprob}.)
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.3\hsize]{images/abhaengigkeit-3}\quad
@@ -1351,8 +1655,6 @@ $P(B|A)$&\begin{minipage}[t]{3.0in}\strut Wahrscheinlichkeit, dass $B$ eintritt,
 
 \subsection{Zerlegung eines Wahrscheinlichkeitsraumes}
 Der
-\marginpar{\tiny Durchf"uhrung eines Experimentes unter verschiedenen
-Rahmenbedingungen}
 Begriff der bedingten Wahrscheinlichkeit erm"oglicht,
 ein Wahrscheinlichkeitsproblem in m"oglicherweise einfachere, jedenfalls
 kleinere Probleme zu zerlegen. Wenn bei einem Experiment zwei Zust"ande
@@ -1366,12 +1668,12 @@ ermitteln.
 
 Im obigen Beispiel der Meinungsumfrage ist anschaulich klar, dass man die
 Wahrscheinlichkeit f"ur ``Ja'' berechnen kann, wenn man einerseits die
-Wahrscheinlichkeit f"ur ``Ja'' in  jeder Altersklasse kennt, und anderseits
+Wahrscheinlichkeit f"ur ``Ja'' in  jeder Altersklasse kennt, und andererseits
 weiss, wie die Altersklassen in der Bev"olkerung verteilt sind.
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\hsize]{images/total-1.pdf}
+\includegraphics{images/total-1.pdf}
 \end{center}
 \caption{Wahrscheinlichkeitsraum $\Omega$, der sich in die in die
 Ereignisse $B_1,B_2,\dots,B_n$ zerlegen l"asst.\label{zerlegung}}
@@ -1401,8 +1703,6 @@ Wahrscheinlichkeiten mit der Additionsformel ausrechnen:
 \sum_{i=0}^{n}P(A\cap B_i)=P\biggl(\bigcup_{i=0}^{n}A\cap B_i\biggr)=P(A).
 \]
 Andererseits
-\marginpar{\tiny Berechnung der Wahrscheinlichkeit aus den bedingten
-Wahrscheinlichkeiten}
 haben wir oben bereits $P(A\cap B_i)$ bestimmt, wir k"onnen
 also einsetzen und erhalten:
 \[
@@ -1419,14 +1719,14 @@ Ist $B_i$ eine Folge paarweise disjunkter Mengen mit $\bigcup_{i=0}^{n}B_i=\Omeg
 P(A)=\sum_{i=0}^{n}P(A|B_i)\cdot P(B_i).
 \]
 \end{satz}
-Dieser Satz heisst auch der ``Satz von der totalen Wahrscheinlichkeit'',
+Dieser Satz heisst auch der {\em Satz von der totalen Wahrscheinlichkeit},
 da er die Wahrscheinlichkeit eines Ereignisses aus den bedingten
 Wahrscheinlichkeiten unter verschiedenen Voraussetzungen und der
 Wahrscheinlichkeit des Eintretens dieser Voraussetzungen rekonstruiert.
 Dieser Satz ist die ``wahrscheinlichkeitstheoretisch Form einer
 Fallunterscheidung'': man kennnt die F"alle $B_i$, und deren Wahrscheinlichkeit
 $P(B_i)$, sowie die Wahrscheinlichkeit $P(A|B_i)$, dass $A$ im Falle 
-$B_i$ eintritt. Die Formel "uber die Totale Wahrscheinlichkeit
+$B_i$ eintritt. Die Formel "uber die totale Wahrscheinlichkeit
 liefert daraus wieder $P(A)$.
 
 Wir bemerken noch, dass es gar nicht unbedingt n"otig ist, dass die Mengen
@@ -1521,6 +1821,49 @@ P(Z|P_4)&=1
 \end{align*}
 denn in allen diesen F"allen erreicht man mit dem zweiten Wurf mit
 Sicherheit zehn oder mehr.
+
+\subsection{Ziegen und Autos\label{ziegen:autos}}
+Marylin vos Savant hat in einer Kolumne ein Gedankenexperiment vorgstellt.
+In einer Quiz-Show muss der Kandidat eine von drei T"uren w"ahlen, wobei
+sich hinter einer der T"uren ein Auto versteckt, hinter den anderen zweien
+ein Ziege. Das Ziel des Spiels ist, das Auto zu gewinnen. Nach der Wahl
+durch den Kandidaten "offnet der Quizmaster eine der T"uren, hinter der sich
+eine Ziege befindet, nicht aber die T"ur, die der Kandidat gew"ahlt hat.
+Der Kandidat hat jetzt nochmals die M"oglichkeit, die T"ur zu wechseln.
+Welche Strategie soll er w"ahlen. Bei der ersten Auswahl bleiben, oder
+wechseln?
+
+Um die Frage zu beantworten berechnen wir die Gewinnwahrscheinlichkeit
+f"ur jede der Strategien. Zun"achst die ``Bleibe''-Strategie. Es ist die
+Wahrscheinlichkeit f"ur einen Gewinn $P(G)$ auszurechnen. Hinter der zun"achst
+gew"ahlten T"ur kann sich ein Auto (Ereignis $A$) befinden, oder eine Ziege
+(Ereignis $Z$). Es ist nat"urlich $A\cap Z=\emptyset$ und $A\cup Z=\Omega$.
+Also gilt
+\begin{equation}
+P(G)=P(G|A) P(A) + P(G|Z)P(Z).
+\label{ziegenformel}
+\end{equation}
+Nat"urlich ist $P(A)=\frac13$ und $P(Z)=\frac23$.
+$P(G|A)$ ist die Wahrscheinlichkeit mit der ``Bleibe''-Strategie zu
+gewinnen, wenn hinter der zun"achst gew"ahlten T"ur ein Auto war: diese
+ist nat"urlich 1. Ebenso verliert man mit Sicherheit, wenn hinter der
+T"ur eine Ziege war: $P(G|Z)=0$, also
+\[
+P(G)=P(G|A)P(A)+P(G|Z)P(Z)=1\cdot \frac13 + 0\cdot\frac 23=\frac13.
+\]
+
+F"ur die ``Wechsel''-Strategie gilt nat"urlich auch die Formel
+\ref{ziegenformel}, aber die bedingten Wahrscheinlichkeiten sind verschieden.
+Wenn man ein Auto gew"ahlt hatte, und wechselt, verliert man, also $P(G|A)=0$.
+Hat man ein Ziege erwischt, und wechselt, bekommt man das Auto, denn die
+zweite Ziege kann man ja nicht erwischen, deren T"ur hat der Quiz-Master
+ge"offnet. Also ist $P(G|Z)=1$. Somit folgt jetzt
+\[
+P(G)=P(G|A)P(A)+P(G|Z)P(Z)=0\cdot\frac13+1\cdot\frac23=\frac23.
+\]
+Mit der Wechselstrategie ist also die Wahrscheinlichkeit, zu gewinnen,
+doppelt so gross, wechseln lohnt sich also auf jeden Fall.
+
 
 \subsection{Wahrscheinlichkeitsvektoren und -matrizen}
 Der Satz von der totalen Wahrscheinlichkeit kann auch in Matrixform
@@ -1804,3 +2147,4 @@ der totalen Wahrscheinlichkeit auf Suchmaschinen.
 %uns garantieren, dass wir mit den $P$ nach Regeln rechnen k"onnen, die uns
 %plausibel und nat"urlich erscheinen.
 %
+
