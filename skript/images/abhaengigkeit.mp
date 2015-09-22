@@ -5,6 +5,7 @@ verbatimtex
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{txfonts}
 \begin{document}
 etex;
 

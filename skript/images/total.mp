@@ -1,13 +1,14 @@
-beginfig(1)
 verbatimtex
 \documentclass{article}
 \usepackage{times}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{txfonts}
 \begin{document}
 etex;
 
+beginfig(1)
 % Rahmen
 draw (-100,-70)--(100,-70)--(100,70)--(-100,70)--cycle;
 

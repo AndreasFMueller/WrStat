@@ -1,12 +1,15 @@
-beginfig(1)
 verbatimtex
 \documentclass{article}
 \usepackage{times}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{txfonts}
 \begin{document}
 etex;
+
+beginfig(1)
+
 draw (0,0)..(100,0);
 draw (100,0)..(100,80);
 draw (100,80)..(0,80);

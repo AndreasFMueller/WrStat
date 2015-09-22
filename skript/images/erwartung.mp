@@ -1,12 +1,14 @@
-beginfig(1)
 verbatimtex
 \documentclass{article}
 \usepackage{times}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{txfonts}
 \begin{document}
 etex;
+
+beginfig(1)
 
 def	drawblock(expr x, y) =
 	fill (x,0)--(x+20,0)--(x+20,y)--(x,y)--cycle withcolor (0.9,0.9,0.9);

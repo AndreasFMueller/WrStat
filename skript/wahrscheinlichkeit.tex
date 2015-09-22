@@ -52,7 +52,7 @@ f"ur die Zwecke der Sportwetten gen"ugen jedoch die Schlussresultate.
 \begin{enumerate}
 \item
 \index{Munzwurf@M\"unzwurf}
-Der Wurf einer M"unze ist ebenfalls ein Experiment mit, wenigstens
+Der Wurf einer M"unze ist ein Experiment mit, wenigstens
 im Prizip, drei Versuchsausg"angen: Kopf oder Zahl, ganz selten k"onnte
 die M"unze auch auf der Kante stehen bleiben.
 \item
@@ -65,17 +65,17 @@ Resultat, das Experiment hat sechs verschiedene Ausg"ange.
 Der gleichzeitige Wurf zweier verschiedenfarbiger W"urfel ist eine Experiment
 mit 36 verschiedenen m"oglichen Ausg"angen:
 \begin{center}
-\def\e#1#2{\epsdice{#1}\,\epsdice{#2}}
+\def\e#1#2{\epsdice[black]{#1}\,\epsdice{#2}}
 \begin{tabular}{|c|cccccc|}
 \hline
 &\epsdice{1}&\epsdice{2}&\epsdice{3}&\epsdice{4}&\epsdice{5}&\epsdice{6}\\
 \hline
-\epsdice{1}&\e{1}{1}&\e{1}{2}&\e{1}{3}&\e{1}{4}&\e{1}{5}&\e{1}{6}\\
-\epsdice{2}&\e{2}{1}&\e{2}{2}&\e{2}{3}&\e{2}{4}&\e{2}{5}&\e{2}{6}\\
-\epsdice{3}&\e{3}{1}&\e{3}{2}&\e{3}{3}&\e{3}{4}&\e{3}{5}&\e{3}{6}\\
-\epsdice{4}&\e{4}{1}&\e{4}{2}&\e{4}{3}&\e{4}{4}&\e{4}{5}&\e{4}{6}\\
-\epsdice{5}&\e{5}{1}&\e{5}{2}&\e{5}{3}&\e{5}{4}&\e{5}{5}&\e{5}{6}\\
-\epsdice{6}&\e{5}{1}&\e{6}{2}&\e{6}{3}&\e{6}{4}&\e{6}{5}&\e{6}{6}\\
+\epsdice[black]{1}&\e{1}{1}&\e{1}{2}&\e{1}{3}&\e{1}{4}&\e{1}{5}&\e{1}{6}\\
+\epsdice[black]{2}&\e{2}{1}&\e{2}{2}&\e{2}{3}&\e{2}{4}&\e{2}{5}&\e{2}{6}\\
+\epsdice[black]{3}&\e{3}{1}&\e{3}{2}&\e{3}{3}&\e{3}{4}&\e{3}{5}&\e{3}{6}\\
+\epsdice[black]{4}&\e{4}{1}&\e{4}{2}&\e{4}{3}&\e{4}{4}&\e{4}{5}&\e{4}{6}\\
+\epsdice[black]{5}&\e{5}{1}&\e{5}{2}&\e{5}{3}&\e{5}{4}&\e{5}{5}&\e{5}{6}\\
+\epsdice[black]{6}&\e{5}{1}&\e{6}{2}&\e{6}{3}&\e{6}{4}&\e{6}{5}&\e{6}{6}\\
 \hline
 \end{tabular}
 \end{center}
@@ -83,10 +83,11 @@ mit 36 verschiedenen m"oglichen Ausg"angen:
 Der gleichzeitige Wurf zweier ununterscheidbarer W"urfel ist ein 
 ein ganz "ahnliches Experiment, aber die Zahl der Versuchsausg"ange
 ist kleiner.
-Da die W"urfel nicht unterscheidbar sind, kann man das Paar 5--6 nicht
-vom Paar 6--5 unterschieden.
+Da die W"urfel nicht unterscheidbar sind, kann man das Paar
+\epsdice{5}\,\epsdice{6} nicht
+vom Paar \epsdice{6}\,\epsdice{5} unterschieden.
 Man kann beim Auflisten der Versuchsausg"ange die Paare immer aufsteigend
-ordnen, es bleiben also nur die folgenden Versuchsausg"ange m"oglich:
+ordnen, es sind also nur die folgenden Versuchsausg"ange m"oglich:
 \begin{center}
 \def\e#1#2{\epsdice{#1}\,\epsdice{#2}}
 \begin{tabular}{|c|cccccc|}
@@ -106,8 +107,8 @@ Es bleiben also nur noch
 \[
 1+2+\dots +6=\sum_{i=1}^6=\frac{6\cdot(6+1)}2=21
 \]
-Versuchsausg"ange m"oglich.
-Das heisst aber noch lange nicht, dass der Versuchsausgange
+Versuchsausg"ange "ubrig.
+Das heisst aber noch lange nicht, dass der Versuchsausgang
 \epsdice{2}\,\epsdice{3} gleich wahrscheinlich ist wie 
 \epsdice{3}\,\epsdice{3}, denn letzterer kann nur auf genau eine
 Art entstehen, w"ahrend es f"ur \epsdice{2}\,\epsdice{3}
@@ -245,14 +246,15 @@ verwenden.
 
 \begin{definition}
 Ist $\Omega$ eine Menge von Versuchsausg"angen, dann heisst eine Teilmenge
-$A\subset\Omega$ ein Ereignis.
-Man sagt, das Ereignis $A$ ist eingetreten, wenn bei einer Durchf"uhrung des
+$A\subset\Omega$ ein {\em Ereignis}.
+Man sagt, das Ereignis $A$ ist {\em eingetreten}, wenn bei einer Durchf"uhrung des
 Experimentes ein Versuchsausgang $\omega\in A$ aufgetreten ist.
 \end{definition}
 
 \begin{beispiel}
 \begin{figure}
 \centering
+\includegraphics{images/ebola-1.pdf}
 \caption{Ereignisse zum Experiment ``Person im Ebola-Gebiet''
 \label{image-ebola}}
 \end{figure}
@@ -290,12 +292,16 @@ gleichzeitig eintreten.
 Der Versuchsausgang $\omega$ ist also so beschaffen, dass mit ihm sowohl
 $A$ als auch $B$ eintreten, dass also $\omega\in A$ und $\omega\in B$,
 oder $\omega \in A\cap B$.
+Gleichzeitigs Eintreten von Ereignis $A$ {\em und} $B$ ist das Ereignis
+$A\cap B$.
 
 Tritt ein Ereignis $A$ bei einer Versuchsdurchf"uhrung nicht ein, dann trat
 ein Versuchsausgang $\omega$ auf, der nicht zu $A$ geh"ort,
 also $\omega\in\Omega\setminus A$.
 Dies bedeutet aber, dass das Ereignis $\Omega\setminus A=\overline{A}$
 eingetreten ist.
+Nichteintreten des Ereignisses $A$ ist das Ereignis
+$\overline{A}=\Omega\setminus A$.
 
 Zwei Ereignisse sind speziell.
 Die Menge $\Omega\subset\Omega$ hat die Eigenschaft, dass jeder denkbare
@@ -490,6 +496,12 @@ X_4\cap Y_3&=&\{(4,3)\}\\
 X_5\cap S_7&=&\{(5,2)\}\\
 X_5\cap D_1&=&\{(5,4), (5,6)\}\\
 \end{eqnarray*}
+\begin{figure}
+\centering
+\includegraphics{images/zweiwuerfel-1.pdf}
+\caption{Verschiedene Ereignisse in der Ereignisalgebra des Experiments
+``Wurf zweier verschiedenfarbiger W"urfel\label{zweiwuerfel}}
+\end{figure}
 
 \subsection{Formale Definition}
 Damit obige Definition von Ereignissen funktioniert, m"ussen
@@ -505,7 +517,7 @@ den Begriff der Wahrscheinlichkeit konsistent zu definieren, wenn
 Ereignisse beliebige Teilmengen einer unendlichen Menge $\Omega$
 sein d"urfen.
 
-Ein Beispiel f"ur diese Situation sind die Messwerte, in diesem
+Ein Beispiel f"ur diese Situation sind Messwerte, in diesem
 Fall ist $\Omega=\mathbb R$ unendlich.
 Es werden aber auch nicht alle Teilmengen von $\mathbb R$ ben"otigt.
 Es wird gen"ugen, wenn wir alle Intervalle zur Verf"ugung haben sowie
@@ -515,7 +527,7 @@ Statt der Menge $P(\Omega)$ wird also eine kleinere Menge $\cal A$
 von Ereignissen verwendet.
 Man kann zeigen, dass sich aus der Menge der Intervalle immer 
 eine Menge von Ereignissen konstruieren l"asst, in der alle
-n"otigen Operationen ausgef"uhrt werden k"onnen, und in der sich
+n"otigen Operationen ausgef"uhrt werden k"onnen, und auf der sich
 die sp"ater einzuf"uhrende Wahrscheinlichkeit konsistent definieren
 l"asst.
 
@@ -528,7 +540,7 @@ Wir nennen eine solche Menge von Ereignissen eine Ereignis-Algebra:
 
 \begin{definition}
 \label{def-ereignisalgebra}
-Eine Ereignisalgebra $(\Omega,{\cal A})$ ist
+Eine {\em Ereignisalgebra} $(\Omega,{\cal A})$ ist
 eine Menge $\Omega$ mit einer Menge ${\cal A }\subset{\cal P}(\Omega)$
 von Teilmengen von $\Omega$, die folgende Bedingungen erf"ullen:
 \begin{enumerate}
@@ -576,7 +588,8 @@ P&=\{\text{beide Augenzahlen sind Primzahlen}\}\\
 
 \subsection{W"urfeln mit zwei W"urfeln}
 Bei einem W"urfelspiel wirft man jeweils zwei W"urfel. Zeigen beide W"urfel
-die gleiche Zahl, man nennt dies einen Pasch, darf man genau einmal w"urfeln.
+die gleiche Zahl, man nennt dies einen {\em Pasch}, darf man genau ein
+weiteres Mal w"urfeln.
 Die Elementarereignisse sind also entweder einfach Paare, also von
 der Form $(x,y)$, mit $x\ne y$, oder ein Pasch gefolgt von irgend einem
 W"urfelresultat, wir schreiben dies $(P_k, (x,y))$, also ein $k$-er-Pasch
@@ -625,7 +638,7 @@ P&=\{\text{Pasch im ersten Wurf}\}\\
 \cup
 \{(P_1,(x,y))\}
 \\
-P_k&=\{\text{$k$-er Pasch im ersten Wurf}\}\\
+\tilde P_k&=\{\text{$k$-er Pasch im ersten Wurf}\}\\
    &=\{(P_k,(x,y))\}
 \\
 Q&=\{\text{totale Augensumme $\ge 10$}\}\\
@@ -653,7 +666,7 @@ Q&=\{\text{totale Augensumme $\ge 10$}\}\\
 
 \subsection{AIDS-Test}
 Wir mathematisieren das Beispiel des AIDS-Tests.
-Die Diskussion in \ref{aids-test-intro} f"uhrt uns vor Augen,
+Die fr"urhere Diskussion f"uhrt uns vor Augen,
 dass wir hier mit zwei verschiedenen Ereignissen zu tun haben. 
 Das Experiment besteht offenbar darin, dass wir jemanden untersuchen,
 die Menge der Elementarereignisse ist also die Menge aller betrachteten
@@ -754,7 +767,6 @@ enthalten muss.
 Aber auch die Aussage ``der Messwert ist kleiner als $a$''
 muss einem Ereignis in $\cal A$ entsprechen, also m"ussen auch Intervalle,
 die sich ins unendliche erstrecken in $\cal A$ sein:
-
 \begin{eqnarray*}{}
 (-\infty,r]&=&\{x\in\mathbb R\;|\;x \le r\} \in \cal A\\
 % Hack: \; brauchts, damit eqnarray nicht meint [ leite ein Argument ein
@@ -803,7 +815,7 @@ ist.
 Man nennt dies den {\em frequentistischen} Ansatz.
 \item
 Die Wahrscheinlichkeit ist ein Mass f"ur die pers"onliche
-"Uberzeug, dass ein Ereignis eintreten wird.
+"Uberzeugung, dass ein Ereignis eintreten wird.
 Im Unterschied zum frequentistischen Ansatz sollte man bei diesem
 Ansatz einem Ereignis auch dann eine Wahrscheinlichkeit geben k"onnen,
 wenn sich ein Experiment nicht wirklich wiederholen l"asst.
@@ -825,10 +837,10 @@ Fall "ubereinstimmen.
 Die Axiome im axiomatischen Ansatz sind nat"urlich genau die
 Rechenregeln, die man sowohl im frequentistischen Ansatz wie
 auch im Bayesschen Ansatz von der Wahrscheinlichkeit erwartet.
-Man darf daher davon ausgehen, dass die drei Ans"atze die gleichen
+Man darf daher davon ausgehen, dass die drei Ans"atze die gleichen numerischen
 Resultate liefern, sie unterscheiden sich h"ochstens in der Interpretation
 der Resultate.
-Wir werden daher im folgenden vor allem den am leichtesten zu
+Wir werden daher im Folgenden vor allem den am leichtesten zu
 verstehenden frequentistischen Ansatz verfolgen.
 
 \subsection{Wahrscheinlichkeit als relative H"aufigkeit}
@@ -997,7 +1009,7 @@ P(A\cup B) = P(A) + P(B) - P(A\cap B)
 \begin{proof}[Beweis]
 Wegen $\Omega = \Omega \cup\emptyset$ und
 $\Omega\cap\emptyset = \emptyset$ folgt aus dem Axiom
-"uber die Vereinigung 
+"uber die Vereinigung  (\ref{p-summenformel})
 \[
 P(\Omega) = P(\Omega \cup \emptyset) = P(\Omega) + P(\emptyset)
 \]
@@ -1005,7 +1017,7 @@ Indem man auf beiden Seiten der Gleichung $P(\Omega)$ subtrahiert,
 folgt $0 = P(\emptyset)$.
 
 F"ur das komplement"are Ereignis gilt $A\cap\bar A=\emptyset$ und
-$A\cup\bar A=\Omega$. Aus der Summenformel folgt
+$A\cup\bar A=\Omega$. Aus der Summenformel (\ref{p-summenformel}) folgt
 \[
 1 = P(\Omega) = P(A\cup\bar A) = P(A) + P(\bar A)
 \]
@@ -1141,7 +1153,8 @@ nach aussen gew"olbte Fl"ache.
 
 \subsection{W"urfeln}
 \index{Wurfel@{W\"urfel, fairer}}
-W"urfel haben sechs Seiten, die gem"ass Laplace mit gleicher
+W"urfel haben sechs Seiten, die gem"ass der Annahme eines Laplace-Experiments
+mit gleicher
 Wahrscheinlichkeit obenliegen werden, die Wahrscheinlichkeit jedes
 Resultates ist also gleich $P(i) = \frac16, i\in\{1,2,3,4,5,6\}$.
 Wird eine Seite des W"urfels beschwert, f"allt er bevorzugt auf diese
@@ -1244,7 +1257,7 @@ f"ur die $n$ Personen:
 &&(366,366,366,\dots,366)\\
 &\}&
 \end{eqnarray*}
-Man kann hier auch erkennen, dass $|\Omega|=366^n$ ist.
+Man kann ablesen, dass $|\Omega|=366^n$ ist.
 
 Gefragt ist nun das Ereignis
 ``zwei Personen haben am gleichen Tag Geburtstag''.
@@ -1274,7 +1287,16 @@ dritte $364$ etc. Insgesamt hat man
 M"oglichkeiten. Also ist die Wahrscheinlichkeit, dass unter $n$
 Personen zwei am gleichen Tag Geburtstag haben:
 \[
-P(A)=1-\frac{366\cdot365\cdot364\dots(366-n+1)}{366^n}.
+P(A)
+=
+1-\frac{366\cdot365\cdot364\dots(366-n+1)}{366^n}
+=
+1-\frac{366}{366}\cdot
+\frac{365}{366}\cdot
+\frac{364}{366}
+\cdots
+\frac{366-n+1}{366}
+.
 \]
 Man kann diese Wahrscheinlichkeiten mit einem kleinen Programm
 ausrechnen, und findet die Resultate in
@@ -1353,7 +1375,7 @@ Patient bessere Heilungschancen wenn er dieses neue Medikament nimmt?
 Man k"onnte das auch so formulieren: ist das Ereignis
 ``Patient wird gesund, unter der Voraussetzung, dass er das Medikament nimmt''
 wahrscheinlicher als das Ereignis ``Patient wird gesund''? Wir m"ussen
-also aus der Ereignisalgebra der Patienten eine neue bilden, die nur
+also aus der Ereignis\-algebra der Patienten eine neue bilden, die nur
 aus den Patienten besteht, welche das Medikament genommen haben.
 
 Wenn $(\Omega, {\cal A})$ eine Ereignisalgebra ist, und 
@@ -1678,7 +1700,9 @@ weiss, wie die Altersklassen in der Bev"olkerung verteilt sind.
 \caption{Wahrscheinlichkeitsraum $\Omega$, der sich in die in die
 Ereignisse $B_1,B_2,\dots,B_n$ zerlegen l"asst.\label{zerlegung}}
 \end{figure}
-Wir versuchen das etwas formaler (siehe Abbildung \ref{zerlegung}): Sind $B_i$ mit $1\le i$ paarweise
+Wir versuchen, das etwas formaler zu schreiben
+(siehe Abbildung \ref{zerlegung}):
+Sind $B_i$ mit $1\le i$ paarweise
 disjunkte Ereignisse
 in einer Ereignisalgebra $(\Omega,{\cal A})$, f"ur welche ausserdem
 gilt
@@ -1999,11 +2023,11 @@ oder mit anderen Worten, auch wenn der HIV-Test positiv ist, ist
 die Wahrscheinlichkeit f"ur einen sich nicht riskant verhaltenden Mann,
 tats"achlich HIV-infiziert zu sein, nur $50\%$.
 
-\subsubsection{Weitere Beispiele}
-Im Anhang \ref{spamfilter} wird als weiteres Anwendungsbeispiel ein Spamfilter
-beschrieben. Der Google Pagerank, beschrieben in Anhang \ref{pagerank},
-ist eine Anwendung der bedingten Wahrscheinlichkeit und des Satzes von
-der totalen Wahrscheinlichkeit auf Suchmaschinen.
+%\subsubsection{Weitere Beispiele}
+%Im Anhang \ref{spamfilter} wird als weiteres Anwendungsbeispiel ein Spamfilter
+%beschrieben. Der Google Pagerank, beschrieben in Anhang \ref{pagerank},
+%ist eine Anwendung der bedingten Wahrscheinlichkeit und des Satzes von
+%der totalen Wahrscheinlichkeit auf Suchmaschinen.
 
 %\subsection{Der Viterbi-Algorithmus}
 %Wir stellen uns einen "Ubertragungskanal vor, der endlich viele
