@@ -211,7 +211,7 @@ E(V)
 &=&
 \frac{n-1}{n^2}E(X^2) -\frac{n^2-n}{n^2}E(X)^2\\
 &=&
-\frac{n-1}{n}(E(X)^2 -E(X)^2)=\frac{n-1}n\operatorname{var}(X)
+\frac{n-1}{n}(E(X^2) -E(X)^2)=\frac{n-1}n\operatorname{var}(X)
 \end{eqnarray*}
 Folglich ist der Sch"atzer $V$ f"ur kleine Stichproben eine schlechte
 Wahl, man muss erwarten, dass er einen zu kleinen Wert liefert. Es
@@ -223,7 +223,7 @@ Ist $X_i$ eine Stichprobe von $X$, dann heisst
 \begin{equation}
 S^2=\frac1{n-1}\sum_{i=1}^n (X_i -\bar X)^2
 \end{equation}
-die Stichprobenvarianz von $X$.
+die {\em Stichprobenvarianz} von $X$.
 \end{definition}
 
 \begin{satz}Die Stichprobenvarianz ist ein erwartungstreuer Sch"atzer
