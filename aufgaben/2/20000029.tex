@@ -1,0 +1,37 @@
+Von zwei Ereignissen $A$ und $B$ weiss man, dass $P(A)=0.8$ und $P(B)=0.6$.
+\begin{teilaufgaben}
+\item
+Was k"onnen Sie daraus "uber $P(A\cap B)$ schliessen?
+\item
+Was k"onnen Sie "uber $P(A\cap B)$ sagen, wenn Sie ausserdem wissen, dass 
+dass Ereignis $\overline{A\cup B}$ mit Wahrscheinlichkeit $0$ eintritt?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item 
+Es gilt
+\[
+1\ge P(A\cup B)=P(A)+P(B)-P(A\cap B),
+\]
+Daraus kann man ableiten
+\[
+1-P(A)-P(B)=1-0.8-0.6=-0.4 \ge -P(A\cap B)
+\]
+oder
+\[
+0.4\le P(A\cap B).
+\]
+\item 
+Wenn das Ereignis $\overline{A\cup B}$ mit Wahrscheinlichkeit $0$ eintritt,
+dann tritt $A\cup B$ mit Wahrscheinlichkeit $1$ ein.
+Dann folgt der Ein-/Ausschaltformel
+\begin{align*}
+P(A\cup B)&=P(A)+P(B)-P(A\cap B)\\
+1&=0.8+0.6-P(A\cap B)\\
+-0.4&=-P(A\cap B)\\
+P(A\cap B)&=0.4
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
