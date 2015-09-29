@@ -1,0 +1,200 @@
+In einem Spiel wird statt eines W"urfels eine faire M"unze wie folgt verwendet:
+Der Spieler wirft die M"unze so lange, bis sie Kopf zeigt, maximal aber sechs mal.
+Sei $k$ die Anzahl der W"urfe bis zum ersten Kopf.
+\begin{teilaufgaben}
+\item
+Beschreiben Sie $\Omega$ f"ur dieses Experiment, und die Ereignisse zu jedem $k$.
+\item
+Berechnen Sie die Wahrscheinlichkeit f"ur jedes $k$.
+\item
+Betrachten Sie folgende Variante des Experimentes: man wirft die M"unze genau
+sechs mal hintereinander und pr"uft erst nach dem letzten Wurf, in welchem Wurf
+zum ersten Mal Kopf aufgetreten ist, dies ist die Zahl $k$.
+Wie sehen $\Omega$ und die Ereignisse f"ur jedes $k$ f"ur dieses Experiment aus?
+Berechnen Sie auch die Anzahl Elementarereignisse in jedem Ereignis.
+\item 
+Bestimmen Sie die Wahrscheinlichkeit f"ur $k$ f"ur die Variante des Experimentes
+aus Teilaufgabe c).
+\item
+Ist der sechste Wurf der M"unze n"otig? Wenn nein, wie sehen $\Omega$ und die
+Ereignisse f"ur jedes $k$ aus, wenn man die M"unze nur f"unf mal wirft?
+\item
+Was "andert sich, wenn eine beliebige Anzahl W"urfe erlaubt ist?
+Kontrollieren Sie insbesondere, ob $\Omega=\bigcup_{k=1}^\infty A_k$
+und ob die Summenformel stimmt.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die m"oglichen Versuchsausg"ange k"onnen durch die Folge von Kopf oder Zahl
+beschrieben werden, die mit K und Z abgek"urzt werden sollen.
+H"ochstens das letzte Zeichen der Folge darf ein K sein, da nach einem
+K nicht mehr weiter geworfen werden darf.
+Somit ist
+\[
+\Omega = \{
+\text{K},
+\text{ZK},
+\text{ZZK},
+\text{ZZZK},
+\text{ZZZZK},
+\text{ZZZZZK},
+\text{ZZZZZZ}
+\}
+\]
+Das Ereignis 
+\[
+A_k=\{
+\text{$k$ W"urfe bis zum Abbruch}
+\}
+\]
+besteht f"ur $k<6$ genau aus dem Elementarereignis ``Kopf im $k$-ten Wurf'',
+f"ur $k=6$ ist $A_6= \{\text{ZZZZZK}, \text{ZZZZZZ}\}$.
+\item
+Der einzelne M"unzwurf ist zwar ein Laplace-Experiment, doch bedeutet das
+nicht, dass die Elementarereignisse in $\Omega$ die gleiche Wahrscheinlichkeit
+haben.
+In der H"alfte der F"alle wird das Experiment wegen eines K im ersten Wurf abbrechen,
+es kommt daher gar nicht mehr zu einem zweiten Wurf.
+Der Fortgang des Experimentes h"angt ab vom Resultat im ersten Wurf.
+
+In der H"alfte der F"alle ist das Experiment nach dem ersten Wurf zu Ende,
+es ist also
+\[
+P(A_1) = \frac12.
+\]
+In der anderen H"alfte der F"alle wird noch einmal geworfen, dabei bricht das 
+Experiment wieder in der H"alfte der F"alle ab.
+Durch Wiederholen erh"alt man die Wahrscheinlichkeiten
+\[
+P(A_2)=\frac14,\qquad
+P(A_3)=\frac18,\qquad
+P(A_4)=\frac1{16},\qquad
+P(A_5)=P(A_6)=\frac1{32}.
+\]
+\item
+In dieser Variante des Experiments wird die M"unze immer sechs mal geworfen,
+es entstehen also immer Folgen von sechs Zeichen K und Z,
+\begin{align*}
+\Omega&=\{
+\text{KKKKK},
+\text{KKKKZ},
+\text{KKKZK},
+\text{KKKZZ},
+\text{KKZKK},\dots
+\},&|\Omega|&=2^6=64,
+\end{align*}
+sie werden nur anders zu Ereignissen zusammengefasst:
+\begin{align*}
+A_6&=\{\text{ZZZZZZ}, \text{ZZZZZK}\},&|A_6|&=2\\
+A_5&=\{
+\text{ZZZZKK},
+\text{ZZZZKZ}
+\},&|A_5|&=2\\
+A_4&=\{
+\text{ZZZKKK},
+\text{ZZZKKZ},
+\text{ZZZKZK},
+\text{ZZZKZZ}
+\},&|A_4|&=4\\
+A_3&=\{
+&|A_3|&=8\\
+&\qquad
+\text{ZZKKKK},
+\text{ZZKKKZ},
+\text{ZZKKZK},
+\text{ZZKKZZ},\\
+&\qquad\text{ZZKZKK},
+\text{ZZKZKZ},
+\text{ZZKZZK},
+\text{ZZKZZZ}\\
+&\phantom{\mathstrut=\mathstrut }\},\\
+A_2&=\{\text{Folgen mit K an der zweiten Stelle}\},&|A_2|&=16\\
+A_1&=\{\text{mit K beginnende Folgen}\},&|A_1|&=32\\
+\end{align*}
+Zusammengefasst:
+\[
+|A_k|=\begin{cases}
+2^{6-k}&\qquad k<6\\
+2&\qquad k=6.
+\end{cases}
+\]
+\item
+Da der Ablauf des Experimentes nicht mehr von Zwischenresultaten abh"angig ist,
+sind alle Elementarereignisse gleich wahrscheinlich, es liegt ein Laplace-Experiment
+vor.
+Daher kann man die Wahrscheinlichkeit aus der Kardinalit"at der Mengen $A_k$
+bestimmen:
+\[
+P(A_k)=\frac{|A_k|}{|\Omega|}
+=\begin{cases}
+\frac{2^{6-k}}{2^6}=2^{-k}&\qquad k<6\\
+\frac{2}{2^6}=2^{-5}&\qquad k=6.
+\end{cases}
+\]
+\item
+Wenn im f"unften Wurf zum f"unften Mal ein Z geworfen wurde ist klar,
+dass das Ereignis $A_6$ eintreten wird.
+Es ist also nicht mehr n"otig, die M"unze ein sechstes Mal zu werfen, 
+das Resultat hat keinen Einfluss mehr auf das Eintreten des Ereignisses
+$A_6$.
+Dieses modifizierte Experiment hat die Elementarereignisse
+\[
+\Omega = \{
+\text{K},
+\text{ZK},
+\text{ZZK},
+\text{ZZZK},
+\text{ZZZZK},
+\text{ZZZZZ}
+\},
+\]
+und die Ereignisse $A_k$ sind
+\[
+A_1=\{\text{K}\},\quad
+A_2=\{\text{ZK}\},\quad
+A_3=\{\text{ZZK}\},\quad
+A_4=\{\text{ZZZK}\},\quad
+A_5=\{\text{ZZZZK}\},\quad
+A_6=\{\text{ZZZZZ}\}.
+\]
+\item
+Wenn die M"unze beliebig oft geworfen werden darf, dann wird $\Omega$ die unendlich
+viele Versuchsausg"ange
+\[
+\Omega = \{
+\text{K},
+\text{ZK},
+\text{ZZK},
+\text{ZZZK},
+\text{ZZZZK},
+\text{ZZZZZK},
+\dots
+\}
+\]
+enthalten, und die das Ereignis $A_k$ enth"alt genau das Elementarereignis,
+das man $\text{Z}^{k-1}\text{K}$ schreiben k"onnte.
+Es hat Wahrscheinlichkeit
+\[
+P(A_k)=2^{-k}.
+\]
+Die Summenformel liefert
+\[
+\bigcup_{k=1}^\infty A_k=\Omega
+\qquad\Rightarrow\qquad
+1=P(\Omega)=P\biggl(
+\bigcup_{k=1}^\infty A_k
+\biggr)
+=\sum_{k=1}^\infty P(A_k)=\sum_{k=1}^\infty 2^{-k}=
+\frac12+\frac14+\frac18+\frac1{16}+\dots
+\]
+Rechts steht die Summer einer geometrischen Reihe mit Quotient $q=\frac12$ und
+Anfangsterm $a=\frac12$, die Summenformel f"ur die geometrische Reihe liefert
+\[
+\frac12+\frac14+\frac18+\frac1{16}+\dots=\frac{a}{1-q}=\frac12\frac1{1-\frac12}=1,
+\]
+die Summenformel ist also erf"ullt.
+\end{teilaufgaben}
+\end{loesung}
+
