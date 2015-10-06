@@ -58,7 +58,7 @@ $(total_FILES):	total.mp
 
 $(erwartung_FILES):	erwartung.mp
 	TEX=latex mpost erwartung.mp
-	for i in 1 2 3 4; \
+	for i in 1 2 3 4 5 6; \
 	do \
 		mptopdf erwartung.$${i}; \
 	done

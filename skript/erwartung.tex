@@ -5,66 +5,153 @@
 % (c) 2006 Prof. Dr. Andreas Mueller
 % $Id: c03-erwartung.tex,v 1.18 2008/11/02 00:12:44 afm Exp $
 %
-\rhead{Erwartung und Varianz}
-\chapter{Erwartungswert und
-Varianz\label{chapter-erwartungswert-und-varianz}} F"ur den
-\marginpar{\tiny\raggedright Erwarteter Gewinn im Casino}
-\index{Casino}
-Casinobetreiber ist die genaue Wahrscheinlichkeit eines Ereignisses
-nur von sekund"arem Interesse. Sein Betrieb ist genau dann rentabel,
-wenn im Mittel, "uber viele Spiele, die Spieler mehr Geld in seinem
-Etablissement liegen lassen als er an Gewinnen auszahlen muss.
-Zun"achst wird er sich dazu Gedanken machen, welchen Gewinn jede
-einzelne Spielsituation f"ur ihn ergibt. Zusammen mit der
-Wahrscheinlichkeit des Eintretens dieser Situation wird er abzusch"atzen
-versuchen, wie gross sein Gewinn im Mittel sein wird.
+\rhead{Zufallsvariable, Erwartung und Varianz}
+\chapter{Zufallsvariable und Erwartungswert
+\label{chapter-erwartungswert-und-varianz}}
 
-Ganz "ahnlich geht es dem Experimentator, der eine Messung mehrmals
-durch\-f"uhrt.  Er kann nicht davon ausgehen, dass jede Messung das
-gleiche Resultat liefert.  Jede einzelne Messung ist
-ein Wahrscheinlichkeitsexperiment mit einer sehr
-grossen Zahl von Einfl"ussen, die alle nicht bekannt sind. Der
-Experimentator wird versuchen, aus einer grossen Zahl von Messresultaten
-einen besonders wahrscheinlichen f"ur die gemessene Gr"osse zu
-ermitteln. Trotzdem wird die Genauigkeit des so ermittelten Wertes
-\marginpar{\tiny\raggedright Erwartungswert und Streuung bei Messwerten}
-unbekannt sein. Es sollte aber mindestens m"oglich sein, aus der
-``Streuung'' der Messwerte eine Gr"osse abzuleiten, die ein Aussage
-"uber die Genauigkeit des gefundenen Wertes macht.
+Bis jetzt hat uns nur das Eintreten von Ereignissen interessiert, und
+der entwickelte Formalismus war auch nur darauf ausgelegt.
+In der Praxis sind aber vor allem auch Experimente wichtig, die
+Zahlenwerte als Versuchsausg"ange liefern.
+Jede Messung kann also ein solches Experiment verstanden werden.
 
-Ein
-\marginpar{\tiny\raggedright Motivationsbeispiel: Durschnittsnoten}
-\index{Durchschnitt}
-Sch"uler hat f"unf Pr"ufungen geschrieben, und dabei die Noten
-3, 3, 5, 3, 6 erhalten. Die Gesamtnote sollte die Semesterleistung
-wiedergeben. Sie soll das repr"asentieren, was man bei einer
-erneuten Durchf"uhren einer Pr"ufung erwarten w"urde. Nat"urlich
-ist dies kein mathematisch klar gefasster Begriff: man k"onnte auf
-verschiedene zweckm"assige Resultate kommen:
+Zahlenwerte entstehen aber auch, wenn man ein Experiment wiederholt
+durchf"uhrt und als Versuchsausgang die H"aufigkeit des Eintretens
+eines Ereignisses w"ahlt, also wieder eine Zahl.
+In diesem Fall treten nat"urlich nur ganzzahlige Resultate auf.
+
+Der Ereignis-Formalismus kann uns bestenfalls die Wahrscheinlichkeit
+daf"ur liefern, dass ein Messwert in ein bestimmtes Interval f"allt.
+Er kann uns aber nicht helfen die folgenden Fragen zu beantworten:
 \begin{enumerate}
-\item Im Durchschnitt hat der Sch"uler die Note 4 erreicht, diesen Wert
-betrachtet man als repr"asentativ f"ur das Semester.
-\item Offensichtlich hat sich der Sch"uler gegen Ende des Semsters
-gesteigert, wie man das berechnen will ist zwar noch nicht klar,
-aber eine 5 w"are wohl etwa angemessen.
-\item 3 ist die h"aufigste Note, also wird er wohl auch das n"achste
-mal wieder eine 3 schreiben.
-\item Eine 6 und eine 3 betrachten wir als Ausreisser, dann ist die
-Durchschnittsnote 3.7.
+\item Mit welchem ungef"ahren Wert kann man bei der Durchf"uhrung der
+Messung rechnen?
+Wiederholte Messungen werden nicht immer exakt den selben Wert liefern,
+sie werden um einen ``Erwartungswert'' streuen.
+\item Wie breit ist die Streuung? Gibt es eine Masszahl, mit der man
+die Streuung angeben kann, und was bedeutet sie genau?
 \end{enumerate}
-Keines dieser Argumente ist wirklich falsch, trotzdem verwendet man
-in der Praxis eigentlich nur die erste L"osung. Warum?
+Um diese Fragen beantworten zu k"onnen, m"ussen wir unserem Modell
+der Ereignisse und Wahrscheinlichkeiten zun"achst 
+ein Modell f"ur den Messprozess anf"ugen.
+Das Konzept der Wahrscheinlichkeit m"ussen wir sodann feiner ausgestalten,
+um einen ``Erwartunsgwert'' daraus ableiten zu k"onnen.
+Das gleiche Konzept wird uns auch dazu dienen, eine Masszahl f"ur
+die Streuung zu entwickeln, und daraus bereits eine Anzahl interessanter
+Anwendungen zu konstruieren.
+Es wird aber nicht gen"ugend, die genaue Bedeutung des Streumasses
+zu kl"aren, dazu m"ussen wir mehr "uber die Verteilung der Wert wissen,
+was wir erst im n"achsten Kapitel im Detail tun werden.
 
 \section{Zufallsvariable}
-\index{Zufallsvariable}
-Wenn wir von ``im Mittel zu erwartendem Ausgang'' sprechen wollen, brauchen
-wir Versuchsresultate, die sich auch tats"achlich ``mitteln'' lassen.
-Elementarereignisse sind Realisierungen eines Versuchs und somit der
-rechnerischen Verkn"upfung nicht zug"anglich.
-Somit muss den Elementarereignissen
-ein Wert in einem Wertebereich zugeordnet werden, in dem
-Berechnungen m"oglich sind.
+In einem Experiment, das mit Hilfe des Ohmschen Gesetzes der Widerstand eines
+Bauteils ermitteln soll, wird ein Strom durch das Bauteil geleitet und die
+dar"uber abfallende Spannung gemessen.
+Der Versuchsausgang ist also mindestens ein Paar $\omega=(U,I)$ von Spannung und
+Strom, m"oglicherweise aber auch noch mehr, zum Beispiel die Temperatur, die
+auch noch gemessen wurde.
+Der Versuchsausgang ist also keine Zahl, aber es lassen sich daraus zwei
+Zahlen ableiten.
+Zu jedem Versuchsausgang $\omega$ gibt es die Zahlen $U(\omega)$
+und $I(\omega)$, die in diesem Versuch gemessenen Spannung und der Strom.
 
+Roulette als das Gl"ucksspiel par excellence besteht aus einzelnen
+Spielen, in denen jeweils eine Kugel im Roulettekessel in eines von
+37 F"achenr f"allt.
+Der Versuchsausgang ist also eine ganze Zahl zwischen $0$ und $36$.
+F"ur den Spieler ist diese Zahl jedoch nur mittelbar von Bedeutung.
+Ihn interessiert vor allem, ob die Chips, die er auf dem Roulette-Tisch
+gesetzt hat, etwas gewonnen haben, ob als f"ur einen Chip das Ereignis
+``Einsatz gewinnt'' eingetreten ist.
+Nach den Regeln des Spiels kann man dann aus dem Versuchsausgang den
+Gewinn des Spielers ableiten.
+
+Zahlen, die am Ende eines Zufallsprozesses stehen, k"onnen also durch
+folgendes Modell beschrieben werden.
+Zun"achst wird ein Experiment durchgef"uhrt, bei welchem wie bisher
+ein Versuchsausgang $\omega$ aus den m"oglichen Versuchsausg"angen $\Omega$
+ausgew"ahlt wird.
+Dann wird aus dem Versuchsausgang "uber einen deterministischen Prozess
+eine Zahl $X(\omega)$ abgeleitet.
+
+\begin{definition}
+\index{Zufallsvariable}
+\index{Zufallsvariable!stetige}
+\index{Zufallsvariable!diskrete}
+Eine {\em Zufallsvariable} ist eine Funktion $\Omega\to\mathbb R$.
+Eine {\em diskrete} Zufallsvariable nimmt nur diskrete Werte in $\mathbb R$ an.
+Bei einer {\em stetigen} Zufallsvariable sind beliebige Werte $X(\omega)\in\mathbb R$
+m"oglich.
+\end{definition}
+
+Mit einer Zufallsvariablen $X\colon\Omega\to\mathbb R$ kann man wieder
+neue Ereignisse definieren
+\begin{align*}
+\{X=a\}&=\{\omega\in\Omega\,|\,X(\omega)=a\}
+\\
+\{a<X\le b\}
+&=
+\{\omega\in\Omega\,|\, a<X(\omega)\le b\}.
+\end{align*}
+Bei einer stetigen Zufallsvariable sind die Ereignisse der Form
+$\{X=a\}$ nur von beschr"anktem Nutzen, da nur ganz wenige Versuche
+dazu f"uhren werden, dass das Ereignis eintritt.
+
+%F"ur den
+%\index{Casino}
+%Casinobetreiber ist die genaue Wahrscheinlichkeit eines Ereignisses
+%nur von sekund"arem Interesse. Sein Betrieb ist genau dann rentabel,
+%wenn im Mittel, "uber viele Spiele, die Spieler mehr Geld in seinem
+%Etablissement liegen lassen als er an Gewinnen auszahlen muss.
+%Zun"achst wird er sich dazu Gedanken machen, welchen Gewinn jede
+%einzelne Spielsituation f"ur ihn ergibt. Zusammen mit der
+%Wahrscheinlichkeit des Eintretens dieser Situation wird er abzusch"atzen
+%versuchen, wie gross sein Gewinn im Mittel sein wird.
+
+%Ganz "ahnlich geht es dem Experimentator, der eine Messung mehrmals
+%durch\-f"uhrt.  Er kann nicht davon ausgehen, dass jede Messung das
+%gleiche Resultat liefert.  Jede einzelne Messung ist
+%ein Wahrscheinlichkeitsexperiment mit einer sehr
+%grossen Zahl von Einfl"ussen, die alle nicht bekannt sind. Der
+%Experimentator wird versuchen, aus einer grossen Zahl von Messresultaten
+%einen besonders wahrscheinlichen f"ur die gemessene Gr"osse zu
+%ermitteln. Trotzdem wird die Genauigkeit des so ermittelten Wertes
+%unbekannt sein. Es sollte aber mindestens m"oglich sein, aus der
+%``Streuung'' der Messwerte eine Gr"osse abzuleiten, die ein Aussage
+%"uber die Genauigkeit des gefundenen Wertes macht.
+
+%Ein
+%\index{Durchschnitt}
+%Sch"uler hat f"unf Pr"ufungen geschrieben, und dabei die Noten
+%3, 3, 5, 3, 6 erhalten. Die Gesamtnote sollte die Semesterleistung
+%wiedergeben. Sie soll das repr"asentieren, was man bei einer
+%erneuten Durchf"uhren einer Pr"ufung erwarten w"urde. Nat"urlich
+%ist dies kein mathematisch klar gefasster Begriff: man k"onnte auf
+%verschiedene zweckm"assige Resultate kommen:
+%\begin{enumerate}
+%\item Im Durchschnitt hat der Sch"uler die Note 4 erreicht, diesen Wert
+%betrachtet man als repr"asentativ f"ur das Semester.
+%\item Offensichtlich hat sich der Sch"uler gegen Ende des Semsters
+%gesteigert, wie man das berechnen will ist zwar noch nicht klar,
+%aber eine 5 w"are wohl etwa angemessen.
+%\item 3 ist die h"aufigste Note, also wird er wohl auch das n"achste
+%mal wieder eine 3 schreiben.
+%\item Eine 6 und eine 3 betrachten wir als Ausreisser, dann ist die
+%Durchschnittsnote 3.7.
+%\end{enumerate}
+%Keines dieser Argumente ist wirklich falsch, trotzdem verwendet man
+%in der Praxis eigentlich nur die erste L"osung. Warum?
+
+%\section{Zufallsvariable}
+%\index{Zufallsvariable}
+%Wenn wir von ``im Mittel zu erwartendem Ausgang'' sprechen wollen, brauchen
+%wir Versuchsresultate, die sich auch tats"achlich ``mitteln'' lassen.
+%Elementarereignisse sind Realisierungen eines Versuchs und somit der
+%rechnerischen Verkn"upfung nicht zug"anglich.
+%Somit muss den Elementarereignissen
+%ein Wert in einem Wertebereich zugeordnet werden, in dem
+%Berechnungen m"oglich sind.
+%
 \subsection{Wurf eines W"urfels}
 Wirft man einen W"urfel, zeigt dieser ein Bild mit einem oder mehreren Punkten, 
 dies sind die Elementarereignisse:
@@ -114,22 +201,31 @@ In $\mathbb{Z}\subset\mathbb{R}$ kann nat"urlich gerechnet werden, und
 auch eine intuitive Vorstellung davon, was ``im Mittel'' etwa heissen
 k"onnte, ist bereits vorhanden.
 
-\subsection{Definition}
-Zufallsvariable sind als Funktionen, die Elementarereignissen Werte zuordnen.
-Daher k"onnten wir als Definition verwenden
-\begin{definition}
-Eine Zufallsvariable $X$ ist eine Funktion $X\colon \Omega\to\mathbb R$.
-\end{definition}
+%\subsection{Definition}
+%Zufallsvariable sind als Funktionen, die Elementarereignissen Werte zuordnen.
+%Daher k"onnten wir als Definition verwenden
+%\begin{definition}
+%Eine Zufallsvariable $X$ ist eine Funktion $X\colon \Omega\to\mathbb R$.
+%\end{definition}
 
-Wir erarten nat"urlich, dass die Mengen
-\begin{align*}
-A&=\{\omega\in\Omega\,|\,X(\omega)=a\}\\
-B&=\{\omega\in\Omega\,|\,b\le X(\omega)\le c\}
-\end{align*}
-Ereignisse sind.
-Da wir uns "uber die mengentheoretischen Vorasussetzugen an Ereignisse
-kaum Gedanken gemacht haben, ist dies f"ur uns keine Einschr"ankung,
-aber die technisch korrekte Definition w"are:
+%Wir erarten nat"urlich, dass die Mengen
+%\begin{align*}
+%A&=\{\omega\in\Omega\,|\,X(\omega)=a\}\\
+%B&=\{\omega\in\Omega\,|\,b\le X(\omega)\le c\}
+%\end{align*}
+%Ereignisse sind.
+%Da wir uns "uber die mengentheoretischen Vorasussetzugen an Ereignisse
+%kaum Gedanken gemacht haben, ist dies f"ur uns keine Einschr"ankung,
+%aber die technisch korrekte Definition w"are:
+
+\subsection{Ein technisches Detail}
+Wir hatten fr"uher bemerkt, dass die Menge aller Teilmengen nicht unbedingt
+als die Menge der Ereignisse geeignet ist, und dazu die Menge
+$\cal A$ der Ereignisse eingef"uhrt.
+Wenn aber nicht alle Teilmengen von $\Omega$ Ereignisse sind,
+dann ist auch nicht automatisch sichergestellt, dass die
+Mengen $\{X < a\}$ f"ur jeden Wert von $a$  Ereignisse sind.
+Die technisch korrekte Definition einer Zufallsvariablen ist daher:
 
 \begin{definition}
 Eine Zufallsvariable $X$ ist eine Funktion $X\colon \Omega\to \mathbb R$,
@@ -137,10 +233,14 @@ die zus"atzlich die Eigenschaft hat, dass die Mengen
 $\{\omega | X(\omega) < x\}$ Ereignisse sind.
 \end{definition}
 
-Im Einf"uhrungsbeispiel ist $\Omega$ die Menge aller m"oglichen
-Pr"ufungen, $\omega\in\Omega$ ist eine einzelne Pr"ufung, und $X(\omega)$
-ist die Note, die diese Pr"ufung erzielt hat.
+F"ur unsere Zwecke hat dieses Detail keine Konsequenzen, da alle Zufallsvariablen,
+die wir betrachten, diese Bedingung automatisch erf"ullen.
 
+%Im Einf"uhrungsbeispiel ist $\Omega$ die Menge aller m"oglichen
+%Pr"ufungen, $\omega\in\Omega$ ist eine einzelne Pr"ufung, und $X(\omega)$
+%ist die Note, die diese Pr"ufung erzielt hat.
+
+\subsection{Rechnen mit Zufallsvariablen}
 Selbstverst"andlich k"onnen Zufallsvariable auch andere Wertebereiche haben.
 Eine Abbildung $X:\Omega\to W$ ist eine $W$-wertige Zufallsvariable.
 Alle Operationen im Wertebereich sind auch f"ur Zufallsvariable m"oglich.
@@ -171,40 +271,39 @@ Realteil $\operatorname{Re}Z$ und Imagin"arteil $\operatorname{Im}Z$
 sind ebenfalls zwei Zufallsvariablen,
 f"ur die $Z=\operatorname{Re}Z + i \operatorname{Im}Z$ gilt.
 
-Da im Folgenden aber auch mit Wahrscheinlichkeiten gerechnet werden soll,
-m"ussen
-Zufallsvariablen zus"atzlich dazu verwendet werden k"onnen, Ereignisse zu
-beschreiben.
-Mann m"ochte zum Beispiel bei einer Spannungsmessung
-$U\colon\Omega\to\mathbb{R}$ das Ereignis
-$A=\{\omega\in\Omega\;|\;210\le U(\omega)\le 250\}$
-verwenden, und seine Wahrscheinlichkeit berechnen k"onnen. Dazu ist es
-notwendig, dass $A\in{\cal A}$ ein Ereignis ist. Meist werden uns interessierende
-Zufallsvariable Werte in $\mathbb{R}$ haben, und Ereignisse von der
-Form $\{\omega\;|\;X(\omega)\in I\subset\mathbb{R}\}$ sein.
-Aus den Intervallen $I\subset\mathbb{R}$ wird aber, wie wir bereits wissen, eine
-zweckm"assige Ereignisalgebra $(\mathbb{R},{\cal R})$ erzeugt. Somit ist
-die Forderung, dass $\{\omega\;|\;X(\omega)\in I\}=X^{-1}(I)$ ein Ereignis sein
-soll, nur ein Spezialfall der Forderung, dass $X^{-1}(B)\in{\cal A}$ sein
-soll f"ur jedes interessante Ereignis $B$ im Wertebereich. Es w"are also gut,
-wenn Zufallsvariable grunds"atzlich immer als Wertebereich eine Ereignisalgebra
-haben, nicht nur eine Menge. Daraus ergibt sich die allgemeine Definition
-der Zufallsvariable.
-
-\begin{definition}\marginpar{\tiny\raggedright Definition Zufallsvariable}Sind $(\Omega,{\cal A})$ und $(\Upsilon,{\cal B})$
-Ereignisalgebren, dann heisst eine Abbildung $X\colon\Omega\to\Upsilon$
-eine {\bf Zufallsvariable}, wenn $X^{-1}(B)\in{\cal A}$ f"ur alle $B\in{\cal B}$.
-\end{definition}
-
-"Ublicherweise sind die Ereignisalgebren so gew"ahlt, dass diese Bedingung
-mehr oder weniger automatisch erf"ullt ist.
+%Da im Folgenden aber auch mit Wahrscheinlichkeiten gerechnet werden soll,
+%m"ussen
+%Zufallsvariablen zus"atzlich dazu verwendet werden k"onnen, Ereignisse zu
+%beschreiben.
+%Mann m"ochte zum Beispiel bei einer Spannungsmessung
+%$U\colon\Omega\to\mathbb{R}$ das Ereignis
+%$A=\{\omega\in\Omega\;|\;210\le U(\omega)\le 250\}$
+%verwenden, und seine Wahrscheinlichkeit berechnen k"onnen. Dazu ist es
+%notwendig, dass $A\in{\cal A}$ ein Ereignis ist. Meist werden uns interessierende
+%Zufallsvariable Werte in $\mathbb{R}$ haben, und Ereignisse von der
+%Form $\{\omega\;|\;X(\omega)\in I\subset\mathbb{R}\}$ sein.
+%Aus den Intervallen $I\subset\mathbb{R}$ wird aber, wie wir bereits wissen, eine
+%zweckm"assige Ereignisalgebra $(\mathbb{R},{\cal R})$ erzeugt. Somit ist
+%die Forderung, dass $\{\omega\;|\;X(\omega)\in I\}=X^{-1}(I)$ ein Ereignis sein
+%soll, nur ein Spezialfall der Forderung, dass $X^{-1}(B)\in{\cal A}$ sein
+%soll f"ur jedes interessante Ereignis $B$ im Wertebereich. Es w"are also gut,
+%wenn Zufallsvariable grunds"atzlich immer als Wertebereich eine Ereignisalgebra
+%haben, nicht nur eine Menge. Daraus ergibt sich die allgemeine Definition
+%der Zufallsvariable.
+%
+%\begin{definition}
+%Ereignisalgebren, dann heisst eine Abbildung $X\colon\Omega\to\Upsilon$
+%eine {\bf Zufallsvariable}, wenn $X^{-1}(B)\in{\cal A}$ f"ur alle $B\in{\cal B}$.
+%\end{definition}
+%
+%"Ublicherweise sind die Ereignisalgebren so gew"ahlt, dass diese Bedingung
+%mehr oder weniger automatisch erf"ullt ist.
 
 \section{Erwartungswert\label{section-erwartungswert}}
 \index{Erwartungswert}
 \subsection{Motivation}
 \subsubsection{Gewinn beim M"unzwurf}
 Wir spielen das folgende einfache Wahrscheinlichkeitsexperiment.
-\marginpar{\tiny\raggedright ``Kopf oder Zahl''-Spiel}
 In jeder Runde setzen wir einen Einsatz von einem Franken auf den
 Ausgang ``Kopf'' oder ``Zahl'' des Wurfes mit einer fairen M"unze.
 Setzen wir richtig, erhalten wir den Einsatz zur"uck, zeigt die
@@ -213,7 +312,6 @@ $X(\omega)$ soll den Gewinn beim Eintreffen des Ereignisses $\omega$
 angeben.
 
 Im
-\marginpar{\tiny\raggedright erwarteter Gewinn}
 langfristigen Mittel erwarten wir, dass wir in etwa der H"alfte
 der F"alle gewinnnen, in der anderen H"alfte verlieren. Im Mittel
 m"ussen wir daher davon ausgehen, dass wir pro M"unzwurf einen
@@ -272,7 +370,6 @@ P(A_5)&=&\frac15\\
 P(A_6)&=&\frac15\\
 \end{eqnarray*}
 Als
-\marginpar{\tiny\raggedright Durchschnittsnote als Erwartungswert der Note}
 ``Gewinn'' beim Eintreten des Ereignisses k"onnen wir die Note
 ansehen, d.h. der Erwartungswert ist 
 \[
@@ -285,7 +382,7 @@ Diese Beispiele f"uhren uns auf folgende abstrakte Definition,
 die in den folgenden Abschnitten
 konkretisiert werden soll.
 
-\begin{definition}\marginpar{\tiny\raggedright Definition Erwartungswert}
+\begin{definition}
 Sei $X$ eine Funktion auf $\Omega$, und lasse sich $\Omega$ in endlich
 viele Ereignisse $A_i$ zerlegen, auf denen $X(\omega)$ konstant ist,
 dann ist der {\bf Erwartungswert} von $X$
@@ -319,7 +416,7 @@ Definition sein. Ob nun der Erwartungswert aus der Vorstellung der Definition
 entwickelt wird, oder auf Grund der Eigenschaften des Satzes konstruiert
 wird, ist f"ur die Anwendung weiter nicht wesentlich.
 
-\subsection{Erwartungswert bei diskreten Wahrscheinlichkeitsr"aumen}
+\subsection{Erwartungswert bei diskreten Zufallsvariablen}
 In einem diskreten Wahrscheinlichkeitsraum ist es m"oglich, jedem
 Elementarereignis eine Wahrscheinlichkeit zuzuschreiben, da die
 einelementige Menge $\{\omega\}$ auch ein Ereignis ist. Wenn man
@@ -330,7 +427,6 @@ E(X)=\sum_{i=0}^\infty X(\omega_i)\cdot P(\{\omega_i\}).
 \]
 \index{Erwartungswert}
 \subsubsection{Erwartete Augenzahl beim W"urfeln mit einem W"urfel}
-\marginpar{\tiny\raggedright Erwartungswert der Augenzahl beim W"urfeln}
 Wir beschreiben des W"urfeln mit einem W"urfel mit Hilfe der
 Elementarereignisse $\Omega=\{1,2,3,4,5,6\}$. Offenbar handelt es sich
 hier um einen diskreten Wahrscheinlichkeitsraum, in dem jedes
@@ -349,7 +445,6 @@ E(X)&=&
 &=&\frac{31}{6}=3.5\\
 \end{eqnarray*}
 \subsubsection{Erwartete Augenzahl beim W"urfeln mit zwei W"urfel}
-\marginpar{\tiny\raggedright Erwartungswert der Augenzahl zwei W"urfeln}
 Auch hier liegt ein diskreter Wahrscheinlichkeitsraum vor, dessen
 Elementarereignisse die Paare $(i,j)$ sind, mit $1\le i,j\le 6$.
 Die Wahrscheinlichkeit jedes einzelnen Paares ist $\frac1{36}$.
@@ -426,7 +521,6 @@ die Wahrscheinlichkeit, dass man gewinnt:
 P(A)=\frac{6!}{N(N-1)(N-2)(N-3)(N-4)(N-5)}
 \]
 Damit
-\marginpar{\tiny\raggedright Erwarteter Lottogewinn}
 kann man den erwarteten Gewinn ausrechnen:
 \[
 E(X) = P(A)\cdot G.
@@ -435,12 +529,10 @@ Erst wenn dieser Betrag den Einsatz f"ur ein einzelnes Spiel "ubersteigt,
 ist Lottospielen rational begr"undbar. Da $P(A)$ unver"andert ist,
 ist dazu zu notwendig, dass $G$ gross wird. Da nur die H"alfte der
 Einzahlungen "uberhaupt wieder zur Auszahlung gelangt, ist dies nur
-\marginpar{\tiny\raggedright Jackpot}
 m"ogliche, wenn der Jackpot gross ist. Ein grosser Jackpot zieht nat"urlich
 auch mehr Gelegenheitsspieler an, was $G$ ebenfalls vergr"ossert.
 \subsubsection{Niedrigere Gewinnklassen}
 Nat"urlich
-\marginpar{\tiny\raggedright Ereignis ``niedrigere Gewinnklasse''}
 haben wir hier die niedrigeren Gewinnklassen (5 Richtige, 4 Richtige
 etc.~vernachl"assigt). Um diese zu berechnen betrachten wir die folgende
 Ereignisalgebra. Elementarereignisse sind $n$-elementige Teilmengen von
@@ -461,7 +553,6 @@ Arten. Insgesammt gibt es also
 \]
 Elementarereignisse, die genau $k$ Elemnte in $A$ haben. Insgesammt gibt
 es $\binom{N}{n}$. Die Wahrscheinlichkeit,
-\marginpar{\tiny\raggedright Wahrscheinlichkeit ``niedrigere Gewinnklasse''}
 in einem Lotto $k$ richtige
 zu treffen, bei dem man auf dem Lottozettel $M$ zahlen ankreuzen kann,
 und bei dem aus $N$ Zahlen $n$ gezogen werden, ist somit
@@ -470,7 +561,6 @@ h(k|N;M;n)=\frac{\binom{M}{k}\binom{N-M}{n-k}}{\binom{N}{n}}.
 \]
 Wir erkennen hier die hypergeometrische Verteilung von \ref{hypergeometrischeverteilung} wieder.
 Mit der hypergeometrischen Verteilung l"asst sich jetzt der erwartete
-\marginpar{\tiny\raggedright Erwarteter Gewinn in allen Gewinnklassen}
 Gewinn berechnen, man muss nur noch den Gewinn in jeder Klasse kennen.
 Ist $G_i$ der Gewinn in der Klasse ``$i$ richtige'', dann ist der
 erwartete Gewinn:
@@ -481,7 +571,6 @@ E(G)=\sum_{k=0}^{6}h(k|N;M;n)G_k.
 \subsection{Erwartungswert und Messungen\label{erwartungswertvonmesswerten}}
 \index{Erwartungswert!von Messungen}
 In der Tabelle \ref{widerstandswerte} sind die Resultate der Messung des
-\marginpar{\tiny\raggedright Erwartungwert einer Messreihe}
 Widerstandes zuf"allig eingekaufter 1k$\Omega$-Widerst"ande aufgef"uhrt.
 Im Kapitel 1 wurde gezeigt, dass die Mess\-werte nicht den exakten Wert
 des Widerstands wiedergeben, sondern nur ein Intervall. Eine Messung ist
@@ -547,7 +636,6 @@ Die Wahrscheinlichkeit von $A_i\cap B_j$ kann aber nur dann
 durch die Wahrscheinlichkeiten von $A_i$ und $B_j$ ausgedr"uckt werden,
 wenn die Ereignisse $A_i$ und $B_j$ paarweise
 unabh"angig sind. Dann berechnet man:
-\marginpar{\tiny\raggedright Rechenregel f"ur den Erwartungswert eines Produktes}
 \begin{eqnarray*}
 E(XY)&=&\sum_{i=1}^n\sum_{j=1}^m X(A_i\cap B_j)Y(A_i\cap B_j)P(A_i\cap B_j)\\
 &=&\sum_{i=1}^n\sum_{j=1}^m X(A_i)Y(B_j)P(A_i)P(B_j)\\
@@ -579,8 +667,6 @@ E(f(X)g(Y))=E(f(X))E(g(Y)).
 \]
 \end{satz}
 Seien $X$ und $Y$ die Augenzahlen beim W"urfeln mit zwei W"urfeln.
-\marginpar{\tiny\raggedright Erwartungswert des Produktes der Augenzahlen
-beim W"urfeln}
 Die Ereignisse $X\le x$ und $Y\le y$ sind offensichtlich unabh"angig
 (``horizontale und vertikale Streifen''), daher gilt
 \[
@@ -634,13 +720,11 @@ Dazu werden der Produktion einige Widerst"ande entnommen und ihr Wert
 nachgemessen. Den Erwartungswert des Widerstandswertes kann man mit
 Hilfe des Mittelwertes absch"atzen, er sollte ungef"ahr mit dem Sollwert
 "ubereinstimmen.
-\marginpar{\tiny\raggedright Varianz als Mass f"ur Streuung}
 Wie aber kann man die ``Streuung'' der Widerstandswerte
 bewerten?
 
 Als weiteres Beispiel betrachten wir die die Zufallsvariable $X$
 ``Messung einer Spannung''. Nicht jede Messung ergibt den gleichen Wert,
-\marginpar{\tiny\raggedright Varianz als Mass f"ur Rauschen}
 das Signal ist von einem Rauschen "uberlagert. Der Mittelwert der
 Messwert entspricht gem"ass dem vorangegangenen Abschnitt dem Erwartungswert
 $E(X)$. Wie aber soll das Ausmass des Rauschens gemessen werden?
@@ -664,7 +748,6 @@ E((X-E(X))^2).
 \index{Varianz!Definition}
 Die Einf"uhrungsbespiele motivieren folgende Definition:
 \begin{definition}
-\marginpar{\tiny\raggedright Definition der Varianz}
 Sei $X\colon\Omega\to\mathbb{R}$ eine Zufallsvariable, dann
 heisst die durch $\operatorname{var}(X)^2=E((X-E(X))^2)$ definierte Gr"osse $\operatorname{var}(X)$ die
 {\bf Varianz} von $X$. Es ist insbesondere
@@ -682,7 +765,8 @@ Die letzte Gleichung kann man leicht nachrechnen:
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=\hsize]{images/erwartung-1}
+%\includegraphics[width=\hsize]{images/erwartung-1}
+\includegraphics{images/erwartung-1}
 \end{center}
 \caption{Visualisierung von Erwartungswert und Varianz ein einem Histogramm
 \label{histogram}}
@@ -701,7 +785,6 @@ wie in Abbildung~\ref{histogram} veranschaulicht.
 Die Definition der Varianz ``passt'' in nat"urlicher Weise zum Erwartungswert,
 wie der folgende Satz zeigt:
 \begin{satz}\label{erwartungswert-charakterisierung}
-\marginpar{\tiny\raggedright Minimumeigenschaft des Erwartungswertes}
 Der Erwartungswert $E(X)$ einer reellen Zufallsvariable $X$ ist diejenige
 reelle Zahl $\mu$, f"ur die $E((X-\mu)^2)$ minimal wird.
 \end{satz}
@@ -779,7 +862,6 @@ E((X-E(X))^2)=E\biggl(\biggl(X-\frac12\biggr)^2\biggr)
 \subsection{Empirische Berechnung}
 \index{Varianz!angen\"aherte Berechnung}
 Wir betrachten das praktische Beispiel der Bestimmung der Varianz
-\marginpar{\tiny\raggedright Berechnung der Varianz}
 einer Messreihe.
 Gegeben sind also die Messwerte $(x_i)_{1\le i\le n}$
 Auf den ersten Blick sieht es so aus, als w"are f"ur die Berechnung der Varianz
@@ -792,7 +874,7 @@ bilden kann. Trotzdem l"asst sich die Berechnung vereinfachen:
 E((X-\mu)^2)&=&\frac1n\sum_{i=1}^n(x_i-\mu)^2\\
 &=&\frac1n\sum_{i=1}^n(x_i^2-2\mu x_i+\mu^2)\\
 &=&\frac1n\sum_{i=1}^nx_i^2-2\mu\frac1n\sum_{i=1}^n x_i+\mu^2\\
-&=&\frac1n\sum_{i=1}^nx_i^2-\bigl(\frac1n\sum_{i=1}^nx_i\bigr)^2\\
+&=&\frac1n\sum_{i=1}^nx_i^2-\biggl(\frac1n\sum_{i=1}^nx_i\biggr)^2\\
 \end{eqnarray*}
 \subsubsection{Beobachtungen}
 \begin{enumerate}
@@ -978,7 +1060,21 @@ Dies ist der Inhalt der Ungleichung von Tschebyscheff.
 Dies kann nat"urlich
 nur eine grobe obere Schranke sein, f"ur genaue Resultate muss man
 mehr "uber das konkrete Experiment wissen.
-\marginpar{\tiny\raggedright Wahrscheinlichkeit f"ur Abweichung vom Erwartungswert}
+\begin{figure}
+\centering
+\includegraphics{images/erwartung-5.pdf}
+\caption{Zur Herleitung der Tschebyscheff-Ungleichung: Eregnisse, in denen 
+die Zufallsvariable um mehr als $\varepsilon$ vom Erwartungswert $\mu$
+abweicht.
+\label{tschebyscheff-herleitung}}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics{images/erwartung-6.pdf}
+\caption{Herleitung der Tschebyscheff-Ungleichung, charakterstische Funktion
+des Ereignisses $|X-\mu|>\varepsilon$ ist blau eingezeichnet.
+\label{tschebyscheff2}}
+\end{figure}
 
 \begin{satz}[Ungleichung von Tschebyscheff]
 Ist eine Zufallsvariable $X$, dann l"asst sich die Wahrscheinlichkeit,
@@ -996,11 +1092,14 @@ sehr unwahrscheinlich sind.
 \begin{proof}[Beweis]
 Sei $A =\{\omega\;|\;|X(\omega)-\mu|>\varepsilon\}$ das Ereignis, dass die
 Zufallsvariable $X$ um mehr als $\varepsilon$ vom Mittelwert abgewichen
-ist. Offensichtlich ist dies dasselbe, wie wenn $(X-\mu)^2$ mehr als
+ist.
+Dies ist in Abbildung~\ref{tschebyscheff-herleitung} das rote und blaue Gebiet.
+Offensichtlich ist dies dasselbe, wie wenn $(X-\mu)^2$ mehr als
 $\varepsilon^2$ von 0 abweicht. Es gilt daher:
 \[
-\varepsilon^2 \chi_{A} \le (X-\mu)^2
+\varepsilon^2 \chi_{A} \le (X-\mu)^2,
 \]
+wie man auch aus der Abbildung~\ref{tschebyscheff2} ablesen kann.
 Wenden wir darauf den Erwartungswert an, folgt
 \[
 \varepsilon^2 P(A)\le E((X-\mu)^2)=\operatorname{var}(X)
@@ -1009,7 +1108,6 @@ Die Tschebyscheffsche Ungleichung folgt jetzt nach Division durch
 $\varepsilon^2$.
 \end{proof}
 Beispiel:
-\marginpar{\tiny\raggedright Anwendung: Produktions"uberwachung}
 Bei der Herstellung von 1k$\Omega$ Widerst"anden
 m"ochte man sicherstellen,
 dass nur bei 1\% aller produzierten Widerst"ande der Wert um mehr als
@@ -1030,7 +1128,6 @@ Tschebyscheffungleichung die Einhaltung der Qualit"atsvorgabe nicht
 mehr garantieren.
 
 Die Tschebyscheff-Ungleichung ist bei weitem nicht die bestm"ogliche.
-\marginpar{\tiny\raggedright Grenzen der Tschebyscheff-Ungleichung}
 Fragt man zum Beispiel nach der Wahrscheinlichkeit, dass $X$ um mehr
 als zwei Standardabweichungen, also um mehr als $2\sqrt{\operatorname{var}(X)}$ vom
 Erwartungswert abweicht, dann liefert sie
@@ -1055,7 +1152,6 @@ Wir betrachten eine Folge von unabh"angigen Zufallsvariablen $X_1, X_2,\dots$, d
 alle den gleichen Erwartungswert $E(X_i)=\mu$ und die gleiche Varianz
 $\operatorname{var}(X_i)=\sigma^2$ haben. Dann erwartet man, dass 
 der Mittelwert der ersten $n$ Zufallsvariablen, also die
-\marginpar{\tiny\raggedright Mittelwert von Zufallsvariablen}
 Gr"osse
 \[
 M_n=\frac{X_1+X_2+\dots+X_n}{n}
@@ -1187,7 +1283,6 @@ zu bilden. Noch besser ist aber, den Widerstandswert $R$ so zu bestimmen,
 dass der erwartete quadratische Fehler
 $E( (U-RI)^2)$
 m"oglichst klein ist.
-\marginpar{\tiny\raggedright Regressionsgerade als lineare N"aherung f"ur einen Datensatz}
 Abbildung \ref{ohm-regression} zeigt eine solche Gerade.
 
 
@@ -1282,7 +1377,6 @@ $\operatorname{var}(Y)$ auszuklammern:
 \end{align*}
 Der Bruch wird damit ein nat"urliches Qualit"atsmass f"ur die Regressionsgerade:
 \begin{definition}
-\marginpar{\tiny\raggedright Definition des Regressionskoeffizienten}
 Der Quotient
 \[
 r=\frac{\operatorname{cov}(X,Y)}{\sqrt{\operatorname{var}(X)\operatorname{var}(Y)}}
@@ -1296,12 +1390,21 @@ Steigung der Regressionsgeraden.
 
 \subsubsection{Berechnung aus empirischen Daten}
 Auch die Koeffizienten der Regressionsgeraden sind mit einfachen Formeln
-\marginpar{\tiny\raggedright Regressions-Formeln f"ur endliche Messreihen}
 zu bestimmen, wenn man nur Messwerte, deren Quadrate und das Produkt summiert:
-\begin{eqnarray*}
-a&=&\frac{\displaystyle n\sum_{i=1}^nx_iy_i-\sum_{i=1}^nx_i\sum_{i=1}^ny_i}{\displaystyle n\sum_{i=1}^nx_i^2-\biggl(\sum_{i=1}^nx_i\biggr)^2}\\
-b&=&\frac1n\sum_{i=1}^ny_i-a\frac1n\sum_{i=1}^nx_i\\
-\end{eqnarray*}
+\begin{align*}
+a&=\frac{\displaystyle n\sum_{i=1}^nx_iy_i-\sum_{i=1}^nx_i\sum_{i=1}^ny_i}{\displaystyle n\sum_{i=1}^nx_i^2-\biggl(\sum_{i=1}^nx_i\biggr)^2}\\
+b&=\frac1n\sum_{i=1}^ny_i-a\frac1n\sum_{i=1}^nx_i\\
+r^2
+&=
+\frac{
+\displaystyle
+\biggl(n\sum_{i=1}^n x_iy_i-\sum_{i=1}^n x_i\sum_{i=1}^ny_i\biggr)^2
+}{
+\displaystyle
+\biggl(n\sum_{i=1}^nx_i^2-\biggl(\sum_{i=1}^nx_i\biggr)^2\biggr)
+\biggl(n\sum_{i=1}^ny_i^2-\biggl(\sum_{i=1}^ny_i\biggr)^2\biggr)
+}
+\end{align*}
 
 \subsection{Anwendungsbeispiel}
 \begin{table}
@@ -1333,7 +1436,6 @@ Der Hersteller macht die Angaben in Tabelle \ref{delaylengths}.
 
 \subsubsection{Berechnung von Hand}
 Die Berechnung auf dem Papier kann man zum Beispiel mit Hilfe
-\marginpar{\tiny\raggedright Berechnungsschema f"ur Regression von Hand}
 des Berechnungsschemas gem"ass folgender Tabelle
 organisieren, welche auch alle relevanten Formeln zeigt:
 \begin{center}
@@ -1388,7 +1490,6 @@ und Temperatur beim Abbrand ist dies bei weitem genau genug.
 f"ur die Verz"ogerungszeit\label{verzoegerungszeit}}
 \end{figure}
 Die Software R
-\marginpar{\tiny\raggedright Statistik-Software R}
 ist ein leistungsf"ahiges freies Softwarepaket f"ur statistische
 Berechnungen. Mit folgenden Befehlen kann das obige Regressionsproblem
 mit R gel"ost, und die Graphik
