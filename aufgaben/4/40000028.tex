@@ -1,0 +1,65 @@
+Im Spiel {\it Dungeons and Dragons} kann ein Spieler ein Monster mit
+einem {\it Twin Strike} bek"ampfen, und dabei noch die F"ahigkeit
+{\it Hunter's Quarry} einsetzen, die den am Monster angerichteten Schaden
+weiter erh"oht. Die Ermittlung des Schadens geschieht wie folgt.
+Der Spieler f"uhrt zwei Schl"age aus, in jedem w"urfelt er mit einem
+Ikosaederw"urfel und trifft das Monster, wenn der Ikosaederw"urfel mindestens
+den Wert $c$ zeigt. Falls er trifft, wird der angerichtete Schaden
+mit dem 10er-W"urfel ermittelt. Falls der Ikosaederw"urfel 20 anzeigt,
+entf"allt das Erw"urfeln des Schadens, der Schaden ist in diesem Fall 10.
+Trifft einer der beiden Schl"age, kann der Spieler den von
+{\it Hunter's Quarry} versursachten zus"atzlichen Schaden mit dem
+6er-W"urfel ermitteln. Welcher Schaden hat das Monster zu erwarten?
+
+
+\begin{loesung}
+Seien $w_1$ und $w_2$ die Resultate der beiden W"urfe des Ikosaederw"urfels.
+Dann k"onnen wir neuen F"alle unterscheiden, mit folgenden Wahrscheinlichkeiten:
+\begin{center}
+\begin{tabular}{|>{$\displaystyle }c<{$}|>{$\displaystyle }c<{$}|>{$\displaystyle}c<{$}|>{$\displaystyle}c<{$}|}
+\hline
+&w_1 < c&w_1\le c<20&w_1=20\\
+\hline
+w_2<c&\frac{(c-1)^2}{400}&\frac{(c-1)(20-c)}{400}&\frac{c-1}{400}\\
+\hline
+w_2\le c< 20&\frac{(c-1)(20-c)}{400}&\frac{(20-c)^2}{400}&\frac{20-c}{400}\\
+\hline
+w_2=20&\frac{c-1}{400}&\frac{20-c}{400}&\frac1{400}\\
+\hline
+\end{tabular}
+\end{center}
+Der in den einzelnen F"allen zu erwartende Schaden setzt sich zusammen aus
+dem Schaden des 10er-W"urfels, dessen Erwartungswert 5.5 ist, und dem
+zus"atzlichen Schaden des 6er-W"urfels mit Erwartungswert 3.5.
+\begin{center}
+\begin{tabular}{|>{$\displaystyle }c<{$}|>{$\displaystyle }c<{$}|>{$\displaystyle}c<{$}|>{$\displaystyle}c<{$}|}
+\hline
+&w_1 < c&w_1\le c<20&w_1=20\\
+\hline
+w_2<c&0&5.5+3.5 = 9&10+3.5 = 13.5\\
+\hline
+w_2\le c< 20&5.5+3.5=9&5.5 + 5.5 + 3.5=14.5&10 + 5.5 + 3.5 = 19\\
+\hline
+w_2=20&10+3.5=13.5&10 + 5.5 + 3.5=19&10 + 10 + 3.5=23.5\\
+\hline
+\end{tabular}
+\end{center}
+Daraus kann man jetzt den erwarteten Schaden ausrechnen:
+\begin{align*}
+E(S)
+&=
+\frac{(c-1)^2}{400}\cdot 0
++
+2\frac{(c-1)(20-c)}{400}\cdot 9
++
+2\frac{c-1}{400}\cdot 13.5
++
+\frac{(20-c)^2}{400}\cdot 14.5
+\\
+&\quad
++
+2\frac{20-c}{400}\cdot 19
++
+\frac{1}{400}\cdot 23.5
+\end{align*}
+\end{loesung}

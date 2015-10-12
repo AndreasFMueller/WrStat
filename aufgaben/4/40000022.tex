@@ -4,25 +4,39 @@ Primzahl entspricht. Wenn also zum Beispiel kein ``Kopf'' erscheint ist $k=0$,
 $k+1=1$, die erste Primzahl ist $2$, es wird also $2$ als Gewinn ausbezahlt. 
 Oder bei zwei mal ``Kopf'' wird die dritte Primzahl, also $5$ als Gewinn
 ausbezahlt.
+\begin{teilaufgaben}
+\item
 Welchen Gewinn k"onnen Sie erwarten?
+\item
+Welche Varianz hat der Gewinn?
+\end{teilaufgaben}
 
 \begin{loesung}
 Wir erhalten die folgenden Wahrscheinlichkeiten und Gewinne
 \begin{center}
-\begin{tabular}{|c|c|c|c|}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|}
 \hline
-Anzahl Kopf&Gewinn $g$&$P(X=g)$&$P(X=g)\cdot g$\\
+\text{Anzahl Kopf}&\text{Gewinn $g$}&P(X=g)&P(X=g)\cdot g&P(X=g)\cdot g^2\\
 \hline
-$0$&$2$&$\frac1{16}$&$\frac2{16}$\\
-$1$&$3$&$\frac4{16}$&$\frac{12}{16}$\\
-$2$&$5$&$\frac6{16}$&$\frac{30}{16}$\\
-$3$&$7$&$\frac4{16}$&$\frac{28}{16}$\\
-$4$&$11$&$\frac1{16}$&$\frac{11}{16}$\\
+0 &  2 & \frac1{16} & \frac{ 2}{16} &\frac{  4}{16}\\
+1 &  3 & \frac4{16} & \frac{12}{16} &\frac{ 36}{16}\\
+2 &  5 & \frac6{16} & \frac{30}{16} &\frac{150}{16}\\
+3 &  7 & \frac4{16} & \frac{28}{16} &\frac{196}{16}\\
+4 & 11 & \frac1{16} & \frac{11}{16} &\frac{121}{16}\\
 \hline
-&&&$\frac{83}{16}$\\
+  &    &            & \frac{83}{16} &\frac{507}{16}\\
 \hline
 \end{tabular}
 \end{center}
-Somit ist der erwartete Gewinn $E(X)=\frac{83}{16}=5.1875$.
+Die gesuchten Erwartungswerte kann man daraus ablesen:
+\begin{teilaufgaben}
+\item
+Der erwartete Gewinn ist $E(X)=\frac{83}{16}=5.1875$.
+\item
+Die Varianz ist
+$\operatorname{var}(X)=E(X^2)-E(X)^2=\frac{507}{16}-\frac{83^2}{16^2}
+=\frac{507\cdot 16-83^2}{16^2}=\frac{1223}{256}\simeq 4.777.$
+\end{teilaufgaben}
 \end{loesung}
 

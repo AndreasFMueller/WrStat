@@ -26,3 +26,7 @@ images-subdir:
 
 checklist.pdf:	checklist.tex
 	pdflatex checklist.tex
+
+skriptparts:	skript.pdf
+	cd parts; make
+

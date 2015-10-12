@@ -11,6 +11,12 @@ erwarteten Augensumme zu ziehen?
 \end{teilaufgaben}
 
 \begin{loesung}
+\begin{figure}
+\centering
+\includeagraphics[]{graph-1.pdf}
+\caption{Histogramm der Augensummen von Dominosteinen in Aufgabe~\ref{20000035}.
+\label{20000035:histogram}}
+\end{figure}
 \begin{teilaufgaben}
 \item Dominosteine sind Paare von Zahlen aus $\{0,1,2,3,4,5,6\}$, wobei
 wir $(x,y)$ und $(y,x)$ als gleich zu betrachten haben. Wir k"onnen die
@@ -34,8 +40,8 @@ Die gesucht Anzahl ist also die Summe der Zahlen von 1 bis 7,
 \item Ersetzt man den Dominostein $(x,y)$ durch den Stein $(6-x,6-y)$,
 ensteht ein Stein mit der Augenzahl $12-(x+y)$. Durch die genannte
 Ersetzung werden die Dominosteine aufeinander abgebildet, die Dominosteine
-mit Augensumme $\ge12$ kommen also genau gleich oft vor wie jene mit
-Augensumme $\le12$, und zu ``komplement"aren'' Augensummen (also Augensummen,
+mit Augensumme $\ge6$ kommen also genau gleich oft vor wie jene mit
+Augensumme $\le6$, und zu ``komplement"aren'' Augensummen (also Augensummen,
 die sich zu 12 addieren) jeweils auch in gleicher Zahl. Daher ist
 der Erwartungswert bei dieser Operation ebenfalls unver"andert,
 \[
@@ -53,6 +59,7 @@ Anzahl     & 1& 1& 2& 2& 3& 3& 4& 3& 3& 2&  2&  1&  1\\
 \hline
 \end{tabular}
 \end{center}
+oder das Histogram in Abbildung~\ref{20000035:histogram}.
 Wieder erkennt man die Symmetrie der Anzahlen, woraus man bereits
 ablesen k"onnte, dass der Erwartungswert der Augensumme $6$ ist.
 Man kann ihn aber auch explizit ausrechnen:

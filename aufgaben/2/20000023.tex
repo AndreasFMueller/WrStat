@@ -13,6 +13,8 @@ Engineering and Support&Rot&239&24\\
 \end{tabular}
 \end{center}
 Die Enterprise (NCC-1701) hat einen Bestand von 430 Mann.
+Die 15 Toten, die nicht einer Uniformfarbe zugeordnet werden k"onnen, werden
+im folgenden einfach ignoriert.
 \begin{teilaufgaben}
 \item
 Wie gross ist die Wahrscheinlichkeit, dass ein wissenschaftlicher Mitarbeiter
@@ -35,39 +37,81 @@ nicht Security-Mitglied ist?
 \begin{loesung}
 Wir verwenden folgende Ereignisse:
 \begin{align*}
-G&=\{\text{Goldshirts}\}\\
-B&=\{\text{Blueshirts}\}\\
-R&=\{\text{Redshirts}\}\\
-S&=\{\text{Security}\}\subset R\\
-T&=\{\text{in der originalen Star Trek Serie gestorben}\}
+G&=\{\text{Goldshirts}\},\\
+B&=\{\text{Blueshirts}\},\\
+R&=\{\text{Redshirts}\},\\
+S&=\{\text{Security}\}\subset R,\\
+T&=\{\text{in der originalen Star Trek Serie gestorben}\}.
 \end{align*}
 \begin{teilaufgaben}
 \item
 $
-P(T|B)=\frac{7}{136}=0.0515
+\displaystyle
+P(T|B)
+=
+\frac{P(T\cap B)}{P(B)}
+=
+\frac{7/430}{136/430}
+=
+\frac{7}{136}
+=0.0515.
 $
 \item
 $
-P(B|T)=\frac{7}{40}=0.175
+\displaystyle
+P(B|T)
+=
+\frac{P(B\cap T)}{P(T)}
+=
+\frac{7/430}{40/430}
+=
+\frac{7}{40}
+=0.175.
 $
 \item
 $
-P(T|\bar G)=\frac{31}{375}=0.0827
+\displaystyle
+P(T|\bar G)
+=
+\frac{P(T\cap\bar G)}{P(\bar G)}
+=
+\frac{31/430}{375/430}
+=
+\frac{31}{375}
+=0.0827.
 $
 \item
 In a) haben wir bereits $P(T|B)$ berechnet, f"ur den Vergleich
 brauchen wir aber noch alle anderen bedingten Wahrscheinlichkeiten:
 \begin{align*}
-P(T|S)&=\frac{18}{90}=0.2
+P(T|B)&
+=\frac{P(T\cap S)}{P(B)}
+=\frac{18/430}{90/430}
+=\frac{18}{90}
+=0.2,
 \\
-P(T|G)&=\frac{9}{55}=0.164
+P(T|G)&
+=\frac{P(T\cap G)}{P(G)}
+=\frac{9/430}{55/430}
+=\frac{9}{55}
+=0.164,
 \\
-P(T|R)&=\frac{24}{239}=0.1
+P(T|R)&
+=\frac{P(T\cap R)}{P(R)}
+=\frac{24/430}{239/430}
+=\frac{24}{239}
+=0.1.
 \end{align*}
 Daraus lesen wir ab, dass Security tats"achlich ein gef"ahrlicher
 Job ist.
 \item
-$P(T|R\setminus S)=\frac{6}{149}=0.0403$.
+$
+\displaystyle
+P(T|R\setminus S)
+=\frac{P(T\cap(R\setminus S))}{P(R\setminus S)}
+=\frac{6/430}{149/430}
+=\frac{6}{149}
+=0.0403$.
 \end{teilaufgaben}
 \end{loesung}
 

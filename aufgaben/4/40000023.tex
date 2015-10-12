@@ -1,8 +1,21 @@
 In einem Spiel werden zwei W"urfel werden geworfen, und als Gewinn
 der gr"osste gemeinsame Teiler der Augenzahlen ausbezahlt.
+\begin{teilaufgaben}
+\item
 Welchen Gewinn erwarten Sie?
+\item
+Welche Varianz hat der Gewinn?
+\end{teilaufgaben}
+
 
 \begin{loesung}
+\begin{figure}
+\centering
+\includeagraphics[]{graph-1.pdf}
+\caption{Histogramm der Gewinne in Aufgabe~\ref{40000023}
+\label{40000023:histogram}}
+\end{figure}
+Sei $X$ die Zufallsvariable des Gewinns.
 Es f"uhrt wohl nichts daran vorbei, alle m"oglichen Gewinne aufzulisten.
 Diese sind
 \[
@@ -18,20 +31,25 @@ Diese sind
 \end{tabular}
 \]
 Daraus kann man abz"ahlen, dass die Werte 1 bis 6 folgende
-Wahrscheinlichkeiten habgen
+Wahrscheinlichkeiten haben, ein Histogram der Gewinne ist in 
+Abbildung~\ref{40000023:histogram} dargestellt.
 \[
-\begin{tabular}{c|c}
-Wert&Wahrscheinlichkeit\\
+\setlength\extrarowheight{3pt}
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}}
+\text{Wert}&\text{Wahrscheinlichkeit}\\
 \hline
-1&$\frac{23}{36}$\\
-2&$\frac{7}{36}$\\
-3&$\frac{3}{36}$\\
-4&$\frac{1}{36}$\\
-5&$\frac{1}{36}$\\
-6&$\frac{1}{36}$
+1& \frac{23}{36} \\
+2& \frac{ 7}{36} \\
+3& \frac{ 3}{36} \\
+4& \frac{ 1}{36} \\
+5& \frac{ 1}{36} \\
+6& \frac{ 1}{36} 
 \end{tabular}
 \]
-Damit wird der Erwartungswert
+Daraus kann man die ben"otigten Erwartungswerte ermitteln.
+\begin{teilaufgaben}
+\item
+Der Erwartungswert des Gewinns ist
 \begin{align*}
 E(X)&=
 1\cdot\frac{23}{36}+
@@ -43,7 +61,33 @@ E(X)&=
 \\
 &=\frac{23 + 2\cdot 7 + 3\cdot 3+4\cdot 1+5\cdot 1+6\cdot 1}{36}\\
 &=\frac{23 + 14 + 9 + 4+5+6}{36}
-=\frac{61}{36}=1.69444
+=\frac{61}{36}=1.69444.
 \end{align*}
+\item
+F"ur die Varianz brauchen wir zun"achst den Erwartungswert $E(X^2)$:
+\begin{align*}
+E(X^2)&=
+1^2\cdot\frac{23}{36}+
+2^2\cdot\frac{7}{36}+
+3^2\cdot\frac{3}{36}+
+4^2\cdot\frac{1}{36}+
+5^2\cdot\frac{1}{36}+
+6^2\cdot\frac{1}{36}
+\\
+&=\frac{23 + 4\cdot 7 + 9\cdot 3+16\cdot 1+25\cdot 1+36\cdot 1}{36}\\
+&=\frac{23 + 28 + 27 + 16+25+36}{36}
+=\frac{155}{36}.
+\end{align*}
+Jetzt kann man daraus die Varianz bestimmen:
+\begin{align*}
+\operatorname{var}(X)
+&=
+E(X^2)-E(X)^2
+=
+\frac{155}{36}-\biggl(\frac{61}{36}\biggr)^2
+=
+\frac{155\cdot 36-61^2}{36^2}=\frac{5734}{1296}\simeq 4.4238.
+\end{align*}
+\end{teilaufgaben}
 \end{loesung}
 
