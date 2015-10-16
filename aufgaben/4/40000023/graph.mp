@@ -17,7 +17,7 @@ uy = 7;
 numeric e;
 e = 1.694;
 numeric v;
-v = sqrt(4.4238);
+v = sqrt(1.4344);
 
 color c;
 c = (1, 0.8, 0);
@@ -69,10 +69,12 @@ drawarrow (e * ux, 13 * uy)--((e - v) * ux, 13 * uy) withcolor c;
 draw (e * ux, -10)--(e * ux, 23 * uy + 10) withcolor blue;
 label.rt(btex $E(X)$ etex, (e * ux, 23 * uy)) withcolor blue;
 
-label.top(btex $\sqrt{\operatorname{var(X)}}$ etex, ((e + 0.5*v) * ux, 13 * uy))
-	withcolor c;
-label.top(btex $\sqrt{\operatorname{var(X)}}$ etex, ((e - 0.5*v) * ux, 13 * uy))
-	withcolor c;
+label(btex $\sqrt{\operatorname{var(X)}}$ etex, (0,0))
+	rotated 90
+	shifted ((e + 0.5*v) * ux, 13 * uy + 18) withcolor c;
+label(btex $\sqrt{\operatorname{var(X)}}$ etex, (0,0))
+	rotated 90
+	shifted ((e - 0.5*v) * ux, 13 * uy + 18) withcolor c;
 
 label.lft(btex $10$ etex, (-2, 10 * uy));
 label.lft(btex $20$ etex, (-2, 20 * uy));
