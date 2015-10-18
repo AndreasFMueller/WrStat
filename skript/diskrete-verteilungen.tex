@@ -56,6 +56,14 @@ $\bullet$ Roulette
 \caption{Datenblatt der diskreten Gleichverteilung\label{datenblatt:diskretegleichverteilung}}
 \end{table}
 
+\begin{figure}
+\centering
+\includegraphics{images/gl-2.pdf}
+\caption{Wahrscheinlichkeit und Verteilungsfunktion der diskreten Gleichverteilung
+f"ur $n=10$
+\label{graph-diskrete-gleichverteilung}}
+\end{figure}
+
 Bereits in Abschnitt \ref{section-laplace-ereignisse}
 wurden endliche Wahrscheinlichkeitsr"aume
 untersucht, bei denen alle Elementarereignisse mit gleicher Wahrscheinlichkeit
@@ -79,6 +87,8 @@ E(X^2)&=&\sum_{k=1}^nk^2p(k)=\frac1n\sum_{k=1}^nk^2=\frac1n\cdot\frac{n(1+3n+2n^
 \operatorname{var}(X)&=&E(X^2)-E(X)^2=\frac{2n^2+3n+1}{6}-\frac{(n+1)^2}4\\
 &=&\frac{4n^2+6n+2-3n^2-6n-3}{12}=\frac{n^2-1}{12}
 \end{eqnarray*}
+Die Wahrscheinlichkeit und die Verteilungsfunktion ist in
+Abbildung~\ref{graph-diskrete-gleichverteilung} dargestellt.
 
 \subsection{Binomialverteilung\label{section-binomialverteilung}}
 \index{Bernoulli-Experiment}
@@ -119,7 +129,6 @@ gleich wahrscheinlich angesehen werden. Es sind durchaus auch
 Anwendungsf"alle denkbar, in denen die beiden Ausg"ange unterschiedliche
 Wahrscheinlichkeit haben, zum Beispiel $p$ f"ur den Ausgang $1$ und $1-p$
 f"ur $0$.
-\marginpar{\raggedright\tiny Bernoulliexperiment}
 Ein solches Experiment nennt man ein Bernoulliexperiment.
 
 Wir wiederholen jetzt dieses Experiment $n$ mal und betrachten die Ereignisse,

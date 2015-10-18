@@ -88,7 +88,7 @@ der Gleichverteilung\label{bild-gleichverteilung}}
 \end{figure}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\hsize]{graphics/abwgl}
+\includegraphics{images/gl-1.pdf}
 \end{center}
 \caption{Wahrscheinlichkeit einer Abweichung vom Mittelwert einer
 in $[0,1]$ gleichverteilten Zufallsvariable (rot) im Vergleich mit
@@ -365,7 +365,7 @@ ist genau gleich gross.
 \small
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\hsize]{graphics/abwexp}
+\includegraphics{images/exp-1.pdf}
 \end{center}
 \caption{Wahrscheinlichkeit f"ur eine grosse Abweichung bei einer
 Exponentialverteilten Zufallsvariable, oben die durch den Satz von Tschebyscheff
@@ -832,7 +832,7 @@ mit Varianz $\sqrt{\sigma_1^2+\sigma_2^2}$ darstellt.
 \subsubsection{Wahrscheinlichkeit grosser Abweichungen}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\hsize]{graphics/abwnorm}
+\includegraphics{images/norm-1.pdf}
 \end{center}
 \caption{Vergleich der Wahrscheinlichkeit f"ur eine grosse Abweichung
 f"ur die Normalverteilung (rot) und die Schranke von Tschebyscheff (gr"un)
@@ -926,7 +926,6 @@ Wir betrachten als technisches Hilfsmittel f"ur die Berechnung
 die folgende Funktion:
 \index{momenterzeugende Funktion}
 \begin{definition} Ist $X$ eine Zufallsvariable, dann heisst die Funktion
-\marginpar{\raggedright\tiny momenterzeugende Funktion}
 \[
 M_X(t)=t\mapsto E(e^{tX})=\sum_{k=0}^n\frac{t^k}{k!}E(X^k).
 \]
@@ -937,7 +936,6 @@ an, dass diese Funktion existiert\footnote{F"ur alle in diesem Kapitel
 untersuchten Verteilungen trifft dies zu, es gibt aber auch Verteilungen,
 f"ur die die momenterzeugende Funktion nicht existiert, f"ur die der
 zentrale Grenzwertsatz aber trotzdem gilt.}. F"ur die momenterzeugende
-\marginpar{\raggedright\tiny Rechenregeln f"ur die momenterzeugende Funktion}
 Funktion gilt die folgende Rechenregeln
 \begin{eqnarray*}
 M_{X+Y}(t)&=&M_X(t)M_Y(t)\\
@@ -1347,7 +1345,7 @@ Dichtefunktion&
 \vskip5pt
 $\displaystyle
 \begin{cases}
-\frac{\alpha-1}{x_{\min}}^{1-\alpha}x^{-\alpha}&\qquad x>x_{\text{min}}\\
+\frac{\alpha-1}{x_{\min}}\biggl(\frac{x}{x_{\text{min}}}\biggr)^{-\alpha}&\qquad x>x_{\text{min}}\\
 0&\qquad\text{sonst}
 \end{cases}
 $
@@ -1391,6 +1389,20 @@ Die Normalverteilung beschreibt physikalische Gr"ossen sehr erfolgreich,
 die vor allem in einer bestimmten Gr"osse vorkommen. Menschen sind zum
 Beispiel im Durchschnitt etwa 1.80m gross, Abweichungen kommen vor, sind
 aber sehr selten, 5m grosse Menschen gibt es nicht.
+
+\begin{figure}
+\centering
+\includegraphics{images/power-2.pdf}
+\caption{Wahrscheinlichkeitsdichte einer Potenzverteilung mit $\alpha=2.5$,
+diese Verteilung hat keine Varianz
+\label{pareto-verteilung-2.5}}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics{images/power-3.pdf}
+\caption{Wahrscheinlichkeitsdichte einer Potenzverteilung mit $\alpha=3.5$
+\label{pareto-verteilung-3.5}}
+\end{figure}
 
 Andererseits gibt es auch Gr"ossen, die einen weiten Bereich von m"oglichen
 Werten annehmen. Mondkrater k"onnen mehrere Kilometer gross sein, oder auch
@@ -1598,7 +1610,7 @@ x_{\frac12}=2^{\frac1{\alpha-1}}x_{\min}.
 \subsubsection{Die 80/20-Regel}
 \begin{figure}
 \begin{center}
-\includegraphics[width=\hsize]{images/power}
+\includegraphics{images/power-4.pdf}
 \end{center}
 \caption{Kurven $(P(x),W(x))$ f"ur verschiedene Werte von $\alpha$\label{wp}}
 \end{figure}

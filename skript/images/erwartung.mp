@@ -516,4 +516,58 @@ label.bot(btex $(X-\mu)^2>\varepsilon^2$ etex, (160,-100));
 
 endfig;
 
+%
+% Abhaengigkeit des Fehlers von der Anzahl Wiederholungen
+%
+beginfig(7)
+
+numeric hu, vu;
+hu = 1;
+vu = 140;
+
+z0 = (0,0);
+z1 = (300 * hu, 0);
+z2 = (0, 1 * vu);
+
+pickup pencircle scaled 1pt;
+
+drawarrow (z0 shifted (-10,0))--(z1 shifted (10,0));
+drawarrow (z0 shifted (0,-10))--(z2 shifted (0,10));
+
+label.top(btex $n$ etex, z1 shifted (10,0));
+label.rt(btex $\varepsilon$ etex, z2 shifted (0,10));
+
+numeric a;
+a = 12;
+
+path p;
+p = (a * hu, 1 * vu);
+for x = a + 1 step 1 until 300:
+	p := p--(x * hu, sqrt(a/x) * vu);
+endfor;
+
+pickup pencircle scaled 0.5pt;
+
+draw (a*hu,0)--(a*hu, vu) withcolor blue;
+label.rt(btex $\varepsilon_0$ etex, (a*hu, vu/2)) withcolor blue;
+draw (4 * a * hu,0)--(4*a*hu, vu/2) withcolor blue;
+label.rt(btex $\frac{\varepsilon_0}2$ etex, (4*a*hu, vu/4)) withcolor blue;
+draw (16 * a * hu,0)--(16*a*hu, vu/4) withcolor blue;
+label.rt(btex $\frac{\varepsilon_0}4$ etex, (16*a*hu, vu/8)) withcolor blue;
+
+pickup pencircle scaled 1pt;
+
+draw (a * hu, -2)--(a*hu, 2) withcolor blue;
+draw (4 * a * hu, -2)--(4 * a*hu, 2) withcolor blue;
+draw (16*a * hu, -2)--(16*a*hu, 2) withcolor blue;
+
+label.bot(btex $\mathstrut n_0$ etex, (a*hu,-2)) withcolor blue;
+label.bot(btex $4n_0$ etex, (4*a*hu,-2)) withcolor blue;
+label.bot(btex $16n_0$ etex, (16*a*hu,-2)) withcolor blue;
+
+pickup pencircle scaled 1.5pt;
+draw p withcolor red;
+
+endfig;
+
 end

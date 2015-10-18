@@ -46,7 +46,7 @@ label.lft(btex $1.0$ etex, (-2, 1.0 * vu));
 label.top(btex $\varepsilon$ etex, z1 shifted (10,0));
 label.rt(btex $P$ etex, z2 shifted (0,10));
 
-pickup pencircle scaled 1.2pt;
+pickup pencircle scaled 1.5pt;
 
 draw (1 * hu, 1 * vu)
 for x = 1.1 step 0.1 until 5.01:

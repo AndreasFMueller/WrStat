@@ -100,8 +100,8 @@ label.lft(btex $100$ etex, (-2, 100 * a));
 endfig;
 
 numeric hu, vu;
-hu = 150;
-vu = 150;
+hu = 120;
+vu = 120;
 
 def punkt(expr u,v) =
 	draw(u * hu, v * vu) withcolor red;

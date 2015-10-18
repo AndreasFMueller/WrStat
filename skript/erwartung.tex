@@ -1245,10 +1245,11 @@ Die letzte Ungleichung des Satzes folgt aus der Tatsache, dass die Funktion
 $p\mapsto p(1-p)=p-p^2$ bei $p=\frac12$ ein Maximum hat, also
 $P(A)(1-P(A))\le\frac14$ gilt.
 \end{proof}
+
 Insbesondere verstehen wir jetzt, warum es sehr lange dauern kann, bis
 wir durch Z"ahlen der H"aufigkeit eines Ereignisses dessen Wahrscheinlichkeit
-auch nur auf wenige Stellen nach dem Komma bestimmen k"onnen. Wenn wir
-verlangen, dass die relative H"aufigkeit mit
+auch nur auf wenige Stellen nach dem Komma bestimmen k"onnen.
+Wenn wir verlangen, dass die relative H"aufigkeit mit
 99\% Sicherheit die Wahrscheinlichkeit auf drei Stellen ann"ahert, also
 $\varepsilon=10^{-3}$, dann m"ussen wir verlangen
 \begin{eqnarray*}
@@ -1260,13 +1261,28 @@ um eine Genauigkeit von drei Stellen nach dem Komma mit 99\% Sicherheit
 zu erreichen. Dies deckt sich mit den Beobachtungen in der W"urfelsimulation
 in Tabelle
 \ref{wuerfel-simulation}.
+\begin{figure}
+\centering
+\includegraphics{images/erwartung-7.pdf}
+\caption{Abnahme des Fehlers der relativen H"aufigkeit mit der Anzahl
+Wiederholungen. Um den Fehler zu halbieren, muss die Anzahl der Versuche
+vervierfacht werden.
+\label{fehlerabnahme}}
+\end{figure}
+Der verbleibende Fehler der relativen H"aufigkeit ist propertional zu
+$\frac1{\sqrt{n}}$, wenn $n$ die Anzahl der Versuche ist.
+Die Abh"angigkeit des zu erwartenden Fehlers der relativen H"aufigkeit mit
+der Anzahl der Versuche ist in Abbildung~\ref{fehlerabnahme} dargestellt.
+
+
+
 \section{Lineare Regression}
 \index{Regression!lineare}
 \index{lineare Regression}
 \index{Kurvenanpassung}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\hsize]{graphics/ohm}
+\includegraphics{images/regression-1.pdf}
 \end{center}
 \caption{Anpassung einer Geraden an gemessen Strom-/Spannungs-Werte\label{ohm-regression}}
 \end{figure}
@@ -1384,9 +1400,22 @@ r=\frac{\operatorname{cov}(X,Y)}{\sqrt{\operatorname{var}(X)\operatorname{var}(Y
 heisst Regressionskoeffizient.
 \end{definition}
 
+\begin{figure}
+\centering
+\includegraphics{images/regression-2.pdf}\;
+\includegraphics{images/regression-3.pdf}\;
+\includegraphics{images/regression-4.pdf}
+\caption{Aussehen der Punktwolke f"ur verschiedene Werte des Regressionskoeffizienten.
+F"ur $r\simeq 0$ besteht keine Abh"angigkeit zwischen den Variablen, $r\simeq 1$
+zeigt eine gute, positive Abh"angigkeit an, $r\simeq -1$ eine starke
+negative Abh"angigkeit.
+\label{regressionskoeffizient-graphik}}
+\end{figure}
+
 Die Regression ist also umso genauer, je n"aher $r$ bei $\pm 1$ liegt.
 Ausserdem hat $r$ immer das gleiche Vorzeichen wie die
 Steigung der Regressionsgeraden.
+Dies ist in Abbildung~\ref{regressionskoeffizient-graphik} dargestellt.
 
 \subsubsection{Berechnung aus empirischen Daten}
 Auch die Koeffizienten der Regressionsgeraden sind mit einfachen Formeln

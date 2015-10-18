@@ -6,7 +6,7 @@
 # $Id: Makefile,v 1.2 2008/09/12 21:29:30 afm Exp $
 #
 all:	verteilungsfunktion abhaengigkeit algebra total erwartung ebola \
-	zweiwuerfel power.eps 
+	zweiwuerfel regression exp norm gl power 
 
 verteilungsfunktion_FILES = verteilungsfunktion-1.pdf \
 	verteilungsfunktion-2.pdf verteilungsfunktion-3.pdf \
@@ -17,9 +17,14 @@ abhaengigkeit_FILES = abhaengigkeit-1.pdf abhaengigkeit-2.pdf \
 algebra_FILES = algebra-1.pdf algebra-2.pdf
 total_FILES = total-1.pdf
 erwartung_FILES = erwartung-1.pdf erwartung-2.pdf erwartung-3.pdf \
-	erwartung-4.pdf
+	erwartung-4.pdf erwartung-5.pdf erwartung-6.pdf erwartung-7.pdf
 ebola_FILES = ebola-1.pdf
 zweiwuerfel_FILES = zweiwuerfel-1.pdf
+regression_FILES = regression-1.pdf regression-2.pdf
+norm_FILES = norm-1.pdf
+exp_FILES = exp-1.pdf
+power_FILES = power-1.pdf power-2.pdf power-3.pdf
+gl_FILES = gl-1.pdf
 
 verteilungsfunktion: $(verteilungsfunktion_FILES)
 abhaengigkeit: $(abhaengigkeit_FILES)
@@ -28,6 +33,11 @@ total: $(total_FILES)
 erwartung: $(erwartung_FILES)
 ebola: $(ebola_FILES)
 zweiwuerfel: $(zweiwuerfel_FILES)
+regression: $(regression_FILES)
+norm: $(norm_FILES)
+exp: $(exp_FILES)
+power: $(power_FILES)
+gl: $(gl_FILES)
 
 $(verteilungsfunktion_FILES):	verteilungsfunktion.mp
 	TEX=latex mpost verteilungsfunktion.mp
@@ -58,9 +68,9 @@ $(total_FILES):	total.mp
 
 $(erwartung_FILES):	erwartung.mp
 	TEX=latex mpost erwartung.mp
-	for i in 1 2 3 4 5 6; \
+	for i in erwartung.[0-9]*; \
 	do \
-		mptopdf erwartung.$${i}; \
+		mptopdf $${i}; \
 	done
 
 $(ebola_FILES):	ebola.mp
@@ -77,6 +87,39 @@ $(zweiwuerfel_FILES):	zweiwuerfel.mp
 		mptopdf $${i}; \
 	done
 
-power.eps:	power.asy
-	LANG=C asy power.asy
+$(exp_FILES):	exp.mp
+	TEX=latex mpost exp.mp
+	for i in exp.[0-9]*; \
+	do \
+		mptopdf $${i}; \
+	done
+
+$(norm_FILES):	norm.mp
+	TEX=latex mpost norm.mp
+	for i in norm.[0-9]*; \
+	do \
+		mptopdf $${i}; \
+	done
+
+$(regression_FILES):	regression.mp
+	TEX=latex mpost regression.mp
+	for i in regression.[0-9]*; \
+	do \
+		mptopdf $${i}; \
+	done
+
+$(power_FILES):	power.mp
+	TEX=latex mpost power.mp
+	for i in power.[0-9]*; \
+	do \
+		mptopdf $${i}; \
+	done
+
+$(gl_FILES):	gl.mp
+	TEX=latex mpost gl.mp
+	for i in gl.[0-9]*; \
+	do \
+		mptopdf $${i}; \
+	done
+
 
