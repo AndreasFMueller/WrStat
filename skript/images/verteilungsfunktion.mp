@@ -8,6 +8,9 @@ verbatimtex
 \begin{document}
 etex;
 
+%
+% Zufallsvariable
+%
 beginfig(1)
 
 draw (0,0)..(100,0);
@@ -41,6 +44,9 @@ draw (197,60)..(203,60); label.rt("2", (205,60));
 draw (197,80)..(203,80); label.rt("3", (205,80));
 endfig;
 
+%
+%  Verteilungsfunktion
+%
 beginfig(2)
 
 picture q;
@@ -87,6 +93,9 @@ rightopensegment((120,85){dir 30}..(160,92)..{dir 3}(200,98), black);
 
 endfig;
 
+%
+% Verteilungsfunktion einer diskreten Zufallsvariable
+%
 beginfig(3)
 
 draw (-105,0)..(205,0);
@@ -105,6 +114,9 @@ drawsegment((80,45){dir 0}..{dir 0}(120,45), black);
 rightopensegment((120,55){dir 0}..{dir 0}(200,55), black);
 endfig;
 
+%
+% Verteilungsfunktion einer stetigen Zufallsvariable
+%
 beginfig(4)
 draw (-105,0)..(205,0);
 draw (0,-5)..(0,105);
@@ -119,6 +131,9 @@ endfig;
 picture r;
 r = thelabel.top(btex \scriptsize Dichte etex, (0,0));
 
+%
+% diskrete Wahrscheinlichkeitsverteilung
+%
 beginfig(5)
 draw (-105,0)..(205,0);
 draw (0,-5)..(0,105);
@@ -135,6 +150,9 @@ draw (120,0)--(120,20) withcolor black;
 
 endfig;
 
+%
+% Wahrscheinlichkeitsdichte
+%
 beginfig(6)
 draw (-105,0)..(205,0);
 draw (0,-5)..(0,105);
@@ -176,26 +194,30 @@ endfig;
 %
 beginfig(7)
 
-draw (-105,120)..(205,120);
-draw (0,115)..(0,225);
-draw q rotated 90 shifted (0,200);
-label.lrt(btex $x$ etex, (190,120));
+pickup pencircle scaled 1pt;
 
-draw (-105,0)..(205,0);
-draw (0,-5)..(0,105);
+fill (-30,0)--(120,0)--(120,66)--(-30,66)--cycle withcolor (0.9,0.9,1);
+
+drawarrow (-105,120)..(205,120);
+drawarrow (0,115)..(0,225);
+draw q rotated 90 shifted (0,200);
+label.top(btex $x$ etex, (205,120));
+
+drawarrow (-105,0)..(205,0);
+drawarrow (0,-5)..(0,105);
 draw r rotated 90 shifted (0,90);
-label.lrt(btex $x$ etex, (190,0));
+label.top(btex $x$ etex, (205,0));
 
 pickup pencircle scaled 1.5pt;
 
-leftopensegment((-100,120)--(-30,120), blue);
-label.bot(btex $a$ etex, (-34,118));
-drawsegment((-30,120)--(120,220), blue);
+draw (-100,120)--(-30,120) withcolor blue;
+label.bot(btex $\mathstrut a$ etex, (-34,118));
+draw (-30,120)--(120,210) withcolor blue;
 label.bot(btex $b$ etex, (124,118));
-rightopensegment((120,220)--(200,220), blue);
+draw (120,210)--(200,210) withcolor blue;
 
 draw (-100,0)--(-30,0) withcolor blue;
-label.bot(btex $a$ etex, (-34,-2));
+label.bot(btex $\mathstrut a$ etex, (-34,-2));
 draw (-30,66)--(120,66) withcolor blue;
 label.bot(btex $b$ etex, (124,-2));
 draw (120,0)--(200,0) withcolor blue;
@@ -219,14 +241,36 @@ draw (120,0)--(120,220);
 endfig;
 
 %
-% Verteilungsfunktion and Wahrscheinlichkeitsverteilung der Gleichverteilung
+% Verteilungsfunktion and Wahrscheinlichkeitsverteilung der
+%  Exponentialverteilung
 %
 beginfig(8)
 
+path p;
+p = (0,100.00)
+..(25,77.88)
+..(50,60.65)
+..(75,47.23)
+..(100,36.78)
+..(125,28.65)
+..(150,22.31)
+..(175,17.37)
+..(200,13.53)
+..(225,10.53)
+..(250,8.20);
+path q;
+q = p--(250,0)--(0,0)--cycle;
+
+fill q withcolor (0.9,0.9,1);
+
+pickup pencircle scaled 0.3pt;
+
+draw (0,250)--(250,250);
+
 pickup pencircle scaled 1pt;
 
-draw(-55,150)..(255,150);
-draw(0,145)..(0,255);
+drawarrow (-55,150)..(255,150);
+drawarrow (0,145)..(0,260);
 
 pickup pencircle scaled 1.5pt;
 draw (-50,150)--
@@ -245,23 +289,13 @@ withcolor(0.0,0.0,1.0);
 
 pickup pencircle scaled 1pt;
 
-draw(-55,0)..(255,0);
-draw(0,-5)..(0,105);
+drawarrow (-55,0)..(255,0);
+drawarrow (0,-5)..(0,110);
 
 pickup pencircle scaled 1.5pt;
 draw (-50,0)--(0,0) withcolor(0.0,0.0,1.0);
-draw (0,100.00)
-..(25,77.88)
-..(50,60.65)
-..(75,47.23)
-..(100,36.78)
-..(125,28.65)
-..(150,22.31)
-..(175,17.37)
-..(200,13.53)
-..(225,10.53)
-..(250,8.20)
-withcolor(0.0,0.0,1.0);
+
+draw p withcolor(0.0,0.0,1.0);
 
 draw (0,-5)--(0,255) withcolor(1.0,0.8,0.0);
 draw (100,-5)--(100,255) withcolor(1.0,0.8,0.0);
@@ -269,14 +303,15 @@ draw (200,-5)--(200,255) withcolor(1.0,0.8,0.0);
 
 label.lrt(btex $0$ etex, (0,0));
 label.lrt(btex $E(X)$ etex, (100,0));
-label.bot(btex $x$ etex, (250,0));
+label.top(btex $x$ etex, (255,0));
+label.top(btex $x$ etex, (255,150));
 label.lft(btex $1$ etex, (-3,250));
 pickup pencircle scaled 1pt;
 draw (-3,250)--(3,250);
 
 picture q;
 q = thelabel.ulft(btex \scriptsize Wahrscheinlichkeit etex, (0,0));
-draw q rotated 90 shifted (0,250);
+draw q rotated 90 shifted (0,245);
 
 picture r;
 r = thelabel.ulft(btex \scriptsize Dichte etex, (0,0));
@@ -288,18 +323,6 @@ endfig;
 % Verteilungsfunktion und Wahrscheinlichkeitsdichte der Normalverteilung
 %
 beginfig(9)
-
-pickup pencircle scaled 1pt;
-
-draw (-310,0)--(310,0);
-draw (0,-10)--(0,110);
-
-draw (-300,-2)--(-300,2);
-draw (-200,-2)--(-200,2);
-draw (-100,-2)--(-100,2);
-draw ( 100,-2)--( 100,2);
-draw ( 200,-2)--( 200,2);
-draw ( 300,-2)--( 300,2);
 
 pickup pencircle scaled 1.5pt;
 
@@ -334,18 +357,13 @@ withcolor(0.0,0.0,1.0);
 
 pickup pencircle scaled 1pt;
 
-draw (-310,150)--(310,150);
-draw (0,140)--(0,260);
-draw (-300,148)--(-300,152);
-draw (-200,148)--(-200,152);
-draw (-100,148)--(-100,152);
-draw ( 100,148)--( 100,152);
-draw ( 200,148)--( 200,152);
-draw ( 300,148)--( 300,152);
+drawarrow (-310,150)--(310,150);
+drawarrow (0,140)--(0,260);
 
 pickup pencircle scaled 1.5pt;
 
-draw (-300,1.11090)
+path p;
+p = (-300,1.11090)
 ..(-275,2.27942)
 ..(-250,4.39369)
 ..(-225,7.95595)
@@ -369,14 +387,29 @@ draw (-300,1.11090)
 ..(225,7.95595)
 ..(250,4.39369)
 ..(275,2.27942)
-..(300,1.11090)
-withcolor(0.0,0.0,1.0);
+..(300,1.11090);
+path q;
+q = p--(300,0)--(-300,0)--cycle;
+fill q withcolor (0.9,0.9,1.0);
+draw p withcolor(0.0,0.0,1.0);
+
+pickup pencircle scaled 1pt;
+
+for x = -300 step 100 until 300:
+	draw (x,-2)--(x,2);
+endfor;
+for x = -300 step 100 until 300:
+	draw (x,148)--(x,152);
+endfor;
+
+drawarrow (-310,0)--(310,0);
+drawarrow (0,-10)--(0,110);
 
 draw (0,-5)--(0,255) withcolor(1.0,0.8,0.0);
 draw (-100,-5)--(-100,255) withcolor(1.0,0.8,0.0);
 draw (100,-5)--(100,255) withcolor(1.0,0.8,0.0);
 
-label.lrt(btex $E(X)$ etex, (0,0));
+label.lrt(btex $E(X)=0$ etex, (0,125)) withcolor (1,0.8,0);
 label.llft(btex $0$ etex, (0,0));
 
 label.lrt(btex $\mathstrut\sigma$ etex, (100,0));
@@ -384,11 +417,14 @@ label.llft(btex $\mathstrut-\sigma$ etex, (-100,0));
 
 picture q;
 q = thelabel.ulft(btex Wahrscheinlichkeit etex, (0,0));
-draw q rotated 90 shifted (0,250);
+draw q rotated 90 shifted (-2,280);
 
 picture r;
 r = thelabel.ulft(btex Dichte etex, (0,0));
-draw r rotated 90 shifted (0,100);
+draw r rotated 90 shifted (-2,130);
+
+label.top(btex $x$ etex, (310,2));
+label.top(btex $x$ etex, (310,152));
 
 endfig;
 
@@ -476,7 +512,6 @@ draw ((-300,1.11090*0.9)
 ..(300,1.11090*0.9))
 shifted(0,50)
 withcolor(0.0,0.0,1.0);
-
 
 endfig;
 

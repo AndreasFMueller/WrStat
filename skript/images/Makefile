@@ -63,8 +63,6 @@ $(algebra_FILES):	algebra.mp
 $(total_FILES):	total.mp
 	TEX=latex mpost total.mp
 	mptopdf total.1
-	pdf2ps total-1.pdf
-	ps2eps -f total-1.ps
 
 $(erwartung_FILES):	erwartung.mp
 	TEX=latex mpost erwartung.mp
