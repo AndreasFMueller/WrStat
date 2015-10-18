@@ -8,6 +8,9 @@ verbatimtex
 \begin{document}
 etex;
 
+%
+% Abweichungswahrscheinlichkeit der Exponentialverteilung (Tschebyscheff)
+%
 beginfig(1)
 
 numeric hu, vu;
@@ -77,6 +80,88 @@ pickup pencircle scaled 0.5pt;
 
 draw z4--(z4 shifted (60,45)) withcolor red;
 draw z3--(z3 shifted (10,10)) withcolor green;
+
+endfig;
+
+%
+%  Poissonverteilung
+%
+beginfig(2)
+
+numeric u,v;
+u = 35;
+v = 600;
+numeric lambda;
+lambda = 4.2;
+
+z0 = (0,0);
+z1 = (12 * u, 0);
+z2 = (0, 0.2 * v);
+
+pickup penrazor scaled 5pt;
+
+numeric f;
+f = mexp(-lambda * 256);
+show f;
+
+draw (0,0)--(0, f*v) withcolor red;
+
+for x = 1 step 1 until 12:
+	f := f * (lambda/x);
+	show f;
+	draw (x*u,0)--(x*u, f*v) withcolor red;
+endfor;
+
+pickup pencircle scaled 1pt;
+
+drawarrow (z0 shifted (-10,0))--(z1 shifted (10,0));
+drawarrow (z0 shifted (0,-10))--(z2 shifted (0,10));
+
+pickup pencircle scaled 1.5pt;
+
+for x = 1 step 1 until 12:
+	draw (x * u, -2)--(x * u, 2);
+endfor;
+
+label.bot(btex $ 1$ etex, ( 1 * u, -2));
+label.bot(btex $ 2$ etex, ( 2 * u, -2));
+label.bot(btex $ 3$ etex, ( 3 * u, -2));
+label.bot(btex $ 4$ etex, ( 4 * u, -2));
+label.bot(btex $ 5$ etex, ( 5 * u, -2));
+label.bot(btex $ 6$ etex, ( 6 * u, -2));
+label.bot(btex $ 7$ etex, ( 7 * u, -2));
+label.bot(btex $ 8$ etex, ( 8 * u, -2));
+label.bot(btex $ 9$ etex, ( 9 * u, -2));
+label.bot(btex $10$ etex, (10 * u, -2));
+label.bot(btex $11$ etex, (11 * u, -2));
+label.bot(btex $12$ etex, (12 * u, -2));
+
+label.rt(btex $P(k)$ etex, z2 shifted (0,10));
+
+pickup pencircle scaled 1.5pt;
+
+draw (lambda * u, -5)--(lambda * u, 0.2 * v) withcolor (1,0.8,0);
+label.top(btex $E(X)=\lambda$ etex, (lambda * u, 0.2 * v));
+
+draw ((lambda - sqrt(lambda))*u, -2)--((lambda - sqrt(lambda))*u,0.2 * v)
+	withcolor (1,0.8,0);;
+draw ((lambda + sqrt(lambda))*u, -2)--((lambda + sqrt(lambda))*u,0.2 * v)
+	withcolor (1,0.8,0);;
+pickup pencircle scaled 0.7pt;
+
+z3 = ((lambda - sqrt(lambda))*u, 0.1 * v);
+z4 = ((lambda               )*u, 0.1 * v);
+z5 = ((lambda + sqrt(lambda))*u, 0.1 * v);
+
+draw z3--z5 withcolor (1,0.8,0);
+
+draw (z3 shifted (-2,-2))--(z3 shifted (2,2)) withcolor (1,0.8,0);
+draw (z4 shifted (-2,-2))--(z4 shifted (2,2)) withcolor (1,0.8,0);
+draw (z5 shifted (-2,-2))--(z5 shifted (2,2)) withcolor (1,0.8,0);
+
+label.top(btex $\sqrt{\lambda}$ etex, 0.5[z3,z4]) withcolor (1,0.8,0);
+label.top(btex $\sqrt{\lambda}$ etex, 0.5[z4,z5]) withcolor (1,0.8,0);
+label.top(btex $k$ etex, z1 shifted (10,0));
 
 endfig;
 
