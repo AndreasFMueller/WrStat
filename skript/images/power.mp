@@ -49,7 +49,7 @@ alpha = 2.5;
 xmina = mexp(mlog(xmin)*(1-alpha));
 
 numeric hu, vu;
-hu = 60;
+hu = 100;
 vu = 120;
 
 z0 = (0,0);
@@ -104,7 +104,7 @@ alpha = 3.5;
 xmina = mexp(mlog(xmin)*(1-alpha));
 
 numeric hu, vu;
-hu = 60;
+hu = 100;
 vu = 120;
 
 z0 = (0,0);

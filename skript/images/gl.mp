@@ -11,7 +11,7 @@ etex;
 beginfig(1)
 
 numeric hu, vu;
-hu = 80;
+hu = 100;
 vu = 160;
 
 z0 = (0,0);
@@ -82,7 +82,7 @@ endfig;
 beginfig(2)
 
 numeric u, v;
-u = 25;
+u = 30;
 v = 100;
 
 z0 = (0,0);
