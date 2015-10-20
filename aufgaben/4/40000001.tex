@@ -35,6 +35,8 @@ Welche Elektronenzahl erwarten Sie bei einer Belichtung mit
 100000 Photonen?
 \item
 Hat dieser Pixel einen noch nicht korrigierten systematischen Fehler?
+\item
+Wie gut ist die Approximation?
 \end{teilaufgaben}
 
 \begin{loesung}
@@ -66,6 +68,15 @@ a&=\frac{E(XY)-E(X)E(Y)}{E(X^2)-E(X)^2}=
 \\
 b&=E(Y)-E(X)a=1194.6-2 \cdot 595=4.6
 \end{align*}
+\begin{figure}
+\centering
+\includeagraphics[]{graph-1.pdf}
+\caption{Regressionsgerade zur Bestimmung der Quanteneffizienz eines CCD-Chips
+in Aufgabe~\ref{40000001}.
+\label{40000001:graphik}}
+\end{figure}
+Die Regressionsgerade ist in Abbildung~\ref{40000001:graphik} graphisch
+dargestellt.
 Mit diesem Resultat kann man jetzt die einzelnen Fragen beantworten.
 \begin{teilaufgaben}
 \item Die Quanteneffizienz ist $595$ Elektronen pro 1000 Photonen, also
@@ -76,5 +87,33 @@ $y=ax+b=595\cdot 100+4.6=59504.6$.
 \item
 Ja, es werden im Mittel 4.6 Elektronen zu viel gemessen. Im Vergleich
 zur Gesamtzahl der Elektronen ist dies jedoch sehr wenig.
+\item
+Die Frage nach der Qualit"at der Approximation kann mit dem Regressionskoeffizienten
+beantwortet werden.
+Es ist
+\begin{align*}
+r&=\frac{\operatorname{cov}(X,Y)}{\sqrt{\operatorname{var}(X)\operatorname{var}(Y)}},
+\\
+\operatorname{var}(X)
+&=
+\frac1n\sum_{i=1}^nx_i^2-\biggl(\frac1n\sum_{i=1}^nx_i\biggr)^2
+=
+6-2^2=2
+\\
+\operatorname{var}(Y)
+&=
+\frac1n\sum_{i=1}^ny_i^2-\biggl(\frac1n\sum_{i=1}^ny_i\biggr)^2
+=
+2135212-1194.6^2=708142.84
+\\
+\operatorname{cov}(X,Y)
+&=
+E(XY)-E(X)E(Y)=3579.2-2\cdot 2294.6=1190.0
+\\
+r&=\frac{1190.0}{\sqrt{2\cdot 708142.84}}=0.999934
+\end{align*}
+Dieser Wert von $r$ liegt extrem nahe bei $1$, die Anpassung ist also von
+hervorragender Qualit"at, was auch die graphische Darstellung
+in Abbildung~\ref{40000001:graphik} best"atigt.
 \end{teilaufgaben}
 \end{loesung}
