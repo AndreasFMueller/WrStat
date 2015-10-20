@@ -7,26 +7,61 @@
 %
 \rhead{Verteilung}
 \chapter{Wahrscheinlichkeitsverteilung\label{chapter-wahrscheinlichkeitsverteilung}}
-Mit dem Begriff der Ereignisalgebra kann man nur dann Wahrscheinlichkeiten
-und Erwartungswerte einfach berechnen, wenn nur endlich viele 
-Elementarereignisse "uberhaupt vorkommen. Schon das Beispiel der
-Messungen auf der reellen Achse hat gezeigt, dass man mit diesem
-Begriff zwar sch"one Ereignis-Diagramme zeichnen kann, aber die Berechnung
-zum Beispiel von Wahrscheinlichkeiten schwierig wird.
+
+Das Kapitel~\ref{chapter-erwartungswert-und-varianz} hat gezeigt, dass die
+Begriffe Erwartungswert und Varianz n"utzlich sind, das Verhalten von
+Zufallsvariablen zu beschreiben.
+Insbesondere konnten wir zum Beispiel verstehen, wie die Mittelung von
+Messwerten deren Qualit"at verbessert, und wir konnten sogar quantifizieren,
+mit welcher Geschwindigkeit ($1/\sqrt{n}$) dies geschieht.
+Und mit der linearen Regression haben wir ein Werkzeug kennengelernt, 
+um Abh"angigkeiten zwischen Gr"ossen zu detektieren, zu quantifizieren
+und deren Qualit"at zu bewerten.
+
+All dies war m"oglich, ohne dass wir allzuviele Details "uber die
+Wahrscheinlichkeiten wissen mussten, wir mussten einzig in der Lage sein,
+den Erwartungswert und die Varianz zu berechnen.
+Gelungen ist uns dies allerdings erst f"ur diskrete Zufallsvariablen,
+die nur endlich viele verschiedene Werte annehmen.
+F"ur Zufallsvariable, die jeden beliebigen Wert in einem Interval annehmen
+k"onnen, funktioniert die bisher verwendete Formel
+``$\text{Wert}\times\text{Wahrscheinlichkeit}$''
+nicht.
+
+Etwas Mitschuld an diesem Versagen tr"agt die Tatsache, dass das Modell
+$X\colon\Omega\to\mathbb R$ einer Zufallsvariable zwar die gesamte verf"ugbare
+Information "uber einen Zufallsprozess enth"alt, aber f"ur die Berechnung 
+von Erwartungswerten eigentlich sogar zu viel Information.
+Ziel dieses Kapitels ist daher, das Modell so zu vereinfachen, dass
+es gerade noch ausreicht, Erwartungswerte zu berechnen.
+Dabei werden wir andere Informationen aufgeben m"ussen,
+zum Beispiel ob gewisse Zufallsvariablen abh"angig sind.
+
+F"ur die Beschreibung kontinuierlicher Ph"anomene hat die Analysis
+eine grosse Zahl m"achtiger Werkzeuge bereitgestellt.
+Der Plan ist daher, die in $\Omega$, $P$ und $X$ codierte
+Information zu reduzieren auf eine einzige Funktion $F\colon\mathbb R\to\mathbb R$,
+die Verteilungsfunktion.
+Die Funktion $F$ soll nur noch die Information enthalten, wie wahrscheinlich
+einzelne Werte oder Werte-Intervalle sind.
+Auf die Funktion $F$ wollen wir dann die Analysis anwenden um 
+Erwartungswert zu berechnen.
 
 \section{Wahrscheinlichkeitsverteilung}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.9\hsize]{images/verteilungsfunktion-1}
+\includegraphics[width=0.7\hsize]{images/verteilungsfunktion-1}
 \end{center}
-\caption{"Ubergang von der Ereignisalgebra $(\Omega,{\cal A})$ zu Werten
-der Zufallsvariablen $X$\label{bilduebergangzurverteilungsfunktion}}
+\caption{"Ubergang von $\Omega$ zu Werten
+der Zufallsvariablen $X$.
+\label{bilduebergangzurverteilungsfunktion}}
 \end{figure}
-In diesem Abschnitt suchen wir daher nach einer Methode, mit der
-man zuf"allige Ereignisse besser in den Griff bekommen kann, wenn
-damit reelle Werte verbunden sind. Es geht also um Situationen, wo
-man neben der Ereignisalgebra $(\Omega,{\cal A})$ auch noch eine
-Zufallsvariable $X\colon \Omega\to\mathbb{R}$ hat. 
+In diesem Abschnitt reduzieren wir die Information in einer Zufallsvariable
+$X\colon\Omega\to\mathbb R$ auf einfache Funktionen einer reellen Ver"anderlichen.
+Wir werden feststellen, dass die Verteilungsfunktion sowohl stetige wie auch
+diskrete Zufallsvariablen gleichermassen beschreiben kann, dass wir
+aber verschiedene analytische Methoden verwenden m"ussen, um daraus
+Erwartungswerte zu berechnen.
 
 \subsection{Verteilungsfunktion}
 \index{Verteilungsfunktion}
@@ -35,45 +70,63 @@ Zufallsvariable $X\colon \Omega\to\mathbb{R}$ hat.
 \includegraphics{images/verteilungsfunktion-2}
 \end{center}
 \caption{Die Verteilungsfunktion $F$ einer Zufallsvariablen $X$,
-$F(x)=P(X\le x)$, zeigt die Wahrscheinlichkeit daf"ur, dass $X$ den Wert $x$ nicht "uberschreitet\label{bildverteilungsfunktion}}
+$F(x)=P(X\le x)$, zeigt die Wahrscheinlichkeit daf"ur, dass $X$ den Wert $x$ nicht
+"uberschreitet.
+\label{bildverteilungsfunktion}}
 \end{figure}
 Aus einem Wahrscheinlichkeitsmass $P$ auf $\Omega$ kann man mit Hilfe
 von $X$ auch ein Wahrscheinlichkeitsmass auf $\mathbb{R}$ bilden. F"ur die
 Wahrscheinlichkeit f"ur das Intervall $[a,b]\subset\mathbb{R}$ setzt
 man einfach
 \[
-P((a,b])=P(a< X\le b)=P(X^{-1}((a,b])),
+P((a,b])=P(a< X\le b)
+%=P(X^{-1}((a,b])),
 \]
 das letzte $P$ ist dabei als Wahrscheinlichkeit eines Ereignisses $\Omega$
 bereits bekannt.
-Noch etwas handlicher ist die folgende Definition
+Noch etwas handlicher ist die folgende Definition.
 
 \begin{definition}
 Die Funktion $F\colon\mathbb{R}\to\mathbb{R}:x\mapsto P(X\le x)$
 heisst Verteilungsfunktion von $P$.
 \end{definition}
-Die Funktion ist immer eine monoton wachsende Funktion, denn
+Die folgenden Eigenschaften folgen unmittelbar aus dieser Definition:
+\begin{enumerate}
+\item Der Wertebereich von $F(x)$ ist im Interval $[0,1]$ enthalten.
+\item Die Funktion $F(x)$ ist monoton wachsend:
+Da $\{ X \le a\} \subset \{X\le b\}$ falls $a\le b$ folgt
+$F(a)=P(X\le a)\le P(X\le b)=F(b)$.
+\item
+Die Wahrscheinlichkeit des unm"oglichen Ereignisses ist $0$, also
+ist
 \[
-F(b)-F(a)=P(a<X\le b)\ge 0\quad\text{falls}\quad a\le b.
+\lim_{x\to-\infty}F(x)=0.
 \]
-Die Wahrscheinlichkeit des sicheren Ereignisses ist 1, also
-$\lim_{x\to\infty}F(x)=1.$
+\item
+Die Wahrscheinlichkeit des sicheren Ereignisses ist $1$, also gilt.
+\[
+\lim_{x\to\infty}F(x)=1.
+\]
+\end{enumerate}
+
 Die Verteilungsfunktion $F$ beinhaltet alle Information, um $P$ zu
 rekonstruieren. Man kann mit ihrer Hilfe auch die Wahrscheinlichkeit
 abgeschlossener Intervalle oder offener Intervalle berechnen:
 \begin{satz} Sei $F$ die Verteilungsfunktion der Zufallsvariablen $X$,
 dann gilt
-\begin{eqnarray*}
-P((a,b])&=&F(b)-F(a)\\
-P([a,b])&=&\lim_{\xi\to a-} P((\xi,b])=F(b)-\lim_{\xi\to a-}F(\xi)\\
-P((a,b))&=&\lim_{\xi\to b-} P((a,\xi])=\lim_{\xi\to b-}F(\xi)-F(a)\\
-P([a,b))&=&\lim_{\eta\to b-}\lim_{\xi\to a-} P((\xi,\eta])=\lim_{\eta\to b-}F(\eta)-\lim_{\xi\to a-}F(\xi)\\
-\end{eqnarray*}
+\begin{align*}
+P((a,b])&=F(b)-F(a)\\
+P([a,b])&=\lim_{\xi\to a-} P((\xi,b])=F(b)-\lim_{\xi\to a-}F(\xi)\\
+P((a,b))&=\lim_{\xi\to b-} P((a,\xi])=\lim_{\xi\to b-}F(\xi)-F(a)\\
+P([a,b))&=\lim_{\eta\to b-}\lim_{\xi\to a-} P((\xi,\eta])=\lim_{\eta\to b-}F(\eta)-\lim_{\xi\to a-}F(\xi)\\
+\end{align*}
 \end{satz}
 \begin{proof}[Beweis]Durch Nachrechnen unmittelbar aus den Definitionen.
 \end{proof}
-Als Spezialfall erh"alt man auch die Wahrscheinlichkeit f"ur einen einzelnen
-Wert
+
+\subsection{Sprungstellen und diskrete Werte einer Zufallsvariable}
+Als Spezialfall erh"alt man aus $F(x)$ auch die Wahrscheinlichkeit f"ur einen
+einzelnen Wert
 \[
 P(a)=P([a,a])=F(a)-\lim_{\xi\to a-}F(\xi).
 \]
@@ -113,7 +166,7 @@ konstant.
 \includegraphics{images/verteilungsfunktion-2}
 \end{center}
 \caption{Zerlegung einer beliebigen Verteilungsfunktion (unten) in diskrete (oben)
-und stetige (mitte) Komponente\label{bildzerlegungverteilungsfunktion}}
+und stetige (Mitte) Komponente\label{bildzerlegungverteilungsfunktion}}
 \end{figure}
 \index{Verteilung!diskrete}
 \index{Verteilung!stetige}
@@ -132,6 +185,9 @@ ausserdem ist diese Zerlegung eindeutig.
 \end{satz}
 Die Zerlegung der Verteilungsfunktion $F$ ist in
 Abbildung~\ref{bildzerlegungverteilungsfunktion} dargestellt.
+Der nachfolgende Beweis des Satzes ist etwas technisch, wird aber sp"ater nicht
+weiter ben"otigt, er kann daher auch "ubersprungen werden.
+{\small
 \begin{proof}[Beweis]
 Es gen"ugt offensichtlich zu zeigen, dass $F$ rechtsseitig stetig ist, also
 keine Sprungstellen bei Ann"aherung von rechts hat. Die Differenz
@@ -181,13 +237,14 @@ also genau die Aussage, dass die rechtsseitigen Grenzwerte mit den
 Funktionswerten "ubereinstimmen, mithin die Funktion $F$ rechtsseitig
 stetig ist. Somit ist $F_s$ rechts- und linksseitig stetig.
 \end{proof}
+}
 Im Allgemeinen besteht also eine Verteilungsfunktion $F$ aus einem
 Teil, der Spr"unge darstellt, also bestimmte Werte der Zufallsvariable,
 die mit nicht verschwindender Wahrscheinlichkeit auftreten k"onnen, und
 einem Teil, der ``verschmiert'' ist "uber den ganzen Wertebereich. Wir
 betrachten jeden dieser Teile separat.
 
-\subsubsection{St"uckweise konstante Verteilungsfunktion}
+\subsection{St"uckweise konstante Verteilungsfunktion}
 \begin{figure}
 \begin{center}
 \includegraphics{images/verteilungsfunktion-3}
@@ -211,7 +268,7 @@ einen Sprungpunkt haben Wahrscheinlichkeit 0. Die Wahrscheinlichkeiten
 der einzelnen Sprungwerte k"onnen wie in
 Abbildung~\ref{bilddiskreteverteilungsfunktion} visualisiert werden.
 
-Ist $S=\{x|F(x)\ne \lim_{a\to x-}F(a)\}$ die Menge der Sprungpunkte 
+Ist $S=\{\,x\;|\;F(x)\ne \lim_{a\to x-}F(a)\,\}$ die Menge der Sprungpunkte 
 der Verteilungsfunktion, dann kann man damit Wahrscheinlichkeiten und
 Erwartungswerte wie folgt berechnen. Die Wahrscheinlichkeit eines
 Ereignisses h"angt davon ab, welches Sprungpunkte es enth"alt:
@@ -229,7 +286,7 @@ p\colon S\to\mathbb{R}:x\mapsto p(x)=P(\{x\}).
 \]
 Diese Funktion muss nat"urlich den Eigenschaften einer
 Wahrscheinlichkeitsfunktion Rechnung tragen, was erf"ullt ist, wenn
-$p(x)\ge 0\forall x\in S$ und 
+$p(x)\ge 0$ f"ur alle Sprunkpunkte und 
 \[
 \sum_{x\in S}p(x)=1.
 \]
@@ -243,7 +300,7 @@ heisst diskrete Wahrscheinlichkeitsverteilung auf der Menge $S$.
 \end{enumerate}
 \end{satz}
 
-\subsubsection{Stetige Verteilungsfunktion}
+\subsection{Stetige Verteilungsfunktion}
 \begin{figure}
 \begin{center}
 \includegraphics{images/verteilungsfunktion-4}
@@ -324,12 +381,21 @@ ist die Verteilungsfunktion $F$ "uberall dort differenzierbar, wo
 $\varphi$ stetig ist, und es gilt dort
 $F'(x)=\varphi(x)$.
 Erwartungswerte von $X$ k"onnen mit Hilfe von
-\begin{eqnarray*}
-E(X)&=&\int_{-\infty}^{\infty}x\varphi(x)\,dx\quad\text{und}\\
-E(f(X))&=&\int_{-\infty}^{\infty}f(x)\varphi(x)\,dx
-\end{eqnarray*}
+\begin{align*}
+E(X)&=\int_{-\infty}^{\infty}x\varphi(x)\,dx\quad\text{und}\\
+E(f(X))&=\int_{-\infty}^{\infty}f(x)\varphi(x)\,dx
+\end{align*}
 berechnet werden.
 \end{satz}
+
+Man beachte, dass diese Formel das im
+Kapitel~\ref{chapter-erwartungswert-und-varianz} einf"uhrte Konzept
+``Wert $\mathstrut \times\mathstrut $ Wahrscheinlichkeit''
+auch f"ur stetige Zufallsvariablen realisiert, $x$ bzw.~$f(x)$ ist
+der Wert-Teil, w"ahrend $\varphi(x)\,dx$ f"ur die Wahrscheinlichkeit
+steht.
+Aus der Summe ist ein Integral geworden.
+
 \subsection{Wahrscheinlichkeit grosser Abweichungen}
 Im vorhergehenden Kapitel haben wir mit dem Satz von Tschebyscheff ein
 Hilfsmittel kennengelernt, welches erlaubt abzusch"atzen, dass eine
@@ -359,11 +425,11 @@ und der einseitige Grenzwert ist gerade der Funktionswert von $F$ an der
 Stelle.
 Es gen"ugt also letzteres
 zu untersuchen.
-\begin{eqnarray*}
+\begin{align*}
 P(|X-\mu|\le\varepsilon)
-&=&1-P(\{X\ge\mu-\varepsilon\}\cap\{X\le\mu+\varepsilon\})\\
-&=&1-F(\mu+\varepsilon)+\lim_{\xi\to (\mu-\varepsilon)-}F(\xi)
-\end{eqnarray*}
+&=1-P(\{X\ge\mu-\varepsilon\}\cap\{X\le\mu+\varepsilon\})\\
+&=1-F(\mu+\varepsilon)+\lim_{\xi\to (\mu-\varepsilon)-}F(\xi).
+\end{align*}
 \end{proof}
 Eine Wahrscheinlichkeitsfunktion erlaubt also eine wesentlich
 genauere Berechnung der Wahrscheinlichkeit einer grossen Abweichung,
@@ -372,14 +438,15 @@ nicht mehr nur eine grobe Absch"atzung.
 \section{Beispiel: Gleichverteilung}
 \index{Gleichverteilung}
 Als Beispiel und zur Gegen"uberstellung stetiger und diskreter Zufallsvariablen
-behandeln wir in diesem Abschnitt die diskrete und und die stetige
+behandeln wir in diesem Abschnitt die diskrete und die stetige
 Gleichverteilung. Weitere Informationen zur Gleichverteilung sind
-Im Abschnitt~\ref{section-gleichverteilung-stetig} zu finden.
+im Abschnitt~\ref{section-gleichverteilung-stetig} zu finden.
 
 \subsection{Ganzzahlige Gleichverteilung}
 \index{Gleichverteilung!ganzzahlig}
 Eine Zufallsvariable $X$ nehme die ganzzahligen Werte $\{a,a+1,\dots,b\}$ mit 
 gleicher Wahrscheinlichkeit $\frac1{b-a+1}$ an.  Die Verteilungsfunktion
+(Abbildung~\ref{diskrete-gleichverteilung})
 ist also
 \[
 F(x)=
@@ -393,11 +460,12 @@ bezeichnet:
 Die Wahrscheinlichkeitsverteilung ist
 \[
 P(X=x)=\begin{cases}
-\frac1{b-a+1}&\qquad a\le x\le b,x\in\mathbb Z\\
+\displaystyle \frac1{b-a+1}&\qquad a\le x\le b,x\in\mathbb Z\\
 0&\qquad\text{sonst}.
 \end{cases}
 \]
 Damit kann jetzt auch Erwartungswert und Varianz bestimmt werden.
+{\allowdisplaybreaks
 \begin{align*}
 E(X)
 &=
@@ -452,10 +520,25 @@ a^2-2ab+b^2+2b-2a+1-1
 =
 \frac1{12}\bigl((b-a+1)^2 - 1\bigr)
 \end{align*}
+}
 Die Varianz ist also im Wesentlichen die quadrierte Intervalll"ange
 geteilt durch 12.
+\begin{figure}
+\centering
+\includegraphics{images/gl-2.pdf}
+\caption{Verteilungsfunktion und Wahrscheinlichkeitsverteilung der diskreten
+Gleichverteilung auf den Werten $1,\dots,n=10$
+\label{diskrete-gleichverteilung}}
+\end{figure}
 
 \subsection{Stetige Gleichverteilung}
+\begin{figure}
+\centering
+\includegraphics{images/verteilungsfunktion-7.pdf}
+\caption{Verteilungsfunktion und Wahrscheinlichkeitsdichte der stetigen
+Gleichverteilung im Interval $[a,b]$
+\label{stetige-gleichverteilung}}
+\end{figure}
 \index{Gleichverteilung!stetig}
 \index{Gleichverteilung!auf einem Intervall}
 Eine Zufallsvariable $X$ nehme die Werte im Intervall $[a,b]$
@@ -464,14 +547,15 @@ $[\xi,\eta]\subset[a,b]$ gilt
 \[
 P(\xi\le X\le \eta)=\frac{\xi-\eta}{b-a}.
 \]
-Die Wahrscheinlichkeitsdichte ist dann
+Die Wahrscheinlichkeitsdichte ist dann (Abbildung~\ref{stetige-gleichverteilung})
 \[
 \varphi(x)=\begin{cases}
-\frac1{b-a}&\qquad a\le x\le b\\
+\displaystyle \frac1{b-a}&\qquad a\le x\le b\\
 0&\qquad \text{sonst}
 \end{cases}
 \]
 Erwartungswert und Varianz k"onnen damit direkt berechnet werden:
+{\allowdisplaybreaks
 \begin{align*}
 E(X)
 &=
@@ -513,16 +597,21 @@ E(X^2)
 &=
 \frac{(b-a)^2}{12}.
 \end{align*}
+}
 Auch in diesem Fall ist die Varianz die quadrierte Intervalll"ange
 geteilt durch 12.
 
-\section{L"osungsstrategie}
-Probleme "uber Zufallsvariablen k"onnen also mit folgender L"osungsstrategie
+\section{L"osungsstrategie f"ur Probleme "uber Zufallsvariablen}
+Die f"ur die Berechnung aller wesentlichen wahrscheinlichkeitstheoretischen
+Kennzahlen einer Zufallsvariablen n"otige Information ist in der
+Verteilungsfunktion codiert.
+Probleme "uber Zufallsvariablen k"onnen daher mit folgender L"osungsstrategie
 angegangen werden.
 \begin{enumerate}
 \item
 Zun"achst muss festgestellt werden, welche Verteilung die Zufallsvariablen
-haben. Zu jeder sp"ater zu besprechenden Verteilung ist also auch
+haben.
+Zu jeder sp"ater zu besprechenden Verteilung ist also auch
 festzuhalten, f"ur welchen Zweck sie geeignet ist.
 \item 
 Die Verteilungen haben Parameter, die als n"achstes bestimmt werden
@@ -550,15 +639,15 @@ sind der Inhalt des n"achsten Abschnittes. Im folgenden Kapitel wird
 dann eine Auswahl von praktisch n"utzlichen Verteilungen mit ihren
 Eigenschaften vorgestellt.
 
-\section{Rechenregeln}
-Beim "Ubergang vom Wahrscheinlichkeitsraum $(\Omega,{\cal A},P)$ mit
+\section{Rechenregeln f"ur die Verteilungsfunktion}
+Beim "Ubergang von $\Omega$ und $P$ mit
 der Zufallsvariable $X$ zur Verteilungsfunktion $F$ 
 ging jede Information
 "uber den Zufallsmechanismus verloren, der im Hintergrund f"ur das zuf"allige
 Auftreten der verschiedenen Werte von $X$ verantwortlich war. Insbesondere
 ist es bei zwei Zufallsvariablen $X$ und $Y$ nicht mehr m"oglich zu
 rekonstruieren, ob sie unabh"angig oder wie gegebenenfalls die Abh"angigkeit
-genau ausgesehen hat. Ohne Kenntnis von $\Omega$ ist es daher im allgemeinen
+genau ausgesehen hat. Ohne Kenntnis von $\Omega$ ist es daher im Allgemeinen
 nicht mehr m"oglich, Erwartungswerte von beliebigen Funktionen von $X$ und $Y$
 zu berechnen. Insbesondere $E(XY)$ l"asst sich nur berechnen, wenn man weiss,
 dass $X$ und $Y$ unabh"angig sind.
@@ -566,6 +655,49 @@ dass $X$ und $Y$ unabh"angig sind.
 Es zeigt sich also in einigen interessanten F"allen durchaus m"oglich, nur mit
 Hilfe der Wahrscheinlichkeitsdichte f"ur unabh"angige
 Zufallsvariable interessante Erwartungswerte zu berechnen.
+
+\subsection{Transformation auf Gleichverteilung}
+Sei $X$ eine Zufallsvariable mit Verteilungsfunktion $F(x)$.
+Wendet man die Funktion $F$ auf die Werte $X(\omega)$ der Zufallsvariable,
+erhalten wir die Zufallsvariable $F\circ X$, wir schreiben sie auch
+$F(X)$. 
+Wir berechnen die Verteilungsfunktion von $F(X)$
+\begin{align*}
+F_{F(X)}(y)
+&=
+P(F(X)\le y)
+=
+\begin{cases}
+1&\qquad y > 1\\
+y&\qquad 0\le x\le y\\
+0&\qquad y < 0
+\end{cases}
+%=
+%y
+\end{align*}
+Die Verteilungsfunktion von $F(X)$ ist also die Verteilungsfunktion einer
+Gleichverteilung auf dem Interval $[0,1]$.
+
+\subsubsection{Anwendung: Erzeugung von Zufallszahlen mit Verteilungsfunktion $F$}
+Typischerweise stellen Bibliotheken Zufallszahlgeneratoren f"ur Zufallszahlen
+im Interval $[0,1]$ zur Verf"ugung.
+Um Zufallszahlen mit einer beliebigen Verteilungsfunktion $F$ zu erzeugen,
+verwendet zun"achst einen solchen Zufallszahlgenerator und wendet dann die
+Funktion $F^{-1}$ an, sofern diese existiert.
+Die resultierenden Zufallszahlen haben Verteilungsfunktion $F$.
+
+\begin{beispiel}
+Die Verteilungsfunktion einer Gleichverteilung im Interval $[a,b]$ ist
+\[
+F(x)=\frac{x-a}{b-a}
+\]
+mit der inversen Funktion
+\[
+F^{-1}(y)=a+(b-a)y.
+\]
+Ist $Y$ eine im Interval $[0,1]$ gleichverteilte Zufallsvariable, dann ist
+$F^{-1}(Y)=a+(b-a)Y$ eine im Interval $[a,b]$ gleichverteilte Zufallsvariable.
+\end{beispiel}
 
 \subsection{Variablentransformation}
 \index{Variablentransformation}
@@ -595,10 +727,10 @@ P(a<Y\le b)
 \]
 Also muss $\varphi_Y(f(x))f'(x)$ die Wahrscheinlichkeitsdichte von
 $F_X$ sein, also 
-\begin{eqnarray*}
-\varphi_Y(y)&=&\frac{\varphi_X(f^{-1}(y))}{f'(f^{-1}(y))}\\
-\varphi_Y(f(x))&=&\frac{\varphi_X(x)}{f'(x)}
-\end{eqnarray*}
+\begin{align*}
+\varphi_Y(y)&=\frac{\varphi_X(f^{-1}(y))}{f'(f^{-1}(y))}\\
+\varphi_Y(f(x))&=\frac{\varphi_X(x)}{f'(x)}
+\end{align*}
 Wir fassen diese Resultate in einem Satz zusammen
 
 \begin{satz}
@@ -652,10 +784,10 @@ und ebenso die Varianz
 Der Satz \ref{satz-variablentransformation} l"asst sich hier unmittelbar
 anwenden, es ergeben sich Verteilungs- und Dichtefunktion von $Y$
 wie folgt:
-\begin{eqnarray*}
-F_Y(y)&=&F_X(y\sigma+\mu)\\
-\varphi_Y(y)&=&\sigma\varphi_X(y\sigma+\mu)
-\end{eqnarray*}
+\begin{align*}
+F_Y(y)&=F_X(y\sigma+\mu)\\
+\varphi_Y(y)&=\sigma\varphi_X(y\sigma+\mu)
+\end{align*}
 Wir fassen diese Resultate in einem Satz zusammen:
 
 \begin{satz}
@@ -696,15 +828,15 @@ $P(X_2\le x_2)=F_2(x_2)$.
 
 Die Wahrscheinlichkeit, dass $X_1$ in einem Intervall $(a_1,b_1]$,
 $X_2$ im Intervall $(a_2,b_2]$ liegt ist 
-\begin{eqnarray*}
+\begin{align*}
 P(a_1<X_1\le b_1\wedge a_2<X_2\le b_2)
-&=& P(a_1<X_1\le b_1) P(a_2<X_2\le b_2)\\
-&=&\int_{a_1}^{b_1}\varphi_1(x_1)\,dx_1
+&= P(a_1<X_1\le b_1) P(a_2<X_2\le b_2)\\
+&=\int_{a_1}^{b_1}\varphi_1(x_1)\,dx_1
 \int_{a_2}^{b_2}\varphi_2(x_2)\,dx_2\\
-&=&\int_{a_1}^{b_1}dx_1
+&=\int_{a_1}^{b_1}dx_1
 \int_{a_2}^{b_2}dx_2\,
 \varphi_1(x_1) \varphi_2(x_2).
-\end{eqnarray*}
+\end{align*}
 Die zweidmensionale
 Verteilungsfunktion $F(x_1,x_2)=P(X_1\le x_1\wedge X_2\le x_2)$ hat
 also eine zweidimensionale Wahrscheinlichkeitsdichte
@@ -727,30 +859,30 @@ kontinuierliche Wahrscheinlichkeitsverteilungen verschieden.
 \subsubsection{Diskreter Fall}
 In diesem Fall hat $X_i$ die Wahrscheinlichkeitsverteilung
 $p_i(x)$ auf der Menge $S_i$, und es gilt
-\begin{eqnarray*}
-F(z)&=&\sum_{x_1\in S_1, x_2\in S_2, x_1+x_2\le z}p(x_1)p(x_2)\\
-&=&\sum_{x_1\in S_1}p(x_1)\sum_{x_2\in S_2, x_2 \le z - x_1}p(x_2)\\
-&=&\sum_{x_1\in S_1}p(x_1) F_2(z-x_1)
-\end{eqnarray*}
+\begin{align*}
+F(z)&=\sum_{x_1\in S_1, x_2\in S_2, x_1+x_2\le z}p(x_1)p(x_2)\\
+&=\sum_{x_1\in S_1}p(x_1)\sum_{x_2\in S_2, x_2 \le z - x_1}p(x_2)\\
+&=\sum_{x_1\in S_1}p(x_1) F_2(z-x_1)
+\end{align*}
 Oder, wenn vor allem die Wahrscheinlichkeitsverteilung interessiert:
 \[
 p(z)=\sum_{x_1\in S_1, x_2\in S_2, x_1+x_1=z}p(x_1)p(x_2).
 \]
 \subsubsection{Stetiger Fall}
 Im stetigen Fall kann man schreiben
-\begin{eqnarray*}
-F(z)&=&\int_{-\infty}^{\infty}\int_{-\infty}^{z-x_1}\varphi_1(x_1)\varphi_2(x_2)
+\begin{align*}
+F(z)&=\int_{-\infty}^{\infty}\int_{-\infty}^{z-x_1}\varphi_1(x_1)\varphi_2(x_2)
 \,dx_2\,dx_1\\
-&=&\int_{-\infty}^{\infty}
+&=\int_{-\infty}^{\infty}
 \varphi_1(x_1)
 \int_{-\infty}^{z-x_1}
 \varphi_2(x_2)
 \,dx_2\,dx_1\\
-&=&\int_{-\infty}^{\infty}
+&=\int_{-\infty}^{\infty}
 \varphi_1(x_1)
 F_2(z-x_1)
 \,dx_1\\
-\end{eqnarray*}
+\end{align*}
 Nun interesssiert uns vor allem die Wahrscheinlichkeitsdichte, also die
 ``Ableitung'' von $F$:
 \[
@@ -765,12 +897,12 @@ Wir bestimmen die Wahrscheinlichkeitsdichte f"ur das Quadrat
 $X^2$ einer stetig verteilte Zufallsvariable $X$.
 Sei $F_{X^2}$ die Verteilungsfunktion von $X^2$, $F_X$ jene von $X$.
 Dann gilt f"ur $z\ge 0$
-\begin{eqnarray*}
-F_{X^2}(z)&=&P(X^2\le z)=P(-\sqrt{z}\le X\le \sqrt{z})\\
-&=&F_X(\sqrt{z})-F(-\sqrt{z})\\
-&=&\int_{-\infty}^{\sqrt{z}}\varphi(x)\,dx-\int_{-\infty}^{-\sqrt{z}}\varphi(x)\,dx\\
-&=&\int_{-\sqrt{z}}^{\sqrt{z}}\varphi(x)\,dx
-\end{eqnarray*}
+\begin{align*}
+F_{X^2}(z)&=P(X^2\le z)=P(-\sqrt{z}\le X\le \sqrt{z})\\
+&=F_X(\sqrt{z})-F(-\sqrt{z})\\
+&=\int_{-\infty}^{\sqrt{z}}\varphi(x)\,dx-\int_{-\infty}^{-\sqrt{z}}\varphi(x)\,dx\\
+&=\int_{-\sqrt{z}}^{\sqrt{z}}\varphi(x)\,dx
+\end{align*}
 F"ur negative $z$ verschwindet die Verteilungsfunktion nat"urlich, denn
 die Wahrscheinlichkeit dass $X^2\le z <0$ ist nat"urlich 0.
 
@@ -830,11 +962,11 @@ $[x,x+dx]$ annimmt ist $\varphi_X(x)\,dx$.
 Damit beim Eintreffen dieses Ereignisses auch das Produkt
 $XY\le t$ ist, muss $Y$ einen Wert im Intervall $[0,t/x]$ annehmen.
 Also gilt wegen der Unabh"angigkeit von $X$ und $Y$
-\begin{eqnarray*}
-P(XY\le t\;\wedge\; X\in[x,x+dx])&=&P(X\in[x,x+dx]\;\wedge\; Y\le t/x)\\
-&=&P(X\in[x,x+dx])\cdot P(Y\le t/x)\\
-&=&\varphi_X(x)\,dx\cdot F_Y(t/x).
-\end{eqnarray*}
+\begin{align*}
+P(XY\le t\;\wedge\; X\in[x,x+dx])&=P(X\in[x,x+dx]\;\wedge\; Y\le t/x)\\
+&=P(X\in[x,x+dx])\cdot P(Y\le t/x)\\
+&=\varphi_X(x)\,dx\cdot F_Y(t/x).
+\end{align*}
 Um nun die gesamte Wahrscheinlichkeit $P(XY\le t)$ zu finden, m"ussen die eben
 berechneten Terme ``summiert'' werden:
 \[

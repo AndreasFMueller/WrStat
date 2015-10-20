@@ -115,5 +115,9 @@ Hochschule f"ur Technik, Rapperswil, 2009-2014
 %\input junkscience.tex
 \input datenblaetter.tex
 \input tabellen.tex
+\clearpage
+\pagebreak
+\ifodd\value{page}\else\null\clearpage\fi
+
 \input skript.ind
 \end{document}

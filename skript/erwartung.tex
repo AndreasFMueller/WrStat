@@ -361,14 +361,14 @@ dieses Ereignis eintritt. Das Ereignis $A_n=\{\text{``Note $n$''}\}$
 beschreibt den Fall, dass der Sch"uler die Note $n$ erreicht hat.
 Aus den experimentellen Daten leiten wir ab, dass die Wahrscheinlichkeiten
 f"ur die einzelnen Ereignisse die folgenden sind:
-\begin{eqnarray*}
-P(A_1)&=&0\\
-P(A_2)&=&0\\
-P(A_3)&=&\frac35\\
-P(A_4)&=&0\\
-P(A_5)&=&\frac15\\
-P(A_6)&=&\frac15\\
-\end{eqnarray*}
+\begin{align*}
+P(A_1)&=0\\
+P(A_2)&=0\\
+P(A_3)&=\frac35\\
+P(A_4)&=0\\
+P(A_5)&=\frac15\\
+P(A_6)&=\frac15\\
+\end{align*}
 Als
 ``Gewinn'' beim Eintreten des Ereignisses k"onnen wir die Note
 ansehen, d.h. der Erwartungswert ist 
@@ -433,35 +433,35 @@ hier um einen diskreten Wahrscheinlichkeitsraum, in dem jedes
 Elementarereignis die Wahrscheinlichkeit $\frac16$ hat. Die Funktion
 $X$ liefert die Augenzahl, also $X(i)=i$. Die erwartete Augenzahl
 ist also
-\begin{eqnarray*}
-E(X)&=&
+\begin{align*}
+E(X)&=
 1\cdot\frac16+
 2\cdot\frac16+
 3\cdot\frac16+
 4\cdot\frac16+
 5\cdot\frac16+
 6\cdot\frac16\\
-&=&\frac{1+2+3+4+5+6}6\\
-&=&\frac{31}{6}=3.5\\
-\end{eqnarray*}
+&=\frac{1+2+3+4+5+6}6\\
+&=\frac{31}{6}=3.5\\
+\end{align*}
 \subsubsection{Erwartete Augenzahl beim W"urfeln mit zwei W"urfel}
 Auch hier liegt ein diskreter Wahrscheinlichkeitsraum vor, dessen
 Elementarereignisse die Paare $(i,j)$ sind, mit $1\le i,j\le 6$.
 Die Wahrscheinlichkeit jedes einzelnen Paares ist $\frac1{36}$.
 Die Funktion $X$ ist jetzt $X(i,j)=i+j$. Der Erwartungswert ist
 also
-\begin{eqnarray*}
-E(X)&=&\sum_{i=1}^6\sum_{j=1}^6\frac{i+j}{36}
+\begin{align*}
+E(X)&=\sum_{i=1}^6\sum_{j=1}^6\frac{i+j}{36}
 =\frac1{36}\sum_{i=1}^6\sum_{j=1}^6(i+j)
 =\frac1{36}\sum_{i=1}^6\bigl(6i + \sum_{j=1}^6j\bigr)\\
-&=&\frac1{36}\sum_{i=1}^6(6i + 21)
+&=\frac1{36}\sum_{i=1}^6(6i + 21)
 =\frac1{36}\bigl(6\sum_{i=1}^6i + 21 \bigr)
 =\frac1{36}\bigl(6\sum_{i=1}^6i + 6\cdot21 \bigr)\\
-&=&\frac1{36}(6\cdot 21 + 6\cdot21 )
+&=\frac1{36}(6\cdot 21 + 6\cdot21 )
 =\frac1{36}(2\cdot 6\cdot 21)
 =\frac1{6}(2\cdot 21)
 =7\\
-\end{eqnarray*}
+\end{align*}
 Man kann als im Mittel mit einer Augensumme von 7 rechnen. Dies ist
 gleichzeitig auch der h"aufigste Wert, dies trifft aber im allgemeinen
 nicht zu.
@@ -556,11 +556,12 @@ es $\binom{N}{n}$. Die Wahrscheinlichkeit,
 in einem Lotto $k$ richtige
 zu treffen, bei dem man auf dem Lottozettel $M$ zahlen ankreuzen kann,
 und bei dem aus $N$ Zahlen $n$ gezogen werden, ist somit
-\[
+\begin{equation}
 h(k|N;M;n)=\frac{\binom{M}{k}\binom{N-M}{n-k}}{\binom{N}{n}}.
-\]
-Wir erkennen hier die hypergeometrische Verteilung von \ref{hypergeometrischeverteilung} wieder.
-Mit der hypergeometrischen Verteilung l"asst sich jetzt der erwartete
+\label{hypergeometrische-verteilung}
+\end{equation}
+Dies ist die hypergeometrische Verteilung.
+Mit ihr l"asst sich jetzt der erwartete
 Gewinn berechnen, man muss nur noch den Gewinn in jeder Klasse kennen.
 Ist $G_i$ der Gewinn in der Klasse ``$i$ richtige'', dann ist der
 erwartete Gewinn:
@@ -591,19 +592,19 @@ $[0.982,0.993)$&2&0.10\\
 \end{tabular}
 \end{center}
 Die Zufallsvariable $R$ hat damit folgenden Mittelwert:
-\begin{eqnarray*}
-E(R)&=&p([0.989,0.990))\cdot 0.989+
+\begin{align*}
+E(R)&=p([0.989,0.990))\cdot 0.989+
 p([0.990,0.991))\cdot 0.990\\
-& & +
+&\qquad  +
 p([0.991,0.992))\cdot 0.991+
 p([0.982,0.993))\cdot 0.992\\
-&=&
+&=
 0.3\cdot 0.989+
 0.35\cdot 0.990+
 0.25\cdot 0.991+
 0.1\cdot 0.992\\
-&=&0.99015\\
-\end{eqnarray*}
+&=0.99015\\
+\end{align*}
 
 \subsection{Unabh"angigkeit und Produktregel}
 \index{Erwartungswert!Unabh\"angigkeit}
@@ -636,12 +637,12 @@ Die Wahrscheinlichkeit von $A_i\cap B_j$ kann aber nur dann
 durch die Wahrscheinlichkeiten von $A_i$ und $B_j$ ausgedr"uckt werden,
 wenn die Ereignisse $A_i$ und $B_j$ paarweise
 unabh"angig sind. Dann berechnet man:
-\begin{eqnarray*}
-E(XY)&=&\sum_{i=1}^n\sum_{j=1}^m X(A_i\cap B_j)Y(A_i\cap B_j)P(A_i\cap B_j)\\
-&=&\sum_{i=1}^n\sum_{j=1}^m X(A_i)Y(B_j)P(A_i)P(B_j)\\
-&=&\sum_{i=1}^n X(A_i)P(A_i)\sum_{j=1}^mY(B_j)P(A_i)P(B_j)\\
-&=&E(X)\cdot E(Y)
-\end{eqnarray*}
+\begin{align*}
+E(XY)&=\sum_{i=1}^n\sum_{j=1}^m X(A_i\cap B_j)Y(A_i\cap B_j)P(A_i\cap B_j)\\
+&=\sum_{i=1}^n\sum_{j=1}^m X(A_i)Y(B_j)P(A_i)P(B_j)\\
+&=\sum_{i=1}^n X(A_i)P(A_i)\sum_{j=1}^mY(B_j)P(A_i)P(B_j)\\
+&=E(X)\cdot E(Y)
+\end{align*}
 Die oben verwendete Unabh"angigkeitsbedingung kann man mit folgender
 Definition erzwingen:
 \begin{definition}Zwei Zufallsvariable $X$ und $Y$ heissen
@@ -756,12 +757,12 @@ heisst die durch $\operatorname{var}(X)^2=E((X-E(X))^2)$ definierte Gr"osse $\op
 \]
 \end{definition}
 Die letzte Gleichung kann man leicht nachrechnen:
-\begin{eqnarray*}
-\operatorname{var}(X)&=&E((X-E(X))^2)\\
-&=&E(X^2-2XE(X)+E(X)^2)\\
-&=&E(X^2)-2E(X)E(X)+E(X)^2\\
-&=&E(X^2)-E(X)^2\\
-\end{eqnarray*}
+\begin{align*}
+\operatorname{var}(X)&=E((X-E(X))^2)\\
+&=E(X^2-2XE(X)+E(X)^2)\\
+&=E(X^2)-2E(X)E(X)+E(X)^2\\
+&=E(X^2)-E(X)^2\\
+\end{align*}
 
 \begin{figure}
 \begin{center}
@@ -790,12 +791,12 @@ reelle Zahl $\mu$, f"ur die $E((X-\mu)^2)$ minimal wird.
 \end{satz}
 \begin{proof}[Beweis]
 Aus den Rechenregeln finden wir
-\begin{eqnarray*}
+\begin{align*}
 E((X-\mu)^2)&=&E(X^2-2\mu X+\mu^2)\\
-&=&E(X^2)-2\mu E(X) +\mu^2E(1)\\
-&=&E(X^2)-2\mu E(X) +\mu^2P(\Omega)\\
-&=&E(X^2)-2\mu E(X) +\mu^2
-\end{eqnarray*}
+&=E(X^2)-2\mu E(X) +\mu^2E(1)\\
+&=E(X^2)-2\mu E(X) +\mu^2P(\Omega)\\
+&=E(X^2)-2\mu E(X) +\mu^2
+\end{align*}
 Dies ist eine quadratische Funktion, die ihren Scheitelpunkt bei $\mu$ hat.
 Man kann dies auch durch Nullsetzen der Ableitung nach $\mu$ finden:
 \[
@@ -870,12 +871,12 @@ Erwartungswertes von $\mu=E(X)=\frac1n\sum_{i=1}^n x_i$ kein besonderer Aufwand
 notwendig, da die Summe laufend gebildet werden kann. Zur Berechnung der
 Varianz muss aber erst $\mu$ bestimmt werden, bevor man die Differenzen $(x_i-\mu)$
 bilden kann. Trotzdem l"asst sich die Berechnung vereinfachen:
-\begin{eqnarray*}
-E((X-\mu)^2)&=&\frac1n\sum_{i=1}^n(x_i-\mu)^2\\
-&=&\frac1n\sum_{i=1}^n(x_i^2-2\mu x_i+\mu^2)\\
-&=&\frac1n\sum_{i=1}^nx_i^2-2\mu\frac1n\sum_{i=1}^n x_i+\mu^2\\
-&=&\frac1n\sum_{i=1}^nx_i^2-\biggl(\frac1n\sum_{i=1}^nx_i\biggr)^2\\
-\end{eqnarray*}
+\begin{align*}
+E((X-\mu)^2)&=\frac1n\sum_{i=1}^n(x_i-\mu)^2\\
+&=\frac1n\sum_{i=1}^n(x_i^2-2\mu x_i+\mu^2)\\
+&=\frac1n\sum_{i=1}^nx_i^2-2\mu\frac1n\sum_{i=1}^n x_i+\mu^2\\
+&=\frac1n\sum_{i=1}^nx_i^2-\biggl(\frac1n\sum_{i=1}^nx_i\biggr)^2\\
+\end{align*}
 \subsubsection{Beobachtungen}
 \begin{enumerate}
 \item
@@ -917,36 +918,36 @@ $\frac{n}{n-1}$ hinzuf"ugt.
 \label{rechenregeln-varianz}
 Seien $X$ und $Y$ unabh"angige Zufallsvariable, dann haben
 Summe und Produkt folgende Varianz:
-\begin{eqnarray*}
-\operatorname{var}(\lambda X)&=&\lambda^2\operatorname{var}(X)\\
-\operatorname{var}(X+Y)&=&\operatorname{var}(X)+\operatorname{var}(Y)\\
-\operatorname{var}(XY)&=&\operatorname{var}(X)\operatorname{var}(Y)
+\begin{align*}
+\operatorname{var}(\lambda X)&=\lambda^2\operatorname{var}(X)\\
+\operatorname{var}(X+Y)&=\operatorname{var}(X)+\operatorname{var}(Y)\\
+\operatorname{var}(XY)&=\operatorname{var}(X)\operatorname{var}(Y)
 +
 \operatorname{var}(Y)E(X)^2+\operatorname{var}(X)E(Y)^2
-\end{eqnarray*}
+\end{align*}
 \end{satz}
 \begin{proof}[Beweis]Durch einfaches Nachrechnen unter Ausn"utzen der
 Rechenregeln f"ur den Erwartungswert und der
 Unabh"angigkeit von $X$ und $Y$, d.h. $E(XY)=E(X)E(Y)$:
-\begin{eqnarray*}
+\begin{align*}
 \operatorname{var}(X+Y)
-&=&E((X+Y)^2)-E(X+Y)^2\\
-&=&E(X^2+2XY+Y^2)-(E(X)+E(Y))^2\\
-&=&E(X^2)+2E(XY)+E(Y^2)-E(X)^2-2E(X)E(Y)-E(Y)^2\\
-&=&E(X^2)-E(X)^2+E(Y^2)-E(Y)^2\\
-&=&\operatorname{var}(X)+\operatorname{var}(Y)
-\end{eqnarray*}
+&=E((X+Y)^2)-E(X+Y)^2\\
+&=E(X^2+2XY+Y^2)-(E(X)+E(Y))^2\\
+&=E(X^2)+2E(XY)+E(Y^2)-E(X)^2-2E(X)E(Y)-E(Y)^2\\
+&=E(X^2)-E(X)^2+E(Y^2)-E(Y)^2\\
+&=\operatorname{var}(X)+\operatorname{var}(Y)
+\end{align*}
 Durch ziehen der Wurzel folgt die Behauptung aus der letzten Gleichung.
 F"ur das Produkt gilt
-\begin{eqnarray*}
+\begin{align*}
 \operatorname{var}(XY)
-&=&E(X^2Y^2)-E(XY)^2\\
-&=&E(X^2)E(Y^2)-E(X)^2E(Y)^2\\
-&=&(\operatorname{var}(X)+E(X)^2))(\operatorname{var}(Y)+E(Y)^2)
+&=E(X^2Y^2)-E(XY)^2\\
+&=E(X^2)E(Y^2)-E(X)^2E(Y)^2\\
+&=(\operatorname{var}(X)+E(X)^2))(\operatorname{var}(Y)+E(Y)^2)
 -E(X)^2E(Y)^2\\
-&=&\operatorname{var}(X)\operatorname{var}(Y)+E(X)^2\operatorname{var}(Y)
+&=\operatorname{var}(X)\operatorname{var}(Y)+E(X)^2\operatorname{var}(Y)
 +\operatorname{var}(X)E(Y)^2
-\end{eqnarray*}
+\end{align*}
 und daraus die Behauptung.
 \end{proof}
 
@@ -1230,10 +1231,10 @@ nur die einzelne Durchf"uhrung $i$ des Versuches, dann ist $X_i$
 die Funktion
 $\chi_A$, welchen
 den Erwartungswert $E(\chi_A)=P(A)$, und die Varianz ist
-\begin{eqnarray*}
-\operatorname{var}(\chi_A)&=&E(\chi_A^2)-E(\chi_A)^2=E(\chi_A)-E(\chi_A)^2\\
+\begin{align*}
+\operatorname{var}(\chi_A)&=E(\chi_A^2)-E(\chi_A)^2=E(\chi_A)-E(\chi_A)^2\\
 &=&P(A)-P(A)^2=P(A)(1-P(A))
-\end{eqnarray*}
+\end{align*}
 hat.
 Der Mittelwert $M_n$ ist die Anzahl der Versuche, bei denen das Ereignis
 $A$ eingetreten ist, geteilt durch $n$, also die Anzahl aller Versuche,
@@ -1252,10 +1253,10 @@ auch nur auf wenige Stellen nach dem Komma bestimmen k"onnen.
 Wenn wir verlangen, dass die relative H"aufigkeit mit
 99\% Sicherheit die Wahrscheinlichkeit auf drei Stellen ann"ahert, also
 $\varepsilon=10^{-3}$, dann m"ussen wir verlangen
-\begin{eqnarray*}
-\frac{1}{4n\varepsilon^2}&\le&0.01\\
-\frac1{4\cdot 10^{-3\cdot 2}\cdot10^{-2}}=25\cdot 10^6&\le&n.
-\end{eqnarray*}
+\begin{align*}
+\frac{1}{4n\varepsilon^2}&\le 0.01\\
+\frac1{4\cdot 10^{-3\cdot 2}\cdot10^{-2}}=25\cdot 10^6&\le n.
+\end{align*}
 Der Versuch muss also mindestens 25 Millionen mal wiederholt werden,
 um eine Genauigkeit von drei Stellen nach dem Komma mit 99\% Sicherheit
 zu erreichen. Dies deckt sich mit den Beobachtungen in der W"urfelsimulation
@@ -1310,24 +1311,24 @@ Regressionsgerade:
 Seien $X$ und $Y$ zwei reelle Zufallsvariable. Die Gerade mit der
 Gleichung $y=ax+b$ minimiert die Varianz
 $\operatorname{var}(aX+b-Y)$ genau dann, wenn 
-\begin{eqnarray*}
-a&=&\frac{E(XY)-E(X)E(Y)}{(E(X^2)-E(X)^2)}=\frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X)}\\
-b&=&E(Y)-E(X)a
-\end{eqnarray*}
+\begin{align*}
+a&=\frac{E(XY)-E(X)E(Y)}{(E(X^2)-E(X)^2)}=\frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X)}\\
+b&=E(Y)-E(X)a
+\end{align*}
 \end{satz}
 \begin{proof}[Beweis]
 Der mittlere quadratische Fehler ist
-\begin{eqnarray*}
-Q(a,b)&=&E((aX+b-Y)^2)\\
-&=&E(a^2X^2+b^2+Y^2+2abX-2aXY -2bY)\\
-&=&a^2E(X^2)+b^2+E(Y^2)+2abE(X)-2aE(XY)-2bE(Y)
-\end{eqnarray*}
+\begin{align*}
+Q(a,b)&=E((aX+b-Y)^2)\\
+&=E(a^2X^2+b^2+Y^2+2abX-2aXY -2bY)\\
+&=a^2E(X^2)+b^2+E(Y^2)+2abE(X)-2aE(XY)-2bE(Y)
+\end{align*}
 Um das Minimum zu finden, setzen wir die partiellen Ableitungen nach $a$
 und $b$ gleich Null, und finden:
-\begin{eqnarray*}
-0=\frac{\partial Q}{\partial a}&=&2aE(X^2)+2bE(X)-2E(XY)\\
-0=\frac{\partial Q}{\partial b}&=&2b+2aE(X)-2E(Y)\\
-\end{eqnarray*}
+\begin{align*}
+0=\frac{\partial Q}{\partial a}&=2aE(X^2)+2bE(X)-2E(XY)\\
+0=\frac{\partial Q}{\partial b}&=2b+2aE(X)-2E(Y)\\
+\end{align*}
 Dies ist gleichbedeutend mit dem folgenden linearen Gleichungssystem f"ur
 die Koeffizienten
 $a$ und $b$
@@ -1337,10 +1338,10 @@ E(X)a\,&+&b\,&=&E(Y)
 \end{alignat*}
 Multipliziert man die zweite Gleichung mit $E(X)$ und subtrahiert sie von der
 ersten, erh"alt man eine Gleichung f"ur $a$:
-\begin{eqnarray*}
-(E(X^2)-E(X)^2)a&=&E(XY)-E(X)E(Y)\\
-a&=&\frac{E(XY)-E(X)E(Y)}{(E(X^2)-E(X)^2)} 
-\end{eqnarray*}
+\begin{align*}
+(E(X^2)-E(X)^2)a&=E(XY)-E(X)E(Y)\\
+a&=\frac{E(XY)-E(X)E(Y)}{(E(X^2)-E(X)^2)} 
+\end{align*}
 Aus der zweiten Gleichung kann man nun auch $b$ finden:
 \[
 b=E(Y)-E(X)a

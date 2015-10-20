@@ -1,0 +1,98 @@
+%
+% hypergeometrisch.tex -- Abschnitt über die hypergeometrische Verteilung in Kap 5
+%
+% (c) 2015 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\subsection{Hypergeometrische Verteilung\label{section-hypergeometrischeverteilung}}
+\index{hypergeometrische Verteilung}
+\index{hypergeometrische Verteilung!Erwartungswert}
+\index{hypergeometrische Verteilung!Varianz}
+\index{Varianz!hypergeometrische Verteilung}
+\index{Erwartungswert!hypergeometrische Verteilung}
+\begin{table}
+\renewcommand{\arraystretch}{1.5}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Name&Hypergeometrische Verteilung\\
+\hline
+Wahrscheinlichkeit&
+\begin{minipage}{3.7in}
+\vskip3pt
+$\displaystyle
+h(k|N;m;n)=
+\left.\binom{M}{k}\binom{N-M}{n-k}\right/\binom{N}{n}
+$
+\end{minipage}
+\\[10pt]
+Erwartungswert&$\displaystyle n\frac{M}{N}$\\[10pt]
+Varianz&$\displaystyle
+n\frac{M(N-M)(N-n)}{N^2(N-1)}
+$\\[10pt]
+\hline
+Anwendungen&\begin{minipage}{3.7in}%
+\vskip3pt
+\strut
+$\bullet$ Lotto\\
+$\bullet$ Auswahl von $n$ Elementen aus $N$ so dass $k$ von $M$ markierten
+Elementen gew"ahlt werden
+\strut
+\end{minipage}\\[18pt]
+\hline
+\end{tabular}
+\end{center}
+\caption{Datenblatt der hypergeometrischen Verteilung\label{datenblatt:hypergeometrischeverteilung}}
+\end{table}
+
+Die hypergeometrische Verteilung wurde bereits in
+(\ref{hypergeometrische-verteilung}) angetroffen.
+$h(k|N;M;n)$ ist die
+Wahrscheinlichkeit dass in einer $n$ Elemente umfassenden Stichprobe aus
+einer Grundgesamtheit von $N$ Elementen, von denen $M$ eine spezielle
+Eigenschaft besitzen, $k$ Elemente mit der Eigenschaft zu finden sind.
+Es ist
+\[
+h(k|N;M;n)=\frac{\binom{M}{k}\binom{N-M}{n-k}}{\binom{N}{n}}.
+\]
+Da $h$ eine Verteilung ist, ist die Summe aller Wahrscheinlichkeiten
+f"ur alle in Frage kommenden $k$
+\[
+\sum_{k=0}^nh(k|N;M;n)=1.
+\]
+\subsubsection{Erwartungswert und Varianz}
+Der Erwartungswert ist
+\begin{align*}
+E(X)
+&=\sum_{k=0}^n k\cdot\frac{\binom{M}{k}\binom{N-M}{n-k}}{\binom{N}{n}}\\
+&=\sum_{k=1}^n \frac{M\binom{M-1}{k-1}\binom{N-M}{n-k}}{\frac{N}{n}\binom{N-1}{n-1}}\\
+&=n\frac{M}{N}\sum_{k=0}^{n-1} \frac{\binom{M-1}{k}\binom{N-1-(M-1)}{n-1-k}}{\binom{N-1}{n-1}}\\
+&=n\frac{M}{N}\sum_{k=0}^{n-1}h(k|N-1;n-1;M-1)\\
+&=n\frac{M}{N}
+\end{align*}
+Unter dem letzten Summenzeichen stehen die Wahrscheinlichkeiten f"ur alle
+F"alle einer hypergeometrischen Verteilung in Stichproben, die um eins kleiner
+sind, deren Summe ist nat"urlich 1.
+
+Analog kann man bei der Berechnung der Varianz vorgehen:
+\begin{align*}
+E(X^2)
+&=\sum_{k=0}^n k^2h(k|N;M;n)\\
+&=n\frac{M}{N}\sum_{k=0}^{n-1} (k+1)\cdot h(k|N-1;M-1;n-1)\\
+&=n\frac{M}{N}(n-1)\frac{M-1}{n-1}\biggl(\sum_{k=0}^{n-2} h(k|N-2;M-2;n-2)+1\biggr)\\
+&=n\frac{M}{N}\biggl((n-1)\frac{M-1}{N-1}+1\biggr)\\
+\operatorname{var}(X)
+&=n\frac{M}{N}\biggl((n-1)\frac{M-1}{N-1}+1-n\frac{M}{N}\biggr)\\
+&=n\frac{M(N-M)(N-n)}{N^2(N-1)}
+\end{align*}
+\begin{satz}
+Eine hypergeometrisch mit den Parametern $M$, $N$ und $n$
+verteilte Zufallsgr"osse $X$
+hat Erwartungswert
+\[
+E(X)=n\frac{M}{N}
+\]
+und Varianz
+\[
+\operatorname{var}(X)=n\frac{M(N-M)(N-n)}{N^2(N-1)}
+\]
+\end{satz}

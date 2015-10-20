@@ -476,26 +476,26 @@ $\Omega_{\text{blau}}$ (siehe auch Abbildung \ref{ereignisse-zwei-wuerfel}).
 
 In $\Omega$ lassen sich bereits bedeutend spannendere Ereignisse
 beschreiben:
-\begin{eqnarray*}
-A_1&=&\{\text{mindestens eine ungerade Zahl}\}\\
-   &=&\{(x,y)\in\Omega\;|\;x \equiv 1\mod 2 \vee y\equiv 1\mod 2\}\\
-A_2&=&\{\text{beide Augenzahlen sind gerade}\}\\
-   &=&\{(x,y)\in\Omega\;|\;2|x \wedge 2|y\}\\
-X_i&=&\{(i,y)\in\Omega\}\\
-Y_i&=&\{(x,i)\in\Omega\}\\
-S_s&=&\{(x,y)\in\Omega\;|\; x + y = s\}\\
-D_d&=&\{(x,y)\in\Omega\;|\; |x - y| = d\}\\
-\end{eqnarray*}
+\begin{align*}
+A_1&=\{\text{mindestens eine ungerade Zahl}\}\\
+   &=\{(x,y)\in\Omega\;|\;x \equiv 1\mod 2 \vee y\equiv 1\mod 2\}\\
+A_2&=\{\text{beide Augenzahlen sind gerade}\}\\
+   &=\{(x,y)\in\Omega\;|\;2|x \wedge 2|y\}\\
+X_i&=\{(i,y)\in\Omega\}\\
+Y_i&=\{(x,i)\in\Omega\}\\
+S_s&=\{(x,y)\in\Omega\;|\; x + y = s\}\\
+D_d&=\{(x,y)\in\Omega\;|\; |x - y| = d\}\\
+\end{align*}
 Und damit lassen sich auch etwas spannendere Rechnungen durchf"uhren. Zum
 Beispiel:
-\begin{eqnarray*}
-A_1&=&\Omega \setminus A_2 = \bar A_2\\
-A_1\cap A_2&=&\emptyset\\
-A_1&=&X_1\cup X_3 \cup X_5\cup Y_1\cup Y_3\cup Y_5\\
-X_4\cap Y_3&=&\{(4,3)\}\\
-X_5\cap S_7&=&\{(5,2)\}\\
-X_5\cap D_1&=&\{(5,4), (5,6)\}\\
-\end{eqnarray*}
+\begin{align*}
+A_1&=\Omega \setminus A_2 = \bar A_2\\
+A_1\cap A_2&=\emptyset\\
+A_1&=X_1\cup X_3 \cup X_5\cup Y_1\cup Y_3\cup Y_5\\
+X_4\cap Y_3&=\{(4,3)\}\\
+X_5\cap S_7&=\{(5,2)\}\\
+X_5\cap D_1&=\{(5,4), (5,6)\}\\
+\end{align*}
 \begin{figure}
 \centering
 \includegraphics{images/zweiwuerfel-1.pdf}
@@ -767,17 +767,17 @@ enthalten muss.
 Aber auch die Aussage ``der Messwert ist kleiner als $a$''
 muss einem Ereignis in $\cal A$ entsprechen, also m"ussen auch Intervalle,
 die sich ins unendliche erstrecken in $\cal A$ sein:
-\begin{eqnarray*}{}
-(-\infty,r]&=&\{x\in\mathbb R\;|\;x \le r\} \in \cal A\\
+\begin{align*}{}
+(-\infty,r]&=\{x\in\mathbb R\;|\;x \le r\} \in \cal A\\
 % Hack: \; brauchts, damit eqnarray nicht meint [ leite ein Argument ein
-\;[r,\infty)&=&\{x\in\mathbb R\;|\;x \ge r\} \in \cal A
-\end{eqnarray*}
+\;[r,\infty)&=\{x\in\mathbb R\;|\;x \ge r\} \in \cal A
+\end{align*}
 
 Da wir Komplemente bilden k"onnen, m"ussen auch die offenen Intervalle
-\begin{eqnarray*}
-\overline{[a,\infty)}&=&\mathbb R\setminus [a,\infty)=(-\infty,a)\in\cal A\\
-\overline{(-\infty,b]}&=&\mathbb R\setminus (-\infty,b]= (b,\infty)\in\cal A
-\end{eqnarray*}
+\begin{align*}
+\overline{[a,\infty)}&=\mathbb R\setminus [a,\infty)=(-\infty,a)\in\cal A\\
+\overline{(-\infty,b]}&=\mathbb R\setminus (-\infty,b]= (b,\infty)\in\cal A
+\end{align*}
 Ereignisse sein. Ein beliebiges offenes Intervall l"asst sich
 als Durchschnitt zweier solcher Intervalle ausdr"ucken:
 \[
@@ -1042,11 +1042,11 @@ als disjunkte Vereinigung schreiben:
 A\cup B =  (A\setminus B) \cup (A\cap B) \cup (B\setminus A)
 \]
 Also gilt
-\begin{eqnarray*}
-P(A\cup B)&=&P(A\setminus B) + P(A\cap B) + P(B\setminus A)\\
-&=&P(A) - P(A\cap B) + P(A\cap B) + P(B) - P(A\cap B)\\
-&=&P(A) + P(B) - P(A\cap B).
-\end{eqnarray*}
+\begin{align*}
+P(A\cup B)&=P(A\setminus B) + P(A\cap B) + P(B\setminus A)\\
+&=P(A) - P(A\cap B) + P(A\cap B) + P(B) - P(A\cap B)\\
+&=P(A) + P(B) - P(A\cap B).
+\end{align*}
 \end{proof}
 Damit stehen uns Rechenregeln zur Verf"ugung, mit deren Hilfe wir
 die Wahrscheinlichkeit beliebiger Ereignisse auf der Basis einiger
@@ -1100,7 +1100,7 @@ der Analogie zu einer Fl"achenmessung heisst eine
 Wahrscheinlichkeitsfunktion $P$ oft auch ein {\em Wahrscheinlichkeitsmass}. Das
 Tripel $(\Omega,{\cal A}, P)$ heisst ein {\em Wahrscheinlichkeitsraum}.
 
-\section{Laplace-Experimente}
+\section{Laplace-Experimente \label{section-laplace-ereignisse}}
 Bisher sind wir nicht in der Lage, die Wahrscheinlichkeit eines Ereignisses
 zu berechnen, wir k"onnen nur mit Hilfe der Axiome aus bereits bekannten
 Wahrscheinlichkeiten neue Wahrscheinlichkeiten berechnen.
@@ -1266,17 +1266,17 @@ Geburstag haben, oder es darf zwei Paare geben, die jeweils
 "ubereinstimmende Geburtstage haben. Es darf einfach nicht
 sein, dass alle Geburtstage verschieden sind. Also ist eigentlich
 gemeint:
-\begin{eqnarray*}
-A&=&\{\text{``zwei haben am gleichen Tag Geburstag''}\}\\
-&=&\{\text{``nicht alle Geburtstage sind verschieden''}\}\\
-&=&\overline{\{\text{``alle Geburstage sind verschieden''}\}}.
-\end{eqnarray*}
+\begin{align*}
+A&=\{\text{``zwei haben am gleichen Tag Geburstag''}\}\\
+&=\{\text{``nicht alle Geburtstage sind verschieden''}\}\\
+&=\overline{\{\text{``alle Geburstage sind verschieden''}\}}.
+\end{align*}
 In dieser letzten Form ist die Wahrscheinlichkeit einfacher zu
 berechnen. Es gilt ja:
-\begin{eqnarray*}
-P(A)&=&P(\{\text{``zwei haben am gleichen Tag Geburstag''}\})\\
-&=&1-P(\{\text{``alle Geburstage sind verschieden''}\})
-\end{eqnarray*}
+\begin{align*}
+P(A)&=P(\{\text{``zwei haben am gleichen Tag Geburstag''}\})\\
+&=1-P(\{\text{``alle Geburstage sind verschieden''}\})
+\end{align*}
 Die Anzahl der Geburtstagsverteilungen, bei denen alle Geburtstage
 verschieden sind, ist einfach zu ermitteln: F"ur die erste Person
 kann man $366$ Geburtstage ausw"ahlen, f"ur die zweite $365$, die
@@ -1482,11 +1482,11 @@ keinen Einfluss auf den n"achsten Wurf. Die Ereignisse ``im ersten
 Wurf wird eine 5 gew"urfelt'' und ``im zweiten Wurf wird eine 6 gew"urfelt''
 sind also unabh"angig. Die Wahrscheinlichkeit, dass mit einem W"urfel
 erst eine 5, dann eine 6 gew"urfelt wird, ist also
-\begin{eqnarray*}
-P(A\cap B)&=&P(\text{``erster Wurf: 5''}\cap\text{``zweiter Wurf: 6''})\\
-&=&P(\text{``erster Wurf: 5''})\cdot P(\text{``zweiter Wurf: 6''})\\
-&=&\frac1{36}.
-\end{eqnarray*}
+\begin{align*}
+P(A\cap B)&=P(\text{``erster Wurf: 5''}\cap\text{``zweiter Wurf: 6''})\\
+&=P(\text{``erster Wurf: 5''})\cdot P(\text{``zweiter Wurf: 6''})\\
+&=\frac1{36}.
+\end{align*}
 
 \subsection{Bedingte Wahrscheinlichkeit}
 Im vorangegangenen Abschnitt wurde bereits die bedingte Wahrscheinlichkeit

@@ -17,7 +17,7 @@ draw (0,0)..(100,0);
 draw (100,0)..(100,80);
 draw (100,80)..(0,80);
 draw (0,0)..(0,80);
-label.ulft(btex $\Omega$ etex, (100,80));
+label.ulft(btex \scriptsize $\Omega$ etex, (100,80));
 
 path pnull; pnull = (0,40)..(10,43)..(30,30)..(50,20)..(70,0);
 path peins; peins = (0,60)..(10,63)..(30,50)..(50,40)..(70,20)..(90,10)..(100,5);
@@ -34,14 +34,14 @@ label.llft(btex \scriptsize $X\le 2$ etex, (53,60));
 label.llft(btex \scriptsize $X\le 3$ etex, (51,80));
 
 drawarrow (110,40)..(150,60)..(190,50);
-label.top(btex $X$ etex, (150,60));
+label.top(btex\scriptsize  $X$ etex, (150,60));
 
 drawarrow (200,-20)..(200,100);
-label.urt(btex $\mathbb{R}$ etex, (205,100));
-draw (197,20)..(203,20); label.rt("0", (205,20));
-draw (197,40)..(203,40); label.rt("1", (205,40));
-draw (197,60)..(203,60); label.rt("2", (205,60));
-draw (197,80)..(203,80); label.rt("3", (205,80));
+label.urt(btex \scriptsize $\mathbb{R}$ etex, (205,100));
+draw (197,20)..(203,20); label.rt(btex \scriptsize $0$ etex, (205,20));
+draw (197,40)..(203,40); label.rt(btex \scriptsize $1$ etex, (205,40));
+draw (197,60)..(203,60); label.rt(btex \scriptsize $2$ etex, (205,60));
+draw (197,80)..(203,80); label.rt(btex \scriptsize $3$ etex, (205,80));
 endfig;
 
 %
@@ -50,15 +50,17 @@ endfig;
 beginfig(2)
 
 picture q;
-q = thelabel.top(btex \scriptsize Wahrscheinlichkeit etex, (0,0));
-
-draw (-105,0)..(205,0);
-draw (0,-5)..(0,105);
-draw (-2,100)..(2,100);
-draw q rotated 90 shifted (0,80);
-label.lrt(btex $x$ etex, (190,0));
+q = thelabel.top(btex Wahrscheinlichkeit etex, (0,0));
 
 pickup pencircle scaled 1pt;
+
+drawarrow (-105,0)..(205,0);
+drawarrow (0,-5)..(0,110);
+draw (-2,100)..(2,100);
+draw q rotated 90 shifted (-2,75);
+label.top(btex $x$ etex, (205,0));
+
+pickup pencircle scaled 1.5pt;
 path startcircle;
 startcircle = fullcircle scaled 4pt;
 path endcircle;
@@ -84,12 +86,12 @@ def rightopensegment(expr p, c) =
     draw p withcolor c;
 enddef;
 
-leftopensegment((-100,2){dir 1}..{dir 10}(-30,15), black);
-drawsegment((-30,25){dir 0}..{dir 0}(20,35), black);
-drawsegment((20,50){dir 0}..{dir 0}(40,55), black);
-drawsegment((40,65){dir 0}..{dir 0}(80,65), black);
-drawsegment((80,75){dir 0}..{dir 0}(120,75), black);
-rightopensegment((120,85){dir 30}..(160,92)..{dir 3}(200,98), black);
+leftopensegment((-100,2){dir 1}..{dir 10}(-30,15), blue);
+drawsegment((-30,25){dir 0}..{dir 0}(20,35), blue);
+drawsegment((20,50){dir 0}..{dir 0}(40,55), blue);
+drawsegment((40,65){dir 0}..{dir 0}(80,65), blue);
+drawsegment((80,75){dir 0}..{dir 0}(120,75), blue);
+rightopensegment((120,85){dir 30}..(160,92)..{dir 3}(200,98), blue);
 
 endfig;
 
@@ -98,55 +100,65 @@ endfig;
 %
 beginfig(3)
 
-draw (-105,0)..(205,0);
-draw (0,-5)..(0,105);
-draw (-2,100)..(2,100);
-draw q rotated 90 shifted (0,80);
-label.lrt(btex $x$ etex, (190,0));
-
 pickup pencircle scaled 1pt;
 
-leftopensegment((-100,0){dir 0}..{dir 0}(-30,0), black);
-drawsegment((-30,10){dir 0}..{dir 0}(20,10), black);
-drawsegment((20,25){dir 0}..{dir 0}(40,25), black);
-drawsegment((40,35){dir 0}..{dir 0}(80,35), black);
-drawsegment((80,45){dir 0}..{dir 0}(120,45), black);
-rightopensegment((120,55){dir 0}..{dir 0}(200,55), black);
+drawarrow (-105,0)..(205,0);
+drawarrow (0,-5)..(0,110);
+draw (-2,100)..(2,100);
+draw q rotated 90 shifted (-2,75);
+label.top(btex $x$ etex, (205,0));
+
+pickup pencircle scaled 1.5pt;
+
+leftopensegment((-100,0){dir 0}..{dir 0}(-30,0), blue);
+drawsegment((-30,10){dir 0}..{dir 0}(20,10), blue);
+drawsegment((20,25){dir 0}..{dir 0}(40,25), blue);
+drawsegment((40,35){dir 0}..{dir 0}(80,35), blue);
+drawsegment((80,45){dir 0}..{dir 0}(120,45), blue);
+rightopensegment((120,55){dir 0}..{dir 0}(200,55), blue);
 endfig;
 
 %
 % Verteilungsfunktion einer stetigen Zufallsvariable
 %
 beginfig(4)
-draw (-105,0)..(205,0);
-draw (0,-5)..(0,105);
-draw (-2,100)..(2,100);
-draw q rotated 90 shifted (0,80);
-label.lrt(btex $x$ etex, (190,0));
 
 pickup pencircle scaled 1pt;
-draw (-100,2){dir 1}..{dir 10}(-30,15){dir 0}..{dir 0}(20,25){dir 0}..{dir 0}(40,30){dir 0}..{dir 0}(80,30){dir 0}..{dir 0}(120,30){dir 30}..{dir 0}(160,37){dir 0}..{dir 3}(200,43) withcolor black;
+
+drawarrow (-105,0)..(205,0);
+drawarrow (0,-5)..(0,110);
+draw (-2,100)..(2,100);
+draw q rotated 90 shifted (-2,75);
+label.top(btex $x$ etex, (205,0));
+
+pickup pencircle scaled 1.5pt;
+draw (-100,2){dir 1}..{dir 10}(-30,15){dir 0}..{dir 0}(20,25){dir 0}..{dir 0}(40,30){dir 0}..{dir 0}(80,30){dir 0}..{dir 0}(120,30){dir 30}..{dir 0}(160,37){dir 0}..{dir 3}(200,43) withcolor blue;
 endfig;
 
 picture r;
-r = thelabel.top(btex \scriptsize Dichte etex, (0,0));
+r = thelabel.top(btex Dichte etex, (0,0));
 
 %
 % diskrete Wahrscheinlichkeitsverteilung
 %
 beginfig(5)
-draw (-105,0)..(205,0);
-draw (0,-5)..(0,105);
-draw (-2,100)..(2,100);
-draw q rotated 90 shifted (0,80);
-label.lrt(btex $x$ etex, (190,0));
-pickup penrazor scaled 3pt;
 
-draw (-30,0)--(-30,20) withcolor black;
-draw (20,0)--(20,30) withcolor black;
-draw (40,0)--(40,20) withcolor black;
-draw (80,0)--(80,20) withcolor black;
-draw (120,0)--(120,20) withcolor black;
+pickup penrazor scaled 5pt;
+
+draw (-30,0)--(-30,20) withcolor red;
+draw (20,0)--(20,30) withcolor red;
+draw (40,0)--(40,20) withcolor red;
+draw (80,0)--(80,20) withcolor red;
+draw (120,0)--(120,20) withcolor red;
+
+pickup pencircle scaled 1pt;
+
+drawarrow (-105,0)..(205,0);
+drawarrow (0,-5)..(0,110);
+draw (-2,100)..(2,100);
+draw q rotated 90 shifted (-2,75);
+label.lrt(btex $x$ etex, (205,0));
+
 
 endfig;
 
@@ -154,12 +166,8 @@ endfig;
 % Wahrscheinlichkeitsdichte
 %
 beginfig(6)
-draw (-105,0)..(205,0);
-draw (0,-5)..(0,105);
-draw r rotated 90 shifted (0,90);
-label.lrt(btex $x$ etex, (190,0));
 
-pickup pencircle scaled 2pt;
+pickup pencircle scaled 1.5pt;
 
 def derivative(expr t, p) =
     (xpart(point t of p), 100 * ypart(direction t of p)/xpart(direction t of p))
@@ -174,18 +182,30 @@ def drawdirections(expr p, h) =
 	    next := derivative(t, p);
 	    result := result..next ;
 	endfor;
-	result
+	fill (xpart(next),0)--(xpart(point 0 of result),0)
+		--result--cycle withcolor (0.9,0.9,1);
+	draw result withcolor blue;
     endgroup;
 enddef;
 
 h := 0.01;
 
-draw drawdirections((-100,2){dir 1}..{dir 10}(-30,15), h) ;
-draw drawdirections((-30,25){dir 0}..{dir 0}(20,35), h) ;
-draw drawdirections((20,50){dir 0}..{dir 0}(40,55), h) ;
-draw drawdirections((40,65){dir 0}..{dir 0}(80,65), h) ;
-draw drawdirections((80,75){dir 0}..{dir 0}(120,75), h) ;
-draw drawdirections((120,85){dir 30}..(160,92)..{dir 3}(200,98), h) ;
+drawdirections((-100,2){dir 1}..{dir 10}(-30,15), h) ;
+drawdirections((-30,25){dir 0}..{dir 0}(20,35), h) ;
+drawdirections((20,50){dir 0}..{dir 0}(40,55), h) ;
+drawdirections((40,65){dir 0}..{dir 0}(80,65), h) ;
+drawdirections((80,75){dir 0}..{dir 0}(120,75), h) ;
+drawdirections((120,85){dir 30}..(160,92)..{dir 3}(200,98), h) ;
+
+pickup pencircle scaled 1pt;
+
+drawarrow (-105,0)..(205,0);
+drawarrow (0,-5)..(0,105);
+draw r rotated 90 shifted (-2,90);
+label.top(btex $x$ etex, (205,0));
+
+pickup pencircle scaled 1.5pt;
+draw (40,0)--(120,0) withcolor blue;
 
 endfig;
 
@@ -200,12 +220,12 @@ fill (-30,0)--(120,0)--(120,66)--(-30,66)--cycle withcolor (0.9,0.9,1);
 
 drawarrow (-105,120)..(205,120);
 drawarrow (0,115)..(0,225);
-draw q rotated 90 shifted (0,200);
+draw q rotated 90 shifted (-2,190);
 label.top(btex $x$ etex, (205,120));
 
 drawarrow (-105,0)..(205,0);
 drawarrow (0,-5)..(0,105);
-draw r rotated 90 shifted (0,90);
+draw r rotated 90 shifted (-2,90);
 label.top(btex $x$ etex, (205,0));
 
 pickup pencircle scaled 1.5pt;
@@ -310,11 +330,11 @@ pickup pencircle scaled 1pt;
 draw (-3,250)--(3,250);
 
 picture q;
-q = thelabel.ulft(btex \scriptsize Wahrscheinlichkeit etex, (0,0));
+q = thelabel.ulft(btex Wahrscheinlichkeit etex, (0,0));
 draw q rotated 90 shifted (0,245);
 
 picture r;
-r = thelabel.ulft(btex \scriptsize Dichte etex, (0,0));
+r = thelabel.ulft(btex Dichte etex, (0,0));
 draw r rotated 90 shifted (0,100);
 
 endfig;
@@ -434,58 +454,59 @@ endfig;
 beginfig(10)
 
 
+fill (-173.21,500)--(-173.21,590.0)--(173.21,590.0)--(173.21,500.0)--cycle
+	withcolor(0.9,0.9,1.0);
+
+%pickup pencircle scaled 1.5pt;
+%draw (-300,500)--(-173.21,500) withcolor blue;
+
 pickup pencircle scaled 1pt;
-draw(-310,500)--(310,500);
-draw(0,495)--(0,605);
+drawarrow (-310,500)--(310,500);
+drawarrow (0,495)--(0,605);
 
 pickup pencircle scaled 1.5pt;
-draw (-300,500)--(-173.21,500) withcolor(0.0,0.0,1.0);
-draw (-173.21,590.0)--(173.21,590.0) withcolor(0.0,0.0,1.0);
-draw (173.21,500)--(300,500) withcolor(0.0,0.0,1.0);
+draw (-300,500)--(-173.21,500) withcolor blue;
+draw (-173.21,590.0)--(173.21,590.0) withcolor blue;
+draw (173.21,500)--(300,500) withcolor blue;
+
 pickup pencircle scaled 0.1pt;
-draw (-173.21,500)--(-173.21,590.0) withcolor(0.0,0.0,1.0);
-draw (173.21,590.0)--(173.21,500) withcolor(0.0,0.0,1.0);
+draw (-173.21,500)--(-173.21,590.0) withcolor blue;
+draw (173.21,590.0)--(173.21,500) withcolor blue;
+
+fill ((-244.95,0)--(0,90)--(244.95,0)--cycle) shifted (0,400) withcolor(0.9,0.9,1.0);
 
 pickup pencircle scaled 1pt;
-draw(-310,400)--(310,400);
-draw(0,395)--(0,490);
+drawarrow(-310,400)--(310,400);
+drawarrow(0,395)--(0,497);
 
 pickup pencircle scaled 1.5pt;
 draw ((-300,0)--(-244.95,0)--(0,90)--(244.95,0)--(300,0)) shifted (0,400) withcolor(0.0,0.0,1.0);
 
-pickup pencircle scaled 1pt;
-draw(-310,300)--(310,300);
-draw(0,295)--(0,390);
-
-pickup pencircle scaled 1.5pt;
-draw (-300,300){dir 0}..(-200,311.25)..(-100,360)
-..(0,390)
-..(100,360)..(200,311.25)..{dir 0}(300,300) withcolor(0.0,0.0,1.0);
+path p;
+p = (-300,300){dir 0}..(-200,311.25)..(-100,360)..(0,390)..(100,360)..(200,311.25)..{dir 0}(300,300);
+fill p--cycle withcolor (0.9,0.9,1);
 
 pickup pencircle scaled 1pt;
-draw(-310,200)--(310,200);
-draw(0,195)--(0,290);
+drawarrow(-310,300)--(310,300);
+drawarrow(0,295)--(0,397);
 
 pickup pencircle scaled 1.5pt;
-draw ((-300,1.5){dir 1.068}
-..(-173.21,15)
-..(0,90)
-..(173.21,15)
-..{dir -1.068}(300,1.5))
-shifted (0,200)
-withcolor(0.0,0.0,1.0);
+draw p withcolor blue;
+
+
+p := ((-300,1.5){dir 1.068}..(-173.21,15)..(0,90)..(173.21,15)..{dir -1.068}(300,1.5));
+
+fill ((300,0)--(-300,0)--p--cycle) shifted (0,200) withcolor (0.9,0.9,1);
 
 pickup pencircle scaled 1pt;
-draw(-310,50)--(310,50);
-draw(0,40)--(0,150);
-
-draw (-100,45)--(-100,605) withcolor(1.0,0.8,0.0);
-draw (0,45)--(0,605) withcolor(1.0,0.8,0.0);
-draw (100,45)--(100,605) withcolor(1.0,0.8,0.0);
+drawarrow(-310,200)--(310,200);
+drawarrow(0,195)--(0,297);
 
 pickup pencircle scaled 1.5pt;
+draw p shifted (0,200) withcolor blue;
 
-draw ((-300,1.11090*0.9)
+
+p := (-300,1.11090*0.9)
 ..(-275,2.27942*0.9)
 ..(-250,4.39369*0.9)
 ..(-225,7.95595*0.9)
@@ -509,9 +530,20 @@ draw ((-300,1.11090*0.9)
 ..(225,7.95595*0.9)
 ..(250,4.39369*0.9)
 ..(275,2.27942*0.9)
-..(300,1.11090*0.9))
-shifted(0,50)
-withcolor(0.0,0.0,1.0);
+..(300,1.11090*0.9);
+
+fill ((300,0)--(-300,0)--p--cycle) shifted (0,50) withcolor (0.9,0.9,1);
+
+draw p shifted(0,50) withcolor blue;
+
+pickup pencircle scaled 1pt;
+drawarrow(-310,50)--(310,50);
+drawarrow(0,40)--(0,150);
+
+pickup pencircle scaled 1.5pt;
+draw (-100,45)--(-100,605) withcolor(1.0,0.8,0.0);
+draw (0,45)--(0,605) withcolor(1.0,0.8,0.0);
+draw (100,45)--(100,605) withcolor(1.0,0.8,0.0);
 
 endfig;
 
