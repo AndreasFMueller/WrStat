@@ -6,11 +6,23 @@ Die Funktion
 0&\qquad x > 1
 \end{cases}
 \]
+\begin{figure}[h]
+\centering
+\includeagraphics[]{graph-1.pdf}
+\caption{Wahrscheinlichkeitsdichte f"ur Aufgabe~\ref{50000024}.
+\label{50000024:dichte}}
+\end{figure}
+(Abbildung~\ref{50000024:dichte})
 sei die Wahrscheinlichkeitsdichte der unabh"angigen Zufallsvariablen
 $X$ und $Y$.
 \begin{teilaufgaben}
 \item Berechnen Sie die Verteilungsfunktion von $X$.
+\item Zeichnen Sie einen Graphen der Verteilungsfunktion.
+\item Berechnen Sie die Wahrscheinlichkeit daf"ur, dass die Zufallsvariable
+Werte zwischen $-\frac12$ und $\frac12$ annimmt.
 \item Berechnen Sie Erwartungswert und Varianz von $X$.
+\item Zeichnen Sie Erartungswert und $\sqrt{\operatorname{var}(X)}$ in
+einem Graphen von $\varphi(x)$ ein.
 \item Berechnen Sie die Wahrscheinlichkeitsdichte von $X+Y$.
 \end{teilaufgaben}
 
@@ -29,10 +41,16 @@ ist:
 =
 \frac34\left[
 x-\frac13x^3
-\right]_{-1}^1=\frac34(1-\frac13-(-1)+\frac13(-1))=\frac34\cdot\frac43=1.
+\right]_{-1}^1
+=
+\frac34\biggl(1-\frac13-(-1)+\frac13(-1)\biggr)
+=
+\frac34\cdot\frac43
+=1.
 \end{align*}
 \begin{teilaufgaben}
-\item Die Verteilungsfunktion ist Stammfunktion von $\varphi$:
+\item Die Verteilungsfunktion ist Stammfunktion von $\varphi$, also kann man sie
+durch Integrieren finden:
 \begin{align*}
 F(x)&=0&&\text{f"ur $x < -1$}\\
 F(x)&=1&&\text{f"ur $x > 1$}\\
@@ -45,6 +63,30 @@ F(x)&=\int_{-\infty}^x\varphi(\xi)\,d\xi =\int_{-1}^x\frac34(1-\xi^2)\,d\xi
 =\frac34(x-\frac13x^3-(-1)+\frac13(-1))
 \\
 &=-\frac14x^3+\frac34x+\frac12&&\text{f"ur $-1\le x\le 1$}
+\end{align*}
+\item Der Graph der Verteilungsfunktion ist in
+Abbildung~\ref{50000024:verteilungsfunktion} dargestellt.
+\begin{figure}
+\centering
+\includeagraphics[]{graph-3.pdf}
+\caption{Graph der Verteilungsfunktion von Aufgabe~\ref{50000024}
+\label{50000024:verteilungsfunktion}}
+\end{figure}
+\item Die gesuchte Wahrscheinlichkeit kann direkt mit der Verteilungsfunktion
+bestimmt werden:
+\begin{align*}
+P\biggl(-\frac12<X\le \frac12\biggr)
+&=
+F\biggl(\frac12\biggr)-F\biggl(-\frac12\biggr)
+=
+-\frac14\cdot\frac18+\frac34\cdot\frac12+\frac12
++\frac14\cdot\biggl(-\frac18\biggr)-\frac34\cdot\biggl(-\frac12\biggr)-\frac12
+\\
+&=-\frac12\cdot\frac18+\frac32\cdot\frac12
+=
+-\frac1{16}+\frac{12}{16}
+=
+\frac{11}{16}.
 \end{align*}
 \item Erwartungswert und Varianz k"onnen mit den Standardformeln gefunden 
 werden:
@@ -60,6 +102,16 @@ E(X)&
 =\frac34\left(\frac23-\frac25\right)
 =\frac32\cdot\frac{5-3}{15}=\frac15.
 \end{align*}
+\item 
+Abbildung~\ref{50000024:exvarx} zeigt die Wahrscheinlichkeitsdichte $\varphi(x)$
+mit eingezeichnetem Erwartungswert $E(X)$ und Varianz.
+\begin{figure}
+\centering
+\includeagraphics[]{graph-2.pdf}
+\caption{Graph der Wahrscheinlichkeitsdichte von Aufgabe~\ref{50000024} mit
+eingezeichnetem Erwartungswert $E(X)$ und Varianz $\sqrt{\operatorname{var}(X)}$.
+\label{50000024:exvarx}}
+\end{figure}
 \item
 Die Wahrscheinlichkeitsdichte von $X+Y$ kann durch Faltung erhalten werden:
 \begin{align*}
@@ -99,6 +151,16 @@ f(x)&0\le x \le 2\\
 0&x>2
 \end{cases}
 \]
+Abbildung~\ref{50000024:summe} zeigt die Wahrscheinlichkeitsdichte $\varphi_{X+Y}(x)$
+der Summe von $X$ und $Y$.
+\begin{figure}
+\centering
+\includeagraphics[]{graph-4.pdf}
+\caption{Wahrscheinlichkeitsdichte $\varphi_{X+Y}(x)$ der Summe von zwei Kopien
+der Zufallsvariable $X$, sie ist die Faltung der in Abbildung~\ref{50000024:dichte}
+dargestellten Wahrscheinlichkeitsdichte $\varphi(x)$.
+\label{50000024:summe}}
+\end{figure}
 \end{teilaufgaben}
 \end{loesung}
 

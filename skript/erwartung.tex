@@ -1313,8 +1313,8 @@ Seien $X$ und $Y$ zwei reelle Zufallsvariable. Die Gerade mit der
 Gleichung $y=ax+b$ minimiert die Varianz
 $\operatorname{var}(aX+b-Y)$ genau dann, wenn 
 \begin{align*}
-a&=\frac{E(XY)-E(X)E(Y)}{(E(X^2)-E(X)^2)}=\frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X)}\\
-b&=E(Y)-E(X)a
+a&=\frac{E(XY)-E(X)E(Y)}{(E(X^2)-E(X)^2)}=\frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X)},\\
+b&=E(Y)-E(X)a.
 \end{align*}
 \end{satz}
 \begin{proof}[Beweis]
@@ -1322,30 +1322,30 @@ Der mittlere quadratische Fehler ist
 \begin{align*}
 Q(a,b)&=E((aX+b-Y)^2)\\
 &=E(a^2X^2+b^2+Y^2+2abX-2aXY -2bY)\\
-&=a^2E(X^2)+b^2+E(Y^2)+2abE(X)-2aE(XY)-2bE(Y)
+&=a^2E(X^2)+b^2+E(Y^2)+2abE(X)-2aE(XY)-2bE(Y).
 \end{align*}
 Um das Minimum zu finden, setzen wir die partiellen Ableitungen nach $a$
 und $b$ gleich Null, und finden:
 \begin{align*}
 0=\frac{\partial Q}{\partial a}&=2aE(X^2)+2bE(X)-2E(XY)\\
-0=\frac{\partial Q}{\partial b}&=2b+2aE(X)-2E(Y)\\
+0=\frac{\partial Q}{\partial b}&=2b+2aE(X)-2E(Y).
 \end{align*}
 Dies ist gleichbedeutend mit dem folgenden linearen Gleichungssystem f"ur
 die Koeffizienten
 $a$ und $b$
 \begin{alignat*}{4}
 E(X^2)a\,&+\,&E(X)b\,&=\,&E(XY)\\
-E(X)a\,&+&b\,&=&E(Y)
+E(X)a\,&+&b\,&=&E(Y).
 \end{alignat*}
 Multipliziert man die zweite Gleichung mit $E(X)$ und subtrahiert sie von der
 ersten, erh"alt man eine Gleichung f"ur $a$:
 \begin{align*}
 (E(X^2)-E(X)^2)a&=E(XY)-E(X)E(Y)\\
-a&=\frac{E(XY)-E(X)E(Y)}{(E(X^2)-E(X)^2)} 
+a&=\frac{E(XY)-E(X)E(Y)}{(E(X^2)-E(X)^2)}.
 \end{align*}
 Aus der zweiten Gleichung kann man nun auch $b$ finden:
 \[
-b=E(Y)-E(X)a
+b=E(Y)-E(X)a,
 \]
 womit alles bewiesen ist.
 \end{proof}
@@ -1378,7 +1378,7 @@ hilfreich:
 -2 \frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X)}\operatorname{cov}(X,Y)
 \\
 &=
-\operatorname{var}(Y)-\frac{\operatorname{cov}(X,Y)^2}{\operatorname{var}(X)}
+\operatorname{var}(Y)-\frac{\operatorname{cov}(X,Y)^2}{\operatorname{var}(X)}.
 \end{align*}
 Im zweiten Schritt mussten wir die Formel (\ref{var-summe-abhaengig})
 verwenden, da die Zufallsvariablen $X$ und $Y$ nicht unabh"angig sind.
