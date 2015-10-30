@@ -844,7 +844,25 @@ also eine zweidimensionale Wahrscheinlichkeitsdichte
 \varphi(x_1,x_2)=\varphi_1(x_1)\varphi_2(x_2).
 \]
 
-\subsection{Summe zweier Zufallsvariable}
+\subsection{Maximum zweier Zufallsvariablen}
+\index{Maximum zweier Zufallsvariablen}
+Seien $X$ und $Y$ zwei unabh"angige Zufallsvariablen mit Verteilungsfunktion
+$F_X(x)$ und $F_Y(y)$. Gesucht ist die Verteilungsfunktion der Zufallsvariablen
+$\max(X,Y)$.
+Es gilt
+\begin{align*}
+F_{\max(X,Y)}(z)
+&=
+P(\max(X,Y)\le z)
+=
+P(X\le z\wedge Y\le z)
+=
+P(X\le z)\,P(Y\le z)
+=
+F_X(z)F_Y(z).
+\end{align*}
+
+\subsection{Summe zweier Zufallsvariablen}
 \index{Summe zweier Zufallsvariablen}
 Seien $X_1$ und $X_2$ zwei Zufallsvariable mit Verteilungsfunktion $F_1$ und
 $F_2$. Gesucht ist die Verteilungsfunktion $F$ von $X_1+X_2$, sowie die
