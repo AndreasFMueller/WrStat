@@ -262,33 +262,47 @@ Ausfall des Gesamtsystems berechnen, wenn zwei Disks verwendet werden,
 deren Zeit bis zum Ausfall exponentialverteilt ist. Weiter nehmen
 wir an, dass die Disks unabh"angig voneinander ausfallen.
 
-Sei also $X_i$ die Zeit bis zum Ausfall von Disk $i$, mit
-Verteilungsfunktion $F_{X_i}(t)=1-e^{at}$ f"ur $t\ge 0$. Gesucht
-ist die Verteilungsfunktion f"ur die Zeit $X$ bis zum Ausfall
-des Gesamtsystems, also die Funktion $F(t)=P(X\le t)$. Das Gesamtsystem
+Sei also $T_i$ die Zeit bis zum Ausfall von Disk $i$, mit
+Verteilungsfunktion $F_{T_i}(t)=1-e^{at}$ f"ur $t\ge 0$. Gesucht
+ist die Verteilungsfunktion f"ur die Zeit $T$ bis zum Ausfall
+des Gesamtsystems, also die Funktion $F(t)=P(T\le t)$. Das Gesamtsystem
 f"allt aus, wenn beide Disks ausgefallen sind, es ist also
 \begin{align*}
 F(t)
-&=P(X\le t)=P(X_1\le t\wedge X_2\le t)\\
-&=P(X_1\le t)\cdot P(X_2\le t)
-= F_{X_1}(t) F_{X_2}(t)=(1-e^{-at})^2
+&=P(T\le t)=P(T_1\le t\wedge T_2\le t)\\
+&=P(T_1\le t)\cdot P(T_2\le t)
+= F_{T_1}(t) F_{T_2}(t)=(1-e^{-at})^2
 \end{align*}
-Zur Berechnung des Erwartungswertes von $X$ wird die
+Zur Berechnung des Erwartungswertes von $T$ wird die
 Wahrscheinlichkeitsdichte ben"otigt, also die Ableitung davon:
-\[
-\varphi_{X}(t)=2(1-e^{-at})ae^{-at}.
-\]
+\begin{equation}
+\varphi_{T}(t)=2(1-e^{-at})ae^{-at}.
+\label{disks-wdichte}
+\end{equation}
 Damit wird der Erwartungswert
 \begin{align*}
-E(X)
+E(T)
 &=
-\int_{-\infty}^{\infty}t\varphi_X(t)\,dt
-=\int_0^\infty 2x(1-e^{-at})ae^{-at}\,dt
+\int_{-\infty}^{\infty}t\varphi_T(t)\,dt
+=\int_0^\infty 2t(1-e^{-at})ae^{-at}\,dt
 \\
-&=2\int_0^\infty axe^{-at}\,dt - \int_0^\infty t (2a)e^{-(2a)t}\,dt
+&=2\int_0^\infty ate^{-at}\,dt - \int_0^\infty t (2a)e^{-(2a)t}\,dt
 =2\cdot\frac1a-\frac1{2a}=\frac{4-1}2\cdot\frac1a=\frac32\cdot\frac1a.
 \end{align*}
 Durch Redundanz l"asst sich die mittlere Zeit bis zu einem Ausfall
 also nur um 50\% steigern, die Kosten f"ur das Disksystem werden
 aber mehr als verdoppelt.
+Abbildung~\ref{graph:disksystem} zeigt, dass die Wahrscheinlichkeit
+eines ``fr"uhen'' Ausfalls stark reduziert wird, der eigentliche
+Nutzen der Redundanz ist also weniger die Verl"angerung der 
+Lebensdauer, sondern die Tatsache, dass man darauf verzichten kann,
+eine teure F"ahigkeit zur sofortigen Reaktion aufzubauen.
+\begin{figure}
+\centering
+\includegraphics{images/exp-3.pdf}
+\caption{Wahrscheinlichkeitsdichte (\ref{disks-wdichte}) 
+der Ausfallzeit eines redundanten Disksystems (blau)
+im Vergleich zur Verteilung der Ausfallzeit eines einzelnen Disk (gr"un).
+\label{graph:disksystem}}
+\end{figure}
 

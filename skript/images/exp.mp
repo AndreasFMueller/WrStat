@@ -1,5 +1,5 @@
 verbatimtex
-\documentclass{article}
+\documentclass[12pt]{article}
 \usepackage{times}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -162,6 +162,70 @@ draw (z5 shifted (-2,-2))--(z5 shifted (2,2)) withcolor (1,0.8,0);
 label.top(btex $\sqrt{\lambda}$ etex, 0.5[z3,z4]) withcolor (1,0.8,0);
 label.top(btex $\sqrt{\lambda}$ etex, 0.5[z4,z5]) withcolor (1,0.8,0);
 label.top(btex $k$ etex, z1 shifted (10,0));
+
+endfig;
+
+%
+% Wahrscheinlichkeitsdichte für Disksystem
+%
+beginfig(3)
+
+numeric a;
+a = 1;
+
+numeric u,v;
+u = 60;
+v = 100;
+
+z0 = (0,0);
+z1 = (-1 * u, 0);
+z2 = (3 * u, 0);
+z3 = (0, v);
+
+path q;
+q = (0, a * v);
+for t = 0.01 step 0.01 until 3.005:
+	q := q--(t * u, a * mexp(-a * t * 256) * v);
+endfor;
+
+fill z0--q--z2--cycle withcolor (0.9,1,0.9);
+
+pickup pencircle scaled 1.5pt;
+draw q withcolor green;
+
+path p;
+p := z0;
+for t = 0.01 step 0.01 until 3.005:
+	p := p--(t * u, 2 * (1 - mexp(-a * t * 256)) * a * mexp(-a * t * 256) * v);
+endfor;
+
+fill p--z2--z0--cycle withcolor (0.9,0.9,1);
+
+pickup pencircle scaled 1pt;
+
+drawarrow (z1 shifted (-10,0))--(z2 shifted (10,0));
+drawarrow (z0 shifted (0,-10))--(z3 shifted (0,10));
+
+pickup pencircle scaled 1.5pt;
+draw z1--p withcolor blue;
+draw q withcolor green;
+
+pickup pencircle scaled 1pt;
+
+for x = -1 step 1 until 3:
+	draw (x * u, -2)--(x * u, 2);
+endfor;
+label.bot(btex $\mathstrut 1/a$ etex, (1 * u, -2));
+label.bot(btex $\mathstrut -1/a$ etex, (-1 * u, -2));
+label.bot(btex $2/a$ etex, (2 * u, -2));
+label.bot(btex $3/a$ etex, (3 * u, -2));
+
+label.top(btex $t$ etex, z2 shifted (10,0));
+label.rt(btex $\varphi_T(t)$ etex, z3 shifted (0,10));
+
+label.bot(btex $E(T)$ etex, (1.5 * u, -5)) withcolor (1,0.8,0);
+pickup pencircle scaled 1.5pt;
+draw (1.5 * u, -5)--(1.5 * u, v) withcolor (1,0.8,0);
 
 endfig;
 

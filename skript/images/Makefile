@@ -22,7 +22,7 @@ ebola_FILES = ebola-1.pdf
 zweiwuerfel_FILES = zweiwuerfel-1.pdf
 regression_FILES = regression-1.pdf regression-2.pdf
 norm_FILES = norm-1.pdf
-exp_FILES = exp-1.pdf
+exp_FILES = exp-1.pdf exp-2.pdf exp-3.pdf
 power_FILES = power-1.pdf power-2.pdf power-3.pdf
 gl_FILES = gl-1.pdf
 
