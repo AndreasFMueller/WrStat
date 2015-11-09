@@ -22,11 +22,12 @@
 \usepackage{txfonts}
 \usepackage{alltt}
 \usepackage{verbatim}
-\usepackage{hyperref}
+\usepackage[colorlinks=true]{hyperref} % changed
 \usepackage{epsdice}
 \usepackage{color}
 \usepackage{array}
 \makeindex
+\setlength{\headheight}{15pt} % fix for headheight warning
 \begin{document}
 \pagestyle{fancy}
 \lhead{Wahrscheinlichkeit und Statistik}
@@ -86,7 +87,6 @@ Hochschule f"ur Technik, Rapperswil, 2009-2015
 }
 
 \hypersetup{
-    colorlinks=true,
     linktoc=all,
     linkcolor=blue
 }
