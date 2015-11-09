@@ -1,0 +1,35 @@
+Mit der Verkleinerung der Strukturen von Halbleiterchips wurde auch deren
+Anf"alligkeit f"ur durch nat"urliche Strahlung verursachte Einzelbit-Fehler
+(soft errors)
+h"oher.
+Die {\em Failuers in Time} (FIT) Zahl bezeichnet die zu erwartende Anzahl
+Fehler eines Chips pro Milliarde Betriebsstunden.
+In der Wikipedia liest man von einem Experiment, welches 5950 FIT
+gemessen hat.
+
+In einem Computer werden 16 dieser Chips eingesetzt.
+Wie gross ist die Wahrscheinlichkeit, dass innerhalb eines
+Jahres mehr als ein Fehler auftritt?
+
+\begin{loesung}
+In einer Stunde akkumulieren die 16 Chips 16 Betriebsstunden, die erwartete
+Anzahl Fehler ist also
+\[
+\lambda = 16\cdot365\cdot 24 \cdot \frac{5950}{10^{9}}=0.833952
+\]
+Mit Hilfe der Poisson-Verteilung findet man die Wahrscheinlichkeit f"ur
+genau $k$ Fehler:
+\begin{align*}
+P_{\lambda}(0)&=0.434294\\
+P_{\lambda}(1)&=0.362099\\
+P_{\lambda}(2)&=0.151033\\
+P_{\lambda}(3)&=0.041985\\
+P_{\lambda}(4)&=0.008754
+\end{align*}
+Die Wahrscheinlichkeit daf"ur, dass mehr als ein Fehler auftritt, ist
+\[
+P(k > 1)=1-P_\lambda(0)-P_\lambda(1)=0.2034607
+\]
+\end{loesung}
+
+

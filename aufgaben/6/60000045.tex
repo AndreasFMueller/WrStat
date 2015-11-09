@@ -1,0 +1,26 @@
+Betrachten Sie den Fall, dass der Parameter $\lambda$ einer Poisson-Verteilung
+zuf"allig eine ganze Zahl ist.
+Berechnen Sie $P_\lambda(\lambda-1)$ und $P_\lambda(\lambda)$.
+
+\begin{loesung}
+Wir setzen $k=\lambda-1$ und $k=\lambda$ in die Formel f"ur $P_\lambda(k)$ ein
+und erhalten:
+\begin{align*}
+P_\lambda(\lambda-1)
+&=
+e^{-\lambda}\frac{\lambda^{\lambda -1 }}{(\lambda)!}
+\\
+P_\lambda(\lambda)
+&=
+e^{-\lambda}\frac{\lambda^{\lambda}}{\lambda!}
+=
+e^{-\lambda}\frac{\lambda^{\lambda-1}\lambda}{(\lambda-1)!\cdot\lambda}
+=
+e^{-\lambda}\frac{\lambda^{\lambda -1 }}{(\lambda)!}
+\end{align*}
+Es gilt also
+\[
+P_\lambda(\lambda -1)=P_\lambda(\lambda).
+\]
+\end{loesung}
+

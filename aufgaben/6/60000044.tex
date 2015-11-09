@@ -1,0 +1,42 @@
+In einem Produktionsprozess stellt sich heraus, dass ein Teil mit Wahrscheinlichkeit
+$p=5\cdot10^{-4}$ fehlerhaft herauskommt.
+\begin{teilaufgaben}
+\item Mit wievielen fehlerhaften Teilen muss man in einem Batch von 10000 Teilen
+rechnen?
+\item Berechnen Sie die Wahrscheinlichkeit, genau $k$ fehlerhafte Teile in einem
+Batch von 10000 Teilen zu finden sowohl mit der Poisson-Verteilung als auch
+mit der Binomialverteilung, und stellen Sie die Resultate in einer Tabelle
+zusammen.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die erwartete Anzahl von fehlerhaften Teilen ist
+$E(X)=np=10000\cdot 5\cdot10^{-4}=5$.
+\item F"ur die Poissonverteilung brauchen wir $\lambda=E(X)=5$.
+Die Berechnung der Werte der Binomialverteilung ist nicht ganz trivial, weil
+die Zahl $n=10000$ sehr gross ist.
+Mit R ist die Berechnung allerdings einfach:
+\verbatimainput{code}
+Gegen"ubergestellt:
+\begin{center}
+\begin{tabular}{c|rr}
+$k$&$\binom{n}{k}p^k(1-p)^{n-k}$&$P_\lambda(k)$\\
+\hline
+ 0&0.006729527& 0.006737947\\
+ 1&0.033664467& 0.033689735\\
+ 2&0.084194850& 0.084224337\\
+ 3&0.140366868& 0.140373896\\
+ 4&0.175493694& 0.175467370\\
+ 5&0.175511252& 0.175467370\\
+ 6&0.146259377& 0.146222808\\
+ 7&0.104460531& 0.104444863\\
+ 8&0.065274768& 0.065278039\\
+ 9&0.036252875& 0.036265577\\
+10&0.018119183& 0.018132789\\
+\hline
+\end{tabular}
+\end{center}
+\end{teilaufgaben}
+\end{loesung}
+
