@@ -18,6 +18,7 @@ skript.pdf:	$(SOURCES) skript.ind
 	pdflatex skript.tex
 
 skript.ind:	images skript.tex $(SOURCES) images-subdir
+	touch skript.ind
 	pdflatex skript.tex
 	makeindex skript.idx
 
