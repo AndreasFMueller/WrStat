@@ -6,7 +6,7 @@
 % $Id: c05-schaetzen.tex,v 1.9 2008/09/09 14:22:16 afm Exp $
 %
 \rhead{Sch"atzen}
-\chapter{Sch"atzen\label{chapter-schaetzen}}
+\chapter{Sch"atzen} \label{chapter-schaetzen}
 Aus der Erfahrung wissen wir, dass viele Experimente normalverteilte Resultate
 liefern. Aber selbst aus mehreren Messungen l"asst sich der Mittelwert
 oder die Varianz noch nicht exakt bestimmen,
@@ -18,7 +18,7 @@ Bestimmung der Parameter der Verteilung gestattet.
 Daher braucht es spezielle Sch"atzverfahren, mit denen solche Parameter
 aus deutlich weniger Experimenten gesch"atzt werden k"onnen.
 
-\section{Das Sch"atzproblem\label{section-schaetzproblem}}
+\section{Das Sch"atzproblem} \label{section-schaetzproblem}
 In bisherigen Beispielen sind wir bei der Bestimmung von Erwartungswert
 oder Varianz jeweils davon ausgegangen, dass einige bekannte Werte der
 Zufallsvariablen bereits eine repr"asentative Beschreibung der Zufallsvariablen
@@ -108,7 +108,7 @@ wird die Verteilung der Sch"atzer studiert, eine Grundlage, damit
 anschliessend in \ref{section-konfidenzintervalle} Konfidenzintervall
 f"ur die gesch"atzen Werte konstruiert werden k"onnen.
 
-\section{Konsistente Sch"atzer\label{section-konsistente-schaetzer}}
+\section{Konsistente Sch"atzer} \label{section-konsistente-schaetzer}
 Der Mittelwert der Stichprobe ist ein konsistenter Sch"atzer,
 denn nach Bernoulllis Gesetz der grossen Zahlen gilt
 \begin{equation}
@@ -124,7 +124,7 @@ heisst der Stichprobenmittelwert der Stichprobe $X_1,\dots,X_n$.
 Ganz analog kann gezeigt werden, dass die Sch"atzformel f"ur die
 Varianz ebenfalls ein konsistenter Sch"atzer ist.
 
-\section{Erwartungstreue Sch"atzer\label{section-erwartungstreue-schaetzer}}
+\section{Erwartungstreue Sch"atzer} \label{section-erwartungstreue-schaetzer}
 Nach \ref{section-konsistente-schaetzer} ist der Stichprobenmittelwert
 ein konsistenter Sch"atzer,
 aber er ist sogar erwartungstreu:
@@ -251,7 +251,7 @@ wenn
 \end{equation}
 \end{definition}
 
-\section{Maximum Likelihood Sch"atzer\label{section-maximum-likelihood-schaetzer}}
+\section{Maximum Likelihood Sch"atzer} \label{section-maximum-likelihood-schaetzer}
 \subsection{Stetige Verteilung}
 Ein weiteres Prinzip, welches ``vern"unftige'' Sch"atzer liefert,
 ist das Maximum Likelihood Prinzip. Ist $X$ eine Zufallsvariable, deren
@@ -370,7 +370,7 @@ f"ur die Wahrscheinlichkeit $p$ eines
 positiven Ausgangs eines Bernoulli-Experimentes.
 \end{satz}
 
-\section{Weitere Beispiele von Sch"atzern\label{section-weitere-beispiele-von-schaetzern}}
+\section{Weitere Beispiele von Sch"atzern} \label{section-weitere-beispiele-von-schaetzern}
 \subsection{L"ange eines Intervalls}
 Von der Zufallsvariable $X$ ist bekannt, dass sie im Intervall $[0,\vartheta]$
 gleichverteilt ist. Der Parameter $\vartheta$ soll gesch"atzt werden.
@@ -412,7 +412,7 @@ gleichverteilten Zufallsvariable $X$, dann ist
 eine erwartungstreuer Sch"atzer f"ur die Intervalll"ange $\vartheta$.
 \end{satz}
 
-\subsection{Sch"atzung des Parameters $\lambda$ einer Poissonverteilung}
+\subsection{Sch"atzung des Parameters \texorpdfstring{$\lambda$}{lamda} einer Poissonverteilung}
 Die Zufallsvariable $X$ sei poissonverteilt, d.h.
 \begin{equation}
 p(k, \lambda)=\frac{\lambda^k}{k^!}e^{-\lambda}.
@@ -443,7 +443,7 @@ Die Ableitung verschwindet genau dann, wenn der Klammerausdruck in
 der Maximum Likelihood Sch"atzer f"ur $\lambda$. Offensichtlich ist er
 konsistent und erwartungstreu.
 
-\subsection{Sch"atzung von $p$ in einer Binomialverteilung}
+\subsection{Sch"atzung von \texorpdfstring{$p$}{p} in einer Binomialverteilung}
 Von der Zufallsvariablen $X$ sei bekannt, dass sie binomialverteilt ist
 mit Parameter $(m, p)$, der Parameter $p$ ist zu sch"atzen.
 Die Likelihoodfunktion ist in diesem Fall
@@ -480,7 +480,7 @@ Binomialverteilung $\operatorname{Bin}(m,k,p)$ ist
 $\frac1{m}\bar X$.
 \end{satz}
 
-\section{Verteilung der Sch"atzwerte\label{section-verteilung-der-schaetzwerte}}
+\section{Verteilung der Sch"atzwerte} \label{section-verteilung-der-schaetzwerte}
 Sch"atzwerte entstehen dadurch, dass die Werte einer Stichprobe, also
 gewisse Realisierungen von Zufallsvariablen in die Sch"atzfunktion
 eingesetzt werden. Somit sind die Sch"atzwert selbst wieder Zufallsvariable,
@@ -636,7 +636,7 @@ $$\sum_{i=1}^n(x_i-\mu)^2
 die Behauptung des Hilfssatzes.
 \end{proof}
 
-\section{Konfidenzintervalle\label{section-konfidenzintervalle}}
+\section{Konfidenzintervalle} \label{section-konfidenzintervalle}
 Mit Hilfe eines Sch"atzers k"onnen die Parameter einer Verteilung
 gesch"atzt werden. Wenn wir zum Beispiel bei einer Messapparatur
 wissen, dass die Messwerte normalverteilt sind, k"onnen wir durch
