@@ -68,29 +68,47 @@ Dichtefunktion
 \]
 hat.
 \end{definition}
-\index{Standardnormalverteilung}
-\index{Normalverteilung!Standard-}
-Die Verteilungsfunktion der Normalverteilung mit Erwartungswert 0
-und Varianz 1, der sogenannten Standardnormalverteilung, kann nicht in
-geschlossener Form gefunden werden. Man kann sie aber wie folgt
-zu berechnen versuchen:
+\index{Standardnormalverteilung}%
+\index{Normalverteilung!Standard-}%
+Die Verteilungsfunktion der Normalverteilung mit Erwartungswert $0$
+und Varianz $1$, der sogenannten Standardnormalverteilung, kann nicht in
+geschlossener Form gefunden werden, es m"ussen entweder Tabellen
+oder numerische L"osungen verwendet werden.
+
+Die Werte der Verteilungsfunktion der Standardnormalverteilung sind 
+tabelliert, zum Beispiel auch in Tabelle~\ref{tabelle-Fnormalverteilung}.
+Daraus kann man zum Beispiel die folgenden Werte ablesen
 \begin{align*}
+F(1)&=0.8413,&F(-1)&=1-F(1)=0.1587&&\Rightarrow&P(-1<X\le 1)&=68.28\%\\
+F(2)&=0.9772,&F(-2)&=1-F(2)=0.0228&&\Rightarrow&P(-2<X\le 2)&=95.4\%\\
+F(3)&=0.9987,&F(-3)&=1-F(3)=0.0013&&\Rightarrow&P(-3<X\le 3)&=99.7\%
+\end{align*}
+Zwei Drittel aller Messwerte fallen also in das Interval $[-1,1]$, und 95\%
+aller Messwerte in das Interval $[-2,2]$.
+
+Man kann die Verteilungsfunktion der Standardnormalverteilung auch wie folgt
+numerisch zu berechnen versuchen:
+\begin{equation}
+\begin{aligned}
 P(X\le x)
 &=\frac1{\sqrt{2\pi}}\int_{-\infty}^xe^{-\frac12\xi^2}\,d\xi\\
 &=\frac12+\frac1{\sqrt{2\pi}}\int_0^xe^{-\frac12\xi^2}\,d\xi\\
 &=\frac12+\frac1{\sqrt{\pi}}\int_0^xe^{-\frac12\xi^2}\,\frac{d\xi}{\sqrt{2}}\\
 &=\frac12+\frac1{\sqrt{\pi}}\int_0^{\frac{x}{\sqrt{2}}}e^{-t^2}\,dt\\
-\end{align*}
+\end{aligned}
+\label{normal-werte}
+\end{equation}
 Der zweite Term kann mit Hilfe der Fehlerfunktion 
 \[
 \operatorname{erf}(x)=\frac{2}{\sqrt{\pi}}\int_0^xe^{-t^2}\,dt
 \]
 umgeformt werden:
-\[
+\begin{equation}
 P(X\le x)=\frac12\biggl(1+\operatorname{erf}\biggl(\frac{x}{\sqrt{2}}\biggr)\biggr).
-\]
-\index{Fehlerfunktion}
-\index{Verteilungsfunktion!Normalverteilung}
+\label{Fnormal-erf}
+\end{equation}
+\index{Fehlerfunktion}%
+\index{Verteilungsfunktion!Normalverteilung}%
 Die Fehlerfunktion ist eine ungerade Funktion mit Wertebereich $(-1,1)$,
 sie ist in vielen Softwaresystemen als Bibliotheksfunktion verf"ugbar, in
 der C-Bibliothek steht zum Beispiel neben $\operatorname{erf}(x)$ auch
@@ -98,6 +116,28 @@ $1-\operatorname{erf}(x)$ zur Verf"ugung.
 Da $\lim_{x\to\infty}\operatorname{erf}(x)=1$ k"onnten Werte von
 $1-\operatorname{erf}(x)$ f"ur grosse Werte von $x$ nur mit grossen Fehlern 
 berechnet werden, die komplement"are Fehlerfunktion l"ost dieses Problem.
+
+F"ur eine normalverteilte Zufallsvariable $X$ mit Erwartungswert $\mu$ und
+Standardabweichung $\sigma$ ist die Tabelle oder die Formel (\ref{Fnormal-erf})
+nicht anwendbar. 
+Man kann jedoch mit der Standardisierung aus Abschnitt~\ref{section-standardisierung}
+immer zu einer Zufallsvariable $Z=(X-\mu)/\sigma$ gelangen, die
+standardnormalverteilt ist.
+Damit l"asst sich auch die Wahrscheinlichkeit ermitteln:
+\begin{align*}
+P(a<X\le b)
+&=
+P\biggl(\frac{a-\mu}{\sigma}<\frac{X-\mu}{\sigma}\le \frac{b-\mu}{\sigma}\biggr)
+=
+F\biggl(\frac{b-\mu}{\sigma}\biggr)
+-
+F\biggl(\frac{a-\mu}{\sigma}\biggr).
+\end{align*}
+Die Werte von $F$ k"onnen entweder der Tabelle~\ref{tabelle-Fnormalverteilung}
+entnommen oder mit der Formel (\ref{Fnormal-erf}) berechnet werden.
+Die Werte in (\ref{normal-werte}) bedeuten dann, dass gut zwei Drittel aller
+Messwerte in das Interval $[\mu-\sigma, \mu+\sigma]$ fallen, und dass 
+95\% der Messwerte sich in $[\mu-2\sigma,\mu+2\sigma]$ befinden.
 
 Der Vollst"andigkeit halber rechnen wir nach, ob die durch $\varphi$
 definierte Verteilung tats"achlich die behaupteten Eigenschaften hat.
