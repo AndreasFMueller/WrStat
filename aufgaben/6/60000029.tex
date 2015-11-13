@@ -45,24 +45,32 @@ Die Wahrscheinlichkeitsdichte der Sensorwerte ist
 0&\qquad\text{sonst}
 \end{cases}
 \]
-Damit kann man jetzt
-den Erwartungswert der Werte $X>\mu$ berechnen:
+Damit kann man jetzt den Erwartungswert der Werte $X>\mu$ berechnen:
 \begin{align*}
 E(X| X > 0)
 &=
 \frac1{F(\mu)}\cdot\frac1{\sqrt{2\pi}}\int_0^\infty x\,e^{-\frac{(x-\mu)^2}2}\,dx
 \\
 &=
-\mu + \frac1{F(\mu)}\cdot\frac1{\sqrt{2\pi}}\int_{-\mu}^\infty x\,e^{-\frac{x^2}2}\,dx
+\frac1{F(\mu)}\cdot\frac1{\sqrt{2\pi}}\int_{-\mu}^\infty (z+\mu)\,e^{-\frac{z^2}2}\,dz
+\\
+&=
+\mu\cdot \frac{1}{F(\mu)}\cdot\frac1{\sqrt{2\pi}}\int_{-\mu}^\infty e^{-\frac{z^2}2}\,dz
++
+\frac1{F(\mu)}\cdot\frac1{\sqrt{2\pi}}\int_{-\mu}^\infty ze^{-\frac{z^2}2}\,dz
+\\
+&=
+\mu + \frac1{F(\mu)}\cdot\frac1{\sqrt{2\pi}}\int_{-\mu}^\infty z\,e^{-\frac{z^2}2}\,dz
 \\
 &=
 \mu + \frac1{F(\mu)}
 \cdot\frac1{\sqrt{2\pi}}
 \left[
--e^{-\frac{x^2}2}
+-e^{-\frac{z^2}2}
 \right]_{-\mu}^\infty
 =\mu + \frac{e^{-\frac{\mu^2}2}}{F(\mu)\sqrt{2\pi}}
 \end{align*}
+Dabei haben wir im zweiten Schritt die Substitution $z=x-\mu$ verwendet.
 Setzen wir $\mu=1$ ein, bekommen wir
 \begin{align*}
 E(X|X>0)
