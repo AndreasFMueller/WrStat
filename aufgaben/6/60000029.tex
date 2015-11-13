@@ -1,9 +1,9 @@
-Von einer Messgr"osse $X$ mit Erwartungswert $1$ und Varianz $1$
+Von einer Messgr"osse $X$ mit Erwartungswert $\mu=1$ und Varianz $1$
 kann ein Sensor jeweils nur die positiven Werte messen.
-Da man die negativen Werte nicht ``sieht'', wird der Mittelwert 
-den Erwartungswert "ubersch"atzen.
-Wir m"ochten gerne wissen, um wieviel der Mittelwert den Erwartungswert
-von $X$ "ubersch"atzt.
+Da man die negativen Werte nicht ``sieht'', wird der vom Sensor gemessene
+Mittelwert gr"osser sein als $\mu$.
+Wir m"ochten gerne wissen, um wieviel der gemessene Mittelwert den Erwartungswert
+$\mu$ von $X$ "ubersch"atzt.
 Wie gross wird der Mittelwert einer sehr grossen Zahl von Sensorwerten sein?
 
 \begin{hinweis}
@@ -28,7 +28,8 @@ sondern geringer. Durch diesen Wert mu"ssen wir teilen. Das Integral ist
 e^{-\frac{(x-1)^2}2}\,dx=
 P(X > 0).
 \]
-Der Korrekturfaktor, durch den zu teilen ist, ist also $P(X>0)$.
+Der Korrekturfaktor, durch den zu teilen ist, ist also $P(X>0)$, und muss im
+Folgenden noch genauer berechnet werden.
 
 Die Wahrscheinlichkeit, dass $X>0$ ist, ist f"ur $\mu=E(X)$
 \begin{align*}
