@@ -1,8 +1,8 @@
-Zur Performance-"Uberwachung l"asst der Systemadminitrator auf einem Server
+Zur Performance-"Uberwachung l"asst der Systemadministrator auf einem Server
 ein Script laufen, welches wie folgt funktioniert. Es sammelt einige
 kritische Performance-Zahlen und schreibt diese in eine Datenbank.
 Daf"ur braucht es im Mittel die Zeit $\delta$ Sekunden. Nat"urlich
-ist eine gewisse Streung $\sigma=3$ unvermeidlich.
+ist eine gewisse Streuung $\sigma=3$ unvermeidlich.
 Anschliessend wartet das Script f"ur $60-\delta$ Sekunden.
 Wie gross ist die Wahrscheinlichkeit, dass in 24 Stunden statt
 der vorgesehenen 1440 Messungen h"ochstens 1435 aufgezeichnet werden?
@@ -10,7 +10,8 @@ der vorgesehenen 1440 Messungen h"ochstens 1435 aufgezeichnet werden?
 \begin{loesung}
 Die Laufzeit der Messfunktion ist eine Zufallsvariable $\Delta$.
 Wir d"urfen annehmen, dass $\Delta$ normalverteilt mit Erwartungswert
-$\delta$ und Varianz $\sigma^2=\sigma_0^2$ ist. Die tats"achliche Laufzeit $X_i$ eines
+$\delta$ und Varianz $\sigma^2=\sigma_0^2$ ist, $\sigma=\sqrt{n}\sigma_0$.
+Die tats"achliche Laufzeit $X_i$ eines
 Durchgangs durch die Messschleife ist daher ebenfalls normalverteilt
 mit Erwartungswert $\mu_0=60\,[s]$ und Varianz $\sigma_0^2=9\,[s^2]$.
 Die Gesamtzeit $X$ f"ur
@@ -20,18 +21,27 @@ X=\sum_{i=1}^nX_i,
 \]
 ebenfalls eine normalverteilte Zufallsvariable
 mit Erwartungswert $\mu = n$ Minuten,
-mit einer Varianz von $n\sigma_0^2\,[s^2]$.
+mit einer Varianz von $\sigma^2=n\sigma_0^2\,[s^2]$.
 Es werden in 24 Stunden h"ochstens 1435 Messungen aufgezeichnet,
 wenn die Laufzeit f"ur
 1436 Durchl"aufe gr"osser als 24 Stunden ist. Die Wahrscheinlichkeit daf"ur,
-dass f"ur $n=1436$ Durchl"aufe mehr also 24 Stunden ben"otigt werden, 
+dass f"ur $n=1436$ Durchl"aufe mehr als 24 Stunden ben"otigt werden, 
 ist $P(X > 86400) = 1-P(X\le 86400)$.
 Durch Standardisierung finden wir
 \[
 P(X\le 86400)=P\biggl(
-\frac{X-n\mu_0}{\sqrt{n}\sigma}\le \frac{86400-n\mu_0}{\sqrt{n\sigma_0^2}}
+\frac{X-\mu}{\sigma}
+\le
+\frac{86400-\mu}{\sigma}
 \biggr)
-=P\biggl(
+=
+P\biggl(
+\frac{X-n\mu_0}{\sqrt{n}\sigma_0}
+\le
+\frac{86400-n\mu_0}{\sqrt{n}\sigma_0}
+\biggr)
+=
+P\biggl(
 Z\le\frac{(1440-n)\cdot 60}{\sqrt{n}\sigma_0}
 \biggr),
 \]
