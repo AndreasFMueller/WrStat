@@ -214,6 +214,16 @@ def curve(expr alpha, c) =
 	draw p withcolor c;
 enddef;
 
+pickup pencircle scaled 0.5pt;
+draw (0, 0.8 * u)--(0.2 * u, 0.8 * u);
+draw (0.2 * u, 0)--(0.2 * u, 0.8 * u);
+
+pickup pencircle scaled 4pt;
+draw (0.2 * u, 0.8 * u) withcolor green;
+pickup pencircle scaled 0.5pt;
+draw (0.2 * u, 0.8 * u)--(0.2 * u + 9, 0.8 * u - 2) withcolor green;
+label.rt(btex Pareto-Punkt etex, (0.2 * u + 9, 0.8 * u - 2)) withcolor green;
+
 pickup pencircle scaled 1.5pt;
 
 curve(3.6, black);
@@ -223,12 +233,12 @@ curve(2.01, red);
 
 %z10 = (0.75 * u, 0.75 * u   );
 %z11 = (0.75 * u, 0.75 * u-13);
-%z12 = (0.75 * u, 0.75 * u-26);
+%z12 = (0.75 * u + 3, 0.75 * u-26);
 %z13 = (0.75 * u, 0.75 * u-39);
 
 z10 = (0.1 * u, 0.95 * u);
 z11 = (0.3 * u - 2, 0.88 * u);
-z12 = (0.35 * u - 5, 0.75 * u - 5);
+z12 = (0.35 * u - 2, 0.75 * u - 5);
 z13 = (0.35 * u, 0.45 * u);
 
 label.rt(btex $\alpha = 2.01$  etex, z10) withcolor red;

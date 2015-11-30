@@ -57,7 +57,7 @@ und $I(\omega)$, die in diesem Versuch gemessenen Spannung und der Strom.
 
 Roulette als das Gl"ucksspiel par excellence besteht aus einzelnen
 Spielen, in denen jeweils eine Kugel im Roulettekessel in eines von
-37 F"achenr f"allt.
+37 F"achern f"allt.
 Der Versuchsausgang ist also eine ganze Zahl zwischen $0$ und $36$.
 F"ur den Spieler ist diese Zahl jedoch nur mittelbar von Bedeutung.
 Ihn interessiert vor allem, ob die Chips, die er auf dem Roulette-Tisch
@@ -257,8 +257,8 @@ Wert m"oglich, eine reelle Zufallsvariable w"are demnach eine Abbildung
 X:\Omega\to\mathbb R:\omega\mapsto X(\omega)\in\mathbb R.
 \]
 Die Messung von Strom und Spannung an einem Verbraucher definiert zwei
-Zufallsvariable $I:\Omega\to\mathbb R$ und $U:\Omega\to U$. Die vom Verbraucher
-verbrauchte Leistung ist die Zufallsvariable
+Zufallsvariable $I:\Omega\to\mathbb R$ und $U:\Omega\to \mathbb R$.
+Die vom Verbraucher verbrauchte Leistung ist die Zufallsvariable
 \[
 U\cdot I:\Omega\to\mathbb R: \omega\mapsto (U\cdot I)(\omega) = U(\omega)I(\omega).
 \]
@@ -510,7 +510,7 @@ Die Ereignisalgebra f"ur dieses Problem besteht also aus
 \[
 \Omega=\{(a_1, a_2, a_3, a_4, a_5, a_6)\;|\;1\le a_i\le 45, a_i\ne a_j\}.
 \]
-Dabei kannen nat"urlich niemals eine Zahl doppelt auftreten.
+Dabei kann nat"urlich niemals eine Zahl doppelt auftreten.
 Das Ereignis $A$, welches den Hauptgewinn bringt, enth"alt alle
 Elementarereignisse, die genau die Zahlen auf dem Lottozettel des
 Gewinners enthalten. Da die Lottomaschine die Zahlen in irgend einer
@@ -527,7 +527,7 @@ E(X) = P(A)\cdot G.
 \]
 Erst wenn dieser Betrag den Einsatz f"ur ein einzelnes Spiel "ubersteigt,
 ist Lottospielen rational begr"undbar. Da $P(A)$ unver"andert ist,
-ist dazu zu notwendig, dass $G$ gross wird. Da nur die H"alfte der
+ist dazu notwendig, dass $G$ gross wird. Da nur die H"alfte der
 Einzahlungen "uberhaupt wieder zur Auszahlung gelangt, ist dies nur
 m"ogliche, wenn der Jackpot gross ist. Ein grosser Jackpot zieht nat"urlich
 auch mehr Gelegenheitsspieler an, was $G$ ebenfalls vergr"ossert.
@@ -712,7 +712,7 @@ M"oglichkeiten zur Berechnung von $E(X)$ bietet, verfolgen wir sie
 hier nicht weiter, werden aber im n"achsten Kapitel eine verwandte
 Technik kennen lernen, welche nur gew"ohnliche Integrale verwendet.
 
-\section{Varianz} \label{section-varianz}
+\section{Varianz\label{section-varianz}}
 \index{Varianz}
 Die Qualit"atskontrolle bei der Herstellung von Widerst"anden versucht
 ein Mass daf"ur zu entwickeln, wie genau die produzierten Widerst"ande
@@ -724,7 +724,7 @@ Hilfe des Mittelwertes absch"atzen, er sollte ungef"ahr mit dem Sollwert
 Wie aber kann man die ``Streuung'' der Widerstandswerte
 bewerten?
 
-Als weiteres Beispiel betrachten wir die die Zufallsvariable $X$
+Als weiteres Beispiel betrachten wir die Zufallsvariable $X$
 ``Messung einer Spannung''. Nicht jede Messung ergibt den gleichen Wert,
 das Signal ist von einem Rauschen "uberlagert. Der Mittelwert der
 Messwert entspricht gem"ass dem vorangegangenen Abschnitt dem Erwartungswert
@@ -769,7 +769,7 @@ Die letzte Gleichung kann man leicht nachrechnen:
 %\includegraphics[width=\hsize]{images/erwartung-1}
 \includegraphics{images/erwartung-1}
 \end{center}
-\caption{Visualisierung von Erwartungswert und Varianz ein einem Histogramm
+\caption{Visualisierung von Erwartungswert und Varianz in einem Histogramm
 \label{histogram}}
 \end{figure}
 
@@ -794,7 +794,6 @@ Aus den Rechenregeln finden wir
 \begin{align*}
 E((X-\mu)^2)&=&E(X^2-2\mu X+\mu^2)\\
 &=E(X^2)-2\mu E(X) +\mu^2E(1)\\
-&=E(X^2)-2\mu E(X) +\mu^2P(\Omega)\\
 &=E(X^2)-2\mu E(X) +\mu^2
 \end{align*}
 Dies ist eine quadratische Funktion, die ihren Scheitelpunkt bei $\mu$ hat.
@@ -1455,7 +1454,7 @@ Zeit [s]&L"ange [mm]\\
 Verz"ogerungszeit\label{delaylengths}}
 \end{table}
 Modellraketenmotoren auf Feststoffbasis verwenden ein Verz"ogerungselement,
-welches nach Abbrand das eigentlichen Treibsstoffs noch einige Sekunden
+welches nach Abbrand des eigentlichen Treibsstoffs noch einige Sekunden
 weiter brennt, um dann eine Schwarzpulverladung zu z"unden, die einen Fallschirm
 auswerfen kann. Die Verz"ogerungselemente werden nur f"ur wenige, diskrete
 Verz"ogerungszeiten hergestellt. Ist kein passendes Verz"ogerungselement
