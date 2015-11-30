@@ -6,7 +6,7 @@
 # $Id: Makefile,v 1.2 2008/09/12 21:29:30 afm Exp $
 #
 all:	verteilungsfunktion abhaengigkeit algebra total erwartung ebola \
-	zweiwuerfel regression exp norm gl power 
+	zweiwuerfel regression exp norm gl power filter
 
 verteilungsfunktion_FILES = verteilungsfunktion-1.pdf \
 	verteilungsfunktion-2.pdf verteilungsfunktion-3.pdf \
@@ -25,6 +25,7 @@ norm_FILES = norm-1.pdf
 exp_FILES = exp-1.pdf exp-2.pdf exp-3.pdf
 power_FILES = power-1.pdf power-2.pdf power-3.pdf
 gl_FILES = gl-1.pdf
+filter_FILES = filter-1.pdf
 
 verteilungsfunktion: $(verteilungsfunktion_FILES)
 abhaengigkeit: $(abhaengigkeit_FILES)
@@ -38,6 +39,7 @@ norm: $(norm_FILES)
 exp: $(exp_FILES)
 power: $(power_FILES)
 gl: $(gl_FILES)
+filter: $(filter_FILES)
 
 $(verteilungsfunktion_FILES):	verteilungsfunktion.mp
 	TEX=latex mpost verteilungsfunktion.mp
@@ -119,5 +121,13 @@ $(gl_FILES):	gl.mp
 	do \
 		mptopdf $${i}; \
 	done
+
+$(filter_FILES):	filter.mp
+	TEX=latex mpost filter.mp
+	for i in filter.[0-9]*; \
+	do \
+		mptopdf $${i}; \
+	done
+
 
 

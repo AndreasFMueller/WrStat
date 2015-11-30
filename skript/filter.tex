@@ -172,6 +172,11 @@ x_{k+1}=\varphi_kx_k.
 \]
 
 \subsection{Messfehler und Systemfehler}
+\begin{figure}
+\centering
+\includegraphics{images/filter-1.pdf}
+\caption{Systementwicklung\label{filter-systementwicklung}}
+\end{figure}
 In der Realtit"at bewegt sich das System kaum genau nach diesen Gleichungen.
 Vielmehr wird es von "ausseren St"orungen beeinflusst, die sich einer
 exakten Vorhersage entziehen, wir tragen dem Rechnung mit Hilfe eines
@@ -270,6 +275,13 @@ Die Pfeile sind mit den Matrizen angeschrieben, die bei den einzelnen Schritten 
 Einsatz kommen werden.
 
 \subsection{Voraussage}
+\begin{figure}
+\centering
+\includegraphics{images/filter-2.pdf}
+\caption{Vorhersage und Messung mit ihren jeweiligen Fehlern geben eine
+korrigierte Vorhersage h"oherer Genauigkeit
+\label{bild-vorhersage-korrektur}}
+\end{figure}
 "Uberl"asst man das System sich selbst, wird es sich gem"ass der
 Entwicklungsgleichung entwickeln. Allerdings ist uns der Systemfehler
 $u_k$ nicht bekannt, die einzige Sch"atzung, die uns auf der Basis dieser
@@ -277,6 +289,8 @@ Informationen m"oglich ist, ist also
 \[
 \hat x_{k+1|k}=\varphi_k\hat x_k
 \]
+In Abbildung~\ref{bild-vorhersage-korrektur} ist die Vorhersage schematisch
+dargestellt, zusammen mit ihren Fehlern.
 
 Wir wollen nicht nur $\hat x_k$ zu jeder Zeit bestimmen k"onnen, sondern
 auch eine Information "uber die Fehler mitberechnen, also die Fehlerkovarianzmatrix
@@ -318,6 +332,9 @@ berechnet.
 Im zweiten Schritt wird jetzt aus der provisorischen Sch"atzung $\hat x_{k+1|k}$
 und der Messung $z_{k+1}$ die definitive Sch"atzung zur Zeit $k+1$ berechnet.
 Ebenfalls nachgef"uhrt werden muss die Fehlerkovarianzmatrix $P_{k+1}$.
+In Abbildung~\ref{bild-vorhersage-korrektur} ist auch die Korrektur auf der Basis
+der Messung $z_{k+1}$ dargestellt, so entsteht eine neue Sch"atzung
+$\hat x_{k+1}$ h"oherer Pr"azision.
 
 In den folgenden Herleitungen kommt vor allem der Index $k+1$ vor. Um die Formeln
 etwas zu vereinfachen, erh"ohen wir jetzt $k$ um eins, d.~h.~wir k"onnen
