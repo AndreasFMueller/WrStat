@@ -568,13 +568,16 @@ P_k&=(1-K_k)P_{k|k-1}\\
 Diese Gleichung hat tats"achlich einen Fixpunkt, den man durch
 Einsetzen von $P=P_k=P_{k-1}$ findet:
 \[
-P=\frac{R(P+Q)}{P+Q+R}\Rightarrow
-P^2+QP-QR=0\Rightarrow P=\frac{Q}2+\sqrt{\frac{Q^2}4+RQ}
+P=\frac{R(P+Q)}{P+Q+R}
+\quad\Rightarrow\quad
+P^2+QP-QR=0
+\quad\Rightarrow\quad
+P=\frac{Q}2+\sqrt{\frac{Q^2}4+RQ}
 \]
 Damit kann man nun auch einen geschlossenen Ausdruck f"ur $K$
 finden:
 \[
-K=\frac{1}{1+R\left(\frac{Q}2+\sqrt{\frac{Q^2}4+RQ}\right)^{-1}}
+K=\frac{1}{1+R\biggl(\displaystyle\frac{Q}2+\sqrt{\frac{Q^2}4+RQ}\biggr)^{-1}}
 =\frac1{1+R/P}
 \]
 Wir beobachten darin folgende Grenzf"alle:
@@ -604,13 +607,14 @@ wahren Wert zeigt, welche exponentiell zerf"allt.
 \begin{figure}
 \centering
 \includegraphics{tacho/graph-1.pdf}
-\caption{Kalman-Filter zur Ortsmessung und Geschwindigkeitsbestimmung.
+\caption{Kalman-Filter zur Ortsmessung (oben) und Geschwindigkeitsbestimmung
+(unten).
 Die reale Position ({\color{blue}blau}) wird mit relativ grossem
-Fehler gemessen ({\color{green}gr"un}), doch de Filter ({\color{red}rot})
+Fehler gemessen ({\color{green}gr"un}), doch der Filter ({\color{red}rot})
 kann die Position rekonstruieren, und sogar einigermassen brauchbare
 Werte f"ur die Geschwindigkeit ableiten.
-Ebenfalls dargestellt sind die Diagonalelemente Fehlerkovarianz,
-in der Position allerdings 3-fach "uberh"oht.
+Ebenfalls dargestellt sind die Diagonalelemente der Fehlerkovarianz,
+der Positionsfehler ist allerdings 3-fach "uberh"oht.
 \label{tacho-graph}}
 \end{figure}
 
@@ -623,44 +627,41 @@ dann aus H"ohe $h$, Vertikalgeschwindigkeit $v$ und Beschleunigung $a$.
 Die Kinematik beschreibt die zeitliche "Anderung mit Hilfe des
 Differentialgleichungssystems
 \[
-\frac{d}{dt}\left(
-\begin{array}{c}
+\frac{d}{dt}
+\begin{pmatrix}
 h\\v\\a
-\end{array}
-\right)
-=\left(
-\begin{array}{ccc}
+\end{pmatrix}
+=
+\begin{pmatrix}
 0&1&0\\
 0&0&1\\
-0&0&0\\
-\end{array}
-\right)\left(
-\begin{array}{c}
+0&0&0
+\end{pmatrix}
+\begin{pmatrix}
 h\\v\\a
-\end{array}
-\right)
+\end{pmatrix}
 \]
-Die Entwicklungsgleichung f"ur einen Zeitschritt der L"ange $t$ ist
+Die Entwicklungsgleichung f"ur einen Zeitschritt der L"ange $\Delta t$ ist
 \[
-\varphi=\left(\begin{array}{ccc}
-1&t&\frac{t^2}2\\
-0&1&t\\
+\varphi=\begin{pmatrix}
+1&\Delta t&\frac{\Delta t^2}2\\
+0&1&\Delta t\\
 0&0&1\\
-\end{array}\right)
+\end{pmatrix}
 \]
 Wir nehmen an, dass die Systemfehler, also die Matrix $Q$ ebenfalls diagonal sind,
 und alle Komponenten den gleichen Fehler $\sigma^2$ haben, also
 \[
-Q=\left(\begin{array}{ccc}
+Q=\begin{pmatrix}
 \sigma^2&0&0\\
 0&\sigma^2&0\\
 0&0&\sigma^2\\
-\end{array}\right)
+\end{pmatrix}
 \]
 
 Mit dem Drucksensor kann nur die H"ohe bestimmt werden, also
 \[
-H=\left(\begin{array}{ccc}1&0&0\end{array}\right)
+H=\begin{pmatrix}1&0&0\end{pmatrix}
 \]
 und entsprechend ist die Matrix $R_k$ ebenfalls nur eine Zahl, welche
 den Messfehler $\varrho^2$ der Messung wiedergibt.
@@ -743,17 +744,17 @@ Wahrscheinlichkeit daf"ur bestimmen, dass $(X|Y)$ in einem sehr schmalen
 Streifen $\mathbb{R}\times [y-\varepsilon, y+\varepsilon]$ zu finden ist.
 Beim Grenz"ubergang $\varepsilon\to0$ erwarten wir, wieder einen sinnvollen
 Wert f"ur die bedingte Wahrscheinlichkeit:
-\begin{eqnarray*}
+\begin{align*}
 P(a\le X\le b|Y=y)
-&=&
+&=
 \lim_{\varepsilon\to 0} P(a\le X\le b|y-\varepsilon<Y<y+\varepsilon)\\
-&=&
+&=
 \lim_{\varepsilon\to 0}
 \frac{\int_a^b \int_{y-\varepsilon}^{y+\varepsilon} \varphi_{X,Y}(x,\eta)\,d\eta\,dx}{\int_{y-\varepsilon}^{y+\varepsilon}\varphi_Y(\eta)\,d\eta}\\
-&=&
+&=
 \lim_{\varepsilon\to 0}
 \int_a^b \frac{\varphi_{X,Y}(x,y)}{\varphi_Y(y)}\,dx
-\end{eqnarray*}
+\end{align*}
 Dabei sind wir "uber die Grenzwertbildung etwas salopp hinweg gegangen,
 mindestens f"ur stetige Funktionen $\varphi_{X,Y}$ und $\varphi_Y$ ist
 der Grenz"ubergang zul"assig, er kann aber auch unter weit weniger

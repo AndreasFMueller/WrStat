@@ -17,13 +17,16 @@ SOURCES = einleitung.tex wahrscheinlichkeit.tex laplace.tex	\
 skript.pdf:	$(SOURCES) skript.ind
 	pdflatex skript.tex
 
-skript.ind:	images skript.tex $(SOURCES) images-subdir
+skript.ind:	images skript.tex $(SOURCES) images-subdir tacho-subdir
 	touch skript.ind
 	pdflatex skript.tex
 	makeindex skript.idx
 
 images-subdir:	
 	cd images; make
+
+tacho-subdir:
+	cd tacho; make
 
 checklist.pdf:	checklist.tex
 	pdflatex checklist.tex
