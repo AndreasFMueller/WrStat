@@ -821,6 +821,20 @@ Man beachte, wie der Fehler zur Zeit $0$ zun"achst verschwindet, und
 sich dann innerhalb der ersten paar Sekunden auf einen konstanten
 Wert einstellt.
 
+\subsection{Tuning}
+Dieser erste Versuch eines Kalman-Filters ist m"oglicherweise f"ur
+die vorgesehene Anwendung ungeeignet.
+Es stellt sich daher die Frage, wie die einstellbaren Parameter
+$\sigma_x$ und $\sigma_v$ ver"andert werden k"onnen,
+um ein beabsichtigtes Filterverhalten zu erreichen.
+
+Man beachte, dass $\sigma_z$ kein Tuning-Parameter ist, da $\sigma_z$
+den bekannten Messfehler der Positionsbestimmung beschreibt.
+Allerdings wird angenommen, dass der Messfehler normalverteilt ist.
+Falls diese Annahme nicht zutrifft, kann man $\sigma_z$ modifizieren,
+um m"oglicherweise von der Normalverteilung abweichendes Verhalten
+zu ber"ucksichtigen.
+
 Kleine Werte von $\sigma_x$ und $\sigma_v$ bedeuten, dass der Filter
 vor allem den Systemgleichungen folgt, und "Anderungen der
 Messwerte nur sehr tr"age folgt.
@@ -837,27 +851,13 @@ die Abweichung von dieser Annahme aus.
 Ein grosser Wert von $\sigma_v$ erlaubt dagegen, dass die Geschwindigkeit
 sehr schnell den ver"anderten Messwerten folgt.
 
-Die Gr"osse $\sigma_x$ beschreibt die Aweichung der Entwicklung
+Die Gr"osse $\sigma_x$ beschreibt die Abweichung der Entwicklung
 der Position vom Modell.
 Ein grosser Wert bedeutet, dass der Filter einer Positions"anderung
 folgen kann, auch wenn es keine dazu passende Geschwindigkeits"anderung
 gibt.
 Der Filter wird ziemlich gut der Position folgen, aber der
 Geschwindigkeitswert wird unbrauchbar tr"age.
-
-\subsection{Tuning}
-Dieser erste Versuch eines Kalman-Filters ist m"oglicherweise f"ur
-die vorgesehene Anwendung ungeeignet.
-Es stellt sich daher die Frage, wie die einstellbaren Parameter
-$\sigma_x$ und $\sigma_v$ ver"andert werden k"onnen,
-um ein beabsichtigtes Filterverhalten zu erreichen.
-
-Man beachte, dass $\sigma_z$ kein Tuning-Parameter ist, da $\sigma_z$
-den bekannten Messfehler der Positionsbestimmung beschreibt.
-Allerdings wird angenommen, dass der Messfehler normalverteilt ist.
-Falls diese Annahme nicht zutrifft, kann man $\sigma_z$ modifizieren
-um m"ogliherweise von der Normalverteilung abweichendes Verhalten
-zu ber"ucksichtigen.
 
 \section{Beispiel: H"ohenmesser mit Scheitelpunktermittlung}
 Modellraketen verwenden oft einen elektronischen H"ohenmesser, der die H"ohe
