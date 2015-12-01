@@ -1,4 +1,4 @@
-%SourceDoc ws-skript.tex
+    %SourceDoc ws-skript.tex
 %
 % c08-filter.tex
 %
@@ -175,7 +175,10 @@ x_{k+1}=\varphi_kx_k.
 \begin{figure}
 \centering
 \includegraphics{images/filter-1.pdf}
-\caption{Systementwicklung\label{filter-systementwicklung}}
+\caption{Systementwicklung durch die Abbildung $\varphi_k$, der Vektor $u_k$
+gibt die Unzul"anglichkeiten des durch $\varphi_k$ implementierten Modells
+wieder.
+\label{filter-systementwicklung}}
 \end{figure}
 In der Realtit"at bewegt sich das System kaum genau nach diesen Gleichungen.
 Vielmehr wird es von "ausseren St"orungen beeinflusst, die sich einer
@@ -596,6 +599,20 @@ $P$ kleiner sein, die Sch"atzungen des Filters sind pr"aziser.
 Auch im allgemeinen Fall eines konstanten Systems kann man erwarten,
 dass bei einem Sprung der Inputdaten der Filter eine Abweichung vom
 wahren Wert zeigt, welche exponentiell zerf"allt.
+
+\section{Beispiel: Positionsmessung und Geschwindigkeit}
+\begin{figure}
+\centering
+\includegraphics{tacho/graph-1.pdf}
+\caption{Kalman-Filter zur Ortsmessung und Geschwindigkeitsbestimmung.
+Die reale Position ({\color{blue}blau}) wird mit relativ grossem
+Fehler gemessen ({\color{green}gr"un}), doch de Filter ({\color{red}rot})
+kann die Position rekonstruieren, und sogar einigermassen brauchbare
+Werte f"ur die Geschwindigkeit ableiten.
+Ebenfalls dargestellt sind die Diagonalelemente Fehlerkovarianz,
+in der Position allerdings 3-fach "uberh"oht.
+\label{tacho-graph}}
+\end{figure}
 
 \section{Beispiel: H"ohenmesser mit Scheitelpunktermittlung}
 Modellraketen verwenden oft einen elektronischen H"ohenmesser, der die H"ohe

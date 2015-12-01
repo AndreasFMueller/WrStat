@@ -19,9 +19,12 @@ beginfig(1)
 z0 = (0,0);
 z1 = (u,u);
 z2 = z1 shifted (30,-10);
+z10 = (0.5[z0,z2]) shifted (-5,5);
+z11 = z2 shifted (20,8);
+z12 = z0 shifted (-15,-17);
 
 pickup pencircle scaled 1.5pt;
-draw z0{dir angle (z1-z0)}..tension 1.9 ..{dir angle (z2-z1)}z2;
+draw z12..z0..z10..z2..z11;
 
 pickup pencircle scaled 1pt;
 drawarrow z0--z1;
@@ -36,9 +39,9 @@ draw z0 withcolor white;
 draw z1 withcolor white;
 draw z2 withcolor white;
 
-label.lft(btex $x_k$ etex, z0);
-label.ulft(btex $\varphi_k x_k$ etex, z1);
-label.rt(btex $x_{k+1}$ etex, z2);
+label.ulft(btex $x_k$ etex, z0);
+label.ulft(btex $\mathstrut\varphi_k x_k$ etex, z1);
+label.lrt(btex $x_{k+1}$ etex, z2);
 label.urt(btex $u_{k+1}$ etex, 0.35[z1,z2]);
 
 endfig;
@@ -60,7 +63,7 @@ z8 = (xpart(z2),ypart(z6));
 z9 = (xpart(z2) + 15, ypart(z6));
 
 color pink;
-pink = (1,0.95,0.95);
+pink = (1,0.9,0.9);
 
 pickup pencircle scaled 35pt;
 draw z0 withcolor pink;
@@ -90,7 +93,7 @@ drawarrow z1--z2 withcolor blue;
 pickup pencircle scaled 0.1pt yscaled 20;
 draw z4--z7 withcolor blue;
 
-z10 = (0.5[z4,z7]) shifted (0,20);
+z10 = (0.5[z4,z7]) shifted (-55,25);
 z11 = (0.5[z1,z2]) shifted (-2,-5);
 z12 = (0.5[z10,z11]) shifted (-2,0);
 
@@ -111,8 +114,15 @@ label.lft(btex $\hat x_k$ etex, z0);
 label.ulft(btex $\hat x_{k+1|k}$ etex, z1);
 label.bot(btex $z_{k+1}\mathstrut$ etex, z7);
 label.bot(btex $H\hat x_{k+1|k}$ etex, z4 shifted (-10,0));
-label.top(btex $z_{k+1}-H\hat x_{k+1|k}$ etex, 0.5[z4,z7]) withcolor blue;
-label.rt(btex $\hat x_{k+1}$ etex, z2);
+label.top(btex $\hat x_{k+1}$ etex, z2 shifted(0,2));
+
+z13 = 0.5[z4,z7];
+z14 = z13 shifted (-30,15);
+
+pickup pencircle scaled 0.5pt;
+draw z13--z14 withcolor blue;
+
+label.lft(btex $z_{k+1}-H\hat x_{k+1|k}$ etex, z14) withcolor blue;
 
 endfig;
 
