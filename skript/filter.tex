@@ -604,6 +604,179 @@ dass bei einem Sprung der Inputdaten der Filter eine Abweichung vom
 wahren Wert zeigt, welche exponentiell zerf"allt.
 
 \section{Beispiel: Positionsmessung und Geschwindigkeit}
+In diesem Abschnitt soll gezeigt werden, wie man mit Hilfe der
+eben dargestellten Theorie einen Kalman-Filter entwickeln kann.
+Er soll folgende Aufgabe l"osen:
+\begin{quote}
+Von einem System wird zehn mal
+pro Sekunde die Position mit einer Genauigkeit von $\sigma_z=0.7\text{m}$
+gemessen.
+Man ermittle aus diesen Messdaten m"oglichst genau die aktuelle Position
+und Geschwindigkeit.
+\end{quote}
+\subsection{Systembeschreibung}
+Wir modellieren das System unter der Annahme, dass die Geschwindigkeit in
+ausreichender N"aherung konstant ist.
+Dazu brauchen wir zwei Zustandsvariablen, den Ort und die Geschwindigkeit.
+Die Zustandsvektoren $x_k$ sind also zweidimensionale Vektoren.
+
+F"ur die Zeitentwicklung verwenden wir die Annahme: "uber einen Zeitschritt
+der L"ange $\Delta t$
+"andert sich die Geschwindigkeit nicht, die Position wird jedoch 
+um das $\Delta t$-fache der Geschwindigkeit ge"andert.
+Die Entwicklungsmatrix $\varphi$ ist daher
+\[
+\varphi=\begin{pmatrix}
+1&\Delta t\\
+0&1
+\end{pmatrix}.
+\]
+
+Die Systemfehler geben wieder, in welchem Mass das System von den Annahmen
+abweicht.
+Die zentrale Annahme ist, dass die Geschwindigkeit konstant ist, dass es
+also keine Beschleunigung gibt.
+Da die meisten Systeme auch irgend wann wieder zur Ruhe kommen werden,
+d"urfen wir annehmen, dass der Erwartungswert der Beschleunigung $0$ ist.
+Die Varianz der Beschleunigung wird aber nicht 0 sein, kann uns aber als
+Mass f"ur die Systemfehler dienen.
+Ist $\Delta a$ die Standardabweichung der Beschleunigung, dann erzeugt
+diese einen Geschwindigkeitsfehler in der Gr"ossenordnung von
+$\Delta a\cdot \Delta t$, und einen Positionsfehler von der Gr"ossenordnung
+$\frac12\Delta a\cdot\Delta t^2$.
+Als Systemfehlermatrix k"onnen wir daher 
+\[
+Q=
+\begin{pmatrix}
+\sigma_x^2&0\\
+0&\sigma_v^2
+\end{pmatrix}
+=
+\begin{pmatrix}
+(\Delta a\cdot\Delta t)^2&0\\
+0&(\Delta a\cdot\Delta t^2)^2
+\end{pmatrix}
+\]
+verwenden.
+
+\subsection{Messprozess}
+Von den Zustandsvariablen des Systems wird nur die Position gemessen,
+die Messmatrix ermittelt also die erste Variable des Zustandsvektors:
+\[
+H=\begin{pmatrix}1&0\end{pmatrix}.
+\]
+Der Messfehler der Position ist aus der Aufgabenstellung bekannt, die
+Messfehlermatrix ist die $1\times 1$-Matrix
+\[
+R=\begin{pmatrix}
+\sigma_z^2
+\end{pmatrix}.
+\]
+Damit ist das System vollst"andig beschrieben.
+
+\subsection{Filter}
+Die Matrizen der Systembeschreibung sind in diesem Problem unabh"angig
+von der Zeit, wir k"onnen daher in den Formeln die Indizes weglassen.
+
+\subsubsection{Initialisierung}
+Wir stellen uns vor, dass das System sich zu Beginn der Messung an
+bekannter Position, die wir der Einfachheit halber mit $0$ bezeichnen,
+aus der Ruhe losgelassen wird.
+Zur Zeit $t=0$ ist also der Zustandsvektor bekannt, es ist 
+\[
+x_0=\begin{pmatrix}0\\0\end{pmatrix}
+\]
+der Nullvektor.
+Da Position und Geschwindigkeit exakt bekannt sind, ist die initiale
+Fehlerkovarianzmatrix
+\[
+P_0=\begin{pmatrix}0&0\\0&0\end{pmatrix}.
+\]
+Man nennt diese Art der Initialisierung des Filters auch
+Fisher-Initialisierung, sie ist in diesem Fall angmessen.
+
+\subsubsection{Vorhersage}
+Der Kalmanfilter ermittelt die gesch"atzte Position und Geschwindigkeit aus
+einer Abfolge von Vorhersage- und Korrektur-Schritten.
+F"ur die Vorhersage gelten die Gleichungen
+\begin{align*}
+\hat x_{k+1|k}&=\varphi \hat x_k\\
+P_{k+1|k}&=\varphi P_k\varphi^t + Q.
+\end{align*}
+
+\subsubsection{Korrektur}
+Der Korrekturschritt bestimmt zuerst die Kalman-Matrix $K_{k+1}$ und
+dann daraus die endg"ultigen Sch"atzungen f"ur den Zustand
+$\hat x_{k+1}$ und die Fehlerkovarianz $P_{k+1}$:
+\begin{align*}
+K_{k+1}&=P_{k+1|k}H^t(HP_{k+1|k}H^t+R)^{-1}
+\\
+\hat x_{k+1}&= (I-K_{k+1}H)\hat x_{k+1|k} + K_{k+1}z_{k+1}
+\\
+P_{k+1}&=(I-K_{k+1}H)P_{k+1|k}
+\end{align*}
+
+\subsection{Matlab/Octave Code}
+Der Kalman-Filter kann mit wenigen Zeilen Matlab/Octave-Code implementiert
+werden.
+Die Parameter des Systems sind
+\begin{verbatim}
+deltat = 0.1;
+a = 0.4;
+sigmav = a * deltat;
+sigmax = 0.5 * sigmav * deltat;
+\end{verbatim}
+Die Systemmatrizen sind
+\begin{verbatim}
+phi = [ 1, deltat; 0, 1 ];
+Q = [ sigmax^2, 0; 0, sigmav^2 ];
+\end{verbatim}
+Der Messprozess wird beschrieben durch die Matrizen
+\begin{verbatim}
+H = [ 1, 0 ];
+global sigmaz = 0.7;
+R = [ sigmaz^2 ];
+\end{verbatim}
+Die Konstante \verb+sigmaz+ ist global definiert, weil sie in der
+Funktion \verb+messung+ benutzt wird, um Messwerte mit normalverteilten
+Messfehlern zu simulieren.
+
+Der Filter wird initialisiert mit
+\begin{verbatim}
+x = [ 0; 0];
+P = zeros(2, 2);
+t = 0;
+tlimit = 30;
+\end{verbatim}
+Und der eigentliche Filtercode ist
+\begin{verbatim}
+I = eye(2);
+t = 0;
+while (t < tlimit)
+        # Vorhersage
+        xpred = phi * x;
+        Ppred = phi * P * phi' + Q;
+
+        # Korrektur
+        K = Ppred * H' * pinv(H * Ppred * H' + R);
+        z = messung(t);
+        x = (I - K * H) * xpred + K * z;
+        P = (I - K * H) * Ppred;
+
+        # Zeit
+        t = t + deltat;
+endwhile
+\end{verbatim}
+Die Funktion \verb+messung+ muss einen f"ur die Zeit $t$ angemessenen
+Messwert liefern.
+Die Objekte mit dem Suffix \verb+pred+ bezeichnen Resultate des
+Vorhersageschrittes.
+Die Funktion \verb+pinv+ berechnet die Pseudoinverse.
+Da im vorliegenden Fall das Argument nur eine $1\times 1$-Matrix ist,
+k"onnte man auch die gew"ohnliche inverse Matrix nehmen oder direkt
+durch das einzige Matrixelement dividieren.
+
+\subsection{Simulationsresultate}
 \begin{figure}
 \centering
 \includegraphics{tacho/graph-1.pdf}
@@ -617,6 +790,74 @@ Ebenfalls dargestellt sind die Diagonalelemente der Fehlerkovarianz,
 der Positionsfehler ist allerdings 3-fach "uberh"oht.
 \label{tacho-graph}}
 \end{figure}
+In Abbildung~\ref{tacho-graph} ist eine Simulation des eben entwickelten
+Filters dargestellt.
+Das System befindet sich von Zeit $t=0$ bis $t=10$ am Nullpunkt, bewegt
+sich dann zwischen $t=10$ und $t=20$ mit Geschwindigkeit $1$ in Richtung
+zunehmender Positionskoordinate, danach bleibt es bis $t=30$ an Position $10$.
+Ausgehend von dieser Bewegung werden dem Filter als Messungen $z_k$ die
+Positionen sowie ein normalverteilter Messfehler mit $\sigma_z=0.7\text{m}$
+erzeugt.
+
+Da die Messfehler relativ gross sind, ist der entstehende Kalman-Filter
+ziemlich tr"age, er ``traut'' der Messung nicht, und folgt vor allem der
+Systementwicklungsgleichung.
+Erst einige Sekunden nach $t=10$ akzeptiert der Filter, dass das System
+sich jetzt bewegt, die Geschwindigkeitskoordinate des Zustandsvektors beginnt
+zuzunehmen.
+Auch dauert es nach $t=20$ wieder ein paar Sekunden, bis der Filter
+die Geschwindigkeitskoordinate nach $0$ zur"uckkehren l"asst.
+
+Der Filter ermittelt auch die zu erwartende Fehlerkovarianz, sie ist
+in Abbildung~\ref{tacho-graph} als hellrote Fl"ache hinter der
+Kurve der gefilterten Daten dargestellt.
+Da die angenommenen Systemfehler der Position sehr klein sind, ist auch die
+Fehlerkovarianz in dieser Koordinate sehr gering, in der Darstellung
+ist der Fehler daher dreifach "uberh"oht dargestellt.
+Beim deutlich gr"osseren Fehler der Geschwindigkeit war dies nicht
+n"otig.
+
+Man beachte, wie der Fehler zur Zeit $0$ zun"achst verschwindet, und
+sich dann innerhalb der ersten paar Sekunden auf einen konstanten
+Wert einstellt.
+
+Kleine Werte von $\sigma_x$ und $\sigma_v$ bedeuten, dass der Filter
+vor allem den Systemgleichungen folgt, und "Anderungen der
+Messwerte nur sehr tr"age folgt.
+Grosse Werte von $\sigma_x$ oder $\sigma_v$ lassen den Filter vor allem
+den Messwerten folgen. 
+Als Nebeneffekt sind auch die Geschwindigkeitswerte sehr viel st"arker
+verrauscht, und kaum brauchbar.
+
+W"ahlt man $\sigma_v$ besonders klein, zwingt man den Filter, die
+Geschwindigkeit nur sehr langsam zu "andern.
+Der Filter ist ja konzipiert worden ausgehend von der Annahme,
+dass die Geschwindigkeit konstant bleibt, und $\sigma_v$ dr"uckt
+die Abweichung von dieser Annahme aus.
+Ein grosser Wert von $\sigma_v$ erlaubt dagegen, dass die Geschwindigkeit
+sehr schnell den ver"anderten Messwerten folgt.
+
+Die Gr"osse $\sigma_x$ beschreibt die Aweichung der Entwicklung
+der Position vom Modell.
+Ein grosser Wert bedeutet, dass der Filter einer Positions"anderung
+folgen kann, auch wenn es keine dazu passende Geschwindigkeits"anderung
+gibt.
+Der Filter wird ziemlich gut der Position folgen, aber der
+Geschwindigkeitswert wird unbrauchbar tr"age.
+
+\subsection{Tuning}
+Dieser erste Versuch eines Kalman-Filters ist m"oglicherweise f"ur
+die vorgesehene Anwendung ungeeignet.
+Es stellt sich daher die Frage, wie die einstellbaren Parameter
+$\sigma_x$ und $\sigma_v$ ver"andert werden k"onnen,
+um ein beabsichtigtes Filterverhalten zu erreichen.
+
+Man beachte, dass $\sigma_z$ kein Tuning-Parameter ist, da $\sigma_z$
+den bekannten Messfehler der Positionsbestimmung beschreibt.
+Allerdings wird angenommen, dass der Messfehler normalverteilt ist.
+Falls diese Annahme nicht zutrifft, kann man $\sigma_z$ modifizieren
+um m"ogliherweise von der Normalverteilung abweichendes Verhalten
+zu ber"ucksichtigen.
 
 \section{Beispiel: H"ohenmesser mit Scheitelpunktermittlung}
 Modellraketen verwenden oft einen elektronischen H"ohenmesser, der die H"ohe

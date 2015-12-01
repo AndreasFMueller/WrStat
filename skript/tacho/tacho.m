@@ -6,17 +6,21 @@
 
 # Zeitschritt 0.1s
 deltat = 0.1;
-# Annahme: 3m/s^2 Beschleuning
-sigmav = 3 * deltat;
+# Annahme: 0.5m/s^2 Beschleuning
+a = 0.4;
+sigmav = a * deltat;
 # Annahme: Positionsfehler durch
 # Geschwindigkeitsfehler verursacht
-sigmax = sigmav * deltat;
+sigmax = 0.5 * sigmav * deltat;
+
+#sigmax = 100 * sigmax;
+#sigmav = 0.1 * sigmav;
 
 I = eye(2);
 
 # Systembeschreibung
 phi = [ 1, deltat; 0, 1 ];
-Q = diag(sigmax^2, sigmav^2);
+Q = [ sigmax^2, 0; 0, sigmav^2 ]
 
 # Messprozess, Position wird gemessen (z.B. GPS Position)
 H = [ 1, 0 ];
