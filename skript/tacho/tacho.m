@@ -13,9 +13,6 @@ sigmav = a * deltat;
 # Geschwindigkeitsfehler verursacht
 sigmax = 0.5 * sigmav * deltat;
 
-#sigmax = 100 * sigmax;
-#sigmav = 0.1 * sigmav;
-
 I = eye(2);
 
 # Systembeschreibung

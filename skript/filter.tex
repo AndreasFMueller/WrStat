@@ -176,7 +176,7 @@ x_{k+1}=\varphi_kx_k.
 \centering
 \includegraphics{images/filter-1.pdf}
 \caption{Systementwicklung durch die Abbildung $\varphi_k$, der Vektor $u_k$
-gibt die Unzul"anglichkeiten des durch $\varphi_k$ implementierten Modells
+gibt die Unzul"anglichkeiten des durch $\varphi_k$ beschriebenen Modells
 wieder.
 \label{filter-systementwicklung}}
 \end{figure}
@@ -743,7 +743,7 @@ Messfehlern zu simulieren.
 
 Der Filter wird initialisiert mit
 \begin{verbatim}
-x = [ 0; 0];
+x = [ 0; 0 ];
 P = zeros(2, 2);
 t = 0;
 tlimit = 30;
@@ -913,115 +913,115 @@ der mittlere quadratische Sch"atzfehler der H"ohe. Das Produkt $P_{k+1|k}H^t$
 ist die erste Spalte der Kovarianzmatrix. Die Kalmanmatrix ist also die erste
 Spalte der Kovarianzmatrix dividiert durch $(P_{k+1|k})_{11}+\rho^2$.
 
-\section{Bedingte Erwartung}
-Man h"atte das Filterproblem auch allgemeiner formulieren k"onnen: Es soll
-der Erwartungswert des Zustandes bestimmt werden unter Ber"ucksichtigung
-der Messungen bis zum Zeitpunkt $k$.
-F"ur Wahrscheinlichkeiten wurde dieses
-Konzept der Wahrscheinlichkeit unter zus"atzlichen Bedingungen bereits
-behandelt. F"ur Erwartungswerte und Verteilungen haben wir bisher keinen
-Begriff daf"ur entwickelt.
-Man kann zeigen, dass dieser allgemeinere Ansatz zu den gleichen Filtern
-f"uhrt. Er bringt uns f"ur unsere Anwendungsf"alle nichts neues, zeigt
-aber Erweiterungsm"oglichkeiten der Theorie auf.
-
-Wir haben also zun"achst folgendes Grundproblem zu l"osen: Gegeben sind
-zwei Zufallsvariablen $X$ und $Y$. $X$ beschreibt zum Beispiel den vollst"andigen
-Systemzustand, $Y$ ist das Resultat einer Messung des Zustandes, sie zeigt
-nur ein partielles Bild des Systemzustandes. Welchen Wert von $X$ k"onnen
-wir erwarten unter der Voraussetzung, dass ein bestimmter Wert f"ur $Y$
-gemessen wurde. Im Kapitel~\ref{chapter-ereignisse-und-wahrscheinlichkeit}
-haben wir die bedingte Wahrscheinlichkeit kennengelernt, mit welcher wir
-die Wahrscheinlichkeit eines Ereignisses berechnen konnten unter der
-Voraussetzung, dass ein anderes Ereignis bereits eingetreten ist. Wenn es
-"oglich ist, solche Wahrscheinlichkeiten zu berechnen, dann sollte es auch
-m"oglich sein, einen Erwartungswert $E(X|Y=y)$ zu bestimmen. F"ur eine
-Beobachtung $y$ der Zufallsvariable $Y$ soll der Ausdruck $E(X|Y=y)$ den
-zu erwartenden Wert $X$ liefern. Offensichtlich ist dies eine Funktion,
-die bedingte Erwartung, man schreibt sie auch $E(X|Y)\colon y\mapsto E(X|Y=y)$.
-
-Etwas konkreter stellen wir uns als Beispiel einen Scooter mit zuf"alligen
-Koordinaten $(X,Y)$ vor, welcher innerhalb eines Dreiecks mit den Ecken
-$0$, $(0,1)$ und $(1,0)$ gleichverteilt ist. Allerdings kann man den Scooter
-nicht direkt beobachten. Stattdessen ist entlang der $y$-Achse eine
-Leinwand aufgespannt, eine Lichtquelle projiziert den Scooter auf diese Leinwand,
-es ist also immer nur $Y$ bekannt. Wird f"ur $Y$ der Wert $y$ beobachtet,
-schr"ankt dies den Bereich f"ur die m"oglichen $X$-Werte auf das
-Intervall $[0,1-y]$ ein.
-Innerhalb des m"oglichen Intervalls wird $X$ aber gleichverteilt sein.
-Der Erwartungswert von $X$ unter diesen Voraussetzungen ist der Erwartungswert
-einer Gleichverteilung auf dem Intervall $[0,1-y]$, also
-\[
-E(X|Y=y)=\frac{1-y}2
-\]
-Die bedingte Erwartung $E(X|Y)$ ist also die Funktion
-\[
-E(X|Y)\colon y\mapsto E(X|Y=y)=\frac{1-y}2.
-\]
-
-Allgemeiner nehmen wir an, dass wir die Verteilung von $X$ und $Y$ durch
-eine gemeinsame Wahrscheinlichkeitsdichte $\varphi_{X,Y}(x,y)$ beschreiben
-k"onnen. Mit ihr ist es m"oglich, die Wahrscheinlichkeit daf"ur zu berechnen,
-dass $(X,Y)$ in einem bestimmten Rechteck der Ebene zu finden ist:
-\[
-P(a\le X\le b\wedge c\le Y\le d)=\int_a^b\int_c^d\varphi_{X,Y}(x,y)\,dy\,dx
-\]
-Daraus l"asst sich auch die Wahrscheinlichkeitsdichte von $Y$ alleine
-berechnen:
-\begin{equation}
-\varphi_Y(y)=\int_{-\infty}^\infty \varphi_{X,Y}(x,y)\,dx
-\label{dichtefunktion-von-Y-alleine}
-\end{equation}
-Wir m"ochten jetzt die bedingte Erwartung $E(X|Y=y)$ berechnen. Dazu brauchen
-wir zun"achst die Wahrscheinlichkeiten f"ur die verschiedenen Werte von $X$
-unter der Voraussetzung, dass $Y=y$ ist.
-Die Theorie der bedingten Wahrscheinlichkeit sagt dazu
-\[
-P(A|Y=y)=\frac{P(A\cap \{Y=y\})}{P(\{Y=y\})},
-\]
-was ungl"ucklicherweise f"ur eine stetige Wahrscheinlichkeitsverteilung
-wegen $P(Y=y)=0$ sinnlos ist. Wir k"onnten in diesem Falle aber die
-Wahrscheinlichkeit daf"ur bestimmen, dass $(X|Y)$ in einem sehr schmalen
-Streifen $\mathbb{R}\times [y-\varepsilon, y+\varepsilon]$ zu finden ist.
-Beim Grenz"ubergang $\varepsilon\to0$ erwarten wir, wieder einen sinnvollen
-Wert f"ur die bedingte Wahrscheinlichkeit:
-\begin{align*}
-P(a\le X\le b|Y=y)
-&=
-\lim_{\varepsilon\to 0} P(a\le X\le b|y-\varepsilon<Y<y+\varepsilon)\\
-&=
-\lim_{\varepsilon\to 0}
-\frac{\int_a^b \int_{y-\varepsilon}^{y+\varepsilon} \varphi_{X,Y}(x,\eta)\,d\eta\,dx}{\int_{y-\varepsilon}^{y+\varepsilon}\varphi_Y(\eta)\,d\eta}\\
-&=
-\lim_{\varepsilon\to 0}
-\int_a^b \frac{\varphi_{X,Y}(x,y)}{\varphi_Y(y)}\,dx
-\end{align*}
-Dabei sind wir "uber die Grenzwertbildung etwas salopp hinweg gegangen,
-mindestens f"ur stetige Funktionen $\varphi_{X,Y}$ und $\varphi_Y$ ist
-der Grenz"ubergang zul"assig, er kann aber auch unter weit weniger
-restriktiven Bedingungen durchgef"uhrt werden. Damit l"asst sich aus
-den Dichtefunktionen eine Wahrscheinlichkeitsverteilung f"ur die
-``bedingte Zufallsvariable'' $X|Y=y$ konstruieren, wir fassen diese
-Resultate in einem Satz zusammen.
-
-\begin{satz}
-\label{bedingte-wahrscheinlichkeitsdichte}
-Ist $\varphi_{X,Y}(x,y)$ die gemeinsame Verteilungsfunktion von $X$ und $Y$,
-und $Y$ wie in (\ref{dichtefunktion-von-Y-alleine}), dann ist die
-Wahrscheinlichkeitsdichte von $X|Y=y$
-\[
-\varphi_{X|Y=y}(x)=\frac{\varphi_{X,Y}(x,y)}{\varphi_Y(y)},
-\]
-die bedingte Erwartung ist
-\[
-E(X|Y=y)=\int_{-\infty}^\infty x\,\frac{\varphi_{X,Y}(x,y)}{\varphi_Y(y)}\,dx.
-\]
-\end{satz}
-
-In der Praxis hat man meist mit der Situation zu tun, dass im Laufe der Zeit
-immer mehr Messungen $y_1,\dots,y_n$ anfallen, es ist ist dann
-$E(X|Y_1=y_1\wedge\dots\wedge Y_n=y_n)$ zu bestimmen. Man kann dies auch so
-formulieren, dass $y$ ein $n$-dimensionaler Vektor $y\in\mathbb{R}^n$ ist,
-die Formeln in Satz \ref{bedingte-wahrscheinlichkeitsdichte} bleiben
-dabei unver"andert.
-
+%\section{Bedingte Erwartung}
+%Man h"atte das Filterproblem auch allgemeiner formulieren k"onnen: Es soll
+%der Erwartungswert des Zustandes bestimmt werden unter Ber"ucksichtigung
+%der Messungen bis zum Zeitpunkt $k$.
+%F"ur Wahrscheinlichkeiten wurde dieses
+%Konzept der Wahrscheinlichkeit unter zus"atzlichen Bedingungen bereits
+%behandelt. F"ur Erwartungswerte und Verteilungen haben wir bisher keinen
+%Begriff daf"ur entwickelt.
+%Man kann zeigen, dass dieser allgemeinere Ansatz zu den gleichen Filtern
+%f"uhrt. Er bringt uns f"ur unsere Anwendungsf"alle nichts neues, zeigt
+%aber Erweiterungsm"oglichkeiten der Theorie auf.
+%
+%Wir haben also zun"achst folgendes Grundproblem zu l"osen: Gegeben sind
+%zwei Zufallsvariablen $X$ und $Y$. $X$ beschreibt zum Beispiel den vollst"andigen
+%Systemzustand, $Y$ ist das Resultat einer Messung des Zustandes, sie zeigt
+%nur ein partielles Bild des Systemzustandes. Welchen Wert von $X$ k"onnen
+%wir erwarten unter der Voraussetzung, dass ein bestimmter Wert f"ur $Y$
+%gemessen wurde. Im Kapitel~\ref{chapter-ereignisse-und-wahrscheinlichkeit}
+%haben wir die bedingte Wahrscheinlichkeit kennengelernt, mit welcher wir
+%die Wahrscheinlichkeit eines Ereignisses berechnen konnten unter der
+%Voraussetzung, dass ein anderes Ereignis bereits eingetreten ist. Wenn es
+%"oglich ist, solche Wahrscheinlichkeiten zu berechnen, dann sollte es auch
+%m"oglich sein, einen Erwartungswert $E(X|Y=y)$ zu bestimmen. F"ur eine
+%Beobachtung $y$ der Zufallsvariable $Y$ soll der Ausdruck $E(X|Y=y)$ den
+%zu erwartenden Wert $X$ liefern. Offensichtlich ist dies eine Funktion,
+%die bedingte Erwartung, man schreibt sie auch $E(X|Y)\colon y\mapsto E(X|Y=y)$.
+%
+%Etwas konkreter stellen wir uns als Beispiel einen Scooter mit zuf"alligen
+%Koordinaten $(X,Y)$ vor, welcher innerhalb eines Dreiecks mit den Ecken
+%$0$, $(0,1)$ und $(1,0)$ gleichverteilt ist. Allerdings kann man den Scooter
+%nicht direkt beobachten. Stattdessen ist entlang der $y$-Achse eine
+%Leinwand aufgespannt, eine Lichtquelle projiziert den Scooter auf diese Leinwand,
+%es ist also immer nur $Y$ bekannt. Wird f"ur $Y$ der Wert $y$ beobachtet,
+%schr"ankt dies den Bereich f"ur die m"oglichen $X$-Werte auf das
+%Intervall $[0,1-y]$ ein.
+%Innerhalb des m"oglichen Intervalls wird $X$ aber gleichverteilt sein.
+%Der Erwartungswert von $X$ unter diesen Voraussetzungen ist der Erwartungswert
+%einer Gleichverteilung auf dem Intervall $[0,1-y]$, also
+%\[
+%E(X|Y=y)=\frac{1-y}2
+%\]
+%Die bedingte Erwartung $E(X|Y)$ ist also die Funktion
+%\[
+%E(X|Y)\colon y\mapsto E(X|Y=y)=\frac{1-y}2.
+%\]
+%
+%Allgemeiner nehmen wir an, dass wir die Verteilung von $X$ und $Y$ durch
+%eine gemeinsame Wahrscheinlichkeitsdichte $\varphi_{X,Y}(x,y)$ beschreiben
+%k"onnen. Mit ihr ist es m"oglich, die Wahrscheinlichkeit daf"ur zu berechnen,
+%dass $(X,Y)$ in einem bestimmten Rechteck der Ebene zu finden ist:
+%\[
+%P(a\le X\le b\wedge c\le Y\le d)=\int_a^b\int_c^d\varphi_{X,Y}(x,y)\,dy\,dx
+%\]
+%Daraus l"asst sich auch die Wahrscheinlichkeitsdichte von $Y$ alleine
+%berechnen:
+%\begin{equation}
+%\varphi_Y(y)=\int_{-\infty}^\infty \varphi_{X,Y}(x,y)\,dx
+%\label{dichtefunktion-von-Y-alleine}
+%\end{equation}
+%Wir m"ochten jetzt die bedingte Erwartung $E(X|Y=y)$ berechnen. Dazu brauchen
+%wir zun"achst die Wahrscheinlichkeiten f"ur die verschiedenen Werte von $X$
+%unter der Voraussetzung, dass $Y=y$ ist.
+%Die Theorie der bedingten Wahrscheinlichkeit sagt dazu
+%\[
+%P(A|Y=y)=\frac{P(A\cap \{Y=y\})}{P(\{Y=y\})},
+%\]
+%was ungl"ucklicherweise f"ur eine stetige Wahrscheinlichkeitsverteilung
+%wegen $P(Y=y)=0$ sinnlos ist. Wir k"onnten in diesem Falle aber die
+%Wahrscheinlichkeit daf"ur bestimmen, dass $(X|Y)$ in einem sehr schmalen
+%Streifen $\mathbb{R}\times [y-\varepsilon, y+\varepsilon]$ zu finden ist.
+%Beim Grenz"ubergang $\varepsilon\to0$ erwarten wir, wieder einen sinnvollen
+%Wert f"ur die bedingte Wahrscheinlichkeit:
+%\begin{align*}
+%P(a\le X\le b|Y=y)
+%&=
+%\lim_{\varepsilon\to 0} P(a\le X\le b|y-\varepsilon<Y<y+\varepsilon)\\
+%&=
+%\lim_{\varepsilon\to 0}
+%\frac{\int_a^b \int_{y-\varepsilon}^{y+\varepsilon} \varphi_{X,Y}(x,\eta)\,d\eta\,dx}{\int_{y-\varepsilon}^{y+\varepsilon}\varphi_Y(\eta)\,d\eta}\\
+%&=
+%\lim_{\varepsilon\to 0}
+%\int_a^b \frac{\varphi_{X,Y}(x,y)}{\varphi_Y(y)}\,dx
+%\end{align*}
+%Dabei sind wir "uber die Grenzwertbildung etwas salopp hinweg gegangen,
+%mindestens f"ur stetige Funktionen $\varphi_{X,Y}$ und $\varphi_Y$ ist
+%der Grenz"ubergang zul"assig, er kann aber auch unter weit weniger
+%restriktiven Bedingungen durchgef"uhrt werden. Damit l"asst sich aus
+%den Dichtefunktionen eine Wahrscheinlichkeitsverteilung f"ur die
+%``bedingte Zufallsvariable'' $X|Y=y$ konstruieren, wir fassen diese
+%Resultate in einem Satz zusammen.
+%
+%\begin{satz}
+%\label{bedingte-wahrscheinlichkeitsdichte}
+%Ist $\varphi_{X,Y}(x,y)$ die gemeinsame Verteilungsfunktion von $X$ und $Y$,
+%und $Y$ wie in (\ref{dichtefunktion-von-Y-alleine}), dann ist die
+%Wahrscheinlichkeitsdichte von $X|Y=y$
+%\[
+%\varphi_{X|Y=y}(x)=\frac{\varphi_{X,Y}(x,y)}{\varphi_Y(y)},
+%\]
+%die bedingte Erwartung ist
+%\[
+%E(X|Y=y)=\int_{-\infty}^\infty x\,\frac{\varphi_{X,Y}(x,y)}{\varphi_Y(y)}\,dx.
+%\]
+%\end{satz}
+%
+%In der Praxis hat man meist mit der Situation zu tun, dass im Laufe der Zeit
+%immer mehr Messungen $y_1,\dots,y_n$ anfallen, es ist ist dann
+%$E(X|Y_1=y_1\wedge\dots\wedge Y_n=y_n)$ zu bestimmen. Man kann dies auch so
+%formulieren, dass $y$ ein $n$-dimensionaler Vektor $y\in\mathbb{R}^n$ ist,
+%die Formeln in Satz \ref{bedingte-wahrscheinlichkeitsdichte} bleiben
+%dabei unver"andert.
+%
