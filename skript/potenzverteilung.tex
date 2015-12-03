@@ -13,76 +13,11 @@
 %     Proceedings of the National Academy of Sciences of the USA
 %     vol 112(31), 2015, pp 9536-9541
 %
-\begin{table}
-\renewcommand{\arraystretch}{2}
-\begin{center}
-\begin{tabular}{|l|l|}
-\hline
-Name&Potenzverteilung, Pareto-Verteilung\\
-\hline
-Dichtefunktion&
-\begin{minipage}{3.7in}
-\vskip5pt
-$\displaystyle
-\begin{cases}
-\frac{\alpha-1}{x_{\min}}\biggl(\frac{x}{x_{\text{min}}}\biggr)^{-\alpha}&\qquad x>x_{\text{min}}\\
-0&\qquad\text{sonst}
-\end{cases}
-$
-\end{minipage}
-\\[15pt]
-Verteilungsfunktion&
-\begin{minipage}{3.7in}
-\vskip3pt
-$\displaystyle
-\begin{cases}
-1-\biggl(\frac{x}{x_{\text{min}}}\biggr)^{1-\alpha}&\qquad x>x_{\text{min}}\\
-0&\qquad\text{sonst}
-\end{cases} $
-\end{minipage}
-\\
-Erwartungswert&$\displaystyle\frac{\alpha-1}{\alpha-2}x_{\text{min}}$,
-undefiniert f"ur $\alpha\le 2$\\
-Varianz&$\displaystyle
-\biggl(
-\frac{\alpha-1}{\alpha -3}-\biggl(\frac{\alpha-1}{\alpha-2}\biggr)^2
-\biggr)x_{\text{min}}^2$, undefiniert f"ur $\alpha \le 3$\\
-$P(|X-E(X)|>\varepsilon)$&$\displaystyle $ \\
-Median&$2^{\frac1{\alpha-1}}x_{\text{min}}$\\
-\hline
-Anwendungen&\begin{minipage}{3.7in}%
-\vskip5pt
-\strut
-$\bullet$ H"aufkeitsverteilung f"ur skaleninvariante Prozesse\\
-$\bullet$ Einkommensverteilung\\
-$\bullet$ Gr"osse und H"aufigkeit von Mondkratern\\
-$\bullet$ Verkaufszahlen von B"uchern\\
-$\bullet$ Einwohnerzahlen von St"adten
-\strut
-\end{minipage}\\[28pt]
-\hline
-\end{tabular}
-\end{center}
-\caption{Datenblatt der Potenzverteilung\label{datenblatt:potenzverteilung}}
-\end{table}
 Die Normalverteilung beschreibt physikalische Gr"ossen sehr erfolgreich,
 die vor allem in einer bestimmten Gr"osse vorkommen. Menschen sind zum
 Beispiel im Durchschnitt etwa 1.80m gross, Abweichungen kommen vor, sind
 aber sehr selten, 5m grosse Menschen gibt es nicht.
 
-\begin{figure}
-\centering
-\includegraphics{images/power-2.pdf}
-\caption{Wahrscheinlichkeitsdichte einer Potenzverteilung mit $\alpha=2.5$,
-diese Verteilung hat keine Varianz
-\label{pareto-verteilung-2.5}}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics{images/power-3.pdf}
-\caption{Wahrscheinlichkeitsdichte einer Potenzverteilung mit $\alpha=3.5$
-\label{pareto-verteilung-3.5}}
-\end{figure}
 
 Andererseits gibt es auch Gr"ossen, die einen weiten Bereich von m"oglichen
 Werten annehmen. Mondkrater k"onnen mehrere Kilometer gross sein, oder auch
@@ -169,6 +104,19 @@ x^{-\alpha}&\qquad x>x_{\min}
 \]
 wobei $\alpha>1$ gelten muss.
 \end{satz}
+\begin{figure}
+\centering
+\includegraphics{images/power-2.pdf}
+\caption{Wahrscheinlichkeitsdichte einer Potenzverteilung mit $\alpha=2.5$,
+diese Verteilung hat keine Varianz
+\label{pareto-verteilung-2.5}}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics{images/power-3.pdf}
+\caption{Wahrscheinlichkeitsdichte einer Potenzverteilung mit $\alpha=3.5$
+\label{pareto-verteilung-3.5}}
+\end{figure}
 
 Nach einem Potenzgesetz verteilte Zufallsvariablen kann man daran
 erkennen, dass die Dichtefunktion in einer doppelt logarithmischen
@@ -286,6 +234,58 @@ verteilt, existiert der Median
 x_{\frac12}=2^{\frac1{\alpha-1}}x_{\min}.
 \]
 \end{satz}
+\begin{table}
+\renewcommand{\arraystretch}{2}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Name&Potenzverteilung, Pareto-Verteilung\\
+\hline
+Dichtefunktion&
+\begin{minipage}{3.7in}
+\vskip5pt
+$\displaystyle
+\begin{cases}
+\frac{\alpha-1}{x_{\min}}\biggl(\frac{x}{x_{\text{min}}}\biggr)^{-\alpha}&\qquad x>x_{\text{min}}\\
+0&\qquad\text{sonst}
+\end{cases}
+$
+\end{minipage}
+\\[15pt]
+Verteilungsfunktion&
+\begin{minipage}{3.7in}
+\vskip3pt
+$\displaystyle
+\begin{cases}
+1-\biggl(\frac{x}{x_{\text{min}}}\biggr)^{1-\alpha}&\qquad x>x_{\text{min}}\\
+0&\qquad\text{sonst}
+\end{cases} $
+\end{minipage}
+\\
+Erwartungswert&$\displaystyle\frac{\alpha-1}{\alpha-2}x_{\text{min}}$,
+undefiniert f"ur $\alpha\le 2$\\
+Varianz&$\displaystyle
+\biggl(
+\frac{\alpha-1}{\alpha -3}-\biggl(\frac{\alpha-1}{\alpha-2}\biggr)^2
+\biggr)x_{\text{min}}^2$, undefiniert f"ur $\alpha \le 3$\\
+$P(|X-E(X)|>\varepsilon)$&$\displaystyle $ \\
+Median&$2^{\frac1{\alpha-1}}x_{\text{min}}$\\
+\hline
+Anwendungen&\begin{minipage}{3.7in}%
+\vskip5pt
+\strut
+$\bullet$ H"aufkeitsverteilung f"ur skaleninvariante Prozesse\\
+$\bullet$ Einkommensverteilung\\
+$\bullet$ Gr"osse und H"aufigkeit von Mondkratern\\
+$\bullet$ Verkaufszahlen von B"uchern\\
+$\bullet$ Einwohnerzahlen von St"adten
+\strut
+\end{minipage}\\[28pt]
+\hline
+\end{tabular}
+\end{center}
+\caption{Datenblatt der Potenzverteilung\label{datenblatt:potenzverteilung}}
+\end{table}
 
 \subsubsection{Die 80/20-Regel}
 \begin{figure}

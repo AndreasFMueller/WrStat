@@ -188,7 +188,10 @@ zus"atzlichen Zufallsvektors $u_k$ in den Bewegungsgleichungen
 x_{k+1}=\varphi_kx_k+ u_k.
 \]
 Wir verlangen, dass die Komponenten des Vektors $u_k$ alle unabh"angige
-Zufallsvariablen sind mit gleicher Varianz, $Q_k=E(u_k\cdot u_k^t)$ ist
+Zufallsvariablen sind Erwartungswert 0.
+\index{Systemfehler-Kovarianz-Matrix}
+\index{Systemfehler!Kovarianz-Matrix}
+Die Kovarianz-Matrix $Q_k=E(u_k\cdot u_k^t)$ ist
 ein Mass daf"ur. $u_k$ heisst auch Prozessrauschen oder Systemfehler.
 
 Die Messfehler modellieren wir durch einen
@@ -199,6 +202,8 @@ z_k=H_kx_k+w_k.
 Die Komponenten von $w_k$ sollen unabh"angige Zufallsvariablen mit
 Erwartungswert $0$ sein, d.~h.~es liegen keine systematischen Messfehler
 vor. Dies bedeutet, dass die Matrix
+\index{Messfehler-Kovarianz-Matrix}
+\index{Messfehler!Kovarianz-Matrix}
 \[
 R_k=E(w_kw_k^t)
 \]
@@ -278,6 +283,7 @@ Die Pfeile sind mit den Matrizen angeschrieben, die bei den einzelnen Schritten 
 Einsatz kommen werden.
 
 \subsection{Voraussage}
+\index{Kalman-Filter!Vorhersage-Schritt}
 \begin{figure}
 \centering
 \includegraphics{images/filter-2.pdf}
@@ -332,6 +338,7 @@ berechnet.
 \end{definition}
 
 \subsection{Korrektur}
+\index{Kalman-Filter!Korrekturschritt}
 Im zweiten Schritt wird jetzt aus der provisorischen Sch"atzung $\hat x_{k+1|k}$
 und der Messung $z_{k+1}$ die definitive Sch"atzung zur Zeit $k+1$ berechnet.
 Ebenfalls nachgef"uhrt werden muss die Fehlerkovarianzmatrix $P_{k+1}$.
@@ -414,6 +421,7 @@ P_{k} &=(I-K_{k}H_{k})P_{k|k-1}(I-K_{k}H_{k})^t +K_{k}R_kK_{k}^t \label{covarian
 \end{definition}
 
 \subsection{Der optimale Filter}
+\index{Kalman-Filter!optimaler Filter}
 Die Zeitentwicklung des Sch"atzers kann nun bis auf die unbekannte Matrix $K_k$
 berechnet werden. Es bleibt, $K_k$ zu bestimmen. $K_k$ soll so gew"ahlt werden,
 dass die Spur von $P_{k}$ minimal wird. Dabei k"onnen wir verwenden,

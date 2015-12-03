@@ -12,7 +12,7 @@ parts:	../skript.pdf
 	pdfjam --outfile skript-05-chapter5.pdf ../skript.pdf 111-154
 	pdfjam --outfile skript-06-chapter6.pdf ../skript.pdf 155-168
 	pdfjam --outfile skript-07-chapter7.pdf ../skript.pdf 169-182
-	pdfjam --outfile skript-08-chapter8.pdf ../skript.pdf 183-196
-	pdfjam --outfile skript-09-verteilungen.pdf ../skript.pdf 197-208
-	pdfjam --outfile skript-10-tabellen.pdf ../skript.pdf 209-214
-	pdfjam --outfile skript-11-index.pdf ../skript.pdf 215-216
+	pdfjam --outfile skript-08-chapter8.pdf ../skript.pdf 183-200
+	pdfjam --outfile skript-09-verteilungen.pdf ../skript.pdf 201-212
+	pdfjam --outfile skript-10-tabellen.pdf ../skript.pdf 213-218
+	pdfjam --outfile skript-11-index.pdf ../skript.pdf 219-220
