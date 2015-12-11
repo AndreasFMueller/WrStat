@@ -313,7 +313,7 @@ angeben.
 
 Im
 langfristigen Mittel erwarten wir, dass wir in etwa der H"alfte
-der F"alle gewinnnen, in der anderen H"alfte verlieren. Im Mittel
+der F"alle gewinnen, in der anderen H"alfte verlieren. Im Mittel
 m"ussen wir daher davon ausgehen, dass wir pro M"unzwurf einen
 halben Franken gewinnen. Der erwartete Gewinn einem einzelnen
 Wurf w"are also $E(X)=0.5$.
@@ -455,7 +455,7 @@ E(X)&=\sum_{i=1}^6\sum_{j=1}^6\frac{i+j}{36}
 =\frac1{36}\sum_{i=1}^6\sum_{j=1}^6(i+j)
 =\frac1{36}\sum_{i=1}^6\bigl(6i + \sum_{j=1}^6j\bigr)\\
 &=\frac1{36}\sum_{i=1}^6(6i + 21)
-=\frac1{36}\bigl(6\sum_{i=1}^6i + 21 \bigr)
+%=\frac1{36}\bigl(6\sum_{i=1}^6i + 21 \bigr)
 =\frac1{36}\bigl(6\sum_{i=1}^6i + 6\cdot21 \bigr)\\
 &=\frac1{36}(6\cdot 21 + 6\cdot21 )
 =\frac1{36}(2\cdot 6\cdot 21)
@@ -529,7 +529,7 @@ Erst wenn dieser Betrag den Einsatz f"ur ein einzelnes Spiel "ubersteigt,
 ist Lottospielen rational begr"undbar. Da $P(A)$ unver"andert ist,
 ist dazu notwendig, dass $G$ gross wird. Da nur die H"alfte der
 Einzahlungen "uberhaupt wieder zur Auszahlung gelangt, ist dies nur
-m"ogliche, wenn der Jackpot gross ist. Ein grosser Jackpot zieht nat"urlich
+m"oglich, wenn der Jackpot gross ist. Ein grosser Jackpot zieht nat"urlich
 auch mehr Gelegenheitsspieler an, was $G$ ebenfalls vergr"ossert.
 \subsubsection{Niedrigere Gewinnklassen}
 Nat"urlich
@@ -542,7 +542,7 @@ A_k=\{\omega\;|\;|\omega\cap A|=k\},
 \]
 also diejenigen Elementarereignisse, die genau $k$ Elemente aus der
 $M$-elementigen Teilmenge
-$A\subset\Omega$ haben. Im Beispiel des Lottes sind $A$ die Zahlen, die
+$A\subset\Omega$ haben. Im Beispiel des Lottos sind $A$ die Zahlen, die
 auf dem Lottozettel angekreuzt sind.
 Dazu m"ussen offenbar zun"achst $k$ Zahlen aus $A$ ausgew"ahlt werden,
 und dann noch $n-k$ Zahlen aus $\Omega\setminus A$. Ersteres ist
@@ -563,7 +563,7 @@ h(k|N;M;n)=\frac{\binom{M}{k}\binom{N-M}{n-k}}{\binom{N}{n}}.
 Dies ist die hypergeometrische Verteilung.
 Mit ihr l"asst sich jetzt der erwartete
 Gewinn berechnen, man muss nur noch den Gewinn in jeder Klasse kennen.
-Ist $G_i$ der Gewinn in der Klasse ``$i$ richtige'', dann ist der
+Ist $G_k$ der Gewinn in der Klasse ``$k$ richtige'', dann ist der
 erwartete Gewinn:
 \[
 E(G)=\sum_{k=0}^{6}h(k|N;M;n)G_k.
@@ -640,7 +640,7 @@ unabh"angig sind. Dann berechnet man:
 \begin{align*}
 E(XY)&=\sum_{i=1}^n\sum_{j=1}^m X(A_i\cap B_j)Y(A_i\cap B_j)P(A_i\cap B_j)\\
 &=\sum_{i=1}^n\sum_{j=1}^m X(A_i)Y(B_j)P(A_i)P(B_j)\\
-&=\sum_{i=1}^n X(A_i)P(A_i)\sum_{j=1}^mY(B_j)P(A_i)P(B_j)\\
+&=\sum_{i=1}^n X(A_i)P(A_i)\sum_{j=1}^mY(B_j)P(B_j)\\
 &=E(X)\cdot E(Y)
 \end{align*}
 Die oben verwendete Unabh"angigkeitsbedingung kann man mit folgender
@@ -942,7 +942,7 @@ F"ur das Produkt gilt
 \operatorname{var}(XY)
 &=E(X^2Y^2)-E(XY)^2\\
 &=E(X^2)E(Y^2)-E(X)^2E(Y)^2\\
-&=(\operatorname{var}(X)+E(X)^2))(\operatorname{var}(Y)+E(Y)^2)
+&=(\operatorname{var}(X)+E(X)^2)(\operatorname{var}(Y)+E(Y)^2)
 -E(X)^2E(Y)^2\\
 &=\operatorname{var}(X)\operatorname{var}(Y)+E(X)^2\operatorname{var}(Y)
 +\operatorname{var}(X)E(Y)^2
@@ -1156,7 +1156,7 @@ Gr"osse
 \[
 M_n=\frac{X_1+X_2+\dots+X_n}{n}
 \]
-eine gut N"aherung ist f"ur $\mu$. Trotzdem kann es vorkommen, wegen
+eine gute N"aherung ist f"ur $\mu$. Trotzdem kann es vorkommen, wegen
 einzelner Ausreisser unter den $X_i$ der Mittelwert recht weit weg
 vom Mittelwert liegt. Der folgende Satz von Bernoulli sagt, wie wahrscheinlich
 es ist, dass der Mittelwert weiter als $\varepsilon$ vom Erwartungswert

@@ -172,7 +172,7 @@ und stetige (Mitte) Komponente\label{bildzerlegungverteilungsfunktion}}
 \index{Verteilung!stetige}
 
 Die Differenz $F_s=F-F_d$ kann offensichtlich keine Sprungstellen haben,
-wenigstens kein Sprungstellen bei Ann"aherung von links. Damit liegt
+wenigstens keine Sprungstellen bei Ann"aherung von links. Damit liegt
 die Vermutung nahe, dass $F_s$ eine stetige Funktion ist (daher der Index
 $s$). Das ist tats"achlich so:
 \begin{satz}Eine Verteilungsfunktion $F$ kann immer zerlegt werden in eine
@@ -193,7 +193,7 @@ Es gen"ugt offensichtlich zu zeigen, dass $F$ rechtsseitig stetig ist, also
 keine Sprungstellen bei Ann"aherung von rechts hat. Die Differenz
 $F(a+\varepsilon)-F(a)$ ist die Wahrscheinlichkeit, dass der Wert der
 Zufallsvariable in das Intervall $(a,a+\varepsilon]$
-f"allt. Es genugt, wenn man f"ur $\varepsilon=\frac1n$ zeigen kann,
+f"allt. Es gen"ugt, wenn man f"ur $\varepsilon=\frac1n$ zeigen kann,
 dass $F(a+\frac1n)\to F(a)$. Das Intervall $(a,a\frac1n]$ kann man
 als Vereinigung unendlich vieler kleiner Teilintervalle
 schreiben, also
@@ -271,7 +271,7 @@ Abbildung~\ref{bilddiskreteverteilungsfunktion} visualisiert werden.
 Ist $S=\{\,x\;|\;F(x)\ne \lim_{a\to x-}F(a)\,\}$ die Menge der Sprungpunkte 
 der Verteilungsfunktion, dann kann man damit Wahrscheinlichkeiten und
 Erwartungswerte wie folgt berechnen. Die Wahrscheinlichkeit eines
-Ereignisses h"angt davon ab, welches Sprungpunkte es enth"alt:
+Ereignisses h"angt davon ab, welche Sprungpunkte es enth"alt:
 \[
 P(A)=\sum_{x\in S}P(\{x\}),
 \]
@@ -473,7 +473,7 @@ E(X)
 =
 \sum_{k=a}^b \frac{k}{b-a+1}
 =
-\frac1{b-a+1}\sum_{k=a}^bk^2
+\frac1{b-a+1}\sum_{k=a}^bk
 \\
 &=
 \frac1{b-a+1}\biggl(
@@ -574,7 +574,7 @@ E(X^2)
 &=
 \int_{-\infty}^{\infty}x^2\varphi(x)\,dx
 =
-\int_a^bx\frac1{b-a}\,dx
+\int_a^bx^2\frac1{b-a}\,dx
 =
 \frac1{b-a}\left[\frac13x^3\right]_a^b
 =
