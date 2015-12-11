@@ -53,8 +53,8 @@ Ein solches Experiment nennt man ein Bernoulliexperiment.
 Wir wiederholen jetzt dieses Experiment $n$ mal und betrachten die Ereignisse,
 dass in genau $k$ der $n$ F"alle der Ausgang $1$ eingetreten ist,
 und $0$ in allen anderen F"allen. Es gibt $\binom{n}{k}$ M"oglichkeiten,
-die $k$ $1$-Experimente auszuw"ahlen, und die Kombination, dass genau
-dieses Kombination $1$ und $0$ realisiert wird, ist $p^k(1-p)^{n-k}$.
+die $k$ $1$-Experimente auszuw"ahlen, und die Wahrscheinlichkeit, dass genau
+diese Kombination $1$ und $0$ realisiert wird, ist $p^k(1-p)^{n-k}$.
 Somit ist die Wahrscheinlichkeit, dass von $n$ Experimenten deren $k$
 erfolgreich sind
 \[
@@ -118,10 +118,20 @@ der gesuchte Erwartungswert, links aber
 \[
 pn(p+1-p)^{n-1}=pn=\sum_{k=0}^n\binom{n}{k}kp^k(1-p)^{n-k}=E(X).
 \]
-Erneute Anwendung von $x\frac{d}{dx}$ liefert
-\[
-xn(x+y)^{n-1}+x^2 n(n-1)x^{n-2}=\sum_{k=0}^n\binom{n}{k}k^2x^ky^{n-k},
-\]
+Erneute Anwendung von $x\frac{d}{dx}$ liefert auf der linken Seite
+\begin{align*}
+x\frac{d}{dx}x\frac{d}{dx}
+&=
+x\frac{d}{dx}\bigl(xn(x+y)^{n-1}\bigr)
+\\
+&=
+xn(x+y)^{n-1}+x^2 n(n-1)x^{n-2}
+\end{align*}
+und auf der rechten Seite
+\begin{align*}
+x\frac{d}{dx} x\frac{d}{dx} f(x)
+&=\sum_{k=0}^n\binom{n}{k}k^2x^ky^{n-k},
+\end{align*}
 und nach Einsetzen der Werte f"ur $x$ und $y$
 \[
 pn+p^2n(n-1)=\sum_{k=0}^n\binom{n}{k}k^2p^k(1-p)^{n-k}=E(X^2).
@@ -139,7 +149,7 @@ den Nullstellen bei $\frac12$ sein muss.
 \subsubsection{Der Grenzwert \texorpdfstring{$n\to\infty$}{n gegen unendlich}}
 \index{Binomialverteilung!Normalapproximation}
 Was geschieht, wenn die Zahl $n$ der Versuche beliebig vergr"ossert wird?
-nat"urlich wird die Zahl der m"oglichen Werte der Zufallsvariable
+Nat"urlich wird die Zahl der m"oglichen Werte der Zufallsvariable
 gr"osser, der Erwartungswert $np$ und die Varianz $np(1-p)$ steigen.
 Standardisiert man die Verteilung jedoch, indem man die Zufallsvariable
 durch $Y=(X-np)/\sqrt{np(1-p)}$ ersetzt, dann wird die Zufallsvariable $Y$

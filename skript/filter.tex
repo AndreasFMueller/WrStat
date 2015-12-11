@@ -230,11 +230,11 @@ $\hat x_k$ und die Messung $z_{k+1}$ notwendig sein. Ausserdem soll der Sch"atze
 $\hat x_k$ m"oglichst gut sein, d.~h.~erwartungstreu, linear, iterativ und
 mit minimaler Varianz.
 
-\begin{definition}Gegeben ist ein lineares System der Zeitentwicklung
+\begin{definition}Gegeben ist ein lineares System mit der Zeitentwicklung
 \[
-x_{k+1}=\varphi_kx_k+u_k
+x_{k+1}=\varphi_kx_k+u_k,
 \]
-wobei $x_k$ und $u_k$ unkorrellierte Zufallsvariablen sind,
+wobei $x_k$ und $u_k$ unabh"angigen Zufallsvariablen sind,
 $u_k$ mit Erwartungswert $0$ und bekannter Kovarianzmatrix $Q_k$, d.~h.
 \[
 E(u_kx_k^t)=0,\qquad E(u_k)=0,\qquad E(u_ku_k^t)=Q_k.
@@ -243,13 +243,13 @@ An diesem System werden Beobachtungen
 \[
 z_k=H_kx_k+w_k
 \]
-vorgenommen, $w_k$ sind mit $x_k$ und $u_k$ unkorrellierte Zufallsvariablen,
+vorgenommen, $w_k$ sind mit $x_k$ und $u_k$ unabh"angige Zufallsvariablen
 $w_k$ mit Erwartungswert $0$ und bekannter Kovarianzmatrix $R_k$, also
 \[
 E(w_kx^t)=0,\qquad E(w_k)=0,\qquad E(w_kw_k^t)=R_k.
 \]
 Das Filterproblem besteht darin, einen Sch"atzer $\hat x_k$ zu
-finden, welche sich linear aus $\hat x_{k-1}$ und $z_k$ berechnen l"asst.
+finden, welcher sich linear aus $\hat x_{k-1}$ und $z_k$ berechnen l"asst.
 Die Fehler $\tilde x_k=\hat x_k-x_k$ k"onnen mit der Fehlerkovarianzmatrix
 \[
 P_k=E(\tilde x_k\tilde x_k^t)
@@ -264,7 +264,7 @@ Sch"atzung $\hat x_k$ bekannt ist. Anschliessend wird sich
 das System entsprechend der Zeitentwicklungsgleichung entwickeln und
 so den Zustand $x_{k+1}$ erreichen. Auch diesen Zustand k"onnen wir nicht
 kennen, es gen"ugt, eine Sch"atzung davon zu bestimmen. Dies kann in zwei
-Schritten geschehen
+Schritten geschehen:
 \begin{enumerate}
 \item Man "uberl"asst das System sich selbst, und versucht eine m"oglichst
 gute Sch"atzung f"ur den Zustand $x_{k+1}$ zu finden, die nur auf dem
@@ -312,7 +312,7 @@ P_{k+1|k}&=E(\tilde x_{k+1|k}\tilde x_{k+1|k}^t)\\
 (\dots)^t
 )\\
 &=E(
-(\varphi_k\hat x_k-x_k)-u_k)
+(\varphi_k(\hat x_k-x_k)-u_k)
 (\dots)^t
 )\\
 &=E(
