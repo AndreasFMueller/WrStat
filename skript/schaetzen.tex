@@ -183,36 +183,42 @@ Werten einer standardnormalverteilten Zufallsvariable\label{varianzschaetzung}}
 
 Das dies tats"achlich so ist wird deutlich, wenn wir den
 Erwartungswert von $V$ berechnen:
-\begin{eqnarray*}
+\begin{align*}
 E(V)
-&=&
-E(f(X_1,\dots,X_n))\\
-&=&
+&=
+E(f(X_1,\dots,X_n))
+\\
+&=
 E\biggl(
 \frac1n\sum_{i=1}^nX_i^2-\biggl(\frac1n\sum_{i=1}^nX_i\biggr)^2
-\biggr)\\
-&=&
-\frac1n\sum_{i=1}^nE(X_i^2)-\frac1{n^2}\sum_{i=1}^n\sum_{j=1}^n E(X_iX_j)\\
-&=&
+\biggr)
+\\
+&=
+\frac1n\sum_{i=1}^nE(X_i^2)-\frac1{n^2}\sum_{i=1}^n\sum_{j=1}^n E(X_iX_j)
+\\
+&=
 \frac1n\sum_{i=1}^nE(X_i^2)-
 \frac1{n^2}\sum_{i=1}^nE(X_i^2)
--\frac1{n^2}\sum_{i\ne j} E(X_iX_j)\\
-&=&
+-\frac1{n^2}\sum_{i\ne j} E(X_iX_j)
+\\
+&=
 \frac{n-1}{n^2}\sum_{i=1}^nE(X_i^2)
--\frac1{n^2}\sum_{i\ne j} E(X_i)E(X_j)
-\end{eqnarray*}
+-\frac1{n^2}\sum_{i\ne j} E(X_i)E(X_j).
+\end{align*}
 Nun sind aber alle Zufallsvariable $X_i$ identisch verteilt, insbesondere
 sind alle Erwartungswerte der $X_i$ und der $X_i^2$ jeweils identisch,
 wir k"onnen also die Indizes weglassen:
-\begin{eqnarray*}
+\begin{align*}
 E(V)
-&=&
-\frac{n-1}{n^2}\sum_{i=1}^nE(X^2) -\frac1{n^2}\sum_{i\ne j} E(X)^2\\
-&=&
-\frac{n-1}{n^2}E(X^2) -\frac{n^2-n}{n^2}E(X)^2\\
-&=&
-\frac{n-1}{n}(E(X^2) -E(X)^2)=\frac{n-1}n\operatorname{var}(X)
-\end{eqnarray*}
+&=
+\frac{n-1}{n^2}\sum_{i=1}^nE(X^2) -\frac1{n^2}\sum_{i\ne j} E(X)^2
+\\
+&=
+\frac{n-1}{n^2}E(X^2) -\frac{n^2-n}{n^2}E(X)^2
+\\
+&=
+\frac{n-1}{n}(E(X^2) -E(X)^2)=\frac{n-1}n\operatorname{var}(X).
+\end{align*}
 Folglich ist der Sch"atzer $V$ f"ur kleine Stichproben eine schlechte
 Wahl, man muss erwarten, dass er einen zu kleinen Wert liefert. Es
 w"are besser, ihn mit $\frac{n}{n-1}$ zu multiplizieren, denn der so
@@ -276,7 +282,7 @@ $\vartheta(X_1,\dots,X_n)$ heisst Maximum Likelihood Sch"atzer f"ur
 $\vartheta$, wenn die Likelihood Funktion (\ref{likelihood-funktion})
 maximal wird:
 \begin{equation}
-L(X_1,\dots,X_n;\vartheta(X_1,\dots,X_n)) \ge L(X_1,\dots,X_n;t)\forall t.
+L(X_1,\dots,X_n;\vartheta(X_1,\dots,X_n)) \ge L(X_1,\dots,X_n;t)\quad\forall t.
 \end{equation}
 \end{definition}
 
@@ -388,22 +394,33 @@ Die Verteilungsfunktion von $X$ auf dem Intervall $[0,\vartheta]$ ist
 F(x)=P(X\le x)= \frac{x}{\vartheta}.
 \end{equation}
 Die Verteilungsfunktion von $T(X_1,\dots,X_n)$ ist dann
-\begin{eqnarray*}
-P(\max(X_1,\dots,X_n)\le x)&=&P(X_1\le x\wedge\dots\wedge X_n\le x)\\
-&=&P(X_1\le x)\dots P(X_n\le x)\\
-&=&F(x)^n=\frac{x^n}{\vartheta^n},
-\end{eqnarray*}
+\begin{align*}
+P(\max(X_1,\dots,X_n)\le x)
+&=
+P(X_1\le x\wedge\dots\wedge X_n\le x)
+\\
+&=
+P(X_1\le x)\dots P(X_n\le x)
+\\
+&=
+F(x)^n=\frac{x^n}{\vartheta^n},
+\end{align*}
 im Intervall $[0,\vartheta]$ entspricht dies der Dichtefunktion
 \begin{equation}
 \frac{nx^{n-1}}{\vartheta^n}.
 \end{equation}
 Damit wird der Erwartungswert
-\begin{eqnarray*}
+\begin{align*}
 E(\max(X_1,\dots,X_n))
-&=&\int_0^{\vartheta}x\frac{nx^{n-1}}{\vartheta^n}\,dx\\
-&=&\frac{n}{n+1}\biggl[\frac{x^{n+1}}{\vartheta^n}\biggr]_0^\vartheta\\
-&=&\frac{n}{n+1}\vartheta,
-\end{eqnarray*}
+&=
+\int_0^{\vartheta}x\frac{nx^{n-1}}{\vartheta^n}\,dx
+\\
+&=
+\frac{n}{n+1}\biggl[\frac{x^{n+1}}{\vartheta^n}\biggr]_0^\vartheta
+\\
+&=
+\frac{n}{n+1}\vartheta,
+\end{align*}
 bis auf den Faktor $\frac{n}{n+1}$ ist das genau die gesuchte Intervalll"ange.
 \begin{satz}
 Ist $X_i$ eine Stichprobe einer auf dem Intervall $[0,\vartheta]$
@@ -429,14 +446,15 @@ L(k_1,\dots k_n;\lambda)=\frac{\lambda^{k_1+\dots+k_n}}{k_1!\cdots k_n!}
 Das Maximum der Likelihood-Funktion wird durch Ableiten von
 (\ref{poisson-likelihood-funktion}) nach $\lambda$
 bestimmt:
-\begin{eqnarray}
+\begin{align}
 \frac{d}{d\lambda}L(k_1,\dots,k_n;\lambda)
-&=&
-\frac{1}{k_1!\cdots k_n!}(K\lambda^{K-1}-n\lambda^K)e^{-n\lambda}\nonumber\\
-&=&
-\frac{1}{k_1!\cdots k_n!}(K-n\lambda)\lambda^{K-1}e^{-n\lambda}
+&=
+\frac{1}{k_1!\cdots k_n!}(K\lambda^{K-1}-n\lambda^K)e^{-n\lambda}\nonumber
+\\
+&=
+\frac{1}{k_1!\cdots k_n!}(K-n\lambda)\lambda^{K-1}e^{-n\lambda}.
 \label{poisson-likelihood-ableitung}
-\end{eqnarray}
+\end{align}
 Die Ableitung verschwindet genau dann, wenn der Klammerausdruck in
 (\ref{poisson-likelihood-ableitung}) verschwindet, also ist
 \begin{equation}
@@ -526,40 +544,57 @@ Wir betrachten jetzt den Vektor $U=(U_1,\dots,U_n)$ bestehend aus
 den Zufallsvariablen $U_i=X_i-\bar X$, und $V=\bar X$. Wir setzen
 $\bar s=(s_1+\dots +s_n)/n$. Die gemeinsame momenterzeugende Funktione
 von $U$ und $V$ ist dann
-\begin{eqnarray}
+\begin{align}
 M_{U,V}(s_1,\dots,s_n,r)
-&=&
-E\biggl(\exp\biggl(Vr+\sum_{i=1}^nU_is_i\biggr)\biggr)\nonumber\\
-&=&
-E\biggl(\exp\biggl(\bar X(r-n\bar s)+\sum_{i=1}^nX_is_i\biggr)\biggr)\nonumber\\
-&=&
-E\biggl(\exp\biggl(\sum_{i=1}^nX_i\bigl(s_i-\bar s+\frac{r}{n}\bigr)\biggr)\biggr)\nonumber\\
-&=&
-M_{X_i}(s_1-\bar s+\frac{r}{n})\cdots M_{X_n}(s_n-\bar s+\frac{r}{n})\nonumber\\
-&=&
+&=
+E\biggl(\exp\biggl(Vr+\sum_{i=1}^nU_is_i\biggr)\biggr)
+\nonumber\\
+&=
+E\biggl(\exp\biggl(\bar X(r-n\bar s)+\sum_{i=1}^nX_is_i\biggr)\biggr)
+\nonumber\\
+&=
+E\biggl(\exp\biggl(\sum_{i=1}^nX_i\bigl(s_i-\bar s+\frac{r}{n}\bigr)\biggr)\biggr)
+\nonumber\\
+&=
+M_{X_i}\biggl(s_1-\bar s+\frac{r}{n}\biggr)\cdots
+M_{X_n}\biggl(s_n-\bar s+\frac{r}{n}\biggr)
+\nonumber\\
+&=
 \exp\biggl(
 \mu\biggl(\sum_{i=1}^n(s_i-\bar s+r/n)\biggr)+\frac{\sigma^2}2\sum_{i=1}^n(s_i-\bar s+r/n)^2
-\biggr)\nonumber\\
-&=&
+\biggr)
+\nonumber\\
+&=
 \exp\biggl(\mu r+\frac{\sigma^2r^2}{2n}\biggr)
-\exp\biggl(\frac{\sigma^2}{2}\sum_{i=1}^n(s_i-\bar s)^2\biggr)\label{umformung-mittelwert}\\
-&=&
-M_{U,V}(0,\dots,0,r)M_{U,V}(s_1,\dots,s_n,0)\nonumber
-\end{eqnarray}
+\exp\biggl(\frac{\sigma^2}{2}\sum_{i=1}^n(s_i-\bar s)^2\biggr)\label{umformung-mittelwert}
+\\
+&=
+M_{U,V}(0,\dots,0,r)M_{U,V}(s_1,\dots,s_n,0)
+\nonumber
+\end{align}
 In (\ref{umformung-mittelwert}) haben wir folgende zwei Identit"aten verwendet:
-\begin{eqnarray}
+\begin{align}
 \sum_{i=1}^n(s_i-\bar s)
-&=&\sum_{i=1}^ns_i-n\bar s\nonumber\\
-&=&\sum_{i=1}^ns_i-n\frac1n\sum_{i=1}^ns_i=0 \label{si-mittelwert}\\
+&=
+\sum_{i=1}^ns_i-n\bar s
+\nonumber\\
+&=
+\sum_{i=1}^ns_i-n\frac1n\sum_{i=1}^ns_i=0 \label{si-mittelwert}
+\\
 \sum_{i=1}^n(s_i-\bar s+\frac{r}{n})^2
-&=&\sum_{i=1}^n(s_i-\bar s)^2
+&=
+\sum_{i=1}^n(s_i-\bar s)^2
 +\frac{2r}{n}\sum_{i=1}^n(s_i-\bar s)
-+\sum_{i=1}^n\frac{r^2}{n^2}\nonumber\\
-&=&\sum_{i=1}(s_i-\bar s)^2
++\sum_{i=1}^n\frac{r^2}{n^2}
+\nonumber\\
+&=
+\sum_{i=1}(s_i-\bar s)^2
 +\frac{2r}{n}\sum_{i=1}^ns_i-2r\bar s
-+\frac{r^2}{n}\nonumber\\
-&=&\sum_{i=1}^n(s_i-\bar s)^2+\frac{r^2}{n} \label{si-varianz}
-\end{eqnarray}
++\frac{r^2}{n}
+\nonumber\\
+&=
+\sum_{i=1}^n(s_i-\bar s)^2+\frac{r^2}{n} \label{si-varianz}
+\end{align}
 Da sich die gemeinsame momenterzeugende Funktion faktorisieren
 l"asst, sind die Zufallsvariablen $U_i$ und $V$ unabh"angig,
 und damit nat"urlich auch $S^2=\frac1{n-1}(U_1^2+\dots+U_n^2)$ und
@@ -586,18 +621,20 @@ unabh"angig. Wir behaupten
 T=W+Y.
 \]
 In der Tat 
-\begin{eqnarray}
+\begin{align}
 W+Y
-&=&
+&=
 \frac{n(\bar X-\mu)^2}{\sigma^2}
 +
-\frac{1}{\sigma^2}\sum_{i=1}^n(X_i-\bar X)^2\nonumber\\
-&=&
-\frac{1}{\sigma^2}\sum_{i=1}^n\bigl((\bar X-\mu)^2+(X_i-\bar X)^2\bigr)\nonumber\\
-&=&
+\frac{1}{\sigma^2}\sum_{i=1}^n(X_i-\bar X)^2
+\nonumber\\
+&=
+\frac{1}{\sigma^2}\sum_{i=1}^n\bigl((\bar X-\mu)^2+(X_i-\bar X)^2\bigr)
+\nonumber\\
+&=
 \frac{1}{\sigma^2}\sum_{i=1}^n(X_i-\mu)^2
 \label{wy-chi2}
-\end{eqnarray}
+\end{align}
 Im lezten Schritt (\ref{wy-chi2}) haben wir den Hilfssatz
 \ref{hilfssatz-varianz-mittelwert}
 weiter unten verwendet.
@@ -745,10 +782,15 @@ die $t$-Verteilung mit $k$ Freiheitsgraden.
 
 \begin{proof}[Beweis]
 Die Dichtefunktion von $Z$ und $V$ sind
-\begin{eqnarray*}
-\varphi_Z(x)&=&\frac1{\sqrt{2\pi}}e^{-\frac{x^2}2}\\
-\varphi_V(x)&=&\gamma_{\frac12,\frac{k}2}(x)=\frac1{\Gamma(\frac{k}2)}\frac1{2^\frac{k}2}x^{\frac{k-2}2}e^{-\frac12x}.
-\end{eqnarray*}
+\begin{align*}
+\varphi_Z(x)
+&=
+\frac1{\sqrt{2\pi}}e^{-\frac{x^2}2}
+\\
+\varphi_V(x)
+&=
+\gamma_{\frac12,\frac{k}2}(x)=\frac1{\Gamma(\frac{k}2)}\frac1{2^\frac{k}2}x^{\frac{k-2}2}e^{-\frac12x}.
+\end{align*}
 Die Dichtefunktion von $V/k$ ist $\varphi_{V/k}(x)=k\varphi_V(kx)$, aus
 den Resultaten der Abschnitte \ref{verteilungsfunktion-wurzel}
 und \ref{verteilungsfunktion-quotient} l"asst sich jetzt die
@@ -759,36 +801,44 @@ Zun"achst berechnen wir die Dichtefunktion f"ur den Nenner:
 \varphi_{\sqrt{V/k}}(x)=2x\varphi_{V/k}(x^2)=2xk\varphi_V(kx^2).
 \]
 Die Dichtefunktion f"ur den Quotienten ist dann
-\begin{eqnarray*}
-\varphi_T(t)&=&
-\int_0^\infty \varphi_X(ty)y\varphi_Y(y)\,dy\\
-&=&\int_0^\infty \frac1{\sqrt{2\pi}}e^{-\frac{(ty)^2}2}y\cdot
-2yk\varphi_V(ky^2)\,dy\\
-&=&\int_0^\infty \frac1{\sqrt{2\pi}}e^{-\frac{(ty)^2}2}y\cdot
+\begin{align*}
+\varphi_T(t)
+&=
+\int_0^\infty \varphi_X(ty)y\varphi_Y(y)\,dy
+\\
+&=
+\int_0^\infty \frac1{\sqrt{2\pi}}e^{-\frac{(ty)^2}2}y\cdot
+2yk\varphi_V(ky^2)\,dy
+\\
+&=
+\int_0^\infty \frac1{\sqrt{2\pi}}e^{-\frac{(ty)^2}2}y\cdot
 2yk
 \frac1{\Gamma(\frac{k}2)}\frac1{2^{\frac{k}2}}(ky^2)^{\frac{k-2}2}e^{-\frac12ky^2}
-\,dy\\
-&=&
+\,dy
+\\
+&=
 \frac1{\sqrt{k\pi}2^{\frac{k-1}2}\Gamma(\frac{k}2)}
-\int_0^\infty e^{-\frac12(1+t^2/k)y^2} \,dy
-\end{eqnarray*}
+\int_0^\infty e^{-\frac12(1+t^2/k)y^2} \,dy.
+\end{align*}
 Mit Hilfe der Subsitution $s=\frac12(1+\frac{t^2}n)y^2$
 oder
 \[
 y=\frac{2^{\frac12}s^{\frac12}}{(1+\frac{t^2}n)^{\frac12}}
 \]
 wir daraus
-\begin{eqnarray*}
+\begin{align*}
 \varphi_T(t)
-&=&
+&=
 \frac{2^{\frac12}2^{\frac{k}2}}{\sqrt{k\pi}2^{\frac{k-1}2}\Gamma(\frac{k}2)(1+\frac{t^2}k)^{\frac{k+1}2}}
-\int_0^\infty \frac12e^{-s}s^{\frac{k-1}2}\,ds\\
-&=&
+\int_0^\infty \frac12e^{-s}s^{\frac{k-1}2}\,ds
+\\
+&=
 \frac{1}{\sqrt{k\pi}\Gamma(\frac{k}2)(1+\frac{t^2}k)^{\frac{k+1}2}}
-\int_0^\infty e^{-s}s^{\frac{k+1}2-1}\,ds\\
-&=&
-\frac{\Gamma(\frac{k+1}2)}{\sqrt{k\pi}\Gamma(\frac{k}2)}\biggl(1+\frac{t^2}k\biggr)^{-\frac{k+1}2}
-\end{eqnarray*}
+\int_0^\infty e^{-s}s^{\frac{k+1}2-1}\,ds
+\\
+&=
+\frac{\Gamma(\frac{k+1}2)}{\sqrt{k\pi}\Gamma(\frac{k}2)}\biggl(1+\frac{t^2}k\biggr)^{-\frac{k+1}2}.
+\end{align*}
 
 \end{proof}
 

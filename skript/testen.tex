@@ -148,12 +148,18 @@ X=\sum_{i=1}^nX_i
 ist eine Zufallsvariable, die angibt, wie oft bei $n$ Versuchen das Ereignis
 eingetreten ist. F"ur Erwartungswert und Varianz von $X_i$ finden
 wir folgende Werte
-\begin{eqnarray*}
-E(X_i)&=&0\cdot (1-p)+1\cdot p=p\\
-\operatorname{var}(X_i)&=&E(X_i^2)-E(X_i)^2=0^2\cdot (1-p)+1^2\cdot p-p^2
-=p-p^2\\
-&=&p(1-p)
-\end{eqnarray*}
+\begin{align*}
+E(X_i)
+&=
+0\cdot (1-p)+1\cdot p=p
+\\
+\operatorname{var}(X_i)
+&=
+E(X_i^2)-E(X_i)^2=0^2\cdot (1-p)+1^2\cdot p-p^2 =p-p^2
+\\
+&=
+p(1-p).
+\end{align*}
 Entsprechend hat $X$ den Erwartungswert $E(X)=np$ und
 die Varianz $\operatorname{var}(X)=np(1-p)$.
 
@@ -169,19 +175,24 @@ Ideen des voranstehenden Abschnitts bereits ein Test konstruieren.
 Etwas handlicher ist jedoch das Quadrat von (\ref{chi2-primitiv}), der
 sich mit Hilfe der Anzahl der F"alle $Y=n-X$, in denen das Ereignis
 nicht eingetreten ist, noch etwas symmetrischer Schreiben l"asst
-\begin{eqnarray}
+\begin{align}
 D=\frac{(X-np)^2}{np(1-p)}
-&=&
-\frac{(X-np)^2}{n}\cdot \frac{1}{p(1-p)}\nonumber\\
-&=&
+&=
+\frac{(X-np)^2}{n}\cdot \frac{1}{p(1-p)}\nonumber
+\\
+&=
 \frac{(X-np)^2}{n}\cdot
 \biggl(
 \frac{1-p}{p(1-p)} +
 \frac{p}{p(1-p)}
-\biggr)\nonumber\\
-&=&\frac{(X-np)^2}{np}+\frac{(X-np)^2}{n(1-p)}\nonumber\\
-&=&\frac{(X-np)^2}{np}+\frac{(n-X-n(1-p))^2}{n(1-p)}\label{chi2-primitiv2}
-\end{eqnarray}
+\biggr)\nonumber
+\\
+&=
+\frac{(X-np)^2}{np}+\frac{(X-np)^2}{n(1-p)}\nonumber
+\\
+&=
+\frac{(X-np)^2}{np}+\frac{(n-X-n(1-p))^2}{n(1-p)}\label{chi2-primitiv2}
+\end{align}
 Im letzten Ausdruck (\ref{chi2-primitiv2})
 steht im ersten Term die Abweichung der
 Anzahl der Eintretensf"alle des Ereignisses von der erwarteten H"aufigkeit,
@@ -338,10 +349,15 @@ gebildet. Wenn die Zufallsvariable $X$ tats"achlich die
 Verteilungsfunktion $F$ hat, wird man erwarten,
 dass $F$ und $F_n$ sich nicht stark unterscheiden.
 Insbesondere sollten die Gr"ossen
-\begin{eqnarray}
-K_n^+&=&\sqrt{n}\max_{-\infty<x<\infty} F_n(x)-F(x)\\
-K_n^-&=&\sqrt{n}\max_{-\infty<x<\infty} F(x)-F_n(x)
-\end{eqnarray}
+\begin{align}
+K_n^+
+&=
+\sqrt{n}\max_{-\infty<x<\infty} F_n(x)-F(x)
+\\
+K_n^-
+&=
+\sqrt{n}\max_{-\infty<x<\infty} F(x)-F_n(x)
+\end{align}
 nicht sehr gross werden. Um den Test durchzuf"uhren braucht man also
 die Wahrscheinlichkeit, dass $K_n^{\pm}$ einen gewissen Wert "ubersteigt.
 Daf"ur gibt es Tabellen, zum Beispiel findet man im Anhang \ref{anhang-tabellen}
@@ -376,12 +392,16 @@ $X_1,\dots,X_n$. Durch sortieren k"onnen wir erreichen, dass die
 $X_i$  in aufsteigender Reihenfolge angeordnet sind, also $X_i\le X_j$
 f"ur $i\le j$. Dann ist $F_n(X_j)=\frac{j}{n}$, und
 die  $K_n^{\pm}$ k"onnen mit Hilfe der einfacheren Formeln
-\begin{eqnarray}
-K_n^+&=&\sqrt{n}\max_{1\le j\le n}\biggl(\frac{j}{n}-F(X_j)\biggr)
+\begin{align}
+K_n^+
+&=
+\sqrt{n}\max_{1\le j\le n}\biggl(\frac{j}{n}-F(X_j)\biggr)
 \label{knp-berechnungs-formel}
 \\
-K_n^-&=&\sqrt{n}\max_{1\le j\le n}\biggl(F(X_j)-\frac{j-1}n\biggr)
-\end{eqnarray}
+K_n^-
+&=
+\sqrt{n}\max_{1\le j\le n}\biggl(F(X_j)-\frac{j-1}n\biggr)
+\end{align}
 berechnet werden. In dieser Form ist die Berechnung der
 Verteilung von $K_n^{\pm}$ leichter m"oglich.
 
@@ -529,13 +549,21 @@ P_{nk}(x)=\int_{n}^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_
 \begin{proof}[Beweis]
 Wir substituieren $x_i+t=\xi_i$. Dazu m"ussen zu den Intervallgrenzen
 $t$ hinzuaddiert werden:
-\begin{eqnarray}
+\begin{align}
 P_{nk}(x)
-&=&\int_{n-t}^xdx_n\int_{n-1-t}^{x_n}dx_{n-1}\dots\int_{k+1-t}^{x_{k+2}}dx_{k+1}\int_0^{x_{k+1}}dx_k\dots\int_0^{x_2}dx_1\nonumber\\
-&=&\int_{n}^{x+t}d\xi_n\int_{n-1}^{x_n+t}d\xi_{n-1}\dots\int_{k+1}^{x_{k+2}+t}dx_{k+1}\int_t^{x_{k+1}+t}d\xi_k\dots\int_t^{x_2+t}d\xi_1\nonumber\\
-&=&\int_{n}^{x+t}d\xi_n\int_{n-1}^{\xi_n}d\xi_{n-1}\dots\int_{k+1}^{\xi_{k+2}}dx_{k+1}\int_t^{\xi_{k+1}}d\xi_k\dots\int_t^{\xi_2}d\xi_1\nonumber\\
-&=&\int_{n}^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}\int_t^{x_{k+1}}dx_k\dots\int_t^{x_2}dx_1 \label{kpn-umbenennung}
-\end{eqnarray}
+&=
+\int_{n-t}^xdx_n\int_{n-1-t}^{x_n}dx_{n-1}\dots\int_{k+1-t}^{x_{k+2}}dx_{k+1}\int_0^{x_{k+1}}dx_k\dots\int_0^{x_2}dx_1
+\nonumber\\
+&=
+\int_{n}^{x+t}d\xi_n\int_{n-1}^{x_n+t}d\xi_{n-1}\dots\int_{k+1}^{x_{k+2}+t}dx_{k+1}\int_t^{x_{k+1}+t}d\xi_k\dots\int_t^{x_2+t}d\xi_1
+\nonumber\\
+&=
+\int_{n}^{x+t}d\xi_n\int_{n-1}^{\xi_n}d\xi_{n-1}\dots\int_{k+1}^{\xi_{k+2}}dx_{k+1}\int_t^{\xi_{k+1}}d\xi_k\dots\int_t^{\xi_2}d\xi_1
+\nonumber\\
+&=
+\int_{n}^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}\int_t^{x_{k+1}}dx_k\dots\int_t^{x_2}dx_1
+\label{kpn-umbenennung}
+\end{align}
 Im letzten Schritt (\ref{kpn-umbenennung}) haben wir die Integrationsvariablen
 wieder auf die vertrauten $x_1,\dots,x_n$ umbenannt.
 \end{proof}
@@ -555,18 +583,27 @@ P_{10}(x)=\int_1^{x+t}dx_1=[x_1]_1^{x+t}=(x+t)-1=\frac{(x+t)^1}{1!}-\frac{(x+t)^
 \]
 Nehmen wir an, die Behauptung w"are f"ur $n-1$ bereits bewiesen, dann
 berechnen wir $P_{n0}(x)$ wie folgt:
-\begin{eqnarray*}
+\begin{align*}
 P_{n0}(x)
-&=&\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_1^{x_2}dx_1\\
-&=&\int_n^{x+t}dx_n\,P_{n-1,0}(x_n-t)\\
-&=&\int_n^{x+t}\frac{x_n^{n-1}}{(n-1)!}-\frac{x_n^{n-2}}{(n-2)!}\,dx_n\\
-&=&\biggl[\frac{x_n^n}{n!}-\frac{x_n^{n-1}}{(n-1)!}\biggr]_n^{x+t}\\
-&=&
+&=
+\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_1^{x_2}dx_1
+\\
+&=
+\int_n^{x+t}dx_n\,P_{n-1,0}(x_n-t)
+\\
+&=
+\int_n^{x+t}\frac{x_n^{n-1}}{(n-1)!}-\frac{x_n^{n-2}}{(n-2)!}\,dx_n
+\\
+&=
+\biggl[\frac{x_n^n}{n!}-\frac{x_n^{n-1}}{(n-1)!}\biggr]_n^{x+t}
+\\
+&=
 \frac{(x+t)^n}{n!}-\frac{(x+t)^{n-1}}{(n-1)!}
--\frac{n^n}{n!}+\frac{n^{n-1}}{(n-1)!}\\
-&=&
+-\frac{n^n}{n!}+\frac{n^{n-1}}{(n-1)!}
+\\
+&=
 \frac{(x+t)^n}{n!}-\frac{(x+t)^{n-1}}{(n-1)!}
-\end{eqnarray*}
+\end{align*}
 wegen
 \[
 \frac{n^n}{n!}=\frac{n^{n-1}n}{(n-1)! n}=\frac{n^{n-1}}{(n-1)!},
@@ -584,7 +621,7 @@ F"ur $1\le k\le n$ gilt
 \begin{equation}
 P_{nk}(x)-P_{n,k-1}(x)
 =
-\frac{(k-t)^k}{k!}P_{n-k,0}(x-k)
+\frac{(k-t)^k}{k!}P_{n-k,0}(x-k).
 \end{equation}
 \end{satz}
 
@@ -594,28 +631,32 @@ Wir schreiben
 \Delta_{nk}(x)= P_{nk}(x)-P_{n,k-1}(x)
 \]
 dann gilt
-\begin{eqnarray*}
+\begin{align*}
 \Delta_{nk}(x)
-&=&
+&=
 \int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}
-\int_t^{x_{k+1}}dx_k\dots\int_t^{x_2}dx_1\\
-&-&\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}
-\int_{k}^{x_{k+1}}dx_k\dots\int_t^{x_2}dx_1\\
-&=&
+\int_{\color{red}t}^{x_{k+1}}dx_k\dots\int_t^{x_2}dx_1
+\\
+&\phantom{=}\quad-\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}
+\int_{\color{red}k}^{x_{k+1}}dx_k\dots\int_t^{x_2}dx_1
+\\
+&=
 \int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}
-\int_{t}^{k}dx_k\dots\int_t^{x_2}dx_1
-\end{eqnarray*}
+\int_{t}^{k}dx_k\dots\int_t^{x_2}dx_1.
+\end{align*}
 Da das Integral "uber $x_k$ feste Grenzen $t$ und $k$ hat, reduziert es
 sich auf eine Konstante $c_k$, welche wir weiter unten berechnen werden.
 Die verbleibenden Integrale sind
-\begin{eqnarray*}
+\begin{align*}
 \Delta_{nk}(x)
-&=&
-c_k\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}\\
-&=&
-c_k\int_{n-k}^{x-k+t}dx_{n-k}\int_{n-k-1}^{x_{n-k}}dx_{n-k-1}\dots\int_1^{x_2}dx_1\\
-&=&c_kP_{n-k,0}(x-k)
-\end{eqnarray*}
+&=
+c_k\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}
+\\
+&=
+c_k\int_{n-k}^{x-k+t}dx_{n-k}\int_{n-k-1}^{x_{n-k}}dx_{n-k-1}\dots\int_1^{x_2}dx_1
+\\
+&=c_kP_{n-k,0}(x-k),
+\end{align*}
 dabei haben wir die selbe Variablentransformation vorgenommen wie im
 Beweis von Satz \ref{kn-variablentransformation}, und ausserdem haben
 wir die Integrationsvariablen von $x_n,\dots,x_{k+1}$ in $x_{n-k},\dots,x_1$
@@ -643,30 +684,45 @@ P_{nk}(x)
 \end{satz}
 \begin{proof}[Beweis]
 Um $P_{nk}(x)$ zu berechnen schreiben wir
-\begin{eqnarray*}
+\begin{align*}
 P_{nk}(x)
-&=&\sum_{1\le r\le k}(P_{nr}(x)-P_{n,r-1}(x))+P_{n0}(x)\\
-&=&\sum_{1\le r\le k}\frac{(r-t)^r}{r!}P_{n-r,0}(x-r)+P_{n0}(x)\\
-&=&\sum_{1\le r\le k}\frac{(r-t)^r}{r!}\biggl(
+&=
+\sum_{1\le r\le k}(P_{nr}(x)-P_{n,r-1}(x))+P_{n0}(x)
+\\
+&=
+\sum_{1\le r\le k}\frac{(r-t)^r}{r!}P_{n-r,0}(x-r)+P_{n0}(x)
+\\
+&=
+\sum_{1\le r\le k}\frac{(r-t)^r}{r!}\biggl(
 \frac{(x-r+t)^{n-r}}{(n-r)!}-
-\frac{(x-r+t)^{n-r-1}}{(n-r-1)!}\biggr)\\
-&&+\frac{(x+t)^{n}}{n!}- \frac{(x+t)^{n-1}}{(n-1)!}\\
-&=&\sum_{0\le r\le k}\frac{(r-t)^r}{r!}\biggl(
+\frac{(x-r+t)^{n-r-1}}{(n-r-1)!}\biggr)
+\\
+&
++\frac{(x+t)^{n}}{n!}- \frac{(x+t)^{n-1}}{(n-1)!}
+\\
+&=
+\sum_{0\le r\le k}\frac{(r-t)^r}{r!}\biggl(
 \frac{(x-r+t)^{n-r}}{(n-r)!}-
-\frac{(x-r+t)^{n-r-1}}{(n-r-1)!}\biggr)\\
-&=&\sum_{0\le r\le k}\frac{(r-t)^r}{r!}
+\frac{(x-r+t)^{n-r-1}}{(n-r-1)!}\biggr)
+\\
+&=
+\sum_{0\le r\le k}\frac{(r-t)^r}{r!}
 \cdot
 \frac{(x-r+t)^{n-r-1}}{(n-r-1)!}
-\biggl( \frac{x-r+t}{n-r}-1 \biggr)\\
-&=&\sum_{0\le r\le k}\frac{(r-t)^r}{r!}
+\biggl( \frac{x-r+t}{n-r}-1 \biggr)
+\\
+&=
+\sum_{0\le r\le k}\frac{(r-t)^r}{r!}
 \cdot
 \frac{(x-r+t)^{n-r-1}}{(n-r-1)!}
-\frac{x-n+t}{n-r}\\
-&=&\sum_{0\le r\le k}\frac{(r-t)^r}{r!}
+\frac{x-n+t}{n-r}
+\\
+&=
+\sum_{0\le r\le k}\frac{(r-t)^r}{r!}
 \cdot
 \frac{(x-r+t)^{n-r-1}}{(n-r)!}
-(x-n+t)
-\end{eqnarray*}
+(x-n+t).
+\end{align*}
 \end{proof}
 Die Verteilungsfunktion f"ur $K_n^+$ findet man jetzt, indem man $x=n$
 einsetzt:
