@@ -635,14 +635,14 @@ dann gilt
 \Delta_{nk}(x)
 &=
 \int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}
-\int_{\color{red}t}^{x_{k+1}}dx_k\dots\int_t^{x_2}dx_1
+\int^{x_{k+1}}_{\color{red}t} dx_k\dots\int_t^{x_2}dx_1
 \\
-&\phantom{=}\quad-\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}
-\int_{\color{red}k}^{x_{k+1}}dx_k\dots\int_t^{x_2}dx_1
+&\phantom{=}\quad-\int_n^{x+t} dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}
+\int^{x_{k+1}}_{\color{red}k} dx_k\dots\int_t^{x_2}dx_1
 \\
 &=
 \int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}
-\int_{t}^{k}dx_k\dots\int_t^{x_2}dx_1.
+\int_{{\color{red}t\mathstrut}}^{\color{red}k}dx_k\dots\int_t^{x_2}dx_1.
 \end{align*}
 Da das Integral "uber $x_k$ feste Grenzen $t$ und $k$ hat, reduziert es
 sich auf eine Konstante $c_k$, welche wir weiter unten berechnen werden.
