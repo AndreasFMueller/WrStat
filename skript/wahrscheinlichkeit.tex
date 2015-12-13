@@ -1,4 +1,3 @@
-%SourceDoc ws-skript.tex
 %
 % wahrscheinlichkeit.tex -- 1. Kapitel, Wahrscheinlichkeitsbegriff
 %
@@ -13,11 +12,14 @@ Trainingsstand der Sportler oder ihrer fr"uheren Leistungen,
 Prognosen abzugeben.
 Sie sind sich dabei oft so sicher, dass sie bereit sind, Geld auf ihren Tipp
 zu wetten.
-Eine solche Prognose ist nicht immer gleich schwierig. Wenn an der
+Eine solche Prognose ist nicht immer gleich schwierig.
+Wenn an der
 Fussball WM der Favorit Brasilien gegen Ghana antritt,
-rechnet wohl niemand ernsthaft mit einem Sieg Ghanas. Die Leute w"urden
+rechnet wohl niemand ernsthaft mit einem Sieg Ghanas.
+Die Leute w"urden
 sagen, es sei unwahrscheinlich, dass das Ereignis ``Ghana gewinnt'' eintreffen
-w"urde. Anders sieht es aus, wenn die Schweiz auf die Ukraine trifft.
+w"urde.
+Anders sieht es aus, wenn die Schweiz auf die Ukraine trifft.
 Die Prognosen "uber den Ausgang dieses Matches waren auch abseits
 manchmal etwas chauvinistischer Hoffnungen mindestens uneinheitlich.
 
@@ -31,13 +33,15 @@ erst nach dem Spiel sagen.
 Wir haben also ein Ereignis, n"amlich einen Sieg der Schweizer Nati,
 und sind mindestens gef"uhlsm"assig in der Lage, dem Eintreten dieses
 Ereignis eine Wahrscheinlichkeit zuzuordnen.
-Eine Sicherheit haben wir aber nicht. 
+Eine Sicherheit haben wir aber nicht.
 Dazu m"ussen wir das Experiment durchf"uhren, und sehen dann,
 welches Ereignis, Sieg oder Niederlage eingetreten ist.
 
 Die Wahrscheinlichkeitsrechnung will solchen Aussagen einen pr"azisen
-mathematischen Sinn geben. Daher brauchen wir zun"achst Definitionen
-f"ur die Begriffe ``Ereignis'' und ``Wahrscheinlichkeit''.  Mit geeigneten
+mathematischen Sinn geben.
+Daher brauchen wir zun"achst Definitionen
+f"ur die Begriffe ``Ereignis'' und ``Wahrscheinlichkeit''.
+Mit geeigneten
 Rechengesetzen sollte die Wahrscheinlichkeit berechnet werden k"onnen,
 und wir sollten eine rationale Grundlage f"ur Sportwetten finden k"onnen.
 
@@ -56,7 +60,8 @@ im Prinzip, drei Versuchsausg"angen: Kopf oder Zahl, ganz selten k"onnte
 die M"unze auch auf der Kante stehen bleiben.
 \item
 \index{Wurfel@W\"urfel}
-Ein weiteres Experiment ist der Wurf eines W"urfels. Klassische W"urfel
+Ein weiteres Experiment ist der Wurf eines W"urfels.
+Klassische W"urfel
 haben sechs Seitenfl"achen, die verschiedene Augenzahlen zeigen.
 Nach jeder Durchf"uhrung des Experimentes zeigt der W"urfel ein neues
 Resultat, das Experiment hat sechs verschiedene Ausg"ange.
@@ -229,7 +234,7 @@ P=\{
 \]
 liegt.
 
-Auch einzelne Messwerte sind oft nicht interessant. 
+Auch einzelne Messwerte sind oft nicht interessant.
 Ein "Uberspannungsereignis tritt zum Beispiel ein, wenn die Spannung
 einen Wert "uberschreitet, oder wenn das Elementarereignis, also der Messwert,
 in der Menge
@@ -263,7 +268,7 @@ dargestellt, bei dem ein zuf"allig ausgew"ahlte Person daraufhin untersucht
 wurde, ob sie mit Ebola in Kontakt kam, daran erkrankte und inzwischen
 verstorben ist.
 Der einzelne Versuchsausgang ist also die Person, die f"ur die
-Untersuchung ausgew"ahlt wurde. 
+Untersuchung ausgew"ahlt wurde.
 Die Menge $\Omega$ ist die Menge aller Personen.
 Folgende Ereignisse wurden untersucht:
 \begin{align*}
@@ -274,7 +279,7 @@ E&=\{\omega\in\Omega\,|\,\text{$\omega$ ist an Ebola erkrankt}\}
 T&=\{\omega\in\Omega\,|\,\text{$\omega$ ist verstorben}\}
 \end{align*}
 Es gilt nat"urlich $E\subset K$, denn wer an Ebola erkrankt, muss mit
-Ebola in Kontakt gekommen sein. 
+Ebola in Kontakt gekommen sein.
 Das umgekehrte gilt nicht, man kann durchaus mit Ebola in Kontakt
 kommen, ohne daran zu erkranken.
 
@@ -305,14 +310,14 @@ $\overline{A}=\Omega\setminus A$.
 Zwei Ereignisse sind speziell.
 Die Menge $\Omega\subset\Omega$ hat die Eigenschaft, dass jeder denkbare
 Versuchsausgang per Definition in $\Omega$ liegt, das Ereignis $\Omega$
-tritt also immer ein. $\Omega$ heisst daher auch das sichere Ereignis.
+tritt also immer ein.
+$\Omega$ heisst daher auch das sichere Ereignis.
 \index{Ereignis!sicheres}
 Die leere Menge $\emptyset\subset\Omega$ hat genau die gegenteilige
 Eigenschaft: was auch immer geschieht, was auch immer f"ur ein 
 Elementarereignis $\omega$ realisiert wird, in $\emptyset$ kann es
-nicht drin sein, also wird $\emptyset$ nie eintreten. $\emptyset$
-heisst daher auch das unm"ogliche
-Ereignis.
+nicht drin sein, also wird $\emptyset$ nie eintreten.
+$\emptyset$ heisst daher auch das unm"ogliche Ereignis.
 \index{Ereignis!unm\"ogliches}
 
 Diese Beispiele zeigen, dass die Modellierung von Ereignissen als Teilmengen
@@ -348,13 +353,18 @@ Modellierung\label{begriffe-zusammenfassung}}
 \subsubsection{AIDS-Test}
 Wenn sich jemand im Bezug auf AIDS riskant verhalten hat, dann ist
 eine seiner Sorgen, dass der AIDS-Test nicht sofort das richtige
-Resultat anzeigt. Und selbst wenn er die notwendige Frist abgewartet
+Resultat anzeigt.
+Und selbst wenn er die notwendige Frist abgewartet
 hat, hat der Test eine geringe Fehlerrate.
-Es k"onnen also verschiedene Ereignisse eintreten. Meistens wird ein
-positiver AIDS-Test richtig anzeigen, dass eine Person HIV hat. Manchmal
-wird der Test jedoch positiv sein, obwohl die Person gesund ist. Und manchmal
+Es k"onnen also verschiedene Ereignisse eintreten.
+Meistens wird ein
+positiver AIDS-Test richtig anzeigen, dass eine Person HIV hat.
+Manchmal
+wird der Test jedoch positiv sein, obwohl die Person gesund ist.
+Und manchmal
 wird der Test zwar ein positives Resultat zeigen, aber die Person ist
-an HIV erkrankt. Gl"uck haben diejenigen, bei denen der Test nicht
+an HIV erkrankt.
+Gl"uck haben diejenigen, bei denen der Test nicht
 anspricht, und die auch tats"achlich gesund sind.
 
 
@@ -372,15 +382,18 @@ anspricht, und die auch tats"achlich gesund sind.
 \end{figure}
 Am 5.~September 2008 schrieb die Gratiszeitung ``20 Minuten'', dass die
 bevorstehende Ziehung der Lotterie Euromillions besondere Gewinnschancen 
-erm"ogliche, weil der Jackpot ungew"ohnlich gross sei. Welche Ereignisse
+erm"ogliche, weil der Jackpot ungew"ohnlich gross sei.
+Welche Ereignisse
 sind in diesem Spiel relevant?
 
 Auf der Euromillions-Website findet man die Erkl"arung, wie das Spiel abl"auft.
 Der Spieler kreuzt auf dem Teilnahmeschein (Abbildung~\ref{euromillionsschein})
-f"unf Zahlen und zwei Sterne an. Dann erfolgt die Ziehung, Euromillions ermittelt
+f"unf Zahlen und zwei Sterne an.
+Dann erfolgt die Ziehung, Euromillions ermittelt
 5 Gewinnzahlen aus dem Bereich 1--50 und 2 Gewinnsterne im Bereich 1--9.
 Jetzt werden die "Ubereinstimmungen zwischen dem Tipp des Teilnehmers und den
-Gewinnzahlen gez"ahlt. Je besser die "Ubereinstimmung desto gr"osser der Gewinn.
+Gewinnzahlen gez"ahlt.
+Je besser die "Ubereinstimmung desto gr"osser der Gewinn.
 
 \begin{table}
 \begin{center}
@@ -415,20 +428,20 @@ Ausser den Gewinnr"angen k"onnen auch andere Ereignisse eintreten,
 die jedoch f"ur die Auszahlung nicht unbedingt von Bedeutung sind,
 oder aus denen sich der Gewinn noch nicht ableiten l"asst:
 \begin{itemize}
-\item {\it Heiris Euromillions Teilnahmeschein f"allt in Gewinnrang 10.} Offenbar
-teilt sich Heiri 4.7\% der Gewinnsumme mit den anderen Teilnehmern, die
-dasselbe Ergebnis erziehlt haben.
-\item {\it Hanna hatte f"unf richtige Zahlen.} Diese Information reicht noch
-nicht, um den Gewinn festzulegen. Hannas Teilnahmeschein f"allt in
-Gewinnrang 1 oder 2 oder 3.
-\item {\it Hermine hatte keinen einzigen Stern richtig.} Hermine k"onnte
+\item {\it Heiris Euromillions Teilnahmeschein f"allt in Gewinnrang 10.}
+Offenbar teilt sich Heiri 4.7\% der Gewinnsumme mit den anderen Teilnehmern,
+die dasselbe Ergebnis erziehlt haben.
+\item {\it Hanna hatte f"unf richtige Zahlen.}
+Diese Information reicht noch nicht, um den Gewinn festzulegen.
+Hannas Teilnahmeschein f"allt in Gewinnrang 1 oder 2 oder 3.
+\item {\it Hermine hatte keinen einzigen Stern richtig.}
+Hermine k"onnte
 etwas gewonnen haben, n"amlich wenn sie 5, 4 oder 2 richtige Zahlen
-gehabt hat (R"ange 3, 6 bzw.~10). Oder sie k"onnte mit 3, 1 oder 0
-richtigen Zahlen nichts gewonnen haben.
-\item {\it Hermann hatte richtige Zahlen und Sterne.} Hermann hatte
-als 1, 2, 3, 4 oder 5 richtige Zahlen {\em und}
-1 oder 2 richtige
-Sterne.
+gehabt hat (R"ange 3, 6 bzw.~10).
+Oder sie k"onnte mit 3, 1 oder 0 richtigen Zahlen nichts gewonnen haben.
+\item {\it Hermann hatte richtige Zahlen und Sterne.}
+Hermann hatte als 1, 2, 3, 4 oder 5 richtige Zahlen {\em und}
+1 oder 2 richtige Sterne.
 \item {\it Es trifft nicht zu, dass Hilary einen richtigen Stern hat.}
 \item {\it Holger hat auf 47 gesetzt.}
 Dieses Ereignis nimmt auf die Ziehung "uberhaupt keinen Bezug,
@@ -436,8 +449,8 @@ trotzdem beschreibt es einen m"oglichen Ausgang des Experimentes.
 \end{itemize}
 Wir stellen fest, dass Ereignisse mit {\em und} (beide Ereignisse sind
 eingetreten) und {\em oder} (eines der Ereignisse ist
-eingetreten) verkn"upft werden k"onnen. Ausserdem k"onnen 
-Ereignisse negiert werden.
+eingetreten) verkn"upft werden k"onnen.
+Ausserdem k"onnen Ereignisse negiert werden.
 
 \subsection{Produkte}
 \begin{figure}
@@ -463,9 +476,11 @@ W"urfeln\label{ereignisse-zwei-wuerfel}}
 \end{figure}
 Wir stellen uns vor, dass ein roter und ein blauer W"urfel geworfen werden.
 Die von den beiden W"urfeln gezeigten Augenzahlen sind verschiedene
-Versuchsausg"ange, sozusagen ``rote'' und ``blaue'' Zahlen. Das Resultat
+Versuchsausg"ange, sozusagen ``rote'' und ``blaue'' Zahlen.
+Das Resultat
 eines Wurfes ist also ein Paar bestehend aus einer ``roten'' und
-einer ``blauen'' Augenzahl. Die Menge aller m"oglichen Ausg"ange
+einer ``blauen'' Augenzahl.
+Die Menge aller m"oglichen Ausg"ange
 ist also 
 \[
 \Omega = \Omega_{\text{rot}}\times\Omega_{\text{blau}},
@@ -485,8 +500,8 @@ Y_i&=\{(x,i)\in\Omega\}\\
 S_s&=\{(x,y)\in\Omega\;|\; x + y = s\}\\
 D_d&=\{(x,y)\in\Omega\;|\; |x - y| = d\}\\
 \end{align*}
-Und damit lassen sich auch etwas spannendere Rechnungen durchf"uhren. Zum
-Beispiel:
+Und damit lassen sich auch etwas spannendere Rechnungen durchf"uhren.
+Zum Beispiel:
 \begin{align*}
 A_1&=\Omega \setminus A_2 = \bar A_2\\
 A_1\cap A_2&=\emptyset\\
@@ -552,12 +567,13 @@ A,B\in {\cal A}\Rightarrow A\cup B\in{\cal A}
 \[
 A,B\in {\cal A}\Rightarrow A\setminus B\in{\cal A}
 \]
-\item $\Omega\in{\cal A}$, d.h. es gibt das sichere Ereignis.
+\item $\Omega\in{\cal A}$, d.~h.~es gibt das sichere Ereignis.
 \end{enumerate}
 \end{definition}
 
 Sind nur die Bedingungen 1 und 2 erf"ullt, spricht man auch von einem
-Mengen-Ring. Eine Ereignisalgebra heisst manchmal auch ein Mengen-K"orper.
+Mengen-Ring.
+Eine Ereignisalgebra heisst manchmal auch ein Mengen-K"orper.
 
 Aus den Axiomen f"ur die Ereignisalgebra lassen sich sofort erst
 Schlussfolgerungen ziehen:
@@ -571,7 +587,8 @@ Schlussfolgerungen ziehen:
 \section{Weitere Beispiele von Ereignisalgebren} \label{section-beispiele}
 \subsection{Dominosteine}
 Die Menge aller m"oglichen Dominosteine wurde bereits fr"uher untersucht.
-Jetzt m"ochten wir darin einzelne Ereignisse auszeichnen. Wir beschreiben
+Jetzt m"ochten wir darin einzelne Ereignisse auszeichnen.
+Wir beschreiben
 einen einzelnen Dominostein als ein paar $(x,y)$, wobei $x\ge y$ sein soll.
 Beispiele von Ereignissen:
 \begin{align*}
@@ -586,7 +603,8 @@ P&=\{\text{beide Augenzahlen sind Primzahlen}\}\\
 \end{align*}
 
 \subsection{W"urfeln mit zwei W"urfeln}
-Bei einem W"urfelspiel wirft man jeweils zwei W"urfel. Zeigen beide W"urfel
+Bei einem W"urfelspiel wirft man jeweils zwei W"urfel.
+Zeigen beide W"urfel
 die gleiche Zahl, man nennt dies einen {\em Pasch}, darf man genau ein
 weiteres Mal w"urfeln.
 Die Elementarereignisse sind also entweder einfach Paare, also von
@@ -620,7 +638,8 @@ Damit kann man jetzt alle m"oglichen Elementarereignisse auflisten
 \{(P_1,(x,y))\}
 \end{align*}
 Man sieht daraus zum Beispiel, dass es $30 + 6\cdot 36=246$
-Elementarereignisse gibt. Darin enthalten sind die Ereignisse
+Elementarereignisse gibt.
+Darin enthalten sind die Ereignisse
 \begin{align*}
 P&=\{\text{Pasch im ersten Wurf}\}\\
 &=
@@ -675,7 +694,8 @@ Darin unterscheiden wir:
 H&=\{\text{Person hat HIV}\}\\
 T&=\{\text{Person hat positiven AIDS-Test}\}
 \end{align*}
-Es ist klar, dass $H\ne T$. Es gibt Personen, die zwar HIV haben, bei
+Es ist klar, dass $H\ne T$.
+Es gibt Personen, die zwar HIV haben, bei
 denen der Test dies aber noch nicht zeigen kann, $H\setminus T\ne \emptyset$.
 Andererseits gibt es falsche positive Testresultate,
 $T\setminus H\ne\emptyset$. 
@@ -714,15 +734,19 @@ Bei einer Messung wird ein Messwert ermittelt, dieser kann jedoch
 nur mit einer begrenzten Genauigkeit festgehalten werden.
 Die Elementarereignisse sind zwar immer noch alle m"oglichen rellen
 Zahlen $\mathbb R$, aber sinnvolle Ereignisse sind nur bestimmte Teilmengen
-$A\subset\mathbb R$. Wir wollen bestimmen, welche Teilmengen das sind.
+$A\subset\mathbb R$.
+Wir wollen bestimmen, welche Teilmengen das sind.
 
 Zun"achst f"uhren wir dies an einem Beispiel durch.
 Bei einer am 1.~November 2006
 zuf"allig bei Pusterla in Z"urich gekauften Stichprobe von 20 1k$\Omega$
 Widerst"anden ergaben sich beim Nachmessen die Widerstandswerte in 
-Tabelle \ref{widerstandswerte}. Offensichtlich streuen die Messwerte
-zwischen 0.989 und 0.992. Genauere Informationen kann das Messger"at nicht
-anzeigen. Wir k"onnen aus den Daten also eigentlich nur folgendes schliessen:
+Tabelle \ref{widerstandswerte}.
+Offensichtlich streuen die Messwerte
+zwischen 0.989 und 0.992.
+Genauere Informationen kann das Messger"at nicht
+anzeigen.
+Wir k"onnen aus den Daten also eigentlich nur folgendes schliessen:
 der Widerstand mit der Nummer eins hat einen Wert $0.990\le R_1<0.991$.
 Der Widerstandswert $R_1$ ist ein Versuchsergebnis, also ein Elementarereignis,
 liegt aber in der Menge
@@ -760,7 +784,8 @@ $\{R\ge 0.990\}$&14\\
 \end{center}
 
 Etwas formaler: Eine Genauigkeitsangabe bei einem Messwert definiert
-ein Intervall, in dem sich ein Messwert befinden muss. Wir
+ein Intervall, in dem sich ein Messwert befinden muss.
+Wir
 fordern also, dass $\cal A$ alle Intervalle der Form $[a,b]\subset\mathbb R$
 enthalten muss.
 Aber auch die Aussage ``der Messwert ist kleiner als $a$''
@@ -777,15 +802,18 @@ Da wir Komplemente bilden k"onnen, m"ussen auch die offenen Intervalle
 \overline{[a,\infty)}&=\mathbb R\setminus [a,\infty)=(-\infty,a)\in\cal A\\
 \overline{(-\infty,b]}&=\mathbb R\setminus (-\infty,b]= (b,\infty)\in\cal A
 \end{align*}
-Ereignisse sein. Ein beliebiges offenes Intervall l"asst sich
+Ereignisse sein.
+Ein beliebiges offenes Intervall l"asst sich
 als Durchschnitt zweier solcher Intervalle ausdr"ucken:
 \[
 (a,b)=(-\infty, b)\cap(a,\infty).
 \]
 Durch Bildung von geeigneten Durchschnitten lassen sich also alle
-Intervalle bilden. Ausserdem m"ussen alle Teilmengen von $\mathbb R$
+Intervalle bilden.
+Ausserdem m"ussen alle Teilmengen von $\mathbb R$
 zu $\cal A$ hinzugenommen werden, die sich durch Bildung von Komplementen,
-Durchschnitten und Vereinigungen bilden lassen. Offensichtlich ist $\cal A$
+Durchschnitten und Vereinigungen bilden lassen.
+Offensichtlich ist $\cal A$
 in diesem Falle sehr kompliziert.
 
 \section{Wahrscheinlichkeit} \label{section-wahrscheinlichkeit}
@@ -808,7 +836,7 @@ k"onnten:
 \begin{itemize}
 \item 
 Je h"aufiger ein Ereignis eintritt, desto gr"osser sollte die
-Wahrscheinlichkeit sein. 
+Wahrscheinlichkeit sein.
 Dies setzt voraus, dass das Experiment im Prinzip beliebig oft wiederholbar 
 ist.
 Man nennt dies den {\em frequentistischen} Ansatz.
@@ -849,19 +877,21 @@ Wenn ``sehr
 wahrscheinlich'' heissen soll ``in der Mehrzahl der F"alle'', dann
 bedeutet das offensichtlich, dass man eine gr"ossere Zahl von
 Experimenten durchf"uhren soll, und dann die F"alle z"ahlen soll,
-in denen das Ereignis tats"achlich eingetreten ist. Deren Anteil
+in denen das Ereignis tats"achlich eingetreten ist.
+Deren Anteil
 an der Gesamtzahl heisst {\em relative H"aufigkeit} und ist eine erste,
-etwas pr"azisere Fassung des Begriffs der Wahrscheinlichkeit. 
+etwas pr"azisere Fassung des Begriffs der Wahrscheinlichkeit.
 
 Grundlegend f"ur die Wahrscheinlichkeitsrechnung ist die aus der
 \index{Wahrscheinlichkeit!als relative H\"aufigkeit}
 Erfahrung mit einer grossen Zahl von Versuchen gewonnene Zuversicht,
 dass die relative H"aufigkeit mit wachsender Anzahl Versuche gegen
-eine Gr"osse $P(A)$ strebt. Man verwendet diese Annahme daher als
-Definition. Wiederholt
-man ein Experiment $N$ Male, und tritt dabei das Ereignis $A$
+eine Gr"osse $P(A)$ strebt.
+Man verwendet diese Annahme daher als Definition.
+Wiederholt man ein Experiment $N$ Male, und tritt dabei das Ereignis $A$
 genau $n$ mal ein, dann erwartete man, dass der Quotient $\frac{n}{N}$
-eine gute N"aherung f"ur $P(A)$ ist. Je "ofter man das Experiment
+eine gute N"aherung f"ur $P(A)$ ist.
+Je "ofter man das Experiment
 wiederholt, desto n"aher sollte der Quotient der Gr"osse $P(A)$
 kommen, also
 \[
@@ -869,9 +899,11 @@ P(A) := \lim_{N\to\infty}\frac{n}{N}.
 \]
 
 Leider ist es nur selten praktikabel, das Experiment tats"achlich
-sehr h"aufig zu wiederholen.  Bei der Pr"ufung neuer Medikamente
+sehr h"aufig zu wiederholen.
+Bei der Pr"ufung neuer Medikamente
 zum Beispiel hindern moralische Bedenken daran, eine grosse
-Zahl von Experimenten mit Menschen durchzuf"uhren. Bei der
+Zahl von Experimenten mit Menschen durchzuf"uhren.
+Bei der
 Ausbruchswahrscheinlichkeit eines Vulkans oder der
 Einschlagswahrscheinlichkeit eines Asteroiden auf der Erde hat man
 ganz einfach keine Kontrolle "uber das Experiment.
@@ -880,7 +912,8 @@ Das Ziel der Wahrscheinlichkeitstheorie ist daher,
 die Abbildung $P\colon {\cal A}\to\mathbb{R}$
 abstrakt zu definieren, und geeignete Axiome zu postulieren, die
 der eben skizzierten intuitiven Vorstellung der Wahrscheinlichkeit
-einen strengen Sinn geben. Damit wird die Funktion $P$ in vielen
+einen strengen Sinn geben.
+Damit wird die Funktion $P$ in vielen
 F"allen berechenbar, meist nat"urlich unter zus"atzlichen Annahmen.
 Die grundlegenden Eigenschaften sind in den folgenden, f"ur
 relative H"aufigkeiten unmittelbar einleuchtenden Axiomen
@@ -919,7 +952,7 @@ Bisher wissen wir nur, dass endliche
 Vereinigungen von Ereignissen gebildet werden k"onnen, jetzt m"ussen
 wir fordern, dass
 auch unendliche Vereinigungen von Ereignissen wieder Ereignisse sind.
-D.h. wir setzen im Folgenden voraus, dass in einer
+D.~h.~wir setzen im Folgenden voraus, dass in einer
 Ereignisalgebra in Erweiterung des ersten Axioms auch gilt:
 
 \begin{definition}
@@ -939,10 +972,12 @@ ausgehen, dass die Vereinigungsformel~(\ref{p-summenformel}) ``funktioniert''.
 
 \subsection{Beispiel: W"urfeln}
 Beim W"urfeln mit einem W"urfel erwartet man, dass jeder m"ogliche
-Ausgang etwa gleich h"aufig sein wird. Bei einer grossen Zahl von
+Ausgang etwa gleich h"aufig sein wird.
+Bei einer grossen Zahl von
 Versuchen wird man also feststellen, dass die relative H"aufigkeit
 des Ereignisses, dass eine $4$ gew"urfelt wird, gegen $\frac16$
-konvergieren wird. Die zus"atzliche Annahme steckt in diesem Fall
+konvergieren wird.
+Die zus"atzliche Annahme steckt in diesem Fall
 darin, dass man alle Ausg"ange als gleich wahrscheinlich annimmt.
 
 \begin{table}
@@ -968,9 +1003,11 @@ $\Delta$& 3& 11& 20& 58& 265& 1091& 2934& 13343\\
 \end{table}
 
 Die tats"achliche Durchf"uhrung von ``gen"ugend'' vielen Experimenten
-kann hingegen schwierig sein. Eine Computer-Simulation des
+kann hingegen schwierig sein.
+Eine Computer-Simulation des
 W"urfel-Experiments zeigt zum Beispiel die Resultate in Tabelle
-\ref{wuerfel-simulation}. Offensichtlich ist selbst mit $10^8$
+\ref{wuerfel-simulation}.
+Offensichtlich ist selbst mit $10^8$
 W"urfen die Wahrscheinlichkeit erst auf drei Stellen nach dem Komma
 genau.
 
@@ -1016,7 +1053,8 @@ Indem man auf beiden Seiten der Gleichung $P(\Omega)$ subtrahiert,
 folgt $0 = P(\emptyset)$.
 
 F"ur das komplement"are Ereignis gilt $A\cap\bar A=\emptyset$ und
-$A\cup\bar A=\Omega$. Aus der Summenformel (\ref{p-summenformel}) folgt
+$A\cup\bar A=\Omega$.
+Aus der Summenformel (\ref{p-summenformel}) folgt
 \[
 1 = P(\Omega) = P(A\cup\bar A) = P(A) + P(\bar A)
 \]
@@ -1064,16 +1102,19 @@ hat keine Entsprechung.
 Demzufolge k"onnen Ereignisse oft auch als Fl"achen in einem Diagramm
 visualisiert werden,
 die umso gr"osser sind, je gr"osser die Wahrscheinlichkeit des Ereignisses
-ist. Bei einem Dart-Spiel liegt es nahe, dass die Wahrscheinlichkeit, ein
+ist.
+Bei einem Dart-Spiel liegt es nahe, dass die Wahrscheinlichkeit, ein
 bestimmtes Feld zu treffen, umso gr"osser ist, je gr"osser der Fl"achen-Anteil
-dieses Feldes an der ganzen Scheibe ist. Nat"urlich trifft dies nur bei einem
+dieses Feldes an der ganzen Scheibe ist.
+Nat"urlich trifft dies nur bei einem
 sehr schlechten Dart-Spieler zu, dessen Pfeile gleichm"assig verteilt auf
 die Scheibe treffen.
 
 Diese
 "Uberlegung kann jedoch dazu verwendet werden, die Wahrscheinlichkeiten
 eines Meteoriteneinschlages in der Schweiz und im F"urstentum Liechtenstein
-miteinander zu vergleichen. Wir erwarten, dass die Wahrscheinlichkeit
+miteinander zu vergleichen.
+Wir erwarten, dass die Wahrscheinlichkeit
 proportional zur Fl"ache sein wird, also
 \[
 \frac{P(\text{CH})}{P(\text{FL})}=
@@ -1084,20 +1125,23 @@ die Wahrscheinlichkeit f"ur einen Meteoriteneinschlag im L"andle ist also
 "uber 258mal kleiner.
 
 Umgekehrt k"onnte man die Idee zu einer Fl"achenberechnungs- oder
-Integra\-tions\-methode ausbauen. Um den Fl"acheninhalt einer unregelm"assigen
+Integra\-tions\-methode ausbauen.
+Um den Fl"acheninhalt einer unregelm"assigen
 Teilmenge
 eines Rechteckes in der Ebene zu bestimmen, simuliert man mit dem
 Computer gleichm"assig verteilte ``Sch"usse'' auf diese ``Zielscheibe''.
 Der Anteil der Treffer in der Teilmenge ergibt ein Mass f"ur dessen
-Fl"ache. Leider ist das Verfahren in dieser Form praktisch nicht
+Fl"ache.
+Leider ist das Verfahren in dieser Form praktisch nicht
 durchf"uhrbar, weil viel zu viele ``Sch"usse'' notwendig sind, um
-eine gen"ugende Genauigkeit zu erreichen. Es kann aber durchaus
+eine gen"ugende Genauigkeit zu erreichen.
+Es kann aber durchaus
 zu einem praktikablen Verfahren verfeinert werden (Monte Carlo Methoden).
 
 Wegen
 der Analogie zu einer Fl"achenmessung heisst eine
-Wahrscheinlichkeitsfunktion $P$ oft auch ein {\em Wahrscheinlichkeitsmass}. Das
-Tripel $(\Omega,{\cal A}, P)$ heisst ein {\em Wahrscheinlichkeitsraum}.
+Wahrscheinlichkeitsfunktion $P$ oft auch ein {\em Wahrscheinlichkeitsmass}.
+Das Tripel $(\Omega,{\cal A}, P)$ heisst ein {\em Wahrscheinlichkeitsraum}.
 
 \section{Laplace-Experimente} \label{section-laplace-ereignisse}
 Bisher sind wir nicht in der Lage, die Wahrscheinlichkeit eines Ereignisses
@@ -1142,8 +1186,9 @@ Versuchsausg"ange in $A$ reduziert, also auf eine Kombinatorik-Aufgabe.
 Wirft man eine M"unze, kann sie nur auf einer von zwei Seiten landen,
 die Elementarereignisse sind also $\Omega = \{\text{Kopf}, \text{Zahl}\}$.
 Die mathematisch idealisierte M"unze ist so d"unn, dass sie nicht auf
-der Kante stehen kann. Nach allgemeiner Erfahrung funktioniert f"ur
-solche M"unzen der Ansatz von Laplace, d.h. $P(\text{Kopf}) = \frac12$
+der Kante stehen kann.
+Nach allgemeiner Erfahrung funktioniert f"ur
+solche M"unzen der Ansatz von Laplace, d.~h.~$P(\text{Kopf}) = \frac12$
 und $P(\text{Zahl})=\frac12$.
 
 Selbstverst"andlich gibt es auch M"unzen, f"ur die die Laplace-Annahme
@@ -1166,9 +1211,11 @@ Seite, und die Wahrscheinlichkeiten sind nicht mehr gleich.
 \caption{Verschiedene Spielw"urfel\label{bild-spielwuerfel}}
 \end{figure}
 Man kann auch aus anderen geometrischen K"orpern ``W"urfel'' bauen, die
-eine gr"ossere Zahl von Ausg"angen erm"oglichen. Ein Dodekaeder hat
+eine gr"ossere Zahl von Ausg"angen erm"oglichen.
+Ein Dodekaeder hat
 zw"olf Seiten, ein Ikosaeder sogar deren 20, aber auch andere Formen
-sind realisierbar, siehe Abbildung~\ref{bild-spielwuerfel}. Der Einfachheit
+sind realisierbar, siehe Abbildung~\ref{bild-spielwuerfel}.
+Der Einfachheit
 halber gehen wir im Folgenden immer von sechsseitigen W"urfeln aus.
 
 Das Werfen eines solchen W"urfels erzeugt die folgenden Elementarereignisse
@@ -1177,7 +1224,8 @@ oder Versuchsergebnisse:
 \Omega=\{1,2,3,4,5,6\}.
 \]
 Nach dem Laplace'schen Ansatz wird jedem Elementarereignis die
-Wahrscheinlichkeit $\frac16$ zugeschrieben. Damit lassen sich
+Wahrscheinlichkeit $\frac16$ zugeschrieben.
+Damit lassen sich
 Wahrscheinlichkeiten berechnen:
 \begin{align*}
 P(\text{``gerade Zahl''})=P(\{2,4,6\})&=\frac36=0.5\\
@@ -1187,9 +1235,11 @@ P(< 7)=P(\Omega)&=\frac66=1
 
 \subsection{Zwei W"urfel}
 In verschiedenen Spielen wird mit zwei W"urfeln gespielt, wobei nur
-deren Augensumme interessiert. Die Ereignisalgebra dazu wurde bereits
+deren Augensumme interessiert.
+Die Ereignisalgebra dazu wurde bereits
 fr"uher vorgestellt, die Elementarereignisse sind Paare $(i,j)$ aus
-den Augenzahlen der beiden W"urfel. Die Menge der Elementarereignisse
+den Augenzahlen der beiden W"urfel.
+Die Menge der Elementarereignisse
 ist also
 % hier brauchen wir wirklich ein eqnarray, wegen dem Spacing
 \begin{eqnarray*}
@@ -1202,7 +1252,8 @@ ist also
 &&(6,1),(6,2),(6,3),(6,4),(6,5),(6,6),\\
 &\},&
 \end{eqnarray*}
-und $|\Omega|=36$. Wenn nur die Augensumme interessiert, dann will
+und $|\Omega|=36$.
+Wenn nur die Augensumme interessiert, dann will
 man offensichtlich die Ereignisse
 \begin{align*}
 A_2&=\{\Sigma=2\}=\{(1,1)\}\\
@@ -1229,16 +1280,19 @@ am gleichen Tag Geburtstag haben? Hierbei nimmt man an, dass
 jeder Tag im Jahr etwa gleich h"aufig als Geburtstag
 vorkommt\footnote{Dies ist
 jedoch nicht ganz richtig, wie Geb"arabteilungen in Spit"alern
-best"atigen k"onnen. Auch haben gr"ossere Stromausf"alle h"aufig
+best"atigen k"onnen.
+Auch haben gr"ossere Stromausf"alle h"aufig
 einen Geburtenzuwachs ungef"ahr neun Monate sp"ater zur Folge.}.
 Ein Elementarereignis muss also jeder der $n$ Personen ein
-Geburtsdatum aus den $366$ m"oglichen zuweisen. Dies kann man so
+Geburtsdatum aus den $366$ m"oglichen zuweisen.
+Dies kann man so
 formulieren:
 \[
 \omega=(d_1, d_2, d_3,\dots,d_n)
 \]
 Dabei ist $d_1$ das Geburtsdatum der ersten Person, $d_2$ das
-Geburstdatum der zweiten Person, etc. Der Einfachheit halber kann
+Geburstdatum der zweiten Person, etc.
+Der Einfachheit halber kann
 man f"ur die $d_i$ einfach Zahlen zwischen 1 und 366 nehmen.
 
 $\Omega$ besteht also aus allen m"oglichen Auswahlen von Geburtstagen
@@ -1264,8 +1318,10 @@ Gefragt ist nun das Ereignis
 ``zwei Personen haben am gleichen Tag Geburtstag''.
 Selbstverst"andlich d"urfen dabei auch alle am gleichen Tag
 Geburstag haben, oder es darf zwei Paare geben, die jeweils
-"ubereinstimmende Geburtstage haben. Es darf einfach nicht
-sein, dass alle Geburtstage verschieden sind. Also ist eigentlich
+"ubereinstimmende Geburtstage haben.
+Es darf einfach nicht
+sein, dass alle Geburtstage verschieden sind.
+Also ist eigentlich
 gemeint:
 \begin{align*}
 A&=\{\text{``zwei haben am gleichen Tag Geburstag''}\}\\
@@ -1273,7 +1329,8 @@ A&=\{\text{``zwei haben am gleichen Tag Geburstag''}\}\\
 &=\overline{\{\text{``alle Geburstage sind verschieden''}\}}.
 \end{align*}
 In dieser letzten Form ist die Wahrscheinlichkeit einfacher zu
-berechnen. Es gilt ja:
+berechnen.
+Es gilt ja:
 \begin{align*}
 P(A)&=P(\{\text{``zwei haben am gleichen Tag Geburstag''}\})\\
 &=1-P(\{\text{``alle Geburstage sind verschieden''}\})
@@ -1281,11 +1338,13 @@ P(A)&=P(\{\text{``zwei haben am gleichen Tag Geburstag''}\})\\
 Die Anzahl der Geburtstagsverteilungen, bei denen alle Geburtstage
 verschieden sind, ist einfach zu ermitteln: F"ur die erste Person
 kann man $366$ Geburtstage ausw"ahlen, f"ur die zweite $365$, die
-dritte $364$ etc. Insgesamt hat man
+dritte $364$ etc.
+Insgesamt hat man
 \[
 366\cdot365\cdot364\dots(366-n+1)
 \]
-M"oglichkeiten. Also ist die Wahrscheinlichkeit, dass unter $n$
+M"oglichkeiten.
+Also ist die Wahrscheinlichkeit, dass unter $n$
 Personen zwei am gleichen Tag Geburtstag haben:
 \[
 P(A)
@@ -1395,7 +1454,7 @@ Es w"are noch nachzupr"ufen, dass diese Menge alle Axiome einer
 Ereignisalgebra erf"ullt sind\footnote{Da diese technischen Feinheiten 
 f"ur die Zwecke dieses Skripts von untergeordneter Bedeutung sind, verzichten
 wir auf die explizite Verifikation.}.
-Diese Konstruktion macht $B$ zum sicheren Ereignis, d.h. in der ``Welt''
+Diese Konstruktion macht $B$ zum sicheren Ereignis, d.~h.~in der ``Welt''
 $(\Omega_{|B},{\cal A}_{|B})$ trifft $B$ immer ein (Abbildung~\ref{bedingt2}).
 In $(\Omega_{|B},{\cal A}_{|B})$ muss man also davon ausgehen, dass $B$
 bereits eingetroffen ist.
@@ -1431,17 +1490,22 @@ $P(A\cap B)$ aufzustellen, die uns bisher fehlen.
 \begin{center}
 \includegraphics{images/abhaengigkeit-1}
 \end{center}
-\caption{Unabh"angige Ereignisse. Die Ereignisse sind so dargestellt,
-dass ihre Wahrscheinlichkeit proportional zur Fl"ache ist. $P(A)$ und $P(B)$
+\caption{Unabh"angige Ereignisse.
+Die Ereignisse sind so dargestellt,
+dass ihre Wahrscheinlichkeit proportional zur Fl"ache ist.
+$P(A)$ und $P(B)$
 entsprechen dem Teilverh"altnis, in dem $A$ bzw.~$B$ die Seite des grossen
-Rechtecks teilen. $P(A\cap B)=P(A)\cdot P(B)$\label{unabhaengig}}
+Rechtecks teilen.
+$P(A\cap B)=P(A)\cdot P(B)$\label{unabhaengig}}
 \end{figure}
 \begin{figure}
 \begin{center}
 \includegraphics{images/abhaengigkeit-2}
 \end{center}
-\caption{Abh"angige Ereignisse. $P(A\cap B)$ ist offensichtlich viel kleiner
-als $P(A)\cdot P(B)$. $A$ wird unwahrscheinlicher, wenn bereits $B$ eingetreten
+\caption{Abh"angige Ereignisse.
+$P(A\cap B)$ ist offensichtlich viel kleiner
+als $P(A)\cdot P(B)$.
+$A$ wird unwahrscheinlicher, wenn bereits $B$ eingetreten
 ist.
 \label{abhaengig}}
 \end{figure}
@@ -1449,24 +1513,29 @@ Der Grund daf"ur, dass es keine einfache Rechenregel f"ur die Berechung von
 $P(A\cap B)$ aus $P(A)$ und $P(B)$ gibt, wird mit der
 Visualisierung der Ereignisse im in einem Venn-Diagramm sofort klar.
 Die Elementarereignisse seien so angeordnet, dass $A$ das durch eine
-vertikale Strecke abgetrennte linke Teilrechteck von $\Omega$ ist. Ausserdem
+vertikale Strecke abgetrennte linke Teilrechteck von $\Omega$ ist.
+Ausserdem
 sollen Sie so angeordnet sein, dass die Wahrscheinlichkeit dem
 Fl"acheninhalt im Diagramm entspricht.
 
 Das Ereignis $B$ ist jetzt im Allgemeinen eine Teilmenge, die sowohl $A$ 
-als auch $\bar A$ schneidet. Die Wahrscheinlichkeit $P(A \cap B)$ entspricht
-der Fl"ache der Schnittmenge im Diagramm. Im Allgemeinen haben wir
+als auch $\bar A$ schneidet.
+Die Wahrscheinlichkeit $P(A \cap B)$ entspricht
+der Fl"ache der Schnittmenge im Diagramm.
+Im Allgemeinen haben wir
 nur aus $P(B)$ nicht gen"ugend Information um zu entscheiden, welche
 ``Form'' $A\cap B$ hat, wir k"onnen also nicht erwarten, dass wir $P(A\cap B)$
 berechnen k"onnen.
 
 Wenn sich $B$ ebenfalls mittels einer horizontalen Strecke als Rechteck
 einzeichnen l"asst, dann ist $P(B)$ auch das Teilverh"altnis, in dem
-die Strecke die vertikale Kante des Diagrams teilt. Somit kann man $P(A\cap B)$
+die Strecke die vertikale Kante des Diagrams teilt.
+Somit kann man $P(A\cap B)$
 als Fl"acheninhalt des Schnittrechtecks berechnen: $P(A\cap B)=P(A)\cdot P(B)$.
 Die Voraussetzung bedeutet, dass das Eintreffen von $B$ nicht wahrscheinlicher
 oder weniger
-wahrscheinlich wird, wenn $A$ eintrifft. Das Eintreffen von $B$ h"angt also
+wahrscheinlich wird, wenn $A$ eintrifft.
+Das Eintreffen von $B$ h"angt also
 nicht mit dem Eintreffen von $A$ zusammen.
 
 \begin{definition}
@@ -1478,10 +1547,12 @@ P(A\cap B) = P(A)\cdot P(B).
 \end{definition}
 
 Beim W"urfeln sagt die Erfahrung, dass sich ein W"urfel nicht an den
-letzten Wurf erinnern kann, d.h. der Ausgang des letzten Wurfes hat
-keinen Einfluss auf den n"achsten Wurf. Die Ereignisse ``im ersten
+letzten Wurf erinnern kann, d.~h.~der Ausgang des letzten Wurfes hat
+keinen Einfluss auf den n"achsten Wurf.
+Die Ereignisse ``im ersten
 Wurf wird eine 5 gew"urfelt'' und ``im zweiten Wurf wird eine 6 gew"urfelt''
-sind also unabh"angig. Die Wahrscheinlichkeit, dass mit einem W"urfel
+sind also unabh"angig.
+Die Wahrscheinlichkeit, dass mit einem W"urfel
 erst eine 5, dann eine 6 gew"urfelt wird, ist also
 \begin{align*}
 P(A\cap B)&=P(\text{``erster Wurf: 5''}\cap\text{``zweiter Wurf: 6''})\\
@@ -1495,7 +1566,9 @@ $P_{|B}(A)$ konstruiert, die wir auch
 \[
 P(A|B)=\frac{P(A\cap B)}{P(B)}
 \]
-schreiben. Die Bedeutung des Symbols $P(A|B)$ ist die folgende. Bei der
+schreiben.
+Die Bedeutung des Symbols $P(A|B)$ ist die folgende.
+Bei der
 Bestimmung der Wahrscheinlichkeit werden nur diejenigen Experimente
 ber"ucksichtigt, bei denen das Ereignis $B$ eingetreten ist.
 Alle anderen Experimente interessieren nicht.
@@ -1503,16 +1576,22 @@ Alle anderen Experimente interessieren nicht.
 \subsubsection{Beispiel: Autounf"alle und Alkohol}
 Wenn jemand sagt, 50\%
 der t"odlichen Autounf"alle geschehen unter Alkoholeinfluss, dann
-meint er genau genommen eigentlich folgendes. Wir machen ein Experiment,
-bei dem wir jeden Autounfall untersuchen. Das Ereignis $T$ umfasst alle
+meint er genau genommen eigentlich folgendes.
+Wir machen ein Experiment,
+bei dem wir jeden Autounfall untersuchen.
+Das Ereignis $T$ umfasst alle
 t"odlich ausgehenden Autounf"alle, das Ereignis $A$ all jene, bei denen
-Alkohol im Spiel war. Uns interessieren jetzt nur noch die t"odlichen
+Alkohol im Spiel war.
+Uns interessieren jetzt nur noch die t"odlichen
 Unf"alle, also die, bei denen das Ereignis $T$ eingetreten ist. 
-Die anderen untersuchen wir gar nicht mehr. Jetzt m"ochten wir die
+Die anderen untersuchen wir gar nicht mehr.
+Jetzt m"ochten wir die
 Wahrscheinlichkeit wissen, dass Alkohol im Spiel war, aber nur noch
-bei den t"odlichen Unf"allen. Dies ist $P(A|T)$, also gilt
+bei den t"odlichen Unf"allen.
+Dies ist $P(A|T)$, also gilt
 $P(A|T)=50\% = 0.5$.
-$P(T|A)$ ist hingegen ganz etwas anderes. Hier fragt man danach,
+$P(T|A)$ ist hingegen ganz etwas anderes.
+Hier fragt man danach,
 wie wahrscheinlich es ist, dass bei einem Autounfall unter Alkoholeinfluss
 ein Toter zu beklagen ist.
 
@@ -1521,7 +1600,8 @@ ein Toter zu beklagen ist.
 \index{Lungenkrebs}
 In einem Zeitungsartikel gefunden: Die Wahrscheinlichkeit, dass ein Raucher
 Lungenkrebs entwickelt, ist 15\%, bei einem Nichtraucher ist sie nur 1\%.
-Das Experiment besteht darin, einen Menschen zu beobachten. Einige
+Das Experiment besteht darin, einen Menschen zu beobachten.
+Einige
 davon sind Raucher (Ereignis $R$), einige entwickeln Lungenkrebs (Ereignis $L$).
 Betrachtet man nur die Raucher, so ist die Wahrscheinlichkeit f"ur
 Lungenkrebs 15\%, also
@@ -1565,126 +1645,17 @@ $P(B|A)$&\begin{minipage}[t]{3.0in}\strut Wahrscheinlichkeit, dass $B$ eintritt,
 \label{condprob}}
 \end{figure}
 
-%\subsubsection{Technische Details}
-%{\small
-%In der Einleitung zu diesem Abschnitt wurde bereits die Konstruktion
-%$(\Omega_{|B},{\cal A}_{|B})$ durchgef"uhrt, es ist aber notwendig
-%nachzupr"ufen, dass dabei alles mit rechten Dingen zuging, und dass die
-%dabei tats"achlich eine Ereignisalgebra konstruiert wurde, und im Falle von
-%$P_{|B}$ eine Wahrscheinlichkeitsfunktion.
-%
-%\begin{satz} Ist $(\Omega,{\cal A})$ eine Ereignisalgebra und
-%$B\in{\cal A}$ ein Ereignis, dann ist $(\Omega_{|B},{\cal A}_{|B})$
-%eine Ereignisalgebra mit
-%\begin{eqnarray*}
-%\Omega_{|B}&=&B\\
-%{\cal A}_{|B}&=&\{A\cap B\;|\;A\in{\cal A}\}.\\
-%\end{eqnarray*}
-%\end{satz}
-%\begin{proof}[Beweis]
-%Es muss nachgepr"uft werden, dass die Vereinigung und die
-%Differenz von Ereignissen
-%wieder ein Ereignis ist, und dass $\Omega_{|B}\in{\cal A}_{|B}$.
-%Dazu bemerken wir zun"achst, dass die Mengen $A\cap B\in {\cal A}_{|B}$
-%nat"urlich auch Ereignisse in ${\cal A}$ sind, denn Schnittmengen von
-%Ereignissen sind ja wieder Ereignisse.
-%
-%Eine Folge von Ereignissen $B_i\in{\cal A}_{|B}$ ist also auch eine
-%Folge von Ereignissen $B_i\in{\cal A}$, d.h. auch deren Vereinigung
-%ist ein Ereignis in ${\cal A}$. Die Vereinigung ist aber auch eine Teilmenge
-%von $B$, denn jede einzelne Menge ist darin enthalten. Somit ist
-%$$\bigcup_{i=0}^{\infty}B_i=
-%B\cap \bigcup_{i=0}^{\infty}B_i\in{\cal A}_{|B}.$$
-%Analog folgt, dass mit $C,D\in{\cal A}_{|B}$ auch $C\setminus D$ in ${\cal A}$
-%ist, aber auch $C\setminus D\subset B$,
-%also $C\setminus D=B\cap(C\setminus D)\in{\cal A}_{|B}$.
-%
-%Wegen $B=\Omega\cap B\in{\cal A}_{|B}$ sind also alle Axiome erf"ullt.
-%\end{proof}
-%Zu einer Wahrscheinlichkeitsfunktion $P$ auf $(\Omega,{\cal A})$ haben wir
-%bereits die eingeschr"ankte Wahrscheinlichkeitsfunktion $P_{|B}$ konstruiert,
-%wir wollen jetzt nachweisen, dass diese die Axiome einer
-%Wahrscheinlichkeitsfunktion erf"ullt:
-%
-%\begin{satz}
-%Sei $P$ eine Wahrscheinlichkeitsfunktion auf $(\Omega, {\cal A})$, dann
-%ist
-%$$P_{|B}(A)=\frac{P(A\cap B)}{P(B)}$$
-%eine Wahrscheinlichkeitsfunktion auf $(\Omega_{|B}, {\cal A}_{|B})$.
-%\end{satz}
-%
-%\begin{proof}[Beweis]
-%Es sind die drei Axiome f"ur eine Wahrscheinlichkeitsfunktion nachzupr"ufen.
-%Sei also $A$ ein Ereignis mit $A\subset B$. Zun"achst zeigen wir, dass 
-%$P(A)\le P(B)$. Dazu beachten wir, dass $B=A \cup (B\setminus A)$, wobei
-%$A$ und $B\setminus A$ disjunkt sind. Also gilt
-%$$P(A)+P(B\setminus A) = P(B).$$
-%Da $P(B\setminus A)\ge 0$ folgt daraus $P(A) \le P(B)$.
-%Aus dieser Ungleichung folgt jetzt
-%$$0\le \frac{P(A)}{P(B)}\le \frac{P(B)}{P(B)}= 1,$$
-%d.~h.~das Axiom "uber den Wertebereich ist erf"ullt.
-%
-%F"ur das sichere Ereignis $B$ in $(\Omega_{|B},{\cal A}_{|B})$ gilt
-%$$P_{|B}(B)=\frac{P(B)}{P(B)}=1,$$
-%d.~h.~das Axiom betreffend die Wahrscheinlichkeit des sicheren Ereignisses
-%ist erf"ullt.
-%
-%Sei jetzt $A_i$ eine Folge von paarweise disjunkten Ereignissen, die alle
-%in $B$ enthalten sind. Dann gilt
-%$$P_{|B}\bigl(\bigcup_{i=0}^{\infty}A_i\bigr)
-%=P\bigl(\bigcup_{i=0}^{\infty}A_i\bigr)
-%=\sum_{i=0}^{\infty}P(A_i)
-%=\sum_{i=0}^{\infty}P_{|B}(A_i),$$
-%d.~h.~das Axiom betreffend die Vereinigung ist erf"ullt.
-%\end{proof}
-%
-%Somit l"asst sich aus einer Ereignisalgebra und einer
-%Wahrscheinlichkeitsfunktion zu einem Ereignis $B$ immer eine
-%kleinere Ereignisalgebra bilden, in der das Ereignis $B$ immer
-%eintritt. Die zugeh"orige Wahrscheinlichkeitsfunktion $P_{|B}$
-%heisst bedingte Wahrscheinlichkeit:
-%
-%\begin{definition} Ist $(\Omega,{\cal A})$ eine Ereignisalgebra
-%und $P$ eine Wahrscheinlichkeitsfunktion, dann heisst die
-%Wahrscheinlichkeitsfunktion $P_{|B}$ auf $(\Omega_{|B}, {\cal A}_{|B})$,
-%definiert durch
-%$$P_{|B}(A)=P(A|B)=\frac{P(A\cap B)}{P(B)}$$
-%die bedingte Wahrscheinlichkeit von $A$ unter der Voraussetzung, dass
-%$B$ bereits eingetroffen ist.
-%\end{definition}
-%
-%Sind $A$ und $B$ unabh"angige Ereignisse, dann gilt 
-%$$P(A|B)=\frac{P(A\cap B)}{P(B)}=\frac{P(A)\cdot P(B)}{P(B)}=P(A),$$
-%d.~h.~die Wahrscheinlichkeit, dass $A$ eintritt, ist genau gleich gross
-%wie die Wahrscheinlichkeit, dass $A$ unter der Voraussetzung eintritt,
-%dass $B$ bereits eingetreten ist. Ob $B$ eingetreten ist oder nicht,
-%hat somit auf ein unabh"angiges Ereignis keinen Einfluss.
-%
-%Die
-%\marginpar{\tiny experimentelle Bestimmung bedinger Wahrscheinlichkeiten}
-%bedingten Wahrscheinlichkeiten sind das A und O von Meinungsumfragen.
-%Bei einer Meinungsumfrage werden ausser der Frage nach der Meinung auch
-%Fragen "uber die Person gestellt. Es wird also nicht nur die Wahrscheinlichkeit
-%des Ereignises ``Person stimmt zu'' oder ``Person lehnt ab'' gesucht, sondern
-%es ist auch die Wahrscheinlichkeit von ``Person ist zwischen 20 und 30 Jahre
-%alt'', oder ``Person ist verheiratet'', oder ``Person ist fussballinteressiert''
-%bekannt. Aber auch die bedingten Wahrscheinlichkeiten sind bekannt. Wenn
-%man nur die Antworten der 20 bis 30 j"ahrigen anschaut, und die relative
-%H"aufigkeit der ``Ja''-Antworten in dieser Gruppe bestimmt, hat man
-%die bedingte Wahrscheinlichkeit f"ur ``Ja'' ermittelt unter der
-%Vorbedingung, dass ``Person ist zwischen 20 und 30 Jahre alt'' bereits
-%eingetreten ist.
-%}
-
 \subsection{Zerlegung eines Wahrscheinlichkeitsraumes}
 Der
 Begriff der bedingten Wahrscheinlichkeit erm"oglicht,
 ein Wahrscheinlichkeitsproblem in m"oglicherweise einfachere, jedenfalls
-kleinere Probleme zu zerlegen. Wenn bei einem Experiment zwei Zust"ande
+kleinere Probleme zu zerlegen.
+Wenn bei einem Experiment zwei Zust"ande
 eintreten, die sich gegenseitig ausschliessen, k"onnen wir die 
 Wahrscheinlichkeit bestimmen, unter denen die weiteren Resultate
 des Experiments eintreten, jedoch unter der Vorbedingung, dass einer
-der benannten Zust"ande bereits eingetreten ist. Wenn wir nun auch
+der benannten Zust"ande bereits eingetreten ist.
+Wenn wir nun auch
 noch die Wahrscheinlichkeit jedes Zustandes kennen, m"usste es doch
 m"oglich sein, auch die Wahrscheinlichkeit der weiteren Resultate zu
 ermitteln.
@@ -1717,12 +1688,13 @@ $P(B_i)$, die Wahrscheinlichkeit der Zust"ande, und
 $P(A|B_i)$, die Wahrscheinlichkeit, dass $A$ eintritt, unter der Bedingung
 das $B_i$ bereits eingetreten ist.
 Nach Definition ist $P(A|B_i)=P(A\cap B_i)/P(B_i)$, also
-$P(A|B_i)\cdot P(B_i) = P(A\cap B_i)$. Die Vereinigung der Ereignisse
-$A\cap B_i$ ist
+$P(A|B_i)\cdot P(B_i) = P(A\cap B_i)$.
+Die Vereinigung der Ereignisse $A\cap B_i$ ist
 \[
 \bigcup_{i=0}^{n} A\cap B_i=A\cap\bigcup_{i=0}^{n}B_i=A,
 \]
-und die Mengen $A\cap B_i$ sind disjunkt. Also kann man die Summe ihrer
+und die Mengen $A\cap B_i$ sind disjunkt.
+Also kann man die Summe ihrer
 Wahrscheinlichkeiten mit der Additionsformel ausrechnen:
 \[
 \sum_{i=0}^{n}P(A\cap B_i)=P\biggl(\bigcup_{i=0}^{n}A\cap B_i\biggr)=P(A).
@@ -1735,8 +1707,8 @@ P(A)=\sum_{i=0}^{n}P(A|B_i)\cdot P(B_i).
 \]
 Somit l"asst sich tats"achlich die Wahrscheinlichkeit eines Ereignisses
 aus den bedingten Wahrscheinlichkeiten und den Wahrscheinlichkeiten
-der Bedingungen errechnen. Wir fassen diese Erkenntnis in folgendem 
-Satz zusammen.
+der Bedingungen errechnen.
+Wir fassen diese Erkenntnis in folgendem Satz zusammen.
 \index{Wahrscheinlichkeit!totale}
 \begin{satz}
 Ist $B_i$ eine Folge paarweise disjunkter Mengen mit $\bigcup_{i=0}^{n}B_i=\Omega$, dann gilt f"ur jedes Ereignis $A$
@@ -1751,7 +1723,8 @@ Wahrscheinlichkeit des Eintretens dieser Voraussetzungen rekonstruiert.
 Dieser Satz ist die ``wahrscheinlichkeitstheoretisch Form einer
 Fallunterscheidung'': man kennnt die F"alle $B_i$, und deren Wahrscheinlichkeit
 $P(B_i)$, sowie die Wahrscheinlichkeit $P(A|B_i)$, dass $A$ im Falle 
-$B_i$ eintritt. Die Formel "uber die totale Wahrscheinlichkeit
+$B_i$ eintritt.
+Die Formel "uber die totale Wahrscheinlichkeit
 liefert daraus wieder $P(A)$.
 
 Wir bemerken noch, dass es gar nicht unbedingt n"otig ist, dass die Mengen
@@ -1763,24 +1736,30 @@ F"ur den
 Experimentator bedeutet das, dass er nur jene Vorbedingungen $B_i$
 ber"ucksichtigen muss, unter denen sein Experiment ``funktioniert'',
 alle anderen m"oglichen Zust"ande haben keinen Einfluss auf
-die Wahrscheinlichkeit seiner Resultate. Man darf beim Experimentieren
+die Wahrscheinlichkeit seiner Resultate.
+Man darf beim Experimentieren
 also durchaus einzelne Resultate verwerfen, wenn man weiss, was man tut!
 
 \subsubsection{Studienerfolg}
 Die folgenden Zahlen sind erfunden, und dienen nur der Illustration
-des Prinzips. Eine Statistik hat die Wahrscheinlichkeit f"ur den
+des Prinzips.
+Eine Statistik hat die Wahrscheinlichkeit f"ur den
 Studienerfolg untersucht, und folgende Resultate erhalten.
 Die Studierenden setzen sich zusammen aus 60\% BMS, 30\% Kantonssch"uler
-und "Ubertritte von anderen Hochschulen. Die Wahrscheinlichkeit
+und "Ubertritte von anderen Hochschulen.
+Die Wahrscheinlichkeit
 das Studium erfolgreich abzuschliessen, ist f"ur BMS 80\%,
 f"ur Kantonssch"uler 90\%, 85\% f"ur die "Ubertreter von anderen
-Hochschule. Wie gross ist die Wahrscheinlichkeit f"ur den Studienerfolg?
+Hochschule.
+Wie gross ist die Wahrscheinlichkeit f"ur den Studienerfolg?
 
-$\Omega$ ist die Menge aller Studienversuche. 60\% davon bilden das
+$\Omega$ ist die Menge aller Studienversuche.
+60\% davon bilden das
 Ereigns $B$ bestehend aus Studienversuchen, die im Anschluss an die BMS
-erfolgen. 30\% machen das Ereignis $K$ mit den Kanti-Abg"angern aus,
-10\% das Ereignis $A$ mit "Ubertritten von anderen Hochschulen. Es ist
-klar, dass 
+erfolgen.
+30\% machen das Ereignis $K$ mit den Kanti-Abg"angern aus,
+10\% das Ereignis $A$ mit "Ubertritten von anderen Hochschulen.
+Es ist klar, dass 
 \[
 \Omega = B \cup K\cup A.
 \]
@@ -1800,13 +1779,14 @@ P(E)&=P(E|B)P(B)+P(E|K)P(K)+P(E|A)P(A).
 
 \subsubsection{W"urfelspiel}
 Wir betrachten nochmals das Beispiel W"urfeln mit zwei W"urfeln, wobei
-bei einem Pasch im ersten Wurf noch genau einmal gew"urfelt wird. 
+bei einem Pasch im ersten Wurf noch genau einmal gew"urfelt wird.
 Wir m"ochten die Wahrscheinlichkeit berechnen, dass die totale Augensumme
-mindestens 10 ist. Wir nennen dieses Ereignis $Z$.
+mindestens 10 ist.
+Wir nennen dieses Ereignis $Z$.
 
 Zun"achst kann man unterteilen in den Fall, dass im ersten Wurf
-ein Pasch geworfen wird. Es gilt nach dem Satz "uber die totale
-Wahrscheinlichkeit
+ein Pasch geworfen wird.
+Es gilt nach dem Satz "uber die totale Wahrscheinlichkeit
 \[
 P(Z) = P(Z|P) P(P) + P(Z|\bar P) P(\bar P).
 \]
@@ -1851,18 +1831,25 @@ Sicherheit zehn oder mehr.
 Marylin vos Savant hat in einer Kolumne ein Gedankenexperiment vorgstellt.
 In einer Quiz-Show muss der Kandidat eine von drei T"uren w"ahlen, wobei
 sich hinter einer der T"uren ein Auto versteckt, hinter den anderen zweien
-ein Ziege. Das Ziel des Spiels ist, das Auto zu gewinnen. Nach der Wahl
+ein Ziege.
+Das Ziel des Spiels ist, das Auto zu gewinnen.
+Nach der Wahl
 durch den Kandidaten "offnet der Quizmaster eine der T"uren, hinter der sich
 eine Ziege befindet, nicht aber die T"ur, die der Kandidat gew"ahlt hat.
 Der Kandidat hat jetzt nochmals die M"oglichkeit, die T"ur zu wechseln.
-Welche Strategie soll er w"ahlen. Bei der ersten Auswahl bleiben, oder
+Welche Strategie soll er w"ahlen.
+Bei der ersten Auswahl bleiben, oder
 wechseln?
 
 Um die Frage zu beantworten berechnen wir die Gewinnwahrscheinlichkeit
-f"ur jede der Strategien. Zun"achst die ``Bleibe''-Strategie. Es ist die
-Wahrscheinlichkeit f"ur einen Gewinn $P(G)$ auszurechnen. Hinter der zun"achst
+f"ur jede der Strategien.
+Zun"achst die ``Bleibe''-Strategie.
+Es ist die
+Wahrscheinlichkeit f"ur einen Gewinn $P(G)$ auszurechnen.
+Hinter der zun"achst
 gew"ahlten T"ur kann sich ein Auto (Ereignis $A$) befinden, oder eine Ziege
-(Ereignis $Z$). Es ist nat"urlich $A\cap Z=\emptyset$ und $A\cup Z=\Omega$.
+(Ereignis $Z$).
+Es ist nat"urlich $A\cap Z=\emptyset$ und $A\cup Z=\Omega$.
 Also gilt
 \begin{equation}
 P(G)=P(G|A) P(A) + P(G|Z)P(Z).
@@ -1871,7 +1858,8 @@ P(G)=P(G|A) P(A) + P(G|Z)P(Z).
 Nat"urlich ist $P(A)=\frac13$ und $P(Z)=\frac23$.
 $P(G|A)$ ist die Wahrscheinlichkeit mit der ``Bleibe''-Strategie zu
 gewinnen, wenn hinter der zun"achst gew"ahlten T"ur ein Auto war: diese
-ist nat"urlich 1. Ebenso verliert man mit Sicherheit, wenn hinter der
+ist nat"urlich $1$.
+Ebenso verliert man mit Sicherheit, wenn hinter der
 T"ur eine Ziege war: $P(G|Z)=0$, also
 \[
 P(G)=P(G|A)P(A)+P(G|Z)P(Z)=1\cdot \frac13 + 0\cdot\frac 23=\frac13.
@@ -1882,7 +1870,9 @@ F"ur die ``Wechsel''-Strategie gilt nat"urlich auch die Formel
 Wenn man ein Auto gew"ahlt hatte, und wechselt, verliert man, also $P(G|A)=0$.
 Hat man ein Ziege erwischt, und wechselt, bekommt man das Auto, denn die
 zweite Ziege kann man ja nicht erwischen, deren T"ur hat der Quiz-Master
-ge"offnet. Also ist $P(G|Z)=1$. Somit folgt jetzt
+ge"offnet.
+Also ist $P(G|Z)=1$.
+Somit folgt jetzt
 \[
 P(G)=P(G|A)P(A)+P(G|Z)P(Z)=0\cdot\frac13+1\cdot\frac23=\frac23.
 \]
@@ -1939,7 +1929,7 @@ P(B_n)
 \]
 Sind die Ereignisse $A_i$ ebenfalls paarweise disjunkt und decken ganz
 $\Omega$ ab, dann sind auch die Spalten von der Matrix $(P(A_i|B_j))$
-jeweils Wahrscheinlichkeitsvektoren. 
+jeweils Wahrscheinlichkeitsvektoren.
 \index{Wahrscheinlichkeitsmatrix}
 Eine solche Matrix heisst {\it Wahrscheinlichkeitsmatrix}.
 
@@ -1962,10 +1952,13 @@ P(A|B)=\frac{P(B|A)\cdot P(A)}{P(B)}.
 \]
 \end{satz}
 Die Bedeutung dieses Satzes besteht darin, dass er die Schlussrichtung
-umzukehren erlaubt. Die bedingte Wahrscheinlichkeit $P(A|B)$ ist ja die
+umzukehren erlaubt.
+Die bedingte Wahrscheinlichkeit $P(A|B)$ ist ja die
 Wahrscheinlichkeit, dass ein das Ereignis $A$ eintritt, wenn $B$ bereits
-eingetreten ist. Sie erlaubt, eine Wette einzugehen, dass $A$ eintreten
-wird, wenn $B$ bereits eingetreten ist. Der Satz von Bayes erm"oglicht
+eingetreten ist.
+Sie erlaubt, eine Wette einzugehen, dass $A$ eintreten
+wird, wenn $B$ bereits eingetreten ist.
+Der Satz von Bayes erm"oglicht
 also, auch eine Wette f"ur $B$ einzugehen, wenn $A$ bereits eingetreten
 ist.
 Im Gegensatz zur Schlussweise in der Logik, die niemals umkehrbar ist,
@@ -2006,7 +1999,8 @@ P(H|T)=\frac{P(T|H)\cdot P(H)}{P(T)}
 \label{aidsprobability}
 \end{equation}
 Darin sind fast alle Gr"ossen direkt aus dem Artikel ablesbar, nur $P(T)$ muss
-noch bestimmt werden. Dazu dient der Satz "uber die totale Wahrscheinlichkeit,
+noch bestimmt werden.
+Dazu dient der Satz "uber die totale Wahrscheinlichkeit,
 den wir auf die Tatsache anwenden, dass ein sich nicht riskant verhaltender
 Mann entweder HIV hat oder nicht: $\Omega=H\cup \bar H$.
 \begin{align*}
@@ -2023,153 +2017,4 @@ P(H|T)=\frac{0.999\cdot 0.0001}{0.0002}=.4995\simeq 0.5
 oder mit anderen Worten, auch wenn der HIV-Test positiv ist, ist
 die Wahrscheinlichkeit f"ur einen sich nicht riskant verhaltenden Mann,
 tats"achlich HIV-infiziert zu sein, nur $50\%$.
-
-%\subsubsection{Weitere Beispiele}
-%Im Anhang \ref{spamfilter} wird als weiteres Anwendungsbeispiel ein Spamfilter
-%beschrieben. Der Google Pagerank, beschrieben in Anhang \ref{pagerank},
-%ist eine Anwendung der bedingten Wahrscheinlichkeit und des Satzes von
-%der totalen Wahrscheinlichkeit auf Suchmaschinen.
-
-%\subsection{Der Viterbi-Algorithmus}
-%Wir stellen uns einen "Ubertragungskanal vor, der endlich viele
-%verschiedene Symbole "ubertragen kann.
-%In diskreten, mit nat"urlichen Zahlen numerierten Zeitschritten,
-%werden Symbole $A_i$ "ubermittelt.
-%Infolge Rauschens k"onnen
-%die Symbole nicht immer zuverl"assig erkannt werden, sondern
-%nur mit einer gewissen Wahrscheinlichkeit.  Es wird also im $k$-ten
-%Schritt das Symbol $a_k$ erkannt. $P(a|A)$ ist die Wahrscheinlichkeit,
-%dass $a$ erkannt wird wenn tats"achlich $A$ "ubermittelt wurde.
-%
-%Die "ubermittelten Zeichen sind nicht zuf"allig, vielmehr sind
-%gewisse Abfolgen von Zeichen wahrscheinlicher als andere. Die
-%Wahrscheinlichkeit, $P(A_k|A_{k-1})$ h"angt nur von den beiden
-%Zeichen ab, die "ubermittelt wurden. 
-%
-%{\bf 1. Schritt:} Ein Zeichen ist "ubermittelt worden, und das Zeichen
-%$a_1$ ist erkannt worden. Welches Zeichen wurde gesendet?
-%
-%Die Wahrscheinlichkeit, dass das Zeichen $a$ erkannt wird, wenn
-%$A$ "ubermittelt wird, $P(a|A)$. Wir m"ochten aber
-%die Wahrscheinlichkeit, dass $A$ gesendet wird, wenn $a$ erkannt worde
-%ist, also $P(A|a)$. Nach dem Satz von Bayes
-%ist
-%$$P(A|a)=\frac{P(a|A)\cdot P(A)}{P(a)}$$
-%Wenn wir annehmen, dass die "ubermittelten Zeichen genau gleich
-%wahrscheinlich sind wie die erkannten Zeichen, der Erkennungsmechanismus
-%also keine Zeichen bevorzugt, dann k"urzen sich die einfachen
-%Wahrscheinlichkeiten weg, und wir bekommen 
-%$$P(A|a)=P(a|A).$$
-%Daraus k"onnen wir schliessen, dass das wahrscheinlichste "ubermittelte
-%Zeichen $A$ jenes ist, f"ur welches $P(a|A)$ maximal wird.
-%
-%{\bf 2. Schritt: } Wir nehmen jetzt an, dass bereits $k-1$ Beobachtungen
-%aufgezeichnet worden sind, und dass bereits berechnet wurde, mit
-%welcher Wahrscheinlichkeit $P(A_{k-1})$
-%die unter diesen Beobachtungen wahrscheinlichste
-%Abfolge von gesendeten Zeichen mit $A_{k-1}$ endet.
-%
-%\begin{enumerate}
-%\item Wahrscheinlichkeit, dass der wahrscheinlichste Pfad zu einem
-%in $X$ enden Pfad fortgesetzt wird:
-%$$P(X|A_{k-1}) P(A_{k-1}).$$
-%\item Wahrscheinlichkeit, dass der nach $X$ fortgesetzte Pfad 
-%als $a_k$ erkannt wird
-%\begin{equation}
-%P(a_k|X) P(X|A_{k-1}) P(A_{k-1})
-%\label{viterbi}
-%\end{equation}
-%\item
-%Die wahrscheinlichste Fortsetzung des Pfades unter Ber"ucksichtigung
-%der neuen Beobachtung $a_k$ ist also jenes $X$, welches
-%(\ref{viterbi})
-%maximiert.
-%\end{enumerate}
-%
-%Wir beschreiben, wie sich der Algorithmus f"ur 
-%Symbole $A\in\{1,\dots,n\}$
-%durch\-f"uhren l"asst.
-%\begin{enumerate}
-%\item Array {\tt p[n]} allozieren, er enth"alt die aktuellen Werte
-%von $P(A_k)$.
-%\item Beobachtung $a_1$ verwerten: setze 
-%$$\text{\tt p[I]}= P(a_1|{\tt I})$$
-%\item Der wahrscheinlichste Zustand unter den bisher erfolgten Beobachtungen
-%ist dasjenige {\tt J}, welches {\tt p[J]} maximiert.
-%\item \label{viterbiloop}Neue Beobachtung $a_k$: Berechne die Werte
-%\begin{equation}
-%P(a_k|{\tt I})
-%\cdot
-%P({\tt I}|{\tt J})
-%\cdot
-%\text{\tt p[J]}
-%\label{viterbimax}
-%\end{equation}
-%\item Finde {\tt I} derart, dass (\ref{viterbimax}) maximal wird, setze
-%${\tt J}={\tt I}$.
-%\item Gehe zu Schritt \ref{viterbiloop}.
-%\end{enumerate}
-%Dieser Algorithmus findet also diejene Folge von Zeichen, die am besten
-%zu den erkannten Zeichen ``passt''. Nicht immer findet er die
-%richtige Folge von Zeichen, aber es ist sehr wahrscheinlich, dass er
-%viele Zeichen hintereinander richtig erkennt, und damit verst"andliche
-%S"atze oder Datenbl"ocke rekonstruieren kann.
-%
-%
-%\section{Ein paar technische Details}
-%Solange man mit endlichen oder diskreten Mengen arbeitet, ist jede beliebige
-%Teilmenge ein mathematisch sinnvolles Ereignis.
-%In einigen der oben diskutierten F"allen ist die Menge $\Omega$ aber sehr
-%gross, meistens "uberabz"ahlbar. In diesen F"allen ist es etwas viel
-%verlangt, wenn die Funktion $P$ f"ur jede beliebige Teilmenge  von $\Omega$
-%definiert sein soll, und ausserdem noch alle Axiome erf"ullt sein sollen.
-%In der Tat wurden pathologische Mengen gefunden, f"ur die die Additionsregel
-%f"ur jede sinnvolle Definition von $P$ nicht erf"ullbar ist.
-%
-%Aus technischen mathematischen Gr"unden muss daher die Menge der Ereignisse
-%eingeschr"ankt werden. Dabei m"ussen die Rechenregeln f"ur $P$ erhalten
-%bleiben. Dazu muss die leere Menge, die ganze Menge, die Komplementmenge
-%einer Menge und jede endliche Vereinigung und jeder endliche Durchschnitt
-%von Ereignissen wieder ein Ereignis sein.
-%
-%Auch in der Analysis gibt man den Zahlenmengen eine zus"atzliche
-%Struktur, um den Begriff des Grenzwertes exakt formulieren zu k"onnen.
-%Man arbeitet dabei meist mit offenen Intervallen, also mit Mengen der Form
-%$$U_\varepsilon(x) = \{ y\in\mathbb R\;|\; |x-y|<\varepsilon\}.$$
-%Eine Folge $(a_n)_{n\in\mathbb N}$ konvergiert zum Beispiel gegen den Grenzwert
-%$a$ wenn zu jedem $\varepsilon > 0$ ein $N$ existiert so dass
-%$a_k\in U_\varepsilon(a)$ wenn nur $a > N$ ist. Oder eine Funktion $f$ ist
-%im Punkt $x$ stetig,
-%wenn f\"ur jedes $\varepsilon > 0$ ein $\delta > 0$ existert,
-%so dass $f$ die Punkte, die gen"ugend nahe bei $x$ sind, auch  nahe an $f(x)$
-%abbildet:
-%$$f(U_\delta(x)) \subset U_\varepsilon(f(x)).$$
-%Den $U_\varepsilon(x)$ ist gemeinsam, dass sie alle offene B"alle sind,
-%d.h.~mit jedem Punkt ist auch ein kleiner Ball um den Punkt in der Menge
-%enthalten. Es gibt nat"urlich noch viele weitere offene Mengen, durch
-%Vereinigung und endliche Durchschnitte k"onnen aus bekannten offenen Menge
-%weitere offene Mengen erzeugt werden.
-%
-%Man kann die Begriffe Grenzwert und Stetigkeit vollst"andig aufbauen, wenn
-%man weiss, was ``nahe'' heissen soll. Man k"onnte dazu einen Abstandsbegriff
-%definieren, und Mengen $U_\varepsilon(x)$ f"ur beliebige Mengen betrachten,
-%in denen so ein Abstandsbegriff definiert ist. Es geht aber auch allgemeiner.
-%Statt sich damit abzum"uhen, den Abstandsbegriff zu kl"aren, kann man auch
-%einfach die Menge aller offenen Mengen festlegen. Konvergenz w"urde dann zum
-%Beispiel so definiert: die Folge $(a_k)_{k\in\mathbb N}$ ist konvergent, wenn
-%es zu jeder offenen, $a$ enthaltenden Menge $U\ni a$ ein $N(U)$ gibt
-%sodass $a_k\in U$ sobald $k>N(U)$. Stetigkeit ist noch einfacher: die Funktion
-%$f$ ist stetig, wenn f"ur jede offene Menge $U$ im Wertebereich die
-%Urbildmenge $f^{-1}(U)$ im Definitionsbereich offen ist.
-%
-%W"ahrend ein Abstandsbegriff in den meisten Anwendungen durchaus kein
-%un"uberwindliches Hindernis ist, f"allt uns in der Wahrscheinlichkeitsrechnung
-%bereits die Beschreibung aller Elementarereignisse schwer. Darauf nun
-%auch noch f"ur alle von der Anwendung suggerierten $P$ eine Menge von
-%Teilmengen $\Omega$ zu finden, welche die Ereignisse beschreiben k"onnte,
-%wird kaum einfacher sein. Daher gehen wir den umgekehrten Weg, und geben
-%die Menge $\Omega$ vor, verlangen aber zus"atzliche Eigenschaften, die
-%uns garantieren, dass wir mit den $P$ nach Regeln rechnen k"onnen, die uns
-%plausibel und nat"urlich erscheinen.
-%
 

@@ -9,14 +9,18 @@
 \index{Spamfilter}
 Etwa drei Viertel aller auf dem Internet transportierten Email-Meldungen
 sind Spam, d.~h.~sie sind unerw"unscht, und haben meist den Charakter
-kommerzieller Werbemeldungen. Lange Zeit wurde versucht, Mail-Meldungen
+kommerzieller Werbemeldungen.
+Lange Zeit wurde versucht, Mail-Meldungen
 durch Mustererkennung in Spam und Ham zu klassifizieren, so wie es bei
-Viren auch erfolgreich ist. Bei Spam war dieses Vorgehen jedoch nur begrenzt
+Viren auch erfolgreich ist.
+Bei Spam war dieses Vorgehen jedoch nur begrenzt
 wirksam, denn in der Tat wird hier ein anderes Problem gel"ost.
 Bei der Erkennung von Viren geht es darum, bekannte, unver"anderliche
-Muster zu erkennen. Bei Spam geht es nicht nur darum, bereits bekannte
+Muster zu erkennen.
+Bei Spam geht es nicht nur darum, bereits bekannte
 Mails als Spam zu erkennen, sondern auch zuk"unftige Mails auf Grund
-ihres Inhalts als Spam zu erkennen. Zu dieser Schwierigkeit lieferte
+ihres Inhalts als Spam zu erkennen.
+Zu dieser Schwierigkeit lieferte
 Paul Graham mit seinem Artikel ``A Plan for Spam'' \url{http://www.paulgraham.com/spam.html} eine unerwartete, eher heuristische L"osung, die er auch in
 \index{Graham, Paul}
 einem Produkt erfolgreich umsetzen konnte.
@@ -32,9 +36,11 @@ zun"achst eine Datengrundlage geschaffen werden, was der Benutzer dadurch
 tut, dass er Spam-Messages in einen eigenen Ordner aussortiert.
 Der Spamfilter wird sp"ater versuchen, auf Grund von Kriterien wie in
 der Message enthaltenen W"ortern, die Wahrscheinlichkeit daf"ur zu ermitteln,
-dass eine neue Message Spam ist. Der Einfachheit nehmen wir an, dass
+dass eine neue Message Spam ist.
+Der Einfachheit nehmen wir an, dass
 das Kriterium darin besteht, ob das Wort ``Viagra'' in der Message
-vorhanden ist. Dieses Ereignis bezeichnen wir mit $V$, Spam-Messages bilden
+vorhanden ist.
+Dieses Ereignis bezeichnen wir mit $V$, Spam-Messages bilden
 das Ereignis $S$.
 \index{Viagra}
 
@@ -54,7 +60,8 @@ Message Spam ist, denn dazu m"ussen wir wie folgt vorgehen:
 \item im positiven Fall $P(S|V)$ bestimmen und entscheiden, ob Spam vorliegt,
 im negativen Fall analog mit $P(S|\bar V)$.
 \end{enumerate}
-Wir m"ussen also $P(S|V)$ ermitteln. Aus den bekannten Gr"ossen ist dies
+Wir m"ussen also $P(S|V)$ ermitteln.
+Aus den bekannten Gr"ossen ist dies
 mit dem Satz von Bayes sofort m"oglich:
 \begin{equation}
 P(S|V)=\frac{P(V|S)P(S)}{P(V)}.
@@ -71,11 +78,13 @@ zu erh"ohen, eine Message als Spam zu erkennen.
 Das abstrakte mathematische Problem des Spamfilters ist jetzt also,
 dass die Wahrscheinlichkeit berechnet werden soll, dass eine Message
 Spam ist, wenn bereits zwei Spam-Kriterien $X$ und $Y$ eingetreten
-sind. Es ist also $P(S|X\cap Y)$ gesucht.
+sind.
+Es ist also $P(S|X\cap Y)$ gesucht.
 
 Bekannt ist wiederum alles, was sich durch Ausz"ahlen von Messages
-in einem festen Bestand von Meldungen ermitteln l"asst. Man sagt,
-der Filter sei mit diesen Meldungen trainiert worden. Zum Beispiel
+in einem festen Bestand von Meldungen ermitteln l"asst.
+Man sagt, der Filter sei mit diesen Meldungen trainiert worden.
+Zum Beispiel
 sind folgende Gr"ossen bekannt: $P(X)$, $P(X|S)$ und analog f"ur $Y$.
 Ausserdem sind auch $P(S)$ und $P(\bar S)$ bekannt.
 
@@ -88,16 +97,19 @@ P(S|X\cap Y)&=&\frac{P(X\cap Y|S)P(S)}{P(X\cap Y)}\nonumber
 \frac{P(X\cap Y|S)P(S)}{P(X\cap Y|S)P(S)+P(X\cap Y|\bar S)P(\bar S)}
 \end{align}
 Das Problem mit dieser Formel ist, dass wir $P(X\cap Y|S)$ normalerweise
-nicht kennen. Normalerweise wird keine Statistik dar"uber gef"uhrt, mit
+nicht kennen.
+Normalerweise wird keine Statistik dar"uber gef"uhrt, mit
 welcher H"aufigkeit Spam-Kriterien zusammen in Spam-Messages auftreten.
 Daher m"ussen wir an dieser Stelle annehmen, dass die Kriterien $X$ und $Y$
-unabh"angig sind. Dies wird im allgemeinen falsch sein, denn wenn Spam
+unabh"angig sind.
+Dies wird im allgemeinen falsch sein, denn wenn Spam
 das Wort ``Viagra'' enth"alt, dann enth"alt die gleiche Message sehr h"aufig
 auch das Wort ``Cialis'', die Ereignisse sind also abh"angig.
 
 Wir brauchen hier eine etwas st"arkere Form der Unabh"angigkeit von $X$ und $Y$,
 n"amlich die Bedingung, dass $X$ und $Y$ bei Einschr"ankung auf $S$
-oder $\bar S$ unabh"angig sind. Dann gilt $P(X\cap Y|S)=P(X|S)P(Y|S)$
+oder $\bar S$ unabh"angig sind.
+Dann gilt $P(X\cap Y|S)=P(X|S)P(Y|S)$
 und sinngem"ass f"ur $\bar S$.
 
 Damit kann nun die Formel umgeformt werden:
@@ -110,7 +122,8 @@ P(S|X\cap Y)
 \frac{P(X|S)P(Y|S)P(S)}{P(X|S)P(Y|S)P(S)+P(X|\bar S)P(Y|\bar S)P(\bar S)}
 \end{align}
 Im Prinzip k"onnte man an dieser Stelle aufh"oren, denn man hat ja jetzt
-alles, was man braucht. Trotzdem ist diese Formel noch etwas unpraktisch.
+alles, was man braucht.
+Trotzdem ist diese Formel noch etwas unpraktisch.
 Es w"are doch viel besser, wenn man zun"achst alle Wahrscheinlichkeiten
 daf"ur ermitteln k"onnte, unter denen eine Message Spam ist, wenn ein
 einzelnes Kriterium eingetreten ist, also $P(S|X)$, und dann nur noch
@@ -149,7 +162,8 @@ In dieser Formel stehen nur noch die bereits ermittelten Wahrscheinlichkeiten
 $P(S|X)$ und die Wahrscheinlichkeiten von $S$ und $\bar S$.
 
 Eine weitere Vereinfachung kann man erreichen, wenn man die Trainingsmenge so
-w"ahlt, dass $P(S)=P(\bar S)=\frac12$. Dann erh"alt man
+w"ahlt, dass $P(S)=P(\bar S)=\frac12$.
+Dann erh"alt man
 \begin{align}
 P(S|X\cap Y)
 &=
@@ -160,5 +174,5 @@ P(S|X\cap Y)
 \end{align}
 Damit dieser Wert m"oglichst gross wird, also $X\cap Y$ ein m"oglichst
 gutes Spam-Kriterium ist, sollte der zweite Term im Nenner m"oglichst klein
-sein, d.h. falls $P(S|X)$ nahe bei $1$ ist, ist $X$ ein gutes Kriterium f"ur
+sein, d.~h.~falls $P(S|X)$ nahe bei $1$ ist, ist $X$ ein gutes Kriterium f"ur
 Spam, und dann erst recht auch $X\cap Y$ f"ur zwei solche Kriterien.

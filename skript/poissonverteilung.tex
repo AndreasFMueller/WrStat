@@ -42,18 +42,22 @@ mit Rate $\lambda$ eintreten
 \end{center}
 \caption{Datenblatt der Poissonverteilung\label{datenblatt:poissonverteilung}}
 \end{table}
-Die Poissonverteilung liefert eine Antwort auf folgende Frage. In Abschnitt
+Die Poissonverteilung liefert eine Antwort auf folgende Frage.
+In Abschnitt
 \ref{section-exponentialverteilung} wurde die Exponentialverteilung
 als die Verteilung f"ur die Ausfallwahrscheinlichkeit eines ``ged"achtnislosen''
-Bauteils vorgestellt. Wir nehmen nun an, dass das Bauteil bei jedem Defekt
+Bauteils vorgestellt.
+Wir nehmen nun an, dass das Bauteil bei jedem Defekt
 sofort ersetzt wird, und fragen danach, wie wahrscheinlich es ist, dass
 wir in einem bestimmten Zeitintervall $k$ Ausf"alle beobachten.
 
 Sei $X_i$ die Lebensdauer des Bauteils mit der Nummer $i$, es handelt
-sich dabei um eine exponentialverteilte Zufallsvariable. Wenn im Zeitintervall
+sich dabei um eine exponentialverteilte Zufallsvariable.
+Wenn im Zeitintervall
 $[0,x]$ genau $k$ Ausf"alle beobachtet wurden, dann heisst das, dass die
 Summe von $k$ Zufallsvariablen $\le x$ ist, jene von $k+1$ Zufallsvariable
-aber $>x$. Also
+aber $>x$.
+Also
 \[
 P(X_1+\dots+X_k\le x \wedge X_1+\dots+X_{k+1}>x)
 \]
@@ -62,8 +66,8 @@ Wir berechnen diese Wahrscheinlichkeit in zwei Schritten.
 Zun"achst interessiert uns, wie gross die Wahrscheinlichkeit ist, dass im
 Intervall $[0,x]$ mindestens $k$ Ausf"alle passieren, dies ist
 $P(X_1+\dots+X_k\le x)=F_{X_1+\dots+X_k}(x)$, also die Verteilungsfunktion
-einer Summe von $k$ identisch exponentialverteilten Zufallsvariablen. Wir
-behaupten:
+einer Summe von $k$ identisch exponentialverteilten Zufallsvariablen.
+Wir behaupten:
 \begin{satz}Sind $(X_i)_{1\le i\le k}$ identische exponentialverteilte,
 unabh"angige Zufallsvariablen, dann hat deren Summe folgende Verteilungsfunktion
 und Wahrscheinlichkeitsdichte:
@@ -80,13 +84,14 @@ F_{X_1+\dots+X_k}(x)&=\begin{cases}
 \end{satz}
 \begin{proof}[Beweis]
 Wir beweisen zun"achst die Formeln f"ur die Dichtefunktion $\varphi_k$ mit
-Hilfe von vollst"andiger Induktion. F"ur $k=1$ liegt nur eine einzige
+Hilfe von vollst"andiger Induktion.
+F"ur $k=1$ liegt nur eine einzige
 Zufallsvariable vor, durch Einsetzen von $k$ finden wir f"ur $x>0$
 \[
 \varphi_1(x)=ae^{-ax},
 \]
-also genau die Dichte der Exponentialverteilung. Offensichtlich ist dies
-die richtige Wahrscheinlichkeitsdichte.
+also genau die Dichte der Exponentialverteilung.
+Offensichtlich ist dies die richtige Wahrscheinlichkeitsdichte.
 
 Wir nehmen nun an, dass obige Formel die Wahrscheinlichkeitsdichte f"ur die
 Summe von $k$ Zufallsvariablen korrekt ist, und berechnen die daraus
@@ -104,7 +109,8 @@ Dazu wird die Faltung verwendet, es gilt f"ur $x>0$
 Damit ist die Formel f"ur $\varphi_k$ f"ur alle $k$ gezeigt.
 
 Aus der Wahrscheinlichkeitsdichte kann nun auch die Verteilungsfunktion
-berechnet werden. Durch partielle Integration kann man die Verteilungsfunktion
+berechnet werden.
+Durch partielle Integration kann man die Verteilungsfunktion
 wie folgt berechnen:
 \begin{align*}
 F_k(x)
@@ -127,9 +133,11 @@ insbesondere ist die Partialsumme immer kleiner als $a^{ax}$, also
 \[
 e^{-ax}\sum_{i=0}^{k-1}\frac{(ax)^i}{i!}<e^{-ax}\cdot e^{ax}=1,
 \]
-und damit $F_k(x) \le 0$. Andererseits ist die Partialsumme nur ein
+und damit $F_k(x) \le 0$.
+Andererseits ist die Partialsumme nur ein
 Polynom in $x$, welches niemals so schnell wachsen kann wie $e^{-ax}$ kleiner
-wird. Im Grenzwert $x\to\infty$ verschwindet der zweite Summand daher und
+wird.
+Im Grenzwert $x\to\infty$ verschwindet der zweite Summand daher und
 es gilt wie zu erwarten ist $\lim_{x\to\infty}F_k(x)=1$.
 \end{proof}
 Die hier gefundenen Verteilungen sind auch von einiger praktischer Bedeutung,
@@ -205,14 +213,17 @@ $E(X)=\lambda$ und Varianz $\operatorname{var}(X)=\lambda$.
 \index{Poissonverteilung!Approximation der Binomialverteilung}
 Das folgende Experiment soll diese Anwendung motivieren: 18 mal werden zwei 
 W"urfel geworfen, und in einem $6\times 6$-Feld das Feld mit der
-erw"urfelten Zeilen- und Spalten-Nummer angekreuzt. Dabei muss man darauf
+erw"urfelten Zeilen- und Spalten-Nummer angekreuzt.
+Dabei muss man darauf
 achten, immer den gleichen W"urfel f"ur die Zeilen-Nummern zu verwenden.
 Dann wird ausgez"ahlt, wieviele Felder $k=0$, $k=1$, $k=2$,\dots\ Kreuze
 enthalten.
 
-Nat"urlich ist dies ein Bernoulli-Experiment. Die Wahrscheinlichkeit, ein
+Nat"urlich ist dies ein Bernoulli-Experiment.
+Die Wahrscheinlichkeit, ein
 bestimmtes Feld anzukreuzen, ist $p=\frac{1}{36}$, das Experiment
-wird $18$ mal wiederholt. Die Wahrscheinlichkeit $P(k)$, dass das Feld $k$ mal
+wird $18$ mal wiederholt.
+Die Wahrscheinlichkeit $P(k)$, dass das Feld $k$ mal
 angekreuzt wurde, ist durch die Binomialverteilung gegeben:
 \[
 P(k)=\binom{n}{k}p^k(1-p)^{n-k}.
@@ -221,9 +232,11 @@ P(k)=\binom{n}{k}p^k(1-p)^{n-k}.
 Leider ist dieser Ausdruck f"ur grosses $n$ schwierig auszurechnen.
 Wir suchen also nach einer Approximation, die leichter auszuwerten ist.
 Dabei k"onnen wir nicht einfach $n\to\infty$ gehen lassen, denn die
-Wahrscheinlichkeit $P(k)$ w"urde dann auch anwachsen. Wir m"ussen
+Wahrscheinlichkeit $P(k)$ w"urde dann auch anwachsen.
+Wir m"ussen
 gleichzeitig die Wahrscheinlichkeit kleiner machen, so dass die Rate $\lambda$,
-mit der Kreuze gemacht werden, gleich bleibt. Im Experiment wird
+mit der Kreuze gemacht werden, gleich bleibt.
+Im Experiment wird
 die H"alfte ($\lambda=\frac{18}{36}=\frac12$) der Felder angekreuzt.
 Die Wahrscheinlichkeit $p$ muss also mit $\lambda$ "uber die Formel
 \[
@@ -290,6 +303,8 @@ Wenden wir dies auf das urspr"ungliche Experiment an, also $n=36$,
 $\lambda=0.5$, finden wir die Resultate in Tabelle~\ref{cross36}. 
 Die Abweichungen in der Spalte der empirischen Resultate kommt "ubrigens
 nicht daher, dass zu wenige Versuch gemacht worden w"aren, sondern daher,
-dass wir jeweils immer alle Felder ausgez"ahlt haben. Diese sind aber nicht
-unabh"angig. Die beim Ausz"ahlen des $6\times 6$-Feldes gefundenen Werte
+dass wir jeweils immer alle Felder ausgez"ahlt haben.
+Diese sind aber nicht
+unabh"angig.
+Die beim Ausz"ahlen des $6\times 6$-Feldes gefundenen Werte
 sind also gar nicht die Resultate von $n$ unabh"angigen Bernoulli-Experimenten.
