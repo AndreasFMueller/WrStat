@@ -81,10 +81,12 @@ Ausserdem sind auch $P(S)$ und $P(\bar S)$ bekannt.
 
 F"ur die Berechnung von $P(S|X\cap Y)$ verwendet man jetzt wieder
 den Satz von Bayes:
-\begin{eqnarray}
-P(S|X\cap Y)&=&\frac{P(X\cap Y|S)P(S)}{P(X\cap Y)}\nonumber\\
-&=&\frac{P(X\cap Y|S)P(S)}{P(X\cap Y|S)P(S)+P(X\cap Y|\bar S)P(\bar S)}
-\end{eqnarray}
+\begin{align}
+P(S|X\cap Y)&=&\frac{P(X\cap Y|S)P(S)}{P(X\cap Y)}\nonumber
+\\
+&=
+\frac{P(X\cap Y|S)P(S)}{P(X\cap Y|S)P(S)+P(X\cap Y|\bar S)P(\bar S)}
+\end{align}
 Das Problem mit dieser Formel ist, dass wir $P(X\cap Y|S)$ normalerweise
 nicht kennen. Normalerweise wird keine Statistik dar"uber gef"uhrt, mit
 welcher H"aufigkeit Spam-Kriterien zusammen in Spam-Messages auftreten.
@@ -99,10 +101,14 @@ oder $\bar S$ unabh"angig sind. Dann gilt $P(X\cap Y|S)=P(X|S)P(Y|S)$
 und sinngem"ass f"ur $\bar S$.
 
 Damit kann nun die Formel umgeformt werden:
-\begin{eqnarray}
-P(S|X\cap Y)&=&\frac{P(X\cap Y|S)P(S)}{P(X\cap Y|S)P(S)+P(X\cap Y|\bar S)P(\bar S)}\nonumber\\
-&=&\frac{P(X|S)P(Y|S)P(S)}{P(X|S)P(Y|S)P(S)+P(X|\bar S)P(Y|\bar S)P(\bar S)}
-\end{eqnarray}
+\begin{align}
+P(S|X\cap Y)
+&=
+\frac{P(X\cap Y|S)P(S)}{P(X\cap Y|S)P(S)+P(X\cap Y|\bar S)P(\bar S)}\nonumber
+\\
+&=
+\frac{P(X|S)P(Y|S)P(S)}{P(X|S)P(Y|S)P(S)+P(X|\bar S)P(Y|\bar S)P(\bar S)}
+\end{align}
 Im Prinzip k"onnte man an dieser Stelle aufh"oren, denn man hat ja jetzt
 alles, was man braucht. Trotzdem ist diese Formel noch etwas unpraktisch.
 Es w"are doch viel besser, wenn man zun"achst alle Wahrscheinlichkeiten
@@ -111,38 +117,47 @@ einzelnes Kriterium eingetreten ist, also $P(S|X)$, und dann nur noch
 mit diesen rechnen, um $P(S|X\cap Y)$ zu bestimmen.
 Dazu muss man offensichtlich den Satz von Bayes nochmals anwenden, um
 $P(X|S)$ umzukehren:
-\begin{eqnarray}
-P(S|X\cap Y)&=&\frac{P(X|S)P(Y|S)P(S)}{P(X|S)P(Y|S)P(S)+P(X|\bar S)P(Y|\bar S)P(\bar S)}\nonumber\\
-&=&\frac{
+\begin{align}
+P(S|X\cap Y)
+&=
+\frac{P(X|S)P(Y|S)P(S)}{P(X|S)P(Y|S)P(S)+P(X|\bar S)P(Y|\bar S)P(\bar S)}\nonumber
+\\
+&=\frac{\displaystyle
 \frac{P(S|X)P(X)}{P(S)}
 \frac{P(S|Y)P(Y)}{P(S)}P(S)
-}{
+}{\displaystyle
 \frac{P(S|X)P(X)}{P(S)}
 \frac{P(S|Y)P(Y)}{P(S)}P(S)
 +
 \frac{P(\bar S|X)P(X)}{P(\bar S)}
 \frac{P(\bar S|Y)P(Y)}{P(\bar S)}P(\bar S)
-}\nonumber\\
-&=&\frac{
+}\nonumber
+\\
+&=
+\frac{\displaystyle
 \frac{P(S|X)}{P(S)}
 \frac{P(S|Y)}{P(S)}P(S)
-}{
+}{\displaystyle
 \frac{P(S|X)}{P(S)}
 \frac{P(S|Y)}{P(S)}P(S)
 +
 \frac{P(\bar S|X)}{P(\bar S)}
 \frac{P(\bar S|Y)}{P(\bar S)}P(\bar S)
 }
-\end{eqnarray}
+\end{align}
 In dieser Formel stehen nur noch die bereits ermittelten Wahrscheinlichkeiten
 $P(S|X)$ und die Wahrscheinlichkeiten von $S$ und $\bar S$.
 
 Eine weitere Vereinfachung kann man erreichen, wenn man die Trainingsmenge so
 w"ahlt, dass $P(S)=P(\bar S)=\frac12$. Dann erh"alt man
-\begin{eqnarray}
-P(S|X\cap Y)&=&\frac{P(S|X)P(S|Y)}{P(S|X)P(S|Y)+P(\bar S|X)P(\bar S|Y)}\nonumber\\
-&=&\frac{P(S|X)P(S|Y)}{P(S|X)P(S|Y)+(1-P(S|X))(1-P(S|Y))}
-\end{eqnarray}
+\begin{align}
+P(S|X\cap Y)
+&=
+\frac{P(S|X)P(S|Y)}{P(S|X)P(S|Y)+P(\bar S|X)P(\bar S|Y)}\nonumber
+\\
+&=
+\frac{P(S|X)P(S|Y)}{P(S|X)P(S|Y)+(1-P(S|X))(1-P(S|Y))}
+\end{align}
 Damit dieser Wert m"oglichst gross wird, also $X\cap Y$ ein m"oglichst
 gutes Spam-Kriterium ist, sollte der zweite Term im Nenner m"oglichst klein
 sein, d.h. falls $P(S|X)$ nahe bei $1$ ist, ist $X$ ein gutes Kriterium f"ur
