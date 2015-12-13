@@ -1,9 +1,7 @@
-%SourceDoc ws-skript.tex
 %
-% c07-testen.tex
+% testen.tex
 %
-% (c) 2006 Prof. Dr. Andreas Mueller
-% $Id: c07-testen.tex,v 1.6 2008/09/09 14:22:16 afm Exp $
+% (c) 2006-2015 Prof. Dr. Andreas Mueller
 %
 \rhead{Testen}
 \chapter{Hypothesen testen} \label{chapter-hypothesen-testen}
@@ -60,7 +58,9 @@ bei der der Wert $10$ gemessen wird. Die Normalverteilung verbietet nat"urlich
 nicht, dass ein derart hoher Wert auftritt. Allerdings ist die
 Wahrscheinlichkeit dass bei einer Standardnormalverteilten Zufallsvariable
 ein Wert $\ge 10$ auftritt
-$$P(|X|\ge 10)=1.523970\cdot 10^{-23}$$
+\[
+P(|X|\ge 10)=1.523970\cdot 10^{-23}
+\]
 das beobachtete Ereignis ist also extrem unwahrscheinlich. Da die Beobachtung
 real ist, muss man es als extrem unwahrscheinlich ansehen, dass die
 Zufallsvariable tats"achlich standardnormalverteilt war.
@@ -105,12 +105,15 @@ Testgr"osse bewegen darf. Verlangt man zum Beispiel, dass ein Fehler erster
 Art h"ochstens mit Wahrscheinlichkeit $0.01$ eintritt, dann muss die 
 Testgr"osse in einem Intervall $[-m,m]$ liegen mit $P(-m\le X\le m)=0.99$.
 Die Gleichung
-$$0.99 = P(-m\le X\le m)
+\[
+0.99 = P(-m\le X\le m)
 =\frac12\left(\operatorname{erf}(\frac{m}{\sqrt{2}})-\operatorname{erf}(-\frac{m}{\sqrt{2}})\right)
 =\operatorname{erf}(\frac{m}{\sqrt{2}})
-$$
+\]
 kann mit Hilfe der inversen Fehlerfunktion aufgel"ost werden:
-$$m=\sqrt{2}\operatorname{erf}^{-1}(0.99)=2.575829$$
+\[
+m=\sqrt{2}\operatorname{erf}^{-1}(0.99)=2.575829
+\]
 Somit w"are bereits eine Abweichung von mehr als dem $2.58$-fachen einer
 Standardabweichung Grund genug, die Hypothese zu verwerfen.
 
@@ -139,7 +142,9 @@ die Werte $0$ und $1$ annehmen, und zwar mit Wahrscheinlichkeit
 $1-p$ bzw.~$p$. Die Zufallsvariable $X_i$ soll mit dem Wert $1$ anzeigen,
 ob bei der $i$-ten Durchf"uhrung des Experiments das Ereignis eingetreten ist.
 Die Summe der Zufallsvariablen 
-$$X=\sum_{i=1}^nX_i$$
+\[
+X=\sum_{i=1}^nX_i
+\]
 ist eine Zufallsvariable, die angibt, wie oft bei $n$ Versuchen das Ereignis
 eingetreten ist. F"ur Erwartungswert und Varianz von $X_i$ finden
 wir folgende Werte
@@ -200,12 +205,16 @@ dass $p$ nicht die Wahrscheinlichkeit des Ereignisses $A$ ist.
 In einem Experiment wurde eine M"unze 30 mal geworfen, wobei 13 mal
 Kopf erschien und 17 mal Zahl. Die Hypothese $p=0.5$ f"uhrt auf eine
 Diskrepanz 
-$$D=\frac{(13-15)^2}{15}+\frac{(17-15)^2}{15}=\frac{8}{15}=0.53333,$$
+\[
+D=\frac{(13-15)^2}{15}+\frac{(17-15)^2}{15}=\frac{8}{15}=0.53333,
+\]
 also viel zu klein, um an der Hypothese zu zweifeln. Nat"urlich beweist
 das auch nicht, dass tats"achlich $p=0.5$. Berechnen wird die Diskrepanz
 f"ur irgend ein $p$, dann gilt
-$$D(p)=\frac{(13-30p)^2}{30p}+\frac{(17-30(1-p))^2}{30(1-p)}
-=\frac{(13-30p)^2}{30p(1-p)}.$$
+\[
+D(p)=\frac{(13-30p)^2}{30p}+\frac{(17-30(1-p))^2}{30(1-p)}
+=\frac{(13-30p)^2}{30p(1-p)}.
+\]
 Die vorhandenen Beobachtungen bringen uns dazu, die Hypothese eines
 bestimmten Wertes von $p$ auf dem Niveau $\alpha=0.01$ zu verwerfen,
 wenn 
@@ -249,7 +258,9 @@ dass f"ur die Zwecke des Tests die Ann"aherung an die Normalverteilung
 genau genug ist.
 \begin{proof}[Beweis]
 Wie beim Fall einer Wahrscheinlichkeit k"onnen wir die Terme
-$$\delta_i=\frac{n_i-np_i}{\sqrt{np_i(1-p_i)}}$$
+\[
+\delta_i=\frac{n_i-np_i}{\sqrt{np_i(1-p_i)}}
+\]
 als standardnormalverteilt ansehen. Sie sind jedoch nicht
 unabh"angig, da $\sum_{i=0}^d n_i=n$ und $\sum_{i=0}^dp_i=1$
 gilt. Das Hauptproblem des Beweises besteht also darin zu zeigen,
@@ -265,7 +276,9 @@ beliebige diskrete Verteilung bilden. Man geht dazu wie folgt vor:
 \begin{enumerate}
 \item Bestimme $x$ so, dass die $F_{\chi_{d}^2}(x)=1-\alpha$
 \item Berechne 
-$$D=\sum_{i=0}^d\frac{(n_i-np_i)^2}{np_i}$$
+\[
+D=\sum_{i=0}^d\frac{(n_i-np_i)^2}{np_i}
+\]
 \item Verwerfe die Hypothese, dass der Ausgang $i$ mit Wahrscheinlichkeit
 $p_i$ eintritt, wenn $D>x$ gilt.
 \end{enumerate}
@@ -318,7 +331,9 @@ Wir wollen testen, ob $n$ Beobachtungen $X_1,\dots,X_n$ sich mit
 der Hypothese vertragen, dass die Zufallsvariablen $X_i$ die
 Verteilungsfunktion $F$ habent. Dazu wird aus den $n$ Beobachtungen
 und die zugeh"orige empirische Verteilungsfunktion
-$$F_n\colon x\mapsto F_n(x)=\frac{|\{x_i|X_i\le x\}|}{n}$$
+\[
+F_n\colon x\mapsto F_n(x)=\frac{|\{x_i|X_i\le x\}|}{n}
+\]
 gebildet. Wenn die Zufallsvariable $X$ tats"achlich die
 Verteilungsfunktion $F$ hat, wird man erwarten,
 dass $F$ und $F_n$ sich nicht stark unterscheiden.
@@ -332,7 +347,9 @@ die Wahrscheinlichkeit, dass $K_n^{\pm}$ einen gewissen Wert "ubersteigt.
 Daf"ur gibt es Tabellen, zum Beispiel findet man im Anhang \ref{anhang-tabellen}
 die Tabelle \ref{KS-tabelle}, welche zu $n$ und einer Wahrscheinlichkeit
 $p$ eine Gr"osse $t_{n,p}$ angibt, f"ur die
-$$P(K_n^+\le t)=t_{n,p}.$$
+\[
+P(K_n^+\le t)=t_{n,p}.
+\]
 
 F"ur die Durchf"uhrung des Tests geht man wie folgt vor:
 \begin{satz} Sei $X_1,\dots,X_n$ sei eine Stichprobe einer Zufallsvariable $X$.
@@ -340,10 +357,14 @@ Der Kolmogorov-Smirnov-Test auf dem Niveau $\alpha$ f"ur die Hypothese,
 dass $X$ die Verteilungsfunktion $F$ hat wird wie folgt durchgef"uhrt:
 \begin{enumerate}
 \item Berechne
-$$K_n^+ = \sqrt{n}\max_{-\infty<x<\infty} (F_n(x)-F(x))$$
+\[
+K_n^+ = \sqrt{n}\max_{-\infty<x<\infty} (F_n(x)-F(x))
+\]
 \item Finde $t_{n,1-\alpha}$ in der Tabelle \ref{KS-tabelle}
 \item Falls
-$$K_n^+>t_{n,1-\alpha}$$
+\[
+K_n^+>t_{n,1-\alpha}
+\]
 verwerfe die Hypothese, dass $X$ die Verteilungsfunktion $F$ hat.
 \end{enumerate}
 \end{satz}
@@ -379,7 +400,9 @@ Um die Verteilungsfunktion in $F(X)$ zu bestimmen, m"ussen wir $P(F(X)\le y)$
 f"ur ein beliebiges $y\in[0,1]$ berechnen. Da $F$ stetig ist, gibt es ein
 gr"osstes $x$, f"ur welches $F(x)= y$, zum Beispiel
 $x=\max\{\xi|F(\xi)= y\}$. Mit diesem $x$ folgt
-$$P(F(X)\le y)=P(X\le x)=F(x)=y.$$
+\[
+P(F(X)\le y)=P(X\le x)=F(x)=y.
+\]
 \end{proof}
 Aus dem Satz folgt, dass wir die Zahlen $Y_j=nF(X_j)$ darauf pr"ufen wollen,
 ob sie im Intervall $[0,n]$ gleichverteilt sind.
@@ -448,19 +471,21 @@ Es gilt
 \end{satz}
 \begin{proof}[Beweis] Wir f"uhren den Beweis mit vollst"andiger
 Induktion. F"ur $n=1$ muss das Integral
-$$\int_0^xdy_1=[y_1]_0^x=x$$
+\[
+\int_0^xdy_1=[y_1]_0^x=x
+\]
 berechnet werden, was offensichtlich mit $\frac{x^1}{1!}=x$
 "ubereinstimmt.
 
 Nehmen wir an, dass die Formel f"ur $n-1$ stimmt, dann k"onnen wir den
 Fall $n$ wie folgt verifizieren:
-$$
+\[
 \int_0^xdy_n\int_0^{y_n}dy_{n-1}\dots\int_0^{y_2}dy_1
 =
 \int_0^x\frac{y_n^{n-1}}{(n-1)!}\,dy_n
 =
 \left[\frac{y_n^n}{n!}\right]_0^x=\frac{x^n}{n!}
-$$
+\]
 womit die Behauptung bewiesen ist.
 \end{proof}
 Der Nenner in (\ref{kpn-alle-integrale}) ist also $\frac{n^n}{n!}$,
@@ -476,7 +501,11 @@ Integrale sind $\alpha_j=\max(j-t,0)$. Bei gegebenem $t$ wird $\alpha_j=j-t$
 sein f"ur gen"ugend grosse $j$, f"ur alle anderen wird $\alpha_j=0$ sein.
 Es gibt also eine Zahl $k$ so dass der Z"ahler von (\ref{kpn-alle-integrale})
 die Form
-$$P_{nk}(x)=\int_{n-t}^xdx_n\int_{n-1-t}^{x_n}dx_{n-1}\dots\int_{k+1-t}^{x_{k+2}}dx_{k+1}\int_0^{x_{k+1}}dx_k\dots\int_0^{x_2}dx_1$$
+\[
+P_{nk}(x)
+=
+\int_{n-t}^xdx_n\int_{n-1-t}^{x_n}dx_{n-1}\dots\int_{k+1-t}^{x_{k+2}}dx_{k+1}\int_0^{x_{k+1}}dx_k\dots\int_0^{x_2}dx_1
+\]
 hat, es ist dies das gr"osste $k$, f"ur welches $k-t\le 0$ ist, also
 $k=\lfloor t\rfloor$. Der Z"ahler von (\ref{kpn-alle-integrale})
 ist also $P_{n\lfloor t\rfloor}(n)$.
@@ -521,7 +550,9 @@ P_{n0}(x)=\frac{(x+t)^n}{n!}-\frac{(x+t)^{n-1}}{(n-1)!}
 \end{satz}
 \begin{proof}[Beweis]
 Mittels vollst"andiger Induktion. F"ur $n=1$ gilt
-$$P_{10}(x)=\int_1^{x+t}dx_1=[x_1]_1^{x+t}=(x+t)-1=\frac{(x+t)^1}{1!}-\frac{(x+t)^0}{0!}.$$
+\[
+P_{10}(x)=\int_1^{x+t}dx_1=[x_1]_1^{x+t}=(x+t)-1=\frac{(x+t)^1}{1!}-\frac{(x+t)^0}{0!}.
+\]
 Nehmen wir an, die Behauptung w"are f"ur $n-1$ bereits bewiesen, dann
 berechnen wir $P_{n0}(x)$ wie folgt:
 \begin{eqnarray*}
@@ -537,7 +568,9 @@ P_{n0}(x)
 \frac{(x+t)^n}{n!}-\frac{(x+t)^{n-1}}{(n-1)!}
 \end{eqnarray*}
 wegen
-$$\frac{n^n}{n!}=\frac{n^{n-1}n}{(n-1)! n}=\frac{n^{n-1}}{(n-1)!},$$
+\[
+\frac{n^n}{n!}=\frac{n^{n-1}n}{(n-1)! n}=\frac{n^{n-1}}{(n-1)!},
+\]
 womit der Satz bewiesen ist.
 \end{proof}
 
@@ -557,8 +590,9 @@ P_{nk}(x)-P_{n,k-1}(x)
 
 \begin{proof}[Beweis]
 Wir schreiben
-$$\Delta_{nk}(x)= P_{nk}(x)-P_{n,k-1}(x)
-$$
+\[
+\Delta_{nk}(x)= P_{nk}(x)-P_{n,k-1}(x)
+\]
 dann gilt
 \begin{eqnarray*}
 \Delta_{nk}(x)
