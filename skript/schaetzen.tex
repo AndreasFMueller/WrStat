@@ -126,8 +126,10 @@ Varianz ebenfalls ein konsistenter Sch"atzer ist.
 Nach \ref{section-konsistente-schaetzer} ist der Stichprobenmittelwert
 ein konsistenter Sch"atzer,
 aber er ist sogar erwartungstreu:
-$$E(\mu(X_1,\dots,X_n))=\frac{E(X_1)+\dots+E(X_n)}{n}=\frac{E(X)+\dots+E(X)}{n}
-=E(X),$$
+\[
+E(\mu(X_1,\dots,X_n))=\frac{E(X_1)+\dots+E(X_n)}{n}=\frac{E(X)+\dots+E(X)}{n}
+=E(X),
+\]
 der Mittelwert ist also durchaus ein Sch"atzer mit ``guten'' Eigenschaften.
 
 F"ur die Sch"atzung der Varianz wurde bisher aus beobachteten Werten
@@ -281,7 +283,9 @@ L(X_1,\dots,X_n;\vartheta(X_1,\dots,X_n)) \ge L(X_1,\dots,X_n;t)\forall t.
 Um das Prinzip zu illustrieren, berechnen wir den Maximum Likelihood
 Sch"atzer f"ur den Erwartungswert einer normalverteilten Zufallsvariable.
 Die Dichtefunktion ist 
-$$f(x,\vartheta)=\frac1{\sqrt{2\pi}}e^{-\frac{(x-\vartheta)^2}{2\sigma^2}}$$
+\[
+f(x,\vartheta)=\frac1{\sqrt{2\pi}}e^{-\frac{(x-\vartheta)^2}{2\sigma^2}}
+\]
 woraus sich die Likelihood-Funktion als
 \begin{equation}
 L(x_1,\dots,x_n;\vartheta)=
@@ -462,10 +466,10 @@ Die Ableitung von (\ref{binomial-likelihood-funktion}) ist
 \bigl(Kp^{K-1}(1-p)^{nm-K}-(nm-K)p^K(1-p)^{nm-K-1}\bigr)=0.
 \end{equation}
 Der zweite Klammerausdruck l"asst sich vereinfachen zu
-$$
+\[
 (K(1-p)-(nm-K)p)p^{K-1}(1-p)^{nm-K-1}=
 (K-nmp)p^{K-1}(1-p)^{nm-K-1}=0
-$$
+\]
 er verschwindet genau dann, wenn $p=K/nm$. Somit ist
 \begin{equation}
 p(k_1,\dots,k_n)=\frac1{nm}\sum_{i=1}^nk_i
@@ -578,7 +582,9 @@ W=Z^2=\frac{n(\bar X-\mu)^2}{\sigma^2}
 $\chi^2_1$-verteilt.
 Wir setzen $Y=(n-1)S^2/\sigma^2$. $W$ und $Y$ sind nach dem eben bewiesenen
 unabh"angig. Wir behaupten
-$$T=W+Y.$$
+\[
+T=W+Y.
+\]
 In der Tat 
 \begin{eqnarray}
 W+Y
@@ -629,8 +635,10 @@ Insbesondere bilden die Punkte $(\bar x,\dots,\bar x)$, $(\mu,\dots,\mu)$
 und $(x_1,\dots,x_n)$ bilden ein rechtwinkliges Dreieck. Dies erlaubt,
 die Entfernung zwischen $(\mu,\dots,\mu)$ und $(x_1,\dots,x_n)$ 
 als Hypothenuse mit Hilfe des Satzes von Pythagoras zu berechnen:
-$$\sum_{i=1}^n(x_i-\mu)^2
-=\sum_{i=1}^n(\bar x-\mu)^2+\sum_{i=1}^n(x_i-\bar x)^2,$$
+\[
+\sum_{i=1}^n(x_i-\mu)^2
+=\sum_{i=1}^n(\bar x-\mu)^2+\sum_{i=1}^n(x_i-\bar x)^2,
+\]
 die Behauptung des Hilfssatzes.
 \end{proof}
 
@@ -722,7 +730,9 @@ vorliegenden Fall hinaus von Bedeutung:
 \begin{definition}
 Ist $Z$ eine standardnormalverteilte Zufallsvariable, und $V$ ein
 $\chi_k^2$, dann heisst die Verteilung von
-$$t=\frac{Z}{\sqrt{V/k}}$$
+\[
+t=\frac{Z}{\sqrt{V/k}}
+\]
 die $t$-Verteilung mit $k$ Freiheitsgraden.
 \end{definition}
 
@@ -745,7 +755,9 @@ und \ref{verteilungsfunktion-quotient} l"asst sich jetzt die
 Dichtefunktion f"ur $T$ berechnen.
 
 Zun"achst berechnen wir die Dichtefunktion f"ur den Nenner:
-$$\varphi_{\sqrt{V/k}}(x)=2x\varphi_{V/k}(x^2)=2xk\varphi_V(kx^2).$$
+\[
+\varphi_{\sqrt{V/k}}(x)=2x\varphi_{V/k}(x^2)=2xk\varphi_V(kx^2).
+\]
 Die Dichtefunktion f"ur den Quotienten ist dann
 \begin{eqnarray*}
 \varphi_T(t)&=&
@@ -762,9 +774,9 @@ Die Dichtefunktion f"ur den Quotienten ist dann
 \end{eqnarray*}
 Mit Hilfe der Subsitution $s=\frac12(1+\frac{t^2}n)y^2$
 oder
-$$
+\[
 y=\frac{2^{\frac12}s^{\frac12}}{(1+\frac{t^2}n)^{\frac12}}
-$$
+\]
 wir daraus
 \begin{eqnarray*}
 \varphi_T(t)
