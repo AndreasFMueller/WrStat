@@ -6,7 +6,10 @@
 all:	graph
 
 curves.mp:	tacho.m
-	octave tacho.m
+	if type octave 2>/dev/null; \
+	then \
+		octave tacho.m; \
+	fi
 
 graph_FILES = graph-1.pdf
 graph:	$(graph_FILES)

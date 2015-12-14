@@ -44,7 +44,8 @@ Binomialverteilung mit $p=0.4$ und $n=10$.
 
 Der Wurf einer M"unze ist der Spezialfall eines Versuches mit
 zwei m"oglichen Ausg"angen $\{0,1\}$, bei dem die beiden Ausg"ange als
-gleich wahrscheinlich angesehen werden. Es sind durchaus auch
+gleich wahrscheinlich angesehen werden.
+Es sind durchaus auch
 Anwendungsf"alle denkbar, in denen die beiden Ausg"ange unterschiedliche
 Wahrscheinlichkeit haben, zum Beispiel $p$ f"ur den Ausgang $1$ und $1-p$
 f"ur $0$.
@@ -52,7 +53,8 @@ Ein solches Experiment nennt man ein Bernoulliexperiment.
 
 Wir wiederholen jetzt dieses Experiment $n$ mal und betrachten die Ereignisse,
 dass in genau $k$ der $n$ F"alle der Ausgang $1$ eingetreten ist,
-und $0$ in allen anderen F"allen. Es gibt $\binom{n}{k}$ M"oglichkeiten,
+und $0$ in allen anderen F"allen.
+Es gibt $\binom{n}{k}$ M"oglichkeiten,
 die $k$ $1$-Experimente auszuw"ahlen, und die Wahrscheinlichkeit, dass genau
 diese Kombination $1$ und $0$ realisiert wird, ist $p^k(1-p)^{n-k}$.
 Somit ist die Wahrscheinlichkeit, dass von $n$ Experimenten deren $k$
@@ -96,11 +98,12 @@ Die maximale Varianz wird erreicht bei $p=\frac12$.
 \index{Binomialverteilung!Varianz}
 
 \begin{proof}[Beweis] Wir m"ussen die Summen
-\begin{eqnarray*}
-E(X)&=&\sum_{k=0}^nk\binom{n}{k}p^k(1-p)^{n-k}\\
-E(X^2)&=&\sum_{k=0}^nk^2\binom{n}{k}p^k(1-p)^{n-k}
-\end{eqnarray*}
-berechnen k"onnen. Dazu betrachten wir die Hilfsfunktion
+\begin{align*}
+E(X)&=\sum_{k=0}^nk\binom{n}{k}p^k(1-p)^{n-k}\\
+E(X^2)&=\sum_{k=0}^nk^2\binom{n}{k}p^k(1-p)^{n-k}
+\end{align*}
+berechnen k"onnen.
+Dazu betrachten wir die Hilfsfunktion
 \[
 f(x)=(x+y)^n=\sum_{k=0}^n\binom{n}{k}x^ky^{n-k},
 \]
@@ -141,7 +144,8 @@ Daraus bestimmen wir die Varianz
 \operatorname{var}(X)=E(X^2)-E(X)^2=pn+p^2n(n-1)-p^2n^2=p(1-p)n
 \]
 Die Funktion $p\mapsto np(1-p)$ ist eine quadratische Funktion mit den
-Nullstellen $0$ und $1$. Quadratische Funktionen sind symmetrisch um
+Nullstellen $0$ und $1$.
+Quadratische Funktionen sind symmetrisch um
 die Abszisse des Scheitelpunktes, der demzufolge in der Mitte zwischen
 den Nullstellen bei $\frac12$ sein muss.
 \end{proof}
@@ -158,7 +162,8 @@ Erwartungswert $0$ und Varianz $1$ haben.
 Durch die Skalierung r"ucken die m"oglichen Werte von $Y$ n"aher zusammen,
 so dass man die Wahrscheinlichkeiten nicht direkt vergleichen kann.
 Man kann aber die Verteilungsfunktionen $F_Y$ f"ur verschiedene Werte
-von $n$ vergleichen. Aus dem zentralen Grenzwertsatz erh"alt man
+von $n$ vergleichen.
+Aus dem zentralen Grenzwertsatz erh"alt man
 jedoch die Aussage, dass die Verteilungsfunktion gegen die
 Verteilungsfunktion der Standardnormalverteilung konvergieren wird.
 Dieser Spezialfall des zentralen Grenzwertsatzes heisst auch der
@@ -167,9 +172,11 @@ Satz von de Moivre und Laplace.
 Die Gr"osse $Y=(X-np)/\sqrt{np(1-p)}$ sollte also normalverteilt sein
 mit Erwartungswert $0$ und Varianz $1$, aber nat"urlich nur, wenn $p$
 tats"achlich die Wahrscheinlichkeit des einen Ausgangs des
-Bernoulliexperimentes ist. Daraus l"asst sich jetzt ein Test daf"ur
+Bernoulliexperimentes ist.
+Daraus l"asst sich jetzt ein Test daf"ur
 konstruieren, ob $p$ die Wahrscheinlichkeit des einen Ausgangs eines
-Bernoulliexperimentes ist. Ist $p$ n"amlich nicht die richtige
+Bernoulliexperimentes ist.
+Ist $p$ n"amlich nicht die richtige
 Wahrscheinlichkeit, wird f"ur grosse $Y$ mit grosser Wahrscheinlichkeit
 stark von $0$ abweichen, es muss also nur ein Kriterium gefunden werden,
 welches angibt, dass die Abweichung zu gross ist, um immer noch daran

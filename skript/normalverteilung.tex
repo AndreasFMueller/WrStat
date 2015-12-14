@@ -46,8 +46,10 @@ $\bullet$ Approximation der Binomialverteilung
 \caption{Verteilungsfunktion (oben) und Dichtefunktion (unten) der Normalverteilung\label{bildnormalverteilung}}
 \end{figure}
 Die Normalverteilung, auch Gaussverteilung genannt, ist von grosser praktischer
-Bedeutung. In sehr vielen Anwendungssituationen darf man davon ausgehen,
-dass die beobachteten Zufallsgr"ossen normalverteilt sind. Die Begr"undung
+Bedeutung.
+In sehr vielen Anwendungssituationen darf man davon ausgehen,
+dass die beobachteten Zufallsgr"ossen normalverteilt sind.
+Die Begr"undung
 f"ur diesen "uberraschenden Sachverhalt liefert der zentrale Grenzwert-Satz,
 welcher im wesentlich besagt, dass eine Zufallsvariable, die als Summe vieler
 kleiner, unabh"angiger Zufallseinfl"usse betrachtet werden kann, immer
@@ -294,14 +296,15 @@ Varianz $\sigma^2=\sigma_1^2+\sigma_2^2$.
 Aus der Linearit"at des Erwartungswertes ist klar, dass der Mittelwert
 $\mu=\mu_1+\mu_2$ sein muss.
 Auch wissen wir bereits aus Satz \ref{rechenregeln-varianz}, dass
-die Varianz der Summe $X_1+X_2$ die angegebene Form hat. Es ist also nur
+die Varianz der Summe $X_1+X_2$ die angegebene Form hat.
+Es ist also nur
 noch nachzupr"ufen, dass die Dichtefunktion wieder die eine Normalverteilung
 ist.
 
 Zun"achst haben offensichtlich $X_1$ und $X_1-\mu_1$ Dichtefunktionen,
 die sich nur durch eine Translation um $\mu_1$  unterscheiden, ebenso
-$X_2$ und $X_1+X_2$. Es gen"ugt also, den Fall $\mu_1=\mu_2=0$
-zu untersuchen.
+$X_2$ und $X_1+X_2$.
+Es gen"ugt also, den Fall $\mu_1=\mu_2=0$ zu untersuchen.
 
 Wir berechnen die Dichtefunktion der Verteilung der Summe $X=X_1+X_2$
 mit Hilfe der Faltung. 
@@ -330,7 +333,8 @@ e^{-\frac12\left(\frac{z-t}{\sigma_2}\right)^2}
 +\left(\frac{z-t}{\sigma_2}\right)^2\biggr]\biggr)
 \,dt
 \end{align*}
-ausgewertet werden. Im Exponenten in der eckigen Klammer steht der Ausdruck
+ausgewertet werden.
+Im Exponenten in der eckigen Klammer steht der Ausdruck
 \[
 \biggl(\frac{t}{\sigma_1}\biggr)^2 +\left(\frac{z-t}{\sigma_2}\right)^2,
 \]
@@ -339,7 +343,8 @@ den wir durch Ausmultiplizieren in die Form
 \biggl(\frac1{\sigma_1^2}+\frac1{\sigma_2^2}\biggr)t^2
 -\frac{2z}{\sigma_2^2}t+\frac{z^2}{\sigma_2^2}
 \]
-bringen k"onnen. Das ist genau die Form, f"ur das im Hilfssatz \ref{exp-quadr}
+bringen k"onnen.
+Das ist genau die Form, f"ur das im Hilfssatz \ref{exp-quadr}
 ein Resultat bereitgestellt wurde, wobei jetzt folgende Werte f"ur $a$, $b$ und $c$
 zu verwenden sind:
 \[
@@ -411,7 +416,8 @@ f"ur die Normalverteilung (rot) und die Schranke von Tschebyscheff (gr"un)
 \end{figure}
 
 Auch f"ur die Normalverteilung wollen wir die Wahrscheinlichkeit
-f"ur grosse Abweichungen berechnen. Es gilt wieder
+f"ur grosse Abweichungen berechnen.
+Es gilt wieder
 \[
 P(|X-\mu|>\varepsilon)
 =1-\int_{-\varepsilon}^{\varepsilon}e^{-\frac{x^2}{2\sigma^2}}\,dx
@@ -422,7 +428,8 @@ P(|X-\mu|>\varepsilon)
 \]
 Die Abbildung~\ref{abweichung-normalverteilung} zeigt die Wahrscheinlichkeit
 f"ur eine grosse Abweichung vom Mittelwert ein Einheiten
-von $\sqrt{\operatorname{var}(X)}$. Noch deutlicher als bei der
+von $\sqrt{\operatorname{var}(X)}$.
+Noch deutlicher als bei der
 Exponentialverteilung zeigt sich, dass die zus"atzliche Information
 "uber die Verteilung die Wahrscheinlichkeit f"ur eine grosse
 Abweichung deutlich besser absch"atzen l"asst.
@@ -436,7 +443,8 @@ In vielen Anwendungen sieht man die Zufallsprozesse nicht einzeln, sondern
 man sieht eine grosse Zahl von Zufallsprozessen, die zusammenwirken.
 So entsteht der Druck, den ein Gas auf die Wand seines Beh"alters aus"ubt,
 durch die grosse Zahl von unabh"angigen St"ossen der einzelnen Gasteilchen
-auf die Wand. Das Rauschen in einer elektrischen Schaltung setzt sich
+auf die Wand.
+Das Rauschen in einer elektrischen Schaltung setzt sich
 zusammen aus vielen einzelnen Beitr"agen, die zum Beispiel in einzelnen
 Bauteilen entstehen, und dort durch das Zusammenspiel der zuf"alligen
 thermischen Bewegung der Atome hervorgerufen werden.
@@ -461,14 +469,17 @@ weil
 \operatorname{var}(S_n)=\operatorname{var}\bigl(\frac1{\sqrt{n}}(X_1+\dots+X_n)\big)
 =\frac1n\operatorname{var}(X_1+\dots+X_n)
 \]
-ist. Die Summe $S_n$ beschreibt das Zusammenwirken der ersten $n$
-Zufallsvariablen $X_i$. Die einzelnen Faktoren k"onnen "ublicherweise
+ist.
+Die Summe $S_n$ beschreibt das Zusammenwirken der ersten $n$
+Zufallsvariablen $X_i$.
+Die einzelnen Faktoren k"onnen "ublicherweise
 nicht beobachtet werden, nur $S_n$ ist der Messung zug"anglich.
 
 In der Physik lernt man, dass man die st"andige, zufallsbestimmte
 Bewegung der Atome in einem Gas oder K"orper nicht im Detail
 zu verstehen braucht, und trotzdem eine n"utzliche W"armelehre
-aufstellen kann. Daher sollte es m"oglich sein, "uber die Verteilung
+aufstellen kann.
+Daher sollte es m"oglich sein, "uber die Verteilung
 $S_n$ mindestens f"ur sehr grosse $n$ etwas auszusagen, selbst
 wenn "uber die einzelnen Beitr"age $X_i$ nur sehr wenig bekannt ist.
 \begin{figure}
@@ -485,9 +496,11 @@ konvergiert gegen die Standardnormalverteilung (unten).\label{zgws}}
 Der zentrale Grenzwertsatz besagt nun, dass die Verteilungsfunktionen
 von $S_n$ gegen die Verteilungsfunktion einer Normalverteilung
 konvergieren\footnote{Wie genau diese Konvergenz gemeint ist, wird
-im Laufe der Berechnung klar werden.}. In den folgenden Abschnitten
+im Laufe der Berechnung klar werden.}.
+In den folgenden Abschnitten
 versuchen wir, die Verteilungsfunktion von $S_n$ und insbesondere
-ihren Grenzwert zu berechnen. Die Abbildung \ref{zgws} illustriert
+ihren Grenzwert zu berechnen.
+Die Abbildung \ref{zgws} illustriert
 dies: dort wird die Wahrscheinlichkeitsdichte der standardisierten
 Summe von bis zu vier im
 Intervall $[-\sqrt{3},\sqrt{3}]$ gleichverteilte Zufallsvariablen dargestellt,
@@ -506,7 +519,8 @@ Wir nehmen im folgenden
 an, dass diese Funktion existiert\footnote{F"ur alle in diesem Kapitel
 untersuchten Verteilungen trifft dies zu, es gibt aber auch Verteilungen,
 f"ur die die momenterzeugende Funktion nicht existiert, f"ur die der
-zentrale Grenzwertsatz aber trotzdem gilt.}. F"ur die momenterzeugende
+zentrale Grenzwertsatz aber trotzdem gilt.}.
+F"ur die momenterzeugende
 Funktion gilt die folgende Rechenregeln
 \begin{align*}
 M_{X+Y}(t)&=M_X(t)M_Y(t)\\
@@ -561,12 +575,14 @@ M_{S_n}(t)
 =\prod_{i=1}^n\biggl(1+\frac{t^2}{2n}+R_i\biggl(\frac{t}{\sqrt{n}}\biggl)\frac{t^2}{n}\biggr)
 =\biggl(1+\frac{t^2}{2n}+Q_n\biggl(\frac{t}{\sqrt{n}}\biggr)\frac{t^2}{n}\biggr)^n,
 \]
-wobei $Q_n(t)$ eine neue Funktion ist. Diese kann durch
+wobei $Q_n(t)$ eine neue Funktion ist.
+Diese kann durch
 \[
 Q_n(t/\sqrt{n})=\root{n}\of{M_{S_n}(t)}-1-\frac{t^2}{2n}
 \]
 ermittelt werden, und hat immer noch die Eigenschaft,
-$\lim_{t\to0}Q_n(t)=0$. Im einfachsten Fall, wenn die Zufallsvariablen
+$\lim_{t\to0}Q_n(t)=0$.
+Im einfachsten Fall, wenn die Zufallsvariablen
 identisch verteilt sind, sind alle Funktionen $R_i$ gleich, und damit
 auch alle $Q_n$.
 
@@ -596,14 +612,16 @@ Da in unserem Fall $x_n\to \frac{t^2}2$ erhalten wir
 {\parindent0pt\bf 4.~Schritt: Die Grenzverteilung.}
 Der gefundene Grenzwert soll die momenterzeugende Funktion einer
 Verteilung sein, und wir erwarten, dass sie ebenfalls eine
-momenterzeugende Funktion hat. Da die momenterzeugende Funktion
+momenterzeugende Funktion hat.
+Da die momenterzeugende Funktion
 nichts anderes als eine Laplacetransformation ist, k"onnen wir
 den Eindeutigkeitssatz f"ur die Laplacetransformation anwenden,
 welcher besagt, dass zwei Funktionen, die die gleiche zweiseitige
 Laplacetransformierte haben, fast "uberall gleich sein.
 
 Wir rechnen nach, dass $e^{\frac{t^2}2}$ die momenterzeugende Funktion
-der Standardnormalverteilung ist. Wir berechnen
+der Standardnormalverteilung ist.
+Wir berechnen
 dazu die Momente der Normalverteilung $\frac1{\sqrt{2\pi}}e^{-\frac{x^2}2}$
 \begin{align*}
 \int_{-\infty}^\infty e^{-\frac{x^2}2}x^{2k+1}\,dx&=0\\
@@ -619,7 +637,8 @@ Rekursionsformel aus dem $2k$-ten Moment berechnen:
 \[
 E(X^{2k+2})=(2k+1)E(X^{2k}).
 \]
-Das $2k$-te Moment ist die Varianz, also $E(X^2)=1$. Damit kann
+Das $2k$-te Moment ist die Varianz, also $E(X^2)=1$.
+Damit kann
 man die momenterzeugende Funktion von $e^{-\frac{x^2}2}$ aufschreiben:
 \begin{align*}
 M(t)
@@ -651,12 +670,14 @@ Insgesamt haben wir damit den folgenden Satz bewiesen
 \label{satz-zentraler-grenzwertsatz}
 Sind $(X_i)_{1\le i}$ unabh"angige Zufallsvariablen mit
 Erwartungswert $E(X_i)=0$ und Varianz $\operatorname{var}(X_i)=1$
-f"ur alle $i\ge 1$. Dann ist
+f"ur alle $i\ge 1$.
+Dann ist
 \[
 S_n=\frac1{\sqrt{n}}\sum_{i=1}^nX_i=\frac1{\sqrt{n}}(X_1+\dots+X_n)
 \]
 eine Folge von Zufallsvariablen, die ebenfalls Erwartungswert $E(S_n)=0$
-und Varianz $\operatorname{var}(S_n)=1$ haben. Falls die Zufallsvariablen
+und Varianz $\operatorname{var}(S_n)=1$ haben.
+Falls die Zufallsvariablen
 $X_i$
 f"ur alle $i$ eine momenterzeugende Funktion haben, hat auch $S_n$
 f"ur alle $n$ eine momenterzeugende Funktion, ausserdem konvergiert

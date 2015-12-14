@@ -1,9 +1,7 @@
-%SourceDoc ws-skript.tex
 %
-% c04-verteilung.tex
+% verteilung.tex -- Kapitel über den Verteilungsbegriff
 %
-% (c) 2006 Prof. Dr. Andreas MŸller
-% $Id: c04-verteilung.tex,v 1.19 2008/09/09 14:22:16 afm Exp $
+% (c) 2006-2015 Prof. Dr. Andreas Mueller, Hochschule Rapperswil
 %
 \rhead{Verteilung}
 \chapter{Wahrscheinlichkeitsverteilung} \label{chapter-wahrscheinlichkeitsverteilung}
@@ -75,7 +73,8 @@ $F(x)=P(X\le x)$, zeigt die Wahrscheinlichkeit daf"ur, dass $X$ den Wert $x$ nic
 \label{bildverteilungsfunktion}}
 \end{figure}
 Aus einem Wahrscheinlichkeitsmass $P$ auf $\Omega$ kann man mit Hilfe
-von $X$ auch ein Wahrscheinlichkeitsmass auf $\mathbb{R}$ bilden. F"ur die
+von $X$ auch ein Wahrscheinlichkeitsmass auf $\mathbb{R}$ bilden.
+F"ur die
 Wahrscheinlichkeit f"ur das Intervall $[a,b]\subset\mathbb{R}$ setzt
 man einfach
 \[
@@ -110,7 +109,8 @@ Die Wahrscheinlichkeit des sicheren Ereignisses ist $1$, also gilt.
 \end{enumerate}
 
 Die Verteilungsfunktion $F$ beinhaltet alle Information, um $P$ zu
-rekonstruieren. Man kann mit ihrer Hilfe auch die Wahrscheinlichkeit
+rekonstruieren.
+Man kann mit ihrer Hilfe auch die Wahrscheinlichkeit
 abgeschlossener Intervalle oder offener Intervalle berechnen:
 \begin{satz} Sei $F$ die Verteilungsfunktion der Zufallsvariablen $X$,
 dann gilt
@@ -131,13 +131,16 @@ einzelnen Wert
 P(a)=P([a,a])=F(a)-\lim_{\xi\to a-}F(\xi).
 \]
 Solange die Funktion $F$ stetig ist, wird diese Wahrscheinlichkeit
-verschwinden. Andernfalls hat die Verteilungsfunktion am Punkt $a$ eine
+verschwinden.
+Andernfalls hat die Verteilungsfunktion am Punkt $a$ eine
 Sprungstelle, und die Wahrscheinlichkeit, dass der Wert $a$ eintritt,
 ist gerade die Sprungh"ohe.
 
 Man kann zeigen, dass eine monotone Funktion nur abz"ahlbar viele Sprungstellen
-hat. Es gibt also eine Folge $(a_k)_{k\in\mathbb{N}}$, welche alle
-Sprungstellen enth"alt. Diese Werte zeichnen sich dadurch aus, dass ihre
+hat.
+Es gibt also eine Folge $(a_k)_{k\in\mathbb{N}}$, welche alle
+Sprungstellen enth"alt.
+Diese Werte zeichnen sich dadurch aus, dass ihre
 Wahrscheinlichkeit nicht $0$ ist und der Sprungh"ohe entspricht:
 \[
 P(a_k)=F(a_k)-\lim_{x\to a_k-}F(x).
@@ -148,7 +151,8 @@ die nur die Sprungstellen ber"ucksichtigt:
 F_d(x)=\sum_{k=1, a_k\le x}^\infty P(a_k)
 \]
 Die Funktion $F_d$ hat genau die gleichen Sprungstellen wie $F$, und
-auch die gleichen Sprungh"ohen. $F_d$ kann sich nur "andern, wenn in der
+auch die gleichen Sprungh"ohen.
+$F_d$ kann sich nur "andern, wenn in der
 Summe ein neuer Summand hinzukommt, also is $F_d$ zwischen den Sprungstellen
 konstant.
 \index{Sprungstelle}
@@ -172,9 +176,11 @@ und stetige (Mitte) Komponente\label{bildzerlegungverteilungsfunktion}}
 \index{Verteilung!stetige}
 
 Die Differenz $F_s=F-F_d$ kann offensichtlich keine Sprungstellen haben,
-wenigstens keine Sprungstellen bei Ann"aherung von links. Damit liegt
+wenigstens keine Sprungstellen bei Ann"aherung von links.
+Damit liegt
 die Vermutung nahe, dass $F_s$ eine stetige Funktion ist (daher der Index
-$s$). Das ist tats"achlich so:
+$s$).
+Das ist tats"achlich so:
 \begin{satz}Eine Verteilungsfunktion $F$ kann immer zerlegt werden in eine
 st"uckweise konstante, monoton wachsende, rechtsseitig stetige Funktion
 $F_d$ und eine stetige Funktion $F_s$:
@@ -190,11 +196,14 @@ weiter ben"otigt, er kann daher auch "ubersprungen werden.
 {\small
 \begin{proof}[Beweis]
 Es gen"ugt offensichtlich zu zeigen, dass $F$ rechtsseitig stetig ist, also
-keine Sprungstellen bei Ann"aherung von rechts hat. Die Differenz
+keine Sprungstellen bei Ann"aherung von rechts hat.
+Die Differenz
 $F(a+\varepsilon)-F(a)$ ist die Wahrscheinlichkeit, dass der Wert der
 Zufallsvariable in das Intervall $(a,a+\varepsilon]$
-f"allt. Es gen"ugt, wenn man f"ur $\varepsilon=\frac1n$ zeigen kann,
-dass $F(a+\frac1n)\to F(a)$. Das Intervall $(a,a\frac1n]$ kann man
+f"allt.
+Es gen"ugt, wenn man f"ur $\varepsilon=\frac1n$ zeigen kann,
+dass $F(a+\frac1n)\to F(a)$.
+Das Intervall $(a,a\frac1n]$ kann man
 als Vereinigung unendlich vieler kleiner Teilintervalle
 schreiben, also
 \[
@@ -213,7 +222,8 @@ P\left(\left(a,a+{\textstyle\frac1n}\right]\right)
 Der Ausdruck $P\left(\left(a,a+{\frac1N}\right]\right)$ ist also der
 Rest einer unendlichen Reihe mit ausschliesslich positiven Gliedern,
 mit der $P\left(\left(a,a+{\textstyle\frac1n}\right]\right)$
-berechnet werden kann.  Nach den Axiomen f"ur $P$ gilt wegen
+berechnet werden kann.
+ Nach den Axiomen f"ur $P$ gilt wegen
 \[
 \left(a,{\textstyle a+\frac1n}\right]
 = 
@@ -227,7 +237,8 @@ P\left(\left(a,{\textstyle a+\frac1n}\right]\right)
 \sum_{k=n}^{\infty}
 P\left(\left(a+{\textstyle\frac1{k+1}},a+{\textstyle\frac1k}\right]\right)
 \]
-d.h. die Reihe ist konvergent. Also streben die einzelnen Glieder gegen null,
+d.~h.~die Reihe ist konvergent.
+Also streben die einzelnen Glieder gegen null,
 oder
 \[
 0=\lim_{n\to\infty}P\left(\left(a,{\textstyle a+\frac1n}\right]\right)
@@ -235,13 +246,15 @@ oder
 \]
 also genau die Aussage, dass die rechtsseitigen Grenzwerte mit den
 Funktionswerten "ubereinstimmen, mithin die Funktion $F$ rechtsseitig
-stetig ist. Somit ist $F_s$ rechts- und linksseitig stetig.
+stetig ist.
+Somit ist $F_s$ rechts- und linksseitig stetig.
 \end{proof}
 }
 Im Allgemeinen besteht also eine Verteilungsfunktion $F$ aus einem
 Teil, der Spr"unge darstellt, also bestimmte Werte der Zufallsvariable,
 die mit nicht verschwindender Wahrscheinlichkeit auftreten k"onnen, und
-einem Teil, der ``verschmiert'' ist "uber den ganzen Wertebereich. Wir
+einem Teil, der ``verschmiert'' ist "uber den ganzen Wertebereich.
+Wir
 betrachten jeden dieser Teile separat.
 
 \subsection{St"uckweise konstante Verteilungsfunktion}
@@ -256,7 +269,8 @@ $x$-Werte (unten) einer diskreten Verteilung
 \end{figure}
 Ist die Verteilungsfunktion st"uckweise konstant, dann ist
 $P((a,b])=0$ falls im Intervall $(a,b]$ keine Sprungstelle
-vorhanden ist. Ist $x_0$ eine Sprungstelle, dann ist ihr H"ohe
+vorhanden ist.
+Ist $x_0$ eine Sprungstelle, dann ist ihr H"ohe
 \[
 \lim_{a\to x_0-}P((a,x_0])=\lim_{a\to x_0-}(F(x_0)-F(a))
 F(x_0)-\lim_{a\to x_0-}F(a).
@@ -264,13 +278,15 @@ F(x_0)-\lim_{a\to x_0-}F(a).
 Dies bedeutet, dass $P(\{x_0\})=F(x_0)-\lim_{a\to x_0-}F(a)$.
 Offensichtlich haben also nur die Sprungwerte der Funktion eine
 von 0 verschiedene Wahrscheinlichkeit, alle anderen Intervalle ohne
-einen Sprungpunkt haben Wahrscheinlichkeit 0. Die Wahrscheinlichkeiten
+einen Sprungpunkt haben Wahrscheinlichkeit 0.
+Die Wahrscheinlichkeiten
 der einzelnen Sprungwerte k"onnen wie in
 Abbildung~\ref{bilddiskreteverteilungsfunktion} visualisiert werden.
 
 Ist $S=\{\,x\;|\;F(x)\ne \lim_{a\to x-}F(a)\,\}$ die Menge der Sprungpunkte 
 der Verteilungsfunktion, dann kann man damit Wahrscheinlichkeiten und
-Erwartungswerte wie folgt berechnen. Die Wahrscheinlichkeit eines
+Erwartungswerte wie folgt berechnen.
+Die Wahrscheinlichkeit eines
 Ereignisses h"angt davon ab, welche Sprungpunkte es enth"alt:
 \[
 P(A)=\sum_{x\in S}P(\{x\}),
@@ -316,7 +332,8 @@ P((a,b])=F(b)-F(a)
 erinnert an die Berechnung eines Integrals mit Hilfe einer
 Stammfunktion.
 W"are $F$ differenzierbar, k"onnte man die Ableitung bilden,
-$F$ w"are dann eine Stammfunktion von $\varphi=F'$. Dann g"alte
+$F$ w"are dann eine Stammfunktion von $\varphi=F'$.
+Dann g"alte
 \[
 P(X\le x)=F(x)=\int_{-\infty}^x\varphi(\xi)\,d\xi.
 \]
@@ -342,7 +359,8 @@ aus Abbildung \ref{bildverteilungsfunktion}.
 
 Bei diskreten Wahrscheinlichkeitsverteilungen folgte die Formel f"ur den
 Erwartungswert von $X$ sofort aus der Definition, f"ur den stetigen
-Fall haben wir aber noch keine exakte Definition. Wenn wir $\mathbb{R}$
+Fall haben wir aber noch keine exakte Definition.
+Wenn wir $\mathbb{R}$
 in viele kleine Intervalle $I_1=(\underline x_1,\overline x_1],\dots, I_n$
 unterteilen, dann gilt
 \[
@@ -365,13 +383,14 @@ L"asst man jetzt die Intervalll"ange immer kleiner werden, wird wegen der
 Stetigkeit von $\varphi$ der Unterschied zwischen
 $\max_{\xi\in I_i}\varphi(\xi)$ und
 $\min_{\xi\in I_i}\varphi(\xi)$ beliebig klein, und auch jener
-zwischen $\underline x_i$ und $\overline x_i$. Beim Grenz"ubergang
+zwischen $\underline x_i$ und $\overline x_i$.
+Beim Grenz"ubergang
 zu beliebig kleinen Intervallen werden die beiden Seiten der Ungleichung
 gegen das Integral
 \[
 \int_{-\infty}^{\infty}x\varphi(x)\,dx
 \]
-streben, d.h. der folgende Satz kann als Definition des Erwartungswertes
+streben, d.~h.~der folgende Satz kann als Definition des Erwartungswertes
 gesehen werden:
 \begin{satz}
 Ist $X$ eine Zufallsvariable mit stetiger
@@ -399,13 +418,15 @@ Aus der Summe ist ein Integral geworden.
 \subsection{Wahrscheinlichkeit grosser Abweichungen}
 Im vorhergehenden Kapitel haben wir mit dem Satz von Tschebyscheff ein
 Hilfsmittel kennengelernt, welches erlaubt abzusch"atzen, dass eine
-gross Abweichung vom Erwartungswert eintritt. Der Satz stellte einen
+gross Abweichung vom Erwartungswert eintritt.
+Der Satz stellte einen
 Zusammenhang mit der Varianz her:
 \[
 P(|X-\mu|>\varepsilon)\le\frac{\operatorname{var}(X)}{\varepsilon^2}.
 \]
 Es wurde damals schon bemerkt, dass f"ur ``weniger wilde'' Verteilung mit
-besseren Absch"atzungen gerechnet werden kann. Insbesondere ist es mit
+besseren Absch"atzungen gerechnet werden kann.
+Insbesondere ist es mit
 einer Dichtefunktion m"oglich, die Wahrscheinlichkeit einer grossen
 Abweichung exakt zu berechnen:
 \begin{satz} Ist $X$ eine Zufallsvariable, deren Verteilung die
@@ -439,13 +460,15 @@ nicht mehr nur eine grobe Absch"atzung.
 \index{Gleichverteilung}
 Als Beispiel und zur Gegen"uberstellung stetiger und diskreter Zufallsvariablen
 behandeln wir in diesem Abschnitt die diskrete und die stetige
-Gleichverteilung. Weitere Informationen zur Gleichverteilung sind
+Gleichverteilung.
+Weitere Informationen zur Gleichverteilung sind
 im Abschnitt~\ref{section-gleichverteilung-stetig} zu finden.
 
 \subsection{Ganzzahlige Gleichverteilung}
 \index{Gleichverteilung!ganzzahlig}
 Eine Zufallsvariable $X$ nehme die ganzzahligen Werte $\{a,a+1,\dots,b\}$ mit 
-gleicher Wahrscheinlichkeit $\frac1{b-a+1}$ an.  Die Verteilungsfunktion
+gleicher Wahrscheinlichkeit $\frac1{b-a+1}$ an.
+Die Verteilungsfunktion
 (Abbildung~\ref{diskrete-gleichverteilung})
 ist also
 \[
@@ -625,17 +648,20 @@ Gleichungen
 a+b&=2\mu\\
 b^2-a^2&=12\sigma^2\quad\Rightarrow\quad b-a=\frac{6\sigma^2}{\mu}
 \end{align*}
-abgeleitet werden, welche $a$ und $b$ zu bestimmen erlauben. 
+abgeleitet werden, welche $a$ und $b$ zu bestimmen erlauben.
 \item
 Sobald die Parameter festliegen, k"onnen beliebige Wahrscheinlichkeiten
 oder Erwartungswerte von $X$ oder Funktionen $f(X)$ ermittelt werden,
 womit sich so ziemlich jede Frage beantworten l"asst.
 \end{enumerate}
 Im Folgenden geht es also vor allem darum, einen geeignet grossen
-Katalog von Verteilungen bereitzustellen. Dazu dienen neben einigen
+Katalog von Verteilungen bereitzustellen.
+Dazu dienen neben einigen
 Grundverteilungen auch Rechenregeln, welche aus bereits bekannten
-Verteilungen neue Verteilungen abzuleiten gestatten. Diese Rechenregeln
-sind der Inhalt des n"achsten Abschnittes. Im folgenden Kapitel wird
+Verteilungen neue Verteilungen abzuleiten gestatten.
+Diese Rechenregeln
+sind der Inhalt des n"achsten Abschnittes.
+Im folgenden Kapitel wird
 dann eine Auswahl von praktisch n"utzlichen Verteilungen mit ihren
 Eigenschaften vorgestellt.
 
@@ -644,12 +670,15 @@ Beim "Ubergang von $\Omega$ und $P$ mit
 der Zufallsvariable $X$ zur Verteilungsfunktion $F$ 
 ging jede Information
 "uber den Zufallsmechanismus verloren, der im Hintergrund f"ur das zuf"allige
-Auftreten der verschiedenen Werte von $X$ verantwortlich war. Insbesondere
+Auftreten der verschiedenen Werte von $X$ verantwortlich war.
+Insbesondere
 ist es bei zwei Zufallsvariablen $X$ und $Y$ nicht mehr m"oglich zu
 rekonstruieren, ob sie unabh"angig oder wie gegebenenfalls die Abh"angigkeit
-genau ausgesehen hat. Ohne Kenntnis von $\Omega$ ist es daher im Allgemeinen
+genau ausgesehen hat.
+Ohne Kenntnis von $\Omega$ ist es daher im Allgemeinen
 nicht mehr m"oglich, Erwartungswerte von beliebigen Funktionen von $X$ und $Y$
-zu berechnen. Insbesondere $E(XY)$ l"asst sich nur berechnen, wenn man weiss,
+zu berechnen.
+Insbesondere $E(XY)$ l"asst sich nur berechnen, wenn man weiss,
 dass $X$ und $Y$ unabh"angig sind.
 
 Es zeigt sich also in einigen interessanten F"allen durchaus m"oglich, nur mit
@@ -660,7 +689,7 @@ Zufallsvariable interessante Erwartungswerte zu berechnen.
 Sei $X$ eine Zufallsvariable mit Verteilungsfunktion $F(x)$.
 Wendet man die Funktion $F$ auf die Werte $X(\omega)$ der Zufallsvariable,
 erhalten wir die Zufallsvariable $F\circ X$, wir schreiben sie auch
-$F(X)$. 
+$F(X)$.
 Wir berechnen die Verteilungsfunktion von $F(X)$
 \begin{align*}
 F_{F(X)}(y)
@@ -703,13 +732,16 @@ $F^{-1}(Y)=a+(b-a)Y$ eine im Interval $[a,b]$ gleichverteilte Zufallsvariable.
 \index{Variablentransformation}
 Wendet man auf die Werte einer Zufallsvariablen eine Funktion an, entsteht
 eine neue Zufallsvariable, die im Allgemeinen eine g"anzlich andere Verteilung
-haben wird. In diesem Abschnitt soll die Verteilungsfunktion und falls
+haben wird.
+In diesem Abschnitt soll die Verteilungsfunktion und falls
 eine Dichte existiert auch diese der neuen Zufallsvariablen bestimmt werden.
 
 \index{Abbildung!umkehrbare}
 Sei $f$ eine umkehrbare, differenzierbare Abbildung
-$f\colon\mathbb{R}\to\mathbb{R}$. Dann ist $Y=f\circ X$ ebenfalls eine
-Zufallsvariable. Bezeichnen wir die Verteilungsfunktionen von $X$ und $Y$
+$f\colon\mathbb{R}\to\mathbb{R}$.
+Dann ist $Y=f\circ X$ ebenfalls eine
+Zufallsvariable.
+Bezeichnen wir die Verteilungsfunktionen von $X$ und $Y$
 mit $F_X$ bzw.~$F_Y$, dann gilt offensichlich
 \[
 F_Y(y)=P(f\circ X\le y)=P(X\le f^{-1}(y))=F_X(f^{-1}(y))
@@ -718,7 +750,8 @@ oder k"urzer $F_Y=F_X\circ f^{-1}$.
 
 Wir nehmen nun an, dass die Verteilungsfunktionen ausserdem eine
 Dichtefunktion haben, welche wir mit $\varphi_X$ bzw.~$\varphi_Y$
-bezeichnen. Wir schreiben $y=f(x)$, und versuchen die obigen
+bezeichnen.
+Wir schreiben $y=f(x)$, und versuchen die obigen
 Wahrscheinlichkeiten mit den Dichtefunktionen zu berechnen:
 \[
 P(a<Y\le b)
@@ -737,9 +770,11 @@ Wir fassen diese Resultate in einem Satz zusammen
 \label{satz-variablentransformation}
 Ist $f\colon\mathbb{R}\to\mathbb{R}$ eine invertierbare
 differenzierbare Funktion, deren Ableitung nirgends verschwindet,
-und $X$ eine Zufallsvariable mit Verteilungsfunkion $F_X$. Dann ist
+und $X$ eine Zufallsvariable mit Verteilungsfunkion $F_X$.
+Dann ist
 $f\circ X$ eine Zufallsvariable mit Verteilungsfunktion
-$F_Y=F_X\circ f^{-1}$. Hat $F_X$ die Dichtefunktion $\varphi_X$, dann
+$F_Y=F_X\circ f^{-1}$.
+Hat $F_X$ die Dichtefunktion $\varphi_X$, dann
 hat $F_Y$ die Dichtefunktion
 \[
 \varphi_Y=\frac{\varphi_X}{f'}\circ f^{-1}.
@@ -747,7 +782,8 @@ hat $F_Y$ die Dichtefunktion
 \end{satz}
 
 Ohne zus"atzliche Annahmen ist es nicht m"oglich, Erwartungswert und
-Varianz zu berechnen. Hingegen gibt es eine Gr"osse, die sich in jedem
+Varianz zu berechnen.
+Hingegen gibt es eine Gr"osse, die sich in jedem
 Fall bestimmen l"asst:
 \begin{definition}
 Ist $X$ eine Zufallsvariable, dann heisst die Zahl $\operatorname{med}(X)$,
@@ -821,7 +857,8 @@ Da die Werte voneinander unabh"angig sind, ist
 die passende Ereignisalgebra die Produktalgebra, also
 $(x_1,x_2)\in
 \mathbb{R}\times\mathbb{R}$,
-und die Ereignisse sind kartesiches Produkte von Intervallen. Dann sind
+und die Ereignisse sind kartesiches Produkte von Intervallen.
+Dann sind
 die Wahrscheinlichkeiten $P(X_1\le x_1)$  und $P(X_2\le x_2)$ unabh"angig
 voneinander, insbesondere ist $P(X_1\le x_1)=F_1(x_1)$ und
 $P(X_2\le x_2)=F_2(x_2)$.
@@ -847,7 +884,8 @@ also eine zweidimensionale Wahrscheinlichkeitsdichte
 \subsection{Maximum zweier Zufallsvariablen}
 \index{Maximum zweier Zufallsvariablen}
 Seien $X$ und $Y$ zwei unabh"angige Zufallsvariablen mit Verteilungsfunktion
-$F_X(x)$ und $F_Y(y)$. Gesucht ist die Verteilungsfunktion der Zufallsvariablen
+$F_X(x)$ und $F_Y(y)$.
+Gesucht ist die Verteilungsfunktion der Zufallsvariablen
 $\max(X,Y)$.
 Es gilt
 \begin{align*}
@@ -865,7 +903,8 @@ F_X(z)F_Y(z).
 \subsection{Summe zweier Zufallsvariablen}
 \index{Summe zweier Zufallsvariablen}
 Seien $X_1$ und $X_2$ zwei Zufallsvariable mit Verteilungsfunktion $F_1$ und
-$F_2$. Gesucht ist die Verteilungsfunktion $F$ von $X_1+X_2$, sowie die
+$F_2$.
+Gesucht ist die Verteilungsfunktion $F$ von $X_1+X_2$, sowie die
 Wahrscheinlichkeitsverteilung und gegebenenfalls die Wahrscheinlichkeitsdichte.
 
 Zun"achst ist nach Definition der Verteilungsfunktion
@@ -938,7 +977,8 @@ dann auch eine konkrete Wahrscheinlichkeitsdichtefunktion gegeben sein
 wird.
 
 \subsection{Verteilung von \texorpdfstring{$\sqrt{X}$}{Wurzel X}} \label{verteilungsfunktion-wurzel}
-Sei $X$ eine Zufallsvariable mit $X\ge 0$. Hat $X$ Verteilungsfunktion $F_X$
+Sei $X$ eine Zufallsvariable mit $X\ge 0$.
+Hat $X$ Verteilungsfunktion $F_X$
 und Dichtefunktion
 $\varphi_X$, dann ist die Verteilungsfunktion von $\sqrt{X}$
 \[
@@ -956,7 +996,8 @@ bestimmen kann:
 
 \subsection{Verteilung von \texorpdfstring{$X/Y$}{X/Y}} \label{verteilungsfunktion-quotient}
 Seien $X$ und $Y$ Zufallsvariablen mit $Y>0$, dann ist $T=X/Y$ ebenfalls
-eine Zufallsvariable. Ist $\varphi_Y$ die Dichtefunktion von $Y$,
+eine Zufallsvariable.
+Ist $\varphi_Y$ die Dichtefunktion von $Y$,
 und $F_X$ die Verteilungsfunktion von $X$, dann kann man die
 Verteilungsfunktion von $T$ wie folgt berechnen:
 \[
@@ -970,8 +1011,9 @@ Die Ableitung nach $t$ ergibt die zugeh"orige Dichtefunktion
 \subsection{Verteilung von \texorpdfstring{$XY$}{XY}} \label{verteilungsfunktion-produkt}
 \index{Produkt zweier Zufallsvariable}
 Seien $X$ und $Y$ unabh"angige, positive Zufallsvariable, dann ist $T=XY$
-ebenfalls eine Zufallsvariable. Wir suchen die Warhscheinlichkeitsdichte
-$\varphi_T$ von $T$.  Zun"achst gilt nach Definition
+ebenfalls eine Zufallsvariable.
+Wir suchen die Warhscheinlichkeitsdichte $\varphi_T$ von $T$.
+Zun"achst gilt nach Definition
 \[
 F_T(t)=P(XY\le t).
 \]

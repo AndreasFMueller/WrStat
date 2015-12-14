@@ -6,7 +6,7 @@
 #
 all:	skript.pdf checklist.pdf
 
-SOURCES = einleitung.tex wahrscheinlichkeit.tex laplace.tex	\
+SOURCES = einleitung.tex wahrscheinlichkeit.tex 		\
 	erwartung.tex verteilung.tex stetige-verteilungen.tex	\
 	diskrete-verteilungen.tex schaetzen.tex 		\
 	testen.tex filter.tex generatoren.tex			\

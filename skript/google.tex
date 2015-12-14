@@ -1,35 +1,39 @@
 %
-% e02-spamfilter.tex -- Die Mathematik hinter einem Spamfilter basieren
-%                       auf einem Bayes-Filter
+% google.tex -- Google Page Rank
 %
-% (c) 2006 Prof Dr Andreas Mueller, Hochschule Rapperswil
-% $Id: e05-google.tex,v 1.4 2008/09/09 14:22:16 afm Exp $
+% (c) 2006-2015 Prof Dr Andreas Mueller, Hochschule Rapperswil
 %
 \section{Anwendung: Google Page Rank} \label{pagerank}
 
 \subsection{Rangfolge in Suchmaschinen}
 \index{Suchmaschine}
 Die Aufgabe einer Suchmaschine ist, diejenigen Seiten im Internet zu
-finden, welche am besten auf die Suchabfrage passen. Auf den ersten
+finden, welche am besten auf die Suchabfrage passen.
+Auf den ersten
 Blick ist dies eine einfach Aufgabe: man findet zun"achst alle Seiten,
 die den Suchbegriff enthalten, und liefert dann in erster Priorit"at
-diejenigen Seiten, die ``am besten passen''. Genau darin besteht jedoch
-das Problem. Wie misst man, wie gut eine Seite passt.
+diejenigen Seiten, die ``am besten passen''.
+Genau darin besteht jedoch
+das Problem.
+Wie misst man, wie gut eine Seite passt.
 
 \subsubsection{Das Problem}
 Bei der Suche in einer kleinen Dokumentmengen schr"ankt die Angabe von
 gen"ugend vielen Suchkriterien die Resultatmenge meistens so stark
-ein, dass man damit ewas Sinnvolles anfangen kann. Die Dokumentmenge
+ein, dass man damit ewas Sinnvolles anfangen kann.
+Die Dokumentmenge
 des Internet ist jedoch so gross, dass die Suche nach einigermassen
 gebr"auchlichen W"ortern notwendigerweise zehntausend oder hunderttausende
-von Seiten liefert, die das Wort enthalten. Ohne eine sinnvolle Rangfolge
+von Seiten liefert, die das Wort enthalten.
+Ohne eine sinnvolle Rangfolge
 unter den gefundenen Seiten ist es also f"ur den Benutzer unm"oglich, in
 vern"unftiger Zeit zu sinnvollen Resultaten zu kommen.
 
 Als das Internet noch relativ klein war, konnten Kriterien wie die
 Anzahl der W"orter auf einer Seite, die zum Suchbegriff passen,
 oder die ``Entfernung'' eines Synonyms von einem Suchwort dazu dienen,
-Seiten zu klassifizieren. Es wurde aber schon bald klar, dass selbst
+Seiten zu klassifizieren.
+Es wurde aber schon bald klar, dass selbst
 solche verfeinerten Suchtechniken f"ur das rasch wachsende Internet
 zu wenig selektiv sein w"urden.
 
@@ -41,12 +45,14 @@ wobei $N$ mindestens $10^9$ sein soll.
 \subsubsection{Der L"osungsansatz}
 Das Internet hat eine Eigenschaft, welche fr"uhere elektronische 
 Datenbest"ande kaum hatten: Jedes Dokument kann mit beliebig vielen anderen
-Dokumenten verlinkt sein. Die Seiten-Autoren verwenden Links, um auf
+Dokumenten verlinkt sein.
+Die Seiten-Autoren verwenden Links, um auf
 \index{Link}
 andere Dokumente zu verweisen, die einen Begriff verdeutlichen oder
 vertiefen, oder in irgend einer Art mit dem Begriff verbunden sind.
 Besonders lohnende Seiten werden von vielen Leuten gelesen, und in ihren
-eigenen Dokumenten wieder verlinkt. Die Links zeigen also jeweils zu den
+eigenen Dokumenten wieder verlinkt.
+Die Links zeigen also jeweils zu den
 Seiten, die zu lesen sich lohnt.
 
 Ein Internet-Benutzer, der eine Seite gefunden hat, die zu lesen sich lohnt,
@@ -55,11 +61,14 @@ andere Seiten folgen, den offenbar verweisen die auf weiteres Material zu
 dem Thema, "uber das er etwas lesen m"ochte.
 
 Eine Suchmaschine ist erfolgreich, wenn Sie den Benutzern diejenigen Seiten
-liefert, welche diese erwarten. Damit ist es nicht mehr die Aufgabe des
-Suchmaschinenbetreibers zu beurteilen, welche Seite am besten passt. Er
+liefert, welche diese erwarten.
+Damit ist es nicht mehr die Aufgabe des
+Suchmaschinenbetreibers zu beurteilen, welche Seite am besten passt.
+Er
 kann diese Information direkt aus dem Internet ablesen: die Seiten, auf die
 die meisten Links zeigen, enthalten offenbar die beliebtesten Seiten zu diesem
-Thema. Gesucht ist also eine Methode, die Links zwischen den Seiten des
+Thema.
+Gesucht ist also eine Methode, die Links zwischen den Seiten des
 Internet zu bewerten und daraus ein Rangfolge der Seiten abzuleiten.
 
 \subsection{Eine wahrscheinlichkeitstheoretische L"osung}
@@ -71,17 +80,22 @@ Nehmen wir zun"achst an, die Surfer bekommen zuf"allig eine Seite zugewiesen,
 die Wahrscheinlichkeit, die Seite mit der Nummer $i$ zugewiesen zu erhalten
 sei $p_i$.
 Mit dieser befassen sich die Surfer eine Weile, bevor sie einem Link auf
-der Seite folgen, und damit auf einer anderen Seite landen. Wir stellen
+der Seite folgen, und damit auf einer anderen Seite landen.
+Wir stellen
 uns vereinfachend vor, dass die Surfer jeweils nach einer Minute miteinander
-auf die n"achste Seite wechseln. Mit welcher Wahrscheinlichkeit finden wir
+auf die n"achste Seite wechseln.
+Mit welcher Wahrscheinlichkeit finden wir
 einen Surfer nach einer Minute auf der Seite mit der Nummer $i$?
 
 Wir bezeichnen das Ereignis, dass ein zuf"allig ausgew"ahlter Surfer gerade
 \index{Surfer}
 die Seite $i$ besucht mit $S_i$, das Ereignis, nach einer Minute die Seite
-$j$ zu besuchen, bezeichnen wir mit $S'_j$. Mit diesen Bezeichnungen ist
-$p_i=P(S_i)$. Uns interessiert die Wahrscheinlichkeit $P(S'_j)$, nach dem erste
-Wechsel die Seite $j$ zu besuchen.  Wir bezeichnen diese Wahrscheinlichkeit
+$j$ zu besuchen, bezeichnen wir mit $S'_j$.
+Mit diesen Bezeichnungen ist
+$p_i=P(S_i)$.
+Uns interessiert die Wahrscheinlichkeit $P(S'_j)$, nach dem erste
+Wechsel die Seite $j$ zu besuchen.
+Wir bezeichnen diese Wahrscheinlichkeit
 auch mit mit $p_{j,1} = P(S'_j)$.
 
 Die Wahrscheinlichkeit, auf der Seite $j$ zu landen,
@@ -93,11 +107,12 @@ annehmen, dass die Links auf einer Seite alle mit gleicher Wahrscheinlichkeit
 vom Surfer ausgew"ahlt werden (Laplace-Experiment).
 Die Wahrscheinlichkeit, dass ein Surfer, der bereits
 auf Seite $i$ ist, auf der Seite $j$ landet, ist die bedingte Wahrscheinlichkeit
-$P(S'_j|S_i)$. Das eben diskutierte Modell bedeutet
+$P(S'_j|S_i)$.
+Das eben diskutierte Modell bedeutet
 \[
 P(S'_j|S_i)=\begin{cases}
 0&\qquad\text{es gibt keinen Link von $i$ auf $j$}\\
-\frac1n&\qquad\text{einer der $n$ Links auf Seite $i$ f"uhrt zu $j$}
+\displaystyle\frac1n&\qquad\text{einer der $n$ Links auf Seite $i$ f"uhrt zu $j$}
 \end{cases}
 \]
 Die Ereignisse $S_i$ sind disjunkt, kein Surfer darf auf mehr als einer
@@ -113,7 +128,8 @@ nicht $0$ ist, also diejenige Seiten $i$, auf welchen ein Link zur Seite $j$
 vorhanden ist.
 
 Den Ausdruck kann man auch als Matrizen-Produkt interpretieren: $P(S'_j)$ l"asst sich
-als Linearkombination der Werte $P(S_i)$ schreiben. Fassen wir $P(S_i)$ in den Spaltenvektor
+als Linearkombination der Werte $P(S_i)$ schreiben.
+Fassen wir $P(S_i)$ in den Spaltenvektor
 $p$ zusammen, und $P(S'_j)$ in den Spaltenvektor $p'$, erhalten wir die Matrizengleichung
 \[
 p'=
@@ -172,7 +188,8 @@ die einem Link auf dieser Seite entsprechen.
 
 Wie gross sind die Wahrscheinlichkeiten $p_i$? Die Wahrscheinlichkeit, einen zuf"allig
 ausgew"ahlten Surfer auf einer Seite zu finden, "andert sich kurzfristig nicht, nach
-einer Minute sollten also die Surfer immer noch gleich verteilt sein. Insbesondere
+einer Minute sollten also die Surfer immer noch gleich verteilt sein.
+Insbesondere
 sollten gelten:
 \[
 p=Hp.
@@ -181,7 +198,8 @@ Der Vektor $p$ ist also ein Eigenvektor der Matrix $H$ zum Eigenwert $1$.
 
 Beginnen wir mit einer beliebigen Verteilung, sollten sich die Surfer dadurch,
 dass sie den Links folgen, mit der Zeit gem"asst den Wahrscheinlichkeiten $p_i$
-auf den Seiten verteilen. Somit erwarten wir, dass ausgehend von einer beliebigen
+auf den Seiten verteilen.
+Somit erwarten wir, dass ausgehend von einer beliebigen
 Verteilung, also einem beliebigen Vektor $p_0$, sich durch wiederholte Anwendung der
 Matrix $H$ der station"are Zustand $p$ automatisch ausbilden wird, also
 \[
@@ -282,7 +300,8 @@ p=\lim_{n\to\infty}G^np_0.
 \]
 F"ur die Link-Matrix $H$ kann das allgemein nicht gelten.
 Es lassen sich leicht einfache Modell-Internets konstruieren,
-die Gegenbeispiele dazu liefern. Es gibt Beispiele, in denen
+die Gegenbeispiele dazu liefern.
+Es gibt Beispiele, in denen
 $H$ keinen solchen Grenzwert besitzt, oder einen Grenzwert, von dem
 viele Eintr"age $0$ sind, was bedeuten w"urde, dass diese Seiten nie besucht
 werden.
@@ -300,7 +319,8 @@ nicht gr"osser als $\alpha$ ist, also
 \lambda_2\le \alpha.
 \]
 Daraus l"asst sich die Geschwindigkeit der Konvergenz von $G^np_0$ gegen $p$
-absch"atzen. In der tats"achlichen Realisierung bei Google kann nat"urlich
+absch"atzen.
+In der tats"achlichen Realisierung bei Google kann nat"urlich
 f"ur $p_0$ jeweils der bei der letzten Berechnung gefundene Vektor $p$ verwendet
 werden, der ja die Verteilung der Surfer bereits relativ gut wiedergeben sollte.
 Trotzdem kann es bei der Neuberechnung von $p$ zu starken "Anderungen kommen,

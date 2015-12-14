@@ -57,7 +57,8 @@ Auch Bauteile ohne Erm"udungserscheinungen verhalten sich so.
 
 \subsubsection{Verteilungsfunktion und Dichtefunktion}
 Etwas formaler sei $X$ eine Zufallsvariable, die die Zeit angibt, zu der
-ein Atomkern zerf"allt. Die ``Ged"achtnislosigkeit'' bedeutet, dass die
+ein Atomkern zerf"allt.
+Die ``Ged"achtnislosigkeit'' bedeutet, dass die
 bedingte Wahrscheinlichkeit f"ur einen Zerfall vor $t_0+t$ unter der
 Annahme, dass der Kern bis zur Zeit $t_0$ nicht zerfallen ist, gleich
 gross ist wie die Wahrscheinlichkeit eines Zerfalls bis zur Zeit $t$:
@@ -98,9 +99,11 @@ g'(t)=g'(0)g(t)
 \]
 f"ur $g(t)$.
 Diese lineare Differentialgleichung erster Ordnung
-muss als L"osung eine Exponentialfunktion haben. Da $F(t)$
+muss als L"osung eine Exponentialfunktion haben.
+Da $F(t)$
 monoton w"achst, muss $g(t)$ monoton fallen, ausserdem
-muss $g(t)$ beschr"ankt bleiben. Damit bleibt nur
+muss $g(t)$ beschr"ankt bleiben.
+Damit bleibt nur
 $g(t)=e^{-at}$ mit einem positiven $a$.
 
 \begin{definition}
@@ -124,8 +127,10 @@ F(x)=\begin{cases}
 \index{Verteilungsfunktion!Exponentialverteilung}
 \index{Wahrscheinlichkeitsdichte!Exponentialverteilung}
 Wir sollten noch nachrechnen, dass dies tats"achlich die richtige
-Verteilungsfunktion ist. Zun"achst w"achst sie tats"achlich monoton,
-und auch der Grenzwert f"ur $t\to\infty$ ist wie gew"unscht. Aber
+Verteilungsfunktion ist.
+Zun"achst w"achst sie tats"achlich monoton,
+und auch der Grenzwert f"ur $t\to\infty$ ist wie gew"unscht.
+Aber
 auch die Ableitung ist richtig:
 \[
 \frac{d}{dt}(1-e^{-at})=ae^{-at}\qquad\text{f"ur}\quad t>0.
@@ -146,14 +151,16 @@ E(X)&=\frac1a\\
 \begin{proof}[Beweis]
 Zur Berechnung von Erwartungswert und Varianz ist es n"utzlich die Integrale
 $I_n=\int \xi^ne^{-\xi}\,d\xi$
-berechnen zu k"onnen. Diese findet man rekursiv durch partielle Integration:
+berechnen zu k"onnen.
+Diese findet man rekursiv durch partielle Integration:
 \begin{align*}
 I_n&=\int \xi^ne^{-\xi}\,d\xi\\
 &=-\xi^ne^{-\xi}+n\int \xi^{n-1}e^{-\xi}\,d\xi\\
 &=-\xi^ne^{-\xi}+nI_{n-1}
 \end{align*}
 Um Erwartungswert und Varianz zu berechnen, verwendet man mit Vorteil die
-Variablentransformation $ax=\xi$. F"ur den Erwartungswert ergibt sich:
+Variablentransformation $ax=\xi$.
+F"ur den Erwartungswert ergibt sich:
 \begin{align*}
 E(X)&=\int_0^{\infty}ae^{-ax}x\,dx
 =\frac1a\int_0^{\infty}ax e^{-ax}a\,dx
@@ -234,7 +241,8 @@ e^{-a\varepsilon-1}&\le&\frac1{a^2\varepsilon^2}&\qquad\text{f"ur $a\varepsilon>
 \end{alignat*}
 In allen Ausdr"ucken kommt immer nur das Produkt $a\varepsilon$ vor,
 wir k"onnen daher
-abk"urzend $u=a\varepsilon$ schreiben. Die zweite Ungleichung wird dann zu
+abk"urzend $u=a\varepsilon$ schreiben.
+Die zweite Ungleichung wird dann zu
 \[
 1-\frac{e^{u}-e^{-u}}e=1-\frac{2\sinh u}{e}\le\frac1{u^2}\qquad\text{f"ur $u\le1$}
 \]
@@ -248,7 +256,8 @@ Die erste Ungleichung wird zu
 e^{-u-1}\le\frac1{u^2}\qquad\text{f"ur $u > 1$}.
 \]
 Diese Funktion f"allt monoton sehr schnell gegen 0, viel schneller
-als der Ausdruck $\frac1{u^2}$. In der Abbildung~\ref{abweichung-exponential}
+als der Ausdruck $\frac1{u^2}$.
+In der Abbildung~\ref{abweichung-exponential}
 sieht man beide Schranken, die allgemeine, gegeben durch den
 Satz von Tschebyscheff, und die exakte f"ur die Exponentialverteilung.
 }
@@ -258,15 +267,19 @@ Ger"ate aller Art versuchen, die Lebensdauer dadurch zu erh"ohen, dass
 kritische Komponenten redundant aufgebaut werden.
 Zum Beispiel verwenden Server h"aufig zwei Disks, deren Daten
 gespiegelt sind, so dass der Ausfall eines Disks noch keinen Ausfall
-des Gesamtsystems verursacht. Wir wollen die erwartete Zeit bis zum
+des Gesamtsystems verursacht.
+Wir wollen die erwartete Zeit bis zum
 Ausfall des Gesamtsystems berechnen, wenn zwei Disks verwendet werden,
-deren Zeit bis zum Ausfall exponentialverteilt ist. Weiter nehmen
+deren Zeit bis zum Ausfall exponentialverteilt ist.
+Weiter nehmen
 wir an, dass die Disks unabh"angig voneinander ausfallen.
 
 Sei also $T_i$ die Zeit bis zum Ausfall von Disk $i$, mit
-Verteilungsfunktion $F_{T_i}(t)=1-e^{at}$ f"ur $t\ge 0$. Gesucht
+Verteilungsfunktion $F_{T_i}(t)=1-e^{at}$ f"ur $t\ge 0$.
+Gesucht
 ist die Verteilungsfunktion f"ur die Zeit $T$ bis zum Ausfall
-des Gesamtsystems, also die Funktion $F(t)=P(T\le t)$. Das Gesamtsystem
+des Gesamtsystems, also die Funktion $F(t)=P(T\le t)$.
+Das Gesamtsystem
 f"allt aus, wenn beide Disks ausgefallen sind, es ist also
 \begin{align*}
 F(t)
