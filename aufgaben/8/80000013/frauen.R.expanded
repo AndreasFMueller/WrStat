@@ -1,0 +1,31 @@
+#
+# Berechnung sinnvoller Frauenquoten fuer einen Frauenanteil von
+# p=0.3333 unter den Kandidaten fuer verschiedene Werte von alpha
+#
+frauenquote <- function(m) {
+        n = 1:m
+        fminus = qbinom(0.05, n, 0.33333)
+        fminus2 = qbinom(0.01, n, 0.33333)
+        fminus3 = qbinom(0.001, n, 0.33333)
+        fplus = qbinom(0.95, n, 0.33333)
+        fplus2 = qbinom(0.99, n, 0.33333)
+        fplus3 = qbinom(0.999, n, 0.33333)
+
+        plot(0, 0, type = "n", main = "Frauenquote", sub = "p = 0.3333",
+                xlab = "Gruppengrösse", ylab = "Anzahl Frauen",
+                xlim = c(1,max(n)), ylim = c(1,max(n)))
+        lines(n, fminus, col = "blue")
+        lines(n, fminus2, col = "blue")
+        lines(n, fminus3, col = "blue")
+        lines(n, fplus, col = "red")
+        lines(n, fplus2, col = "red")
+        lines(n, fplus3, col = "red")
+}
+
+pdf("frauen-20.pdf")
+frauenquote(20)
+dev.off()
+
+pdf("frauen-1000.pdf")
+frauenquote(1000)
+dev.off()
