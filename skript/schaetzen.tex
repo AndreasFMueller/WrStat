@@ -278,11 +278,11 @@ wenn
 \section{Maximum Likelihood Sch"atzer} \label{section-maximum-likelihood-schaetzer}
 \subsection{Stetige Verteilung}
 Ein weiteres Prinzip, welches ``vern"unftige'' Sch"atzer liefert,
-ist das Maximum Likelihood Prinzip.
+ist das Maximum Likelihood-Prinzip.
 Ist $X$ eine Zufallsvariable, deren
 Verteilung eine Dichtefunktion $f(x,\vartheta)$ mit einem unbekannten
 Parameter $\vartheta$ besitzt, $\vartheta$ soll gesch"atzt werden.
-Wir bilden daraus die Likelihood Funktion
+Wir bilden daraus die Likelihood-Funktion
 \begin{equation}
 L(x_1,\dots,x_n;\vartheta)=f(x_1,\vartheta)\cdots f(x_n,\vartheta),
 \label{likelihood-funktion}
@@ -328,7 +328,7 @@ ihren kleinsten Wert annimmt, wir m"ussen also ein Minimum von
 \sum_{i=1}^n (x_i-\vartheta)^2
 \end{equation}
 finden.
-Durch Ableiten nach $\vartheta$ ensteht daraus
+Durch Ableiten nach $\vartheta$ entsteht daraus
 \begin{equation}
 \frac{d}{d\vartheta}
 \sum_{i=1}^n (x_i-\vartheta)^2
@@ -494,7 +494,7 @@ konsistent und erwartungstreu.
 \subsection{Sch"atzung von \texorpdfstring{$p$}{p} in einer Binomialverteilung}
 Von der Zufallsvariablen $X$ sei bekannt, dass sie binomialverteilt ist
 mit Parameter $(m, p)$, der Parameter $p$ ist zu sch"atzen.
-Die Likelihoodfunktion ist in diesem Fall
+Die Likelihood-Funktion ist in diesem Fall
 \begin{equation}
 L(k_1,\dots,k_n;p)=\biggl(\prod_{i=1}^n\binom{m}{k_i}\biggr)
 p^{K}(1-p)^{nm-K},
@@ -670,7 +670,7 @@ W+Y
 \frac{1}{\sigma^2}\sum_{i=1}^n(X_i-\mu)^2
 \label{wy-chi2}
 \end{align}
-Im lezten Schritt (\ref{wy-chi2}) haben wir den Hilfssatz
+Im letzten Schritt (\ref{wy-chi2}) haben wir den Hilfssatz
 \ref{hilfssatz-varianz-mittelwert}
 weiter unten verwendet.
 F"ur die momenterzeugenden Funktionen bedeutet dies
@@ -709,7 +709,7 @@ Insbesondere bilden die Punkte $(\bar x,\dots,\bar x)$, $(\mu,\dots,\mu)$
 und $(x_1,\dots,x_n)$ bilden ein rechtwinkliges Dreieck.
 Dies erlaubt,
 die Entfernung zwischen $(\mu,\dots,\mu)$ und $(x_1,\dots,x_n)$ 
-als Hypothenuse mit Hilfe des Satzes von Pythagoras zu berechnen:
+als Hypotenuse mit Hilfe des Satzes von Pythagoras zu berechnen:
 \[
 \sum_{i=1}^n(x_i-\mu)^2
 =\sum_{i=1}^n(\bar x-\mu)^2+\sum_{i=1}^n(x_i-\bar x)^2,
@@ -821,7 +821,7 @@ t=\frac{Z}{\sqrt{V/k}}
 die $t$-Verteilung mit $k$ Freiheitsgraden.
 \end{definition}
 
-\begin{satz}Die Wahrscheinlichkeitdichte der $t$-Verteilung ist
+\begin{satz}Die Wahrscheinlichkeitsdichte der $t$-Verteilung ist
 \begin{equation}
 \varphi_t(t)=\frac{\Gamma(\frac{k+1}{2})}{\sqrt{\pi k}\Gamma(\frac{k}2)}
 \biggl(1+\frac{t^2}{k}\biggr)^{-\frac{k+1}2}
@@ -868,7 +868,7 @@ Die Dichtefunktion f"ur den Quotienten ist dann
 \frac1{\sqrt{k\pi}2^{\frac{k-1}2}\Gamma(\frac{k}2)}
 \int_0^\infty e^{-\frac12(1+t^2/k)y^2} \,dy.
 \end{align*}
-Mit Hilfe der Subsitution $s=\frac12(1+\frac{t^2}n)y^2$
+Mit Hilfe der Substitution $s=\frac12(1+\frac{t^2}n)y^2$
 oder
 \[
 y=\frac{2^{\frac12}s^{\frac12}}{(1+\frac{t^2}n)^{\frac12}}

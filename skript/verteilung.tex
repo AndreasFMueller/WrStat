@@ -16,12 +16,12 @@ Und mit der linearen Regression haben wir ein Werkzeug kennengelernt,
 um Abh"angigkeiten zwischen Gr"ossen zu detektieren, zu quantifizieren
 und deren Qualit"at zu bewerten.
 
-All dies war m"oglich, ohne dass wir allzuviele Details "uber die
+All dies war m"oglich, ohne dass wir allzu viele Details "uber die
 Wahrscheinlichkeiten wissen mussten, wir mussten einzig in der Lage sein,
 den Erwartungswert und die Varianz zu berechnen.
 Gelungen ist uns dies allerdings erst f"ur diskrete Zufallsvariablen,
 die nur endlich viele verschiedene Werte annehmen.
-F"ur Zufallsvariable, die jeden beliebigen Wert in einem Interval annehmen
+F"ur Zufallsvariable, die jeden beliebigen Wert in einem Intervall annehmen
 k"onnen, funktioniert die bisher verwendete Formel
 ``$\text{Wert}\times\text{Wahrscheinlichkeit}$''
 nicht.
@@ -91,7 +91,7 @@ heisst Verteilungsfunktion von $P$.
 \end{definition}
 Die folgenden Eigenschaften folgen unmittelbar aus dieser Definition:
 \begin{enumerate}
-\item Der Wertebereich von $F(x)$ ist im Interval $[0,1]$ enthalten.
+\item Der Wertebereich von $F(x)$ ist im Intervall $[0,1]$ enthalten.
 \item Die Funktion $F(x)$ ist monoton wachsend:
 Da $\{ X \le a\} \subset \{X\le b\}$ falls $a\le b$ folgt
 $F(a)=P(X\le a)\le P(X\le b)=F(b)$.
@@ -302,7 +302,7 @@ p\colon S\to\mathbb{R}:x\mapsto p(x)=P(\{x\}).
 \]
 Diese Funktion muss nat"urlich den Eigenschaften einer
 Wahrscheinlichkeitsfunktion Rechnung tragen, was erf"ullt ist, wenn
-$p(x)\ge 0$ f"ur alle Sprunkpunkte und 
+$p(x)\ge 0$ f"ur alle Sprungpunkte und 
 \[
 \sum_{x\in S}p(x)=1.
 \]
@@ -559,7 +559,7 @@ Gleichverteilung auf den Werten $1,\dots,n=10$
 \centering
 \includegraphics{images/verteilungsfunktion-7.pdf}
 \caption{Verteilungsfunktion und Wahrscheinlichkeitsdichte der stetigen
-Gleichverteilung im Interval $[a,b]$
+Gleichverteilung im Intervall $[a,b]$
 \label{stetige-gleichverteilung}}
 \end{figure}
 \index{Gleichverteilung!stetig}
@@ -705,18 +705,18 @@ y&\qquad 0\le x\le y\\
 %y
 \end{align*}
 Die Verteilungsfunktion von $F(X)$ ist also die Verteilungsfunktion einer
-Gleichverteilung auf dem Interval $[0,1]$.
+Gleichverteilung auf dem Intervall $[0,1]$.
 
 \subsubsection{Anwendung: Erzeugung von Zufallszahlen mit Verteilungsfunktion \texorpdfstring{$F$}{F}}
 Typischerweise stellen Bibliotheken Zufallszahlgeneratoren f"ur Zufallszahlen
-im Interval $[0,1]$ zur Verf"ugung.
+im Intervall $[0,1]$ zur Verf"ugung.
 Um Zufallszahlen mit einer beliebigen Verteilungsfunktion $F$ zu erzeugen,
 verwendet man zun"achst einen solchen Zufallszahlgenerator und wendet dann die
 Funktion $F^{-1}$ an, sofern diese existiert.
 Die resultierenden Zufallszahlen haben Verteilungsfunktion $F$.
 
 \begin{beispiel}
-Die Verteilungsfunktion einer Gleichverteilung im Interval $[a,b]$ ist
+Die Verteilungsfunktion einer Gleichverteilung im Intervall $[a,b]$ ist
 \[
 F(x)=\frac{x-a}{b-a}
 \]
@@ -724,8 +724,8 @@ mit der inversen Funktion
 \[
 F^{-1}(y)=a+(b-a)y.
 \]
-Ist $Y$ eine im Interval $[0,1]$ gleichverteilte Zufallsvariable, dann ist
-$F^{-1}(Y)=a+(b-a)Y$ eine im Interval $[a,b]$ gleichverteilte Zufallsvariable.
+Ist $Y$ eine im Intervall $[0,1]$ gleichverteilte Zufallsvariable, dann ist
+$F^{-1}(Y)=a+(b-a)Y$ eine im Intervall $[a,b]$ gleichverteilte Zufallsvariable.
 \end{beispiel}
 
 \subsection{Variablentransformation}
@@ -742,7 +742,7 @@ $f\colon\mathbb{R}\to\mathbb{R}$.
 Dann ist $Y=f\circ X$ ebenfalls eine
 Zufallsvariable.
 Bezeichnen wir die Verteilungsfunktionen von $X$ und $Y$
-mit $F_X$ bzw.~$F_Y$, dann gilt offensichlich
+mit $F_X$ bzw.~$F_Y$, dann gilt offensichtlich
 \[
 F_Y(y)=P(f\circ X\le y)=P(X\le f^{-1}(y))=F_X(f^{-1}(y))
 \]
@@ -789,7 +789,7 @@ Fall bestimmen l"asst:
 Ist $X$ eine Zufallsvariable, dann heisst die Zahl $\operatorname{med}(X)$,
 f"ur die
 $F(\operatorname{med}(X))=\frac12$ ist, der Median von $X$. 
-Falls mehrer Zahlen diese Bedingung erf"ullen, ist der Median als
+Falls mehrere Zahlen diese Bedingung erf"ullen, ist der Median als
 deren Infimum definiert:
 \[
 \operatorname{med}(X)=\inf \{x\in\mathbb{R}\;|\;F(x)\ge{\textstyle \frac12}\}
@@ -797,7 +797,7 @@ deren Infimum definiert:
 \end{definition}
 F"ur den Median gilt $\operatorname{med}(Y)=f(\operatorname{med}(X))$.
 
-\subsection{Standardisierung\label{section-standardisierung}}
+\subsection{Standardisierung} \label{section-standardisierung}
 \index{Standardisierung}
 Ein wichtiger Spezialfall ist der folgende:
 aus einer Zufallsvariable $X$ mit Erwartungswert
@@ -857,7 +857,7 @@ Da die Werte voneinander unabh"angig sind, ist
 die passende Ereignisalgebra die Produktalgebra, also
 $(x_1,x_2)\in
 \mathbb{R}\times\mathbb{R}$,
-und die Ereignisse sind kartesiches Produkte von Intervallen.
+und die Ereignisse sind kartesische Produkte von Intervallen.
 Dann sind
 die Wahrscheinlichkeiten $P(X_1\le x_1)$  und $P(X_2\le x_2)$ unabh"angig
 voneinander, insbesondere ist $P(X_1\le x_1)=F_1(x_1)$ und
@@ -874,7 +874,7 @@ P(a_1<X_1\le b_1\wedge a_2<X_2\le b_2)
 \int_{a_2}^{b_2}dx_2\,
 \varphi_1(x_1) \varphi_2(x_2).
 \end{align*}
-Die zweidmensionale
+Die zweidimensionale
 Verteilungsfunktion $F(x_1,x_2)=P(X_1\le x_1\wedge X_2\le x_2)$ hat
 also eine zweidimensionale Wahrscheinlichkeitsdichte
 \[
@@ -940,7 +940,7 @@ F(z)&=\int_{-\infty}^{\infty}\int_{-\infty}^{z-x_1}\varphi_1(x_1)\varphi_2(x_2)
 F_2(z-x_1)
 \,dx_1\\
 \end{align*}
-Nun interesssiert uns vor allem die Wahrscheinlichkeitsdichte, also die
+Nun interessiert uns vor allem die Wahrscheinlichkeitsdichte, also die
 ``Ableitung'' von $F$:
 \[
 \varphi(z)=\int_{-\infty}^{\infty}\varphi_1(x_1)\varphi_2(z-x_1)\,dx_1

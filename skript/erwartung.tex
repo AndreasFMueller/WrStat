@@ -4,8 +4,7 @@
 % (c) 2006-2015 Prof. Dr. Andreas Mueller, Hochschule Rapperswil
 %
 \rhead{Zufallsvariable, Erwartung und Varianz}
-\chapter{Zufallsvariable und Erwartungswert
-\label{chapter-erwartungswert-und-varianz}}
+\chapter{Zufallsvariable und Erwartungswert} \label{chapter-erwartungswert-und-varianz}
 
 Bis jetzt hat uns nur das Eintreten von Ereignissen interessiert, und
 der entwickelte Formalismus war auch nur darauf ausgelegt.
@@ -19,7 +18,7 @@ eines Ereignisses w"ahlt, also wieder eine Zahl.
 In diesem Fall treten nat"urlich nur ganzzahlige Resultate auf.
 
 Der Ereignis-Formalismus kann uns bestenfalls die Wahrscheinlichkeit
-daf"ur liefern, dass ein Messwert in ein bestimmtes Interval f"allt.
+daf"ur liefern, dass ein Messwert in ein bestimmtes Intervall f"allt.
 Er kann uns aber nicht helfen die folgenden Fragen zu beantworten:
 \begin{enumerate}
 \item Mit welchem ungef"ahren Wert kann man bei der Durchf"uhrung der
@@ -33,7 +32,7 @@ Um diese Fragen beantworten zu k"onnen, m"ussen wir unserem Modell
 der Ereignisse und Wahrscheinlichkeiten zun"achst 
 ein Modell f"ur den Messprozess anf"ugen.
 Das Konzept der Wahrscheinlichkeit m"ussen wir sodann feiner ausgestalten,
-um einen ``Erwartunsgwert'' daraus ableiten zu k"onnen.
+um einen ``Erwartungswert'' daraus ableiten zu k"onnen.
 Das gleiche Konzept wird uns auch dazu dienen, eine Masszahl f"ur
 die Streuung zu entwickeln, und daraus bereits eine Anzahl interessanter
 Anwendungen zu konstruieren.
@@ -553,7 +552,7 @@ Voraussetzungen gemacht werden m"ussen, um $E(XY)$ berechnen zu k"onnen.
 \includegraphics[width=0.3\hsize]{images/erwartung-3}
 \includegraphics[width=0.3\hsize]{images/erwartung-2}
 \end{center}
-\caption{Ereignisse $A_i$ zur Berechung von $E(X)$, $B_j$ zur Berechnung
+\caption{Ereignisse $A_i$ zur Berechnung von $E(X)$, $B_j$ zur Berechnung
 von $E(Y)$ und $A_i\cap B_j$ zur Berechnung von $E(XY)$.
 \label{productexpectation}}
 \end{figure}
@@ -648,7 +647,7 @@ M"oglichkeiten zur Berechnung von $E(X)$ bietet, verfolgen wir sie
 hier nicht weiter, werden aber im n"achsten Kapitel eine verwandte
 Technik kennen lernen, welche nur gew"ohnliche Integrale verwendet.
 
-\section{Varianz\label{section-varianz}}
+\section{Varianz}\label{section-varianz}
 \index{Varianz}
 Die Qualit"atskontrolle bei der Herstellung von Widerst"anden versucht
 ein Mass daf"ur zu entwickeln, wie genau die produzierten Widerst"ande
@@ -988,7 +987,7 @@ Meistens wird die Abweichung klein sein.
 Uns interessiert jetzt aber,
 wie wahrscheinlich es ist, dass sie gross ist.
 Sei $\varepsilon>0$ ein Schwellwert f"ur die Abweichung, wir m"ochten
-also wissen, wie h"aufig die Abweichung $\varepsilon$ "uberschreitete:
+also wissen, wie h"aufig die Abweichung $\varepsilon$ "uberschritt:
 \[
 |X-\mu|>\varepsilon.
 \]
@@ -1002,7 +1001,7 @@ zwischen Varianz und und dieser Wahrscheinlichkeit geben: je gr"osser
 die Varianz, desto gr"osser die Wahrscheinlichkeit einer grossen
 Abweichung.
 
-\subsection{Ungleichung von Tschebyscheff}\label{ungleichung-von-tschebyscheff}
+\subsection{Ungleichung von Tschebyscheff} \label{ungleichung-von-tschebyscheff}
 \index{Tschebyscheff!Ungleichung von}
 Selbst wenn man gar nichts "uber die Zufallsvariable weiss, ausser
 dass sie eine Varianz besitzt, kann man eine Aussage "uber die 
@@ -1014,7 +1013,7 @@ mehr "uber das konkrete Experiment wissen.
 \begin{figure}
 \centering
 \includegraphics{images/erwartung-5.pdf}
-\caption{Zur Herleitung der Tschebyscheff-Ungleichung: Eregnisse, in denen 
+\caption{Zur Herleitung der Tschebyscheff-Ungleichung: Ereignisse, in denen 
 die Zufallsvariable um mehr als $\varepsilon$ vom Erwartungswert $\mu$
 abweicht.
 \label{tschebyscheff-herleitung}}
@@ -1022,7 +1021,7 @@ abweicht.
 \begin{figure}
 \centering
 \includegraphics{images/erwartung-6.pdf}
-\caption{Herleitung der Tschebyscheff-Ungleichung, charakterstische Funktion
+\caption{Herleitung der Tschebyscheff-Ungleichung, charakteristische Funktion
 des Ereignisses $|X-\mu|>\varepsilon$ ist blau eingezeichnet.
 \label{tschebyscheff2}}
 \end{figure}
@@ -1100,8 +1099,7 @@ m"oglicherweise viel zu oft behauptet, dass die Produktionsqualit"at ungen"ugend
 ist, weil die Widerstandswerte vermutlich in guter N"aherung normalverteilt
 sein werden.
 
-\subsection{Wie gut approximiert der Mittelwert den Erwartungswert?}
-\label{approximation-mittelwert}
+\subsection{Wie gut approximiert der Mittelwert den Erwartungswert?} \label{approximation-mittelwert}
 Wir betrachten eine Folge von unabh"angigen Zufallsvariablen $X_1, X_2,\dots$, die
 alle den gleichen Erwartungswert $E(X_i)=\mu$ und die gleiche Varianz
 $\operatorname{var}(X_i)=\sigma^2$ haben.
@@ -1230,7 +1228,7 @@ Um den Fehler zu halbieren, muss die Anzahl der Versuche
 vervierfacht werden.
 \label{fehlerabnahme}}
 \end{figure}
-Der verbleibende Fehler der relativen H"aufigkeit ist propertional zu
+Der verbleibende Fehler der relativen H"aufigkeit ist proportional zu
 $\frac1{\sqrt{n}}$, wenn $n$ die Anzahl der Versuche ist.
 Die Abh"angigkeit des zu erwartenden Fehlers der relativen H"aufigkeit mit
 der Anzahl der Versuche ist in Abbildung~\ref{fehlerabnahme} dargestellt.
@@ -1246,7 +1244,7 @@ der Anzahl der Versuche ist in Abbildung~\ref{fehlerabnahme} dargestellt.
 \includegraphics{images/regression-1.pdf}
 \end{center}
 \caption{Anpassung einer Geraden an gemessene
-Strom-/Spannungs-Werte\label{ohm-regression}}
+Strom-/Spannungswerte\label{ohm-regression}}
 \end{figure}
 Der Satz \ref{erwartungswert-charakterisierung} hat gezeigt, dass der
 Erwartungswert jener Wert ist, der die Varianz minimiert.
@@ -1259,7 +1257,7 @@ F"uhrt man eine Messung von beiden
 Gr"ossen durch, erh"alt man zwei Zufallsvariablen $U(\omega)$ und $I(\omega)$,
 und die Proportionalit"at wird wegen der Messfehler meistens nicht mehr
 erf"ullt sein.
-Wie gross ist der Widerstansdwert $R$? Es w"are zwar denkbar,
+Wie gross ist der Widerstandswert $R$? Es w"are zwar denkbar,
 f"ur jede Messung den Widerstandswert zu errechnen, und dann das Mittel
 zu bilden.
 Noch besser ist aber, den Widerstandswert $R$ so zu bestimmen,
@@ -1318,7 +1316,7 @@ womit alles bewiesen ist.
 Die Gleichung f"ur $b$ hat eine unmittelbare Konsequenz: die Regressionsgerade
 geht immer durch den Punkt $(E(X), E(Y))$.
 In der Tat, damit der Punkt
-$(E(X), E(Y))$ auf der Geraden liegt, muss die Bedinung $E(Y)=aE(X)+b$
+$(E(X), E(Y))$ auf der Geraden liegt, muss die Bedingung $E(Y)=aE(X)+b$
 erf"ullt sein.
 Schafft man $aE(X)$ auf die linke Seite, wird daraus
 
@@ -1437,7 +1435,7 @@ verf"ugbar, muss
 ein l"angeres Verz"ogerungselement durch Verk"urzung auf die passende
 Verz"ogerungszeit eingestellt werden.
 Dazu muss jedoch der Zusammenhang
-zwischen Verz"ogerungszeit und l"ange des Elementes bekannt sein.
+zwischen Verz"ogerungszeit und L"ange des Elementes bekannt sein.
 Der Hersteller macht die Angaben in Tabelle \ref{delaylengths}.
 
 \subsubsection{Berechnung von Hand}
