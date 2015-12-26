@@ -27,6 +27,12 @@
 \usepackage{array}
 \makeindex
 \setlength{\headheight}{15pt} % fix for headheight warning
+
+% better modulo spacing http://www.matthewflickinger.com/blog/archives/2005/02/20/latex_mod_spacing.asp
+\makeatletter
+	\def\imod#1{\allowbreak\mkern10mu({\operator@font mod}\,\,#1)}
+\makeatother
+
 \begin{document}
 \pagestyle{fancy}
 \lhead{Wahrscheinlichkeit und Statistik}

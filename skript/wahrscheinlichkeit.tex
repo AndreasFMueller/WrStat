@@ -360,10 +360,9 @@ Es k"onnen also verschiedene Ereignisse eintreten.
 Meistens wird ein
 positiver AIDS-Test richtig anzeigen, dass eine Person HIV hat.
 Manchmal
-wird der Test jedoch positiv sein, obwohl die Person gesund ist.
-Und manchmal
-wird der Test zwar ein positives Resultat zeigen, aber die Person ist
-an HIV erkrankt.
+wird der Test jedoch positiv sein, obwohl die Person gesund ist
+und manchmal wird der Test zwar ein negatives Resultat zeigen,
+aber die Person ist an HIV erkrankt.
 Gl"uck haben diejenigen, bei denen der Test nicht
 anspricht, und die auch tats"achlich gesund sind.
 
@@ -492,9 +491,9 @@ In $\Omega$ lassen sich bereits bedeutend spannendere Ereignisse
 beschreiben:
 \begin{align*}
 A_1&=\{\text{mindestens eine ungerade Zahl}\}\\
-   &=\{(x,y)\in\Omega\;|\;x \equiv 1\mod 2 \vee y\equiv 1\mod 2\}\\
+   &=\{(x,y)\in\Omega\;|\;x \equiv 1 \imod{2} \vee y\equiv 1 \imod{2}\}\\
 A_2&=\{\text{beide Augenzahlen sind gerade}\}\\
-   &=\{(x,y)\in\Omega\;|\;2|x \wedge 2|y\}\\
+   &=\{(x,y)\in\Omega\;|\;x \equiv 0 \imod{2} \wedge y \equiv 0 \imod{2}\}\\
 X_i&=\{(i,y)\in\Omega\}\\
 Y_i&=\{(x,i)\in\Omega\}\\
 S_s&=\{(x,y)\in\Omega\;|\; x + y = s\}\\
@@ -514,7 +513,7 @@ X_5\cap D_1&=\{(5,4), (5,6)\}\\
 \centering
 \includegraphics{images/zweiwuerfel-1.pdf}
 \caption{Verschiedene Ereignisse in der Ereignisalgebra des Experiments
-``Wurf zweier verschiedenfarbiger W"urfel\label{zweiwuerfel}}
+``Wurf zweier verschiedenfarbiger W"urfel\label{zweiwuerfel}''}
 \end{figure}
 
 \subsection{Formale Definition}
@@ -550,7 +549,7 @@ Vorlesung keine praktischen Konsequenzen, alle interessierenden
 Ereignisse sind von vornherein in $\cal A$, und damit auch alle daraus
 abgeleiteten Ereignisse.
 
-Wir nennen eine solche Menge von Ereignissen eine Ereignis-Algebra:
+Wir nennen eine solche Menge von Ereignissen eine Ereignisalgebra:
 
 \begin{definition}
 \label{def-ereignisalgebra}
@@ -573,9 +572,9 @@ A,B\in {\cal A}\Rightarrow A\setminus B\in{\cal A}
 
 Sind nur die Bedingungen 1 und 2 erf"ullt, spricht man auch von einem
 Mengen-Ring.
-Eine Ereignisalgebra heisst manchmal auch ein Mengen-K"orper.
+Eine Ereignisalgebra heisst manchmal auch ein Mengenk"orper.
 
-Aus den Axiomen f"ur die Ereignisalgebra lassen sich sofort erst
+Aus den Axiomen f"ur die Ereignisalgebra lassen sich sofort erste
 Schlussfolgerungen ziehen:
 \begin{enumerate}
 \item Es gibt auch das unm"ogliche Ereignis: $\emptyset = \Omega\setminus\Omega\in{\cal A}$.
@@ -661,8 +660,8 @@ P&=\{\text{Pasch im ersten Wurf}\}\\
 \\
 Q&=\{\text{totale Augensumme $\ge 10$}\}\\
 &=\{\phantom{(6,6),} (6,5), (6,4), \\
-&\phantom{\;=\{}(5,6), \phantom{(5,5),} \\
-&\phantom{\;=\{}(4,6)
+&\phantom{\;=\{}(5,6), \phantom{(5,5), (5,4)} \\
+&\phantom{\;=\{}(4,6)\phantom{, (4,5), (4,4)}
 \}
 \\
 &\qquad\cup
