@@ -55,7 +55,7 @@ Stehen an den Positionen $i\in\{1,\dots,k\}$ jeweils die $n_i$
 Wahlm"oglichkeiten
 zur Verf"ugung, ist die Gesamtzahl der M"oglichkeiten:
 \[
-n_1\cdot n_2\cdots n_k=\prod_{i=1}^kn_i.
+n_1\cdot n_2\dotsm n_k=\prod_{i=1}^kn_i.
 \]
 Die Produktregel ist immer dann anwendbar wenn man das Entstehen
 aller M"oglichkeiten aus den Wahlm"oglichkeiten an jeder Position
@@ -151,7 +151,7 @@ So geht es weiter bis zum letzten Objekt, f"ur welches
 genau ein Platz "ubrig bleibt.
 Es folgt
 \[
-P_n=n(n-1)(n-2)\dots 2\cdot 1=n!
+P_n=n(n-1)(n-2)\dotsm 2\cdot 1=n!
 \]
 
 Man kann f"ur $P_n$ auch eine Rekursionsformel finden.
@@ -293,12 +293,12 @@ es Permutationen von $k$ Objekten gibt.
 Man muss also noch durch
 $P_k=k!$ teilen:
 \[
-C^n_k=\frac{n(n-1)(n-2)\cdots(n-k+1)}{k!}.
+C^n_k=\frac{n(n-1)(n-2)\dotsm(n-k+1)}{k!}.
 \]
 Durch Erweitern mit $(n-k)!$ bekommt man eine etwas
 kompaktere Formel:
 \[
-C^n_k=\frac{n(n-1)(n-2)\cdots(n-k+1)\cdot(n-k)(n-k-1)\cdots2\cdot 1}{k!(n-k)!}
+C^n_k=\frac{n(n-1)(n-2)\dotsm(n-k+1)\cdot(n-k)(n-k-1)\dotsm2\cdot 1}{k!(n-k)!}
 =\frac{n!}{k!(n-k)!}
 \]
 
@@ -589,7 +589,7 @@ Betrachten wir jetzt $p_1(z)^n$.
 Beim Ausmultiplizieren des
 Produktes 
 \[
-p_1(z)^n= (1+z)(1+z)\cdots(1+z),
+p_1(z)^n= (1+z)(1+z)\dotsm(1+z),
 \]
 stellt sich die Frage, wie viele Summanden $z^k$ f"ur jedes
 $k$ auftreten werden.
