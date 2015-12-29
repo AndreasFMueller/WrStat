@@ -434,7 +434,7 @@ Exponentialverteilung zeigt sich, dass die zus"atzliche Information
 "uber die Verteilung die Wahrscheinlichkeit f"ur eine grosse
 Abweichung deutlich besser absch"atzen l"asst.
 
-\subsubsection{Der zentrale Grenzwertsatz}
+\subsubsection{Der Zentrale Grenzwertsatz}
 \label{zentraler-grenzwertsatz}
 \index{Zentraler Grenzwertsatz}
 \index{Grenzwertsatz, zentraler}
@@ -504,7 +504,7 @@ Die Abbildung \ref{zgws} illustriert
 dies: dort wird die Wahrscheinlichkeitsdichte der standardisierten
 Summe von bis zu vier im
 Intervall $[-\sqrt{3},\sqrt{3}]$ gleichverteilte Zufallsvariablen dargestellt,
-und mit der Standardnormallverteilung verglichen.
+und mit der Standardnormalverteilung verglichen.
 
 Wir betrachten als technisches Hilfsmittel f"ur die Berechnung
 die folgende Funktion:
@@ -544,7 +544,7 @@ Der Plan ist daher der folgende:
 \item Bestimme einen N"aherungsausdruck f"ur $M_{X_i}(t)$.
 \item Bestimme einen N"aherungsausdruck f"ur $M_{S_n}(t)$.
 \item Berechne den Grenzwert von $M_{S_n}(t)$ f"ur $n\to\infty$.
-\item Finde eine Verteilung, die die gleiche Laplacetransformation
+\item Finde eine Verteilung, welche die gleiche Laplacetransformation
 hat.
 \end{enumerate}
 
@@ -563,11 +563,11 @@ $R_i(t)\to 0$ wenn $t\to 0$.
 Aus den beiden Rechenregeln f"ur die momenterzeugende Funktion folgt
 jetzt zun"achst f"ur die Summe der Zufallsvariablen
 \[
-M_{X_1+\dots+X_n}(t)=M_{X_1}(t)\dots M_{X_n}(t),
+M_{X_1+\dots+X_n}(t)=M_{X_1}(t)\dotsm M_{X_n}(t),
 \]
 und anschliessen f"ur das Produkt mit $\frac1{\sqrt{n}}$
 \[
-M_{S_n}(t)=M_{X_1}(t/\sqrt{n})\dots M_{X_n}(t/\sqrt{n}).
+M_{S_n}(t)=M_{X_1}(t/\sqrt{n})\dotsm M_{X_n}(t/\sqrt{n}).
 \]
 Durch Einsetzen der N"aherung aus dem ersten Schritt ergibt sich
 \[
@@ -616,7 +616,7 @@ momenterzeugende Funktion hat.
 Da die momenterzeugende Funktion
 nichts anderes als eine Laplacetransformation ist, k"onnen wir
 den Eindeutigkeitssatz f"ur die Laplacetransformation anwenden,
-welcher besagt, dass zwei Funktionen, die die gleiche zweiseitige
+welcher besagt, dass zwei Funktionen, welche die gleiche zweiseitige
 Laplacetransformierte haben, fast "uberall gleich sein.
 
 Wir rechnen nach, dass $e^{\frac{t^2}2}$ die momenterzeugende Funktion
@@ -654,18 +654,18 @@ M(t)
 \end{align*}
 Mit anderen Worten, die momenterzeugende Funktion der Normalverteilung
 stimmt "uberein mit der momenterzeugenden Funktion der Grenzverteilung.
-Schreiben $\varphi_n$ f"ur die Dichtefunktion f"ur $S_n$ und $F_n$
-f"ur die Verteilungsfunktion, dann gilt
-nach allgemeinen S"atzen "uber die Laplacetransformation gilt daher
+Schreiben wir $\varphi_n$ f"ur die Dichtefunktion f"ur $S_n$ und $F_n$
+f"ur die Verteilungsfunktion, dann gilt daher
+nach allgemeinen S"atzen "uber die Laplacetransformation
 \[
 \lim_{n\to\infty}\varphi_n(x)=\frac1{\sqrt{2\pi}}e^{-\frac{x^2}2}
 \quad\text{fast "uberall}
 \]
 und f"ur die Verteilungsfunktion
 \[
-\lim_{n\to\infty}F_n(x)=\frac1{\sqrt{2\pi}}\int_{-\infty}^xe^{-\frac{t^2}2}\,dt
+\lim_{n\to\infty}F_n(x)=\frac1{\sqrt{2\pi}}\int_{-\infty}^xe^{-\frac{t^2}2}\,dt.
 \]
-Insgesamt haben wir damit den folgenden Satz bewiesen
+Insgesamt haben wir damit den folgenden Satz bewiesen:
 \begin{satz}[Zentraler Grenzwertsatz]
 \label{satz-zentraler-grenzwertsatz}
 Sind $(X_i)_{1\le i}$ unabh"angige Zufallsvariablen mit
