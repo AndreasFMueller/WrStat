@@ -471,7 +471,7 @@ und dann noch $n-k$ Zahlen aus $\Omega\setminus A$.
 Ersteres ist
 auf $\binom{|A|}{k}$ Arten m"oglich, letzteres auf $\binom{N-|A|}{n-k}$
 Arten.
-Insgesammt gibt es also 
+Insgesamt gibt es also 
 \[
 \binom{M}{k}\binom{N-M}{n-k}
 \]
@@ -733,9 +733,15 @@ reelle Zahl $\mu$, f"ur die $E((X-\mu)^2)$ minimal wird.
 \begin{proof}[Beweis]
 Aus den Rechenregeln finden wir
 \begin{align*}
-E((X-\mu)^2)&=&E(X^2-2\mu X+\mu^2)\\
-&=E(X^2)-2\mu E(X) +\mu^2E(1)\\
-&=E(X^2)-2\mu E(X) +\mu^2
+E((X-\mu)^2)
+&=
+E(X^2-2\mu X+\mu^2)
+\\
+&=
+E(X^2)-2\mu E(X) +\mu^2E(1)
+\\
+&=
+E(X^2)-2\mu E(X) +\mu^2
 \end{align*}
 Dies ist eine quadratische Funktion, die ihren Scheitelpunkt bei $\mu$ hat.
 Man kann dies auch durch Nullsetzen der Ableitung nach $\mu$ finden:
@@ -1091,7 +1097,7 @@ P(|X-\mu|>2\sqrt{\operatorname{var}(X)})
 Diese Ungleichung gilt f"ur jede Zufallsvariable $X$.
 Es gibt aber Zufallsvariablen, f"ur die 
 \[
-P(|X-\mu|>2\sqrt{\operatorname{var}(X)})\le 0.05,
+P(|X-\mu|>2\sqrt{\operatorname{var}(X)})\le 0.05.
 \]
 Wir werden mit der Normalverteilung solche Zufallsvariablen kennenlernen.
 Auf das Beispiel angewendet bedeutet dies, dass die Tschebyscheff-Ungleichung
@@ -1272,13 +1278,18 @@ Etwas allgemeiner finden wir folgenden Satz "uber die sogenannte
 Regressionsgerade:
 \begin{satz}
 \label{rekursion}
-Seien $X$ und $Y$ zwei reelle Zufallsvariable.
+Seien $X$ und $Y$ zwei reelle Zufallsvariablen.
 Die Gerade mit der
 Gleichung $y=ax+b$ minimiert die Varianz
 $\operatorname{var}(aX+b-Y)$ genau dann, wenn 
 \begin{align*}
-a&=\frac{E(XY)-E(X)E(Y)}{(E(X^2)-E(X)^2)}=\frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X)},\\
-b&=E(Y)-E(X)a.
+a
+&=
+\frac{E(XY)-E(X)E(Y)}{(E(X^2)-E(X)^2)}=\frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X)},
+\\
+b
+&=
+E(Y)-E(X)a.
 \end{align*}
 \end{satz}
 \begin{proof}[Beweis]
@@ -1499,8 +1510,7 @@ Die Software R
 ist ein leistungsf"ahiges freies Softwarepaket f"ur statistische
 Berechnungen.
 Mit folgenden Befehlen kann das obige Regressionsproblem
-mit R gel"ost, und die Graphik
-Graphik \ref{verzoegerungszeit} dargestellt
+mit R gel"ost, und die Graphik \ref{verzoegerungszeit} dargestellt
 werden:
 
 {\footnotesize
@@ -1533,4 +1543,4 @@ F-statistic: 646.9 on 1 and 2 DF,  p-value: 0.001542
 > abline(laenge.lm)
 \end{verbatim}
 }
-R kann von \url{http://www.r-project.org} heruntergeladen werden.
+R kann von \url{https://www.r-project.org} heruntergeladen werden.
