@@ -28,7 +28,7 @@ Der Hypothesentest ist daher das moderne Gegenst"uck zu Bacons
 experimentum crucis.
 Er erlaubt dem Experimentator auf neutrale
 Art zu entscheiden, ob in seinen Messresultaten nun der vermutete
-Effekt sichtbar ist, oder die Endeckung auch nur durch die unvermeidlichen
+Effekt sichtbar ist, oder die Entdeckung auch nur durch die unvermeidlichen
 Zufallsschwankungen vorgespiegelt sein k"onnte.
 
 In Kapitel \ref{chapter-schaetzen} wurde gezeigt, wie Parameter einer
@@ -57,8 +57,8 @@ Wahrscheinlichkeit zu Unrecht an der G"ultigkeit der Hypothese gezweifelt
 wurde.
 
 \section{Allgemeines Prinzip}
-Als Illustration des allgmeinen Problems betrachten wir folgende Frage.
-Von einer Zufallsgr"osse $X$ wird behauptet, dass sie normalverteilt ist
+Als Illustration des allgemeinen Problems betrachten wir folgende Frage.
+Von einer Zufallsgr"osse $X$ wird behauptet, dass sie normalverteilt ist,
 mit Erwartungswert $0$ und Varianz $1$.
 Nun wird eine Messung durchgef"uhrt, bei der der Wert $10$ gemessen wird.
 Die Normalverteilung verbietet nat"urlich
@@ -269,8 +269,8 @@ diskrete Wahrscheinlichkeitsverteilung erweitern l"asst.
 Wir nehmen
 dazu an, dass in einem Experiment $d+1$ Ausg"ange m"oglich sind, und
 bezeichnen diese mit $0,\dots,d$.
-Das Experiment wird $n$ mal
-durchgef"uhrt, wobei der Ausgang $i$ $n_i$ mal beobachtet wurde.
+Das Experiment wird $n$ Mal
+durchgef"uhrt, wobei der Ausgang $i$ $n_i$ Mal beobachtet wurde.
 Mit diesen Daten m"ochten wir die Hypothese testen, dass $p_i$ die
 Wahrscheinlichkeit f"ur den Ausgang $i$ ist.
 
@@ -366,12 +366,12 @@ kurz KS-Test.
 Dieser vergleicht direkt die heuristische, d.~h.~aus den Beobachtungen gewonnene
 Verteilungsfunktion mit der erwarteten Verteilungsfunktion.
 Er legt fest,
-wie die Unterschiede zwischen den zwei Funktionen gemesssen werden sollen,
+wie die Unterschiede zwischen den zwei Funktionen gemessen werden sollen,
 und legt fest, wann eine Abweichung zu gross ist.
 
 Wir wollen testen, ob $n$ Beobachtungen $X_1,\dots,X_n$ sich mit
 der Hypothese vertragen, dass die Zufallsvariablen $X_i$ die
-Verteilungsfunktion $F$ habent.
+Verteilungsfunktion $F$ haben.
 Dazu wird aus den $n$ Beobachtungen
 und die zugeh"orige empirische Verteilungsfunktion
 \[
@@ -507,7 +507,7 @@ sind, der Ausdruck
 In (\ref{kpn-erstes-integral}) hatten wir angenommen,
 dass die Bedingungen f"ur $Y_{n-1}$
 bereits erf"ullt sind, also die Wahrscheinlichkeit f"ur deren zutreffen $1$
-ist, inzwischen haben wir gelernt, dass diese Wahrscheinlichkeit in
+ist. Inzwischen haben wir gelernt, dass diese Wahrscheinlichkeit in
 Wahrheit eher wie (\ref{kpn-zweites-integral}) aussieht.
 Zusammen finden wir
 \begin{equation}
@@ -519,7 +519,7 @@ P(\alpha_n\le Y_n\le n\wedge \alpha_{n-1}\le Y_{n-1}\le Y_n)
 In diesem Sinne k"onnen schrittweise die Bedingungen an $Y_{n-2},\dots,Y_1$
 erf"ullt werden, wir erhalten
 \begin{equation}
-\frac{\int_{\alpha_n}^n dy_n\int_{\alpha_{n-1}}^{y_n}dy_{n-1}\dots\int_{\alpha_1}^{y_2}dy_1}{\int_0^ndy_n\int_0^{y_n}dy_{n-1}\dots\int_0^{y_2}dy_1}
+\frac{\int_{\alpha_n}^n dy_n\int_{\alpha_{n-1}}^{y_n}dy_{n-1}\dotsi\int_{\alpha_1}^{y_2}dy_1}{\int_0^ndy_n\int_0^{y_n}dy_{n-1}\dotsi\int_0^{y_2}dy_1}
 \label{kpn-alle-integrale}
 \end{equation}
 Diese Integrale sind nicht ganz selbstverst"andlich auszurechnen, weshalb
@@ -529,7 +529,7 @@ wir dies hier schrittweise durchf"uhren.
 \label{kn-elementarvolumen}
 Es gilt
 \begin{equation}
-\int_0^xdy_n\int_0^{y_n}dy_{n-1}\dots\int_0^{y_2}dy_1=\frac{x^n}{n!}
+\int_0^xdy_n\int_0^{y_n}dy_{n-1}\dotsi\int_0^{y_2}dy_1=\frac{x^n}{n!}
 \end{equation}
 \end{satz}
 \begin{proof}[Beweis] Wir f"uhren den Beweis mit vollst"andiger
@@ -544,7 +544,7 @@ berechnet werden, was offensichtlich mit $\frac{x^1}{1!}=x$
 Nehmen wir an, dass die Formel f"ur $n-1$ stimmt, dann k"onnen wir den
 Fall $n$ wie folgt verifizieren:
 \[
-\int_0^xdy_n\int_0^{y_n}dy_{n-1}\dots\int_0^{y_2}dy_1
+\int_0^xdy_n\int_0^{y_n}dy_{n-1}\dotsi\int_0^{y_2}dy_1
 =
 \int_0^x\frac{y_n^{n-1}}{(n-1)!}\,dy_n
 =
@@ -569,7 +569,7 @@ die Form
 \[
 P_{nk}(x)
 =
-\int_{n-t}^xdx_n\int_{n-1-t}^{x_n}dx_{n-1}\dots\int_{k+1-t}^{x_{k+2}}dx_{k+1}\int_0^{x_{k+1}}dx_k\dots\int_0^{x_2}dx_1
+\int_{n-t}^xdx_n\int_{n-1-t}^{x_n}dx_{n-1}\dotsi\int_{k+1-t}^{x_{k+2}}dx_{k+1}\int_0^{x_{k+1}}dx_k\dotsi\int_0^{x_2}dx_1
 \]
 hat, es ist dies das gr"osste $k$, f"ur welches $k-t\le 0$ ist, also
 $k=\lfloor t\rfloor$.
@@ -588,7 +588,7 @@ fest, der unmittelbar aus dem Satz \ref{kn-elementarvolumen} folgt.
 \label{kn-variablentransformation}
 Es gilt
 \begin{equation}
-P_{nk}(x)=\int_{n}^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}\int_t^{x_{k+1}}dx_k\dots\int_t^{x_2}dx_1
+P_{nk}(x)=\int_{n}^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_{k+1}^{x_{k+2}}dx_{k+1}\int_t^{x_{k+1}}dx_k\dotsi\int_t^{x_2}dx_1
 \label{kpn-variablen-transformation}
 \end{equation}
 \end{satz}
@@ -599,16 +599,16 @@ $t$ hinzuaddiert werden:
 \begin{align}
 P_{nk}(x)
 &=
-\int_{n-t}^xdx_n\int_{n-1-t}^{x_n}dx_{n-1}\dots\int_{k+1-t}^{x_{k+2}}dx_{k+1}\int_0^{x_{k+1}}dx_k\dots\int_0^{x_2}dx_1
+\int_{n-t}^xdx_n\int_{n-1-t}^{x_n}dx_{n-1}\dotsi\int_{k+1-t}^{x_{k+2}}dx_{k+1}\int_0^{x_{k+1}}dx_k\dotsi\int_0^{x_2}dx_1
 \nonumber\\
 &=
-\int_{n}^{x+t}d\xi_n\int_{n-1}^{x_n+t}d\xi_{n-1}\dots\int_{k+1}^{x_{k+2}+t}dx_{k+1}\int_t^{x_{k+1}+t}d\xi_k\dots\int_t^{x_2+t}d\xi_1
+\int_{n}^{x+t}d\xi_n\int_{n-1}^{x_n+t}d\xi_{n-1}\dotsi\int_{k+1}^{x_{k+2}+t}dx_{k+1}\int_t^{x_{k+1}+t}d\xi_k\dotsi\int_t^{x_2+t}d\xi_1
 \nonumber\\
 &=
-\int_{n}^{x+t}d\xi_n\int_{n-1}^{\xi_n}d\xi_{n-1}\dots\int_{k+1}^{\xi_{k+2}}dx_{k+1}\int_t^{\xi_{k+1}}d\xi_k\dots\int_t^{\xi_2}d\xi_1
+\int_{n}^{x+t}d\xi_n\int_{n-1}^{\xi_n}d\xi_{n-1}\dotsi\int_{k+1}^{\xi_{k+2}}dx_{k+1}\int_t^{\xi_{k+1}}d\xi_k\dotsi\int_t^{\xi_2}d\xi_1
 \nonumber\\
 &=
-\int_{n}^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}\int_t^{x_{k+1}}dx_k\dots\int_t^{x_2}dx_1
+\int_{n}^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_{k+1}^{x_{k+2}}dx_{k+1}\int_t^{x_{k+1}}dx_k\dotsi\int_t^{x_2}dx_1
 \label{kpn-umbenennung}
 \end{align}
 Im letzten Schritt (\ref{kpn-umbenennung}) haben wir die Integrationsvariablen
@@ -635,7 +635,7 @@ berechnen wir $P_{n0}(x)$ wie folgt:
 \begin{align*}
 P_{n0}(x)
 &=
-\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_1^{x_2}dx_1
+\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_1^{x_2}dx_1
 \\
 &=
 \int_n^{x+t}dx_n\,P_{n-1,0}(x_n-t)
@@ -684,15 +684,15 @@ dann gilt
 \begin{align*}
 \Delta_{nk}(x)
 &=
-\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}
-\int^{x_{k+1}}_{\color{red}t} dx_k\dots\int_t^{x_2}dx_1
+\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_{k+1}^{x_{k+2}}dx_{k+1}
+\int^{x_{k+1}}_{\color{red}t} dx_k\dotsi\int_t^{x_2}dx_1
 \\
-&\phantom{=}\quad-\int_n^{x+t} dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}
-\int^{x_{k+1}}_{\color{red}k} dx_k\dots\int_t^{x_2}dx_1
+&\phantom{=}\quad-\int_n^{x+t} dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_{k+1}^{x_{k+2}}dx_{k+1}
+\int^{x_{k+1}}_{\color{red}k} dx_k\dotsi\int_t^{x_2}dx_1
 \\
 &=
-\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}
-\int_{{\color{red}t\mathstrut}}^{\color{red}k}dx_k\dots\int_t^{x_2}dx_1.
+\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_{k+1}^{x_{k+2}}dx_{k+1}
+\int_{{\color{red}t\mathstrut}}^{\color{red}k}dx_k\dotsi\int_t^{x_2}dx_1.
 \end{align*}
 Da das Integral "uber $x_k$ feste Grenzen $t$ und $k$ hat, reduziert es
 sich auf eine Konstante $c_k$, welche wir weiter unten berechnen werden.
@@ -700,10 +700,10 @@ Die verbleibenden Integrale sind
 \begin{align*}
 \Delta_{nk}(x)
 &=
-c_k\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dots\int_{k+1}^{x_{k+2}}dx_{k+1}
+c_k\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_{k+1}^{x_{k+2}}dx_{k+1}
 \\
 &=
-c_k\int_{n-k}^{x-k+t}dx_{n-k}\int_{n-k-1}^{x_{n-k}}dx_{n-k-1}\dots\int_1^{x_2}dx_1
+c_k\int_{n-k}^{x-k+t}dx_{n-k}\int_{n-k-1}^{x_{n-k}}dx_{n-k-1}\dotsi\int_1^{x_2}dx_1
 \\
 &=c_kP_{n-k,0}(x-k),
 \end{align*}
@@ -715,7 +715,7 @@ umbenannt.
 Wir m"ussen uns noch um die Konstante $c_k$ k"ummern.
 Aus der Definition folgt mit Hilfe von Satz \ref{kn-elementarvolumen}
 \begin{equation}
-c_k = \int_{t}^{k}dx_k\dots\int_t^{x_2}dx_1=P_{kk}(k-t)=\frac{(k-t)^k}{k!},
+c_k = \int_{t}^{k}dx_k\dotsi\int_t^{x_2}dx_1=P_{kk}(k-t)=\frac{(k-t)^k}{k!},
 \end{equation}
 die Behauptung.
 \end{proof}
@@ -901,7 +901,7 @@ Auf
 dem Niveau $\alpha=0.01$ finden wir $t_{\infty}^{0.005}=2.576$.
 Da alle Eintr"age in der Tabelle bis auf das Paar $(2002,2005)$
 betragsm"assig gr"osser sind, k"onnen wir auf dem Niveau $\alpha=0.01$
-schliessen, dass die Juli-Durschnittstemperatur zwischen
+schliessen, dass die Juli-Durchschnittstemperatur zwischen
 2001 und 2006 verschieden war.
 Nur f"ur die Jahre 2002 und 2005
 k"onnen wir den Unterschied nicht auf dem Niveau 0.01 sicherstellen.
