@@ -296,7 +296,7 @@ gleichzeitig eintreten.
 Der Versuchsausgang $\omega$ ist also so beschaffen, dass mit ihm sowohl
 $A$ als auch $B$ eintreten, dass also $\omega\in A$ und $\omega\in B$,
 oder $\omega \in A\cap B$.
-Gleichzeitigs Eintreten von Ereignis $A$ {\em und} $B$ ist das Ereignis
+Gleichzeitiges Eintreten von Ereignis $A$ {\em und} $B$ ist das Ereignis
 $A\cap B$.
 
 Tritt ein Ereignis $A$ bei einer Versuchsdurchf"uhrung nicht ein, dann trat
@@ -322,7 +322,7 @@ $\emptyset$ heisst daher auch das unm"ogliche Ereignis.
 
 Diese Beispiele zeigen, dass die Modellierung von Ereignissen als Teilmengen
 von $\Omega$
-mit der umgangsprachlichen Sprechweise von Ereignissen "ubereinstimmt.
+mit der umgangssprachlichen Sprechweise von Ereignissen "ubereinstimmt.
 Die Tabelle~\ref{begriffe-zusammenfassung}
 fasst die gebr"auchlichsten Mengenoperationen und die zugeh"orige
 Sprechweise f"ur Ereignisse zusammen.
@@ -360,10 +360,9 @@ Es k"onnen also verschiedene Ereignisse eintreten.
 Meistens wird ein
 positiver AIDS-Test richtig anzeigen, dass eine Person HIV hat.
 Manchmal
-wird der Test jedoch positiv sein, obwohl die Person gesund ist.
-Und manchmal
-wird der Test zwar ein positives Resultat zeigen, aber die Person ist
-an HIV erkrankt.
+wird der Test jedoch positiv sein, obwohl die Person gesund ist
+und manchmal wird der Test zwar ein negatives Resultat zeigen,
+aber die Person ist an HIV erkrankt.
 Gl"uck haben diejenigen, bei denen der Test nicht
 anspricht, und die auch tats"achlich gesund sind.
 
@@ -372,7 +371,7 @@ anspricht, und die auch tats"achlich gesund sind.
 \index{Euromillions}
 \begin{figure}
 \includegraphics[width=\hsize]{graphics/euromillions}
-\caption{Besondere Gewinnchance in Euromillions}
+\caption{Besondere Gewinnchance bei Euromillions}
 \end{figure}
 \begin{figure}
 \begin{center}
@@ -381,7 +380,7 @@ anspricht, und die auch tats"achlich gesund sind.
 \caption{Teilnahmeschein f"ur Euromillions\label{euromillionsschein}}
 \end{figure}
 Am 5.~September 2008 schrieb die Gratiszeitung ``20 Minuten'', dass die
-bevorstehende Ziehung der Lotterie Euromillions besondere Gewinnschancen 
+bevorstehende Ziehung der Lotterie Euromillions besondere Gewinnchancen 
 erm"ogliche, weil der Jackpot ungew"ohnlich gross sei.
 Welche Ereignisse
 sind in diesem Spiel relevant?
@@ -430,7 +429,7 @@ oder aus denen sich der Gewinn noch nicht ableiten l"asst:
 \begin{itemize}
 \item {\it Heiris Euromillions Teilnahmeschein f"allt in Gewinnrang 10.}
 Offenbar teilt sich Heiri 4.7\% der Gewinnsumme mit den anderen Teilnehmern,
-die dasselbe Ergebnis erziehlt haben.
+die dasselbe Ergebnis erzielt haben.
 \item {\it Hanna hatte f"unf richtige Zahlen.}
 Diese Information reicht noch nicht, um den Gewinn festzulegen.
 Hannas Teilnahmeschein f"allt in Gewinnrang 1 oder 2 oder 3.
@@ -492,9 +491,9 @@ In $\Omega$ lassen sich bereits bedeutend spannendere Ereignisse
 beschreiben:
 \begin{align*}
 A_1&=\{\text{mindestens eine ungerade Zahl}\}\\
-   &=\{(x,y)\in\Omega\;|\;x \equiv 1\mod 2 \vee y\equiv 1\mod 2\}\\
+   &=\{(x,y)\in\Omega\;|\;x \equiv 1 \imod{2} \vee y\equiv 1 \imod{2}\}\\
 A_2&=\{\text{beide Augenzahlen sind gerade}\}\\
-   &=\{(x,y)\in\Omega\;|\;2|x \wedge 2|y\}\\
+   &=\{(x,y)\in\Omega\;|\;x \equiv 0 \imod{2} \wedge y \equiv 0 \imod{2}\}\\
 X_i&=\{(i,y)\in\Omega\}\\
 Y_i&=\{(x,i)\in\Omega\}\\
 S_s&=\{(x,y)\in\Omega\;|\; x + y = s\}\\
@@ -514,7 +513,7 @@ X_5\cap D_1&=\{(5,4), (5,6)\}\\
 \centering
 \includegraphics{images/zweiwuerfel-1.pdf}
 \caption{Verschiedene Ereignisse in der Ereignisalgebra des Experiments
-``Wurf zweier verschiedenfarbiger W"urfel\label{zweiwuerfel}}
+``Wurf zweier verschiedenfarbiger W"urfel\label{zweiwuerfel}''}
 \end{figure}
 
 \subsection{Formale Definition}
@@ -550,7 +549,7 @@ Vorlesung keine praktischen Konsequenzen, alle interessierenden
 Ereignisse sind von vornherein in $\cal A$, und damit auch alle daraus
 abgeleiteten Ereignisse.
 
-Wir nennen eine solche Menge von Ereignissen eine Ereignis-Algebra:
+Wir nennen eine solche Menge von Ereignissen eine Ereignisalgebra:
 
 \begin{definition}
 \label{def-ereignisalgebra}
@@ -573,9 +572,9 @@ A,B\in {\cal A}\Rightarrow A\setminus B\in{\cal A}
 
 Sind nur die Bedingungen 1 und 2 erf"ullt, spricht man auch von einem
 Mengen-Ring.
-Eine Ereignisalgebra heisst manchmal auch ein Mengen-K"orper.
+Eine Ereignisalgebra heisst manchmal auch ein Mengenk"orper.
 
-Aus den Axiomen f"ur die Ereignisalgebra lassen sich sofort erst
+Aus den Axiomen f"ur die Ereignisalgebra lassen sich sofort erste
 Schlussfolgerungen ziehen:
 \begin{enumerate}
 \item Es gibt auch das unm"ogliche Ereignis: $\emptyset = \Omega\setminus\Omega\in{\cal A}$.
@@ -661,8 +660,8 @@ P&=\{\text{Pasch im ersten Wurf}\}\\
 \\
 Q&=\{\text{totale Augensumme $\ge 10$}\}\\
 &=\{\phantom{(6,6),} (6,5), (6,4), \\
-&\phantom{\;=\{}(5,6), \phantom{(5,5),} \\
-&\phantom{\;=\{}(4,6)
+&\phantom{\;=\{}(5,6), \phantom{(5,5), (5,4)} \\
+&\phantom{\;=\{}(4,6)\phantom{, (4,5), (4,4)}
 \}
 \\
 &\qquad\cup
@@ -732,7 +731,7 @@ $T\setminus H\ne\emptyset$.
 \end{table}
 Bei einer Messung wird ein Messwert ermittelt, dieser kann jedoch
 nur mit einer begrenzten Genauigkeit festgehalten werden.
-Die Elementarereignisse sind zwar immer noch alle m"oglichen rellen
+Die Elementarereignisse sind zwar immer noch alle m"oglichen reellen
 Zahlen $\mathbb R$, aber sinnvolle Ereignisse sind nur bestimmte Teilmengen
 $A\subset\mathbb R$.
 Wir wollen bestimmen, welche Teilmengen das sind.
@@ -829,7 +828,7 @@ Das wenigstens verbinden wir mit einem unwahrscheinlichen Ereignis.
 Trotzdem kann das Ereignis eintreten.
 
 \subsection{Verschiedene Wahrscheinlichkeitsbegriffe}
-Die Wahrscheinlichkeit soll ein Mass daf"ur sein, dass Ereignis
+Die Wahrscheinlichkeit soll ein Mass daf"ur sein, dass ein Ereignis
 eintritt.
 Es gibt verschiedene Ans"atze, wie wir zu einem solchen Mass kommen
 k"onnten:
@@ -853,7 +852,7 @@ die Wahrscheinlichkeit zu verhalten hat, und dann zu untersuchen,
 ob ein solches Objekt tats"achlich existiert.
 \end{itemize}
 In allen F"allen ergibt sich eine Reihe von Gesetzm"assigkeiten
-oder Formeln, die die jeweiligen Wahrscheinlichkeitsbegriffe 
+oder Formeln, welche die jeweiligen Wahrscheinlichkeitsbegriffe 
 erf"ullen m"ussen.
 Soll die Wahrscheinlichkeit eine objektive Gr"osse sein, dann
 muss f"ur wiederholbare Experimente die f"ur den Bayesschen
@@ -905,18 +904,18 @@ zum Beispiel hindern moralische Bedenken daran, eine grosse
 Zahl von Experimenten mit Menschen durchzuf"uhren.
 Bei der
 Ausbruchswahrscheinlichkeit eines Vulkans oder der
-Einschlagswahrscheinlichkeit eines Asteroiden auf der Erde hat man
+Einschlagwahrscheinlichkeit eines Asteroiden auf der Erde hat man
 ganz einfach keine Kontrolle "uber das Experiment.
 
 Das Ziel der Wahrscheinlichkeitstheorie ist daher, 
 die Abbildung $P\colon {\cal A}\to\mathbb{R}$
-abstrakt zu definieren, und geeignete Axiome zu postulieren, die
+abstrakt zu definieren und geeignete Axiome zu postulieren, die
 der eben skizzierten intuitiven Vorstellung der Wahrscheinlichkeit
 einen strengen Sinn geben.
 Damit wird die Funktion $P$ in vielen
 F"allen berechenbar, meist nat"urlich unter zus"atzlichen Annahmen.
 Die grundlegenden Eigenschaften sind in den folgenden, f"ur
-relative H"aufigkeiten unmittelbar einleuchtenden Axiomen
+relative H"aufigkeiten, unmittelbar einleuchtenden Axiomen
 % XXX
 von Kolmogorov\footnote{Andrei Nikolaiewitsch Kolmogorov, 1903-1987}
 festgehalten.
@@ -1199,7 +1198,7 @@ nach aussen gew"olbte Fl"ache.
 \index{Wurfel@{W\"urfel, fairer}}
 W"urfel haben sechs Seiten, die gem"ass der Annahme eines Laplace-Experiments
 mit gleicher
-Wahrscheinlichkeit obenliegen werden, die Wahrscheinlichkeit jedes
+Wahrscheinlichkeit oben liegen werden, die Wahrscheinlichkeit jedes
 Resultates ist also gleich $P(i) = \frac16, i\in\{1,2,3,4,5,6\}$.
 Wird eine Seite des W"urfels beschwert, f"allt er bevorzugt auf diese
 Seite, und die Wahrscheinlichkeiten sind nicht mehr gleich.
@@ -1291,7 +1290,7 @@ formulieren:
 \omega=(d_1, d_2, d_3,\dots,d_n)
 \]
 Dabei ist $d_1$ das Geburtsdatum der ersten Person, $d_2$ das
-Geburstdatum der zweiten Person, etc.
+Geburtsdatum der zweiten Person, etc.
 Der Einfachheit halber kann
 man f"ur die $d_i$ einfach Zahlen zwischen 1 und 366 nehmen.
 
@@ -1317,7 +1316,7 @@ Man kann ablesen, dass $|\Omega|=366^n$ ist.
 Gefragt ist nun das Ereignis
 ``zwei Personen haben am gleichen Tag Geburtstag''.
 Selbstverst"andlich d"urfen dabei auch alle am gleichen Tag
-Geburstag haben, oder es darf zwei Paare geben, die jeweils
+Geburtstag haben, oder es darf zwei Paare geben, die jeweils
 "ubereinstimmende Geburtstage haben.
 Es darf einfach nicht
 sein, dass alle Geburtstage verschieden sind.
@@ -1341,7 +1340,7 @@ kann man $366$ Geburtstage ausw"ahlen, f"ur die zweite $365$, die
 dritte $364$ etc.
 Insgesamt hat man
 \[
-366\cdot365\cdot364\dots(366-n+1)
+366\cdot365\cdot364\dotsm(366-n+1)
 \]
 M"oglichkeiten.
 Also ist die Wahrscheinlichkeit, dass unter $n$
@@ -1349,12 +1348,12 @@ Personen zwei am gleichen Tag Geburtstag haben:
 \[
 P(A)
 =
-1-\frac{366\cdot365\cdot364\dots(366-n+1)}{366^n}
+1-\frac{366\cdot365\cdot364\dotsm(366-n+1)}{366^n}
 =
 1-\frac{366}{366}\cdot
 \frac{365}{366}\cdot
 \frac{364}{366}
-\cdots
+\dotsm
 \frac{366-n+1}{366}
 .
 \]
@@ -1509,11 +1508,11 @@ $A$ wird unwahrscheinlicher, wenn bereits $B$ eingetreten
 ist.
 \label{abhaengig}}
 \end{figure}
-Der Grund daf"ur, dass es keine einfache Rechenregel f"ur die Berechung von 
+Der Grund daf"ur, dass es keine einfache Rechenregel f"ur die Berechnung von 
 $P(A\cap B)$ aus $P(A)$ und $P(B)$ gibt, wird mit der
 Visualisierung der Ereignisse im in einem Venn-Diagramm sofort klar.
 Die Elementarereignisse seien so angeordnet, dass $A$ das durch eine
-vertikale Strecke abgetrennte linke Teilrechteck von $\Omega$ ist.
+vertikale Strecke abgetrennte, linke Teilrechteck von $\Omega$ ist.
 Ausserdem
 sollen Sie so angeordnet sein, dass die Wahrscheinlichkeit dem
 Fl"acheninhalt im Diagramm entspricht.
@@ -1529,7 +1528,7 @@ berechnen k"onnen.
 
 Wenn sich $B$ ebenfalls mittels einer horizontalen Strecke als Rechteck
 einzeichnen l"asst, dann ist $P(B)$ auch das Teilverh"altnis, in dem
-die Strecke die vertikale Kante des Diagrams teilt.
+die Strecke die vertikale Kante des Diagramms teilt.
 Somit kann man $P(A\cap B)$
 als Fl"acheninhalt des Schnittrechtecks berechnen: $P(A\cap B)=P(A)\cdot P(B)$.
 Die Voraussetzung bedeutet, dass das Eintreffen von $B$ nicht wahrscheinlicher
@@ -1613,8 +1612,8 @@ man
 \[
 P(L|\bar R)=0.01.
 \]
-Der Artikel liefert aber keine Auskunft dar"uber, wieviele der
-lungenkrebskranken Raucher sind, denn das w"are die Wahrscheinlichkeit
+Der Artikel liefert aber keine Auskunft dar"uber, wie viele der
+Lungenkrebskranken auch Raucher sind, denn das w"are die Wahrscheinlichkeit
 $P(R|L)$.
 
 \subsubsection{Zusammenhang zwischen \texorpdfstring{$P(A\cap B)$}{P(A geschnitten B)}, \texorpdfstring{$P(A|B)$}{P(A bedingt B)} und \texorpdfstring{$P(B|A)$}{P(B bedingt A)}}
@@ -1659,7 +1658,7 @@ Wenn wir nun auch
 noch die Wahrscheinlichkeit jedes Zustandes kennen, m"usste es doch
 m"oglich sein, auch die Wahrscheinlichkeit der weiteren Resultate zu
 ermitteln.
-
+% TODO Missing Example
 Im obigen Beispiel der Meinungsumfrage ist anschaulich klar, dass man die
 Wahrscheinlichkeit f"ur ``Ja'' berechnen kann, wenn man einerseits die
 Wahrscheinlichkeit f"ur ``Ja'' in  jeder Altersklasse kennt, und andererseits
@@ -1721,7 +1720,7 @@ da er die Wahrscheinlichkeit eines Ereignisses aus den bedingten
 Wahrscheinlichkeiten unter verschiedenen Voraussetzungen und der
 Wahrscheinlichkeit des Eintretens dieser Voraussetzungen rekonstruiert.
 Dieser Satz ist die ``wahrscheinlichkeitstheoretisch Form einer
-Fallunterscheidung'': man kennnt die F"alle $B_i$, und deren Wahrscheinlichkeit
+Fallunterscheidung'': man kennt die F"alle $B_i$, und deren Wahrscheinlichkeit
 $P(B_i)$, sowie die Wahrscheinlichkeit $P(A|B_i)$, dass $A$ im Falle 
 $B_i$ eintritt.
 Die Formel "uber die totale Wahrscheinlichkeit
@@ -1737,8 +1736,8 @@ Experimentator bedeutet das, dass er nur jene Vorbedingungen $B_i$
 ber"ucksichtigen muss, unter denen sein Experiment ``funktioniert'',
 alle anderen m"oglichen Zust"ande haben keinen Einfluss auf
 die Wahrscheinlichkeit seiner Resultate.
-Man darf beim Experimentieren
-also durchaus einzelne Resultate verwerfen, wenn man weiss, was man tut!
+Man darf beim Experimentieren also durchaus einzelne Resultate
+verwerfen, wenn man weiss, was man tut!
 
 \subsubsection{Studienerfolg}
 Die folgenden Zahlen sind erfunden, und dienen nur der Illustration
@@ -1755,7 +1754,7 @@ Wie gross ist die Wahrscheinlichkeit f"ur den Studienerfolg?
 
 $\Omega$ ist die Menge aller Studienversuche.
 60\% davon bilden das
-Ereigns $B$ bestehend aus Studienversuchen, die im Anschluss an die BMS
+Ereignis $B$ bestehend aus Studienversuchen, die im Anschluss an die BMS
 erfolgen.
 30\% machen das Ereignis $K$ mit den Kanti-Abg"angern aus,
 10\% das Ereignis $A$ mit "Ubertritten von anderen Hochschulen.
@@ -1784,8 +1783,9 @@ Wir m"ochten die Wahrscheinlichkeit berechnen, dass die totale Augensumme
 mindestens 10 ist.
 Wir nennen dieses Ereignis $Z$.
 
-Zun"achst kann man unterteilen in den Fall, dass im ersten Wurf
-ein Pasch geworfen wird.
+Zun"achst kann man unterteilen f"ur den Fall, dass im ersten Wurf
+ein Pasch (Ereignis $P$) geworfen wird.
+
 Es gilt nach dem Satz "uber die totale Wahrscheinlichkeit
 \[
 P(Z) = P(Z|P) P(P) + P(Z|\bar P) P(\bar P).
@@ -1828,9 +1828,9 @@ denn in allen diesen F"allen erreicht man mit dem zweiten Wurf mit
 Sicherheit zehn oder mehr.
 
 \subsection{Ziegen und Autos} \label{ziegen:autos}
-Marylin vos Savant hat in einer Kolumne ein Gedankenexperiment vorgstellt.
+Marylin vos Savant hat in einer Kolumne ein Gedankenexperiment vorgestellt.
 In einer Quiz-Show muss der Kandidat eine von drei T"uren w"ahlen, wobei
-sich hinter einer der T"uren ein Auto versteckt, hinter den anderen zweien
+sich hinter einer der T"uren ein Auto versteckt, hinter den anderen Zweien
 ein Ziege.
 Das Ziel des Spiels ist, das Auto zu gewinnen.
 Nach der Wahl

@@ -30,3 +30,8 @@ skript/images/*.eps
 skript/images/*.pdf
 skript/images/*.[0-9]
 skript/images/*.[0-9][0-9]
+skript/checklist.pdf
+skript/skript.pdf
+skript/tacho/*.pdf
+skript/tacho/*.[0-9]
+skript/tacho/*.mpx

@@ -37,8 +37,8 @@ Sch"atzverfahren f"ur eine Gr"osse wie die Varianz gefunden werden kann.
 Etwas genauer geht es um folgendes Problem.
 Von einer gegebenen Zufallsvariable
 $X$ ist die Verteilung nicht bekannt, es wird angenommen, dass die
-Verteilungsfunktion die Form $F(x,\vartheta)$ hat, wobei die $\vartheta$
-ein Vektor vorl"aufig noch unbekannter Parameter ist.
+Verteilungsfunktion die Form $F(x,\vartheta)$ hat, wobei
+$\vartheta$ ein vorl"aufig noch unbekannter Parameter ist.
 Bei einer Normalverteilung sind dies zum Beispiel der Erwartungswert und
 die Varianz: $\vartheta=(\mu,\sigma^2)$.
 Nun wird das
@@ -109,8 +109,8 @@ Sch"atzer f"ur den Erwartungswert und die Varianz, und untersuchen
 sie daraufhin, ob sie erwartungstreu sind.
 In den Abschnitten \ref{section-maximum-likelihood-schaetzer}
 und \ref{section-weitere-beispiele-von-schaetzern} wird an einigen
-Beispielen gezeigt, wie man Sch"atzer nach dem Maximum Likelihood
-Prinzip konstruieren kann.
+Beispielen gezeigt, wie man Sch"atzer nach dem
+Maximum-Likelihood-Prinzip konstruieren kann.
 In \ref{section-verteilung-der-schaetzwerte}
 wird die Verteilung der Sch"atzer studiert, eine Grundlage, damit
 anschliessend in \ref{section-konfidenzintervalle} Konfidenzintervall
@@ -275,14 +275,14 @@ wenn
 \end{equation}
 \end{definition}
 
-\section{Maximum Likelihood Sch"atzer} \label{section-maximum-likelihood-schaetzer}
+\section{Maximum-Likelihood-Sch"atzer} \label{section-maximum-likelihood-schaetzer}
 \subsection{Stetige Verteilung}
 Ein weiteres Prinzip, welches ``vern"unftige'' Sch"atzer liefert,
-ist das Maximum Likelihood Prinzip.
+ist das Maximum-Likelihood-Prinzip.
 Ist $X$ eine Zufallsvariable, deren
 Verteilung eine Dichtefunktion $f(x,\vartheta)$ mit einem unbekannten
-Parameter $\vartheta$ besitzt, $\vartheta$ soll gesch"atzt werden.
-Wir bilden daraus die Likelihood Funktion
+Parameter $\vartheta$ besitzt. $\vartheta$ soll gesch"atzt werden.
+Wir bilden daraus die Likelihood-Funktion
 \begin{equation}
 L(x_1,\dots,x_n;\vartheta)=f(x_1,\vartheta)\cdots f(x_n,\vartheta),
 \label{likelihood-funktion}
@@ -293,21 +293,22 @@ unabh"angigen, identisch zu $X$ verteilten Zufallsvariablen.
 Die Likelihood-Funktion wird um so gr"osser, je wahrscheinlicher
 es ist, die Werte der Stichprobe in einem $n$-dimensionalen W"urfel
 $dx_1\,dx_2\dots dx_n$ zu finden.
-Das Maximum Likelihood-Prinzip
+Das Maximum-Likelihood-Prinzip
 verlangt nun, dass man als Sch"atzwert f"ur $\vartheta$ jenen Wert
 w"ahlt, der die Likelihood-Funktion maximiert.
 
 \begin{definition}
-$\vartheta(X_1,\dots,X_n)$ heisst Maximum Likelihood Sch"atzer f"ur
-$\vartheta$, wenn die Likelihood Funktion (\ref{likelihood-funktion})
+$\vartheta(X_1,\dots,X_n)$ heisst Maximum-Likelihood-Sch"atzer f"ur
+$\vartheta$, wenn die Likelihood-Funktion (\ref{likelihood-funktion})
 maximal wird:
 \begin{equation}
 L(X_1,\dots,X_n;\vartheta(X_1,\dots,X_n)) \ge L(X_1,\dots,X_n;t)\quad\forall t.
 \end{equation}
 \end{definition}
 
-Um das Prinzip zu illustrieren, berechnen wir den Maximum Likelihood
-Sch"atzer f"ur den Erwartungswert einer normalverteilten Zufallsvariable.
+Um das Prinzip zu illustrieren, berechnen wir den
+Maximum-Likelihood-Sch"atzer f"ur den Erwartungswert
+einer normalverteilten Zufallsvariable.
 Die Dichtefunktion ist 
 \[
 f(x,\vartheta)=\frac1{\sqrt{2\pi}}e^{-\frac{(x-\vartheta)^2}{2\sigma^2}}
@@ -319,7 +320,7 @@ L(x_1,\dots,x_n;\vartheta)=
 \label{likelihood-funktion-normalverteilung}
 \end{equation}
 ergibt.
-Zu gegebenen $X_1,\dots,X_n$ muss nun $\vartheta$ so gefunden
+Zu den gegebenen $X_1,\dots,X_n$ muss nun $\vartheta$ so gefunden
 werden, dass die Likelihood-Funktion
 (\ref{likelihood-funktion-normalverteilung}) maximiert wird.
 Dies geschieht offensichtlich genau dann, wenn die Summe im Exponenten
@@ -328,7 +329,7 @@ ihren kleinsten Wert annimmt, wir m"ussen also ein Minimum von
 \sum_{i=1}^n (x_i-\vartheta)^2
 \end{equation}
 finden.
-Durch Ableiten nach $\vartheta$ ensteht daraus
+Durch Ableiten nach $\vartheta$ entsteht daraus
 \begin{equation}
 \frac{d}{d\vartheta}
 \sum_{i=1}^n (x_i-\vartheta)^2
@@ -343,14 +344,14 @@ Der altbekannte Mittelwert einer Stichprobe ist also auch der
 Maximum Likelihood Sch"atzer f"ur den Erwartungswert einer normalverteilten
 Zufallsvariable.
 \begin{satz}
-Der Stichprobenmittelwert ist der Maximum Likelihood Sch"atzer
+Der Stichprobenmittelwert ist der Maximum-Likelihood-Sch"atzer
 f"ur den Erwartungswert einer normalverteilten Zufallsvariable.
 \end{satz}
 Nach demselben Muster kann man aus die Stichprobenvarianz $S^2$ als
-Maximum Likelihood Sch"atzer konstruieren.
+Maximum-Likelihood-Sch"atzer konstruieren.
 
 \subsection{Diskrete Verteilung}
-Das Maximum Likelihood Prinzip L"asst sich auch bei diskreten Verteilungen
+Das Maximum-Likelihood-Prinzip L"asst sich auch bei diskreten Verteilungen
 anwenden.
 Anstelle der Dichtefunktion treten die Wahrscheinlichkeiten
 $p(x, \vartheta)$, welche nur f"ur eine diskrete Menge von $x$-Werten
@@ -360,7 +361,7 @@ Die Likelihood-Funktion ist dann
 L(x_1,\dots,x_n;\vartheta)=p(x_1,\vartheta)\dots p(x_n,\vartheta),
 \label{likelihood-funktion-diskret}
 \end{equation}
-und die Konstruktion des Maximum Likelihood Sch"atzers l"asst sich genau
+und die Konstruktion des Maximum-Likelihood-Sch"atzers l"asst sich genau
 wie im stetigen Fall durchziehen.
 
 Als Beispiel betrachten wir eine Zufallsvariable $X$ mit Werten $0$ und
@@ -368,7 +369,7 @@ $1$, wobei $1$ mit der Wahrscheinlichkeit $p$ angenommen wird,
 und versuchen, den Parameter $p$ zu sch"atzen.
 Die Wahrscheinlichkeit
 f"ur den Wert $0$ ist $1-p$.
-Daraus l"asst sich die Likelihood Funktion konstruieren
+Daraus l"asst sich die Likelihood-Funktion konstruieren
 \begin{equation}
 L(k_1,\dots,k_n;p)=p^{\sum_{i=1}^nk_i}(1-p)^{n-\sum_{i=1}^nk_i},
 \label{likelihood-funktion-p}
@@ -377,8 +378,8 @@ wobei die $k_i$ nur die Werte $0$ und $1$ annehmen k"onnen.
 Die Summe 
 $K=\sum_{i=1}^nk_i$ ist die Anzahl der F"alle, in denen der Wert $1$
 angenommen wurde.
-Nach dem Maximum Likelihood
-Prinzip ist $p$ so zu bestimmen, dass die Likelihood-Funktion
+Nach dem Maximum-Likelihood-Prinzip ist $p$ so zu bestimmen,
+dass die Likelihood-Funktion
 (\ref{likelihood-funktion-p})
 maximal wird.
 Dabei bleibt $K$ unver"andert, es ist also der Ausdruck
@@ -396,12 +397,12 @@ Nach Division durch $p^{K-1}(1-p)^{n-K-1}$ wird daraus
 K(1-p)-(n-K)p=K-np=0.
 \end{equation}
 Diese Gleichung kann man nach $p$ aufl"osen: $p=K/n$.
-Somit ist die relative H"aufigkeit der Maximum Likelihood Sch"atzer
+Somit ist die relative H"aufigkeit der Maximum-Likelihood-Sch"atzer
 f"ur die Wahrscheinlichkeit $p$.
 \begin{satz}
-Der Stichprobenmittelwert ist der Maximum Likelihood Sch"atzer
+Der Stichprobenmittelwert ist der Maximum-Likelihood-Sch"atzer
 f"ur die Wahrscheinlichkeit $p$ eines
-positiven Ausgangs eines Bernoulli-Experimentes.
+positiven Ausgangs eines Bernoulliexperimentes.
 \end{satz}
 
 \section{Weitere Beispiele von Sch"atzern} \label{section-weitere-beispiele-von-schaetzern}
@@ -458,7 +459,7 @@ gleichverteilten Zufallsvariable $X$, dann ist
 eine erwartungstreuer Sch"atzer f"ur die Intervalll"ange $\vartheta$.
 \end{satz}
 
-\subsection{Sch"atzung des Parameters \texorpdfstring{$\lambda$}{lamda} einer Poissonverteilung}
+\subsection{Sch"atzung des Parameters \texorpdfstring{$\lambda$}{lambda} einer Poissonverteilung}
 Die Zufallsvariable $X$ sei poissonverteilt, d.~h.
 \begin{equation}
 p(k, \lambda)=\frac{\lambda^k}{k^!}e^{-\lambda}.
@@ -466,7 +467,7 @@ p(k, \lambda)=\frac{\lambda^k}{k^!}e^{-\lambda}.
 Der Parameter $\lambda$ soll aus einer Stichprobe gesch"atzt werden.
 Dazu bilden wir die Likelihood Funktion
 \begin{equation}
-L(k_1,\dots k_n;\lambda)=\frac{\lambda^{k_1+\dots+k_n}}{k_1!\cdots k_n!}
+L(k_1,\dots k_n;\lambda)=\frac{\lambda^{k_1+\dots+k_n}}{k_1!\dotsm k_n!}
 \,e^{-n\lambda}.
 \label{poisson-likelihood-funktion}
 \end{equation}
@@ -476,10 +477,10 @@ bestimmt:
 \begin{align}
 \frac{d}{d\lambda}L(k_1,\dots,k_n;\lambda)
 &=
-\frac{1}{k_1!\cdots k_n!}(K\lambda^{K-1}-n\lambda^K)e^{-n\lambda}\nonumber
+\frac{1}{k_1!\dotsm k_n!}(K\lambda^{K-1}-n\lambda^K)e^{-n\lambda}\nonumber
 \\
 &=
-\frac{1}{k_1!\cdots k_n!}(K-n\lambda)\lambda^{K-1}e^{-n\lambda}.
+\frac{1}{k_1!\dotsm k_n!}(K-n\lambda)\lambda^{K-1}e^{-n\lambda}.
 \label{poisson-likelihood-ableitung}
 \end{align}
 Die Ableitung verschwindet genau dann, wenn der Klammerausdruck in
@@ -494,7 +495,7 @@ konsistent und erwartungstreu.
 \subsection{Sch"atzung von \texorpdfstring{$p$}{p} in einer Binomialverteilung}
 Von der Zufallsvariablen $X$ sei bekannt, dass sie binomialverteilt ist
 mit Parameter $(m, p)$, der Parameter $p$ ist zu sch"atzen.
-Die Likelihoodfunktion ist in diesem Fall
+Die Likelihood-Funktion ist in diesem Fall
 \begin{equation}
 L(k_1,\dots,k_n;p)=\biggl(\prod_{i=1}^n\binom{m}{k_i}\biggr)
 p^{K}(1-p)^{nm-K},
@@ -521,7 +522,7 @@ Somit ist
 \begin{equation}
 p(k_1,\dots,k_n)=\frac1{nm}\sum_{i=1}^nk_i
 \end{equation}
-der Maximum Likelihood Sch"atzer f"ur $p$.
+der Maximum-Likelihood-Sch"atzer f"ur $p$.
 Offensichtlich ist er konsistent
 und erwartungstreu.
 \begin{satz}
@@ -534,7 +535,7 @@ $\frac1{m}\bar X$.
 Sch"atzwerte entstehen dadurch, dass die Werte einer Stichprobe, also
 gewisse Realisierungen von Zufallsvariablen in die Sch"atzfunktion
 eingesetzt werden.
-Somit sind die Sch"atzwert selbst wieder Zufallsvariable,
+Somit sind die Sch"atzwerte selbst wieder Zufallsvariablen,
 und es stellt sich die Frage, welcher Verteilung sie gehorchen.
 
 F"ur einen Spezialfall haben wir uns um diese Problem bereits gek"ummert.
@@ -573,7 +574,7 @@ Zun"achst gilt
 \begin{equation}
 M_{X_i}(t_i)=\exp\biggl(\mu t_i+\frac{\sigma^2t_i^2}2\biggr).
 \end{equation}
-Wir betrachten jetzt den Vektor $U=(U_1,\dots,U_n)$ bestehend aus
+Wir betrachten jetzt den Vektor $U=(U_1,\dots,U_n)$, bestehend aus
 den Zufallsvariablen $U_i=X_i-\bar X$, und $V=\bar X$.
 Wir setzen $\bar s=(s_1+\dots +s_n)/n$.
 Die gemeinsame momenterzeugende Funktione
@@ -650,7 +651,7 @@ W=Z^2=\frac{n(\bar X-\mu)^2}{\sigma^2}
 \end{equation}
 $\chi^2_1$-verteilt.
 Wir setzen $Y=(n-1)S^2/\sigma^2$.
-$W$ und $Y$ sind nach dem eben bewiesenen unabh"angig.
+$W$ und $Y$ sind nach dem eben Bewiesenen unabh"angig.
 Wir behaupten
 \[
 T=W+Y.
@@ -670,7 +671,7 @@ W+Y
 \frac{1}{\sigma^2}\sum_{i=1}^n(X_i-\mu)^2
 \label{wy-chi2}
 \end{align}
-Im lezten Schritt (\ref{wy-chi2}) haben wir den Hilfssatz
+Im letzten Schritt (\ref{wy-chi2}) haben wir den Hilfssatz
 \ref{hilfssatz-varianz-mittelwert}
 weiter unten verwendet.
 F"ur die momenterzeugenden Funktionen bedeutet dies
@@ -709,7 +710,7 @@ Insbesondere bilden die Punkte $(\bar x,\dots,\bar x)$, $(\mu,\dots,\mu)$
 und $(x_1,\dots,x_n)$ bilden ein rechtwinkliges Dreieck.
 Dies erlaubt,
 die Entfernung zwischen $(\mu,\dots,\mu)$ und $(x_1,\dots,x_n)$ 
-als Hypothenuse mit Hilfe des Satzes von Pythagoras zu berechnen:
+als Hypotenuse mit Hilfe des Satzes von Pythagoras zu berechnen:
 \[
 \sum_{i=1}^n(x_i-\mu)^2
 =\sum_{i=1}^n(\bar x-\mu)^2+\sum_{i=1}^n(x_i-\bar x)^2,
@@ -806,7 +807,7 @@ Dazu muss die Verteilung der Zufallsvariable
 \label{konfidenzintervall-verteilung}
 \end{equation}
 bekannt sein.
-Im Nenner ist $(n-1)S^2/\sigma^2$ ist eine
+Im Nenner ist $(n-1)S^2/\sigma^2$ eine
 $\chi_{n-1}^2$-verteilte Zufallsvariable,
 der Z"ahler ist standardnormalverteilt.
 Der Quotient ist "uber den
@@ -821,7 +822,7 @@ t=\frac{Z}{\sqrt{V/k}}
 die $t$-Verteilung mit $k$ Freiheitsgraden.
 \end{definition}
 
-\begin{satz}Die Wahrscheinlichkeitdichte der $t$-Verteilung ist
+\begin{satz}Die Wahrscheinlichkeitsdichte der $t$-Verteilung ist
 \begin{equation}
 \varphi_t(t)=\frac{\Gamma(\frac{k+1}{2})}{\sqrt{\pi k}\Gamma(\frac{k}2)}
 \biggl(1+\frac{t^2}{k}\biggr)^{-\frac{k+1}2}
@@ -868,7 +869,7 @@ Die Dichtefunktion f"ur den Quotienten ist dann
 \frac1{\sqrt{k\pi}2^{\frac{k-1}2}\Gamma(\frac{k}2)}
 \int_0^\infty e^{-\frac12(1+t^2/k)y^2} \,dy.
 \end{align*}
-Mit Hilfe der Subsitution $s=\frac12(1+\frac{t^2}n)y^2$
+Mit Hilfe der Substitution $s=\frac12(1+\frac{t^2}n)y^2$
 oder
 \[
 y=\frac{2^{\frac12}s^{\frac12}}{(1+\frac{t^2}n)^{\frac12}}
