@@ -48,3 +48,5 @@ aufgaben/**/filtered.csv
 aufgaben/**/kalman.m.expand
 aufgaben/**/bsim
 aufgaben/**/sim
+aufgaben/**/sim.c.expanded
+aufgaben/**/sim.expanded.c
