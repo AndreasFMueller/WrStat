@@ -1,0 +1,160 @@
+Eine Zufallsvariable $X$ ist auf dem Interval $[0,\pi]$ so verteilt, dass die
+Wahrscheinlichkeitsdichte
+\[
+\varphi_X(x)=\begin{cases}
+0\qquad&x < 0\\
+a(1-\cos x)\qquad&0\le x\le\pi\\
+0\qquad&x>\pi
+\end{cases}
+\]
+ist wie im folgenden Graphen.
+%\begin{figure}[h]
+%\centering
+\begin{center}
+\includeagraphics[]{graph-1.pdf}
+\end{center}
+%\caption{Wahrscheinlichkeitsdichte der Verteilung von $X$ in Aufgabe
+%\ref{50000029}.
+%\label{50000029:phi}}
+%\end{figure}
+\begin{teilaufgaben}
+\item
+Wie muss man $a$ w"ahlen, damit diese Funktion tats"achlich eine
+Wahrscheinlichkeitsdichte ist?
+\item
+Berechnen Sie $E(X)$ und $\operatorname{var}(X)$.
+\end{teilaufgaben}
+
+%\begin{hinweis}
+%\begin{align*}
+%\int x^{\phantom{1}}\cos x\,dx
+%&=x\sin x +\cos x
+%\\
+%\int x^2\cos x\,dx
+%&=
+%(x^2-2)\sin x+2x\cos x
+%\\
+%\int x^3\cos x\,dx
+%&=
+%(x^3-6x)\sin x+(3x^2-6)\cos x
+%\end{align*}
+%\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Konstante $a$ muss so gew"ahlt werden, dass das Integral von $\varphi_X$
+"uber $\mathbb R$ den Wert $1$ hat:
+\begin{align*}
+\int_{-\infty}^{\infty}\varphi_X(x)\,dx
+&=
+\int_0^\pi a(1-\cos x)\,dx
+=
+a\left[
+(x-\sin x)
+\right]_0^\pi
+=a\pi= 1
+&&\Rightarrow&a&=\frac1{\pi}.
+\end{align*}
+Dieses Resultat kann man auch ohne Rechnung direkt aus der Graphik
+ablesen.
+Da der Graph zentralsymmetrisch ist bez"uglich des Punktes $(\frac{\pi}2,a)$,
+ist der Teil der rosaroten Fl"ache mit $\varphi_X(x)>a$ kongruent
+zu dem fehlenden Teil zwischen der roten Kurve und $a$ "uber dem
+Interval $[0,\frac{\pi}2]$.
+Schneidet man den Teil oberhalb $a$ weg und f"ugt in links ein, wird
+die rosarote Fl"ache zu einem Rechteck mit Seiten $\pi$ und $a$.
+Diese Fl"ache muss $1$ sein, also $a\pi=1\Rightarrow a=\frac1{\pi}$.
+\item
+F"ur den Erwartungswert $E(X)$ m"ussen wir $x\varphi_X(x)$ integrieren.
+Dazu brauchen auch die Stammfunktionen von $x\cos x$ und $x^2\cos x$,
+welche wir zun"achst separat berechnen:
+\begin{align*}
+\int \underset{\displaystyle\downarrow}{x}\,\underset{\displaystyle\uparrow}{\cos x}\,dx
+&=
+x\sin x -\int \sin x\,dx
+=
+x\sin x +\cos x
+\\
+\int \underset{\displaystyle\downarrow}{x^2}\,\underset{\displaystyle\uparrow}{\cos x}\,dx
+&=
+x^2\sin x-\int \underset{\displaystyle\downarrow}{2x}\,\underset{\displaystyle\uparrow}{\sin x}\,dx
+=
+x^2\sin x+2x\cos x-\int 2\cos x\,dx
+\\
+&=
+x^2\sin x+2x\cos x-2\sin x.
+\end{align*}
+Damit k"onnen wir jetzt die Erwartungswerte berechnen:
+\begin{align*}
+E(X)
+&=
+\int_{-\infty}^{\infty}x\varphi_X(x)\,dx
+=
+\int_0^\pi ax(1-\cos x)\,dx
+=
+a\biggl[\frac{x^2}2
+-x\sin x-\cos x
+\biggr]_0^\pi
+\\
+&=
+\frac1{\pi}\biggl(
+\frac{\pi^2}{2}+2
+\biggr)
+=
+\frac{\pi}{2}+\frac{2}{\pi}=2.2074161
+\\
+E(X^2)
+&=
+\int_{-\infty}^{\infty}x^2\varphi_X(x)\,dx
+=
+\int_0^\pi ax^2(1-\cos x)\,dx
+=
+a\biggl[\frac{x^3}3
+-x^2\sin x-2x\cos x +2\sin x
+\biggr]_0^\pi
+\\
+&=
+\frac1{\pi}\biggl(
+\frac{\pi^3}{3} +2\pi
+\biggr)
+=\frac{\pi^2}{3}+2=5.2898681
+\end{align*}
+Und schliesslich die Varianz
+\begin{align*}
+\operatorname{var}(X)
+&=
+E(X^2)-E(X)^2
+=
+\frac{\pi^2}3+2-\biggl(\frac{\pi}{2}+\frac{2}{\pi}\biggr)^2
+=
+\frac{\pi^2}3+2-\frac{\pi^2}{4}-2-\frac{4}{\pi^2}
+\\
+&=
+\frac{4\pi^4-3\pi^4-48}{12\pi^2}
+=
+\frac{\pi^4-48}{12\pi^2}=\frac{\pi^2}{12}-\frac{4}{\pi^2}=0.4171823
+\end{align*}
+\end{teilaufgaben}
+\begin{figure}
+\centering
+\includeagraphics[]{graph-2.pdf}
+\caption{Wahrscheinlichkeitsdichte zu Aufgabe~\ref{50000029} mit
+eingezeichnetem Erwartungs und Varianz.
+\label{50000029:phievar}}
+\end{figure}
+\end{loesung}
+
+
+\begin{bewertung}
+Dichtefunktion ({\bf D}) 1 Punkt,
+Integration ({\bf V}) 1 Punkt,
+Erwartungswert $E(X)$ ({\bf E}) 1 Punkt,
+Erwartungswert $E(X^2)$ ({\bf E2)} 1 Punkt
+Varianzformel $\operatorname{var}(X)=E(X^2)-E(X)^2$ ({\bf F}) 1 Punkt,
+Varianz $\operatorname{var}(X)$ ({\bf V}) 1 Punkt.
+\end{bewertung}
+
+
+
+
