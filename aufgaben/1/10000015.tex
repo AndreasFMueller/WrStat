@@ -1,6 +1,6 @@
 Beim Wichtelspiel werden die Namen aller Teilnehmer auf Zettel geschrieben
-und in eine Korb getan.
-Die Teilnehmer ziehen der Reihe nach einen Zettel ziehen.
+und in einen Korb getan.
+Die Teilnehmer ziehen der Reihe nach einen Zettel.
 Zieht jemand seinen eigenen Namen, legt er ihn zur"uck und probiert
 nochmals, bis er einen anderen als den eigenen Namen zieht.
 Es kann nat"urlich passieren, dass dies beim letzten Teinehmer
@@ -8,17 +8,26 @@ nicht mehr klappt, dann ist die Namens-Zuteilung fehlgeschlagen und
 muss erneut begonnen werden.
 
 \begin{teilaufgaben}
+\item Auf wieviele Arten k"onenn $n$ Teilnehmer die Namen zuteilen,
+wenn Sie nicht auf die Zettel schauen und zur"ucklegen, wenn sie ihren
+eigenen Namen gezogen haben?
 \item Auf wieviele Arten k"onnen drei Teilnehmer die Namen zuteilen
 so dass keiner seinen eigenen Namen zieht?
+\item Wie gross ist die Wahrscheinlichkeit dass drei Teilnehmer
+bei einer ``blinden Ziehung'' wie in a) eine Zuteilung erreichen, bei
+der niemand seinen eigenen Namen gezogen hat?
 \item Auf wieviele Arten k"onnen drei Teilnehmer die Namen zuteilen,
 so dass der letzte Teilnehmer seinen eigenen Namen zugeteilt bekommt?
-\item 
+\item Beantworten Sie b) und d) f"ur 4 Teilnehmer.
 \item Wie gross ist die Wahrscheinlichkeit, dass bei 4 Teilnehmern
 der Zuteilungsalgorithmus fehlschl"agt?
 \end{teilaufgaben}
 
 \begin{loesung}
 \begin{teilaufgaben}
+\item 
+In diesem Fall werden einfach nur alle Permutationen erzeugt,
+das geht auf $n!$ Arten.
 \item
 Es gibt 6 Permutation der drei Namen,  n"amlich
 \begin{align*}
@@ -31,6 +40,8 @@ Es gibt 6 Permutation der drei Namen,  n"amlich
 \end{align*}
 Rote Ziffern zeigen eine Verletzung der Regeln an.
 Nur die Permutationen 4 und 5 erf"ullen also alle Regeln.
+\item
+Nach b) geht das in 2 von 6 F"allen, also mit Wahrscheinlichkeit $\frac13$.
 \item
 Nur die Permutation 3 ist m"oglich.
 \item
@@ -73,4 +84,8 @@ Die Wahrscheinlichkeit, dass im Wichtelspiel die Ziehung wiederholt
 werden muss ist $2/(9 + 2)=18.18\%$.
 \end{teilaufgaben}
 \end{loesung}
+
+\begin{bewertung}
+Jede Teilaufgabe 1 Punkt.
+\end{bewertung}
 
