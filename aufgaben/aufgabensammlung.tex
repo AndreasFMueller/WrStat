@@ -28,9 +28,12 @@
 \usepackage{makeidx}
 \usepackage{paralist}
 \usepackage{color}
-\usepackage{hyperref}
+\usepackage[colorlinks=true]{hyperref} % changed
 \usepackage{environ}
 \usepackage{nicefrac}
+
+\setlength{\headheight}{15pt} % fix for headheight warning
+
 \input linsys.tex
 \makeindex
 \begin{document}
@@ -61,7 +64,6 @@ Hochschule f"ur Technik, Rapperswil, 2011-2015
 \end{center}
 \end{titlepage}
 \hypersetup{
-        colorlinks=true,
         linktoc=all,
         linkcolor=blue
 }
