@@ -1,0 +1,65 @@
+In einer Fernsehdokumentation wurde "uber eine Strasse in einem Dorf berichtet,
+in der in einem Jahr gleich f"unf Personen an Leuk"amie erkrankt sind.
+Pro Jahr treten etwa 160 neue Leuk"amie-F"alle pro 100000 Personen auf,
+so dass gleich f"unf neue F"alle f"ur die Anwohner etwas beunruhigend
+waren.
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, dass in einer Gruppe von
+100 Personen (``Strasse'') innert eines Jahres mindestens f"unf
+Leuk"amie-F"alle auftreten.
+\item
+Wir teilen die Weltbev"olkerung von 7 Millionen in Gruppen von jeweils 100
+Personen auf.
+In wievielen dieser Gruppen ist mit mindestens f"unf neuen
+Leuk"amie-Erkrankungen in einem Jahr zu rechnen?
+\item
+Wie wahrscheinlich ist, dass f"unf neue Leuk"amie-Erkrankungen in einem 
+Jahr in der gleichen ``Strasse'' nirgends auf der Welt auftritt?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Leuk"amie ist zweifellos eine seltene Krankheit, die in Gruppen von 
+100 Leuten mit einer Rate von 
+\[
+\lambda = \frac{160}{100000}\cdot 100=0.16
+\]
+auftritt.
+Seit $X$ die Anzahl neuer Leuk"amief"alle in einer Gruppe von $100$
+Personen.
+Die Wahrscheinlichkeit, h"aufiger als $k=4$ mal aufzutreten, ist
+\begin{align*}
+P(X>4)
+&=
+1-P(X\le 4)
+=
+1-\sum_{k=0}^4 \frac{\lambda^k}{k!}e^{-\lambda}
+=
+7.649\cdot10^{-7}=p
+\end{align*}
+\item
+Da es $n=70000000=7\cdot 10^7$ solche ``Strassen'' gibt, handelt es sich hier um
+ein $n$ fach wiederholtes Bernoulli-Experiment mit Wahrscheinlichkeit $p$.
+Die erwartet Anzahl F"alle, in denen dies eintritt (also mindestens 5
+neue Leuk"amie-F"alle in einem Jahr) ist
+\[
+np=7\cdot 10^7\cdot 7.649\cdot 10^{-7}=53.543.
+\]
+\item
+Die Wahrscheinlichkeit, dass das Ereignis in einer ``Strasse'' nicht eintritt,
+ist $1-p$.
+Nehmen wir an, dass die einzelnen ``Strassen'' unabh"angig sind, dann
+folgt, dass die Wahrscheinlichkeit, dass in keiner einzigen ``Strasse''
+mehr als 4 neue Leuk"amie-F"alle in einem Jahr auftreten werden, 
+etwa $(1-p)^70000000$ ist, was numerische einen Wert von etwa
+$5.6\cdot 10^{-24}$ ergibt.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
+
+
+
