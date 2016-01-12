@@ -1,0 +1,51 @@
+Mit dem folgenden Experiment soll herausgefunden werden, ob vier M"unzen
+fair sind.
+Die vier M"unzen werden 500 mal geworfen, und es wird gez"ahlt, wie
+wie oft die f"unf m"oglichen Anzahlen von Kopf auftreten.
+Die Resultate sind
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Anzahl Kopf&Anzahl W"urfe\\
+\hline
+0& \phantom{0}43\\
+1& 127\\
+2& 168\\
+3& 121\\
+4& \phantom{0}41\\
+\hline
+\end{tabular}
+\end{center}
+Sind die M"unzen fair?
+
+\begin{loesung}
+Es geht hier um die Nullhypothese, dass die vier M"unzen fair sind,
+also Kopf und Zahl mit der gleichen Wahrscheinlichkeit von 0.5 zeigen.
+Wenn dem so ist, dann ist die Anzahl Kopf in einem Wurf von vier M"unzen
+binomailverteilt mit $p=0.5$ und $n=4$.
+
+Wir k"onnen diese Hypothese  mit einem $\chi^2$-Test mit 4 Freiheitsgraden
+testen.
+Wir w"ahlen $\alpha=0.05$, der zugeh"orige kritische Wert f"ur die Diskrepanz
+ist $D_{\text{krit}}=9.488$.
+Wir berechnen die Diskrepanz der Daten:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|}
+\hline
+i&n_i&   p_i&  np_i& n_i-np_i&(n_i-np_i)^2/np_i\\
+\hline
+0& 43&0.0625& 31.25& 11.75&  4.418\\
+1&127&0.2500&125.00&  2.00&  0.032\\
+2&168&0.3750&187.50&-19.50&  2.028\\
+3&121&0.2500&125.00& -4.00&  0.128\\
+4& 41&0.0625& 31.25&  9.75&  3.042\\
+\hline
+ &500&1.0000&      &      &D=9.648\\
+\hline
+\end{tabular}
+\end{center}
+Da $D>D_{\text{krit}}$ ist, muss die Hypothese verworfen werden, die M"unzen
+sind also {\em nicht} fair.
+\end{loesung}
+
+
