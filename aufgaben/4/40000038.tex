@@ -1,0 +1,64 @@
+In einem Kartenspiel befinden sich 52 Spielkarten, davon sind 16 Bildkarten
+und 36 Zahlkarten.
+Jetzt wird folgendes Spiel gespielt.
+Jemand bietet folgendes Spiel an.
+Zu Beginn legt er einen Franken auf den Tisch.
+Dann beginnt der Spieler Karten aus dem Spiel zu ziehen.
+Zieht er eine Bildkarte, wird der Betrag auf dem Tisch vervierfacht.
+Zieht er eine andere Karte, ist das Spiel zu Ende, der Spieler gewinnt
+den auf dem Tisch liegenden Betrag.
+Was w"are ein fairer Einsatz f"ur dieses Spiel, wenn der Spieler
+maximal drei Karten ziehen darf (d.~h.~es wird gespielt, also ob die
+vierte Karte immer eine Zahlkarte w"are)?
+
+\begin{loesung}
+Wir brauchen die Wahrscheinlichkeit daf"ur, dass der Spieler $k$
+mal hintereinander eine Bildkarte zieht und dann eine andere Karte.
+Ist $p_k$ diese Wahrscheinlichkeit, dann ist der gesuchte faire
+Einsatz die Summe
+\[
+\sum_{k=0}^\infty p_k2^k.
+\]
+Die Wahrscheinlichkeit, genau $k$ Bildkarten gefolgt von einer
+Zahlkarte zu ziehen, ist
+\[
+p_k
+=
+\underbrace{\frac{16}{52}
+\cdot
+\frac{15}{51}
+\dotsm
+\frac{16-k+1}{52-k+1}}_{\text{$k$ Faktoren}}
+\cdot
+\frac{36}{52-k}
+=
+\frac{\displaystyle\frac{16!}{(16-k)!}}{\displaystyle\frac{52!}{(52-k-1)!}}36
+=
+\frac{\displaystyle\frac{16!}{(16-k)!k!}}{\displaystyle\frac{52!}{(52-k-1)!(k+1)!}}\frac{36}{k+1}
+=
+\frac{\displaystyle\binom{16}{k}}{\displaystyle\binom{52}{k+1}}\frac{36}{k+1}.
+\]
+In unserem Fall brauchen wir das nur f"ur $k\in \{0,1,2\}$, f"ur $k=3$
+spielt die nachfolgende Karte keine Rolle, der Faktor $36/49$ entf"allt.
+Numerisch erh"alt man die folgenden Resultate:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|>{$}l<{$}|>{$}r<{$}|}
+\hline
+k&           X &                                    p_k& X \cdot p_k   \\
+\hline
+0&\phantom{0}1 &\frac{36}{52}                          &0.692308\\
+1&\phantom{0}4 &\frac{16}{52}\frac{36}{51}             &0.868778\\
+2&          16 &\frac{16}{52}\frac{15}{51}\frac{36}{50}&1.042534\\
+3&          64 &\frac{16}{52}\frac{15}{51}\frac{14}{50}&1.621619\\
+\hline
+ &             &1                                      &E(X)=4.225339\\
+\hline
+\end{tabular}
+\end{center}
+Der Erwartungswert des Gewinns $X$ ist $E(X)=4.225339$,
+dies w"are der faire Einsatz.
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
+
