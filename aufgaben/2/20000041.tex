@@ -11,16 +11,16 @@ Was meinen Sie dazu?
 
 \begin{loesung}
 Wir verwenden die Ereignisse
-\[
-B&=\{\text{Patientin hat Brustkrebs}\}
-G&=\{\text{Patientin ist besund}\} =\bar B
+\begin{align*}
+B&=\{\text{Patientin hat Brustkrebs}\}\\
+G&=\{\text{Patientin ist besund}\} =\bar B\\
 M&=\{\text{Patientin hat postiven Mammogramm-Befund}\}
-\]
+\end{align*}
 mit den Wahrscheinlichkeiten
 \[
 \begin{aligned}
-P(B)&=0.01,&&&P(M|B)&=0.8\\
-    &      &&&P(M|G)&=0.1
+P(B)&=0.01,&&\qquad&P(M|B)&=0.8,\\
+    &      &&\qquad&P(M|G)&=0.1.
 \end{aligned}
 \]
 Gesucht ist die Wahrscheinlichkeit $P(B|M)$, die mit Hilfe des Satzes
@@ -31,14 +31,23 @@ P(B|M) = P(M|B) \frac{P(B)}{P(M)}
 Die Wahrscheinlichkeit $P(M)$ kann mit dem Satz "uber die totale
 Wahrscheinlichkeit berechnet werden:
 \begin{align*}
-P(M)&=P(M|B)P(B)+P(M|\bar B)P(\bar B)=0.8\cdot 0.01 + 0.1\cdot 0.99
-=0.107
+P(M)
+&=
+P(M|B)P(B)+P(M|\bar B)P(\bar B)
+=
+0.8\cdot 0.01 + 0.1\cdot 0.99
+=
+0.107.
 \end{align*}
 Damit kann man jetzt die gesuchte Wahrscheinlichkeit $P(B|M)$ bestimmen
 \[
-P(B|M) = P(M|B) \frac{P(B)}{P(M)}
+P(B|M)
 =
-0.8 \cdot\frac{0.01}{0.107}=0.075
+P(M|B) \frac{P(B)}{P(M)}
+=
+0.8 \cdot\frac{0.01}{0.107}
+=
+0.075.
 \]
 Die befragten "Arzte lagen um eine ganze Gr"ossenordnung falsch.
 Der Grund daf"ur ist die Seltenheit der Krankheit: Ereignisse
