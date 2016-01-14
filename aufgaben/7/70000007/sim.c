@@ -3,7 +3,7 @@
  *
  * (c) 2014 Prof Dr Andreas Mueller, Hochschule Rapperswil
  */
-#define _BSD_SOURCE	1
+#define _DEFAULT_SOURCE	1
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
