@@ -1,0 +1,59 @@
+Die 3D-Drucktechnik f"ur Consumer steckt immer noch etwas in den 
+Kinderschuhen, vor allem die Drucke gr"osserer oder sonstwie komplexer
+Teile schlagen "ofters fehl.
+F"ur ein Projekt werden 30 identische Teile ben"otigt,
+doch schl"agt der Druck eines Teils in einem von f"unf F"allen fehl.
+Wieviele Drucke sollen geplant werden, damit mit Wahrscheinlichkeit 99\%
+gen"ugend brauchbare Teile darunter sind?
+
+\begin{loesung}
+Gesucht ist die Zahl $n$ der n"otigen Drucke.
+3D-Druck eines Teils ist ein Bernoulli-Experiment mit
+Erfolgswahrscheinlichkeit $p=0.8$.
+Ist $X$ die Zahl der erfolgreich gedruckten Teile, dann ist $X$
+binomialverteilt mit Parametern $p$ und $n$.
+Die Zahl $n$ soll so bestimmt werden, dass 
+\[
+0.99 \ge P(X\ge 30).
+\]
+Es ist klar, dass $n\ge 30$ sein muss, $X$ kann daher durch eine
+Normalverteilung approximiert werden mit $\mu=np$ und $\sigma=\sqrt{np(1-p)}$,
+die Wahrscheinlichkeit ist dann
+\[
+P(X\ge 30)=P\biggl(
+\underbrace{\frac{X-\mu}{\sigma}}_{=Z}\ge\frac{30-\mu}{\sigma}
+\biggr)
+=P\biggl(Z\ge \frac{30-np}{\sqrt{np(1-p)}}\biggr)
+\]
+Die Zufallsvariable $Z$ ist angen"ahert standardnormalverteilt, die
+Wahrscheinlichkeit $0.99$ wird also erreicht, wenn 
+\[
+\frac{30-np}{\sqrt{np(1-p)}} = 2.3263=x
+\]
+ist.
+Quadrieren und multiplizieren mit dem Nenner gibt
+\begin{align*}
+900-60np+n^2p^2
+&=
+x^2 np(1-p)
+\\
+p^2{\color{red}n}^2-(60p+x^2p(1-p)){\color{red}n}+900&=0,
+\end{align*}
+eine quadratische Gleichung f"ur $n$ mit den L"osungen
+\[
+n=\frac{60p+x^2p(1-p)\pm\sqrt{(60p+x^2p(1-p))^2 - 3600p^2}}{2p^2}.
+\]
+Einsetzen der bekannten Zahlenwerte $31.02$ und $45.33$.
+Es m"ussen also $46$ Drucke geplant werden.
+
+Zur Kontrolle berechnen wir die Wahrscheinlichkeit, dass von 46 Drucken
+weniger als 30 brauchbar sind mit Hilfe von R:
+\verbatimainput{r1}
+Macht man dagegen nur 45 Drucke, ist die Wahrscheinlichkeit, weniger als
+30 brauchbare zu erhalten nur
+\verbatimainput{r2}
+Die Anzahl 46 ist also genau die gesuchte Anzahl Druckversuche.
+\end{loesung}
+
+
+

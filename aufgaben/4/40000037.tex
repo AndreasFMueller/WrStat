@@ -1,0 +1,131 @@
+Die Zeitschrift {\em The Economist} hat 1986 den Big Mac Index geschaffen,
+angeblich um die Theorie der Wechselkurse ebenso ``leicht verdaulich''
+zu machen wie das namensgebende Produkt.
+Unter anderem wird regelm"assig die Abh"angigkeit des Big Mac Preises
+vom Bruttoinlandprodukt (BIP) pro Person ermittelt und publiziert.
+\begin{center}
+\begin{tabular}{|l|r|r|}
+\hline
+Land&BIP pro Person USD&Big Mac Preis USD\\
+\hline
+Norwegen   &96930&5.21\\
+USA        &54370&4.93\\
+Euro Raum  &40001&4.00\\
+Indien     & 1608&1.90\\
+\hline
+\end{tabular}
+\end{center}
+Es wird postuliert, dass es einen Zusammenhang zwischen 
+BIP pro Person und Big Mac Preis g"abe.
+
+\begin{teilaufgaben}
+\item Finden Sie eine m"oglichst gute Approximation f"ur so einen Zusammenhang.
+\item Die Schweiz hat eine BIP pro Kopf von 86468USD, ein Big Mac kostet
+in der Schweiz 6.44USD.
+Zahlt man in der Schweiz zu viel f"ur einen Big Mac?
+\item Wie gut ist die Approxmation?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir bestimmen einen linearen Zusammenhang zwischen dem BIP pro Person $x$ 
+und dem Preis $y$ eines Big Mac mit Hilfe von linearer Regression.
+Dazu brauchen wir die Summen von $x$- und $y$-Werten, von Quadraten
+und Produkten:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+   i&    x_i&   y_i&      x_i^2 &  y_i^2 &  x_iy_i\\
+\hline
+   1&  96930&  5.21&  9395424900& 27.1441& 505005.3\\
+   2&  54370&  4.93&  2956096900& 24.3049& 268044.1\\
+   3&  40001&  4.00&  1600080001& 16.0000& 160004.0\\
+   4&   1608&  1.90&     2585664&  3.6100&   3055.2\\
+\hline
+\sum& 192909& 16.04& 13954187465& 71.0590& 936108.6\\
+\hline
+\end{tabular}
+\end{center}
+Daraus k"onnen wir jetzt die Koeffizienten der Regressionsgeraden $y=ax+b$
+mit den bekannten Formeln ermitteln:
+\begin{align*}
+\textstyle
+\sum x_i^2-\frac1n\bigl(\sum x_i\bigr)^2
+&=13954187465-\frac14\cdot 192909^2
+=
+4650716894.75
+\\
+\textstyle
+\sum y_i^2-\frac1n\bigl(\sum y_i\bigr)^2
+&=
+6.7386
+\\
+\textstyle
+\sum x_iy_i-\frac1n\bigl(\sum x_i\bigr)\bigl(\sum y_i\bigr)
+&=936108.6 -\frac14\cdot 192909\cdot 16.04
+=
+162543.51
+\\
+a
+&=
+\frac{E(XY)-E(X)E(Y)}{E(X^2)-E(X^2)}
+=\frac{\frac1n\sum x_iy_i - \bigl(\frac1n\sum x_i\bigr)\bigl(\frac1n\sum y_i\bigr)}{\frac1n \sum x_i^2-\bigl(\frac1n\sum x_i\bigr)^2}
+\\
+&=
+\frac{936108.6 -\frac14\cdot 192909\cdot 16.04}{13954187465-\frac14\cdot 192909^2}
+=0.000034950
+\\
+b
+&=
+\frac1n\sum y_i-a\frac1n\sum x_i
+=
+\frac14\cdot16.04-a \frac14\cdot 192909
+=
+2.3244
+\end{align*}
+\item
+F"ur das Schweizer BIP pro Person bekommt man als prognostizierten
+Big Mac Preis
+\[
+y=2.3244 + 0.00003495\cdot 86468=5.3465,
+\]
+der Schweizer Big Mac ist also deutlich teurer, als die Prognose aus
+dem BIP pro Kopf vermuten l"asst.
+\item
+Die Qualit"at der Approximation kann mit dem Regressionskoeffizienten
+gemessen werden:
+\begin{align*}
+r
+&=
+\frac{E(XY)-E(X)(Y)}{\sqrt{\operatorname{var}(X)\operatorname{var}(Y)}}
+=\frac{162543.51}{\sqrt{
+4650716894.75
+\cdot
+6.7386
+}}
+=0.9182
+\end{align*}
+Die Abweichung von $1$ ist ziemlich gross, von einer guten Approximation
+kann nicht die Rede sein.
+Dies wird auch best"atigt durch die graphische Darstellung in
+Abbildung~\ref{40000037:lin}.
+\begin{figure}
+\centering
+\includeagraphics[]{graph-1.pdf}
+\caption{Lineare Regression am Beispiel des Big Mac Index
+\label{40000037:lin}}
+\end{figure}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Ansatz Lineare Regression ({\bf LR}) 1 Punkt,
+Berechnung der Summen ({\bf T}) 2 Punkte,
+Berechnung von $a$ ({\bf A}) 1 Punkt,
+Berechnung von $b$ ({\bf B}) 1 Punkt,
+Regressionskoeffizient als Mass f"ur Qualit"at ({\bf R}) 1 Punkt.
+\end{bewertung}
+
+
+
