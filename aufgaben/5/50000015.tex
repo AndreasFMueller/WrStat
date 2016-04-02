@@ -3,15 +3,18 @@ Dichtefunktion eine gerade Funktion ist.
 
 \begin{loesung}
 Der Erwartungswert zur Dichtefunktion $\varphi$ ist
-$$E(X)=\int_{-\infty}^\infty x\varphi(x)\,dx.$$
+\[
+E(X)=\int_{-\infty}^\infty x\varphi(x)\,dx.
+\]
 Da die Funktion $\varphi$ gerade ist, ist $x\mapsto x\varphi(x)$
 ungerade, und damit verschwindet das Integral. Folglich ist $E(X)=0$.
 Alternativ k"onnte man auch rechnen
-\begin{eqnarray*}
+\begin{align*}
 \int_{-\infty}^\infty x\varphi(x)\,dx
-&=&\int_{-\infty}^0x\varphi(x)\,dx +\int_0^\infty x\varphi(x)\,dx\\
-&=&\int_{\infty}^0(-x)\varphi(-x)d(-x)+\int_0^\infty x\varphi(x)\,dx\\
-&=&-\int_0^{\infty}x\varphi(x)\,dx+\int_0^\infty x\varphi(x)\,dx=0.\\
-\end{eqnarray*}
+&=\int_{-\infty}^0x\varphi(x)\,dx +\int_0^\infty x\varphi(x)\,dx\\
+&=\int_{\infty}^0(-x)\varphi(-x)d(-x)+\int_0^\infty x\varphi(x)\,dx\\
+&=-\int_0^{\infty}x\varphi(x)\,dx+\int_0^\infty x\varphi(x)\,dx=0.
+\qedhere
+\end{align*}
 \end{loesung}
 
