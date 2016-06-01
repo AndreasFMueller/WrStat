@@ -20,9 +20,9 @@ Einsatz die Summe
 \]
 Die Wahrscheinlichkeit, genau $k$ Bildkarten gefolgt von einer
 Zahlkarte zu ziehen, ist
-\[
+\begin{align*}
 p_k
-=
+&=
 \underbrace{\frac{16}{52}
 \cdot
 \frac{15}{51}
@@ -34,9 +34,10 @@ p_k
 \frac{\displaystyle\frac{16!}{(16-k)!}}{\displaystyle\frac{52!}{(52-k-1)!}}36
 =
 \frac{\displaystyle\frac{16!}{(16-k)!k!}}{\displaystyle\frac{52!}{(52-k-1)!(k+1)!}}\frac{36}{k+1}
-=
+\\
+&=
 \frac{\displaystyle\binom{16}{k}}{\displaystyle\binom{52}{k+1}}\frac{36}{k+1}.
-\]
+\end{align*}
 In unserem Fall brauchen wir das nur f"ur $k\in \{0,1,2\}$, f"ur $k=3$
 spielt die nachfolgende Karte keine Rolle, der Faktor $36/49$ entf"allt.
 Numerisch erh"alt man die folgenden Resultate:
