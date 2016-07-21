@@ -3,6 +3,8 @@
 #
 # (c) 2014 Prof Dr Andreas Mueller, Hochschule Rapperswil
 #
+all:	sim sim.c.expanded
+
 sim:	sim.c
 	gcc -std=c99 -g -Wall -O2 sim.c -o sim
 

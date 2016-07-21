@@ -7,8 +7,13 @@ Es kann nat"urlich passieren, dass dies beim letzten Teinehmer
 nicht mehr klappt, dann ist die Namens-Zuteilung fehlgeschlagen und
 muss erneut begonnen werden.
 
+\begin{hinweis}
+Es gibt keine ``leichte'' Methode, Formeln f"ur die gesuchten
+Wahrscheinlichkeiten anzugeben.
+\end{hinweis}
+
 \begin{teilaufgaben}
-\item Auf wieviele Arten k"onenn $n$ Teilnehmer die Namen zuteilen,
+\item Auf wieviele Arten k"onnen $n$ Teilnehmer die Namen zuteilen,
 wenn Sie nicht auf die Zettel schauen und zur"ucklegen, wenn sie ihren
 eigenen Namen gezogen haben?
 \item Auf wieviele Arten k"onnen drei Teilnehmer die Namen zuteilen
@@ -18,7 +23,7 @@ bei einer ``blinden Ziehung'' wie in a) eine Zuteilung erreichen, bei
 der niemand seinen eigenen Namen gezogen hat?
 \item Auf wieviele Arten k"onnen drei Teilnehmer die Namen zuteilen,
 so dass der letzte Teilnehmer seinen eigenen Namen zugeteilt bekommt?
-\item Beantworten Sie b) und d) f"ur 4 Teilnehmer.
+\item Beantworten Sie b) und d) f"ur 4 statt 3 Teilnehmer.
 \item Wie gross ist die Wahrscheinlichkeit, dass bei 4 Teilnehmern
 der Zuteilungsalgorithmus fehlschl"agt?
 \end{teilaufgaben}
@@ -31,54 +36,72 @@ das geht auf $n!$ Arten.
 \item
 Es gibt 6 Permutation der drei Namen,  n"amlich
 \begin{align*}
-1:\qquad&{\color{red}1}\;{\color{red}2}\;{\color{red}3}\\
-2:\qquad&{\color{red}1}\;            3 \;            2 \\
-3:\qquad&            2 \;            1 \;{\color{red}3}\\
-4:\qquad&            2 \;            3 \;            1 \\
-5:\qquad&            3 \;            1 \;            2 \\
-6:\qquad&            3 \;{\color{red}2}\;            1 
+             1: \qquad&{\color{red}1}\;{\color{red}2}\;{\color{red}3}\\
+             2: \qquad&{\color{red}1}\;            3 \;            2 \\
+             3: \qquad&            2 \;            1 \;{\color{red}3}\\
+{\color{blue}4:}\qquad&            2 \;            3 \;            1 \\
+{\color{blue}5:}\qquad&            3 \;            1 \;            2 \\
+             6: \qquad&            3 \;{\color{red}2}\;            1 
 \end{align*}
 Rote Ziffern zeigen eine Verletzung der Regeln an.
-Nur die Permutationen 4 und 5 erf"ullen also alle Regeln.
+Nur die Permutationen Nr.~{\color{blue}4} und {\color{blue}5}
+erf"ullen also alle Regeln.
 \item
 Nach b) geht das in 2 von 6 F"allen, also mit Wahrscheinlichkeit $\frac13$.
 \item
-Nur die Permutation 3 ist m"oglich.
+Nur die Permutation Nr.~3 ist m"oglich.
 \item
 Die gleiche L"osung kann auch auf 4 Personen angewendet werden:
 \begin{align*}
- 1:\qquad&{\color{red}1}\;{\color{red}2}\;{\color{red}3}\;{\color{red}4}\\
- 2:\qquad&{\color{red}1}\;{\color{red}2}\;            4 \;            3 \\
- 3:\qquad&{\color{red}1}\;            3 \;            2 \;{\color{red}4}\\
- 4:\qquad&{\color{red}1}\;            3 \;            4 \;            2 \\
- 5:\qquad&{\color{red}1}\;            4 \;            2 \;            3 \\
- 6:\qquad&{\color{red}1}\;            4 \;{\color{red}3}\;            2 \\
+ 1: \qquad&{\color{red}1}\;{\color{red}2}\;{\color{red}3}\;{\color{red}4}\\
+ 2: \qquad&{\color{red}1}\;{\color{red}2}\;            4 \;            3 \\
+ 3: \qquad&{\color{red}1}\;            3 \;            2 \;{\color{red}4}\\
+ 4: \qquad&{\color{red}1}\;            3 \;            4 \;            2 \\
+ 5: \qquad&{\color{red}1}\;            4 \;            2 \;            3 \\
+ 6: \qquad&{\color{red}1}\;            4 \;{\color{red}3}\;            2 \\
 %
- 7:\qquad&            2 \;            1 \;{\color{red}3}\;{\color{red}4}\\
- 8:\qquad&            2 \;            1 \;            4 \;            3 \\
- 9:\qquad&            2 \;            3 \;            1 \;{\color{red}4}\\
-10:\qquad&            2 \;            3 \;            4 \;            1 \\
-11:\qquad&            2 \;            4 \;            1 \;            3 \\
-12:\qquad&            2 \;            4 \;{\color{red}3}\;            1 \\
+ 7: \qquad&            2 \;            1 \;{\color{red}3}\;{\color{red}4}\\
+{\color{blue}
+ 8:}\qquad&            2 \;            1 \;            4 \;            3 \\
+ 9: \qquad&            2 \;            3 \;            1 \;{\color{red}4}\\
+{\color{blue}
+10:}\qquad&            2 \;            3 \;            4 \;            1 \\
+{\color{blue}
+11:}\qquad&            2 \;            4 \;            1 \;            3 \\
+12: \qquad&            2 \;            4 \;{\color{red}3}\;            1 \\
 %
-13:\qquad&            3 \;            1 \;            2 \;{\color{red}4}\\
-14:\qquad&            3 \;            1 \;            4 \;            2 \\
-15:\qquad&            3 \;{\color{red}2}\;            1 \;{\color{red}4}\\
-16:\qquad&            3 \;{\color{red}2}\;            4 \;            1 \\
-17:\qquad&            3 \;            4 \;            1 \;            2 \\
-18:\qquad&            3 \;            4 \;            2 \;            1 \\
+13: \qquad&            3 \;            1 \;            2 \;{\color{red}4}\\
+{\color{blue}
+14:}\qquad&            3 \;            1 \;            4 \;            2 \\
+15: \qquad&            3 \;{\color{red}2}\;            1 \;{\color{red}4}\\
+16: \qquad&            3 \;{\color{red}2}\;            4 \;            1 \\
+{\color{blue}
+17:}\qquad&            3 \;            4 \;            1 \;            2 \\
+{\color{blue}
+18:}\qquad&            3 \;            4 \;            2 \;            1 \\
 %
-19:\qquad&            4 \;            1 \;            2 \;            3 \\
-20:\qquad&            4 \;            1 \;{\color{red}3}\;            2 \\
-21:\qquad&            4 \;{\color{red}2}\;            1 \;            3 \\
-22:\qquad&            4 \;{\color{red}2}\;{\color{red}3}\;            1 \\
-23:\qquad&            4 \;            3 \;            1 \;            2 \\
-24:\qquad&            4 \;            3 \;            2 \;            1
+{\color{blue}
+19:}\qquad&            4 \;            1 \;            2 \;            3 \\
+20: \qquad&            4 \;            1 \;{\color{red}3}\;            2 \\
+21: \qquad&            4 \;{\color{red}2}\;            1 \;            3 \\
+22: \qquad&            4 \;{\color{red}2}\;{\color{red}3}\;            1 \\
+{\color{blue}
+23:}\qquad&            4 \;            3 \;            1 \;            2 \\
+{\color{blue}
+24:}\qquad&            4 \;            3 \;            2 \;            1
 \end{align*}
-Nur die 9 Permutationen 8, 10, 11, 14, 17, 18, 19, 23 und 24 erf"ullen
+Nur die 9 Permutationen Nr.~{\color{blue}8},
+{\color{blue}10},
+{\color{blue}11},
+{\color{blue}14},
+{\color{blue}17},
+{\color{blue}18},
+{\color{blue}19},
+{\color{blue}23} und
+{\color{blue}24} erf"ullen
 alle Bedingungen.
 Es gibt genau zwei Permutationen, bei denen dem vierten Teilnehmer der
-eigene Name zugeteilt wird, n"amlich 9 und 13.
+eigene Name zugeteilt wird, n"amlich Nr.~{\color{blue}9} und {\color{blue}13}.
 \item
 Die Wahrscheinlichkeit, dass im Wichtelspiel die Ziehung wiederholt 
 werden muss ist $2/(9 + 2)=18.18\%$.
