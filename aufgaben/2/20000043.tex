@@ -1,0 +1,66 @@
+Masern ist eine hoch ansteckende und gef"ahrliche Krankheit,
+allein 2014 starben weltweit "uber 114900 Menschen an Masern.
+Im gleichen Jahr erhielten 85\% aller Kinder eine Impfdosis.
+Diese f"uhrt aber nicht immer zur Immunit"at, so dass trotz Impfung
+ein Erkrankungsrisiko von etwa 15\% bleibt.
+In den westlichen L"andern werden daher mehrere Impfdosen verabreicht,
+umd das Risiko weiter zu senken.
+
+Mit verschiedenen Modellen wurde untersucht, wie gross die Wahrscheinlichkeit
+ist, dass ein Kind sich in einer bestimmten Situation, zum Beispiel
+bei einem Krankenhausbesuch oder im Kindergarten mit Masern ansteckt.
+Wir nehmen an, dass in einer spezifischen Situation ein Maserninfektion
+bei den Kindern die immun sind, in 20\% der F"alle auftritt
+
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, dass ein Kind erkrankt?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass ein krankes Kind nicht
+geimpft war?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir arbeiten mit folgenden Ereignissen:
+\begin{align*}
+I&=\{\text{Kind geimpft}\}\\
+M&=\{\text{Kind erkrankt an Masern}
+\end{align*}
+Aus den Angaben in der Aufgabe wissen wir:
+\begin{align*}
+P(I)&=0.85\\
+P(M|\overline I)&=0.2\\
+P(M|I)&=0.15 \cdot P(M|\overline I)= 0.03
+\end{align*}
+\begin{teilaufgaben}
+\item
+Gesucht ist $P(M)$, diese Wahrscheinlichkeit kann mit dem Satz von der
+totalen Wahrscheinlichkeit gefunden werden:
+\begin{align*}
+P(M) 
+&=
+P(M|I)P(I) + P(M|\overline I)P(\overline I)
+=
+P(M|I)P(I) + P(M|\overline I)(1-P(I))
+\\
+&=
+0.03\cdot 0.85 + 0.2\cdot(1-0.85)=0.0555.
+\end{align*}
+\item
+Dies ist die Wahrscheinlichkeit  ist nach dem Satz von Bayes
+\begin{align*}
+P(\overline I|M)
+&=
+\frac{P(\overline I)}{P(M)}P(M|\overline I)
+=
+\frac{1-P(I)}{P(M)}P(M|\overline I)
+=
+\frac{0.15}{0.0555}\cdot 0.2
+=
+0.54054.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+
