@@ -1,0 +1,100 @@
+Auf einer amerikanischen Website gefunden: Studenten haben untersucht,
+wie die Pr"ufungsnote vom Lernaufwand abh"angt.
+Die Umfrage unter Kollegen hat ergeben:
+\begin{center}
+\begin{tabular}{c|c}
+Aufwand (Stunden)&SAT Score Mathematik\\
+\hline
+4&390\\
+10&650\\
+13&700\\
+22&790
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item
+Angenommen, man kann die Pr"ufung mit eine Score von 500 bestehen, 
+wieviele Stunden muss man in die Vorbereitung investieren
+\item
+Wie zuverl"assig ist Ihre Methode?
+\end{teilaufgaben}
+
+\begin{hinweis}
+Es wird nicht unbedingt empfohlen, die Erkenntnisse aus der
+L"osung dieser Aufgabe auf die Pr"ufungssituation an der HSR anzwenden.
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir vermuten einen linearen Zusammenhang und bestimmen daher eine
+Regressionsgerade zwischen Aufwand $A$ und Score $S$ in der
+Form $S=aA+b$.
+Dazu brauchen wir die Summen der Werte:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+i&a_i& s_i&a_i^2&  s_i^2&a_is_i\\
+\hline
+1&  4& 390&   16& 152100&  1560\\
+2& 10& 650&  100& 422500&  6500\\
+3& 13& 700&  169& 490000&  9100\\
+4& 22& 790&  484& 624100& 17380\\
+\hline
+ & 49&2530&  757&1688700& 34540\\
+\hline
+\end{tabular}
+\end{center}
+Daraus kann man mit Hilfe der Formeln im Skript die Koeffizienten $a$ und
+$b$ berechnen:
+\begin{align*}
+a
+&=
+\frac{n\sum a_is_i - \sum a_i\sum s_i}{n\sum a_i^2-(\sum a_i)^2}
+=
+\frac{4\cdot 34540 - 49\cdot 2530}{4\cdot 757-49^2}
+=
+\frac{14190}{627}=22.631
+\\
+b
+&=
+\frac1n\sum s_i - a\cdot \frac1n\sum a_i
+=
+\frac{2530}{4}-a\frac{49}{4}=355.263
+\end{align*}
+Wir suchen jetzt die Punktzahl $a_0$, mit der man das Resultat 500 erreichen
+kann:
+\[
+500=aa_0+b
+\qquad\Rightarrow\qquad
+a_0
+=
+\frac{500-b}{a}
+=6.395,
+\]
+Die Pr"ufung sollte also mit einer Vorbereitungszeit von etwa 6 Stunden und 
+24 Minuten zu schaffen sein.
+\item
+Zum Zweck der Beurteilung der Qualit"at der Approximation beechnen
+wir den Regressionsoeffizienten
+\begin{align*}
+r^2
+&=
+\frac{(n\sum a_is_i - \sum a_i\sum s_i)^2}{(n\sum a_i^2-(\sum a_i)^2)
+(n\sum s_i^2-(\sum s_i)^2)}
+=
+\frac{14190^2}{627\cdot 353900}
+=
+0.9074.
+\end{align*}
+Die Approximation ist gut, wenn $r^2$ nahe bei $1$ ist, tats"achlich ist
+$|r|=0.9526$ recht nahe bei $1$, so dass wir einigermassen Vertrauen
+in diese L"osung haben k"onnen.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
+
+
