@@ -1,0 +1,68 @@
+Internationale Sportwettk"ampfe suggerieren immer wieder, dass grosse
+L"ander es offenbar leichter haben, Sporttalente zu rekrutieren.
+Nehmen wir vereinfachend an, dass alle Menschen in einer bestimmten Sportart
+unabh"angig von der Herkunft vergleichbare, aber nat"urlich 
+normalverteilte Resultate erzielen k"onnen.
+
+Ein Ausnahmetalent soll jemand sein, der 4 Standardabweichungen
+besser ist als der Durchschnitt, dies tritt mit Wahrscheinlichkeit
+$p=0.0000317$ ein.
+Wir nehmen, ebenfalls vereinfachen, an, dass 10\% der Bev"olkerung
+eines Landes in einem Alter sind, in der solche Spitzenleistungen m"oglich
+sind.
+\begin{teilaufgaben}
+\item
+Mit welcher Anzahl von Spitzentalenten kann ein Land wie die Schweiz mit 
+8.3 Mio Einwohnern rechnen?
+\item 
+Das Grossherzogtum Luxemburg hat 576249 Einwohner (1.~Januar 2016)
+Wie gross ist Wahrscheinlichkeit, dass Luxemburg eine Olympiamannschaft
+rekrutieren kann, die mindestens 4 Ausnahmetalente enth"alt?
+\end{teilaufgaben}
+
+\begin{loesung}
+Ausnahmetalente sind selten, wir k"onnen daher die Poissonverteilung
+als Approximation der Binomailverteilung verwenden.
+\begin{teilaufgaben}
+\item
+Ein Ausnahmetalent zu sein ist ein Binomialexperiment mit $p=0.0000317$,
+angewendet auf die $n=830000$ Einwohner im Spitzensportf"ahigen Alter
+erwarten wir $np=26.287$ Ausnahmetalente in der Schweiz.
+\item
+Luxemburg kann nach der gleichen Rechnung nur mit
+$\lambda = np = 1.8267$ Ausnahmetalenten rechnen.
+Sei $X$ die Anzahl der Ausnahmetalente, sie ist poissonverteilt mit Parameter
+$\lambda$.
+Die Wahrscheinlichkeit, genau $k$ Ausnahmetalente zu finden, ist
+\[
+P_{\lambda}(k) = e^{-\lambda}\frac{\lambda^k}{k!}.
+\]
+Gesucht ist die Wahrscheinlichkeit, mindestens 4 Ausnahmetalente
+zu finden:
+\begin{align*}
+P(X\ge 4)
+&=
+1-P(X<4)
+=
+1-\sum_{k=0}^3 e^{-\lambda}\frac{\lambda^k}{k!}
+=
+1-e^{-\lambda}\biggl(
+1+\lambda+\frac{\lambda^2}{2} + \frac{\lambda^3}6
+\biggr)
+\\
+&=
+1-0.16094\cdot (1.0000 + 1.8267 + 1.6684 + 1.0159)
+=
+1-0.16094\cdot 5.5111
+\\
+&= 0.11304.
+\end{align*}
+Die Wahrscheinlichkeit, dass Luxemburg eine Mannschaft mit mindestens
+vier Ausnahmetalenten aufstellen kann, ist also nur $11.3\%$.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
+
+

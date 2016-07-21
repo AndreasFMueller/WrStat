@@ -1,0 +1,100 @@
+Eine Zufallsvariable $X$ ist auf dem Interval $[0,\pi]$ so verteilt,
+dass die Wahrscheinlichkeitsdichte
+\[
+\varphi_X(x)
+=
+\begin{cases}
+0&\qquad x < 0\\
+a(1-\sin x)&\qquad 0\le x \le \pi\\
+0&\qquad x > \pi
+\end{cases}
+\]
+ist wie in dem folgenden Graphen:
+\begin{center}
+\includeagraphics[]{graph-1.pdf}
+\end{center}
+\begin{teilaufgaben}
+\item
+Wie muss man $a$ w"ahlen, damit diese Funktion tats"achlich 
+eine Wahrscheinlichkeitsdichte ist?
+\item
+Berechnen Sie $E(X)$ und $\operatorname{var}(X)$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die Konstante $a$ muss so gew"ahlt werden, dass das Integral von
+$\varphi_X$ "uber $\mathbb R$ den Wert 1 hat:
+\[
+\int_{-\infty}^{\infty}\varphi_X(x)\,dx
+=
+\int_0^\pi a(1-\sin x)\,dx
+=
+a[x+\cos x]_0^\pi
+=
+a(\pi - 1 - 0 - 1) = a(\pi-2)
+\]
+es folgt
+\[
+a=\frac1{\pi -2}.
+\]
+\item
+F"ur den Erwartungswert $E(X)$ m"ussen wir $x\varphi_X(x)$ integrieren:
+\begin{align*}
+E(X)
+&=
+\int_{-\infty}^\infty x\varphi_X(x)\,dx
+=
+\frac1{\pi-2}\int_0^\pi x(1-\sin x)\,dx
+=
+\frac1{\pi - 2} \biggl[\frac{x^2}{2}-\sin x + x\cos x\biggr]_0^\pi
+\\
+&=
+\frac1{\pi - 2}\biggl(\frac{\pi^2}{2} +\pi\cos\pi\biggr)
+=
+\frac{\pi^2-2\pi}{2(\pi-2)}=\frac{\pi}{2} = 1.57079,
+\end{align*}
+dies ist nat"urlich nicht "uberraschend, da die Verteilung um diesen
+Punkt symmetrisch ist.
+
+F"ur die Varianz brauchen wir $E(X^2)$:
+\begin{align*}
+E(X^2)
+&=
+\int_{-\infty}^\infty x^2\varphi_X(x)\,dx
+=
+\frac1{\pi-2}\int_0^\pi x^2(1-\sin x)\,dx
+=
+\frac1{\pi-2}\biggl[
+\frac{x^3}{3}-2x\sin x+(x^2-2)\cos x
+\biggr]_0^\pi
+\\
+&=
+\frac{\pi^3-3\pi^2+12}{3(\pi-2)}
+\\
+\operatorname{var}(X)
+&=
+E(X^2)-E(X)^2
+=
+\frac{\pi^3-3\pi^2+12}{3\pi - 6}
+-
+\frac{\pi^2}{4}
+=
+\frac {\pi^3-6\pi^2+48}{12\pi-24}
+=
+1.44452.
+\end{align*}
+Die Resultate sind in Abbildung~\ref{50000030:graphplus} visualisiert
+\begin{figure}
+\centering
+\includeagraphics[]{graph-2.pdf}
+\caption{Wahrscheinlichkeitsdichte $\varphi_X(x)$ aus Aufgabe~\ref{50000030}
+mit $E(X)$ und Varianz.
+\label{50000030:graphplus}}
+\end{figure}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
+
