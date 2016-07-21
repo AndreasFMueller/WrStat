@@ -1,0 +1,40 @@
+Mit Hilfe eines Kreiselsensors, der die Winkelgeschwindigkeit $\omega$
+mit der Genauigkeit $\varrho_{\omega}^2$ angeben kann, soll ein System gebaut
+werden, mit dem man die aktuelle Winkelbeschleunigung $\alpha$ wie auch
+das aktuelle Azimut $\varphi$ bestimmen kann.
+Modellieren Sie das System und den Messprozess.
+
+\begin{loesung}
+Wir nehmen als zus"atzliche Systemannahme an, dass die Winkelbeschleunigung
+konstant ist.
+Dann k"onnen wir als Zustandsvektor
+\[
+x_k=\begin{pmatrix}\varphi_k\\\omega_k\\\alpha_k\end{pmatrix}
+\]
+w"ahlen.
+Die Zeitentwicklung ist
+\[
+x_{k+1}=\underbrace{\begin{pmatrix}
+1&\Delta t&\frac12\Delta t^2\\
+0&1       &\Delta t\\
+0&0       &1
+\end{pmatrix}}_{=\varphi_k}x_k.
+\]
+Die Systemefehler werden durch eine Diagonalmatrix
+\[
+Q=\operatorname{diag}(\sigma_{\varphi}^2, \sigma_{\omega}^2, \sigma_{\alpha}^2)
+\]
+gegeben.
+
+Der Messprozess isoliert die Winkelgeschwindigkeit aus dem Zustandsvektor,
+die Messmatrix ist daher
+\[
+H=\begin{pmatrix}
+0&1&0
+\end{pmatrix}.
+\]
+Die Messfehlerkovarianz ist die $1\times 1$-Matrix
+$\begin{pmatrix}\varrho_\omega^2\end{pmatrix}$.
+\end{loesung}
+
+

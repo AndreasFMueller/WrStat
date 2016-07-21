@@ -1,0 +1,60 @@
+In der Gratiszeitung 20minuten vom 8.~Februar 2016 erschien die folgende
+Notiz:
+\begin{center}
+\includeagraphics[width=0.5\hsize]{raeppler.jpg}
+\end{center}
+\begin{teilaufgaben}
+\item Wie gross ist der erwartete Gewinn, wenn man eine M"unze zuf"allig
+aus dem Raum ausw"ahlen kann?
+\item
+Jeder konnte w"ahrend h"ochstens zwei Minuten versuchen, die 1-Millionen-Rappen
+M"unze zu finden. 
+Unter der Annahme, dass man pro Sekunde eine M"unze inspizieren kann, 
+berechnen Sie die Gewinnerwartung dieses Spiels.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+In dem Raum befinden sich 3999999 M"unzen mit Wert 1 und 1 M"unze mit
+Wert 1000000.
+W"ahlt man eine M"unze zuf"allig, erh"alt man mit Wahrscheinlichkeit
+$3999999/4000000$ eine M"unze mit Wert 1, und mit Wahrscheinlichkeit
+$1/4000000$ Eine M"unze mit Wert 1000000.
+Der erwartete Gewinn ist daher
+\[
+E(X) = \frac{3999999}{4000000}\cdot 1 + \frac{1}{4000000}\cdot 1000000
+=0.99999975 + 0.25 = 1.24999975\,\text{Rappen}.
+\]
+\item
+Da es nur eine einzige M"unze mit Wert 1000000 gibt, gewinnt man
+in zwei Minuten entweder 120 Rappen oder 1000119 Rappen.
+Die Wahrscheinlichkeit, dass die 1000000 Rappen M"unze unter den
+120 M"unzen ist, ist $120/4000000$, so dass der erwartete Gewinn
+\[
+\frac{3999880}{4000000}\cdot 120
++
+\frac{120}{4000000}\cdot 1000000
+=
+119.9964 + 30=149.9964\,\text{Rappen}
+\]
+ist.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Man kann f"ur dieses Resultat nat"urlich auch die hypergeometrische
+Verteilung verwenden, denn es geht ja darum, in einem ``Lotto'', bei dem
+man aus $n=4000000$ Zahlen $k=120$ ausw"ahlen darf, einen ``Einer''
+zu erzielen.
+Die gesuchte Wahrscheinlichkeit ist
+\begin{align*}
+\frac{\displaystyle\binom{n-1}{k-1}\binom{1}{1}}{\displaystyle\binom{n}{k}}
+&=
+\frac{\displaystyle\frac{(n-1)(n-2)\dots(n-k+1)}{1\cdot 2\cdot\dots\cdot (k-1)}}%
+{\displaystyle\frac{n(n-1)(n-2)\dots(n-k+1)}{1\cdot 2\cdot\dots\cdots k}}
+=\frac{k}{n},
+\end{align*}
+wie in der L"osung verwendet.
+\end{diskussion}
+

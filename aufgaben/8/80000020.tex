@@ -1,0 +1,71 @@
+David Jones hat in seinem EEVblog auf Youtube 400 1k$\Omega$-Widerst"ande
+nachgemessen um zu sehen, ob die Widerstandswerte tats"achlich normalverteilt
+sind. Seine Rohdaten hat er f"ur diese "Ubungsaufgabe im File
+\verb+resistors.csv+ zur Verf"ugung gestellt.
+\begin{teilaufgaben}
+\item Welchen mittleren Widerstandswert und welche Streuung ist auf Grund
+der Messungen zu erwarten?
+\item Wie gross ist die Wahrscheinlichkeit, dass der Wert eines Widerstandes
+aus dieser Charge mehr als 0.5\% vom Nennwert abweicht?
+\item Wieviele von 1000000 Widerst"anden weichen um mehr als 1\% vom
+Nennwert ab?
+\item Kann man davon ausgehen, dass die Widerstandswerte normalverteilt sind?
+\end{teilaufgaben}
+
+\begin{loesung}
+Die L"osung dieser Aufgabe mit {\tt R} ist im File {\tt eevblogresistors.R}
+zu finden, die einzelnen Schritte werden im Folgenden diskutiert.
+\begin{figure}
+\begin{center}
+\includeagraphics[width=\hsize]{ecdf.pdf}
+\end{center}
+\caption{Empirische Verteilungsfunktion der Widerstandsdaten\label{80000020-ecdf}}
+\end{figure}
+\begin{figure}
+\begin{center}
+\includeagraphics[width=\hsize]{qq.pdf}
+\end{center}
+\caption{Q-Q-Plot der Widerstandsdaten\label{80000020-qq}}
+\end{figure}
+\begin{teilaufgaben}
+\item
+Mit Hilfe der Funktionen {\tt mean} und {\tt var} von {\tt R} findet man
+$\mu= 999.8746$ und $\sigma= 1.695783$.
+\item
+Unter der Annahme einer Normalverteilung mit obigem $\mu$ und $\sigma$
+ist die Wahrscheinlichkeit
+$1-P(995 < X \le 1005)$ gesucht.
+Diese kann mit der Funktion {\tt pnorm} berechnet werden:
+\verbatimainput{pnorm.txt}
+Die Wahrscheinlichkeit f"ur dieses Ereignis ist also $0.0032768$.
+\item
+Die Wahrscheinlichkeit $1-P(990 < X \le 1010)$ ist 
+\verbatimainput{pnorm2.txt}
+die erwartete Anzahl von Widerst"anden ist also
+$1000000 \cdot 4.9\cdot 10^{-9}=0.004$, eine Abweichung von mehr als 1\%
+kommt also praktisch nicht vor.
+\item
+Der Kolmogorov-Smirnov-Test auf den Widerstandsdaten liefert:
+{\small
+\verbatimainput{ks.txt}
+}
+Der $p$-Wert ist die Wahrscheinlichkeit, unter der Annahme der Null-Hypothese
+zu einer derart grossen Abweichung zwischen empirischer Verteilungsfunktion
+und Verteilungsfunktion der Normalverteilung zu kommen. Da der $p$-Wert
+so klein ist, muss die Nullhypothese verworfen werden, man muss also davon
+ausgehen, dass keine Normalverteilung vorliegt.
+
+Der Shapiro-Wilk-Test, der darauf spezialisiert ist, Daten auf Normalverteilung
+zu testen, best"atigt dies mit einem ebenfalls sehr kleinen $p$-Wert.
+\verbatimainput{shapiro.txt}
+
+Die Ursache f"ur die Abweichung von der Normalverteilung ist in den Plots
+\ref{80000020-ecdf} und \ref{80000020-qq} zu
+sehen. In der Mitte der empirischen Verteilungsfunktion sieht man, dass
+ziemlich genau eine Normalverteilung vorliegt, aber mit deutlich
+geringerer Varianz.
+F"ur diese ``schmalere'' Normalverteilung gibt es aber in den Daten
+zu viele st"arker abweichenden Werte.
+\end{teilaufgaben}
+\end{loesung}
+

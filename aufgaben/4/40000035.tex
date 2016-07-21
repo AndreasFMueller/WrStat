@@ -1,0 +1,114 @@
+In der linearen Algebra lernt man, dass ein "uberbestimmtes Gleichungssystem
+mit $m$ Gleichungen und $n<m$ Unbekannten der Form $Ax=b$ im Sinne kleinster Quadrate
+gel"ost werden kann, indem man aus der $m\times n$-Matrix $A$ und dem 
+$m$-dimensionalen Vektor das Gleichungssystem
+\[
+A^tA x= A^tb
+\]
+mit genau $n$ Gleichungen f"ur die $n$ Unbekannten $x_1,\dots,x_n$ l"ost.
+In einem linearen Regressionsproblem f"ur die $m$ Datenpunkte $(x_i,y_i)$
+m"ochte man Koeffizienten $a$ und $b$ so finden, dass die Datenpunkte
+die Gleichung $y_i=ax_i+b$ ``m"oglichst gut'' erf"ullen.
+
+F"uhren Sie das Least-Squares-Verfahren aus der linearen Algebra durch und
+kontrollieren Sie, ob sie die gleichen Formeln f"ur $a$ und $b$ erhalten
+wie im linearen Regressionsverfahren.
+
+\begin{loesung}
+Die Unbekannten des Least-Squares-Problems sind die Zahlen $a$ und $b$,
+wir schreiben das "uberbestimmte Gleichungssystem in der Form
+\[
+\begin{linsys}{2}
+  ax_1&+&     b&=&y_1\phantom{.}\\
+  ax_2&+&     b&=&y_2\phantom{.}\\
+\vdots& &      & &   \\
+  ax_n&+&     b&=&y_n.
+\end{linsys}
+\]
+Die Matrix des Gleichungssystems und der Vektor der rechten Seite ist 
+\[
+A=
+\begin{pmatrix}
+x_1&1\\
+x_2&1\\
+\vdots&\vdots\\
+x_n&1
+\end{pmatrix}
+\qquad
+\text{bzw.}
+\qquad
+b=\begin{pmatrix}
+y_1\\
+y_2\\
+\vdots\\
+y_n
+\end{pmatrix}.
+\]
+Das Least-Squares-Verfahren verlangt die Berechnung von $A^tA$ und $A^tb$,
+man erh"alt
+\[
+\begin{aligned}
+A^tA
+&=\begin{pmatrix}
+x_1&x_2&\dots&x_n\\
+  1&  1&\dots&1
+\end{pmatrix}
+\begin{pmatrix}
+x_1&1\\
+x_2&1\\
+\vdots&\vdots\\
+x_n&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+\displaystyle \sum_{i=1}^nx_i^2& \displaystyle \sum_{i=1}^nx_i\\
+\displaystyle \sum_{i=1}^nx_i  & n
+\end{pmatrix}
+\qquad\text{und}
+\\
+A^tb
+&=\begin{pmatrix}
+x_1&x_2&\dots&x_n\\
+  1&  1&\dots&1
+\end{pmatrix}
+\begin{pmatrix}
+y_1\\
+y_2\\
+\vdots\\
+y_n
+\end{pmatrix}
+=\begin{pmatrix}
+\displaystyle \sum_{i=1}^n x_iy_i\\
+\displaystyle \sum_{i=1}^n y_i
+\end{pmatrix}.
+\end{aligned}
+\]
+Wenn man $A^tA$ und $A^tb$ beide durch $n$ dividiert, "andert dies nichts an
+der L"osung des Gleichungssystems $A^tAx=A^tb$, dann hat man aber ein
+Gleichungssystem mit Koeffizientenmatrix und rechter Seite wie folgt:
+\begin{align*}
+\frac1nA^tA&=\begin{pmatrix}
+\displaystyle \frac1n\sum_{i=1}^nx_i^2& \displaystyle \frac1n\sum_{i=1}^nx_i\\
+\displaystyle \frac1n\sum_{i=1}^nx_i  & 1
+\end{pmatrix}
+\simeq
+\begin{pmatrix}
+E(X^2)&E(X)\\E(X)&1
+\end{pmatrix}
+&&\text{und}
+&
+\frac1nA^tb&=\begin{pmatrix}
+\displaystyle \frac1n\sum_{i=1}^n x_iy_i\\
+\displaystyle \frac1n\sum_{i=1}^n y_i
+\end{pmatrix}
+\simeq
+\begin{pmatrix}
+E(XY)\\E(Y)
+\end{pmatrix}
+\end{align*}
+Dabei haben wir die Summen als empirische Erwartungswerte interpretiert.
+Das war genau die Matrix und die rechte Seite, die in der Vorlesung gefunden
+und mit dem Verfahren von Kramer gel"ost wurde, um die Koeffizienten $a$ und $b$
+der linearen Regression zu finden.
+Lineare Regression ist also ein Spezialfall des Least-Squares-Verfahrens.
+\end{loesung}
