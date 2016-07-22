@@ -1,0 +1,100 @@
+Ernesto Flach, davon "uberzeugt, dass die Erde eine Scheibe ist,
+m"ochte dies der ganzen Welt endg"ultig beweisen.
+Zu diesem Zweck kauft er auf Ebay einen alten Vermessungstheodoliten
+aus Armeebest"anden.
+Auf dem Internet findet er die Information, dass dieser Theodolit Winkel
+mit einer Genauigkeit von $5''$ messen k"onne.
+Entsprechend einer auf Youtube gefundenen Anleitung misst er jetzt an
+den Endpunkten $A$ und $B$ einer Strecke die Winkel zwischen Zenith
+(der Richtung vertikal nach oben) und der Ziellinie zum anderen Endpunkt
+(Abbildung).
+Ist die Erde eine Scheibe, sollten sich die Winkel $\alpha$
+und $\beta$ zu $180^\circ$
+addieren.
+Entsprechend der Anleitung macht er drei Messungen, die er am Schluss 
+mittelt.
+Auf einer gekr"ummten Erde dagegen erwartet man einen Winkel"uberschuss,
+der umso gr"osser ist, je l"anger die Messstrecke ist.
+Aus Bequemlichkeit ist Ernesto Flachs Messstrecke beim Schiessstand
+nur 300m lang.
+\begin{center}
+\includeagraphics[]{earth-1.pdf}
+\end{center}
+
+\begin{teilaufgaben}
+\item
+Wie gross ist der Winkel"uberschuss, den man erwarten d"urfte%
+\footnote{Nat"urlich nur, wenn man nicht selbst Flat Earther ist.}?
+\item
+Von welchem Messfehler (nach Mittelung) muss man bei dieser Messung
+des Winkel"uberschusses ausgehen?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass er einen Winkel"uberschuss $<5''$
+misst, und damit, wenigstens aus seiner Sicht, bewiesen hat, dass
+die Erde eine Scheibe ist?
+\item 
+Wie kann die Zuverl"assigkeit des Experimentes verbessert werden?
+\end{teilaufgaben}
+
+\begin{hinweis}
+Erdradius: 6371km
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Der zu erwartende Winkel"uberschuss ist $l/R$, wobei $l$ die L"ange der
+Messstrecke und $R$ der Erdradius ist.
+In Winkelsekunden ausgedr"uckt: 
+\[
+\alpha = \frac{180^\circ}{\pi}\cdot\frac{l}{R}=9.71''.
+\]
+\item
+Bei der Berechnung des "Uberschusses werden zwei normalverteilte
+Zufallsvariablen mit $\sigma=5''$ addiert, die Summe hat daher
+die Standardabweichung $\sqrt{2}\cdot 5''$.
+Mittelt man $n$ normalverteilte Zufallsvariablen mit Standardabweichung
+$\sigma$, dann hat der Mittelwert die Standardabweichung $\sigma/\sqrt{n}$.
+Insgesamt muss man also mit einer Standardabweichung von 
+\[
+\frac{\sqrt{2}}{\sqrt{3}}5''= 4.08''
+\]
+rechnen.
+\item
+Sei $X$ der gemessene Winkel"uberschuss, er ist eine normalverteilte
+Zufallsvariable mit $\mu=9.71''$ und $\sigma=4.08''$.
+Wir m"ussen die Wahrscheinlichkeit $P(X < 5'')$ bestimmen.
+Dazu standardisieren wir:
+\begin{align*}
+P(X<5'')
+&=
+P\biggl(
+\frac{X-\mu}{\sigma}<\frac{5''-\mu}{\sigma}\biggr)
+\\
+&=P(S<-1.1544)
+=1-P(S<1.1544)
+=1-0.8758 = 12.42\%
+\biggr)
+\end{align*}
+Mit einer Wahrscheinlichkeit 12.4\% (also in einem von 8 F"allen)
+wird Ernesto Flach also die Erdkr"ummung nicht messen k"onnen.
+\item
+Eine l"angere Messstrecke w"urde zu einem gr"osseren Winkel"uberschuss
+f"uhren, der sich zuverl"assiger von $0$ unterscheiden liesse.
+W"are die L"ang der Messstrecke 1km, w"are nach der gleichen Rechnung
+wie in c) die Wahrscheinlichkeit f"ur einen Fehler nur noch
+$5.9\cdot10^{-5}=0.006\%$.
+
+Alternativ k"onnte man die Zuverl"assigkeit auch mit einem genaueren
+Theodoliten steigern.
+Moderne Pr"azisionstheodoliten k"onnen eine Genauigkeit von $0.2''$
+erreichen, damit w"are ein Fehlschluss ebenfalls praktisch ausgeschlossen.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
+
+
+
