@@ -1,0 +1,62 @@
+Ein neuer Produktionsprozess von Teilen hat eine Ausschussrate von 15\%.
+Wie viele Teile m"ussen in Auftrag gegeben werden, damit darunter
+mit Wahrschkeit 99\% mindestens 40 gute Teile sind?
+
+
+
+\begin{loesung}
+Ob ein Teil gut ist, ist ein Bernoulli-Experiment mit Wahrscheinlichkeit
+$p=0.85$.
+Sie $X$ die Zahl der guten Teile bei $n$ in Auftrag gegebenen Teilen.
+$X$ ist binomialverteilt mit Parametern $p$ und $n$.
+Da $n$ gross ist, k"onnen wir die Binomialverteilung mit einer
+Normalverteilung mit $\mu=np$ und $\sigma^2=np(1-p)$ approximieren.
+Wir suchen den $x$-Wert, f"ur den die Wahrscheinlichkeit f"ur $X\ge 0$
+0.99 ist:
+\begin{align*}
+0.99
+&=
+P(X\ge x)\\
+&=
+P\biggl(\frac{X-\mu}{\sigma}\ge \frac{x-\mu}{\sigma}\biggr)
+=
+P\biggl(S\ge \frac{x-np}{\sqrt{np(1-p)}}\biggr)
+\end{align*}
+mit $x=40$.
+Da $S$ (im Rahmen der N"aherung) standardnormalverteilt ist, muss der
+gelten
+\begin{align*}
+\frac{x-np}{\sqrt{np(1-p)}}
+&=
+x_{0.99}=2.3263
+\\
+(x-np)^2
+&=
+x_{0.99}np(1-p)
+\\
+x^2-2npx+n^2p^2
+&=
+x_{0.99}np(1-p)
+\\
+p^2{\color{red}n}^2
+-
+(2xp+x_{0.99}p(1-p)) {\color{red}n}
++
+x^2
+&=0
+\\
+0.7225 {\color{red}n}^2 -68.2966 {\color{red}n} + 1600
+&= 
+0.
+\end{align*}
+Diese quadratische Gleichung f"ur $n$ kann man mit der "ublichen
+L"osungsformel l"osen und erh"alt
+\[
+n=51.66.
+\]
+Es m"ussen also 52 Teile in Auftrag gegeben werden, um 99\% sicher zu sein,
+mindestens 40 gute Teile zu erhalten.
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
