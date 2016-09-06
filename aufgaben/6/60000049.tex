@@ -11,19 +11,20 @@ Sie $X$ die Zahl der guten Teile bei $n$ in Auftrag gegebenen Teilen.
 $X$ ist binomialverteilt mit Parametern $p$ und $n$.
 Da $n$ gross ist, k"onnen wir die Binomialverteilung mit einer
 Normalverteilung mit $\mu=np$ und $\sigma^2=np(1-p)$ approximieren.
-Wir suchen den $x$-Wert, f"ur den die Wahrscheinlichkeit f"ur $X\ge 0$
-0.99 ist:
+Wir suchen diejenige Zahl $n$ von zu produzierenden Teilen, f"ur
+die die Wahrscheinlichkeit $0.99$ ist, dass $X>40 =x$:
 \begin{align*}
 0.99
 &=
 P(X\ge x)\\
 &=
-P\biggl(\frac{X-\mu}{\sigma}\ge \frac{x-\mu}{\sigma}\biggr)
+P\biggl(\underbrace{\frac{X-\mu}{\sigma}}_{\displaystyle=S}\ge \frac{x-\mu}{\sigma}\biggr)
 =
-P\biggl(S\ge \frac{x-np}{\sqrt{np(1-p)}}\biggr)
+P\biggl(S\ge \frac{x-{\color{red}n}p}{\sqrt{{\color{red}n}p(1-p)}}\biggr)
 \end{align*}
 mit $x=40$.
-Da $S$ (im Rahmen der N"aherung) standardnormalverteilt ist, muss der
+Die Unbekannte $\color{red}n$ ist rot hervorgehoben.
+Da $S$ (im Rahmen der N"aherung) standardnormalverteilt ist, muss
 gelten
 \begin{align*}
 \frac{x-np}{\sqrt{np(1-p)}}
@@ -32,31 +33,38 @@ x_{0.99}=2.3263
 \\
 (x-np)^2
 &=
-x_{0.99}np(1-p)
+x_{0.99}^2np(1-p)
 \\
 x^2-2npx+n^2p^2
 &=
-x_{0.99}np(1-p)
+x_{0.99}^2np(1-p)
 \\
 p^2{\color{red}n}^2
 -
-(2xp+x_{0.99}p(1-p)) {\color{red}n}
+(2xp+x_{0.99}^2p(1-p)) {\color{red}n}
 +
 x^2
 &=0
 \\
-0.7225 {\color{red}n}^2 -68.2966 {\color{red}n} + 1600
+0.7225 {\color{red}n}^2 -68.69 {\color{red}n} + 1600
 &= 
 0.
 \end{align*}
+Im letzten Schritt haben wir wieder $x=40$ eingesetzt.
 Diese quadratische Gleichung f"ur $n$ kann man mit der "ublichen
 L"osungsformel l"osen und erh"alt
 \[
-n=51.66.
+n=54.26.
 \]
-Es m"ussen also 52 Teile in Auftrag gegeben werden, um 99\% sicher zu sein,
+Es m"ussen also 55 Teile in Auftrag gegeben werden, um 99\% sicher zu sein,
 mindestens 40 gute Teile zu erhalten.
 \end{loesung}
 
 \begin{bewertung}
+Normalapproximation der Binomialverteilung ({\bf B}) 1 Punkt,
+Erwartungswert ({\bf E}) 1 Punkt,
+Varianz ({\bf V}) 1 Punkt
+Standardisierung ({\bf S}) 1 Punkt,
+Gleichung f"ur $n$ ({\bf G}) 1 Punkt,
+L"osung f"ur $n$ ({\bf N}) 1 Punkt.
 \end{bewertung}

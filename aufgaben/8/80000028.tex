@@ -26,12 +26,24 @@ normal         &   932\\
 fettleibig     &  1000
 \end{tabular}
 \end{center}
-Sind diese Zahlen f"ur die Gesamtbev"olkerung repr"asentativ?
+Ist diese Stichprobe f"ur die Gesamtbev"olkerung repr"asentativ?
 
 \begin{loesung}
 Man muss pr"ufen, ob die Zahlen zu den Wahrscheinlichkeiten aus der
 ersten Tabelle passen, was man mit einem $\chi^2$-Test machen kann.
-Dazu berechnet man die Diskrepanz:
+Die zu testende Nullhypothese ist also:
+Die beobachteten Anzahlen sind Beobachtungen der Verteilung der
+K"orpergewichte gem"ass National Center for Health Statistics.
+
+F"ur den Test ist zun"achst ein $\alpha$ zu w"ahlen, weil es sich
+um eine medizinische Anwendung handelt, m"ussten wir $\alpha=0.001$
+w"ahlen, doch dieser Wert kommt in unserer Tabelle nicht vor, also
+begn"ugen wir uns mit $\alpha=0.01$.
+Wir haben $4$ Klassen, also $3$ Freiheitsgrade, und finden in der
+Tabelle den zugeh"origen kritischen Wert der Diskrepanz als
+$D_{\text{krit}}=11.345$.
+
+Wir berechnen die Diskrepanz:
 \begin{center}
 \begin{tabular}{|l|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|}
 \hline
@@ -46,16 +58,18 @@ fettleibig    &0.23&1000&   72.204\\
 \hline
 \end{tabular}
 \end{center}
-Da es sich um eine medizinische Anwendung handelt, sollten wir eigentlich
-$\alpha=0.001$ verwenden, aber unsere $\chi^2$-Tabelle enth"alt das nicht,
-wir begn"ugen uns daher mit $\alpha=0.01$, und bekommen f"ur den kritischen
-$D$-Wert bei drei Freiheitsgraden
-$D_{\text{krit}}=11.345$.
-Da $D>D_{\text{krit}}$ k"onnen wir schliessen, dass diese Verteilung
+Da $D>D_{\text{krit}}$ m"ussen wir die Nullhypothese
+verwerfen und k"onnen schliessen, dass diese Verteilung
 nicht repr"asentativ ist.
 \end{loesung}
 
 \begin{bewertung}
+$\chi^2$-Test ({\bf X}) 1 Punkt,
+Nullhypothese ({\bf N}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Anzahl Freiheitsgrade und kritische Diskrepanz ({\bf K}) 1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
 \end{bewertung}
 
 

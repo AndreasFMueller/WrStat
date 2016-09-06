@@ -9,8 +9,8 @@ umd das Risiko weiter zu senken.
 Mit verschiedenen Modellen wurde untersucht, wie gross die Wahrscheinlichkeit
 ist, dass ein Kind sich in einer bestimmten Situation, zum Beispiel
 bei einem Krankenhausbesuch oder im Kindergarten mit Masern ansteckt.
-Wir nehmen an, dass in einer spezifischen Situation ein Maserninfektion
-bei den Kindern die immun sind, in 20\% der F"alle auftritt
+Wir nehmen an, dass in einer spezifischen Situation eine Maserninfektion
+bei den Kindern die nicht immun sind, in 20\% der F"alle auftritt
 
 \begin{teilaufgaben}
 \item
@@ -21,46 +21,78 @@ geimpft war?
 \end{teilaufgaben}
 
 \begin{loesung}
-Wir arbeiten mit folgenden Ereignissen:
+Die besondere Schwierigkeit dieser Aufgabe ist, dass ein Unterschied
+zwischen Impfung und erreichter Immunit"at besteht.
+Man muss also unterscheiden, ob ein Kind geimpft worden ist, wir nennen
+dies das Ereignis $I$, und ob das Kind tats"achlich immun gegen Masern
+geworden ist, Ereignis $J$. 
+Ausserdem verwenden wir das Ereignis $M$, welches eintritt, wenn ein
+Kind an Masern erkrankt.
+
+Aus den Angaben im ersten Absatz des Textes kann man ablesen:
 \begin{align*}
-I&=\{\text{Kind geimpft}\}\\
-M&=\{\text{Kind erkrankt an Masern}
+P(I)&=0.85
+\\
+P(J|I)&=0.85
 \end{align*}
-Aus den Angaben in der Aufgabe wissen wir:
-\begin{align*}
-P(I)&=0.85\\
-P(M|\overline I)&=0.2\\
-P(M|I)&=0.15 \cdot P(M|\overline I)= 0.03
-\end{align*}
+Es ist klar, dass man bei nicht geimpften Kindern auch keine Immunit"at
+erwarten kann, also $P(J|\overline{I})=0$.
+Aus diesen Informationen kann man mit dem Satz von der totalen
+Wahrscheinlichkeit
+die Wahrscheinlichkeit
+\[
+P(J)
+=
+P(J|I)P(I) + \underbrace{P(J|\overline{I})}_{\displaystyle=0}P(\overline{I})
+= 
+0.85 \cdot 0.85=0.7225
+\]
+berechnen, dass ein Kind immun ist.
+
+Im zweiten Teil erf"ahrt man etwas "uber Kinder, die bereits immun sind,
+also eine Wahrscheinlichkeit abh"angig vom Ereignis $J$, nicht $I$.
+Es steht da, dass $P(M|\overline{J})=0.2$ sei.
+
 \begin{teilaufgaben}
 \item
-Gesucht ist $P(M)$, diese Wahrscheinlichkeit kann mit dem Satz von der
-totalen Wahrscheinlichkeit gefunden werden:
-\begin{align*}
-P(M) 
-&=
-P(M|I)P(I) + P(M|\overline I)P(\overline I)
-=
-P(M|I)P(I) + P(M|\overline I)(1-P(I))
-\\
-&=
-0.03\cdot 0.85 + 0.2\cdot(1-0.85)=0.0555.
-\end{align*}
+Es wird gefragt nach der Wahrscheinlichkeit, dass ein Kind krank wird.
+Aus dem zweiten Absatz weiss man, dass die nicht immunen Kinder mit
+Wahrscheinlichkeit 20\% krank werden.
+Die Wahrscheinlichkeit, dass ein Kind immun ist, ist $P(J)=0.7225$.
+Also ist die Wahrscheinlichkeit, dass ein Kind an Masern erkrankt
+$P(M)=0.2\cdot P(J)=0.1445$.
 \item
-Dies ist die Wahrscheinlichkeit  ist nach dem Satz von Bayes
-\begin{align*}
-P(\overline I|M)
-&=
-\frac{P(\overline I)}{P(M)}P(M|\overline I)
+Gesucht ist die Wahrscheinlichkeit $P(\overline{I}|M)$.
+Nach dem Satz von Bayes gilt
+\[
+P(\overline{I}|M)
 =
-\frac{1-P(I)}{P(M)}P(M|\overline I)
+P(M|\overline{I})\frac{P(\overline{I})}{P(M)}.
+\]
+Darin wurde $P(M)=0.1445$ in a) berechnet, und $P(\overline{I})=0.15$
+ist aus der Aufgabenstellung bekannt.
+Da Kinder, die nicht geimpft sind, auch nicht immun sein k"onnen,
+ist die Wahrscheinlichkeit, dass sie krank werden, gleich gross wie
+bei den nicht immunen Kindern: $P(M|\overline{I})=P(M|\overline{J})=0.2$.
+Damit sind alle Faktoren bestimmt, es folgt
+\[
+P(\overline{I}|M)
 =
-\frac{0.15}{0.0555}\cdot 0.2
+0.2\cdot\frac{0.15}{0.1445}
 =
-0.54054.
+0.2076.
 \qedhere
-\end{align*}
+\]
 \end{teilaufgaben}
 \end{loesung}
 
+\begin{bewertung}
+Geeignete Ereignisse $I$ und $M$ ({\bf E}) 1 Punkt,
+Wahrscheinlichkeiten der bedingten Wahrscheinlichkeiten $P(M|\overline{I})$
+und $P(M|I)$ ({\bf C}) 1 Punkt,
+Bayessche Formel ({\bf B}) 1 Punkt,
+Totale Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+L"osung zu Teilaufgabe a) ({\bf A}) 1 Punkt,
+L"osung zu Teilaufgabe b) ({\bf B}) 1 Punkt.
+\end{bewertung}
 

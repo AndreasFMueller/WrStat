@@ -14,7 +14,7 @@ Aufwand (Stunden)&SAT Score Mathematik\\
 \begin{teilaufgaben}
 \item
 Angenommen, man kann die Pr"ufung mit eine Score von 500 bestehen, 
-wieviele Stunden muss man in die Vorbereitung investieren
+wieviele Stunden muss man in die Vorbereitung investieren?
 \item
 Wie zuverl"assig ist Ihre Methode?
 \end{teilaufgaben}
@@ -41,7 +41,7 @@ i&a_i& s_i&a_i^2&  s_i^2&a_is_i\\
 3& 13& 700&  169& 490000&  9100\\
 4& 22& 790&  484& 624100& 17380\\
 \hline
- & 49&2530&  757&1688700& 34540\\
+ & 49&2530&  769&1688700& 34540\\
 \hline
 \end{tabular}
 \end{center}
@@ -52,15 +52,15 @@ a
 &=
 \frac{n\sum a_is_i - \sum a_i\sum s_i}{n\sum a_i^2-(\sum a_i)^2}
 =
-\frac{4\cdot 34540 - 49\cdot 2530}{4\cdot 757-49^2}
+\frac{4\cdot 34540 - 49\cdot 2530}{4\cdot 769-49^2}
 =
-\frac{14190}{627}=22.631
+\frac{14190}{675}=21.022
 \\
 b
 &=
 \frac1n\sum s_i - a\cdot \frac1n\sum a_i
 =
-\frac{2530}{4}-a\frac{49}{4}=355.263
+\frac{2530}{4}-a\frac{49}{4}=374.98
 \end{align*}
 Wir suchen jetzt die Punktzahl $a_0$, mit der man das Resultat 500 erreichen
 kann:
@@ -70,10 +70,10 @@ kann:
 a_0
 =
 \frac{500-b}{a}
-=6.395,
+=5.9470
 \]
-Die Pr"ufung sollte also mit einer Vorbereitungszeit von etwa 6 Stunden und 
-24 Minuten zu schaffen sein.
+Die Pr"ufung sollte also mit einer Vorbereitungszeit von etwa 6 Stunden
+zu schaffen sein.
 \item
 Zum Zweck der Beurteilung der Qualit"at der Approximation beechnen
 wir den Regressionsoeffizienten
@@ -83,18 +83,24 @@ r^2
 \frac{(n\sum a_is_i - \sum a_i\sum s_i)^2}{(n\sum a_i^2-(\sum a_i)^2)
 (n\sum s_i^2-(\sum s_i)^2)}
 =
-\frac{14190^2}{627\cdot 353900}
+\frac{14190^2}{675\cdot 353900}
 =
-0.9074.
+0.84291.
 \end{align*}
 Die Approximation ist gut, wenn $r^2$ nahe bei $1$ ist, tats"achlich ist
-$|r|=0.9526$ recht nahe bei $1$, so dass wir einigermassen Vertrauen
+$|r|=0.9181$ recht nahe bei $1$, so dass wir einigermassen Vertrauen
 in diese L"osung haben k"onnen.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}
 
 \begin{bewertung}
+Lineare Regression ({\bf L}) 1 Punkt,
+Koeffizient $a$ ({\bf A}) 1 Punkt,
+Koeffizient $b$ ({\bf B}) 1 Punkt,
+Aufwand $a_0$ ({\bf A$\mathstrut_0$}) 1 Punkt,
+Regressionskoeffizient $r^2$ ({\bf  R}) 1 Punkt,
+Beurteilung (nahe bei $1$) ({\bf N}) 1 Punkt.
 \end{bewertung}
 
 
