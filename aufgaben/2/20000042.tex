@@ -12,6 +12,8 @@ M"unze zu finden.
 Unter der Annahme, dass man pro Sekunde eine M"unze inspizieren kann, 
 berechnen Sie die Gewinnerwartung dieses Spiels.
 \end{teilaufgaben}
+Wir gehen davon aus, dass man in beiden F"allen die ausgew"ahlten M"unzen
+behalten darf.
 
 \begin{loesung}
 \begin{teilaufgaben}
@@ -23,8 +25,8 @@ $3999999/4000000$ eine M"unze mit Wert 1, und mit Wahrscheinlichkeit
 $1/4000000$ Eine M"unze mit Wert 1000000.
 Der erwartete Gewinn ist daher
 \[
-E(X) = \frac{3999999}{4000000}\cdot 1 + \frac{1}{4000000}\cdot 1000000
-=0.99999975 + 0.25 = 1.24999975\,\text{Rappen}.
+E(X) = \frac{3999999}{4000000}\cdot 5 + \frac{1}{4000000}\cdot 1000000
+=4.99999975 + 0.25 = 5.24999975\,\text{Rappen}.
 \]
 \item
 Da es nur eine einzige M"unze mit Wert 1000000 gibt, gewinnt man
@@ -32,11 +34,11 @@ in zwei Minuten entweder 120 Rappen oder 1000119 Rappen.
 Die Wahrscheinlichkeit, dass die 1000000 Rappen M"unze unter den
 120 M"unzen ist, ist $120/4000000$, so dass der erwartete Gewinn
 \[
-\frac{3999880}{4000000}\cdot 120
+\frac{3999880}{4000000}\cdot 120\cdot 5
 +
-\frac{120}{4000000}\cdot 1000000
+\frac{120}{4000000}\cdot 1000119
 =
-119.9964 + 30=149.9964\,\text{Rappen}
+529.982 + 30.01785=629.99985\,\text{Rappen}
 \]
 ist.
 \end{teilaufgaben}
