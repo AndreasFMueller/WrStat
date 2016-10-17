@@ -644,7 +644,7 @@ liefert sie die Summe aller Glieder der Folge:
 \]
 F"ur die Binomialkoeffizienten ergibt sich:
 \[
-\sum_{k=0}^\infty\binom{n}{k}=p_n(1)=(1+1)^n=2^n.
+\sum_{k=0}^n\binom{n}{k}=p_n(1)=(1+1)^n=2^n.
 \]
 
 Die erzeugende Funktion einer unendlichen Folge $a_0,a_1,a_2,\dots$ ist
@@ -654,9 +654,45 @@ a_0+a_1z+a_2z^2+a_3z^3+\dots=\sum_{k=0}^\infty a_kz^k
 \]
 Die erzeugende Funktion der Folge der Binomialkoeffizienten $\left(\binom{n}{k}\right)_{0\le k\le  n}$ ist also die Funktion $(1+z)^n$.
 Die erzeugende Funktion der konstanten Folge $1,1,1,\dots$ ist
+\begin{equation}
+1+z+z^2+z^3+\dots=\sum_{k=0}^\infty z^k=\frac1{1-z}.
+\label{kombinatorik:geometrischereihe}
+\end{equation}
+In der Analysis lernt man, dass diese Formel nur f"ur $|z|<1$ gilt.
+Nur in diesem Fall ist die Reihe konvergent und hat damit einen
+wohldefinierten Wert.
+Im vorliegenden Fall betrachten wir die Summe aber gar nicht als Zahlenwert,
+sondern nur als algebraischen Ausdruck.
+F"ur den Platzhalter $z$ soll gar kein Zahlenwert substituiert werden.
+Vielmehr dienen die Potenzen $z^k$ nur dazu, die einzelnen Zahlen $a_k$
+auseinander zu halten.
+Man spricht von einer {\em formalen Potenzreihe}.
+\index{formale Potenzreihe}
+\index{Potenzreihe, formale}
+
+Die Begr"undung f"ur \eqref{kombinatorik:geometrischereihe} in der 
+Analysis verwendet eine Formel f"ur die Partialsummen und berechnet
+dann den Grenzwert der Partialsummenfolge.
+Dieses Argument funktioniert f"ur formale Potenzreihen nat"urlich nicht
+mehr.
+Um \eqref{kombinatorik:geometrischereihe} f"ur eine formale Potenzreihe
+nachzuweisen, rechnet man das Produkt
 \[
-1+z+z^2+z^3+\dots=\sum_{k=0}^\infty z^k=\frac1{1-z}
+(1-z)\sum_{k=0}^\infty z^k
 \]
+aus, welches $1$ ergeben sollte.
+Man bekommt
+\begin{align*}
+(1-z)\sum_{k=0}^\infty z^k
+=
+\sum_{k=0}^\infty z^k - z\sum_{k=0}^\infty z^k
+&=
+1 + z + z^2 + z^3+\dots
+\\
+&\phantom{\mathstrut=1}
+-z-z^2-z^3-\dots
+\end{align*}
+Formal heben sich alle Terme ausser dem ersten weg.
 
 \begin{beispiele}
 \item 
