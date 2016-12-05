@@ -8,17 +8,9 @@ Zufallszahlen hat die Zahlen
 \end{tabular}
 \end{center}
 erzeugt.
-\begin{teilaufgaben}
-\item Ist dies ein guter Zufallszahlgenerator?
-\item Angenommen, der Zufallszahlgenerator w"are von h"ochster
-Qualit"at, dann kann es trotzdem vorkommen, dass er beim oben
-skizzierten Tests mit neun Zufallszahlen durchf"allt.
-Wie oft erwarten Sie dies bei $n$ Durchf"uhrungen des Tests?
-\end{teilaufgaben}
+Ist dies ein guter Zufallszahlgenerator?
 
 \begin{loesung}
-\begin{teilaufgaben}
-\item
 Wir testen die Zahlen mit einem Kolmogorov-Smirnov-Test.
 F"ur $n=9$ und $\alpha=0.01$ ist der kritische Wert
 $K_{\text{krit}}=1.43878$. Die Werte von
@@ -48,7 +40,7 @@ die Zufallszahlen gleichverteilt seien.
 \item Die Wahrscheinlichkeit f"ur ein negatives Testresultat unter der
 Annahme von Gleichverteilung ist $\alpha$, also ist die erwartete Anzahl
 negativer Testresultate $n\alpha$.
-\end{teilaufgaben}
+
 Die Berechnung kann nat"urlich auch mit R erfolgen. Wenn man die Daten
 als CSV File der Form
 \verbatimainput{ks.csv}
