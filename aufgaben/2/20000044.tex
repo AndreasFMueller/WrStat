@@ -1,0 +1,65 @@
+Marie heiratet morgen.
+Als Location hat sie einen vermeintlich wettersicheren Ort in 
+der W"uste gew"ahlt, wo es nur an f"unf Tagen pro Jahr regnet.
+Der Wetterbericht sagt f"ur morgen leider Regen voraus.
+Wenn es regnet, dann sagt der Wetterbericht dies in 90\% der F"alle
+korrekt voraus.
+Wenn es nicht regnet, dann sagt der Wetterbericht in 10\% der F"alle
+f"alschlicherweise Regen voraus.
+Wie wahrscheinlich ist es, dass es an der Hochzeit von Marie regnet?
+
+
+\begin{loesung}
+Wir verwenden die folgenden Ereignisse:
+\begin{align*}
+V&=\{\text{Wettebericht sagt regen voraus}\}\\
+R&=\{\text{Es regnet}\}
+\end{align*}
+Die folgenden Wahrscheinlichkeiten sind bekannt:
+\begin{align*}
+P(R)
+&=
+\frac{5}{365}
+\\
+P(V|R)
+&=
+0.9
+\\
+P(V|\overline{R})
+&=
+0.1
+\end{align*}
+Da bereits bekannt ist, dass der Wetterbericht Regen vorhersagt, ist
+$P(R|V)$ gesucht.
+Nach dem Satz von Bayes ist
+\begin{equation}
+P(R|V)
+=
+\frac{P(R)}{P(V)}P(V|R).
+\label{20000044:bayes} 
+\end{equation}
+Darin sind $P(R)$ und $P(V|R)$ bereits bekannt, es muss noch $P(V)$ bestimmt
+werden, was mit dem Satz von der totalen Wahrscheinlichkeit geschehen kann:
+\begin{align*}
+P(V)
+&=
+P(V|R)P(R)+P(V|\overline{R})P(\overline{R})
+=
+P(V|R)P(R)+P(V|\overline{R})(1-P(R))
+=
+0.9\cdot\frac{5}{365}+0.1\cdot\frac{360}{365}
+\\
+&=
+0.1109589.
+\end{align*}
+Dies kann man jetzt in \eqref{20000044:bayes} einsetzen und erh"alt
+\[
+P(R|V)
+=
+\frac{5/365}{0.1109589}\cdot 0.9
+=
+0.111111.
+\qedhere
+\]
+\end{loesung}
+
