@@ -1,0 +1,88 @@
+Ein Webshop verkauft Schuhe.
+Ein Teil der Kunden weiss jedoch die eigene Schuhnummer nicht, 
+daher implementiert der Webshop versuchshalber die folgende Idee.
+Grosse Menschen haben auch eher grosse F"usse, es wird daher vermutet,
+dass es zwischen K"orpergr"osse und Schuhgr"osse einen linearen
+Zusammenhang gibt. 
+Die K"orpergr"osse findet man im Pass.
+Der Webshop versucht sein Modell mit den folgenden Daten zu
+eichen:
+\begin{center}
+\begin{tabular}{lrrrrrrr}
+K"orpergr"osse&165&170&175&180  &185&190&195\\
+\hline
+Schuhnummer   & 38& 39& 42& 44.5& 43& 45&46
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item Finden sie ein lineares Modell, welches die Schuhnummer in
+Abh"angigkeit von der K"orpergr"osse vorhersagt.
+\item Welche Schuhr"osse h"atte eine 2m grosse Person nach diesem Modell?
+\item Geben Sie eine Masszahl f"ur die Qualt"at dieses Modells.
+\end{teilaufgaben}
+
+\begin{loesung}
+Ein solches Modell kann mit linearer Regression gefunden werden.
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+i&K_i&S_i           &K_i^2&S_i^2&K_iS_i\phantom{.000}\\
+\hline
+1&165&38\phantom{.5}& 27225&1444.00&6270\phantom{.000}\\
+2&170&39\phantom{.5}& 28900&1521.00&6630\phantom{.000}\\
+3&175&42\phantom{.5}& 30625&1764.00&7350\phantom{.000}\\
+4&180&44.5          & 32400&1980.25&8010\phantom{.000}\\
+5&185&43\phantom{.5}& 34225&1849.00&7955\phantom{.000}\\
+6&190&45\phantom{.5}& 36100&2025.00&8550\phantom{.000}\\
+7&195&46\phantom{.5}& 38025&2116.00&8970\phantom{.000}\\
+\hline
+E&180&42.5          & 32500&1814.18&7676.429\\
+\hline
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item
+Daraus kann man jetzt mit den bekannten Formeln die Steigung und den
+Achsabschnitt berechnen:
+\begin{align*}
+a
+&=
+\frac{E(KS)-E(K)E(S)}{E(K^2)-E(K)^2}
+=
+\frac{7676.429 - 180\cdot 42.5}{32500-180^2}
+\\
+&=
+0.2642857
+\\
+b
+&=
+E(S)-E(K)a
+=
+42.5 - 180\cdot 0.2642857
+\\
+&=
+-5.071429
+\end{align*}
+\item Wir setzen $K=200$ in das Modell ein:
+\[
+200\cdot 0.2642857 -5.071429
+=
+47.79.
+\]
+\item
+Als Masszahl f"ur die Qualit"at der Approximation kann der
+Regressionskoeffizient verwendet werden:
+\begin{align*}
+r^2 
+&=\frac{E(KS) - E(K)E(S)}{\sqrt{ (E(K^2)-E(K)^2) (E(S^2)-E(S)^2) }}
+=0.9385906,
+\end{align*}
+was doch schon relativ weit von $1$ entfernt ist, und daher nicht unbedingt
+auf gute Qualit"at hinweist.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
+
