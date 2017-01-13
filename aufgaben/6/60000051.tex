@@ -1,0 +1,42 @@
+In einer Galaxie wie unserer Milchstrasse werden etwa 20 Supernova-Explosionen
+per Jahrtausend erwartet.
+Im letzten Jahrtausend wurden aber nur sechs beobachtet:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|l|>{$}c<{$}|}
+\hline
+\text{Jahr}&Sternbild&\text{scheinbare Helligkeit}\\
+\hline
+1006&Wolf            &-7.5\\
+1054&Stier           &-6\\
+1181&Kassiopeia      &-2\\
+1572&Kassiopeia      &-4\\
+1604&Schlangentr"ager&-2\\
+1680&Kassiopeia      &+6\\
+\hline
+\end{tabular}
+\end{center}
+Wie wahrscheinlich ist es, dass in einem Jahrtausend in einer Galaxie
+wie unserer Milchstrasse mehr als sechs Supernovae beobachtet werden?
+
+\begin{loesung}
+Supernovae sind offenbar sehr seltene Ereignisse.
+Ihr Anzahl kann daher mit der Poissonverteilung modelliert werden.
+Die erwartete Anzahl von Supernovae in einem Jahrtausend ist $\lambda=20$.
+Die gesucht Wahrscheinlichkeit ist
+\begin{align*}
+P(X>6)
+&=1-P(X\le 6)
+=
+1-e^{-\lambda}\sum_{k=0}^6 \frac{\lambda^k}{k!}
+=
+1-0.0002551225
+=
+0.9997449
+\end{align*}
+Es h"atten also mit sehr hoher Wahrscheinlichkeit mehr als $6$ Supernovae
+beobachtet werden m"ussen.
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
+
