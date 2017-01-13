@@ -1,0 +1,68 @@
+Ein Restaurant hat 8 Vierertische und 6 Zweiertische.
+An einem abend besuchen 5 Vierergruppen und 5 Zweiergruppen das Restaurant.
+Jede Gruppe m"ochte als ganze an einem Tisch sitzen, und ausserdem
+keine G"aste anderer Gruppen am eigenen Tisch haben.
+\begin{teilaufgaben}
+\item Auf wieviele Arten k"onnen die Gruppen den Tischen zugeordnet
+werden?
+\item Auf wieviele Arten k"onnen die G"aste platziert werden?
+\item Wie gross ist die Wahrscheinlichkeit, dass mindestens ein Vierertisch
+leer bleibt?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Vierergruppen k"onnen nur auf Vierertische verteilt werden,
+daher m"ussen wir dies als erstes tun.
+Man muss daher $5$ Vierertische aus $8$ ausw"ahlen.
+Dann bleiben $9$ Tische, die f"ur alle Zweiergruppen geeignet sind,
+es m"ussen also $5$ Zweiertische aus diesen $9$ zur Verf"ugung stehenden
+angeboten ausgew"ahlt werden. 
+Die Gesamtzahl der M"oglichkeiten ist daher
+\[
+\binom{8}{5}\cdot\binom{9}{5}=
+56\cdot 126=7056.
+\]
+\item
+In jeder Vierergruppe sind $4!=24$ Permutationen m"oglich, in jeder
+Zweiergruppe deren $2$.
+Die Gesamtzahl der M"oglichkeiten, die G"aste zu platzieren, ist daher
+\[
+7056\cdot 4!^5 \cdot 2^5=1797896798208.
+\]
+\item
+Wir m"ussen die Belegungen z"ahlen, in denen alle Vierertische
+besetzt sind. 
+Dazu sind immer noch zun"achst $5$ Vierertische auszw"ahlen f"ur
+die Vierergruppen, doch dann werden $3$ aus den $5$ Zweiergruppen ausgew"ahlt,
+die an den verbleibenden Vierertischen platziert werden.
+Die letzten $2$ Zweiergruppen w"ahlen dann unter den $6$ Zweiertischen.
+Insgesamt bekommen wir f"ur die Anzahl:
+\[
+\binom{8}{5}\cdot \binom{5}{3}\cdot \binom{6}{2}
+\]
+Um die Wahrscheinlichkeit daf"ur zu bekommen, dass alle Vierertische
+besetzt sind, teilen wir diese Zahl durch das Resultat von a), und
+erhalten
+\[
+P(\text{Vierertische besetzt})
+=
+\frac{\binom{8}{5}\cdot\binom{9}{5}}{
+\binom{8}{5}\cdot \binom{5}{3}\cdot \binom{6}{2}}
+=
+\frac{\binom{9}{5}}{\binom{5}{3}\cdot \binom{6}{2}}
+=
+\frac{126}{10\cdot 15}=\frac{126}{150}=0.84.
+\]
+Die Wahrscheinlichkeit, dass mindestens ein Vierertisch frei bleibt ist
+daher $1-0.84=0.16$.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
+
+
+

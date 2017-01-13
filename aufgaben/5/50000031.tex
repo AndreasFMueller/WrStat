@@ -1,0 +1,90 @@
+Eine Zufallsvariable $X$ hat die Wahrscheinlichkeitsdichte
+\[
+\varphi(x)=\begin{cases}
+0&\qquad x\le -1\\
+ae^x&\qquad -1<x\le 1\\
+0&\qquad x > 1
+\end{cases}
+\]
+\begin{teilaufgaben}
+\item wie muss $a$ gew"ahlt werden, damit das tats"achlich eine
+Wahrscheinlichkeitsdichte ist?
+\item Berechnen Sie den Erwartungswert von $X$.
+\item Berechnen Sie die Varianz von $X$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Das Integral von $\varphi$ "uber $\mathbb R$ muss $1$ ergeben:
+\begin{align*}
+1
+&=
+\int_{-\infty}^{\infty} \varphi(x)\,dx
+=
+\int_{-1}^1ae^x\,dx
+=
+\left[ae^x\right]_{-1}^1
+=
+=ae-ae^{-1}
+\\
+\Rightarrow\qquad
+a&=\frac1{e-e^{-1}}=\frac1{\sinh(-1)}
+=
+0.4254590641196608.
+\end{align*}
+\item
+Der Erwartungswert ist
+\begin{align*}
+E(X)
+&=
+\int_{-\infty}^\infty x\,\varphi(x)\,dx
+=
+a\int_{-1}^1xe^x\,dx
+=
+a\left[xe^x\right]_{-1}^1-a\int_{-1}^1e^x\,dx
+=
+\frac{e+e^{-1}}{e-e^{-1}}-1
+\\
+&=
+\frac{2e^{-1}}{e-e^{-1}}
+=
+0.3130352854993313.
+\end{align*}
+\item
+F"ur die Varianz brauchen wir zun"achst den quadratischen Mittelwert
+\begin{align*}
+E(X^2)
+&=
+\int_{-\infty}^\infty x^2\varphi(x)\, dx
+=
+a\int_{-1}^1 x^2e^x\,dx
+=
+a\left[x^2e^x\right]_{-1}^1
+-
+2a\int_{-1}^1xe^x\,dx
+\\
+&=
+\frac{e-e^{-1}}{e-e^{-1}}
+-2E(X)
+=
+1-2E(X)
+=
+\frac{e-5e^{-1}}{e-e^{-1}}
+\\
+\operatorname{var}(X)
+&=
+E(X^2)-E(X)^2
+=
+\frac{e-5e^{-1}}{e-e^{-1}}
+-
+\biggl(
+\frac{e-5e^{-1}}{e-e^{-1}}
+\biggr)^2
+=
+0.2759383390336894.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
