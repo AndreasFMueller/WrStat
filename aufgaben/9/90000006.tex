@@ -1,0 +1,121 @@
+Im Rahmen eines Experimentes wurde ein Gr"osse mit einem alten Messger"at
+100 mal gemessen und der Mittelwert bestimmt.
+Zur Vervollst"andigung der Daten wurde dann ein moderneres Messger"at
+gemietet, welches halb so grossen Messfehler hat.
+Damit konnten jedoch aus Zeitgr"unden nur 20 Messungen gemacht werden,
+von denen ebenfalls der Mittelwert bestimmt wurde.
+\begin{teilaufgaben}
+\item
+Wie muss man die beiden Mittelwert gewichten, um die das genaustm"ogliche
+Resultat zu erhalten.
+\item
+Wieviel mal kleiner ist der Fehler dieses optimalen Mittelwertes als 
+der Messfehler des alten Messger"ates?
+\item
+Wieviel mal kleiner ist der Fehler dieses optimalen Mittelwertes als
+der Fehler des mit dem alten Messger"at ermittelten Mittelwertes.
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir bezeichnen die Einzelmessungen des alten Messger"ates mit $X_i$, sie
+haben alle die gleiche Varianz $\operatorname{var}(X_i)=\sigma_{\text{alt}}^2$.
+Die Varianz des Mittelwertes der $100$ Messungen ist
+\begin{align*}
+\overline X
+&=
+\frac1n\sum_i X_i
+\\
+\sigma_{\overline X}^2
+&=
+\operatorname{var}(\overline X)
+=
+\operatorname{var}\biggl(\frac1n\sum X_i\biggr)
+=
+\frac1{n^2}\cdot n\operatorname{var}(X_i)=\frac1n\sigma_{\text{alt}}^2.
+\qquad\text{mit $n=100$}
+\\
+&=\frac1{100}\sigma_{\text{alt}}^2.
+\end{align*}
+Das neue Messger"at hat halb so grossen Messfehler, also
+$\sigma_{\text{neu}}=\frac12\sigma_{\text{alt}}$.
+Damit werden $20$ Messungen $Y_j$ gemacht, ihr Mittelwert hat die Varianz
+\begin{align*}
+\overline Y
+&=
+\frac1{20}\sum_j Y_j
+\\
+\sigma_{\overline Y}^2
+&=
+\operatorname{var}(\overline Y)
+=
+\operatorname{var}\biggl(\frac1{20}\sum_j Y_j\biggr)
+=
+\frac1{20}\sigma_{\text{neu}}^2
+=
+\frac1{80}\sigma_{\text{alt}}^2.
+\end{align*}
+\begin{teilaufgaben}
+\item
+Aus der Vorlesung ist bekannt, dass die optimalen Gewichte in dieser
+Situation
+\[
+t
+=
+\frac{\sigma_{\overline Y}^2}{\sigma_{\overline X}^2 + \sigma_{\overline Y}^2}
+\qquad\text{und}\qquad
+1-t
+=
+\frac{\sigma_{\overline X}^2}{\sigma_{\overline X}^2 + \sigma_{\overline Y}^2}
+\]
+sind.
+Setzt man die bekannten Werte f"ur $\sigma_{\overline X}^2$ und
+$\sigma_{\overline Y}^2$ ein, erh"alt man
+\begin{align*}
+t
+&=
+\frac{\frac1{80}}{\frac1{80}+\frac1{100}}
+=
+\frac{80\cdot 100}{80\cdot(100+80)}
+=
+\frac{100}{180}=0.5555
+\\
+1-t
+&=
+\frac{\frac1{100}}{\frac1{80}+\frac1{100}}
+=
+\frac{80\cdot 100}{100\cdot(80+100)}
+=
+\frac{80}{180}
+=
+0.4444
+\end{align*}
+\item
+Auch ist die Varianz des optimierten Mittelwertes bekannt:
+\begin{align*}
+\sigma_{\text{opt}}^2
+&=
+\frac{\sigma_{\overline X}^2\sigma_{\overline Y}^2}{\sigma_{\overline X}^2 +\sigma_{\overline Y}^2}
+=
+\frac{\frac1{80}\frac1{100}}{\frac1{80}+\frac1{100}}\sigma_{\text{alt}}^2
+=
+\frac1{180}\sigma_{\text{alt}}^2
+\\
+\sigma_{\text{opt}}
+&=
+\frac1{\sqrt{180}}\sigma_{\text{alt}}
+=
+0.0745\cdot\sigma_{\text{alt}}.
+\qedhere
+\end{align*}
+\item
+Der Messfehler der Messungen mit dem alten Messger"at ist
+$0.1\sigma_{\text{alt}}$.
+Der Fehler des optimierten Mittelwertes ist also $0.745$ mal kleiner,
+eine Verbesserung von $25\%$.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
+
+
