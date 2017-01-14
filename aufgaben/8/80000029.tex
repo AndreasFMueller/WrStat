@@ -1,0 +1,102 @@
+Sternen wird auf Grund ihrer Farbe die sogenannte Spektralklasse,
+eine Buchstabenkennzeichnung zugeordnet.
+In der Milchstrasse beobachtet man die folgende Verteilung
+der Spektralklassen:
+\begin{center}
+\begin{tabular}{|c|l|l|}
+\hline
+Klasse&Farbe     &H"aufigkeit\\
+\hline
+O     &blau      &0.0000003\\
+B     &blau-weiss&0.0013\\
+A     &weiss     &0.006\\
+F     &gelb-weiss&0.03\\
+G     &gelb      &0.076\\
+K     &orange    &0.121\\
+M     &rot       &0.7645\\
+\hline
+\end{tabular}
+\end{center}
+Die spektrale Verteilung der Sterne einer Poplulation "andert sich mit der
+Zeit, da die blauen Sterne sehr viel weniger lange leben.
+
+In einem neu entdeckten Kugelsternhaufen werden $100$ Sterne spektral
+analysiert und dabei folgende Anzahlen gefunden:
+
+\begin{loesung}
+Die Nullhypothese ist, dass die ausgemessenen Sterne zur selben
+Population wie die Milchstrassensterne geh"oren.
+Wir m"ussen die beobachtete Verteilung mit der theoretischen Verteilung
+der Milchstrasse vergleichen.
+Dazu eignet sich ein $\chi^2$-Test mit $\alpha=5\%$.
+\begin{center}
+\begin{tabular}{|c|l|r|l|l|}
+\hline
+Klasse&$p_i$    &$n_i$&$np_i$            &$(n_i-np_i)/\sqrt{np_i}$\\
+\hline
+   O  &0.0000003&    0&\phantom{0}0.00003& 0.000\phantom{03003603}\\
+   B  &0.0013   &    0&\phantom{0}0.13   & 0.130\phantom{1561    }\\
+   A  &0.006    &    0&\phantom{0}0.6    & 0.600\phantom{7207    }\\
+   F  &0.03     &    0&\phantom{0}3      & 3.003\phantom{603     }\\
+   G  &0.076    &    9&\phantom{0}7.6    & 0.254\phantom{2371    }\\
+   K  &0.121    &   22&12.1              & 8.066\phantom{546     }\\
+   M  &0.7645   &   69&76.45             & 0.743\phantom{1121    }\\
+\hline
+      &         &     &                  &$D=12.79$\\
+\hline
+\end{tabular}
+\end{center}
+Der kritische Wert f"ur $D$ f"ur $\alpha = 0.05$ und $6$ Freiheitsgrade
+ist $D_{\text{krit}}=12.592$. 
+Da $D>D_{\text{krit}}$ muss die Nullhypothese verworfen werden.
+\end{loesung}
+
+\begin{diskussion}
+Man k"onnte argumentieren, dass dieser $\chi^2$-Test nicht zul"assig ist,
+weil in den Spektralkalssen O bis F gar keine Sterne beobachtet wurden.
+Man k"onnte dem oben durchgef"uhrten Test daher auch einen Test
+gegen"uberstellen, in dem man nur die Spektralklassen G bis M ber"ucksichtigt.
+Dann muss man aber die Wahrscheinlichkeiten neu skalieren, so dass sie
+zusammen 1 ergeben.
+Aus der obigen Tabelle zur Berechnung der Diskrepanz wird dann:
+\begin{center}
+\begin{tabular}{|c|l|r|l|l|}
+\hline
+Klasse&$p_i$    &$n_i$&$np_i$            &$(n_i-np_i)/\sqrt{np_i}$\\
+\hline
+   G  &0.0790432&    9&\phantom{0}7.9043 & 0.151\phantom{882     }\\
+   K  &0.1258450&   22&12.5845           & 7.044\phantom{503     }\\
+   M  &0.7951118&   69&79.5112           & 1.389\phantom{552     }\\
+\hline
+      &         &     &                  &$D=8.58$\\
+\hline
+\end{tabular}
+\end{center}
+%[1] 0.07904316 0.12584503 0.79511180
+%> nikurz = ni[teil]
+%> nikurz
+%[1]  9 22 69
+%> npi = 100 * pkurz
+%> npi
+%[1]  7.904316 12.584503 79.511180
+%> dkurz = (nikurz - npi)^2 / npi
+%> dkurz
+%[1] 0.151882 7.044503 1.389552
+%> Dkurz = sum(dkurz)
+%> Dkurz
+%[1] 8.585937
+%> 
+%> chisq.test(nikurz, p = pkurz)
+%
+%        Chi-squared test for given probabilities
+%
+%data:  nikurz
+%X-squared = 8.5859, df = 2, p-value = 0.01366
+Der kritische Wert f"ur zwei Freiheitsgrade und $\alpha=0.05$ ist
+$D_{\text{krit}}=5.991$,
+so dass erneut die Nullhypothese verworfen werden kann.
+\end{diskussion}
+
+
+
+
