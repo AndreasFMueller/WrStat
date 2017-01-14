@@ -1,0 +1,50 @@
+Um die Qualit"at des Chips einer CCD-Kamera zu untersuchen, werden mehrere
+Bilder mit geschlossenem Verschluss aufgenommen.
+Die Bilder werden dann miteinander verglichen, von jeder Pixelposition
+wird Mittelwert und Standardabweichung ermittelt.
+Pixel, deren Werte zwischen den einzelnen Bildern deutlich st"arker streuen
+als der Durchschnitt, werden als besch"adigt eingestuft.
+Die Resultate werden in einem Bild im FITS-Format festgehalten, die
+gesuchten Informationen kann man dem Header entnehmen:
+\begin{verbatim}
+SIMPLE  =                    T / file does conform to FITS standard
+BITPIX  =                  -32 / number of bits per data pixel
+NAXIS   =                    3 / number of data axes
+NAXIS1  =                 3900 / length of data axis 1
+NAXIS2  =                 2616 / length of data axis 2
+NAXIS3  =                    1 / length of data axis 3
+BADPIXEL=                 2897 / Number of bad pixels  
+\end{verbatim}
+Man kann daraus ablesen, dass auf dem Chip im Format
+$3900\times 2616$ insgesamt 2897 besch"adigte Pixel gefunden wurden.
+Der Hersteller spezifiziert, dass die Wahrscheinlichkeit, dass ein Pixel
+schlecht ist, $0.0003$ sei.
+Wie gross ist die Wahrscheinlichkeit nicht mehr als 2897 besch"adigte Pixel
+zu finden?
+
+\begin{loesung}
+Die Untersuchung aller Pixel des CCD-Chip ist ein $n=3900\cdot2616=10202400$
+mal wiederholtes Bernoulli-Experiment mit $p=0.0003$.
+Sei die Zufallsvariable $X$ die Anzahl der besch"adigten Pixel.
+Sie ist binomialverteilt mit den genannten Parametern $n$ und $p$.
+Sie kann durch eine Normalverteilung mit $\mu = np = 3060.72$
+und $\sigma = \sqrt{np(1-p)})=55.31$ approximiert werden.
+Die gesuchte Wahrscheinlichkeit ist
+\begin{align*}
+P(X\le 2897)
+&=
+P\biggl(
+\frac{X-\mu}{\sigma}\le\frac{2897-\mu}{\sigma}
+\biggr)
+=
+P(Z\le -2.96)
+=
+1-P(Z\le 2.96)
+\end{align*}
+Den Wert f"ur die Normalverteilung entnimmt man der Tabelle f"ur die
+Verteilungsfunktion der Standardnormalverteilung und findet f"ur die
+gesuchte Wahrscheinlichkeit
+$P(X\le 2897) = 1-0.9985=0.0015$.
+\end{loesung}
+
+
