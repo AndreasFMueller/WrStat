@@ -32,34 +32,61 @@ Die Gesamtzahl der M"oglichkeiten, die G"aste zu platzieren, ist daher
 7056\cdot 4!^5 \cdot 2^5=1797896798208.
 \]
 \item
-Wir m"ussen die Belegungen z"ahlen, in denen alle Vierertische
-besetzt sind. 
-Dazu sind immer noch zun"achst $5$ Vierertische auszw"ahlen f"ur
-die Vierergruppen, doch dann werden $3$ aus den $5$ Zweiergruppen ausgew"ahlt,
-die an den verbleibenden Vierertischen platziert werden.
-Die letzten $2$ Zweiergruppen w"ahlen dann unter den $6$ Zweiertischen.
-Insgesamt bekommen wir f"ur die Anzahl:
+Nachdem die f"unf Vierergruppen an Vierertischen platziert sind, bleiben
+noch neun Tische f"ur die Zweiergruppen.
+Man muss jetzt also herausfinden, wie wahrscheinlich es ist, dass die
+drei Vierertische besetzt sind, wenn man f"unf der Tische ausw"ahlt.
+Dann sind zwei der Zweiertische besetzt.
+Dies ist ein Lottoproblem, dessen Wahrscheinlichkeit mit der
+hypergeometrischen Verteilung berechnet werden kann:
 \[
-\binom{8}{5}\cdot \binom{5}{3}\cdot \binom{6}{2}
+P(\text{alle Vierertische besetzt})
+=
+\frac{\binom{3}{3}\binom{6}{2}}{\binom{9}{5}}
+=
+\frac{1\cdot 15}{126}
+=
+\frac1{42}=0.11905
 \]
-Um die Wahrscheinlichkeit daf"ur zu bekommen, dass alle Vierertische
-besetzt sind, teilen wir diese Zahl durch das Resultat von a), und
-erhalten
-\[
-P(\text{Vierertische besetzt})
-=
-\frac{\binom{8}{5}\cdot\binom{9}{5}}{
-\binom{8}{5}\cdot \binom{5}{3}\cdot \binom{6}{2}}
-=
-\frac{\binom{9}{5}}{\binom{5}{3}\cdot \binom{6}{2}}
-=
-\frac{126}{10\cdot 15}=\frac{126}{150}=0.84.
-\]
-Die Wahrscheinlichkeit, dass mindestens ein Vierertisch frei bleibt ist
-daher $1-0.84=0.16$.
-\qedhere
 \end{teilaufgaben}
+Die gesuchte Wahrscheinlichkeit ist jetzt
+\[
+P(\text{ein Vierertisch leer})
+=
+1-P(\text{alle Vierertische besetzt})
+=
+0.88095.
+\qedhere
+\]
 \end{loesung}
+
+\begin{diskussion}
+Man kann Teilaufgabe b) auch so verstehen, dass die zwei Personen an
+den Dreiertischen alle denkbaren Platzierungen einnehmen k"onnen.
+Dies wird in Restaurants allerdings normalerweise nicht so praktiziert.
+Wenn man dies aber tut, dann sind an einem Vierertisch nicht $2$ sondern
+$2 \binom{4}{2}=12$ Platzierungen m"oglich.
+Nat"urlich kommt es jetzt auch darauf an, wieviele Vierertische von 
+Zweiergruppen besetzt sind.
+Die Anzahl Platzierungen der G"aste der Zweiergruppen ist dann
+\begin{align*}
+\sum_{k=0}^3 \binom{3}{k}12^k\binom{6}{5-k}2^{5-k}
+&=
+1\cdot 12^0\cdot 6\cdot 2^5
++
+3\cdot 12^1\cdot 15\cdot 2^4
++
+3\cdot 12^2\cdot 20\cdot 2^3
++
+1\cdot 12^3\cdot 15\cdot 2^2
+\\
+&=
+192 + 8640 + 69120 + 311040
+=
+388992.
+\end{align*}
+
+\end{diskussion}
 
 \begin{bewertung}
 \begin{teilaufgaben}
