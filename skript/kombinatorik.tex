@@ -17,7 +17,7 @@ Tetraederw"urfel mit nur vier Seiten war.
 
 In den letzten Jahren konnte man immer wieder h"oren, die Naturkonstanten
 in unserem Universum seien unwahrscheinlich genau aufeinander abgestimmt,
-genau so dass es m"oglich sei, dass intelligentes Leben entstand.
+genau so, dass es m"oglich sei, dass intelligentes Leben entstand.
 Nat"urlich ist das Unsinn, denn unwahrscheinlich w"urde ja wohl
 heissen, dass es sehr viele Alternativen gibt, in denen eben kein
 intelligentes Leben entsteht.
@@ -30,11 +30,11 @@ entstehen kann.
 \section{Ziele}
 Die Kombinatorik befasst sich mit z"ahlbaren diskreten Strukturen,
 insbesondere versucht sie Antworten zu geben auf Fragen die
-typischerweise mit ``Auf wieviele Arten \dots'' beginnen, zum Beispiel:
+typischerweise mit ``Auf wie viele Arten \dots'' beginnen, zum Beispiel:
 \begin{itemize}
-\item Auf wieviele Arten kann man $n$ verschiedene Objekte anordnen?
-\item Auf wieviele Arten kann man $k$ Objekte aus $n$ ausw"ahlen?
-\item Auf wieviele Arten kann man $k$ mal ein Auswahl aus $n$ Objekten
+\item Auf wie viele Arten kann man $n$ verschiedene Objekte anordnen?
+\item Auf wie viele Arten kann man $k$ Objekte aus $n$ ausw"ahlen?
+\item Auf wie viele Arten kann man $k$ mal ein Auswahl aus $n$ Objekten
 treffen?
 \end{itemize}
 
@@ -80,15 +80,14 @@ Die beiden W"urfel sind unabh"angig voneinander,
 also gibt es $n_1\cdot n_2=36$ verschiedene Augenzahlbilder.
 \end{loesung}
 
-
 \item Ein Autoh"andler bietet 5 verschiedene Fahrzeugtypen in 30
 verschiedenen Farben an.
 Zu jedem Fahrzeugtyp gibt es 7 verschiedene Extraausstattungen.
-Wieviele verschiedene Fahrzeuge kann der Autoh"andler verkaufen?
+Wie viele verschiedene Fahrzeuge kann der Autoh"andler verkaufen?
 
 \begin{loesung}
 Offenbar sind alle die $n_1=5$ Fahrzeugtypen, die $n_2=30$ Farben
-und die $n_3=7$ Extraausstattungen unabh"angig voneinenander w"ahlbar, also ist
+und die $n_3=7$ Extraausstattungen unabh"angig voneinander w"ahlbar, also ist
 die Gesamtzahl der m"oglichen Fahrzeuge $n_1n_2n_3=1050$.
 \end{loesung}
 
@@ -96,7 +95,7 @@ die Gesamtzahl der m"oglichen Fahrzeuge $n_1n_2n_3=1050$.
 Extras k"onne jedes einzelne Extra unabh"angig gew"ahlt oder
 abgelehnt werden.
 Es gebe 7 solche Extras.
-Wieviele verschiedene Fahrzeuge k"onnen bestellt werden?
+Wie viele verschiedene Fahrzeuge k"onnen bestellt werden?
 
 \begin{loesung}
 Offenbar hat man jetzt f"ur jedes Extra die Wahl, ob man es dazunehmen
@@ -116,7 +115,7 @@ $5\cdot 30
 \item Als das iPhone 5 neu war, konnte man in weiss oder in schwarz
 bestellen und in drei verschiedenen
 Gr"ossen des Flashspeichers.
-Wieviele verschiedene iPhone 5 gab es?
+Wie viele verschiedene iPhone 5 gab es?
 
 \begin{loesung}
 Offenbar konnte man $n_1=2$ Farben und $n_2=3$ Speicherausstattungen
@@ -129,8 +128,8 @@ daher $n_1n_2=6$ verschiedene iPhone 5.
 \section{Permutationen: Reihenfolge} \label{kombinatorik-permutation}
 \index{Permutation}
 \index{Reihenfolge}
-Die Frage ``Auf wieviele Arten lassen sich $n$ verschieden Objekte anordnen?''
-ist gleichbedeutend mit der Frage, wieviele Permutationen von $n$
+Die Frage ``Auf wie viele Arten lassen sich $n$ verschieden Objekte anordnen?''
+ist gleichbedeutend mit der Frage, wie viele Permutationen von $n$
 Objekten es gibt.
 Die Zahl  $P_n$ der Permutationen von $n$ Objekten
 kann durch den folgenden Abz"ahlprozess gefunden werden.
@@ -139,7 +138,7 @@ man Schrittweise tun.
 F"ur das erste Objekt stehen $n$ Pl"atze
 zur Verf"ugung.
 F"ur jede Wahl des Platzes des ersten Objektes 
-ist jetzt zu bestimmen, auf wieviele Arten die verbleibenden
+ist jetzt zu bestimmen, auf wie viele Arten die verbleibenden
 $n-1$ Objekte platziert werden k"onnen.
 F"ur das zweite
 Objekt muss einer der $n-1$ verbleibenden Pl"atze gew"ahlt werden.
@@ -169,7 +168,7 @@ L"ost man die Rekursion auf, ergibt sich wieder $P_n=n!$.
 
 
 \begin{beispiele}
-\item In wievielen verschiedenen Reihenfolgen k"onnen die acht L"aufer
+\item In wie vielen verschiedenen Reihenfolgen k"onnen die acht L"aufer
 eines Rennens im Ziel eintreffen?
 
 \begin{loesung}
@@ -179,7 +178,7 @@ Jede Reihenfolge ist m"oglich, also $8!=40320$ m"ogliche Reihenfolgen.
 \item Einer der L"aufer von Beispiel 1 ist unbestrittener Favorit,
 es ist klar, dass er gewinnen wird.
 Von einem anderen ist bekannt, dass er keine Chance hat.
-Wieviele Reihenfolgen bleiben "ubrig?
+Wie viele Reihenfolgen bleiben "ubrig?
 
 \begin{loesung}
 Nur noch sechs der acht L"aufer k"onnen in beliebiger Reihenfolge
@@ -195,7 +194,7 @@ Rangfolge.
 Wieviele Erinnerungsfotos sind m"oglich?
 
 \begin{loesung}
-Es gibt $7!=5040$ Rangfolgen der M"anner, und ebensoviele bei den
+Es gibt $7!=5040$ Rangfolgen der M"anner, und ebenso viele bei den
 Frauen.
 Die Ermittelung der Rangfolge bei den M"annern ist offensichtlich
 unabh"angig von derjenigen bei den Frauen, so dass die Gesamtzahl der
@@ -209,9 +208,9 @@ Drei Mathematiker und drei Ingenieure treffen sich zu einem
 einem Nachtessen an einem runden Tisch.
 \begin{teilaufgaben}
 \item
-Auf wieviele Arten k"onnen die Teilnehmer die Pl"atze einnehmen?
+Auf wie viele Arten k"onnen die Teilnehmer die Pl"atze einnehmen?
 \item
-Auf wieviel Arten k"onnen 
+Auf wie viel Arten k"onnen 
 die Teilnehmer die Pl"atze einnehmen, wenn nicht alle drei Mathematiker
 oder Ingenieure nebeneinander sitzen d"urfen?
 \end{teilaufgaben}
@@ -219,7 +218,7 @@ oder Ingenieure nebeneinander sitzen d"urfen?
 \begin{loesung}
 \begin{teilaufgaben}
 \item
-Man muss offenbar herausfinden, in wievielen m"oglichen Reihenfolgen
+Man muss offenbar herausfinden, in wie vielen m"oglichen Reihenfolgen
 man die sechs Teilnehmer auf die sechs Pl"atze setzen kann.
 Dies sind $6!$ M"oglichkeiten.
 \item
@@ -229,9 +228,9 @@ nebeneinander sitzen tun es auch die Ingenieure.
 
 Wir wissen bereits, dass die Leute auf $6!=720$ Arten platziert werden
 k"onnen.
-Wir m"ussen also nur herausfinden, wieviele Platzierungen
+Wir m"ussen also nur herausfinden, wie viele Platzierungen
 unerw"unscht sind (weil drei Mathematiker nebeneinander sitzen),
-dann wissen wir auch, auf wieviele erw"unschte Arten die Teilnehmer
+dann wissen wir auch, auf wie viele erw"unschte Arten die Teilnehmer
 sitzen k"onnen.
 An einem runden Tisch gibt es sechs Pl"atze, wo im Uhrzeigersinn gez"ahlt 
 die Gruppe der Mathematiker beginnen kann.
@@ -268,7 +267,7 @@ ans =  504
 \section{Kombinationen: Auswahl}
 \index{Kombinationen}
 \index{Auswahl}
-Auf wieviele Arten kann $k$ aus $n$ verschiedenen Objekten
+Auf wie viele Arten kann man $k$ aus $n$ verschiedenen Objekten
 ausw"ahlen.
 Auch diese Frage kann ein Abz"ahlargument
 beantworten.
@@ -325,7 +324,7 @@ C^n_k=\binom{n}{k}.
 \item In einen Wald mit 1000 B"aumen schl"agt f"unfmal der Blitz ein.
 Wir d"urfen annehmen, dass kein Baum zweimal getroffen, denn der
 Einschlag wird den Baum weitgehend zerst"oren.
-Auf wieviele Arten
+Auf wie viele Arten
 k"onnen die getroffenen B"aume im Wald verteilt sein?
 
 \begin{loesung}
@@ -339,7 +338,7 @@ verschiedene Arten m"oglich ist.
 
 \item F"ur ein Projekt stellt eine Firma mit 30 Mitarbeitern eine Taskforce
 aus 5 Leuten zusammen.
-Auf wieviele Arten ist das m"oglich?
+Auf wie viele Arten ist das m"oglich?
 
 
 \begin{loesung}
@@ -351,8 +350,8 @@ Arten geht.
 \end{loesung}
 
 \item Im Gegensatz zu vorangegangenen Beispiel ist jetzt der
-Taskforceleiter schon festgelegt, wieviele Gestaltungen der
-Task-Force bleiben?
+Taskforceleiter schon festgelegt, wie viele Gestaltungen der
+Taskforce bleiben?
 
 \begin{loesung}
 Jetzt stehen nur noch 29 Mitarbeiter zur Verf"ugung (der Taskforceleiter
@@ -369,7 +368,7 @@ Arten m"oglich.
 Ein Land muss f"ur eine Meisterschaft aus einem Pool von
 20 M"annern und 10 Frauen eine Delegation von je 5 M"annern
 und Frauen zusammenstellen.
-Auf wieviele Arten ist dies m"oglich?
+Auf wie viele Arten ist dies m"oglich?
 
 \begin{loesung}
 Die Auswahl der M"anner und Frauen erfolgt unabh"angig.
@@ -390,7 +389,7 @@ nicht dabei, in welchem Prozentsatz ein ganz bestimmter Mann?
 \begin{loesung}
 Um den Prozentsatz der Delegationen zu bestimmen, bei denen
 eine ganz bestimmte Frau nicht dabei ist, m"ussen wir Z"ahlen,
-wieviele Delegationen sich ohne diese Frau zusammenstellen 
+wie viele Delegationen sich ohne diese Frau zusammenstellen 
 lassen.
 Dazu stehen offenbar nur 9 Frauen zur Verf"ugung, die 
 Anzahl der Delegationen ist also
@@ -429,7 +428,7 @@ verwendet worden sind.
 Das Medium soll jetzt erf"uhlen, in welcher
 Schachtel die Tatwaffe steckt.
 Weil das ziemlich schwierig ist, erlauben
-wir dem Medium zwei Tips und sind zufrieden wenn eine der beiden
+wir dem Medium zwei Tipps und sind zufrieden wenn eine der beiden
 gew"ahlten Schachteln die Tatwaffe enth"alt.
 Wie viele M"oglichkeiten gibt
 es f"ur das Medium Erfolg oder Misserfolg zu haben?
@@ -491,7 +490,7 @@ n"utzlich.
 \begin{beispiele}
 \item Dominosteine enthalten zwei Felder, die mit je einer Augenzahl
 aus $\{0,1,2,3,4,5,6\}$ beschriftet sind.
-Wieviele verschiedene Dominosteine
+Wie viele verschiedene Dominosteine
 gibt es?
 
 \begin{loesung}
@@ -723,7 +722,7 @@ erzeugende Funktion
 C_{10}(x)=1+x^{10}+x^{20}+x^{30}+x^{40}+x^{50}+\dots
 \]
 Wenn wir 5er und 10er verwenden d"urfen, dann muss ein Teil des Betrages
-in 5ern, der Rest in 10er herausgegeben werden.
+in 5er und der Rest in 10er herausgegeben werden.
 Diese Zusammensetzung entspricht genau dem, was beim Ausmultiplizieren
 der beiden Reihen $C_5(x)$ und $C_{10}(x)$ passiert.
 Mit einem Computer-Algebra-System kann man die Multiplikation sofort vornehmen:
@@ -736,7 +735,7 @@ C_5(x)C_{10}(x)&=
 Man kann daraus ablesen, dass es zwei M"oglichkeiten gibt, 10 Rappen
 herauszugeben, entweder zwei 5er oder ein 10er.
 Ebenso kann man ablesen,
-dass es 10 M"oglichkeiten gibt, 90 Rappen zu bilden, mit 0 bis 9 10ern
+dass es 10 M"oglichkeiten gibt, 90 Rappen zu bilden, mit 0 bis 9 10er
 und der dazu passenden Anzahl 5er.
 
 Nehmen wir jetzt noch die 20er und 50er hinzu, dann kommen die beiden
@@ -769,7 +768,7 @@ ausrechnen, sondern auch mit Octave.
 Octave stellt Polynome als
 Vektoren von Koeffizienten der einzelnen Monome geordnet nach Grad
 absteigend.
-Als Beispiel versuchen wir auszurechnen, auf wieviele
+Als Beispiel versuchen wir auszurechnen, auf wie viele
 Arten man 11 Franken zusammensetzen kann, wenn man 2 F"unfliber,
 5 Zweifr"ankler und 11 Einfr"ankler zur Verf"ugung hat.
 Die Polynome werden
@@ -818,7 +817,7 @@ Vektors, zum Beispiel so:
 octave> c(length(c)-11)
 ans =  11
 \end{verbatim}
-Man kann also 11 Franken auf 11 verschiedene Arten aus Fr"anklern,
+Man kann also 11 Franken auf 11 verschiedene Arten aus Einfr"anklern,
 Zweifr"anklern und F"unflibern zusammensetzen.
 
 Im Moment scheint dieses Verfahren keine wirklich Vereinfachung
