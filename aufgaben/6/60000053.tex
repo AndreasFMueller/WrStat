@@ -1,0 +1,76 @@
+Ein Läufer läuft am Zürcher Silvesterlauf die Strecke von 10km in
+einer Zeit von 0:44:30 und landet dabei auf Rang 1000 von 4000 Läufern.
+Die durchschnittliche Laufzeit aller Läufer beträgt 0:48:55.
+\begin{teilaufgaben}
+\item 
+Bestimmen Sie die Standardabweichung der Laufzeiten.
+\item
+Wie schnell muss man laufen, um unter die ersten 100 Läufer zu gelangen?
+\item
+Welcher Prozentsatz der Läufer braucht mehr als eine Stunde für die 10km?
+\end{teilaufgaben}
+
+\begin{loesung}
+Die Laufzeit eines Läufers ist eine Zufallsvariable $X$.
+Wir dürfen davon ausgehen, dass $X$ normalverteilt sind mit $\mu=48.917$.
+\begin{teilaufgaben}
+\item 
+\begin{align*}
+0.25
+=
+P(X \le \text{0:44:30})
+&=
+P\biggl(
+\frac{X-\mu}{\sigma} \le \frac{48.917 - \mu}{\sigma}
+\biggr)
+\\
+\frac{48.917 - 44.5}{\sigma}
+&=
+-0.6745
+\\
+\sigma
+&=
+\frac{44.5- 48.917}{-0.6745}
+=
+6.54855
+\end{align*}
+\item 
+Um unter die ersten Hundert Läufer zu gelangen, die Zeit $t$ erreicht werden,
+für die $P(X<t)=100/4000$ gilt.
+Es folgt
+\begin{align*}
+P(X<t)
+&=
+0.975
+\\
+P\biggl(\frac{X-\mu}{\sigma}\le\frac{t-\mu}{\sigma}\biggr)
+&=
+0.975
+\\
+\Rightarrow\qquad
+\frac{t-\mu}{\sigma}
+&=
+1.96
+\qquad\Rightarrow\qquad
+t=\mu - 1.96\sigma = 31.665 = \text{31:40}.
+\end{align*}
+\item
+Gefragt ist $P(X>\text{1:00:00})$.
+Es ist
+\begin{align*}
+P(X>\text{1:00:00})
+=1-P(X\le 60)
+&=
+1- P\biggl(\frac{X-\mu}{\sigma} \le \frac{60-\mu}{\sigma}\biggr)
+=
+1 - F(2.3669)
+=
+1-0.9910=0.009
+\end{align*}
+Weniger als 1\% der Läufer brauchen mehr als eine Stunde.
+\end{teilaufgaben}
+\end{loesung}
+
+
+
+

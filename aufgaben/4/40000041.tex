@@ -1,0 +1,85 @@
+Die Zustimmung zur Politik des amerikanischen Präsidenten Donald Trump
+hat seit seiner Amtseinführung dramatisch abgenommen:
+\begin{center}
+\begin{tabular}{cc}
+\hline
+Monat seit Amtseinführung&Zustimmung in \%\\
+\hline
+1& 28\\
+2& 27\\
+3& 24\\
+4& 22\\
+\hline
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item
+Wenn wird die Zustimmung auf $0$ gesunken sein?
+\item
+Ist dies eine zuverlässige Schätzung?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir nehmen an, dass die Zustimmung linear fällt, und berechnen daher eine
+Regressionsgerade für diese Daten.
+Dazu besimmen wir 
+\begin{center}
+\begin{tabular}{|>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+i&x_i&y_i&x_i^2&y_i^2&x_iy_i\\
+\hline
+1&  1& 28&    1&  784&    28\\
+2&  2& 27&    4&  729&    54\\
+3&  3& 24&    9&  576&    72\\
+4&  4& 22&   16&  484&    88\\
+\hline
+ & 10&101&   30& 2573&   242\\
+\hline
+\end{tabular}
+\end{center}
+Die Formeln für die Regressionsgerade liefern $a$ und $b$ wie folgt:
+\begin{align*}
+a
+&=
+\frac{
+\frac14\cdot 242 -\frac14\cdot 10\cdot\frac14\cdot 101
+}{
+\frac14\cdot 30-(\frac14\cdot 10)^2
+}
+=
+\frac{4\cdot 242-10\cdot 101}{4\cdot 30-10^2}
+=
+\frac{969-1010}{120-100}
+=
+-\frac{41}{20}=-2.05
+\\
+b&=E(Y)-E(X)a = \frac14\cdot 101 +2.05\cdot\frac14\cdot 10
+=
+30.375
+\end{align*}
+Die Regressionsgerade hat also die Gleichung
+\[
+y=-2.05x+30.375.
+\]
+\begin{teilaufgaben}
+\item
+Der Wert $y=0$ wird erreicht für $x=-30.375/(-2.05)=14.81$, also
+erst im April 2018.
+\item
+Der Regressionskoeffizient ist
+\begin{align*}
+r
+&=
+\frac{4\cdot 242 - 10\cdot 101}{\sqrt{4\cdot 30-10^2}\sqrt{4\cdot 2573-101^2}}
+=
+\frac{-42}{\sqrt{20}\sqrt{91}}
+=
+-0.9899.
+\end{align*}
+Da dieser Wert sehr nahe bei $\pm 1$ liegt, kann man dieser Prognose eine
+hohe Vertrauenswürdigkeit beimessen.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+

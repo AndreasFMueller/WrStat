@@ -1,0 +1,49 @@
+Ein Setzer hat die folgenden sieben Buchstaben zur Verfügung
+\[
+\texttt{O},\;
+\texttt{O},\;
+\texttt{T},\;
+\texttt{T},\;
+\texttt{T},\;
+\texttt{W},\;
+\texttt{X}
+\]
+\begin{teilaufgaben}
+\item Auf wieviele Arten kann man diese sieben Buchstaben anordnen?
+\item Wieviele verschiedene Wörter mit zwei Buchstaben kann man bilden?
+\item Wieviele Möglichkeiten gibt es, die sieben Buchstaben in eine Reihe
+zu legen, so dass die drei \texttt{T} direkt nebeneinander liegen?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Es gibt $7!$ Anordnungen von $7$ Buchstaben, aber davon unterscheiden sich
+jeweils $2!$ nur durch Vertauschung der beiden \texttt{O} und $3!$ nur
+durch Permutation der drei \texttt{T}.
+Die Zahl der verschiedenen Reihenfolgen ist daher
+\[
+\frac{7!}{2!\cdot 3!}=\frac{5040}{2\cdot 6} = 420.
+\]
+\item
+Verlangt man, dass die zwei Buchstaben verschieden sind, dann lassen sich
+$\binom{4}{2}=6$ verschiedene Wörter bilden.
+Dazu kommen noch die Wörter \texttt{OO} und \texttt{TT} mit zwei gleichen
+Buchstaben.
+Insgesamt kann man also 8 verschiedene Wörter mit zwei Zeichen bilden.
+\item
+Es kommt offenbar darauf an, wo die die Folge der \texttt{T} beginnt.
+Dies kann beim schon beim ersten Zeichen sein, spätestens aber beim vierten.
+Es gibt also vier Möglichkeiten, wie die \texttt{T} platziert sein können.
+Die verbleibenden 4 Zeichen können auf $4!$ Arten platziert werden.
+Doch davon sind jeweils zwei identisch, da sie durch Vertauschung der
+beiden \texttt{O} auseinander hervorgehen.
+Somit bleiben 
+\[
+4\cdot\frac{4!}{2!}=4\cdot \frac{24}{2}=4\cdot 12=48
+\]
+Möglichkeiten.
+\end{teilaufgaben}
+\end{loesung}
+
+
