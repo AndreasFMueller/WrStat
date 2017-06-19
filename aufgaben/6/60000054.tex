@@ -1,0 +1,72 @@
+Bio-Produkte haben es an sich, dass häufiger mit Schädlingsbefall gerechnet
+werden muss als bei Produkten mit massivem Pestizid-Einsatz.
+Nehmen wir an, dass von einem bestimmten Produkt 15\% der Früchte wegen von
+aussen nicht erkennbarem Schädlingsbefall unbrauchbar sind.
+Wieviele Früchte muss man bestellen, damit man mit Wahrscheinlichkeit 99\%
+mindestens 40 gute Früchte hat.
+
+
+\begin{loesung}
+Ob eine Frucht gut ist, ist ein Bernoulli-Experiment mit Wahrscheinlichkeit
+$p=0.85$.
+Sie $X$ die Zahl der guten Früchte bei $n$ in bestellten Früchten.
+$X$ ist binomialverteilt mit Parametern $p$ und $n$.
+Da $n$ gross ist, k"onnen wir die Binomialverteilung mit einer
+Normalverteilung mit $\mu=np$ und $\sigma^2=np(1-p)$ approximieren.
+Wir suchen diejenige Zahl $n$ von bestellenden Früchten, f"ur
+die die Wahrscheinlichkeit $0.99$ ist, dass $X>40 =x$:
+\begin{align*}
+0.99
+&=
+P(X\ge x)\\
+&=
+P\biggl(\underbrace{\frac{X-\mu}{\sigma}}_{\displaystyle=S}\ge \frac{x-\mu}{\sigma}\biggr)
+=
+P\biggl(S\ge \frac{x-{\color{red}n}p}{\sqrt{{\color{red}n}p(1-p)}}\biggr)
+\end{align*}
+mit $x=40$.
+Die Unbekannte $\color{red}n$ ist rot hervorgehoben.
+Da $S$ (im Rahmen der N"aherung) standardnormalverteilt ist, muss
+gelten
+\begin{align*}
+\frac{x-np}{\sqrt{np(1-p)}}
+&=
+x_{0.99}=2.3263
+\\
+(x-np)^2
+&=
+x_{0.99}^2np(1-p)
+\\
+x^2-2npx+n^2p^2
+&=
+x_{0.99}^2np(1-p)
+\\
+p^2{\color{red}n}^2
+-
+(2xp+x_{0.99}^2p(1-p)) {\color{red}n}
++
+x^2
+&=0
+\\
+0.7225 {\color{red}n}^2 -68.69 {\color{red}n} + 1600
+&= 
+0.
+\end{align*}
+Im letzten Schritt haben wir wieder $x=40$ eingesetzt.
+Diese quadratische Gleichung f"ur $n$ kann man mit der "ublichen
+L"osungsformel l"osen und erh"alt
+\[
+n=54.26.
+\]
+Es m"ussen also 55 Früchte bestellt werden, um 99\% sicher zu sein,
+mindestens 40 brauchbare Früchte zu erhalten.
+\end{loesung}
+
+\begin{bewertung}
+Normalapproximation der Binomialverteilung ({\bf B}) 1 Punkt,
+Erwartungswert ({\bf E}) 1 Punkt,
+Varianz ({\bf V}) 1 Punkt
+Standardisierung ({\bf S}) 1 Punkt,
+Gleichung f"ur $n$ ({\bf G}) 1 Punkt,
+L"osung f"ur $n$ ({\bf N}) 1 Punkt.
+\end{bewertung}
