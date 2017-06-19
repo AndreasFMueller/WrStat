@@ -1,0 +1,102 @@
+Betrachten Sie die Funktion
+\[
+\varphi(x)
+=
+\begin{cases}
+0     &\qquad x \le -1 \\
+a(1+x)&\qquad -1<x\le 0\\
+a     &\qquad 0<x\le 1\\
+0     &\qquad 1< x
+\end{cases}
+\]
+mit dem Parameter $a$.
+\begin{teilaufgaben}
+\item
+Wie muss die Konstante $a$ gewählt werden, dass $\varphi(x)$ eine
+Wahrscheinlichkeitsdichte ist?
+\item
+Berechnen Sie den Erwartungswert einer Zufallsvariablen mit dieser
+Wahrscheinlichikeitsdichte.
+\item
+Berechnen Sie die Varianz einer Zufallsvariablen mit dieser
+Wahrscheinlichkeitsdichte.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir müssen $a$ so wählen, dass das Integral von $\varphi$ über die reelle
+Achse $=1$ wird.
+Dazu berechnen wir
+\begin{align*}
+\int_{-\infty}^\infty\varphi(x)\,dx
+&=
+\int_{-1}^0a(1+x)\,dx +\int_0^1 a\,dx
+=
+\biggl[ax+\frac12ax^2\biggr]_{-1}^0 + a
+=
+a-\frac12a+a=\frac32a.
+\end{align*}
+Damit das Integral $=1$ wird, muss also $a=\frac23$ gewählt werden.
+\item
+Der Erwartungswert kann mit Hilfe des Integrals
+\begin{align*}
+E(X)
+&=
+\int_{-\infty}^\infty x\varphi(x)\,dx
+=
+\int_{-1}^0 xa(1+x)\,dx + \int_0^1ax\,dx
+=
+\biggl[
+\frac12ax^2+\frac13ax^3
+\biggr]_{-1}^0
++
+\biggl[
+\frac12ax^2
+\biggr]_0^1
+\\
+&=
+-\frac12a +\frac13a +\frac12a=\frac13a=\frac13\cdot\frac23=\frac29
+\end{align*}
+berechnet werden.
+\item
+Für die Varianz brauchen wir zusätzlich
+\begin{align*}
+E(X^2)
+&=
+\int_{-\infty}^\infty x^2\varphi(x)\,dx
+=
+\int_{-1}^0 ax^2(1+x)\,dx +\int_0^1 ax^2\,dx
+=
+\biggl[
+\frac13ax^3 + \frac14ax^4
+\biggr]_{-1}^0
++
+\biggl[
+\frac13ax^3
+\biggr]_0^1
+\\
+&=
+\frac13a - \frac14a + \frac13a
+=
+\biggl(\frac23-\frac14)a
+=
+\frac{8-3}{12}a
+=
+\frac5{12}a=\frac5{12}\cdot\frac{23}=\frac{5}{18}.
+\end{align*}
+Daraus kann jetzt die Varianz bestimmt werden:
+\begin{align*}
+\operatorname{var}(X)
+&=
+E(X^2)-E(X)^2
+=
+\frac{5}{18}-\frac{8}{81}
+=
+0.17901
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+
