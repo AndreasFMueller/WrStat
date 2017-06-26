@@ -1,0 +1,79 @@
+Die Schildzecke (Ixodes ricinus, in der Schweiz häufig auch Holzbock genannt) 
+ist für die Über\-tragung der Borreliose und anderer Krankheiten verantwortlich.
+Borreliose ist relativ häufig, in der Schweiz sind bis zu 50\% der Zecken mit
+dem Überträgerbakterium Borrelia burgdorferi infiziert.
+Borrelien werden aber erst nach einer gewissen Zeit übertragen,
+entfernt man die Zecke sofort, unterbleibt eine Infektion.
+So wird nur bei 5\% der von Zecken Gestochenen mit dem Auftreten
+der Krankheit gerechnet.
+
+Die von einem Virus ebenfalls durch Zeckenstich übertragene
+Frühsommermeningoenzephalitis (FSME) ist dagegen sehr viel seltener.
+Ausserhalb der Endemiegebiete besteht nur bei jedem tausendsten Zeckenstich
+ein Infektionsrisiko.
+
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit dass bei 2000 Zeckenstichen mehr als 110
+Borreliose-Erkrankungen auftreten?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass bei 2000 Zeckenstichen mehr als 2
+FSME-Erkrankungen auftreten?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Infektion mit Borrelien ist ein Bernoulli-Experiment mit $p=0.05$.
+Es wird $n=2000$ mal wiederholt.
+Da Borreliose relativ häufig ist, kann man die Wahrscheinlichkeit mit
+Hilfe der Normalapproximation berechnen, wir verwenden
+$\mu=np=100$ und $\sigma=\sqrt{np(1-p)}=9.7468$.
+Sei $X$ die Anzahl der Borreliose-Fälle, dann müssen wir die
+Wahrscheinlichkeit $P(X>110)$ bestimmen.
+Es ist
+\begin{align*}
+P(X>110)
+=
+1-P(X\le 110)
+&=
+1-P\biggl(\frac{X-\mu}{\sigma}\le \frac{110-\mu}{\sigma}\biggr)
+\\
+&=
+1-P(Z\le 1.026)
+\end{align*}
+Da die Zufallsvariable $Z$ (angenähert) standardnormalverteilt ist, finden wir
+aus der Tabelle der Standardnormalverteilung den Wert der Wahrscheinlichkeit
+als 
+\[ 
+P(Z\le 1.026) = 0.8575
+\qquad\Rightarrow\qquad
+P(X>110)\simeq 0.1475.
+\]
+\item
+Da FSME selten ist, können wir die Poisson-Verteilung zur Approximation der
+gesuchten Wahrscheinlichkeit verwenden.
+Die erwartete Anzahl von FSME-Fällen bei $2000$ Zeckenstichen ist
+$\lambda = 2000\cdot 0.001=2$.
+Die gesuchte Wahrscheinlichkeit ist daher
+\begin{align*}
+P(X>2)
+&=
+\sum_{k=0}^2 P_\lambda(k)
+=
+\sum_{k=0}^2 \frac{\lambda^k}{k!} e^{-\lambda}
+\\
+&=
+\biggl(1+\lambda+\frac{\lambda}2\biggr) e^{-\lambda}
+=
+(1+2+1) e^{-2}=4e^{-2}
+=
+0.5413.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+
+
+
