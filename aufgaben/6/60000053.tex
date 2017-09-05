@@ -15,6 +15,7 @@ Die Laufzeit eines Läufers ist eine Zufallsvariable $X$.
 Wir dürfen davon ausgehen, dass $X$ normalverteilt sind mit $\mu=48.917$.
 \begin{teilaufgaben}
 \item 
+Ein Viertel aller Läufer sind schneller, in Formeln
 \begin{align*}
 0.25
 =
@@ -35,24 +36,33 @@ P\biggl(
 6.54855
 \end{align*}
 \item 
-Um unter die ersten Hundert Läufer zu gelangen, die Zeit $t$ erreicht werden,
-für die $P(X<t)=100/4000$ gilt.
+Um unter die ersten Hundert Läufer zu gelangen, die Zeit $\color{red}t$
+erreicht werden,
+für die $P(X<{\color{red}t})=100/4000$ gilt.
 Es folgt
 \begin{align*}
-P(X<t)
+P(X<{\color{red}t})
 &=
 0.975
 \\
-P\biggl(\frac{X-\mu}{\sigma}\le\frac{t-\mu}{\sigma}\biggr)
+P\biggl(\frac{X-\mu}{\sigma}\le\frac{{\color{red}t}-\mu}{\sigma}\biggr)
 &=
 0.975
 \\
 \Rightarrow\qquad
-\frac{t-\mu}{\sigma}
+\frac{{\color{red}t}-\mu}{\sigma}
 &=
 1.96
-\qquad\Rightarrow\qquad
-t=\mu - 1.96\sigma = 31.665 = \text{31:40}.
+&
+\Rightarrow\qquad
+{\color{red}t}&=\mu - 1.96\sigma
+=
+48.917 - 1.96\cdot 6.5485
+\\
+&&&=
+36.0817
+=
+\text{36:05}.
 \end{align*}
 \item
 Gefragt ist $P(X>\text{1:00:00})$.
@@ -64,15 +74,23 @@ P(X>\text{1:00:00})
 1- P\biggl(\frac{X-\mu}{\sigma} \le \frac{60-\mu}{\sigma}\biggr)
 \\
 &=
-1 - F(2.3669)
+1 - F(1.69)
 =
-1-0.9910=0.009
+1-0.9545=4.55\%.
 \end{align*}
-Weniger als 1\% der Läufer brauchen mehr als eine Stunde.
+Weniger als 5\% der Läufer brauchen mehr als eine Stunde.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}
 
+\begin{bewertung}
+Normalverteilung ({\bf N}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Bestimmung von $\sigma$ ($\mathbf{\Sigma}$) 1 Punkt,
+Bedingung für die erste 100 Läufer ({\bf H}) 1 Punkt,
+Zeit für die ersten 100 Läufer ({\bf Z}) 1 Punkt,
+Wahrscheinlichkeit für mehr als eine Stunde ({\bf L}) 1 Punkt.
+\end{bewertung}
 
 
 
