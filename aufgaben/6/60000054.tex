@@ -9,11 +9,11 @@ mindestens 40 gute Früchte hat.
 \begin{loesung}
 Ob eine Frucht gut ist, ist ein Bernoulli-Experiment mit Wahrscheinlichkeit
 $p=0.85$.
-Sie $X$ die Zahl der guten Früchte bei $n$ in bestellten Früchten.
+Sei $X$ die Zahl der guten Früchte bei $n$ in bestellten Früchten.
 $X$ ist binomialverteilt mit Parametern $p$ und $n$.
 Da $n$ gross ist, k"onnen wir die Binomialverteilung mit einer
 Normalverteilung mit $\mu=np$ und $\sigma^2=np(1-p)$ approximieren.
-Wir suchen diejenige Zahl $n$ von bestellenden Früchten, f"ur
+Wir suchen diejenige Zahl $n$ von zu bestellenden Früchten, f"ur
 die die Wahrscheinlichkeit $0.99$ ist, dass $X>40 =x$:
 \begin{align*}
 0.99
@@ -54,10 +54,21 @@ x^2
 \end{align*}
 Im letzten Schritt haben wir wieder $x=40$ eingesetzt.
 Diese quadratische Gleichung f"ur $n$ kann man mit der "ublichen
-L"osungsformel l"osen und erh"alt
+L"osungsformel l"osen und erh"alt die beiden Lösungen
 \[
-n=54.26.
+n_{1,2}
+=
+\frac{68.69 \pm \sqrt{68.69^2-4\cdot 0.7225\cdot 1600}}{2\cdot 0.7225}
+=
+\frac{68.69 \pm 9.7116}{2\cdot 0.7225}
+=
+\begin{cases}
+54.2571\\
+40.8155
+\end{cases}
 \]
+Davon ist die zweite viel zu kleine, es bleibt daher als einzig relevante
+Lösung $n=54.26$.
 Es m"ussen also 55 Früchte bestellt werden, um 99\% sicher zu sein,
 mindestens 40 brauchbare Früchte zu erhalten.
 \end{loesung}
@@ -70,3 +81,5 @@ Standardisierung ({\bf S}) 1 Punkt,
 Gleichung f"ur $n$ ({\bf G}) 1 Punkt,
 L"osung f"ur $n$ ({\bf N}) 1 Punkt.
 \end{bewertung}
+
+
