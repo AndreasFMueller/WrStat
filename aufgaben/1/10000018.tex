@@ -27,23 +27,31 @@ Die Zahl der verschiedenen Reihenfolgen ist daher
 \]
 \item
 Verlangt man, dass die zwei Buchstaben verschieden sind, dann lassen sich
-$\binom{4}{2}=6$ verschiedene Wörter bilden.
+$\binom{4}{2}=6$ verschiedene Zeichenpaare bilden.
+Daraus kann man durch vertauschen 12 verschiedene Wörter bilden.
 Dazu kommen noch die Wörter \texttt{OO} und \texttt{TT} mit zwei gleichen
 Buchstaben.
-Insgesamt kann man also 8 verschiedene Wörter mit zwei Zeichen bilden.
+Insgesamt kann man also 14 verschiedene Wörter mit zwei Zeichen bilden.
 \item
 Es kommt offenbar darauf an, wo die die Folge der \texttt{T} beginnt.
-Dies kann beim schon beim ersten Zeichen sein, spätestens aber beim vierten.
-Es gibt also vier Möglichkeiten, wie die \texttt{T} platziert sein können.
+Dies kann beim schon beim ersten Zeichen sein, spätestens aber beim fünften.
+Es gibt also fünf Möglichkeiten, wie die \texttt{T} platziert sein können.
 Die verbleibenden 4 Zeichen können auf $4!$ Arten platziert werden.
 Doch davon sind jeweils zwei identisch, da sie durch Vertauschung der
 beiden \texttt{O} auseinander hervorgehen.
 Somit bleiben 
 \[
-4\cdot\frac{4!}{2!}=4\cdot \frac{24}{2}=4\cdot 12=48
+5\cdot\frac{4!}{2!}=5\cdot \frac{24}{2}=5\cdot 12=60
 \]
 Möglichkeiten.
 \end{teilaufgaben}
 \end{loesung}
 
+\begin{bewertung}
+\begin{teilaufgaben}
+\item Permutation ({\bf P}) 1 Punkt, Wiederholungen ({\bf W}) 1 Punkt,
+\item ({\bf B}) 2 Punkte,
+\item Anfang ({\bf A}) 1 Punkt, verbleibende Zeichen ({\bf V}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
 
