@@ -64,7 +64,13 @@ E(X)
 \biggr]_0^1
 \\
 &=
--\frac12a +\frac13a +\frac12a=\frac13a=\frac13\cdot\frac23=\frac29
+-\frac12a +\frac13a +\frac12a
+=
+\frac13a
+=
+\frac13\cdot\frac23
+=
+\frac29
 \end{align*}
 berechnet werden.
 \item
@@ -87,11 +93,15 @@ E(X^2)
 &=
 \frac13a - \frac14a + \frac13a
 =
-\biggl(\frac23-\frac14)a
+\biggl(\frac23-\frac14\biggr)a
 =
 \frac{8-3}{12}a
 =
-\frac5{12}a=\frac5{12}\cdot\frac{23}=\frac{5}{18}.
+\frac5{12}a
+=
+\frac5{12}\cdot\frac{2}{3}
+=
+\frac{5}{18}.
 \end{align*}
 Daraus kann jetzt die Varianz bestimmt werden:
 \begin{align*}
@@ -99,12 +109,42 @@ Daraus kann jetzt die Varianz bestimmt werden:
 &=
 E(X^2)-E(X)^2
 =
-\frac{5}{18}-\frac{8}{81}
+\frac{5}{18}-\frac{4}{81}
 =
-0.17901
+\frac{37}{162}
+=
+0.228395.
 \qedhere
 \end{align*}
 \end{teilaufgaben}
 \end{loesung}
 
+\begin{bewertung}
+Normierungsbedingung ({\bf N}) 1 Punkt,
+Parameter $a$ ({\bf A}) 1 Punkt,
+Formel für Erwartungswert ({\bf F}) 1 Punkt,
+Wert des Erwartungswerts ({\bf E}) 1 Punkt,
+Varianzformel ({\bf V}) 1 Punkt,
+Wert der Varianz ({\bf W}) 1 Punkt.
+\end{bewertung}
 
+\begin{diskussion}
+Der Erwartungswert in Teilaufgabe b) kann auch mit einer geometrischen 
+Überlegung gefunden werden.
+Die Fläche unter der Kurve links der $\varphi$-Achse  ist halb so gross
+wie die Fläche unter der Kurve rechts der $\varphi$-Achse. 
+Wir können daher den Erwartungswert jedes Teils separat berechnen und
+dann mit den Gewichten $\frac13\colon \frac23$ mitteln.
+Der Erwartungswert der Gleichverteilung rechts der $\varphi$-Achse ist
+$\frac12$.
+Der Erwartungswert der Verteilung links der $\varphi$-Achse ist
+$-\frac13$.
+Wir erhalten daher für den Erwartungswert:
+\[
+E(X)
+=
+\frac13\cdot\biggl(-\frac13\biggr) + \frac23\cdot\frac 12
+=
+-\frac19 + \frac13=\frac29.
+\]
+\end{diskussion}
