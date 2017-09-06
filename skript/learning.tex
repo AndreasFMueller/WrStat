@@ -1,0 +1,29 @@
+%
+% learning.tex -- Machine Learning
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Machine Learning}
+\index{Machine Learning}
+Die lineare Regression aus dem vorangegangenen Abschnitt kann auch aus
+der etwas modischeren Perspektive des {\em Maschine Learning} 
+betrachtet werden.
+Dabei nimmt man wie vorhin an, dass es eine lineare Beziehung zwischen den
+Variablen $X$ und $Y$ in der Form
+$Y=aX+b$ gibt.
+Wir möchten die Konstanten $a$ und $b$ {\em lernen}, d.~h.~wir möchten
+eine grosse Menge von Trainingsdatenpaaren $(x_i, y_i)$ verwenden,
+um $a$ und $b$ zu bestimmen.
+Die Formeln \eqref{lr:a} und \eqref{lr:b} zur Bestimmung von $a$ und $b$
+sind so gewählt, dass die Kostenfunktion
+\[
+C
+=
+\sum_{i=1}^n (y_i-ax_i-b)^2
+\]
+minimiert wird,
+die misst, wie gut die das lineare Modell mit Parametern $a$ und $b$
+den Zusammenhang zwischen $X$ und $Y$ gelernt hat.
+
+
+

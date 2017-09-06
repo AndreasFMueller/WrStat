@@ -1404,13 +1404,17 @@ Dies ist in Abbildung~\ref{regressionskoeffizient-graphik} dargestellt.
 \subsubsection{Berechnung aus empirischen Daten}
 Auch die Koeffizienten der Regressionsgeraden sind mit einfachen Formeln
 zu bestimmen, wenn man nur Messwerte, deren Quadrate und das Produkt summiert:
-\begin{align*}
+\begin{align}
 a
 &=
-\frac{\displaystyle n\sum_{i=1}^nx_iy_i-\sum_{i=1}^nx_i\sum_{i=1}^ny_i}{\displaystyle n\sum_{i=1}^nx_i^2-\biggl(\sum_{i=1}^nx_i\biggr)^2},\\
+\frac{\displaystyle n\sum_{i=1}^nx_iy_i-\sum_{i=1}^nx_i\sum_{i=1}^ny_i}{\displaystyle n\sum_{i=1}^nx_i^2-\biggl(\sum_{i=1}^nx_i\biggr)^2},
+\label{lr:a}
+\\
 b
 &=
-\frac1n\sum_{i=1}^ny_i-a\frac1n\sum_{i=1}^nx_i,\\
+\frac1n\sum_{i=1}^ny_i-a\frac1n\sum_{i=1}^nx_i,
+\label{lr:b}
+\\
 r^2
 &=
 \frac{
@@ -1421,7 +1425,8 @@ r^2
 \biggl(n\sum_{i=1}^nx_i^2-\biggl(\sum_{i=1}^nx_i\biggr)^2\biggr)
 \biggl(n\sum_{i=1}^ny_i^2-\biggl(\sum_{i=1}^ny_i\biggr)^2\biggr)
 }.
-\end{align*}
+\label{lr:r2}
+\end{align}
 
 \subsection{Anwendungsbeispiel}
 \begin{table}
@@ -1549,3 +1554,9 @@ F-statistic: 646.9 on 1 and 2 DF,  p-value: 0.001542
 \end{verbatim}
 }
 R kann von \url{https://www.r-project.org} heruntergeladen werden.
+
+\input{learning.tex}
+
+
+
+
