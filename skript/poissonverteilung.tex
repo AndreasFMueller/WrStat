@@ -7,7 +7,7 @@
 \begin{figure}
 \centering
 \includegraphics{images/exp-2.pdf}
-\caption{Wahrscheinlichkeitsverteilung der Poisson-Verteilung f"ur
+\caption{Wahrscheinlichkeitsverteilung der Poisson-Verteilung für
 $\lambda=4.2$, $E(X)=\lambda$ und $\operatorname{var}(X)=\sqrt{\lambda}$.
 \label{poisson-verteilung}}
 \end{figure}
@@ -33,7 +33,7 @@ Anwendungen&\begin{minipage}{3.7in}%
 \vskip3pt
 \strut
 $\bullet$ Anzahl Ereignisse mit exponentialverteilten Intervallen\\
-$\bullet$ Approximation der Binomialverteilung f"ur seltene Ereignisse, die
+$\bullet$ Approximation der Binomialverteilung für seltene Ereignisse, die
 mit Rate $\lambda$ eintreten
 \strut
 \end{minipage}\\[20pt]
@@ -45,16 +45,16 @@ mit Rate $\lambda$ eintreten
 Die Poissonverteilung liefert eine Antwort auf folgende Frage.
 In Abschnitt
 \ref{section-exponentialverteilung} wurde die Exponentialverteilung
-als die Verteilung f"ur die Ausfallwahrscheinlichkeit eines ``ged"achtnislosen''
+als die Verteilung für die Ausfallwahrscheinlichkeit eines ``gedächtnislosen''
 Bauteils vorgestellt.
 Wir nehmen nun an, dass das Bauteil bei jedem Defekt
 sofort ersetzt wird, und fragen danach, wie wahrscheinlich es ist, dass
-wir in einem bestimmten Zeitintervall $k$ Ausf"alle beobachten.
+wir in einem bestimmten Zeitintervall $k$ Ausfälle beobachten.
 
 Sei $X_i$ die Lebensdauer des Bauteils mit der Nummer $i$, es handelt
 sich dabei um eine exponentialverteilte Zufallsvariable.
 Wenn im Zeitintervall
-$[0,x]$ genau $k$ Ausf"alle beobachtet wurden, dann heisst das, dass die
+$[0,x]$ genau $k$ Ausfälle beobachtet wurden, dann heisst das, dass die
 Summe von $k$ Zufallsvariablen $\le x$ ist, jene von $k+1$ Zufallsvariable
 aber $>x$.
 Also
@@ -63,13 +63,13 @@ P(X_1+\dots+X_k\le x \wedge X_1+\dots+X_{k+1}>x)
 \]
 Wir berechnen diese Wahrscheinlichkeit in zwei Schritten.
 
-Zun"achst interessiert uns, wie gross die Wahrscheinlichkeit ist, dass im
-Intervall $[0,x]$ mindestens $k$ Ausf"alle passieren, dies ist
+Zunächst interessiert uns, wie gross die Wahrscheinlichkeit ist, dass im
+Intervall $[0,x]$ mindestens $k$ Ausfälle passieren, dies ist
 $P(X_1+\dots+X_k\le x)=F_{X_1+\dots+X_k}(x)$, also die Verteilungsfunktion
 einer Summe von $k$ identisch exponentialverteilten Zufallsvariablen.
 Wir behaupten:
 \begin{satz}Sind $(X_i)_{1\le i\le k}$ identische exponentialverteilte,
-unabh"angige Zufallsvariablen, dann hat deren Summe folgende Verteilungsfunktion
+unabhängige Zufallsvariablen, dann hat deren Summe folgende Verteilungsfunktion
 und Wahrscheinlichkeitsdichte:
 \begin{align*}
 F_{X_1+\dots+X_k}(x)&=\begin{cases}
@@ -83,20 +83,20 @@ F_{X_1+\dots+X_k}(x)&=\begin{cases}
 \end{align*}
 \end{satz}
 \begin{proof}[Beweis]
-Wir beweisen zun"achst die Formeln f"ur die Dichtefunktion $\varphi_k$ mit
-Hilfe von vollst"andiger Induktion.
-F"ur $k=1$ liegt nur eine einzige
-Zufallsvariable vor, durch Einsetzen von $k$ finden wir f"ur $x>0$
+Wir beweisen zunächst die Formeln für die Dichtefunktion $\varphi_k$ mit
+Hilfe von vollständiger Induktion.
+Für $k=1$ liegt nur eine einzige
+Zufallsvariable vor, durch Einsetzen von $k$ finden wir für $x>0$
 \[
 \varphi_1(x)=ae^{-ax},
 \]
 also genau die Dichte der Exponentialverteilung.
 Offensichtlich ist dies die richtige Wahrscheinlichkeitsdichte.
 
-Wir nehmen nun an, dass obige Formel die Wahrscheinlichkeitsdichte f"ur die
+Wir nehmen nun an, dass obige Formel die Wahrscheinlichkeitsdichte für die
 Summe von $k$ Zufallsvariablen korrekt ist, und berechnen die daraus
-folgende Wahrscheinlichkeitsdichte f"ur eine Summe von $k+1$ Zufallsvariablen.
-Dazu wird die Faltung verwendet, es gilt f"ur $x>0$
+folgende Wahrscheinlichkeitsdichte für eine Summe von $k+1$ Zufallsvariablen.
+Dazu wird die Faltung verwendet, es gilt für $x>0$
 \begin{align*}
 \varphi_k*\varphi_1(x)
 &=
@@ -106,7 +106,7 @@ Dazu wird die Faltung verwendet, es gilt f"ur $x>0$
 &=a^{k+1}e^{-ax}\left[\frac{t^k}{k!}\right]_0^x\\
 &=a^{k+1}e^{-ax}\frac{x^k}{k!}=\varphi_{k+1}(x)
 \end{align*}
-Damit ist die Formel f"ur $\varphi_k$ f"ur alle $k$ gezeigt.
+Damit ist die Formel für $\varphi_k$ für alle $k$ gezeigt.
 
 Aus der Wahrscheinlichkeitsdichte kann nun auch die Verteilungsfunktion
 berechnet werden.
@@ -128,7 +128,7 @@ Daraus leiten wir ab
 \[
 F_k(x)=1-e^{-ax}\sum_{i=0}^{k-1}\frac{(ax)^i}{i!}
 \]
-Die Summe ist die Partialsumme f"ur die Reihenentwicklung von $e^{ax}$,
+Die Summe ist die Partialsumme für die Reihenentwicklung von $e^{ax}$,
 insbesondere ist die Partialsumme immer kleiner als $a^{ax}$, also
 \[
 e^{-ax}\sum_{i=0}^{k-1}\frac{(ax)^i}{i!}<e^{-ax}\cdot e^{ax}=1,
@@ -144,30 +144,30 @@ Die hier gefundenen Verteilungen sind auch von einiger praktischer Bedeutung,
 sie heissen die Erlang-Verteilungen.
 \index{Erlang-Verteilung}
 
-Um nun die Wahrscheinlichkeit $P_k(x)$ des Auftretens von genau $k$ Ausf"allen
+Um nun die Wahrscheinlichkeit $P_k(x)$ des Auftretens von genau $k$ Ausfällen
 ist jetzt also die Wahrscheinlichkeit, dass bis zur Zeit $x$ mindestens
-$k$ Ausf"allen aufgetreten sind minus die Wahrscheinlichkeit, dass mehr
-als $k$ Ausf"alle aufgetreten sind: 
+$k$ Ausfällen aufgetreten sind minus die Wahrscheinlichkeit, dass mehr
+als $k$ Ausfälle aufgetreten sind: 
 \[
-P_k(x)=P(\text{mindestens $k$ Ausf"alle})-P(\text{mehr als $k$ Ausf"alle})
+P_k(x)=P(\text{mindestens $k$ Ausfälle})-P(\text{mehr als $k$ Ausfälle})
 \]
-Die Wahrscheinlichkeit von mehr als $k$ Ausf"allen ist aber die Wahrscheinlichkeit
-von mindestens $k+1$ Ausf"allen, also
+Die Wahrscheinlichkeit von mehr als $k$ Ausfällen ist aber die Wahrscheinlichkeit
+von mindestens $k+1$ Ausfällen, also
 \begin{align*}
 P_k(x)
-&=P(\text{mindestens $k$ Ausf"alle})-P(\text{mindestens $k+1$ Ausf"alle})\\
+&=P(\text{mindestens $k$ Ausfälle})-P(\text{mindestens $k+1$ Ausfälle})\\
 &=F_k(x)-F_{k+1}(x)\\
 &=1-e^{-ax}\sum_{i=0}^{k-1}\frac{(ax)^i}{i!}-1+e^{-ax}\sum_{i=0}^{k}\frac{(ax)^i}{i!}\\
 &=e^{-ax}\frac{(ax)^k}{k!}
 \end{align*}
 Somit haben wir die Wahrscheinlichkeit berechnet, dass im betrachteten
 Intervall genau $k$ Bauteile versagen.
-Dies f"uhrt uns zur Definition der Poissonverteilung:
+Dies führt uns zur Definition der Poissonverteilung:
 \begin{definition} Die Poissonverteilung
 \[
 P_\lambda(k)=\frac{\lambda^k}{k!}e^{-\lambda}
 \]
-beschreibt f"ur $\lambda=ax$ die Wahrscheinlichkeit,
+beschreibt für $\lambda=ax$ die Wahrscheinlichkeit,
 dass in einem Zeitintervall $[0,x]$ genau $k$ Ereignisse eintreten, wenn
 die Zeit zwischen den Ereignissen exponentialverteilt ist mit Dichte
 $ae^{-ax}$.
@@ -178,7 +178,7 @@ $ae^{-ax}$.
 \index{Poissonverteilung!Varianz}
 \index{Erwartungswert!Poissonverteilung}
 \index{Varianz!Poissonverteilung}
-Mit Hilfe der geschlossenen Formel f"ur die Poissonverteilung kann man
+Mit Hilfe der geschlossenen Formel für die Poissonverteilung kann man
 jetzt auch Erwartungswert und Varianz berechnen:
 \begin{align*}
 E(X)
@@ -188,7 +188,7 @@ E(X)
 &=\lambda e^{-\lambda}\sum_{k=0}^\infty\frac{\lambda^k}{k!}\\
 &=\lambda e^{-\lambda}e^\lambda=\lambda\\
 \end{align*}
-F"ur $E(X^2)$ finden wir analog
+Für $E(X^2)$ finden wir analog
 \begin{align*}
 E(X^2)
 &=\sum_{k=0}^\infty k^2P_\lambda(k)\\
@@ -209,17 +209,17 @@ Die Poissonverteilung $P\lambda(k)$ hat Erwartungswert
 $E(X)=\lambda$ und Varianz $\operatorname{var}(X)=\lambda$.
 \end{satz}
 
-\subsubsection{Poissonverteilung als Approximation f"ur die Binomialverteilung}
+\subsubsection{Poissonverteilung als Approximation für die Binomialverteilung}
 \index{Poissonverteilung!Approximation der Binomialverteilung}
 Das folgende Experiment soll diese Anwendung motivieren: 18 mal werden zwei 
-W"urfel geworfen, und in einem $6\times 6$-Feld das Feld mit der
-erw"urfelten Zeilen- und Spalten-Nummer angekreuzt.
+Würfel geworfen, und in einem $6\times 6$-Feld das Feld mit der
+erwürfelten Zeilen- und Spalten-Nummer angekreuzt.
 Dabei muss man darauf
-achten, immer den gleichen W"urfel f"ur die Zeilen-Nummern zu verwenden.
-Dann wird ausgez"ahlt, wie viele Felder $k=0$, $k=1$, $k=2$,\dots\ Kreuze
+achten, immer den gleichen Würfel für die Zeilen-Nummern zu verwenden.
+Dann wird ausgezählt, wie viele Felder $k=0$, $k=1$, $k=2$,\dots\ Kreuze
 enthalten.
 
-Nat"urlich ist dies ein Bernoulli-Experiment.
+Natürlich ist dies ein Bernoulli-Experiment.
 Die Wahrscheinlichkeit, ein
 bestimmtes Feld anzukreuzen, ist $p=\frac{1}{36}$, das Experiment
 wird $18$ mal wiederholt.
@@ -229,20 +229,20 @@ angekreuzt wurde, ist durch die Binomialverteilung gegeben:
 P(k)=\binom{n}{k}p^k(1-p)^{n-k}.
 \]
 
-Leider ist dieser Ausdruck f"ur grosses $n$ schwierig auszurechnen.
+Leider ist dieser Ausdruck für grosses $n$ schwierig auszurechnen.
 Wir suchen also nach einer Approximation, die leichter auszuwerten ist.
-Dabei k"onnen wir nicht einfach $n\to\infty$ gehen lassen, denn die
-Wahrscheinlichkeit $P(k)$ w"urde dann auch anwachsen.
-Wir m"ussen
+Dabei können wir nicht einfach $n\to\infty$ gehen lassen, denn die
+Wahrscheinlichkeit $P(k)$ würde dann auch anwachsen.
+Wir müssen
 gleichzeitig die Wahrscheinlichkeit kleiner machen, so dass die Rate $\lambda$,
 mit der Kreuze gemacht werden, gleich bleibt.
 Im Experiment wird
-die H"alfte ($\lambda=\frac{18}{36}=\frac12$) der Felder angekreuzt.
-Die Wahrscheinlichkeit $p$ muss also mit $\lambda$ "uber die Formel
+die Hälfte ($\lambda=\frac{18}{36}=\frac12$) der Felder angekreuzt.
+Die Wahrscheinlichkeit $p$ muss also mit $\lambda$ über die Formel
 \[
 p=\frac{\lambda}{n}
 \]
-zusammenh"angen.
+zusammenhängen.
 
 \begin{figure}
 \begin{center}
@@ -264,12 +264,12 @@ $k$&Binomial&empirisch&Poisson&\\
 \end{tabular}
 \end{center}
 \caption{Wahrscheinlichkeit, in einem $6\times 6$-Feld nach 18-maligem
-zuf"alligem Ankreuzen eines Feldes gefunden Verteilung der Anzahl Kreuze.
-Die Spalte ganz rechts enth"alt die erwartet Anzahl Felder mit $k$ Kreuzen.
+zufälligem Ankreuzen eines Feldes gefunden Verteilung der Anzahl Kreuze.
+Die Spalte ganz rechts enthält die erwartet Anzahl Felder mit $k$ Kreuzen.
 \label{cross36}}
 \end{figure}
 
-Damit kann man jetzt die Approximation durchf"uhren:
+Damit kann man jetzt die Approximation durchführen:
 \begin{align*}
 \binom{n}{k}p^k(1-p)^{n-k}
 &=
@@ -286,10 +286,10 @@ Damit kann man jetzt die Approximation durchf"uhren:
 \cdot
 \biggl(1-\frac{\lambda}n\biggr)^{-k}
 \end{align*}
-F"ur $n\to\infty$ strebt der letzte Term gegen $1$.
+Für $n\to\infty$ strebt der letzte Term gegen $1$.
 Der zweitletzte Term strebt gegen $e^{-\lambda}$.
 Jeder der Faktoren $\frac{n-i}n$ strebt gegeben $1$, und es sind ja nur
-$k$ solche Faktoren, $k$ bleibt w"ahrend des Grenz"ubergangs unver"andert.
+$k$ solche Faktoren, $k$ bleibt während des Grenzübergangs unverändert.
 Daraus leiten wir ab:
 \[
 \lim_{n\to\infty} 
@@ -299,12 +299,12 @@ Daraus leiten wir ab:
 \]
 die Poisson-Verteilung zum Parameter $\lambda$.
 
-Wenden wir dies auf das urspr"ungliche Experiment an, also $n=36$,
+Wenden wir dies auf das ursprüngliche Experiment an, also $n=36$,
 $\lambda=0.5$, finden wir die Resultate in Tabelle~\ref{cross36}. 
-Die Abweichungen in der Spalte der empirischen Resultate kommt "ubrigens
-nicht daher, dass zu wenige Versuch gemacht worden w"aren, sondern daher,
-dass wir jeweils immer alle Felder ausgez"ahlt haben.
+Die Abweichungen in der Spalte der empirischen Resultate kommt übrigens
+nicht daher, dass zu wenige Versuch gemacht worden wären, sondern daher,
+dass wir jeweils immer alle Felder ausgezählt haben.
 Diese sind aber nicht
-unabh"angig.
-Die beim Ausz"ahlen des $6\times 6$-Feldes gefundenen Werte
-sind also gar nicht die Resultate von $n$ unabh"angigen Bernoulli-Experimenten.
+unabhängig.
+Die beim Auszählen des $6\times 6$-Feldes gefundenen Werte
+sind also gar nicht die Resultate von $n$ unabhängigen Bernoulli-Experimenten.

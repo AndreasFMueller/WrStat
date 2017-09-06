@@ -1,87 +1,87 @@
 %
 % schaetzen.tex -- Schaetzen
 %
-% (c) 2006-2015 Prof. Dr. Andreas M�ller
+% (c) 2006-2015 Prof. Dr. Andreas Müller
 %
-\rhead{Sch"atzen}
-\chapter{Sch"atzen} \label{chapter-schaetzen}
+\rhead{Schätzen}
+\chapter{Schätzen} \label{chapter-schaetzen}
 Aus der Erfahrung wissen wir, dass viele Experimente normalverteilte Resultate
 liefern.
-Aber selbst aus mehreren Messungen l"asst sich der Mittelwert
+Aber selbst aus mehreren Messungen lässt sich der Mittelwert
 oder die Varianz noch nicht exakt bestimmen,
 welche wie in Kapitel \ref{chapter-wahrscheinlichkeitsverteilung}
-beschrieben die Normalverteilung eindeutig bestimmen w"urden.
+beschrieben die Normalverteilung eindeutig bestimmen würden.
 Vielmehr zeigt das Gesetz der grossen Zahlen, dass erst eine
-relativ grosse Zahl von Messungen eine einigermassen zuverl"assige
+relativ grosse Zahl von Messungen eine einigermassen zuverlässige
 Bestimmung der Parameter der Verteilung gestattet.
-Daher braucht es spezielle Sch"atzverfahren, mit denen solche Parameter
-aus deutlich weniger Experimenten gesch"atzt werden k"onnen.
+Daher braucht es spezielle Schätzverfahren, mit denen solche Parameter
+aus deutlich weniger Experimenten geschätzt werden können.
 
-\section{Das Sch"atzproblem} \label{section-schaetzproblem}
+\section{Das Schätzproblem} \label{section-schaetzproblem}
 In bisherigen Beispielen sind wir bei der Bestimmung von Erwartungswert
 oder Varianz jeweils davon ausgegangen, dass einige bekannte Werte der
-Zufallsvariablen bereits eine repr"asentative Beschreibung der Zufallsvariablen
+Zufallsvariablen bereits eine repräsentative Beschreibung der Zufallsvariablen
 darstellen.
 Wir konnten also aus den Beobachtungen die Wahrscheinlichkeiten
-f"ur die beobachteten Werte ableiten und daraus direkt Erwartungswert
+für die beobachteten Werte ableiten und daraus direkt Erwartungswert
 und Varianz bestimmen.
 
-Dieses heuristische Vorgehen ist als erste N"aherung durchaus akzeptabel,
-und funktioniert f"ur den Erwartungswert auch optimal.
-F"ur die Varianz
+Dieses heuristische Vorgehen ist als erste Näherung durchaus akzeptabel,
+und funktioniert für den Erwartungswert auch optimal.
+Für die Varianz
 hingegen zeigt sich, dass die oben skizzierte, simplizistische Rechnung
-die Varianz vor allem bei kleinen Stichproben systematisch untersch"atzt.
-Damit stellt sich automatisch die Frage, wie denn "uberhaupt ein geeignetes
-Sch"atzverfahren f"ur eine Gr"osse wie die Varianz gefunden werden kann.
+die Varianz vor allem bei kleinen Stichproben systematisch unterschätzt.
+Damit stellt sich automatisch die Frage, wie denn überhaupt ein geeignetes
+Schätzverfahren für eine Grösse wie die Varianz gefunden werden kann.
 
 Etwas genauer geht es um folgendes Problem.
 Von einer gegebenen Zufallsvariable
 $X$ ist die Verteilung nicht bekannt, es wird angenommen, dass die
 Verteilungsfunktion die Form $F(x,\vartheta)$ hat, wobei
-$\vartheta$ ein vorl"aufig noch unbekannter Parameter ist.
+$\vartheta$ ein vorläufig noch unbekannter Parameter ist.
 Bei einer Normalverteilung sind dies zum Beispiel der Erwartungswert und
 die Varianz: $\vartheta=(\mu,\sigma^2)$.
 Nun wird das
-Experiment $n$ mal durchgef"uhrt, dadurch entstehen $n$ neue, unabh"angige
+Experiment $n$ mal durchgeführt, dadurch entstehen $n$ neue, unabhängige
 Zufallsvariable $(X_i)_{1\le i\le n}$, welche identisch verteilt sind zu
 $X$.
 
 \begin{definition}
 Eine Folge von Zufallsvariablen $(X_i)_{1\le i\le n}$ heisst eine
-Stichprobe der Zufallsvariablen $X$, wenn die $X_i$ unabh"angig 
+Stichprobe der Zufallsvariablen $X$, wenn die $X_i$ unabhängig 
 und identisch zu $X$ verteilt.
 \end{definition}
 Das Problem besteht nun darin, die Parameterwerte $\vartheta$
 aus den gefundenen Werten $X_1,\dots,X_n$ zu finden.
 Man braucht dazu
-eine sogenannten Sch"atzer, eine Funktion, die $\vartheta$ aus den
+eine sogenannten Schätzer, eine Funktion, die $\vartheta$ aus den
 Beobachtungen bildet: $\vartheta=\vartheta(X_1,\dots,X_n)$.
 
-Bei der Konstruktion eines Sch"atzverfahrens kann man sich von verschiedenen,
+Bei der Konstruktion eines Schätzverfahrens kann man sich von verschiedenen,
 teils nicht kompatiblen Prinzipien leiten lassen, und man wird verschiedene
-``vern"unftige'' Eigenschaften von den Sch"atzern fordern wollen:
+``vernünftige'' Eigenschaften von den Schätzern fordern wollen:
 \begin{enumerate}
-\item {\bf Konsistent:} Vergr"ossert man die Stichprobe, soll der
-Sch"atzer gegen den wahren Wert des Parameters streben, also
+\item {\bf Konsistent:} Vergrössert man die Stichprobe, soll der
+Schätzer gegen den wahren Wert des Parameters streben, also
 $\lim_{n\to\infty}\vartheta(X_1,\dots,X_n)=\vartheta$.
 \item {\bf Erwartungstreu:} Da die $X_i$ auch wieder Zufallsvariable sind,
 kann man den Erwartungswert von $\vartheta(X_1,\dots,X_n)$ bilden. 
-Das Verfahren ist besonders vertrauensw"urdig, wenn dieser Erwartungswert
-mit dem wahren Wert des Parameters "ubereinstimmt.
-\item {\bf Minimaler Fehler:} Selbst wenn der Sch"atzwert im Mittel den
-richtigen Parameterwert liefert, m"ochten wir doch, dass dies mit m"oglichst
+Das Verfahren ist besonders vertrauenswürdig, wenn dieser Erwartungswert
+mit dem wahren Wert des Parameters übereinstimmt.
+\item {\bf Minimaler Fehler:} Selbst wenn der Schätzwert im Mittel den
+richtigen Parameterwert liefert, möchten wir doch, dass dies mit möglichst
 geringem Fehler passiert, so dass auch eine einzelne Bestimmung des
-Parameters bereits grosse Zuverl"assigkeit geniesst.
+Parameters bereits grosse Zuverlässigkeit geniesst.
 Der mittlere
 quadratische Fehler, der im Zusammenhang mit dem Erwartungswert bereits
 einmal diskutiert wurde, kann hier als Prinzip zur Konstruktion von
-Sch"atzern erhoben werden.
+Schätzern erhoben werden.
 \item {\bf ``Am Wahrscheinlichsten'':} Ein etwas anderes Prinzip der 
-Konstruktion eines Sch"atzers besteht darin, die Beobachtungen $X_1,\dots,X_n$
+Konstruktion eines Schätzers besteht darin, die Beobachtungen $X_1,\dots,X_n$
 in die Dichtefunktion der Verteilung einzusetzen und denjenigen Parameterwert
-zu w"ahlen, der diese Funktion maximiert.
+zu wählen, der diese Funktion maximiert.
 Diese sogenannten
-``maximum likelihood'' Sch"atzer sind oft vern"unftig, haben interessante
+``maximum likelihood'' Schätzer sind oft vernünftig, haben interessante
 asymptotische Eigenschaften, sind aber manchmal nicht erwartungstreu.
 \end{enumerate}
 
@@ -90,87 +90,87 @@ Fehler technisch oft nur schwer umzusetzen ist.
 Trotzdem liefert das verwandte
 Prinzip der kleinsten Quadrate, welches wir schon bei der Charakterisierung
 des Erwartungswertes mit Hilfe der Varianz und bei der Regression 
-getroffen haben, manchmal n"utzliche Vorschl"age f"ur geeignete
-Sch"atzer.
+getroffen haben, manchmal nützliche Vorschläge für geeignete
+Schätzer.
 
-Sobald ein Sch"atzverfahren festgelegt ist, muss man sich mit der Frage der
-Zuverl"assigkeit des Verfahrens auseinandersetzen.
-Da das Sch"atzverfahren
+Sobald ein Schätzverfahren festgelegt ist, muss man sich mit der Frage der
+Zuverlässigkeit des Verfahrens auseinandersetzen.
+Da das Schätzverfahren
 auch ``nur'' eine Zufallsvariable ist, wird es den Parameter auch nur
-mit einer gewissen Unsicherheit liefern k"onnen.
+mit einer gewissen Unsicherheit liefern können.
 Es stellt sich damit
-automatisch die Frage nach der Gr"osse einer m"oglichen Abweichung.
+automatisch die Frage nach der Grösse einer möglichen Abweichung.
 Eine Antwort darauf gibt das sogenannte Konfidenzintervall, ein
 Intervall, in dem sich der wahre Wert des Parameters mit einer gewissen
 Wahrscheinlichkeit befindet.
 
-In diesem Kapitel betrachten wir zun"achst die bereits bekannten 
-Sch"atzer f"ur den Erwartungswert und die Varianz, und untersuchen
+In diesem Kapitel betrachten wir zunächst die bereits bekannten 
+Schätzer für den Erwartungswert und die Varianz, und untersuchen
 sie daraufhin, ob sie erwartungstreu sind.
 In den Abschnitten \ref{section-maximum-likelihood-schaetzer}
 und \ref{section-weitere-beispiele-von-schaetzern} wird an einigen
-Beispielen gezeigt, wie man Sch"atzer nach dem
+Beispielen gezeigt, wie man Schätzer nach dem
 Maximum-Likelihood-Prinzip konstruieren kann.
 In \ref{section-verteilung-der-schaetzwerte}
-wird die Verteilung der Sch"atzer studiert, eine Grundlage, damit
+wird die Verteilung der Schätzer studiert, eine Grundlage, damit
 anschliessend in \ref{section-konfidenzintervalle} Konfidenzintervall
-f"ur die gesch"atzen Werte konstruiert werden k"onnen.
+für die geschätzen Werte konstruiert werden können.
 
-\section{Konsistente Sch"atzer} \label{section-konsistente-schaetzer}
-Der Mittelwert der Stichprobe ist ein konsistenter Sch"atzer,
+\section{Konsistente Schätzer} \label{section-konsistente-schaetzer}
+Der Mittelwert der Stichprobe ist ein konsistenter Schätzer,
 denn nach Bernoulllis Gesetz der grossen Zahlen gilt
 \begin{equation}
 \lim_{n\to\infty}\frac{X_1+\dots+X_n}{n}=E(X).
 \end{equation}
 \begin{definition}
-Der Sch"atzer
+Der Schätzer
 \begin{equation}
 \bar X=\frac{X_1+\dots+X_n}{n}
 \end{equation}
 heisst der Stichprobenmittelwert der Stichprobe $X_1,\dots,X_n$.
 \end{definition}
-Ganz analog kann gezeigt werden, dass die Sch"atzformel f"ur die
-Varianz ebenfalls ein konsistenter Sch"atzer ist.
+Ganz analog kann gezeigt werden, dass die Schätzformel für die
+Varianz ebenfalls ein konsistenter Schätzer ist.
 
-\section{Erwartungstreue Sch"atzer} \label{section-erwartungstreue-schaetzer}
+\section{Erwartungstreue Schätzer} \label{section-erwartungstreue-schaetzer}
 Nach \ref{section-konsistente-schaetzer} ist der Stichprobenmittelwert
-ein konsistenter Sch"atzer,
+ein konsistenter Schätzer,
 aber er ist sogar erwartungstreu:
 \[
 E(\mu(X_1,\dots,X_n))=\frac{E(X_1)+\dots+E(X_n)}{n}=\frac{E(X)+\dots+E(X)}{n}
 =E(X),
 \]
-der Mittelwert ist also durchaus ein Sch"atzer mit ``guten'' Eigenschaften.
+der Mittelwert ist also durchaus ein Schätzer mit ``guten'' Eigenschaften.
 
-F"ur die Sch"atzung der Varianz wurde bisher aus beobachteten Werten
+Für die Schätzung der Varianz wurde bisher aus beobachteten Werten
 $(x_i)_{1\le i\le n}$ der Zufallsvariable der Ausdruck
 \begin{equation}
 \frac1n\sum_{i=1}^n x_i^2-\biggl(\frac1n\sum_{i=1}^nx_i\biggr)^2
 \end{equation}
 verwendet.
-Dem entspricht die Sch"atzformel
+Dem entspricht die Schätzformel
 \begin{equation}
 V=f(X_1,\dots,X_n)=\frac1n\sum_{i=1}^nX_i^2-\biggl(\frac1n\sum_{i=1}^nX_i\biggr)^2.
 \label{schaetzer-sstern}
 \end{equation}
-Die Zufallsvariable $V$ soll angeblich die Varianz m"oglichst gut
+Die Zufallsvariable $V$ soll angeblich die Varianz möglichst gut
 wiedergeben, also sollte auch der Erwartungswert von $V$ mit der Varianz
-"ubereinstimmen.
+übereinstimmen.
 
 Ein numerisches Experiment zeigt jedoch ein anderes Bild.
 In einer
 Simulation wurde jeweils 10000 mal die Varianz einer kleinen Anzahl von
-standardnormalverteilten Zufallsvariablen mit obiger Sch"atzformel ermittelt.
+standardnormalverteilten Zufallsvariablen mit obiger Schätzformel ermittelt.
 In der Tabelle~\ref{varianzschaetzung} sind die Resultate von acht
-L"aufen dieser Simulation untereinander dargestellt.
+Läufen dieser Simulation untereinander dargestellt.
 Man kann gut erkennen, 
-dass die Sch"atzformel f"ur geringe Anzahlen von Werten, also f"ur kleine
+dass die Schätzformel für geringe Anzahlen von Werten, also für kleine
 $n$, deutlich falsch liegt.
 Statt dem wahren Wert $1$ der Varianz
 werden Werte gefunden, die deutlich kleiner sind, die Zahlenwerte
-suggerieren, dass die Sch"atzformel statt $1$ im Mittel den Wert
+suggerieren, dass die Schätzformel statt $1$ im Mittel den Wert
 $\frac{n-1}n$ liefert.
-Dies ist ein Indiz, dass die Sch"atzformel nicht
+Dies ist ein Indiz, dass die Schätzformel nicht
 erwartungstreu ist.
 
 \begin{table}
@@ -196,7 +196,7 @@ $\frac{n-1}{n}$&0.500&0.667&0.750&0.800&0.833&0.857&0.875&0.889&0.900\\
 Werten einer standardnormalverteilten Zufallsvariable\label{varianzschaetzung}}
 \end{table}
 
-Das dies tats"achlich so ist wird deutlich, wenn wir den
+Das dies tatsächlich so ist wird deutlich, wenn wir den
 Erwartungswert von $V$ berechnen:
 \begin{align*}
 E(V)
@@ -222,7 +222,7 @@ E\biggl(
 \end{align*}
 Nun sind aber alle Zufallsvariable $X_i$ identisch verteilt, insbesondere
 sind alle Erwartungswerte der $X_i$ und der $X_i^2$ jeweils identisch,
-wir k"onnen also die Indizes weglassen:
+wir können also die Indizes weglassen:
 \begin{align*}
 E(V)
 &=
@@ -234,11 +234,11 @@ E(V)
 &=
 \frac{n-1}{n}(E(X^2) -E(X)^2)=\frac{n-1}n\operatorname{var}(X).
 \end{align*}
-Folglich ist der Sch"atzer $V$ f"ur kleine Stichproben eine schlechte
+Folglich ist der Schätzer $V$ für kleine Stichproben eine schlechte
 Wahl, man muss erwarten, dass er einen zu kleinen Wert liefert.
 Es
-w"are besser, ihn mit $\frac{n}{n-1}$ zu multiplizieren, denn der so
-gebildete Sch"atzer hat als Erwartungswert wie gew"unscht die Varianz.
+wäre besser, ihn mit $\frac{n}{n-1}$ zu multiplizieren, denn der so
+gebildete Schätzer hat als Erwartungswert wie gewünscht die Varianz.
 
 \begin{definition}
 Ist $X_i$ eine Stichprobe von $X$, dann heisst
@@ -248,57 +248,57 @@ S^2=\frac1{n-1}\sum_{i=1}^n (X_i -\bar X)^2
 die {\em Stichprobenvarianz} von $X$.
 \end{definition}
 
-\begin{satz}Die Stichprobenvarianz ist ein erwartungstreuer Sch"atzer
-f"ur die Varianz einer Zufallsvariable.
+\begin{satz}Die Stichprobenvarianz ist ein erwartungstreuer Schätzer
+für die Varianz einer Zufallsvariable.
 \end{satz}
 
-Dem Sch"atzer
+Dem Schätzer
 \begin{equation}
 S^{*}\mathstrut^{2}=\frac1n\sum_{i=1}^n(X_i-\mu)^2
 \end{equation}
-f"ur die Varianz fehlt nicht viel zu einem erwartungstreuen Sch"atzer,
-er unterscheidet sich vom eben gefundenen besseren Sch"atzer
+für die Varianz fehlt nicht viel zu einem erwartungstreuen Schätzer,
+er unterscheidet sich vom eben gefundenen besseren Schätzer
 \begin{equation}
 S^2=\frac1{n-1}\sum_{i=1}^n(X_i-\bar X)^2
 \end{equation}
 nur durch einen Faktor $\frac{n}{n-1}$.
-F"ur eine kleine Stichprobe ist
-der bisherige Sch"atzer also nicht erwartungstreu, aber je gr"osser $n$
+Für eine kleine Stichprobe ist
+der bisherige Schätzer also nicht erwartungstreu, aber je grösser $n$
 wird, desto kleiner wird die Abweichung von der Erwartungstreue.
 Man
-nennt $S^{*}\mathstrut^{2}$ einen asymptotisch erwartungstreuen Sch"atzer:
+nennt $S^{*}\mathstrut^{2}$ einen asymptotisch erwartungstreuen Schätzer:
 \begin{definition}
-Ein Sch"atzer $\vartheta(X_1,\dots,X_n)$ heisst asymptotisch erwartungstreu,
+Ein Schätzer $\vartheta(X_1,\dots,X_n)$ heisst asymptotisch erwartungstreu,
 wenn
 \begin{equation}
 \lim_{n\to\infty}E(\vartheta(X_1,\dots,X_n))=\vartheta.
 \end{equation}
 \end{definition}
 
-\section{Maximum-Likelihood-Sch"atzer} \label{section-maximum-likelihood-schaetzer}
+\section{Maximum-Likelihood-Schätzer} \label{section-maximum-likelihood-schaetzer}
 \subsection{Stetige Verteilung}
-Ein weiteres Prinzip, welches ``vern"unftige'' Sch"atzer liefert,
+Ein weiteres Prinzip, welches ``vernünftige'' Schätzer liefert,
 ist das Maximum-Likelihood-Prinzip.
 Ist $X$ eine Zufallsvariable, deren
 Verteilung eine Dichtefunktion $f(x,\vartheta)$ mit einem unbekannten
-Parameter $\vartheta$ besitzt. $\vartheta$ soll gesch"atzt werden.
+Parameter $\vartheta$ besitzt. $\vartheta$ soll geschätzt werden.
 Wir bilden daraus die Likelihood-Funktion
 \begin{equation}
 L(x_1,\dots,x_n;\vartheta)=f(x_1,\vartheta)\cdots f(x_n,\vartheta),
 \label{likelihood-funktion}
 \end{equation}
-also die $n$-dimensionale Dichtefunktion f"ur die durch $n$-malige 
+also die $n$-dimensionale Dichtefunktion für die durch $n$-malige 
 Beobachtung entstehende Stichprobe $X_1,\dots,X_n$, bestehend aus
-unabh"angigen, identisch zu $X$ verteilten Zufallsvariablen.
-Die Likelihood-Funktion wird um so gr"osser, je wahrscheinlicher
-es ist, die Werte der Stichprobe in einem $n$-dimensionalen W"urfel
+unabhängigen, identisch zu $X$ verteilten Zufallsvariablen.
+Die Likelihood-Funktion wird um so grösser, je wahrscheinlicher
+es ist, die Werte der Stichprobe in einem $n$-dimensionalen Würfel
 $dx_1\,dx_2\dots dx_n$ zu finden.
 Das Maximum-Likelihood-Prinzip
-verlangt nun, dass man als Sch"atzwert f"ur $\vartheta$ jenen Wert
-w"ahlt, der die Likelihood-Funktion maximiert.
+verlangt nun, dass man als Schätzwert für $\vartheta$ jenen Wert
+wählt, der die Likelihood-Funktion maximiert.
 
 \begin{definition}
-$\vartheta(X_1,\dots,X_n)$ heisst Maximum-Likelihood-Sch"atzer f"ur
+$\vartheta(X_1,\dots,X_n)$ heisst Maximum-Likelihood-Schätzer für
 $\vartheta$, wenn die Likelihood-Funktion (\ref{likelihood-funktion})
 maximal wird:
 \begin{equation}
@@ -307,7 +307,7 @@ L(X_1,\dots,X_n;\vartheta(X_1,\dots,X_n)) \ge L(X_1,\dots,X_n;t)\quad\forall t.
 \end{definition}
 
 Um das Prinzip zu illustrieren, berechnen wir den
-Maximum-Likelihood-Sch"atzer f"ur den Erwartungswert
+Maximum-Likelihood-Schätzer für den Erwartungswert
 einer normalverteilten Zufallsvariable.
 Die Dichtefunktion ist 
 \[
@@ -324,7 +324,7 @@ Zu den gegebenen $X_1,\dots,X_n$ muss nun $\vartheta$ so gefunden
 werden, dass die Likelihood-Funktion
 (\ref{likelihood-funktion-normalverteilung}) maximiert wird.
 Dies geschieht offensichtlich genau dann, wenn die Summe im Exponenten
-ihren kleinsten Wert annimmt, wir m"ussen also ein Minimum von
+ihren kleinsten Wert annimmt, wir müssen also ein Minimum von
 \begin{equation}
 \sum_{i=1}^n (x_i-\vartheta)^2
 \end{equation}
@@ -341,48 +341,48 @@ was genau dann verschwindet, wenn der Klammerausdruck $=0$ ist, also
 \vartheta=\frac1n\sum_{i=1}^nx_i.
 \end{equation}
 Der altbekannte Mittelwert einer Stichprobe ist also auch der
-Maximum Likelihood Sch"atzer f"ur den Erwartungswert einer normalverteilten
+Maximum Likelihood Schätzer für den Erwartungswert einer normalverteilten
 Zufallsvariable.
 \begin{satz}
-Der Stichprobenmittelwert ist der Maximum-Likelihood-Sch"atzer
-f"ur den Erwartungswert einer normalverteilten Zufallsvariable.
+Der Stichprobenmittelwert ist der Maximum-Likelihood-Schätzer
+für den Erwartungswert einer normalverteilten Zufallsvariable.
 \end{satz}
 Nach demselben Muster kann man aus die Stichprobenvarianz $S^2$ als
-Maximum-Likelihood-Sch"atzer konstruieren.
+Maximum-Likelihood-Schätzer konstruieren.
 
 \subsection{Diskrete Verteilung}
-Das Maximum-Likelihood-Prinzip L"asst sich auch bei diskreten Verteilungen
+Das Maximum-Likelihood-Prinzip Lässt sich auch bei diskreten Verteilungen
 anwenden.
 Anstelle der Dichtefunktion treten die Wahrscheinlichkeiten
-$p(x, \vartheta)$, welche nur f"ur eine diskrete Menge von $x$-Werten
+$p(x, \vartheta)$, welche nur für eine diskrete Menge von $x$-Werten
 von $0$ verschieden sind.
 Die Likelihood-Funktion ist dann
 \begin{equation}
 L(x_1,\dots,x_n;\vartheta)=p(x_1,\vartheta)\dots p(x_n,\vartheta),
 \label{likelihood-funktion-diskret}
 \end{equation}
-und die Konstruktion des Maximum-Likelihood-Sch"atzers l"asst sich genau
+und die Konstruktion des Maximum-Likelihood-Schätzers lässt sich genau
 wie im stetigen Fall durchziehen.
 
 Als Beispiel betrachten wir eine Zufallsvariable $X$ mit Werten $0$ und
 $1$, wobei $1$ mit der Wahrscheinlichkeit $p$ angenommen wird,
-und versuchen, den Parameter $p$ zu sch"atzen.
+und versuchen, den Parameter $p$ zu schätzen.
 Die Wahrscheinlichkeit
-f"ur den Wert $0$ ist $1-p$.
-Daraus l"asst sich die Likelihood-Funktion konstruieren
+für den Wert $0$ ist $1-p$.
+Daraus lässt sich die Likelihood-Funktion konstruieren
 \begin{equation}
 L(k_1,\dots,k_n;p)=p^{\sum_{i=1}^nk_i}(1-p)^{n-\sum_{i=1}^nk_i},
 \label{likelihood-funktion-p}
 \end{equation}
-wobei die $k_i$ nur die Werte $0$ und $1$ annehmen k"onnen.
+wobei die $k_i$ nur die Werte $0$ und $1$ annehmen können.
 Die Summe 
-$K=\sum_{i=1}^nk_i$ ist die Anzahl der F"alle, in denen der Wert $1$
+$K=\sum_{i=1}^nk_i$ ist die Anzahl der Fälle, in denen der Wert $1$
 angenommen wurde.
 Nach dem Maximum-Likelihood-Prinzip ist $p$ so zu bestimmen,
 dass die Likelihood-Funktion
 (\ref{likelihood-funktion-p})
 maximal wird.
-Dabei bleibt $K$ unver"andert, es ist also der Ausdruck
+Dabei bleibt $K$ unverändert, es ist also der Ausdruck
 \begin{equation}
 f(p)=p^K(1-p)^{n-K}
 \label{p-schaetzer-funktion}
@@ -396,27 +396,27 @@ Nach Division durch $p^{K-1}(1-p)^{n-K-1}$ wird daraus
 \begin{equation}
 K(1-p)-(n-K)p=K-np=0.
 \end{equation}
-Diese Gleichung kann man nach $p$ aufl"osen: $p=K/n$.
-Somit ist die relative H"aufigkeit der Maximum-Likelihood-Sch"atzer
-f"ur die Wahrscheinlichkeit $p$.
+Diese Gleichung kann man nach $p$ auflösen: $p=K/n$.
+Somit ist die relative Häufigkeit der Maximum-Likelihood-Schätzer
+für die Wahrscheinlichkeit $p$.
 \begin{satz}
-Der Stichprobenmittelwert ist der Maximum-Likelihood-Sch"atzer
-f"ur die Wahrscheinlichkeit $p$ eines
+Der Stichprobenmittelwert ist der Maximum-Likelihood-Schätzer
+für die Wahrscheinlichkeit $p$ eines
 positiven Ausgangs eines Bernoulliexperimentes.
 \end{satz}
 
-\section{Weitere Beispiele von Sch"atzern} \label{section-weitere-beispiele-von-schaetzern}
-\subsection{L"ange eines Intervalls}
+\section{Weitere Beispiele von Schätzern} \label{section-weitere-beispiele-von-schaetzern}
+\subsection{Länge eines Intervalls}
 Von der Zufallsvariable $X$ ist bekannt, dass sie im Intervall $[0,\vartheta]$
 gleichverteilt ist.
-Der Parameter $\vartheta$ soll gesch"atzt werden.
+Der Parameter $\vartheta$ soll geschätzt werden.
 Offensichtlich ist $\vartheta \ge \max(X_1,\dots,X_n)$,
 aber $T=\max(X_1,\dots,X_n)$ ist fast sicher kleiner als der wahre
-Wert von $\vartheta$, wir k"onnen also nicht erwarten, dass $T$ ein
-erwartungstreuer Sch"atzer ist.
+Wert von $\vartheta$, wir können also nicht erwarten, dass $T$ ein
+erwartungstreuer Schätzer ist.
 
-In der Hoffnung, sp"ater einen erwartungstreuen Sch"atzer konstruieren
-zu k"onnen, berechnen wir den Erwartungswert von $T$.
+In der Hoffnung, später einen erwartungstreuen Schätzer konstruieren
+zu können, berechnen wir den Erwartungswert von $T$.
 Die Verteilungsfunktion von $X$ auf dem Intervall $[0,\vartheta]$ ist
 \begin{equation}
 F(x)=P(X\le x)= \frac{x}{\vartheta}.
@@ -449,22 +449,22 @@ E(\max(X_1,\dots,X_n))
 &=
 \frac{n}{n+1}\vartheta,
 \end{align*}
-bis auf den Faktor $\frac{n}{n+1}$ ist das genau die gesuchte Intervalll"ange.
+bis auf den Faktor $\frac{n}{n+1}$ ist das genau die gesuchte Intervalllänge.
 \begin{satz}
 Ist $X_i$ eine Stichprobe einer auf dem Intervall $[0,\vartheta]$
 gleichverteilten Zufallsvariable $X$, dann ist
 \begin{equation}
 \vartheta(X_1,\dots,X_n)=\frac{n+1}{n}\max(X_1,\dots, X_n)
 \end{equation}
-eine erwartungstreuer Sch"atzer f"ur die Intervalll"ange $\vartheta$.
+eine erwartungstreuer Schätzer für die Intervalllänge $\vartheta$.
 \end{satz}
 
-\subsection{Sch"atzung des Parameters \texorpdfstring{$\lambda$}{lambda} einer Poissonverteilung}
+\subsection{Schätzung des Parameters \texorpdfstring{$\lambda$}{lambda} einer Poissonverteilung}
 Die Zufallsvariable $X$ sei poissonverteilt, d.~h.
 \begin{equation}
 p(k, \lambda)=\frac{\lambda^k}{k^!}e^{-\lambda}.
 \end{equation}
-Der Parameter $\lambda$ soll aus einer Stichprobe gesch"atzt werden.
+Der Parameter $\lambda$ soll aus einer Stichprobe geschätzt werden.
 Dazu bilden wir die Likelihood Funktion
 \begin{equation}
 L(k_1,\dots k_n;\lambda)=\frac{\lambda^{k_1+\dots+k_n}}{k_1!\dotsm k_n!}
@@ -488,13 +488,13 @@ Die Ableitung verschwindet genau dann, wenn der Klammerausdruck in
 \begin{equation}
 \lambda(k_1,\dots,k_n) =\frac1n\sum_{i=1}^nk_i
 \end{equation}
-der Maximum Likelihood Sch"atzer f"ur $\lambda$.
+der Maximum Likelihood Schätzer für $\lambda$.
 Offensichtlich ist er
 konsistent und erwartungstreu.
 
-\subsection{Sch"atzung von \texorpdfstring{$p$}{p} in einer Binomialverteilung}
+\subsection{Schätzung von \texorpdfstring{$p$}{p} in einer Binomialverteilung}
 Von der Zufallsvariablen $X$ sei bekannt, dass sie binomialverteilt ist
-mit Parameter $(m, p)$, der Parameter $p$ ist zu sch"atzen.
+mit Parameter $(m, p)$, der Parameter $p$ ist zu schätzen.
 Die Likelihood-Funktion ist in diesem Fall
 \begin{equation}
 L(k_1,\dots,k_n;p)=\biggl(\prod_{i=1}^n\binom{m}{k_i}\biggr)
@@ -503,7 +503,7 @@ p^{K}(1-p)^{nm-K},
 \end{equation}
 wobei wir wieder $K=\sum_{i=1}^nk_i$ setzen. 
 Das grosse Produkt in (\ref{binomial-likelihood-funktion})
-ist nur ein konstanter Faktor, den wir mit $P$ abk"urzen
+ist nur ein konstanter Faktor, den wir mit $P$ abkürzen
 \begin{equation}
 P= \prod_{i=1}^n\binom{m}{k_i}
 \end{equation}
@@ -512,7 +512,7 @@ Die Ableitung von (\ref{binomial-likelihood-funktion}) ist
 \frac{d}{dp}L(k_1,\dots,k_n;p)=P
 \bigl(Kp^{K-1}(1-p)^{nm-K}-(nm-K)p^K(1-p)^{nm-K-1}\bigr)=0.
 \end{equation}
-Der zweite Klammerausdruck l"asst sich vereinfachen zu
+Der zweite Klammerausdruck lässt sich vereinfachen zu
 \[
 (K(1-p)-(nm-K)p)p^{K-1}(1-p)^{nm-K-1}=
 (K-nmp)p^{K-1}(1-p)^{nm-K-1}=0
@@ -522,55 +522,55 @@ Somit ist
 \begin{equation}
 p(k_1,\dots,k_n)=\frac1{nm}\sum_{i=1}^nk_i
 \end{equation}
-der Maximum-Likelihood-Sch"atzer f"ur $p$.
+der Maximum-Likelihood-Schätzer für $p$.
 Offensichtlich ist er konsistent
 und erwartungstreu.
 \begin{satz}
-Ein erwartungstreuer Sch"atzer f"ur die Wahrscheinlichkeit einer
+Ein erwartungstreuer Schätzer für die Wahrscheinlichkeit einer
 Binomialverteilung $\operatorname{Bin}(m,k,p)$ ist
 $\frac1{m}\bar X$.
 \end{satz}
 
-\section{Verteilung der Sch"atzwerte} \label{section-verteilung-der-schaetzwerte}
-Sch"atzwerte entstehen dadurch, dass die Werte einer Stichprobe, also
-gewisse Realisierungen von Zufallsvariablen in die Sch"atzfunktion
+\section{Verteilung der Schätzwerte} \label{section-verteilung-der-schaetzwerte}
+Schätzwerte entstehen dadurch, dass die Werte einer Stichprobe, also
+gewisse Realisierungen von Zufallsvariablen in die Schätzfunktion
 eingesetzt werden.
-Somit sind die Sch"atzwerte selbst wieder Zufallsvariablen,
+Somit sind die Schätzwerte selbst wieder Zufallsvariablen,
 und es stellt sich die Frage, welcher Verteilung sie gehorchen.
 
-F"ur einen Spezialfall haben wir uns um diese Problem bereits gek"ummert.
-Bei der Sch"atzung der Intervalll"ange haben wir die Verteilungsfunktion
-des Sch"atzwertes bestimmt, um einen erwartungstreuen Sch"atzer konstruieren
-zu k"onnen.
+Für einen Spezialfall haben wir uns um diese Problem bereits gekümmert.
+Bei der Schätzung der Intervalllänge haben wir die Verteilungsfunktion
+des Schätzwertes bestimmt, um einen erwartungstreuen Schätzer konstruieren
+zu können.
 
-Ein anderer Spezialfall ist die Sch"atzung der Parameter einer normalverteilten
+Ein anderer Spezialfall ist die Schätzung der Parameter einer normalverteilten
 Zufallsvariable.
 Die Stichprobenelemente $X_i$ sind alle normalverteilt
 mit dem gleichen Erwartungswert und der gleichen Varianz wie $X$. 
-Somit ist der Sch"atzwert f"ur den Erwartungswert
+Somit ist der Schätzwert für den Erwartungswert
 $\bar X$
 ebenfalls normalverteilt mit Erwartungswert $E(X)$ (wir wissen ja bereits,
-dass dieser Sch"atzer erwartungstreu ist), und Varianz
+dass dieser Schätzer erwartungstreu ist), und Varianz
 $\frac1n\operatorname{var}(X)$.
 Wie ist der
-Sch"atzwert f"ur die Stichprobenvarianz
+Schätzwert für die Stichprobenvarianz
 $S^2=$
-verteilt? Dazu gibt der folgende, vielleicht etwas "uberraschende Satz Auskunft.
+verteilt? Dazu gibt der folgende, vielleicht etwas überraschende Satz Auskunft.
 \begin{satz}
-Seien $X_1,\dots,X_n$ unabh"angige, normalverteilte Zufallsvariablen mit
+Seien $X_1,\dots,X_n$ unabhängige, normalverteilte Zufallsvariablen mit
 Erwartungswert $\mu$ und Varianz $\sigma^2$.
 Dann gilt
 \begin{enumerate}
-\item $\bar X$ und $S^2$ sind unabh"angig.
+\item $\bar X$ und $S^2$ sind unabhängig.
 \item $\bar X$ ist normalverteilt mit Erwartungswert $\mu$ und Varianz
 $\frac{\sigma^2}{n}$.
 \item $\frac{n-1}{\sigma^2}S^2$ ist $\chi^2_{n-1}$-verteilt.
 \end{enumerate}
 \end{satz}
 \begin{proof}[Beweis]
-Wir beweisen zun"achst die Unabh"angigkeit mit Hilfe der momenterzeugenden
+Wir beweisen zunächst die Unabhängigkeit mit Hilfe der momenterzeugenden
 Funktion.
-Zun"achst gilt
+Zunächst gilt
 \begin{equation}
 M_{X_i}(t_i)=\exp\biggl(\mu t_i+\frac{\sigma^2t_i^2}2\biggr).
 \end{equation}
@@ -607,7 +607,7 @@ M_{X_n}\biggl(s_n-\bar s+\frac{r}{n}\biggr)
 M_{U,V}(0,\dots,0,r)M_{U,V}(s_1,\dots,s_n,0)
 \nonumber
 \end{align}
-In (\ref{umformung-mittelwert}) haben wir folgende zwei Identit"aten verwendet:
+In (\ref{umformung-mittelwert}) haben wir folgende zwei Identitäten verwendet:
 \begin{align}
 \sum_{i=1}^n(s_i-\bar s)
 &=
@@ -631,14 +631,14 @@ In (\ref{umformung-mittelwert}) haben wir folgende zwei Identit"aten verwendet:
 \sum_{i=1}^n(s_i-\bar s)^2+\frac{r^2}{n} \label{si-varianz}
 \end{align}
 Da sich die gemeinsame momenterzeugende Funktion faktorisieren
-l"asst, sind die Zufallsvariablen $U_i$ und $V$ unabh"angig,
-und damit nat"urlich auch $S^2=\frac1{n-1}(U_1^2+\dots+U_n^2)$ und
+lässt, sind die Zufallsvariablen $U_i$ und $V$ unabhängig,
+und damit natürlich auch $S^2=\frac1{n-1}(U_1^2+\dots+U_n^2)$ und
 $\bar X=V$.
 
-Die Verteilung von $\bar X$ wurde bereits fr"uher bestimmt, und bei
+Die Verteilung von $\bar X$ wurde bereits früher bestimmt, und bei
 dieser Gelegenheit alles im zweiten Punkt behauptete nachgerechnet.
 
-Da nach obigem die Zufallsvariablen $Z_i=(X_i-\mu)/\sigma$ unabh"angig
+Da nach obigem die Zufallsvariablen $Z_i=(X_i-\mu)/\sigma$ unabhängig
 standardnormalverteilt sind, ist deren Quadratsumme
 \begin{equation}
 T=\sum_{i=1}^nZ_i^2=\sum_{i=1}^n\frac{(X_i-\mu)^2}{\sigma^2}
@@ -651,7 +651,7 @@ W=Z^2=\frac{n(\bar X-\mu)^2}{\sigma^2}
 \end{equation}
 $\chi^2_1$-verteilt.
 Wir setzen $Y=(n-1)S^2/\sigma^2$.
-$W$ und $Y$ sind nach dem eben Bewiesenen unabh"angig.
+$W$ und $Y$ sind nach dem eben Bewiesenen unabhängig.
 Wir behaupten
 \[
 T=W+Y.
@@ -674,7 +674,7 @@ W+Y
 Im letzten Schritt (\ref{wy-chi2}) haben wir den Hilfssatz
 \ref{hilfssatz-varianz-mittelwert}
 weiter unten verwendet.
-F"ur die momenterzeugenden Funktionen bedeutet dies
+Für die momenterzeugenden Funktionen bedeutet dies
 \begin{equation}
 M_T(t)=M_W(t)M_Y(t)
 \end{equation}
@@ -689,13 +689,13 @@ Somit ist $Y$ $\chi_{n-1}^2$ verteilt, wie behauptet.
 
 \begin{hilfssatz}
 \label{hilfssatz-varianz-mittelwert}
-Seien $(x_i)_{1\le i\le n}$ reelle Zahlen und $\bar x$ so gew"ahlt,
+Seien $(x_i)_{1\le i\le n}$ reelle Zahlen und $\bar x$ so gewählt,
 dass $\sum_{i=1}^n(x_i-\bar x)^2$ minimal wird.
 Dann ist 
 \begin{equation}
 \bar x=\frac1n\sum_{i=1}^nx_i
 \end{equation}
-und f"ur jedes $\mu\in\mathbb{R}$ gilt
+und für jedes $\mu\in\mathbb{R}$ gilt
 \begin{equation}
 \sum_{i=1}^n\bigl((\bar x-\mu)^2 + (x_i-\bar x)^2\bigr)
 =\sum_{i=1}^n(x_i-\mu)^2.
@@ -704,7 +704,7 @@ und f"ur jedes $\mu\in\mathbb{R}$ gilt
 \begin{proof}[Beweis]
 Wir betrachten die Vektoren $(t,\dots,t)$, also eine Gerade im
 $n$-dimensionalen Raum.
-$\bar x$ ist so gew"ahlt, dass $(\bar x,\dots,\bar x)$
+$\bar x$ ist so gewählt, dass $(\bar x,\dots,\bar x)$
 der Fusspunkt des Lotes von $(x_1,\dots,x_n)$ auf die Gerade ist.
 Insbesondere bilden die Punkte $(\bar x,\dots,\bar x)$, $(\mu,\dots,\mu)$
 und $(x_1,\dots,x_n)$ bilden ein rechtwinkliges Dreieck.
@@ -719,29 +719,29 @@ die Behauptung des Hilfssatzes.
 \end{proof}
 
 \section{Konfidenzintervalle} \label{section-konfidenzintervalle}
-Mit Hilfe eines Sch"atzers k"onnen die Parameter einer Verteilung
-gesch"atzt werden.
+Mit Hilfe eines Schätzers können die Parameter einer Verteilung
+geschätzt werden.
 Wenn wir zum Beispiel bei einer Messapparatur
-wissen, dass die Messwerte normalverteilt sind, k"onnen wir durch
-Mittelwertbildung eine gute Sch"atzung f"ur den Erwartungswert finden.
-Da der Sch"atzwert selbst eine Zufallsvariable ist, kann er
+wissen, dass die Messwerte normalverteilt sind, können wir durch
+Mittelwertbildung eine gute Schätzung für den Erwartungswert finden.
+Da der Schätzwert selbst eine Zufallsvariable ist, kann er
 im schlimmsten Fall ziemlich weit weg vom Erwartungswert zu liegen
 kommen.
-Wir m"ochten herausfinden, wie wahrscheinlich dies ist.
+Wir möchten herausfinden, wie wahrscheinlich dies ist.
 
-Das Problem w"are offensichtlich gel"ost, wenn wir ein Intervall
-angeben k"onnten, in dem der wahre Wert des Erwartungswertes mit
+Das Problem wäre offensichtlich gelöst, wenn wir ein Intervall
+angeben könnten, in dem der wahre Wert des Erwartungswertes mit
 grosser Wahrscheinlichkeit $1-\alpha$ liegen wird.
 In der Praxis
-wird man f"ur $\alpha$ kleine Werte w"ahlen, zum Beispiel $0.05$ oder $0.01$.
-Ein solches Intervall heisst $1-\alpha$-Konfidenzintervall f"ur den
+wird man für $\alpha$ kleine Werte wählen, zum Beispiel $0.05$ oder $0.01$.
+Ein solches Intervall heisst $1-\alpha$-Konfidenzintervall für den
 Parameter.
 
 \begin{definition}
 Ein Intervall $[L(X_1,\dots,X_n),R(X_1,\dots,X_n)]$
 heisst ein $1-\alpha$-Konfidenzintervall
-f"ur den Parameter $\vartheta$, wenn der wahre Wert des Parameters
-$\vartheta$ mit Wahrscheinlichkeit h"ochstens $\alpha$ ausserhalb
+für den Parameter $\vartheta$, wenn der wahre Wert des Parameters
+$\vartheta$ mit Wahrscheinlichkeit höchstens $\alpha$ ausserhalb
 des Intervalls liegt.
 \end{definition}
 
@@ -749,14 +749,14 @@ des Intervalls liegt.
 Nehmen wir an, die Varianz der Verteilung $\sigma^2$ sei uns bereits bekannt.
 Dann ist $\bar X$ eine normalverteilte Zufallsvariable mit Varianz
 $\sigma^2/n$, deren Erwartungswert mit dem gesuchten Erwartungswert von $X$
-"ubereinstimmt. 
+übereinstimmt. 
 
-W"are $\mu$ bekannt, w"are es recht einfach, ein Intervall zu finden,
+Wäre $\mu$ bekannt, wäre es recht einfach, ein Intervall zu finden,
 in dem sich der Wert von $\bar X$ mit Wahrscheinlicheit $1-\alpha$ befinden
 wird.
 Mit Hilfe der Verteilungsfunktion $F$ der Standardnormalverteilung
-k"onnten wir zum Beispiel die Werte $x_-$ und $x_+$ finden, f"ur die
-gilt $F(x_-)=\frac{\alpha}{2}$ und $F(x_+)=1-\frac{\alpha}{2}$, f"ur
+könnten wir zum Beispiel die Werte $x_-$ und $x_+$ finden, für die
+gilt $F(x_-)=\frac{\alpha}{2}$ und $F(x_+)=1-\frac{\alpha}{2}$, für
 diesen Zweck gibt es spezielle Tabellen, zum Beispiel
 \ref{tabelle-normalquantilen}.
 Dann hat das Intervall
@@ -771,16 +771,16 @@ d.~h.~wir haben ein
 Intervall gefunden, in dem sich der Parameter mit Wahrscheinlichkeit $1-\alpha$
 befindet.
 
-\subsection{Konfidenzintervall mit gesch"atzer Varianz}
-Im allgemeinen ist die Varianz jedoch nicht bekannt, und wir m"ussen
-auch f"ur die Varianz eine Sch"atzung verwenden.
+\subsection{Konfidenzintervall mit geschätzer Varianz}
+Im allgemeinen ist die Varianz jedoch nicht bekannt, und wir müssen
+auch für die Varianz eine Schätzung verwenden.
 Bei bekannter Varianz
 konnte ein geeignetes Intervall gefunden werden, indem die
 standardnormalverteilte Zufallsvariable
 $\frac{\bar X-\mu}{\sigma/\sqrt{n}}$
 untersucht wurde.
 Die Normalverteilung definierte Intervallgrenzen,
-f"ur die
+für die
 \begin{equation}
 P\biggl(x_-\le
 \frac{\bar X-\mu}{\sigma/\sqrt{n}}
@@ -789,7 +789,7 @@ P\biggl(x_-\le
 \end{equation}
 gilt, woraus sich dann das Konfidenzintervall ergab.
 
-Da nun die Varianz auch gesch"atzt werden muss, ersetzen wir in
+Da nun die Varianz auch geschätzt werden muss, ersetzen wir in
 (\ref{konfidenzintervall-bekannte-varianz})
 $\sigma$ durch $S$ und versuchen wieder Grenzen
 $x_-$ und $x_+$ zu finden, so dass
@@ -809,8 +809,8 @@ Dazu muss die Verteilung der Zufallsvariable
 bekannt sein.
 Im Nenner ist $(n-1)S^2/\sigma^2$ eine
 $\chi_{n-1}^2$-verteilte Zufallsvariable,
-der Z"ahler ist standardnormalverteilt.
-Der Quotient ist "uber den
+der Zähler ist standardnormalverteilt.
+Der Quotient ist über den
 vorliegenden Fall hinaus von Bedeutung:
 
 \begin{definition}
@@ -842,14 +842,14 @@ Die Dichtefunktion von $Z$ und $V$ sind
 \end{align*}
 Die Dichtefunktion von $V/k$ ist $\varphi_{V/k}(x)=k\varphi_V(kx)$, aus
 den Resultaten der Abschnitte \ref{verteilungsfunktion-wurzel}
-und \ref{verteilungsfunktion-quotient} l"asst sich jetzt die
-Dichtefunktion f"ur $T$ berechnen.
+und \ref{verteilungsfunktion-quotient} lässt sich jetzt die
+Dichtefunktion für $T$ berechnen.
 
-Zun"achst berechnen wir die Dichtefunktion f"ur den Nenner:
+Zunächst berechnen wir die Dichtefunktion für den Nenner:
 \[
 \varphi_{\sqrt{V/k}}(x)=2x\varphi_{V/k}(x^2)=2xk\varphi_V(kx^2).
 \]
-Die Dichtefunktion f"ur den Quotienten ist dann
+Die Dichtefunktion für den Quotienten ist dann
 \begin{align*}
 \varphi_T(t)
 &=
@@ -891,36 +891,36 @@ wir daraus
 
 \end{proof}
 
-Auch zur $t$-Verteilung existieren Tabellen "ahnlich der Normalverteilung,
+Auch zur $t$-Verteilung existieren Tabellen ähnlich der Normalverteilung,
 mit denen sich Werte $t_-$ und $t_+$ finden lassen, sodass
 $P(t_-\le t\le t_+)=1-\alpha$.
-Mit diesen Werten l"asst sich dann
-auch ein Konfidenzintervall f"ur den Erwartungswert geben:
+Mit diesen Werten lässt sich dann
+auch ein Konfidenzintervall für den Erwartungswert geben:
 
 \begin{satz}
 Ist $X$ eine normalverteilte Zufallsvariable, und $X_1,\dots,X_n$ eine
 Stichprobe, $\bar X$ der Stichprobenmittelwert, 
 und $S^2$ die Stichprobenvarianz.
 Seien $t_-$ und $t_+$ so bestimmt, dass
-$P(t_-\le t_{n-1}\le t_+)=1-\alpha$ f"ur eine $t$-Verteilung $t_{n-1}$ mit
+$P(t_-\le t_{n-1}\le t_+)=1-\alpha$ für eine $t$-Verteilung $t_{n-1}$ mit
 $n-1$ Freiheitsgraden.
 Dann ist
 \begin{equation}
 \biggl[\bar X+t_-\frac{S}{\sqrt{n}},\bar X+t_+\frac{S}{\sqrt{n}}\biggr]
 \end{equation}
-ein $1-\alpha$-Konfidenzintervall f"ur den Erwartungswert von $X$.
+ein $1-\alpha$-Konfidenzintervall für den Erwartungswert von $X$.
 \end{satz}
 
-\subsubsection{Konfidenzintervall f"ur Juli-Durchschnittstemperatur}
-Die Wetterstation in Altendorf hat f"ur Juli 2003 eine Durchschnittstemperatur
+\subsubsection{Konfidenzintervall für Juli-Durchschnittstemperatur}
+Die Wetterstation in Altendorf hat für Juli 2003 eine Durchschnittstemperatur
 von $21.638^\circ\text{C}$ gemessen, bei einer Stichprobenvarianz von
 $493.230\text{K}^2$ und $n=44473$.
 Der Tabelle der $t$-Verteilung
 \ref{tabelle-tverteilung} entnimmt man 
-f"ur derart
+für derart
 viele Freiheitsgrade und $\alpha=0.01$ die Werte
 $t_{\pm}=\pm2.5758$.
-Ein $0.99$-Konfidenzintervall f"ur die
+Ein $0.99$-Konfidenzintervall für die
 Durchschnittstemperatur ist daher
 $[21.332, 21.944]$.
 

@@ -6,7 +6,9 @@
 % (c) 2006-2016 Prof. Dr. Andreas Mueller, HSR
 %
 \documentclass[a4paper,12pt]{book}
-\usepackage{german}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage{times}
 \usepackage{geometry}
 \geometry{papersize={210mm,297mm},total={160mm,240mm},top=31mm,bindingoffset=15mm}
@@ -53,11 +55,11 @@ Wahrscheinlichkeitsrechnung}
 \begin{flushright}
 \vspace{30pt}
 \LARGE
-Andreas M"uller
+Andreas Müller
 \end{flushright}
 \vspace*{\stretch{2}}
 \begin{center}
-Hochschule f"ur Technik, Rapperswil, 2006-2016
+Hochschule für Technik, Rapperswil, 2006-2017
 \end{center}
 \end{titlepage}
 
@@ -84,7 +86,7 @@ Hochschule f"ur Technik, Rapperswil, 2006-2016
 %nothing
 }
 \newenvironment{loesung}{%
-\begin{proof}[L"osung]%
+\begin{proof}[Lösung]%
 \renewcommand{\qedsymbol}{$\bigcirc$}
 }{\end{proof}}
 \def\keineloesungen{%

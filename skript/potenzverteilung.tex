@@ -4,52 +4,52 @@
 % (c) 2015 Prof Dr Andreas Mueller, Hochschule Rapperswil
 %
 \subsection{Potenzgesetze} \label{potenzgesetze}
-% XXX neues Beispiel: Verteilung der Partikelgr�ssen in Planetenringen
+% XXX neues Beispiel: Verteilung der Partikelgrössen in Planetenringen
 %     http://www.pnas.org/content/112/31/9536
 %     Size distribution of particles in Saturn's rings from aggregation
 %     and fragmentation
 %     Nikolai Brilliantova, P. L. Krapivskyb, Anna Bodrovac,d, Frank Spahnd,
-%     Hisao Hayakawae, Vladimir Stadnichukc, and J�rgen Schmidtf,1
+%     Hisao Hayakawae, Vladimir Stadnichukc, and Jürgen Schmidtf,1
 %     Proceedings of the National Academy of Sciences of the USA
 %     vol 112(31), 2015, pp 9536-9541
 %
-Die Normalverteilung beschreibt physikalische Gr"ossen sehr erfolgreich,
-die vor allem in einer bestimmten Gr"osse vorkommen.
+Die Normalverteilung beschreibt physikalische Grössen sehr erfolgreich,
+die vor allem in einer bestimmten Grösse vorkommen.
 Menschen sind zum
 Beispiel im Durchschnitt etwa 1.80m gross, Abweichungen kommen vor, sind
 aber sehr selten, 5m grosse Menschen gibt es nicht.
 
 
-Andererseits gibt es auch Gr"ossen, die einen weiten Bereich von m"oglichen
+Andererseits gibt es auch Grössen, die einen weiten Bereich von möglichen
 Werten annehmen.
-Mondkrater k"onnen mehrere Kilometer gross sein, oder auch
+Mondkrater können mehrere Kilometer gross sein, oder auch
 nur ein paar Millimeter.
-Der Entstehungsmechanismus ist unabh"angig von der
-Gr"ossenskala immer der Selbe.
-Diese Unabh"angigkeit von der Gr"ossenskala
-sollte sich auch in der Verteilungsfunktion der Gr"osse niederschlagen.
+Der Entstehungsmechanismus ist unabhängig von der
+Grössenskala immer der Selbe.
+Diese Unabhängigkeit von der Grössenskala
+sollte sich auch in der Verteilungsfunktion der Grösse niederschlagen.
 In diesem Abschnitt sollen die Eigenschaften solcher Verteilungen abgeleitet
 werden.
 
-\subsubsection{Skalenunabh"angigkeit und Potenzgesetze}
+\subsubsection{Skalenunabhängigkeit und Potenzgesetze}
 Wir untersuchen nun Zufallsvariablen $X$, wie zum Beispiel den Durchmesser
 von Mondkratern. 
-Die Verteilung soll also f"ur jeden beliebigen
+Die Verteilung soll also für jeden beliebigen
 Mass\-stab gelten.
-Die Form des Graphen von $\varphi(x)$ darf sich nicht "andern,
-wenn wir zu einer anderen Skala "ubergehen.
-F"ur jede Zahl $b>0$ muss es also eine Konstante $g(b)$ geben, 
+Die Form des Graphen von $\varphi(x)$ darf sich nicht ändern,
+wenn wir zu einer anderen Skala übergehen.
+Für jede Zahl $b>0$ muss es also eine Konstante $g(b)$ geben, 
 so dass
 \[
 \varphi(bx)=g(b)\varphi(x).
 \]
-Leitet man dies nach $b$ ab und setzt $b=1$ erh"alt man
+Leitet man dies nach $b$ ab und setzt $b=1$ erhält man
 \begin{align*}
 x\varphi'(x)&=g'(1)\varphi(x)\\
 \end{align*}
-Dies ist eine gew"ohnliche lineare Differentialgleichung
+Dies ist eine gewöhnliche lineare Differentialgleichung
 erster Ordnung, die man mit Separation der Variablen
-l"osen kann
+lösen kann
 \begin{align*}
 \frac{\varphi'(x)}{\varphi(x)}&=g'(1)\frac1x
 \\
@@ -73,7 +73,7 @@ Cx^{-\alpha}&\qquad x>x_{\min}\\
 heisst Potenzgesetz oder Pareto-Verteilung.
 \end{definition}
 Damit dies eine Wahrscheinlichkeitsverteilung definiert, muss $C$
-so gew"ahlt werden, dass das Integral "uber $\mathbb R$ den Wert $1$
+so gewählt werden, dass das Integral über $\mathbb R$ den Wert $1$
 ergibt,
 \begin{align*}
 1=\int_{-\infty}^\infty\varphi(x)\,dx
@@ -92,8 +92,8 @@ C
 \frac{\alpha-1}{x_{\min}^{1-\alpha}}
 \end{align*}
 Die Berechnung der Normierungskonstanten zeigt auch, dass die Normierung
-f"ur $\alpha \le 1$ nicht mehr m"oglich ist, Potenzgesetze sind daher
-nur f"ur $\alpha > 1$ m"oglich.
+für $\alpha \le 1$ nicht mehr möglich ist, Potenzgesetze sind daher
+nur für $\alpha > 1$ möglich.
 
 \begin{satz}
 Die Dichtefunktion einer nach einem Potenzgesetz verteilten Zufallsvariablen
@@ -133,7 +133,7 @@ Wegen
 ist die Steigung der Geraden $-\alpha$.
 
 \subsubsection{Erwartungswert und Varianz}
-Mit Hilfe der Dichtefunktion k"onnen die "ublichen Kennzahlen der Verteilung
+Mit Hilfe der Dichtefunktion können die üblichen Kennzahlen der Verteilung
 berechnet werden.
 Der Erwartungswert einer nach einem Potenzgesetz verteilten Zufallsvariable $X$
 ist
@@ -154,9 +154,9 @@ x^{-\alpha}\,dx
 &=
 \frac{\alpha-1}{\alpha-2}x_{\min}
 \end{align*}
-Dies ist nat"urlich nur m"oglich, solange $\alpha > 2$.
+Dies ist natürlich nur möglich, solange $\alpha > 2$.
 
-F"ur die Varianz berechnet man zun"achst das zweite Moment
+Für die Varianz berechnet man zunächst das zweite Moment
 \begin{align*}
 E(X^2)&=
 \int_{-\infty}^\infty x^2\varphi(x)\,dx
@@ -187,13 +187,13 @@ E(X^2)-E(X)^2
 \end{align*}
 \begin{satz}
 Ist $X$ verteilt nach einem Potenzgesetz mit Exponent $\alpha$, dann
-existiert f"ur $\alpha>2$ ein Erwartungswert
+existiert für $\alpha>2$ ein Erwartungswert
 \[
 E(X)
 =
 \frac{\alpha-1}{\alpha-2}x_{\min}
 \]
-und f"ur $\alpha >3$ auch eine Varianz
+und für $\alpha >3$ auch eine Varianz
 \[
 \operatorname{var}(X)
 =
@@ -205,7 +205,7 @@ und f"ur $\alpha >3$ auch eine Varianz
 
 \subsubsection{Median} \label{subsubsection-median}
 Der Median ist derjenige Wert $x_{\frac12}$ der Zufallsvariablen,
-f"ur den die Verteilungsfunktion den Wert $\frac12$ annimmt, also
+für den die Verteilungsfunktion den Wert $\frac12$ annimmt, also
 \begin{align*}
 \frac12=\int_{-\infty}^{x_{\frac12}}\varphi(x)\,dx
 &=
@@ -226,7 +226,7 @@ x^{-\alpha}\,dx
 \frac{x_{\frac12}}{x_{\min}}
 \right)^{1-\alpha}
 \end{align*}
-Diese Gleichung kann man nach $x_{\frac12}$ aufl"osen:
+Diese Gleichung kann man nach $x_{\frac12}$ auflösen:
 \begin{align*}
 \frac{x_{\frac12}}{x_{\min}}
 &=
@@ -270,22 +270,22 @@ $\displaystyle
 \end{minipage}
 \\
 Erwartungswert&$\displaystyle\frac{\alpha-1}{\alpha-2}x_{\text{min}}$,
-undefiniert f"ur $\alpha\le 2$\\
+undefiniert für $\alpha\le 2$\\
 Varianz&$\displaystyle
 \biggl(
 \frac{\alpha-1}{\alpha -3}-\biggl(\frac{\alpha-1}{\alpha-2}\biggr)^2
-\biggr)x_{\text{min}}^2$, undefiniert f"ur $\alpha \le 3$\\
+\biggr)x_{\text{min}}^2$, undefiniert für $\alpha \le 3$\\
 $P(|X-E(X)|>\varepsilon)$&$\displaystyle $ \\
 Median&$2^{\frac1{\alpha-1}}x_{\text{min}}$\\
 \hline
 Anwendungen&\begin{minipage}{3.7in}%
 \vskip5pt
 \strut
-$\bullet$ H"aufkeitsverteilung f"ur skaleninvariante Prozesse\\
+$\bullet$ Häufkeitsverteilung für skaleninvariante Prozesse\\
 $\bullet$ Einkommensverteilung\\
-$\bullet$ Gr"osse und H"aufigkeit von Mondkratern\\
-$\bullet$ Verkaufszahlen von B"uchern\\
-$\bullet$ Einwohnerzahlen von St"adten
+$\bullet$ Grösse und Häufigkeit von Mondkratern\\
+$\bullet$ Verkaufszahlen von Büchern\\
+$\bullet$ Einwohnerzahlen von Städten
 \strut
 \end{minipage}\\[28pt]
 \hline
@@ -299,12 +299,12 @@ $\bullet$ Einwohnerzahlen von St"adten
 \begin{center}
 \includegraphics{images/power-4.pdf}
 \end{center}
-\caption{Kurven $(P(x),W(x))$ f"ur verschiedene Werte von $\alpha$\label{wp}}
+\caption{Kurven $(P(x),W(x))$ für verschiedene Werte von $\alpha$\label{wp}}
 \end{figure}
-Die 80/20-Regel besagt, dass 20\% der Werte f"ur 80\% des kumulierten Wertes
+Die 80/20-Regel besagt, dass 20\% der Werte für 80\% des kumulierten Wertes
 verantwortlich sind.
 
-Allgemeiner k"onnen wir f"ur jedes $x$ nach der Wahrscheinlichkeit
+Allgemeiner können wir für jedes $x$ nach der Wahrscheinlichkeit
 eines Wertes $>x$ fragen und ihn vergleichen mit dem gesamten Erwartungswert,
 den die Werte $>x$ ergeben.
 Die Wahrscheinlichkeit eines Wertes $>x$ ist
@@ -333,13 +333,13 @@ W(x)=\frac%
 {\int_{x_{\min}}^\infty \xi\varphi(\xi)\,d\xi}.
 \label{wx}
 \end{equation}
-Nach den bisher durchgef"uhrten Rechnungen ist
+Nach den bisher durchgeführten Rechnungen ist
 \[
 W(x)=\left(\frac{x}{x_{\min}}\right)^{2-\alpha}
 =P(x)^{\frac{\alpha-2}{\alpha-1}}
 \]
 Die Abbildung \ref{wp} zeigt den Zusammenhang zwischen $P(x)$ und $W(x)$
-f"ur verschiedene Werte von $\alpha$
+für verschiedene Werte von $\alpha$
 
 Die 80/20-Regel entspricht der Kurve, die durch den 
 Punkt mit $P(x)=0.2$ und $W(x)=0.8$ geht, also
@@ -350,7 +350,7 @@ Punkt mit $P(x)=0.2$ und $W(x)=0.8$ geht, also
 &=
 \frac{\alpha-2}{\alpha-1}
 \end{align*}
-Schreiben wir f"ur das Verh"altnis der Logarithmen auf der linken
+Schreiben wir für das Verhältnis der Logarithmen auf der linken
 Seite $\lambda$ ergibt sich die Gleichung
 \begin{align*}
 \lambda
@@ -361,15 +361,15 @@ Seite $\lambda$ ergibt sich die Gleichung
 \\
 \alpha&=\frac{\lambda-2}{\lambda-1}
 \end{align*}
-Im konkreten Fall ist der numerische Wert f"ur $\alpha=2.160964$.
+Im konkreten Fall ist der numerische Wert für $\alpha=2.160964$.
 
-F"ur $\alpha\le 2$ existieren die Erwartungswerte nicht mehr, die
+Für $\alpha\le 2$ existieren die Erwartungswerte nicht mehr, die
 Integrale in (\ref{wx}) divergieren.
 Wenn man jedoch
 eine gemeinsame obere Schranke $x_{\max}$ verwendet, kann man $P$
-und $W$ als von dieser Schranke abh"angige Gr"ossen immer noch
-definieren und den Grenzwert f"ur $x_{\max}\to\infty$ erst nachher
-durchf"uhren.
+und $W$ als von dieser Schranke abhängige Grössen immer noch
+definieren und den Grenzwert für $x_{\max}\to\infty$ erst nachher
+durchführen.
 Dabei stellt sich heraus, dass
 \begin{align*}
 W(x)
@@ -386,20 +386,20 @@ W(x)
 {x_{\max}^{2-\alpha}-x_{\min}^{2-\alpha}}
 =1
 \end{align*}
-Sobald also $\alpha\le2$ ist, sind alle Beitr"age zum Erwartungswert
-in einem noch so kleinen Teil der gr"ossten Werte konzentriert.
+Sobald also $\alpha\le2$ ist, sind alle Beiträge zum Erwartungswert
+in einem noch so kleinen Teil der grössten Werte konzentriert.
 
-"Ubersetzt in die aktuelle Diskussion "uber Verm"ogensverteilungen
-und Managerl"ohne bedeutet dies, dass f"ur $\alpha\le2$ jeder noch so
+"Ubersetzt in die aktuelle Diskussion über Vermögensverteilungen
+und Managerlöhne bedeutet dies, dass für $\alpha\le2$ jeder noch so
 kleine Teil der Spitze der Einkommenspyramide alles besitzt, und alle
 anderen nichts.
-Je n"aher $\alpha$ an $2$ kommt desto extremer wird
+Je näher $\alpha$ an $2$ kommt desto extremer wird
 das Ungleichgewicht zwischen arm und reich.
 
-\subsubsection{Parameter sch"atzen}
-Um den Parameter $\alpha$ zu sch"atzen k"onnte man f"ur die Punkte
-eines Histogramms eine lineare Regression durchf"uhren.
-Eine Maximum-Likelihood-Sch"atzung f"uhrt jedoch direkter zum
+\subsubsection{Parameter schätzen}
+Um den Parameter $\alpha$ zu schätzen könnte man für die Punkte
+eines Histogramms eine lineare Regression durchführen.
+Eine Maximum-Likelihood-Schätzung führt jedoch direkter zum
 Ziel.
 Mit der Dichtefunktion
 \[
@@ -414,7 +414,7 @@ L(\alpha;x_1,\dots,x_n)=
 \]
 $\alpha$ ist so zu bestimmen, dass $L(\alpha;x_1,\dots,x_n)$ maximal
 wird.
-Dies ist gleichbedeutend damit, dass der nat"urliche 
+Dies ist gleichbedeutend damit, dass der natürliche 
 Logarithmus $\log L(\alpha;x_1,\dots,x_n)$ maximiert wird.
 Partielle Ableitung nach $\alpha$ ergibt
 \begin{align*}
@@ -430,7 +430,7 @@ n\log(\alpha-1)-n\log x_{\min}
 &=
 \frac{n}{\alpha-1}-\sum_{i=1}^n\log x_i-n\log x_{\min}=0
 \end{align*}
-Diese Gleichung kann man nach $\alpha$ aufl"osen und findet
+Diese Gleichung kann man nach $\alpha$ auflösen und findet
 \begin{align*}
 \frac{n}{\alpha-1}
 &=

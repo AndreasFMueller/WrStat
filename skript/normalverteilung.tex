@@ -26,7 +26,7 @@ Anwendungen&
 \vskip4pt
 \strut
 $\bullet$ Messwerte\\
-$\bullet$ Summe vieler kleiner Einfl"usse vergleichbar grosser Varianz
+$\bullet$ Summe vieler kleiner Einflüsse vergleichbar grosser Varianz
 (Zentraler Grenzwertsatz)
 \\
 $\bullet$ Approximation der Binomialverteilung
@@ -48,12 +48,12 @@ $\bullet$ Approximation der Binomialverteilung
 Die Normalverteilung, auch Gaussverteilung genannt, ist von grosser praktischer
 Bedeutung.
 In sehr vielen Anwendungssituationen darf man davon ausgehen,
-dass die beobachteten Zufallsgr"ossen normalverteilt sind.
-Die Begr"undung
-f"ur diesen "uberraschenden Sachverhalt liefert der Zentrale Grenzwertsatz,
+dass die beobachteten Zufallsgrössen normalverteilt sind.
+Die Begründung
+für diesen überraschenden Sachverhalt liefert der Zentrale Grenzwertsatz,
 welcher im wesentlich besagt, dass eine Zufallsvariable, die als Summe vieler
-kleiner, unabh"angiger Zufallseinfl"usse betrachtet werden kann, immer
-angen"ahert normalverteilt ist.
+kleiner, unabhängiger Zufallseinflüsse betrachtet werden kann, immer
+angenähert normalverteilt ist.
 Wir werden diesen Sachverhalt ab Seite \pageref{zentraler-grenzwertsatz}
 und in Satz~\ref{satz-zentraler-grenzwertsatz} genauer formulieren.
 
@@ -74,8 +74,8 @@ hat.
 \index{Normalverteilung!Standard-}%
 Die Verteilungsfunktion der Normalverteilung mit Erwartungswert $0$
 und Varianz $1$, der sogenannten Standardnormalverteilung, kann nicht in
-geschlossener Form gefunden werden, es m"ussen entweder Tabellen
-oder numerische L"osungen verwendet werden.
+geschlossener Form gefunden werden, es müssen entweder Tabellen
+oder numerische Lösungen verwendet werden.
 
 Die Werte der Verteilungsfunktion der Standardnormalverteilung sind 
 tabelliert, zum Beispiel auch in Tabelle~\ref{tabelle-Fnormalverteilung}.
@@ -112,20 +112,20 @@ P(X\le x)=\frac12\biggl(1+\operatorname{erf}\biggl(\frac{x}{\sqrt{2}}\biggr)\big
 \index{Fehlerfunktion}%
 \index{Verteilungsfunktion!Normalverteilung}%
 Die Fehlerfunktion ist eine ungerade Funktion mit Wertebereich $(-1,1)$,
-sie ist in vielen Softwaresystemen als Bibliotheksfunktion verf"ugbar, in
+sie ist in vielen Softwaresystemen als Bibliotheksfunktion verfügbar, in
 der C-Bibliothek steht zum Beispiel neben $\operatorname{erf}(x)$ auch
-$1-\operatorname{erf}(x)$ zur Verf"ugung.
-Da $\lim_{x\to\infty}\operatorname{erf}(x)=1$ k"onnten Werte von
-$1-\operatorname{erf}(x)$ f"ur grosse Werte von $x$ nur mit grossen Fehlern 
-berechnet werden, die komplement"are Fehlerfunktion l"ost dieses Problem.
+$1-\operatorname{erf}(x)$ zur Verfügung.
+Da $\lim_{x\to\infty}\operatorname{erf}(x)=1$ könnten Werte von
+$1-\operatorname{erf}(x)$ für grosse Werte von $x$ nur mit grossen Fehlern 
+berechnet werden, die komplementäre Fehlerfunktion löst dieses Problem.
 
-F"ur eine normalverteilte Zufallsvariable $X$ mit Erwartungswert $\mu$ und
+Für eine normalverteilte Zufallsvariable $X$ mit Erwartungswert $\mu$ und
 Standardabweichung $\sigma$ ist die Tabelle oder die Formel (\ref{Fnormal-erf})
 nicht anwendbar. 
 Man kann jedoch mit der Standardisierung aus Abschnitt~\ref{section-standardisierung}
 immer zu einer Zufallsvariable $Z=(X-\mu)/\sigma$ gelangen, die
 standardnormalverteilt ist.
-Damit l"asst sich auch die Wahrscheinlichkeit ermitteln:
+Damit lässt sich auch die Wahrscheinlichkeit ermitteln:
 \begin{align*}
 P(a<X\le b)
 &=
@@ -135,15 +135,15 @@ F\biggl(\frac{b-\mu}{\sigma}\biggr)
 -
 F\biggl(\frac{a-\mu}{\sigma}\biggr).
 \end{align*}
-Die Werte von $F$ k"onnen entweder der Tabelle~\ref{tabelle-Fnormalverteilung}
+Die Werte von $F$ können entweder der Tabelle~\ref{tabelle-Fnormalverteilung}
 entnommen oder mit der Formel (\ref{Fnormal-erf}) berechnet werden.
 Die Werte in (\ref{normal-werte}) bedeuten dann, dass gut zwei Drittel aller
 Messwerte in das Intervall $[\mu-\sigma, \mu+\sigma]$ fallen, und dass 
 95\% der Messwerte sich in $[\mu-2\sigma,\mu+2\sigma]$ befinden.
 
-Der Vollst"andigkeit halber rechnen wir nach, ob die durch $\varphi$
-definierte Verteilung tats"achlich die behaupteten Eigenschaften hat.
-Zun"achst hat man die allgemeine Formel:
+Der Vollständigkeit halber rechnen wir nach, ob die durch $\varphi$
+definierte Verteilung tatsächlich die behaupteten Eigenschaften hat.
+Zunächst hat man die allgemeine Formel:
 \begin{align*}
 \int_{-\infty}^{\infty}f(x)\varphi(x)\,dx
 &=\frac1{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}\,dx\\
@@ -156,7 +156,7 @@ E(X)
 &=\sigma\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}\xi e^{-\frac{\xi^2}2}\,d\xi+
 \mu\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{\xi^2}2}\,d\xi
 \end{align*}
-F"ur das erste Integral benutzt man
+Für das erste Integral benutzt man
 \[
 \frac{d}{d\xi}e^{-\frac{\xi^2}{2}}=-\xi e^{-\frac{\xi^2}{2}}
 \]
@@ -192,8 +192,8 @@ Somit ist $E(X)=\mu$.
 \index{Normalverteilung!Erwartungswert}
 \index{Varianz!Normalverteilung}
 \index{Normalverteilung!Varianz}
-F"ur die Varianz von $(x-\mu)$ k"onnen wir annehmen, dass $\mu=0$, dann
-gen"ugt es, $E(X^2)$ zu berechnen:
+Für die Varianz von $(x-\mu)$ können wir annehmen, dass $\mu=0$, dann
+genügt es, $E(X^2)$ zu berechnen:
 \begin{align*}
 E(X^2)
 &=\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}(\sigma\xi)^2e^{-\frac{\xi^2}2}\,d\xi\\
@@ -215,7 +215,7 @@ E(X^2)
 \end{align*}
 Also ist $\operatorname{var}(X)=\sigma$.
 
-Integrale von Ausdr"ucken der Form
+Integrale von Ausdrücken der Form
 $e^{-\frac12(ax^2+bx+c)}$
 kommen beim Rechnen mit der Normalverteilung immer wieder vor, deshalb
 stellen wir das Resultat in Form eines Hilfssatzes bereit:
@@ -229,11 +229,11 @@ Ist $a>0$, dann gilt
 \]
 \end{hilfssatz}
 \begin{proof}[Beweis]
-Durch quadratisches Erg"anzen kann man den Ausdruck $ax^2+bx+c$ umschreiben in
+Durch quadratisches Ergänzen kann man den Ausdruck $ax^2+bx+c$ umschreiben in
 \[
 ax^2+bx+c=a\left(x-\frac{b}{2a}\right)^2+c-\frac{b^2}{4a}.
 \]
-Damit l"asst sich das Integral wie folgt vereinfachen:
+Damit lässt sich das Integral wie folgt vereinfachen:
 \begin{align*}
 &\phantom{=}\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}\exp\biggl(-\frac12\biggl(
 a\biggl(x-\frac{b}{2a}\biggr)^2+c-\frac{b^2}{4a}
@@ -284,27 +284,27 @@ verwendet haben.
 \index{Faltung der Normalverteilung}
 
 Eine besonders wichtige Eigenschaft der Normalverteilung ist, dass die
-Summe zweier unabh"angiger normalverteilter Zufallsgr"ossen wieder normalverteilt
+Summe zweier unabhängiger normalverteilter Zufallsgrössen wieder normalverteilt
 ist.
 \begin{satz}
-Sind $X_1$ und $X_2$ normalverteilte Zufallsgr"ossen mit Mittelwert $\mu_1$
+Sind $X_1$ und $X_2$ normalverteilte Zufallsgrössen mit Mittelwert $\mu_1$
 resp.~$\mu_2$ und Varianz $\sigma_1$ resp.~$\sigma_2$, dann ist
 $X_1+X_2$ ebenfalls normalverteilt mit Mittelwert $\mu_1+\mu_2$ und
 Varianz $\sigma^2=\sigma_1^2+\sigma_2^2$.
 \end{satz}
 \begin{proof}[Beweis]
-Aus der Linearit"at des Erwartungswertes ist klar, dass der Mittelwert
+Aus der Linearität des Erwartungswertes ist klar, dass der Mittelwert
 $\mu=\mu_1+\mu_2$ sein muss.
 Auch wissen wir bereits aus Satz \ref{rechenregeln-varianz}, dass
 die Varianz der Summe $X_1+X_2$ die angegebene Form hat.
 Es ist also nur
-noch nachzupr"ufen, dass die Dichtefunktion wieder die eine Normalverteilung
+noch nachzuprüfen, dass die Dichtefunktion wieder die eine Normalverteilung
 ist.
 
-Zun"achst haben offensichtlich $X_1$ und $X_1-\mu_1$ Dichtefunktionen,
+Zunächst haben offensichtlich $X_1$ und $X_1-\mu_1$ Dichtefunktionen,
 die sich nur durch eine Translation um $\mu_1$  unterscheiden, ebenso
 $X_2$ und $X_1+X_2$.
-Es gen"ugt also, den Fall $\mu_1=\mu_2=0$ zu untersuchen.
+Es genügt also, den Fall $\mu_1=\mu_2=0$ zu untersuchen.
 
 Wir berechnen die Dichtefunktion der Verteilung der Summe $X=X_1+X_2$
 mit Hilfe der Faltung. 
@@ -343,9 +343,9 @@ den wir durch Ausmultiplizieren in die Form
 \biggl(\frac1{\sigma_1^2}+\frac1{\sigma_2^2}\biggr)t^2
 -\frac{2z}{\sigma_2^2}t+\frac{z^2}{\sigma_2^2}
 \]
-bringen k"onnen.
-Das ist genau die Form, f"ur das im Hilfssatz \ref{exp-quadr}
-ein Resultat bereitgestellt wurde, wobei jetzt folgende Werte f"ur $a$, $b$ und $c$
+bringen können.
+Das ist genau die Form, für das im Hilfssatz \ref{exp-quadr}
+ein Resultat bereitgestellt wurde, wobei jetzt folgende Werte für $a$, $b$ und $c$
 zu verwenden sind:
 \[
 a=\left(\frac1{\sigma_1^2}+\frac1{\sigma_2^2}\right)
@@ -394,7 +394,7 @@ c-\frac{b^2}{4a}
 \frac{z^2}
 {\sigma_1^2+\sigma_2^2}
 \end{align*}
-Woraus sich f"ur das Faltungsprodukt
+Woraus sich für das Faltungsprodukt
 \begin{align*}
 \varphi_1*\varphi_2(z)
 &=
@@ -410,13 +410,13 @@ mit Varianz $\sqrt{\sigma_1^2+\sigma_2^2}$ darstellt.
 \begin{center}
 \includegraphics{images/norm-1.pdf}
 \end{center}
-\caption{Vergleich der Wahrscheinlichkeit f"ur eine grosse Abweichung
-f"ur die Normalverteilung (rot) und die Schranke von Tschebyscheff (gr"un)
+\caption{Vergleich der Wahrscheinlichkeit für eine grosse Abweichung
+für die Normalverteilung (rot) und die Schranke von Tschebyscheff (grün)
 \label{abweichung-normalverteilung}}
 \end{figure}
 
-Auch f"ur die Normalverteilung wollen wir die Wahrscheinlichkeit
-f"ur grosse Abweichungen berechnen.
+Auch für die Normalverteilung wollen wir die Wahrscheinlichkeit
+für grosse Abweichungen berechnen.
 Es gilt wieder
 \[
 P(|X-\mu|>\varepsilon)
@@ -427,12 +427,12 @@ P(|X-\mu|>\varepsilon)
 1-\operatorname{erf}({\textstyle\frac{\varepsilon}{\sigma\sqrt{2}}})
 \]
 Die Abbildung~\ref{abweichung-normalverteilung} zeigt die Wahrscheinlichkeit
-f"ur eine grosse Abweichung vom Mittelwert ein Einheiten
+für eine grosse Abweichung vom Mittelwert ein Einheiten
 von $\sqrt{\operatorname{var}(X)}$.
 Noch deutlicher als bei der
-Exponentialverteilung zeigt sich, dass die zus"atzliche Information
-"uber die Verteilung die Wahrscheinlichkeit f"ur eine grosse
-Abweichung deutlich besser absch"atzen l"asst.
+Exponentialverteilung zeigt sich, dass die zusätzliche Information
+über die Verteilung die Wahrscheinlichkeit für eine grosse
+Abweichung deutlich besser abschätzen lässt.
 
 \subsubsection{Der Zentrale Grenzwertsatz}
 \label{zentraler-grenzwertsatz}
@@ -441,17 +441,17 @@ Abweichung deutlich besser absch"atzen l"asst.
 \index{Normalapproximation}
 In vielen Anwendungen sieht man die Zufallsprozesse nicht einzeln, sondern
 man sieht eine grosse Zahl von Zufallsprozessen, die zusammenwirken.
-So entsteht der Druck, den ein Gas auf die Wand seines Beh"alters aus"ubt,
-durch die grosse Zahl von unabh"angigen St"ossen der einzelnen Gasteilchen
+So entsteht der Druck, den ein Gas auf die Wand seines Behälters ausübt,
+durch die grosse Zahl von unabhängigen Stössen der einzelnen Gasteilchen
 auf die Wand.
 Das Rauschen in einer elektrischen Schaltung setzt sich
-zusammen aus vielen einzelnen Beitr"agen, die zum Beispiel in einzelnen
-Bauteilen entstehen, und dort durch das Zusammenspiel der zuf"alligen
+zusammen aus vielen einzelnen Beiträgen, die zum Beispiel in einzelnen
+Bauteilen entstehen, und dort durch das Zusammenspiel der zufälligen
 thermischen Bewegung der Atome hervorgerufen werden.
 Dieses Zusammenspiel von vielen kleinen Zufallsfaktoren soll in diesem
 Abschnitt modelliert werden.
 
-Wir gehen dazu von einer Folge von unabh"angigen Zufallsvariablen
+Wir gehen dazu von einer Folge von unabhängigen Zufallsvariablen
 \[
 X_1,X_2,X_3,\dots
 \]
@@ -472,16 +472,16 @@ weil
 ist.
 Die Summe $S_n$ beschreibt das Zusammenwirken der ersten $n$
 Zufallsvariablen $X_i$.
-Die einzelnen Faktoren k"onnen "ublicherweise
-nicht beobachtet werden, nur $S_n$ ist der Messung zug"anglich.
+Die einzelnen Faktoren können üblicherweise
+nicht beobachtet werden, nur $S_n$ ist der Messung zugänglich.
 
-In der Physik lernt man, dass man die st"andige, zufallsbestimmte
-Bewegung der Atome in einem Gas oder K"orper nicht im Detail
-zu verstehen braucht, und trotzdem eine n"utzliche W"armelehre
+In der Physik lernt man, dass man die ständige, zufallsbestimmte
+Bewegung der Atome in einem Gas oder Körper nicht im Detail
+zu verstehen braucht, und trotzdem eine nützliche Wärmelehre
 aufstellen kann.
-Daher sollte es m"oglich sein, "uber die Verteilung
-$S_n$ mindestens f"ur sehr grosse $n$ etwas auszusagen, selbst
-wenn "uber die einzelnen Beitr"age $X_i$ nur sehr wenig bekannt ist.
+Daher sollte es möglich sein, über die Verteilung
+$S_n$ mindestens für sehr grosse $n$ etwas auszusagen, selbst
+wenn über die einzelnen Beiträge $X_i$ nur sehr wenig bekannt ist.
 \begin{figure}
 \begin{center}
 %\includegraphics[width=0.8\hsize]{graphics/zgws}
@@ -506,7 +506,7 @@ Summe von bis zu vier im
 Intervall $[-\sqrt{3},\sqrt{3}]$ gleichverteilte Zufallsvariablen dargestellt,
 und mit der Standardnormalverteilung verglichen.
 
-Wir betrachten als technisches Hilfsmittel f"ur die Berechnung
+Wir betrachten als technisches Hilfsmittel für die Berechnung
 die folgende Funktion:
 \index{momenterzeugende Funktion}
 \begin{definition} Ist $X$ eine Zufallsvariable, dann heisst die Funktion
@@ -516,11 +516,11 @@ M_X(t)=t\mapsto E(e^{tX})=\sum_{k=0}^n\frac{t^k}{k!}E(X^k).
 die momenterzeugende Funktion von $X$
 \end{definition}
 Wir nehmen im folgenden
-an, dass diese Funktion existiert\footnote{F"ur alle in diesem Kapitel
+an, dass diese Funktion existiert\footnote{Für alle in diesem Kapitel
 untersuchten Verteilungen trifft dies zu, es gibt aber auch Verteilungen,
-f"ur die die momenterzeugende Funktion nicht existiert, f"ur die der
+für die die momenterzeugende Funktion nicht existiert, für die der
 zentrale Grenzwertsatz aber trotzdem gilt.}.
-F"ur die momenterzeugende
+Für die momenterzeugende
 Funktion gilt die folgende Rechenregeln
 \begin{align*}
 M_{X+Y}(t)&=M_X(t)M_Y(t)\\
@@ -537,18 +537,18 @@ zweiseitige Laplacetransformierte von $\varphi$:
 \[
 M_X(t)={\cal L}\varphi(-t),
 \]
-insbesondere l"asst sich in vielen F"allen aus der Laplacetransformierten
-die urspr"ungliche Funktion wieder bestimmen.
+insbesondere lässt sich in vielen Fällen aus der Laplacetransformierten
+die ursprüngliche Funktion wieder bestimmen.
 Der Plan ist daher der folgende:
 \begin{enumerate}
-\item Bestimme einen N"aherungsausdruck f"ur $M_{X_i}(t)$.
-\item Bestimme einen N"aherungsausdruck f"ur $M_{S_n}(t)$.
-\item Berechne den Grenzwert von $M_{S_n}(t)$ f"ur $n\to\infty$.
+\item Bestimme einen Näherungsausdruck für $M_{X_i}(t)$.
+\item Bestimme einen Näherungsausdruck für $M_{S_n}(t)$.
+\item Berechne den Grenzwert von $M_{S_n}(t)$ für $n\to\infty$.
 \item Finde eine Verteilung, welche die gleiche Laplacetransformation
 hat.
 \end{enumerate}
 
-{\parindent0pt\bf 1.~Schritt: N"aherung f"ur $M_{X_i}(t)$.} 
+{\parindent0pt\bf 1.~Schritt: Näherung für $M_{X_i}(t)$.} 
 \index{Taylorreihe}
 Aus der Taylorentwicklung von $e^{tX}$ folgt
 \[
@@ -560,16 +560,16 @@ $R_i(t)\to 0$ wenn $t\to 0$.
 
 \medskip
 {\parindent0pt\bf 2.~Schritt: Berechnung von $M_{S_n}(t)$.}
-Aus den beiden Rechenregeln f"ur die momenterzeugende Funktion folgt
-jetzt zun"achst f"ur die Summe der Zufallsvariablen
+Aus den beiden Rechenregeln für die momenterzeugende Funktion folgt
+jetzt zunächst für die Summe der Zufallsvariablen
 \[
 M_{X_1+\dots+X_n}(t)=M_{X_1}(t)\dotsm M_{X_n}(t),
 \]
-und anschliessen f"ur das Produkt mit $\frac1{\sqrt{n}}$
+und anschliessen für das Produkt mit $\frac1{\sqrt{n}}$
 \[
 M_{S_n}(t)=M_{X_1}(t/\sqrt{n})\dotsm M_{X_n}(t/\sqrt{n}).
 \]
-Durch Einsetzen der N"aherung aus dem ersten Schritt ergibt sich
+Durch Einsetzen der Näherung aus dem ersten Schritt ergibt sich
 \[
 M_{S_n}(t)
 =\prod_{i=1}^n\biggl(1+\frac{t^2}{2n}+R_i\biggl(\frac{t}{\sqrt{n}}\biggl)\frac{t^2}{n}\biggr)
@@ -587,8 +587,8 @@ identisch verteilt sind, sind alle Funktionen $R_i$ gleich, und damit
 auch alle $Q_n$.
 
 \medskip
-{\parindent0pt\bf 3.~Schritt: Grenzwert f"ur $n\to\infty$.}
-F"ur den Grenz"ubergang $n\to\infty$ beachten wir nun, schreiben wir
+{\parindent0pt\bf 3.~Schritt: Grenzwert für $n\to\infty$.}
+Für den Grenzübergang $n\to\infty$ beachten wir nun, schreiben wir
 $M_{S_n}(t)$ mit Hilfe von
 $x_n=\frac{t^2}2+Q_n(t)$
 um als
@@ -614,10 +614,10 @@ Der gefundene Grenzwert soll die momenterzeugende Funktion einer
 Verteilung sein, und wir erwarten, dass sie ebenfalls eine
 momenterzeugende Funktion hat.
 Da die momenterzeugende Funktion
-nichts anderes als eine Laplacetransformation ist, k"onnen wir
-den Eindeutigkeitssatz f"ur die Laplacetransformation anwenden,
+nichts anderes als eine Laplacetransformation ist, können wir
+den Eindeutigkeitssatz für die Laplacetransformation anwenden,
 welcher besagt, dass zwei Funktionen, welche die gleiche zweiseitige
-Laplacetransformierte haben, fast "uberall gleich sein.
+Laplacetransformierte haben, fast überall gleich sein.
 
 Wir rechnen nach, dass $e^{\frac{t^2}2}$ die momenterzeugende Funktion
 der Standardnormalverteilung ist.
@@ -653,24 +653,24 @@ M(t)
 &=e^{\frac{t^2}2}
 \end{align*}
 Mit anderen Worten, die momenterzeugende Funktion der Normalverteilung
-stimmt "uberein mit der momenterzeugenden Funktion der Grenzverteilung.
-Schreiben wir $\varphi_n$ f"ur die Dichtefunktion f"ur $S_n$ und $F_n$
-f"ur die Verteilungsfunktion, dann gilt daher
-nach allgemeinen S"atzen "uber die Laplacetransformation
+stimmt überein mit der momenterzeugenden Funktion der Grenzverteilung.
+Schreiben wir $\varphi_n$ für die Dichtefunktion für $S_n$ und $F_n$
+für die Verteilungsfunktion, dann gilt daher
+nach allgemeinen Sätzen über die Laplacetransformation
 \[
 \lim_{n\to\infty}\varphi_n(x)=\frac1{\sqrt{2\pi}}e^{-\frac{x^2}2}
-\quad\text{fast "uberall}
+\quad\text{fast überall}
 \]
-und f"ur die Verteilungsfunktion
+und für die Verteilungsfunktion
 \[
 \lim_{n\to\infty}F_n(x)=\frac1{\sqrt{2\pi}}\int_{-\infty}^xe^{-\frac{t^2}2}\,dt.
 \]
 Insgesamt haben wir damit den folgenden Satz bewiesen:
 \begin{satz}[Zentraler Grenzwertsatz]
 \label{satz-zentraler-grenzwertsatz}
-Sind $(X_i)_{1\le i}$ unabh"angige Zufallsvariablen mit
+Sind $(X_i)_{1\le i}$ unabhängige Zufallsvariablen mit
 Erwartungswert $E(X_i)=0$ und Varianz $\operatorname{var}(X_i)=1$
-f"ur alle $i\ge 1$.
+für alle $i\ge 1$.
 Dann ist
 \[
 S_n=\frac1{\sqrt{n}}\sum_{i=1}^nX_i=\frac1{\sqrt{n}}(X_1+\dots+X_n)
@@ -679,8 +679,8 @@ eine Folge von Zufallsvariablen, die ebenfalls Erwartungswert $E(S_n)=0$
 und Varianz $\operatorname{var}(S_n)=1$ haben.
 Falls die Zufallsvariablen
 $X_i$
-f"ur alle $i$ eine momenterzeugende Funktion haben, hat auch $S_n$
-f"ur alle $n$ eine momenterzeugende Funktion, ausserdem konvergiert
+für alle $i$ eine momenterzeugende Funktion haben, hat auch $S_n$
+für alle $n$ eine momenterzeugende Funktion, ausserdem konvergiert
 die Verteilungsfunktion $F_n$ von $S_n$ gegen die Verteilungsfunktion der
 Standardnormalverteilung
 \[
@@ -688,7 +688,7 @@ Standardnormalverteilung
 \]
 Haben die $X_i$ ausserdem eine Wahrscheinlichkeitsdichte,
 dann hat auch $S_n$
-die Wahrscheinlichkeitsdichte $\varphi_n$, welche fast "uberall gegen die
+die Wahrscheinlichkeitsdichte $\varphi_n$, welche fast überall gegen die
 Wahrscheinlichkeitsdichte der Standardnormalverteilung 
 konvergiert:
 \[

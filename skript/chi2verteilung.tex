@@ -6,7 +6,7 @@
 \subsection{\texorpdfstring{$\chi^2$}{Chi hoch 2}-Verteilung} \label{chi2verteilung}
 \index{chi@{$\chi^2$-Verteilung}}
 Der zentrale Grenzwertsatz garantiert, dass in vielen praktisch wichtigen
-F"allen ann"ahernd normalverteilte Zufallsvariablen vorliegen.
+Fällen annähernd normalverteilte Zufallsvariablen vorliegen.
 Wenn man nun also weiss, dass die Zufallsvariablen $(X_i)_{1\le i\le n}$
 mit Erwartungswert $\mu_i$ und Varianz $\sigma_i^2$ normalverteilt
 sind, dann sind die Zufallsvariablen $Y_i=(X_i-\mu_i)/\sigma_i$
@@ -18,8 +18,8 @@ Grosse Werte der Summe sind sehr unwahrscheinlich.
 Treten sie bei einer Beobachtung trotzdem auf, dann ist entweder genau
 dieser unwahrscheinliche Fall eingetreten, oder die Annahmen, dass die
 $X_i$ normalverteilt waren, ist nicht zutreffend.
-Somit l"asst sich
-aus der Gr"osse ein praktisch n"utzlicher Test konstruieren, ob
+Somit lässt sich
+aus der Grösse ein praktisch nützlicher Test konstruieren, ob
 eine Normalverteilung vorliegt.
 
 
@@ -30,12 +30,12 @@ mit $n$ Freiheitsgraden.
 \end{definition}
 
 Es ist einigermassen erstaunlich, dass sich trotz all der beim Integrieren
-von Normalverteilungsdichten getroffenen Probleme f"ur die $\chi^2$-Verteilung
+von Normalverteilungsdichten getroffenen Probleme für die $\chi^2$-Verteilung
 geschlossene Formeln angeben lassen.
 In der Praxis sind diese Formeln zwar von untergeordneter Bedeutung, da
-man praktische Probleme mit Tabellen wie im Anhang l"osen kann.
+man praktische Probleme mit Tabellen wie im Anhang lösen kann.
 Die nachfolgenden Entwicklungen sollen daher vor allem als Illustration
-dienen, wie sich aus bekannten Verteilungen f"ur die Anwendungen wichtige
+dienen, wie sich aus bekannten Verteilungen für die Anwendungen wichtige
 neue Verteilungen konstruieren lassen.
 
 {\small
@@ -52,11 +52,11 @@ Die momenterzeugende Funktion der $\chi^2$-Verteilung ist
 \]
 \end{satz}
 
-Um diesen Satz zu beweisen, ist es n"utzlich, mehr Information "uber die
+Um diesen Satz zu beweisen, ist es nützlich, mehr Information über die
 Dichtefunktionen zu sammeln.
-Zun"achst sind die Dichtefunktionen
-$\gamma_{\frac12,\frac{n}2}$ Elemente einer viel gr"osseren Familie von
-Dichtefunktionen, n"amlich den Gamma-Verteilungen.
+Zunächst sind die Dichtefunktionen
+$\gamma_{\frac12,\frac{n}2}$ Elemente einer viel grösseren Familie von
+Dichtefunktionen, nämlich den Gamma-Verteilungen.
 
 \subsubsection{Die Gamma-Verteilungen}
 \index{gamma@{$\gamma$-Verteilung}}
@@ -76,7 +76,7 @@ Darin ist
 die Gamma-Funktion.
 \end{definition}
 
-Die Gamma-Verteilungen erf"ullen einige interessante Rechenregeln:
+Die Gamma-Verteilungen erfüllen einige interessante Rechenregeln:
 \begin{satz} Die Funktionen $\gamma_{\alpha,\nu}$ sind Wahrscheinlichkeitsdichten.
 Die Gamma-Verteilungen sind unter Faltung abgeschlossen:
 \[
@@ -86,9 +86,9 @@ Sind $X$ und $Y$ Gamma-verteilte Zufallsvariable, dann ist auch $X+Y$
 Gamma-verteilt.
 \end{satz}
 \begin{proof}[Beweis]
-Wir rechnen zun"achst nach, dass $\gamma_{\alpha,\nu}$ tats"achlich
+Wir rechnen zunächst nach, dass $\gamma_{\alpha,\nu}$ tatsächlich
 Wahrscheinlichkeitsdichten sind.
-Dazu ist die Normierung zu pr"ufen:
+Dazu ist die Normierung zu prüfen:
 \begin{align*}
 \int_{-\infty}^\infty \gamma_{\alpha,\nu}(x)\,dx
 &=\int_0^\infty\frac1{\Gamma(\nu)}\alpha^\nu x^{\nu-1}e^{-\alpha x}\,dx\\
@@ -123,7 +123,7 @@ x^{\mu+\nu-1}
 \frac{\Gamma(\mu+\nu)}{\Gamma(\mu)\Gamma(\nu)}
 \int_0^1 (1-\tau)^{\mu-1}\tau^{\nu-1}\,d\tau
 \end{align*}
-wobei f"ur die Umformung des Integrals die Substitution $t=x\tau$ verwendet
+wobei für die Umformung des Integrals die Substitution $t=x\tau$ verwendet
 wurde.
 Somit ist das Faltungsprodukt bis auf einen konstanten Faktor
 wieder eine Gamma-Verteilung, da aber die Gamma-Verteilungen bereits
@@ -137,14 +137,14 @@ wir also die Formel
 \subsubsection{Beweis des Satzes \ref{chi2}}
 Die $\chi^2$-Verteilung mit einem Freiheitsgrad ist die Verteilung von
 $X^2$, wenn $X$ eine standardnormalverteilte Zufallsvariable ist.
-F"ur $x\le 0$ ist die Verteilungsfunktion $F(x)=P(X^2\le x)=0$. 
-F"ur $x>0$ gilt
+Für $x\le 0$ ist die Verteilungsfunktion $F(x)=P(X^2\le x)=0$. 
+Für $x>0$ gilt
 \begin{align*}
 F(x)&=P(X^2\le x)=P(-\sqrt{x}\le X\le\sqrt{x})\\
 &=\frac1{\sqrt{2\pi}}\int_{-\sqrt{x}}^{\sqrt{x}}e^{-\frac12 \xi^2}\,d\xi\\
 &=\sqrt{\frac{2}{\pi}}\int_0^{\sqrt{x}}e^{-\frac12\xi^2}\,d\xi
 \end{align*}
-Mit Hilfe der Substitution $\xi^2=t$ oder $\xi=t^{\frac12}$ k"onnen wir
+Mit Hilfe der Substitution $\xi^2=t$ oder $\xi=t^{\frac12}$ können wir
 dies umformen zu
 \begin{align*}
 F(x)&=\frac1{\sqrt{2\pi}}\int_0^xe^{-\frac12t}t^{-\frac12}\,dt\\
@@ -166,21 +166,21 @@ kann mit der Substitution $x=\xi^2$ berechnet werden,
 =\int_0^{\infty}e^{-\xi^2}\,d\xi
 \]
 Das Integral auf der echten Seite ist bis auf einen Normierungsfaktor
-das Integral "uber die Dichte einer Normalverteilung, also
+das Integral über die Dichte einer Normalverteilung, also
 \[
 \Gamma({\textstyle\frac12})=\sqrt{\pi},
 \]
-woraus sich ablesen l"asst, dass die Wahrscheinlichkeitsdichte 
-von $X^2$ tats"achlich $\gamma_{\frac12,\frac12}$ ist.
+woraus sich ablesen lässt, dass die Wahrscheinlichkeitsdichte 
+von $X^2$ tatsächlich $\gamma_{\frac12,\frac12}$ ist.
 
-Nun kann man vollst"andige Induktion zusammen mit der Faltungseigenschaft
+Nun kann man vollständige Induktion zusammen mit der Faltungseigenschaft
 verwenden.
-F"ur $n=1$ ist bereits bekannt, dass die Wahrscheinlichkeitsdichte
-f"ur $n$ Summanden $X_i^2$ $\gamma_{\frac12,\frac{n}2}$ ist.
+Für $n=1$ ist bereits bekannt, dass die Wahrscheinlichkeitsdichte
+für $n$ Summanden $X_i^2$ $\gamma_{\frac12,\frac{n}2}$ ist.
 Nehmen wir an,
-dass f"ur $n-1$ Summanden die Wahrscheinlichkeitsdichte
+dass für $n-1$ Summanden die Wahrscheinlichkeitsdichte
 $\gamma_{\frac12,\frac{n-1}2}$
-ist, dann erhalten wir f"ur $n$ Summanden mit der Faltungseigenschaft
+ist, dann erhalten wir für $n$ Summanden mit der Faltungseigenschaft
 \[
 \gamma_{\frac12,\frac12}*\gamma_{\frac12,\frac{n-1}2}=\gamma_{\frac12,\frac{n}2}.
 \]
@@ -190,7 +190,7 @@ Wegen
 \[
 M_{\chi_{n-1}^2}(t)M_{\chi_1^2}(t)=M_{\chi_n^2}(t)
 \]
-gen"ugt es, eine Formel f"ur $M_{\chi_1^2}(t)$ zu finden.
+genügt es, eine Formel für $M_{\chi_1^2}(t)$ zu finden.
 Die Dichte
 der $\chi_1^2$-Verteilung ist
 \[
@@ -224,35 +224,35 @@ also auch
 \[
 M_{\chi_n^2}(t)=(1-2t)^{-\frac{n}2}.
 \]
-Damit der Satz \ref{chi2} vollst"andig bewiesen ist.
+Damit der Satz \ref{chi2} vollständig bewiesen ist.
 
 \subsubsection{Normalverteilungstest}
 \index{Normalverteilungstest}
-Die Zufallsvariablen $X_i$ waren unabh"angig und standardnormalverteilt
+Die Zufallsvariablen $X_i$ waren unabhängig und standardnormalverteilt
 vorausgesetzt worden.
-Die Gr"osse $\sum_{i=1}^nX_i^2$ liefert einen Test daf"ur, ob die Gr"ossen
-$X_i$ tats"achlich standardnormalverteilt sind.
+Die Grösse $\sum_{i=1}^nX_i^2$ liefert einen Test dafür, ob die Grössen
+$X_i$ tatsächlich standardnormalverteilt sind.
 Ist zum Beispiel der
 Erwartungswert der $X_i$ nicht $0$, dann wird $\sum_{i=1}^nX_i^2$
-deutlich gr"osser.
+deutlich grösser.
 Die Hypothese, dass die $X_i$ standardnormalverteilt
 sind, kann also verworfen werden, wenn $\sum_{i=1}^nX_i^2$ eine gewisse
-Schranke $M$ "uberschreitet.
+Schranke $M$ überschreitet.
 Die Wahrscheinlichkeit, dass die Hypothese
 verworfen wird, obwohl sie eigentlich zutrifft, ist
 \[
 P\biggl(\sum_{i=1}^nX_i^2>M\biggr).
 \]
 Will man die Wahrscheinlichkeit eines solchen Irrtums klein halten, muss
-$M$ entsprechend gross gew"ahlt werden.
+$M$ entsprechend gross gewählt werden.
 Wie gross definiert die
 $\chi^2$-Verteilung.
 Soll die Fehlerwahrscheinlichkeit $p$ sein,
-dann muss $M$ so gew"ahlt werden, dass 
+dann muss $M$ so gewählt werden, dass 
 \[
 P\biggl(\sum_{i=1}^nX_i^2>M\biggr)=\int_M^\infty \gamma_{\frac12,\frac{n}2}(t)\,dt = p.
 \]
-Die Schranke $M$ ist f"ur verschiedene Werte von $p$ in Abh"angigkeit
+Die Schranke $M$ ist für verschiedene Werte von $p$ in Abhängigkeit
 von der Anzahl Freiheitsgrade tabelliert, oder kann mit dem Computer
 berechnet werden.
 Zu diesem Zweck ist zum Beispiel in der GNU Scientific

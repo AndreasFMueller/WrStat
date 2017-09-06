@@ -42,20 +42,20 @@ Binomialverteilung mit $p=0.4$ und $n=10$.
 \label{binomialgraph}}
 \end{figure}
 
-Der Wurf einer M"unze ist der Spezialfall eines Versuches mit
-zwei m"oglichen Ausg"angen $\{0,1\}$, bei dem die beiden Ausg"ange als
+Der Wurf einer Münze ist der Spezialfall eines Versuches mit
+zwei möglichen Ausgängen $\{0,1\}$, bei dem die beiden Ausgänge als
 gleich wahrscheinlich angesehen werden.
 Es sind durchaus auch
-Anwendungsf"alle denkbar, in denen die beiden Ausg"ange unterschiedliche
-Wahrscheinlichkeit haben, zum Beispiel $p$ f"ur den Ausgang $1$ und $1-p$
-f"ur $0$.
+Anwendungsfälle denkbar, in denen die beiden Ausgänge unterschiedliche
+Wahrscheinlichkeit haben, zum Beispiel $p$ für den Ausgang $1$ und $1-p$
+für $0$.
 Ein solches Experiment nennt man ein Bernoulliexperiment.
 
 Wir wiederholen jetzt dieses Experiment $n$ mal und betrachten die Ereignisse,
-dass in genau $k$ der $n$ F"alle der Ausgang $1$ eingetreten ist,
-und $0$ in allen anderen F"allen.
-Es gibt $\binom{n}{k}$ M"oglichkeiten,
-die $k$ $1$-Experimente auszuw"ahlen, und die Wahrscheinlichkeit, dass genau
+dass in genau $k$ der $n$ Fälle der Ausgang $1$ eingetreten ist,
+und $0$ in allen anderen Fällen.
+Es gibt $\binom{n}{k}$ Möglichkeiten,
+die $k$ $1$-Experimente auszuwählen, und die Wahrscheinlichkeit, dass genau
 diese Kombination $1$ und $0$ realisiert wird, ist $p^k(1-p)^{n-k}$.
 Somit ist die Wahrscheinlichkeit, dass von $n$ Experimenten deren $k$
 erfolgreich sind
@@ -80,7 +80,7 @@ Binomialverteilung ist in Abbildung~\ref{binomialgraph} dargestellt.
 \subsubsection{Erwartungswert und Varianz}
 \index{Erwartungswert!der Binomialverteilung}
 \index{Binomialverteilung!Erwartungswert}
-Aus der bekannten Wahrscheinlichkeitsverteilung l"asst sich
+Aus der bekannten Wahrscheinlichkeitsverteilung lässt sich
 Erwartungswert und Varianz berechnen:
 \begin{satz}
 Eine auf $\{0,\dots,n\}$ zum Parameter $p$ binomialverteilte Zufallsvariable
@@ -97,12 +97,12 @@ Die maximale Varianz wird erreicht bei $p=\frac12$.
 \index{Varianz!der Binomialverteilung}
 \index{Binomialverteilung!Varianz}
 
-\begin{proof}[Beweis] Wir m"ussen die Summen
+\begin{proof}[Beweis] Wir müssen die Summen
 \begin{align*}
 E(X)&=\sum_{k=0}^nk\binom{n}{k}p^k(1-p)^{n-k}\\
 E(X^2)&=\sum_{k=0}^nk^2\binom{n}{k}p^k(1-p)^{n-k}
 \end{align*}
-berechnen k"onnen.
+berechnen können.
 Dazu betrachten wir die Hilfsfunktion
 \[
 f(x)=(x+y)^n=\sum_{k=0}^n\binom{n}{k}x^ky^{n-k},
@@ -135,7 +135,7 @@ und auf der rechten Seite
 x\frac{d}{dx} x\frac{d}{dx} f(x)
 &=\sum_{k=0}^n\binom{n}{k}k^2x^ky^{n-k},
 \end{align*}
-und nach Einsetzen der Werte f"ur $x$ und $y$
+und nach Einsetzen der Werte für $x$ und $y$
 \[
 pn+p^2n(n-1)=\sum_{k=0}^n\binom{n}{k}k^2p^k(1-p)^{n-k}=E(X^2).
 \]
@@ -152,43 +152,43 @@ den Nullstellen bei $\frac12$ sein muss.
 
 \subsubsection{Der Grenzwert \texorpdfstring{$n\to\infty$}{n gegen unendlich}}
 \index{Binomialverteilung!Normalapproximation}
-Was geschieht, wenn die Zahl $n$ der Versuche beliebig vergr"ossert wird?
-Nat"urlich wird die Zahl der m"oglichen Werte der Zufallsvariable
-gr"osser, der Erwartungswert $np$ und die Varianz $np(1-p)$ steigen.
+Was geschieht, wenn die Zahl $n$ der Versuche beliebig vergrössert wird?
+Natürlich wird die Zahl der möglichen Werte der Zufallsvariable
+grösser, der Erwartungswert $np$ und die Varianz $np(1-p)$ steigen.
 Standardisiert man die Verteilung jedoch, indem man die Zufallsvariable
 durch $Y=(X-np)/\sqrt{np(1-p)}$ ersetzt, dann wird die Zufallsvariable $Y$
 Erwartungswert $0$ und Varianz $1$ haben. 
 
-Durch die Skalierung r"ucken die m"oglichen Werte von $Y$ n"aher zusammen,
+Durch die Skalierung rücken die möglichen Werte von $Y$ näher zusammen,
 so dass man die Wahrscheinlichkeiten nicht direkt vergleichen kann.
-Man kann aber die Verteilungsfunktionen $F_Y$ f"ur verschiedene Werte
+Man kann aber die Verteilungsfunktionen $F_Y$ für verschiedene Werte
 von $n$ vergleichen.
-Aus dem zentralen Grenzwertsatz erh"alt man
+Aus dem zentralen Grenzwertsatz erhält man
 jedoch die Aussage, dass die Verteilungsfunktion gegen die
 Verteilungsfunktion der Standardnormalverteilung konvergieren wird.
 Dieser Spezialfall des zentralen Grenzwertsatzes heisst auch der
 Satz von de Moivre und Laplace.
 
-Die Gr"osse $Y=(X-np)/\sqrt{np(1-p)}$ sollte also normalverteilt sein
-mit Erwartungswert $0$ und Varianz $1$, aber nat"urlich nur, wenn $p$
-tats"achlich die Wahrscheinlichkeit des einen Ausgangs des
+Die Grösse $Y=(X-np)/\sqrt{np(1-p)}$ sollte also normalverteilt sein
+mit Erwartungswert $0$ und Varianz $1$, aber natürlich nur, wenn $p$
+tatsächlich die Wahrscheinlichkeit des einen Ausgangs des
 Bernoulliexperimentes ist.
-Daraus l"asst sich jetzt ein Test daf"ur
+Daraus lässt sich jetzt ein Test dafür
 konstruieren, ob $p$ die Wahrscheinlichkeit des einen Ausgangs eines
 Bernoulliexperimentes ist.
-Ist $p$ n"amlich nicht die richtige
-Wahrscheinlichkeit, wird f"ur grosse $Y$ mit grosser Wahrscheinlichkeit
+Ist $p$ nämlich nicht die richtige
+Wahrscheinlichkeit, wird für grosse $Y$ mit grosser Wahrscheinlichkeit
 stark von $0$ abweichen, es muss also nur ein Kriterium gefunden werden,
 welches angibt, dass die Abweichung zu gross ist, um immer noch daran
 zu glauben, dass das $p$ richtig war.
 
-Ein rationales Kriterium l"asst sich mit der $\chi^2$-Verteilung konstruieren.
+Ein rationales Kriterium lässt sich mit der $\chi^2$-Verteilung konstruieren.
 $Y^2$ ist $\chi^2$-verteilt mit einem Freiheitsgrad.
-Die Wahrscheinlichkeit, dass $Y^2$ gr"osser ist als $M$ ist
+Die Wahrscheinlichkeit, dass $Y^2$ grösser ist als $M$ ist
 \[
 P(Y^2>M)=\int_M^\infty f_{\frac12,\frac12}(t)\,dt.
 \]
 Wenn wir also $M$ bestimmen, so dass diese Wahrscheinlichkeit 
-zum Beispiel 5\% ist, dann glauben wir nicht mehr, dass $p$ tats"achlich
+zum Beispiel 5\% ist, dann glauben wir nicht mehr, dass $p$ tatsächlich
 die Wahrscheinlichkeit des einen Ausgangs ist, sobald $Y^2>M$ wird,
-und nur in 5\% aller F"alle werden wir dies zu unrecht tun.
+und nur in 5\% aller Fälle werden wir dies zu unrecht tun.

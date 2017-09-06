@@ -5,63 +5,63 @@
 %
 \rhead{Testen}
 \chapter{Hypothesen testen} \label{chapter-hypothesen-testen}
-Francis Bacon (1561--1626) hat gegen die im Mittelalter "ubliche
+Francis Bacon (1561--1626) hat gegen die im Mittelalter übliche
 Art des Spekulierens in den Wissenschaften einen umfassenden Neubau
-der Wissenschaften auf der Grundlage der ``unverf"alschten Erfahrung''
+der Wissenschaften auf der Grundlage der ``unverfälschten Erfahrung''
 versucht.
-Die Entscheidung "uber Fakten und kausale Zusammenh"ange
+Die Entscheidung über Fakten und kausale Zusammenhänge
 sollten nicht durch abgehobenes Debattieren und Berufung auf 
-Autorit"aten entschieden werden, sondern durch den Ausgang
-m"oglichst eindeutiger Experimente.
+Autoritäten entschieden werden, sondern durch den Ausgang
+möglichst eindeutiger Experimente.
 Ein solches ``experimentum crucis''
 sollte einem unvoreingenommenen Beobachter eine klare Antwort geben
-k"onnen.
+können.
 In der modernen Wissenschaft hat sich jedoch gezeigt, dass
 die Entscheidung selten wirklich so einfach ist.
 Oft bewegt sich
-der Experimentator an der Grenze des messbaren, und er l"auft
-st"andig Gefahr, Messfehler f"ur bisher unbekannte Effekte zu halten
+der Experimentator an der Grenze des messbaren, und er läuft
+ständig Gefahr, Messfehler für bisher unbekannte Effekte zu halten
 oder vor lauter statistischen Schwankungen selbst den theoretisch
 gut untermauerten Effekt nicht zu sehen.
 
-Der Hypothesentest ist daher das moderne Gegenst"uck zu Bacons
+Der Hypothesentest ist daher das moderne Gegenstück zu Bacons
 experimentum crucis.
 Er erlaubt dem Experimentator auf neutrale
 Art zu entscheiden, ob in seinen Messresultaten nun der vermutete
 Effekt sichtbar ist, oder die Entdeckung auch nur durch die unvermeidlichen
-Zufallsschwankungen vorgespiegelt sein k"onnte.
+Zufallsschwankungen vorgespiegelt sein könnte.
 
 In Kapitel \ref{chapter-schaetzen} wurde gezeigt, wie Parameter einer
-Verteilung gesch"atzt werden k"onnen.
+Verteilung geschätzt werden können.
 Trotzdem bleiben viele Fragen offen:
 \begin{itemize}
 \item Obwohl man bei der Wiederholung eines Experimentes andere Werte
-gemessen hat, m"ochte man mit m"oglichst geringer Fehlerwahrscheinlichkeit
-best"atigen k"onnen, dass man immer noch den gleichen Wert gemessen hat.
-\item Kann man 95\% sicher sein, dass ein neuer Werkstoff wirklich gr"ossere
-Festigkeit aufweist als sein Vorg"anger?
+gemessen hat, möchte man mit möglichst geringer Fehlerwahrscheinlichkeit
+bestätigen können, dass man immer noch den gleichen Wert gemessen hat.
+\item Kann man 95\% sicher sein, dass ein neuer Werkstoff wirklich grössere
+Festigkeit aufweist als sein Vorgänger?
 \item Kann man wirklich 95\% sicher sein, dass die Messresultate
 in einem Experiment normalverteilt sind?
 \end{itemize}
-Die Sch"atzung von Parametern kann diese Fragen allein noch nicht beantworten.
-Da der Sch"atzer selbst eine Zufallsvariable ist, m"ussen wir noch
-mehr "uber dessen Verteilung wissen, um die erste oder die "aquivalente
+Die Schätzung von Parametern kann diese Fragen allein noch nicht beantworten.
+Da der Schätzer selbst eine Zufallsvariable ist, müssen wir noch
+mehr über dessen Verteilung wissen, um die erste oder die äquivalente
 zweite Frage zu entscheiden.
 In der dritten Frage stellt die
 Verteilungsfunktion selbst in Frage, also die Grundlagen, auf denen
-die ganze Theorie der Sch"atzer aufgebaut wird.
+die ganze Theorie der Schätzer aufgebaut wird.
 
 Ein Hypothesentest versucht die Frage zu beantworten, ob vorhandene
 Messdaten mit der Hypothese vereinbar sind, und falls nicht, mit welcher
-Wahrscheinlichkeit zu Unrecht an der G"ultigkeit der Hypothese gezweifelt
+Wahrscheinlichkeit zu Unrecht an der Gültigkeit der Hypothese gezweifelt
 wurde.
 
 \section{Allgemeines Prinzip}
 Als Illustration des allgemeinen Problems betrachten wir folgende Frage.
-Von einer Zufallsgr"osse $X$ wird behauptet, dass sie normalverteilt ist,
+Von einer Zufallsgrösse $X$ wird behauptet, dass sie normalverteilt ist,
 mit Erwartungswert $0$ und Varianz $1$.
-Nun wird eine Messung durchgef"uhrt, bei der der Wert $10$ gemessen wird.
-Die Normalverteilung verbietet nat"urlich
+Nun wird eine Messung durchgeführt, bei der der Wert $10$ gemessen wird.
+Die Normalverteilung verbietet natürlich
 nicht, dass ein derart hoher Wert auftritt.
 Allerdings ist die
 Wahrscheinlichkeit dass bei einer Standardnormalverteilten Zufallsvariable
@@ -72,36 +72,36 @@ P(|X|\ge 10)=1.523970\cdot 10^{-23}
 das beobachtete Ereignis ist also extrem unwahrscheinlich.
 Da die Beobachtung
 real ist, muss man es als extrem unwahrscheinlich ansehen, dass die
-Zufallsvariable tats"achlich standardnormalverteilt war.
+Zufallsvariable tatsächlich standardnormalverteilt war.
 
 Nach diesem Grundprinzip funktionieren die meisten Testverfahren.
 Auf der Basis einer Hypothese (oft auch die Nullhypothese genannt)
-wird eine Testgr"osse $\varphi(\cdot)$ bestimmt, die 
+wird eine Testgrösse $\varphi(\cdot)$ bestimmt, die 
 unter der Hypothese ein gewisses Intervall nur mit einer sehr kleinen
-Wahrscheinlichkeit verl"asst.
-Dann wird eine Beobachtung $X$ durchgef"uhrt, und die Testgr"osse
+Wahrscheinlichkeit verlässt.
+Dann wird eine Beobachtung $X$ durchgeführt, und die Testgrösse
 $\varphi(X)$ ausgewertet.
 Die Hypothese wird verworfen, wenn die
-Testgr"osse das Intervall in der Beobachtung verl"asst.
+Testgrösse das Intervall in der Beobachtung verlässt.
 
-Im erw"ahnten Beispiel besteht die Hypothese in der Annahme, dass die
-Messgr"osse standardnormalverteilt ist.
-Der Testgr"osse entspricht dem Betrag einer einzelnen Messung.
-Auf Grund der Annahme, dass die Testgr"osse
-standardnormalverteilt ist, kann die Wahrscheinlichkeit daf"ur berechnet
+Im erwähnten Beispiel besteht die Hypothese in der Annahme, dass die
+Messgrösse standardnormalverteilt ist.
+Der Testgrösse entspricht dem Betrag einer einzelnen Messung.
+Auf Grund der Annahme, dass die Testgrösse
+standardnormalverteilt ist, kann die Wahrscheinlichkeit dafür berechnet
 werden, dass $\varphi(X)=|X|\ge10$.
 Genau dieses Ereignis tritt dann ein.
 
-Hier sind offensichtlich zwei Arten von Fehlern m"oglich:
+Hier sind offensichtlich zwei Arten von Fehlern möglich:
 \begin{enumerate}
 \item Fehler erster Art: Die Hypothese war richtig, und wird trotzdem verworfen.
 Das Testverfahren kann genau angeben, mit welcher Wahrscheinlichkeit
 dieser Fehler gemacht wird.
 \item Fehler zweiter Art: Die Hypothese war falsch, wird aber nicht verworfen.
 Da die Hypothese falsch war, muss die Berechnung des Intervalls in Zweifel
-gezogen werden, in dem sich die Testgr"osse befinden soll.
+gezogen werden, in dem sich die Testgrösse befinden soll.
 Damit kann
-in vielen F"allen "uber die Wahrscheinlichkeit eines Fehlers zweiter
+in vielen Fällen über die Wahrscheinlichkeit eines Fehlers zweiter
 Art nichts ausgesagt werden.
 \end{enumerate}
 Man beachte, dass der Test gar nicht beweist, dass die Hypothese richtig
@@ -113,55 +113,55 @@ Art zu begehen $1.523970\cdot 10^{-23}$.
 Meist geht man in der Praxis von der
 Wahrscheinlichkeit aus, mit der man einen Fehler erster Art zu begehen
 bereit ist, und berechnet daraus das Intervall, in dem sich die
-Testgr"osse bewegen darf.
+Testgrösse bewegen darf.
 Verlangt man zum Beispiel, dass ein Fehler erster
-Art h"ochstens mit Wahrscheinlichkeit $0.01$ eintritt, dann muss die 
-Testgr"osse in einem Intervall $[-m,m]$ liegen mit $P(-m\le X\le m)=0.99$.
+Art höchstens mit Wahrscheinlichkeit $0.01$ eintritt, dann muss die 
+Testgrösse in einem Intervall $[-m,m]$ liegen mit $P(-m\le X\le m)=0.99$.
 Die Gleichung
 \[
 0.99 = P(-m\le X\le m)
 =\frac12\left(\operatorname{erf}(\frac{m}{\sqrt{2}})-\operatorname{erf}(-\frac{m}{\sqrt{2}})\right)
 =\operatorname{erf}(\frac{m}{\sqrt{2}})
 \]
-kann mit Hilfe der inversen Fehlerfunktion aufgel"ost werden:
+kann mit Hilfe der inversen Fehlerfunktion aufgelöst werden:
 \[
 m=\sqrt{2}\operatorname{erf}^{-1}(0.99)=2.575829
 \]
-Somit w"are bereits eine Abweichung von mehr als dem $2.58$-fachen einer
+Somit wäre bereits eine Abweichung von mehr als dem $2.58$-fachen einer
 Standardabweichung Grund genug, die Hypothese zu verwerfen.
 
 \begin{definition}
 Ein Test auf dem Niveau $\alpha$ ist eine Regel, welche zu einer
 Beobachtung $X$ entscheidet, ob die Hypothese zu verwerfen ist, wobei
-sie h"ochstens mit Wahrscheinlichkeit $\alpha$ einen Fehler erster
+sie höchstens mit Wahrscheinlichkeit $\alpha$ einen Fehler erster
 Art begeht.
 \end{definition}
 
 Weiter oben haben wir einen sehr primitiven Test auf dem Niveau
-$\alpha=0.01$ f"ur die
+$\alpha=0.01$ für die
 Hypothese formuliert, dass $X$ standardnormalverteilt ist.
 
 \section{Testen der Wahrscheinlichkeit eines Ereignisses}
-Mit Hilfe von Beobachtungen k"onnen wir die relative H"aufigkeit ermitteln, mit
+Mit Hilfe von Beobachtungen können wir die relative Häufigkeit ermitteln, mit
 welcher ein Ereignis $A$ eintritt, von dem wir glauben, dass es mit
 Wahrscheinlichkeit $p=P(A)$ eintreten sollte.
 Damit stellt sich automatisch die Frage, ob wir mit Hilfe der
-Beobachtungen entscheiden k"onnen, ob $p$ tats"achlich die Wahrscheinlichkeit
+Beobachtungen entscheiden können, ob $p$ tatsächlich die Wahrscheinlichkeit
 von $A$ ist.
 
-Wir betrachten dazu unabh"angige Zufallsvariable $(X_i)_{1\le i\le n}$,
+Wir betrachten dazu unabhängige Zufallsvariable $(X_i)_{1\le i\le n}$,
 welche ausschliesslich
 die Werte $0$ und $1$ annehmen, und zwar mit Wahrscheinlichkeit
 $1-p$ bzw.~$p$.
 Die Zufallsvariable $X_i$ soll mit dem Wert $1$ anzeigen,
-ob bei der $i$-ten Durchf"uhrung des Experiments das Ereignis eingetreten ist.
+ob bei der $i$-ten Durchführung des Experiments das Ereignis eingetreten ist.
 Die Summe der Zufallsvariablen 
 \[
 X=\sum_{i=1}^nX_i
 \]
 ist eine Zufallsvariable, die angibt, wie oft bei $n$ Versuchen das Ereignis
 eingetreten ist.
-F"ur Erwartungswert und Varianz von $X_i$ finden
+Für Erwartungswert und Varianz von $X_i$ finden
 wir folgende Werte
 \begin{align*}
 E(X_i)
@@ -179,18 +179,18 @@ Entsprechend hat $X$ den Erwartungswert $E(X)=np$ und
 die Varianz $\operatorname{var}(X)=np(1-p)$.
 
 Nach dem zentralen Grenzwertsatz wird die geeignet standardisierte Summe
-von gen"ugend vielen Summanden $X_i$ eine Verteilungsfunktion haben,
+von genügend vielen Summanden $X_i$ eine Verteilungsfunktion haben,
 die jener einer Normalverteilung sehr nahe kommt, 
 \begin{equation}
 \frac{X-np}{\sqrt{np(1-p)}}
 \label{chi2-primitiv}
 \end{equation}
-ist also angen"ahert standardnormalverteilt.
+ist also angenähert standardnormalverteilt.
 Daraus liesse sich nach den
 Ideen des voranstehenden Abschnitts bereits ein Test konstruieren.
 Etwas handlicher ist jedoch das Quadrat von (\ref{chi2-primitiv}), der
-sich mit Hilfe der Anzahl der F"alle $Y=n-X$, in denen das Ereignis
-nicht eingetreten ist, noch etwas symmetrischer Schreiben l"asst
+sich mit Hilfe der Anzahl der Fälle $Y=n-X$, in denen das Ereignis
+nicht eingetreten ist, noch etwas symmetrischer Schreiben lässt
 \begin{align}
 D=\frac{(X-np)^2}{np(1-p)}
 &=
@@ -211,35 +211,35 @@ D=\frac{(X-np)^2}{np(1-p)}
 \end{align}
 Im letzten Ausdruck (\ref{chi2-primitiv2})
 steht im ersten Term die Abweichung der
-Anzahl der Eintretensf"alle des Ereignisses von der erwarteten H"aufigkeit,
-im zweiten Term die Anzahl der Nichteintretensf"alle des Ereignisses
-von deren erwarteter H"aufigkeit.
+Anzahl der Eintretensfälle des Ereignisses von der erwarteten Häufigkeit,
+im zweiten Term die Anzahl der Nichteintretensfälle des Ereignisses
+von deren erwarteter Häufigkeit.
 Da wir vom Quadrat einer standardnormalverteilten Zufallsvariable ausgegangen
 sind, ist die Diskrepanz $D$ $\chi^2$-verteilt mit einem Freiheitsgrad.
 
 Um die Hypothese zu testen, dass das Ereignis mit Wahrscheinlichkeit $p$
-eintritt, brauchen wir nur gen"ugend viele Beobachtungen durchzuf"uhren
-(so dass die Approximation durch den zentralen Grenzwertsatz g"ultig wird),
+eintritt, brauchen wir nur genügend viele Beobachtungen durchzuführen
+(so dass die Approximation durch den zentralen Grenzwertsatz gültig wird),
 die Diskrepanz $D$ auszurechnen und mit Hilfe der $\chi^2$-Verteilung
-zu pr"ufen, ob dieser Wert von $D$ ``unwahrscheinlich genug'' ist.
+zu prüfen, ob dieser Wert von $D$ ``unwahrscheinlich genug'' ist.
 
-F"ur einen Test auf dem Niveau $\alpha=0.01$ m"ussten wir jenes
-$x$ finden, f"ur welches $F_{\chi^2_1}(x)=0.99$ gilt.
+Für einen Test auf dem Niveau $\alpha=0.01$ müssten wir jenes
+$x$ finden, für welches $F_{\chi^2_1}(x)=0.99$ gilt.
 Die $\chi^2$-Tabelle \ref{chi2-tabelle} im Anhang \ref{anhang-tabellen}
 liefert $x=6.63$.
-Sobald also $D\ge 6.63$ w"urde die Hypothese verworfen,
+Sobald also $D\ge 6.63$ würde die Hypothese verworfen,
 dass $p$ nicht die Wahrscheinlichkeit des Ereignisses $A$ ist.
 
-In einem Experiment wurde eine M"unze 30 mal geworfen, wobei 13 mal
+In einem Experiment wurde eine Münze 30 mal geworfen, wobei 13 mal
 Kopf erschien und 17 mal Zahl.
-Die Hypothese $p=0.5$ f"uhrt auf eine
+Die Hypothese $p=0.5$ führt auf eine
 Diskrepanz 
 \[
 D=\frac{(13-15)^2}{15}+\frac{(17-15)^2}{15}=\frac{8}{15}=0.53333,
 \]
 also viel zu klein, um an der Hypothese zu zweifeln.
-Nat"urlich beweist das auch nicht, dass tats"achlich $p=0.5$.
-Berechnen wird die Diskrepanz f"ur irgend ein $p$, dann gilt
+Natürlich beweist das auch nicht, dass tatsächlich $p=0.5$.
+Berechnen wird die Diskrepanz für irgend ein $p$, dann gilt
 \[
 D(p)=\frac{(13-30p)^2}{30p}+\frac{(17-30(1-p))^2}{30(1-p)}
 =\frac{(13-30p)^2}{30p(1-p)}.
@@ -247,68 +247,68 @@ D(p)=\frac{(13-30p)^2}{30p}+\frac{(17-30(1-p))^2}{30(1-p)}
 Die vorhandenen Beobachtungen bringen uns dazu, die Hypothese eines
 bestimmten Wertes von $p$ auf dem Niveau $\alpha=0.01$ zu verwerfen,
 wenn $D(p)\ge 6.63$ ist.
-Selbst f"ur $p=0.3$ findet man immer noch einen
+Selbst für $p=0.3$ findet man immer noch einen
 Wert $D(0.3)=2.54$, welcher nicht gestattet,
 die Hypothese $P(\text{Kopf})=0.3$ zu verwerfen.
 Hingegen liefert 
 $D(0.7)=10.16\ge 6.63$ Grund genug, auf dem Niveau $\alpha=0.01$ nicht
-l"anger an die Hypothese $P(\text{Kopf})=0.7$ zu glauben.
+länger an die Hypothese $P(\text{Kopf})=0.7$ zu glauben.
 
-Der Test l"asst sich "ubrigens auch umkehren.
+Der Test lässt sich übrigens auch umkehren.
 Hat der Experimentator
-gemogelt, und seine Daten fabriziert, dann k"onnen wir erwarten, dass
-die Diskrepanz kleiner ist, als wir erwarten d"urften.
+gemogelt, und seine Daten fabriziert, dann können wir erwarten, dass
+die Diskrepanz kleiner ist, als wir erwarten dürften.
 Eine Diskrepanz
-von $0$, also Kopf und Zahl gleich h"aufig, ist extrem unwahrscheinlich.
+von $0$, also Kopf und Zahl gleich häufig, ist extrem unwahrscheinlich.
 
 \section{Testen einer diskreten Wahrscheinlichkeitsverteilung}
 \label{section-testen-diskreter-wkeitsverteilung}
-Karl Pearson hat im Jahre 1900 erkannt, dass sich der Test f"ur die
-Wahrscheinlichkeit eines Ereignisses auf einen Test f"ur eine
-diskrete Wahrscheinlichkeitsverteilung erweitern l"asst.
+Karl Pearson hat im Jahre 1900 erkannt, dass sich der Test für die
+Wahrscheinlichkeit eines Ereignisses auf einen Test für eine
+diskrete Wahrscheinlichkeitsverteilung erweitern lässt.
 Wir nehmen
-dazu an, dass in einem Experiment $d+1$ Ausg"ange m"oglich sind, und
+dazu an, dass in einem Experiment $d+1$ Ausgänge möglich sind, und
 bezeichnen diese mit $0,\dots,d$.
 Das Experiment wird $n$ Mal
-durchgef"uhrt, wobei der Ausgang $i$ $n_i$ Mal beobachtet wurde.
-Mit diesen Daten m"ochten wir die Hypothese testen, dass $p_i$ die
-Wahrscheinlichkeit f"ur den Ausgang $i$ ist.
+durchgeführt, wobei der Ausgang $i$ $n_i$ Mal beobachtet wurde.
+Mit diesen Daten möchten wir die Hypothese testen, dass $p_i$ die
+Wahrscheinlichkeit für den Ausgang $i$ ist.
 
-In Analogie zum Test f"ur eine Wahrscheinlichkeit bilden wird die
+In Analogie zum Test für eine Wahrscheinlichkeit bilden wird die
 Diskrepanz:
-\begin{definition}Die Gr"osse
+\begin{definition}Die Grösse
 \begin{equation}
 D=\sum_{i=0}^d\frac{(n_i-np_i)^2}{np_i} \label{formel-diskrepanz}
 \end{equation}
 heisst Diskrepanz.
 \end{definition}
 Es gilt:
-\begin{satz}[Pearson] Die Diskrepanz $D$ ist f"ur gen"ugend grosse
-$n$ ann"ahernd $\chi^2$-verteilt mit $d$ Freiheitsgraden.
+\begin{satz}[Pearson] Die Diskrepanz $D$ ist für genügend grosse
+$n$ annähernd $\chi^2$-verteilt mit $d$ Freiheitsgraden.
 \end{satz}
-``Gen"ugend gross'' heisst nach einer verbreiteten Faustregel: so
+``Genügend gross'' heisst nach einer verbreiteten Faustregel: so
 gross, dass $n_i>5\forall i$.
 Damit ist anscheinend sichergestellt,
-dass f"ur die Zwecke des Tests die Ann"aherung an die Normalverteilung
+dass für die Zwecke des Tests die Annäherung an die Normalverteilung
 genau genug ist.
 \begin{proof}[Beweis]
-Wie beim Fall einer Wahrscheinlichkeit k"onnen wir die Terme
+Wie beim Fall einer Wahrscheinlichkeit können wir die Terme
 \[
 \delta_i=\frac{n_i-np_i}{\sqrt{np_i(1-p_i)}}
 \]
 als standardnormalverteilt ansehen.
 Sie sind jedoch nicht
-unabh"angig, da $\sum_{i=0}^d n_i=n$ und $\sum_{i=0}^dp_i=1$
+unabhängig, da $\sum_{i=0}^d n_i=n$ und $\sum_{i=0}^dp_i=1$
 gilt.
 Das Hauptproblem des Beweises besteht also darin zu zeigen,
 dass die Diskrepanz die Quadrat-Summe von $d$ standardnormalverteilten
 Zufallsvariablen ist, die sich aus den $\delta_i$ bilden lassen.
 Dieses etwas technische Problem bringt uns keine neuen theoretischen
-Einsichten, wir verzichten daher auf die Durchf"uhrung des Beweises.
+Einsichten, wir verzichten daher auf die Durchführung des Beweises.
 \end{proof}
 
-Mit diesem Satz l"asst sich offensichtlich ein Test auf dem Niveau
-$\alpha$ f"ur jede
+Mit diesem Satz lässt sich offensichtlich ein Test auf dem Niveau
+$\alpha$ für jede
 beliebige diskrete Verteilung bilden.
 Man geht dazu wie folgt vor:
 \begin{enumerate}
@@ -321,8 +321,8 @@ D=\sum_{i=0}^d\frac{(n_i-np_i)^2}{np_i}
 $p_i$ eintritt, wenn $D>x$ gilt.
 \end{enumerate}
 
-In 100 W"urfen mit einem W"urfel wurden die Augenzahlen $1$ bis $6$ gez"ahlt,
-und dabei folgende H"aufigkeiten ermittelt
+In 100 Würfen mit einem Würfel wurden die Augenzahlen $1$ bis $6$ gezählt,
+und dabei folgende Häufigkeiten ermittelt
 \begin{center}
 \begin{tabular}{|r|r|r|}
 \hline
@@ -340,9 +340,9 @@ $i$&$n_i$&$(n_i-np_i)^2/np_i$\\
 \end{tabular}
 \end{center}
 Die Tabelle der Quantilen der $\chi^2$-Verteilung \ref{chi2-tabelle}
-zeigt, dass f"ur f"unf Freiheitsgrade (sechs m"ogliche Versuchsausg"ange)
+zeigt, dass für fünf Freiheitsgrade (sechs mögliche Versuchsausgänge)
 selbst auf dem Niveau $\alpha=0.1$ die Diskrepanz mindestens $9.236$ sein
-m"usste.
+müsste.
 Die vorliegenden experimentellen Daten geben also noch keinen
 Anlass, daran zu zweifeln, dass jede Augenzahl mit der gleichen
 Wahrscheinlichkeit $\frac16$ auftreten wird.
@@ -352,13 +352,13 @@ Wahrscheinlichkeit $\frac16$ auftreten wird.
 Der im vorangehenden Abschnitt beschriebene $\chi^2$-Test kann prinzipbedingt
 nur diskrete Wahrscheinlichkeitsverteilungen testen.
 Will man eine stetige
-Verteilung testen, muss man zun"achst Klassen von Werten bilden,
-deren Wahrscheinlichkeiten berechnen, und dann pr"ufen, ob die so
-k"unstlich konstruierte diskrete Verteilung im $\chi^2$-Test Bestand hat.
-Durch die Notwendigkeit der Klassenbildung f"uhrt man eine k"unstliche
+Verteilung testen, muss man zunächst Klassen von Werten bilden,
+deren Wahrscheinlichkeiten berechnen, und dann prüfen, ob die so
+künstlich konstruierte diskrete Verteilung im $\chi^2$-Test Bestand hat.
+Durch die Notwendigkeit der Klassenbildung führt man eine künstliche
 Diskretisierung in das Problem ein.
 Will man den Test verfeinern, muss man
-die Diskretisierung ebenfalls "andern.
+die Diskretisierung ebenfalls ändern.
 
 \subsection{Testprinzip}
 Diese unbefriedigende Situation korrigiert der Kolmogoroff-Smirnov-Test,
@@ -373,15 +373,15 @@ Wir wollen testen, ob $n$ Beobachtungen $X_1,\dots,X_n$ sich mit
 der Hypothese vertragen, dass die Zufallsvariablen $X_i$ die
 Verteilungsfunktion $F$ haben.
 Dazu wird aus den $n$ Beobachtungen
-und die zugeh"orige empirische Verteilungsfunktion
+und die zugehörige empirische Verteilungsfunktion
 \[
 F_n\colon x\mapsto F_n(x)=\frac{|\{x_i|X_i\le x\}|}{n}
 \]
 gebildet.
-Wenn die Zufallsvariable $X$ tats"achlich die
+Wenn die Zufallsvariable $X$ tatsächlich die
 Verteilungsfunktion $F$ hat, wird man erwarten,
 dass $F$ und $F_n$ sich nicht stark unterscheiden.
-Insbesondere sollten die Gr"ossen
+Insbesondere sollten die Grössen
 \begin{align}
 K_n^+
 &=
@@ -392,19 +392,19 @@ K_n^-
 \sqrt{n}\max_{-\infty<x<\infty} F(x)-F_n(x)
 \end{align}
 nicht sehr gross werden.
-Um den Test durchzuf"uhren braucht man also
-die Wahrscheinlichkeit, dass $K_n^{\pm}$ einen gewissen Wert "ubersteigt.
-Daf"ur gibt es Tabellen, zum Beispiel findet man im Anhang \ref{anhang-tabellen}
+Um den Test durchzuführen braucht man also
+die Wahrscheinlichkeit, dass $K_n^{\pm}$ einen gewissen Wert übersteigt.
+Dafür gibt es Tabellen, zum Beispiel findet man im Anhang \ref{anhang-tabellen}
 die Tabelle \ref{KS-tabelle}, welche zu $n$ und einer Wahrscheinlichkeit
-$p$ eine Gr"osse $t_{n,p}$ angibt, f"ur die
+$p$ eine Grösse $t_{n,p}$ angibt, für die
 \[
 P(K_n^+\le t)=t_{n,p}.
 \]
 
-F"ur die Durchf"uhrung des Tests geht man wie folgt vor:
+Für die Durchführung des Tests geht man wie folgt vor:
 \begin{satz} Sei $X_1,\dots,X_n$ sei eine Stichprobe einer Zufallsvariable $X$.
-Der Kolmogorov-Smirnov-Test auf dem Niveau $\alpha$ f"ur die Hypothese,
-dass $X$ die Verteilungsfunktion $F$ hat wird wie folgt durchgef"uhrt:
+Der Kolmogorov-Smirnov-Test auf dem Niveau $\alpha$ für die Hypothese,
+dass $X$ die Verteilungsfunktion $F$ hat wird wie folgt durchgeführt:
 \begin{enumerate}
 \item Berechne
 \[
@@ -420,14 +420,14 @@ verwerfe die Hypothese, dass $X$ die Verteilungsfunktion $F$ hat.
 \end{satz}
 
 \subsection{Berechnung von \texorpdfstring{$K_n^{\pm}$}{Kn-plus-minus}}
-Das Maximum der Differenz $F_n(x)-F(x)$ tritt zwangsl"aufig an einer
+Das Maximum der Differenz $F_n(x)-F(x)$ tritt zwangsläufig an einer
 Sprungstelle von $F_n$ auf, also bei einem der Werte der Stichprobe
 $X_1,\dots,X_n$.
-Durch sortieren k"onnen wir erreichen, dass die
+Durch sortieren können wir erreichen, dass die
 $X_i$  in aufsteigender Reihenfolge angeordnet sind, also $X_i\le X_j$
-f"ur $i\le j$.
+für $i\le j$.
 Dann ist $F_n(X_j)=\frac{j}{n}$, und
-die  $K_n^{\pm}$ k"onnen mit Hilfe der einfacheren Formeln
+die  $K_n^{\pm}$ können mit Hilfe der einfacheren Formeln
 \begin{align}
 K_n^+
 &=
@@ -440,12 +440,12 @@ K_n^-
 \end{align}
 berechnet werden.
 In dieser Form ist die Berechnung der
-Verteilung von $K_n^{\pm}$ leichter m"oglich.
+Verteilung von $K_n^{\pm}$ leichter möglich.
 
 \subsection{Reduktion auf Gleichverteilung}
-Das Problem w"are etwas handlicher, wenn die Verteilungsfunktion $F$
-die Verteilungsfunktion einer Gleichverteilung w"are.
-Der folgende Satz erm"oglicht, eine
+Das Problem wäre etwas handlicher, wenn die Verteilungsfunktion $F$
+die Verteilungsfunktion einer Gleichverteilung wäre.
+Der folgende Satz ermöglicht, eine
 beliebige Zufallsvariable mit stetiger Verteilungsfunktion in eine
 gleichverteilte Zufallsvariable zu transformieren.
 \begin{satz}\label{reduktion-auf-gleichverteilung}
@@ -453,41 +453,41 @@ Sei $X$ eine Zufallsvariable mit stetiger Verteilungsfunktion $F$, dann
 ist $F(X)$ eine auf $[0,1]$ gleichverteilte Zufallsvariable.
 \end{satz}
 \begin{proof}[Beweis]
-Um die Verteilungsfunktion in $F(X)$ zu bestimmen, m"ussen wir $P(F(X)\le y)$
-f"ur ein beliebiges $y\in[0,1]$ berechnen.
+Um die Verteilungsfunktion in $F(X)$ zu bestimmen, müssen wir $P(F(X)\le y)$
+für ein beliebiges $y\in[0,1]$ berechnen.
 Da $F$ stetig ist, gibt es ein
-gr"osstes $x$, f"ur welches $F(x)= y$, zum Beispiel
+grösstes $x$, für welches $F(x)= y$, zum Beispiel
 $x=\max\{\xi|F(\xi)= y\}$.
 Mit diesem $x$ folgt
 \[
 P(F(X)\le y)=P(X\le x)=F(x)=y.
 \]
 \end{proof}
-Aus dem Satz folgt, dass wir die Zahlen $Y_j=nF(X_j)$ darauf pr"ufen wollen,
+Aus dem Satz folgt, dass wir die Zahlen $Y_j=nF(X_j)$ darauf prüfen wollen,
 ob sie im Intervall $[0,n]$ gleichverteilt sind.
 
 \subsection{Berechnung der Verteilung von \texorpdfstring{$K_n^{\pm}$}{Kn-plus-minus}}
 Die Formel (\ref{knp-berechnungs-formel})
-f"ur $K_n^+$ kann mit Hilfe der $Y_j$ wie folgt 
+für $K_n^+$ kann mit Hilfe der $Y_j$ wie folgt 
 geschrieben werden
 \begin{equation}
 K_n^+=\frac1{\sqrt{n}}\max(1-Y_1, 2-Y_2,\dots,n-Y_n).
 \end{equation}
 Die Wahrscheinlichkeit, dass $K_n^+\le t/\sqrt{n}$ ist also die
-Wahrscheinlichkeit, dass $j-Y_j\le t$ f"ur alle $j$, oder
-$Y_j\ge j-t$ f"ur $1\le j\le n$.
+Wahrscheinlichkeit, dass $j-Y_j\le t$ für alle $j$, oder
+$Y_j\ge j-t$ für $1\le j\le n$.
 Da die $Y_j$ gleichverteilt sind,
 kann man diese Wahrscheinlichkeit berechnen.
 
-Wir berechnen zun"achst die Wahrscheinlichkeit, dass die Bedingung
-f"ur $Y_n$ erf"ullt ist unter der Annahme, dass die "ubrigen
-Bedingungen erf"ullt sind.
+Wir berechnen zunächst die Wahrscheinlichkeit, dass die Bedingung
+für $Y_n$ erfüllt ist unter der Annahme, dass die übrigen
+Bedingungen erfüllt sind.
 $Y_n$ muss im Intervall $[0,n]$
 liegen, darf aber auch nicht kleiner als $n-t$ sein.
 Setzt man $\alpha_j=\max(j-t,0)$, dann heisst das, dass $Y_n$ im
 Intervall $[\alpha_n, n]$ liegen muss.
 Ausserdem ist $Y_n$ gleichverteilt,
-somit ist die Wahrscheinlichkeit, dass alle Bedingungen f"ur $Y_n$ erf"ullt
+somit ist die Wahrscheinlichkeit, dass alle Bedingungen für $Y_n$ erfüllt
 sind
 \begin{equation}
 P(\alpha_n\le Y_n\le n)=\frac{\int_{\alpha_n}^n dy_n}{\int_0^ndy_n}
@@ -495,18 +495,18 @@ P(\alpha_n\le Y_n\le n)=\frac{\int_{\alpha_n}^n dy_n}{\int_0^ndy_n}
 \end{equation}
 Der Nenner dient dazu, die Wahrscheinlichkeit auf $1$ zu normieren.
 
-Nun betrachten wir die analogen Bedingungen f"ur $Y_{n-1}$.
+Nun betrachten wir die analogen Bedingungen für $Y_{n-1}$.
 Offensichtlich kann $Y_{n-1}$ zwischen $\alpha_{n-1}$ und $Y_n$ variieren.
 Es ergibt sich
-als Wahrscheinlichkeit, daf"ur, dass die Bedingungen an $Y_{n-1}$ erf"ullt
+als Wahrscheinlichkeit, dafür, dass die Bedingungen an $Y_{n-1}$ erfüllt
 sind, der Ausdruck
 \begin{equation}
 \frac{\int_{\alpha_{n-1}}^{y_n}dy_{n-1}}{\int_0^{y_n}dy_{n-1}}.
 \label{kpn-zweites-integral}
 \end{equation}
 In (\ref{kpn-erstes-integral}) hatten wir angenommen,
-dass die Bedingungen f"ur $Y_{n-1}$
-bereits erf"ullt sind, also die Wahrscheinlichkeit f"ur deren zutreffen $1$
+dass die Bedingungen für $Y_{n-1}$
+bereits erfüllt sind, also die Wahrscheinlichkeit für deren zutreffen $1$
 ist. Inzwischen haben wir gelernt, dass diese Wahrscheinlichkeit in
 Wahrheit eher wie (\ref{kpn-zweites-integral}) aussieht.
 Zusammen finden wir
@@ -516,14 +516,14 @@ P(\alpha_n\le Y_n\le n\wedge \alpha_{n-1}\le Y_{n-1}\le Y_n)
 \frac{\int_{\alpha_n}^n dy_n\int_{\alpha_{n-1}}^{y_n}dy_{n-1}}{\int_0^ndy_n\int_0^{y_n}dy_{n-1}}
 \label{kpn-zwei-integrale}
 \end{equation}
-In diesem Sinne k"onnen schrittweise die Bedingungen an $Y_{n-2},\dots,Y_1$
-erf"ullt werden, wir erhalten
+In diesem Sinne können schrittweise die Bedingungen an $Y_{n-2},\dots,Y_1$
+erfüllt werden, wir erhalten
 \begin{equation}
 \frac{\int_{\alpha_n}^n dy_n\int_{\alpha_{n-1}}^{y_n}dy_{n-1}\dotsi\int_{\alpha_1}^{y_2}dy_1}{\int_0^ndy_n\int_0^{y_n}dy_{n-1}\dotsi\int_0^{y_2}dy_1}
 \label{kpn-alle-integrale}
 \end{equation}
-Diese Integrale sind nicht ganz selbstverst"andlich auszurechnen, weshalb
-wir dies hier schrittweise durchf"uhren.
+Diese Integrale sind nicht ganz selbstverständlich auszurechnen, weshalb
+wir dies hier schrittweise durchführen.
 
 \begin{satz}
 \label{kn-elementarvolumen}
@@ -532,16 +532,16 @@ Es gilt
 \int_0^xdy_n\int_0^{y_n}dy_{n-1}\dotsi\int_0^{y_2}dy_1=\frac{x^n}{n!}
 \end{equation}
 \end{satz}
-\begin{proof}[Beweis] Wir f"uhren den Beweis mit vollst"andiger
+\begin{proof}[Beweis] Wir führen den Beweis mit vollständiger
 Induktion.
-F"ur $n=1$ muss das Integral
+Für $n=1$ muss das Integral
 \[
 \int_0^xdy_1=[y_1]_0^x=x
 \]
 berechnet werden, was offensichtlich mit $\frac{x^1}{1!}=x$
-"ubereinstimmt.
+übereinstimmt.
 
-Nehmen wir an, dass die Formel f"ur $n-1$ stimmt, dann k"onnen wir den
+Nehmen wir an, dass die Formel für $n-1$ stimmt, dann können wir den
 Fall $n$ wie folgt verifizieren:
 \[
 \int_0^xdy_n\int_0^{y_n}dy_{n-1}\dotsi\int_0^{y_2}dy_1
@@ -554,30 +554,30 @@ womit die Behauptung bewiesen ist.
 \end{proof}
 Der Nenner in (\ref{kpn-alle-integrale}) ist also $\frac{n^n}{n!}$,
 dabei ist $n^n$ das
-Volumen eines $n$-dimensionalen W"urfels mit Kantenl"ange $n$, dies wird
-durch $n!$ geteilt, weil die $Y_j$ solange vertauscht werden m"ussen, bis
+Volumen eines $n$-dimensionalen Würfels mit Kantenlänge $n$, dies wird
+durch $n!$ geteilt, weil die $Y_j$ solange vertauscht werden müssen, bis
 sie aufsteigend geordnet sind.
 Nur eine der $n!$ Permutationen der $Y_j$
-erf"ullt diese Bedingung.
+erfüllt diese Bedingung.
 
-Wir k"ummern uns nun um den Z"ahler von (\ref{kpn-alle-integrale}).
+Wir kümmern uns nun um den Zähler von (\ref{kpn-alle-integrale}).
 Die unteren Grenzen der Integrale sind $\alpha_j=\max(j-t,0)$.
 Bei gegebenem $t$ wird $\alpha_j=j-t$
-sein f"ur gen"ugend grosse $j$, f"ur alle anderen wird $\alpha_j=0$ sein.
-Es gibt also eine Zahl $k$ so dass der Z"ahler von (\ref{kpn-alle-integrale})
+sein für genügend grosse $j$, für alle anderen wird $\alpha_j=0$ sein.
+Es gibt also eine Zahl $k$ so dass der Zähler von (\ref{kpn-alle-integrale})
 die Form
 \[
 P_{nk}(x)
 =
 \int_{n-t}^xdx_n\int_{n-1-t}^{x_n}dx_{n-1}\dotsi\int_{k+1-t}^{x_{k+2}}dx_{k+1}\int_0^{x_{k+1}}dx_k\dotsi\int_0^{x_2}dx_1
 \]
-hat, es ist dies das gr"osste $k$, f"ur welches $k-t\le 0$ ist, also
+hat, es ist dies das grösste $k$, für welches $k-t\le 0$ ist, also
 $k=\lfloor t\rfloor$.
-Der Z"ahler von (\ref{kpn-alle-integrale})
+Der Zähler von (\ref{kpn-alle-integrale})
 ist also $P_{n\lfloor t\rfloor}(n)$.
-Mit Hilfe der folgenden S"atze berechnen wir $P_{nk}(x)$ schrittweise.
+Mit Hilfe der folgenden Sätze berechnen wir $P_{nk}(x)$ schrittweise.
 
-Wir halten zun"achst noch den Spezialfall
+Wir halten zunächst noch den Spezialfall
 \begin{equation}
 P_{nn}(x)=\frac{x^n}{n!}
 \label{spezialfall-pnn}
@@ -594,7 +594,7 @@ P_{nk}(x)=\int_{n}^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_{k+1}^{x_{k+2}}dx
 \end{satz}
 \begin{proof}[Beweis]
 Wir substituieren $x_i+t=\xi_i$.
-Dazu m"ussen zu den Intervallgrenzen
+Dazu müssen zu den Intervallgrenzen
 $t$ hinzuaddiert werden:
 \begin{align}
 P_{nk}(x)
@@ -614,23 +614,23 @@ P_{nk}(x)
 Im letzten Schritt (\ref{kpn-umbenennung}) haben wir die Integrationsvariablen
 wieder auf die vertrauten $x_1,\dots,x_n$ umbenannt.
 \end{proof}
-Besonders einfach sind die F"alle $k=0$, da dann keine Integral mit
+Besonders einfach sind die Fälle $k=0$, da dann keine Integral mit
 unterer Grenze $t$ auftreten.
 Der Parameter $t$ tritt in diesem Fall nur
 in der Grenze des letzten Integrals auf:
 
-\begin{satz}F"ur $n>0$ gilt
+\begin{satz}Für $n>0$ gilt
 \begin{equation}
 P_{n0}(x)=\frac{(x+t)^n}{n!}-\frac{(x+t)^{n-1}}{(n-1)!}
 \end{equation}
 \end{satz}
 \begin{proof}[Beweis]
-Mittels vollst"andiger Induktion.
-F"ur $n=1$ gilt
+Mittels vollständiger Induktion.
+Für $n=1$ gilt
 \[
 P_{10}(x)=\int_1^{x+t}dx_1=[x_1]_1^{x+t}=(x+t)-1=\frac{(x+t)^1}{1!}-\frac{(x+t)^0}{0!}.
 \]
-Nehmen wir an, die Behauptung w"are f"ur $n-1$ bereits bewiesen, dann
+Nehmen wir an, die Behauptung wäre für $n-1$ bereits bewiesen, dann
 berechnen wir $P_{n0}(x)$ wie folgt:
 \begin{align*}
 P_{n0}(x)
@@ -667,7 +667,7 @@ diese lassen sich jedoch rekursiv aus den bereits berechneten
 Integralen bestimmen.
 
 \begin{satz}\label{kn-rekursion}
-F"ur $1\le k\le n$ gilt
+Für $1\le k\le n$ gilt
 \begin{equation}
 P_{nk}(x)-P_{n,k-1}(x)
 =
@@ -694,7 +694,7 @@ dann gilt
 \int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_{k+1}^{x_{k+2}}dx_{k+1}
 \int_{{\color{red}t\mathstrut}}^{\color{red}k}dx_k\dotsi\int_t^{x_2}dx_1.
 \end{align*}
-Da das Integral "uber $x_k$ feste Grenzen $t$ und $k$ hat, reduziert es
+Da das Integral über $x_k$ feste Grenzen $t$ und $k$ hat, reduziert es
 sich auf eine Konstante $c_k$, welche wir weiter unten berechnen werden.
 Die verbleibenden Integrale sind
 \begin{align*}
@@ -712,14 +712,14 @@ Beweis von Satz \ref{kn-variablentransformation}, und ausserdem haben
 wir die Integrationsvariablen von $x_n,\dots,x_{k+1}$ in $x_{n-k},\dots,x_1$
 umbenannt.
 
-Wir m"ussen uns noch um die Konstante $c_k$ k"ummern.
+Wir müssen uns noch um die Konstante $c_k$ kümmern.
 Aus der Definition folgt mit Hilfe von Satz \ref{kn-elementarvolumen}
 \begin{equation}
 c_k = \int_{t}^{k}dx_k\dotsi\int_t^{x_2}dx_1=P_{kk}(k-t)=\frac{(k-t)^k}{k!},
 \end{equation}
 die Behauptung.
 \end{proof}
-Mit den eben bewiesenen S"atzen l"asst sich jetzt jedes beliebige 
+Mit den eben bewiesenen Sätzen lässt sich jetzt jedes beliebige 
 $P_{nk}(x)$ berechnen.
 
 \begin{satz}\label{pnk-allgemein}
@@ -774,11 +774,11 @@ P_{nk}(x)
 (x-n+t).
 \end{align*}
 \end{proof}
-Die Verteilungsfunktion f"ur $K_n^+$ findet man jetzt, indem man $x=n$
+Die Verteilungsfunktion für $K_n^+$ findet man jetzt, indem man $x=n$
 einsetzt:
 
 \begin{satz}\label{kn-verteilung}
-F"ur die Verteilungsfunktion von $K_n^+$ gilt
+Für die Verteilungsfunktion von $K_n^+$ gilt
 \begin{equation}
 P(K_n^+\le t/\sqrt{n})=\frac{t}{n^n}\sum_{0\le r\le t}\binom{n}{r}(r-t)^r(t+n-r)^{n-r-1}
 \end{equation}
@@ -789,9 +789,9 @@ damit folgt die Behauptung aus Satz \ref{pnk-allgemein}
 \end{proof}
 
 \section{\texorpdfstring{$t$}{t}-Test} \label{section-t-test}
-Bei der Herstellung eines Produktes sind Verbesserungen durchgef"uhrt worden,
+Bei der Herstellung eines Produktes sind Verbesserungen durchgeführt worden,
 so dass sich ein charakteristischer Parameter des Produktes verbessert hat.
-In der Qualtit"atssicherung wird der Parameter durch Messungen in einer
+In der Qualtitätssicherung wird der Parameter durch Messungen in einer
 Stichprobe ermittelt.
 Die vor der Verbesserung gemessene Stichprobe
 $X_1,\dots,X_n$
@@ -802,38 +802,38 @@ Zufallsvariable $Y$ den Mittelwert
 $\bar Y=\frac1m(Y_1+\dots+Y_m)$.
 Selbst wenn $\bar X$ und $\bar Y$
 verschieden sind: Kann man daraus wirklich schon schliessen, dass die
-Verbesserung eine "Anderung des Parameters gebracht hat, oder k"onnte
-das nicht auch einfach nur eine zuf"allige Schwankung sein?
+Verbesserung eine "Anderung des Parameters gebracht hat, oder könnte
+das nicht auch einfach nur eine zufällige Schwankung sein?
 
 Offensichtlich geht es hier darum die Hypothese zu testen, dass sich
-durch die Verbesserung nichts ge"andert hat.
+durch die Verbesserung nichts geändert hat.
 Das Beobachtungsmaterial
 soll dann entscheiden, ob die Hypothese noch haltbar ist.
 Ist sie es
 auf dem Niveau $\alpha$ nicht,
-d"urften wir schliessen, dass die Verbesserung tats"achlich eine "Anderung
-des Parameters gebracht hat, und wir w"urden uns h"ochstens mit 
+dürften wir schliessen, dass die Verbesserung tatsächlich eine "Anderung
+des Parameters gebracht hat, und wir würden uns höchstens mit 
 Wahrscheinlichkeit $\alpha$ irren.
 
 Wir nehmen an, dass die Streuung der Messwerte der Stichprobe durch die
-Ver"anderung des Produktionsprozesses nicht ver"andert wurde.
+Veränderung des Produktionsprozesses nicht verändert wurde.
 Aber durch
-die zus"atzlichen Messungen d"urfte die Varianz genauer bekannt sein.
+die zusätzlichen Messungen dürfte die Varianz genauer bekannt sein.
 Daher bildet man aus der Stichprobenvarianz $S_X^2$ und $S_Y^2$
 die gepoolte Stichprobenvarianz
 \begin{equation}
 S_p^2=\frac{(n-1)S_X^2+(m-1)S_Y^2}{m+n-2},
 \label{pooled-variance}
 \end{equation}
-sie ist ein verbessertes Mass f"ur die Messfehler.
+sie ist ein verbessertes Mass für die Messfehler.
 
-Man m"ochte nun die die Hypothese testen, dass $\delta=\mu-\nu=0$, wobei
+Man möchte nun die die Hypothese testen, dass $\delta=\mu-\nu=0$, wobei
 $\mu=E(X)$ und $\nu=E(Y)$ ist.
 Dazu braucht man offensichtliche einen
-Sch"atzer f"ur $\delta$, und nicht wirklich "uberraschend ist
-$\hat\delta=\bar X-\bar Y$ ein erwartungstreuer Sch"atzer f"ur $\delta$.
-Man kann weiter zeigen, dass $S_p^2$ ein erwartungstreuer Sch"atzer
-f"ur die gemeinsame Varianz von $X$ und $Y$ ist.
+Schätzer für $\delta$, und nicht wirklich überraschend ist
+$\hat\delta=\bar X-\bar Y$ ein erwartungstreuer Schätzer für $\delta$.
+Man kann weiter zeigen, dass $S_p^2$ ein erwartungstreuer Schätzer
+für die gemeinsame Varianz von $X$ und $Y$ ist.
 Unter der Annahme der
 Hypothese ist $\hat\delta$ eine normalverteilte Zufallsvariable
 mit Varianz $\sigma^2(1/n+1/m)$ ist.
@@ -851,12 +851,12 @@ Der $t$-Test auf Gleichheit der Erwartungswerte spielt sich also wie folgt
 ab.
 Aus den beiden Stichproben $X_1,\dots,X_n$ und $Y_1,\dots,Y_m$ wird
 der Ausdruck $T$ (\ref{t-test-ausdruck}) gebildet.
-"Ubersteigt $T$ den $t$-Wert f"ur die $1-\alpha$-Quantile der $t$-Verteilung
+"Ubersteigt $T$ den $t$-Wert für die $1-\alpha$-Quantile der $t$-Verteilung
 mit $n+m-2$ Freiheitsgraden, wird die Hypothese $\mu=\nu$ verworfen.
 
 \subsubsection{War der Juli 2003 wirklich besonders warm?} \label{julitemperaturen}
 Aus den Messdaten der Wetterstation in Altendorf soll entschieden werden,
-ob der Juli 2003 wirklich signifikant w"armer war als dr Juli 2004.
+ob der Juli 2003 wirklich signifikant wärmer war als dr Juli 2004.
 Dazu werden die im Laufe des Monats gemessenen Temperaturwerte
 ermittelt:
 
@@ -875,8 +875,8 @@ Jahr&$T$&$T^2$&$\operatorname{var}(T)$&$n$\\
 \end{tabular}
 \end{center}
 
-Um einen signifikanten Unterschied der Temperatur nachweisen zu k"onnen,
-m"ussen wir f"ur jedes Paar von Jahren den Ausdruck (\ref{t-test-ausdruck})
+Um einen signifikanten Unterschied der Temperatur nachweisen zu können,
+müssen wir für jedes Paar von Jahren den Ausdruck (\ref{t-test-ausdruck})
 berechnen, wir erhalten dabei folgende Tabelle:
 
 \begin{center}
@@ -894,45 +894,45 @@ berechnen, wir erhalten dabei folgende Tabelle:
 \end{tabular}
 \end{center}
 
-Da die Zahl der Freiheitsgrade sehr gross ist, m"ussen wir
-uns nicht um die genaue Anzahl k"ummern, sondern k"onnen stattdessen
-die Grenzwerte f"ur unendlich viele Freiheitsgrade verwenden.
+Da die Zahl der Freiheitsgrade sehr gross ist, müssen wir
+uns nicht um die genaue Anzahl kümmern, sondern können stattdessen
+die Grenzwerte für unendlich viele Freiheitsgrade verwenden.
 Auf
 dem Niveau $\alpha=0.01$ finden wir $t_{\infty}^{0.005}=2.576$.
-Da alle Eintr"age in der Tabelle bis auf das Paar $(2002,2005)$
-betragsm"assig gr"osser sind, k"onnen wir auf dem Niveau $\alpha=0.01$
+Da alle Einträge in der Tabelle bis auf das Paar $(2002,2005)$
+betragsmässig grösser sind, können wir auf dem Niveau $\alpha=0.01$
 schliessen, dass die Juli-Durchschnittstemperatur zwischen
 2001 und 2006 verschieden war.
-Nur f"ur die Jahre 2002 und 2005
-k"onnen wir den Unterschied nicht auf dem Niveau 0.01 sicherstellen.
-Da jedoch $t_{\infty}^{0.1}=1.282$ k"onnten wir auf dem Niveau
+Nur für die Jahre 2002 und 2005
+können wir den Unterschied nicht auf dem Niveau 0.01 sicherstellen.
+Da jedoch $t_{\infty}^{0.1}=1.282$ könnten wir auf dem Niveau
 $0.3$ beweisen, dass die Juli-Durchschnittstemperatur in den
-Jahren 2002 und 2005 verschieden war, wir w"urden dabei aber 
+Jahren 2002 und 2005 verschieden war, wir würden dabei aber 
 mit Wahrscheinlichkeit $0.3$ einen Fehler erster Art machen.
 
 \section{\texorpdfstring{$F$}{F}-Test}
-In der Diskussion des $t$-Tests haben wir f"ur die dort beschriebene
+In der Diskussion des $t$-Tests haben wir für die dort beschriebene
 Situation postuliert, dass die Varianzen von $X$ und $Y$ gleich sind.
-Wie k"onnte man dies testen? Gibt es einen Test, der die Hypothese
+Wie könnte man dies testen? Gibt es einen Test, der die Hypothese
 $\operatorname{var}(X)=\operatorname{var}(Y)$ testet? 
 
-Bei der Entwicklung eines Messger"ates wurde eine Verbesserung angebracht,
-die angeblich die Messgenauigkeit erh"oht.
-Der Messung einer Referenzgr"osse
-mit dem urspr"unglichen Messger"at entspreche die normalverteilte
+Bei der Entwicklung eines Messgerätes wurde eine Verbesserung angebracht,
+die angeblich die Messgenauigkeit erhöht.
+Der Messung einer Referenzgrösse
+mit dem ursprünglichen Messgerät entspreche die normalverteilte
 Zufallsvariable $X$ mit Varianz $\sigma_X^2$, die Messung mit dem verbesserten
-Messger"at entspreche der ebenfalls normalverteilten Zufallsvariablen
+Messgerät entspreche der ebenfalls normalverteilten Zufallsvariablen
 $Y$ mit Varianz $\sigma_Y^2$.
-Ob die m"oglicherweise kostspielige 
-Verbesserung tats"achlich etwas gebracht hat, k"onnte ein Test aufdecken,
+Ob die möglicherweise kostspielige 
+Verbesserung tatsächlich etwas gebracht hat, könnte ein Test aufdecken,
 der die Hypothese $\sigma_X=\sigma_Y$ testet.
 
 Da die Varianz positiv ist, bietet sich $\gamma=\sigma_X^2/\sigma_Y^2$ als
-Testgr"osse an.
-Der Test f"ur $\sigma_X=\sigma_Y$ ist dann einfach nur
+Testgrösse an.
+Der Test für $\sigma_X=\sigma_Y$ ist dann einfach nur
 ein Test auf $\gamma=1$.
 
-Offensichtlich brauchen wir einen Sch"atzer f"ur $\gamma$, ein solcher ist
+Offensichtlich brauchen wir einen Schätzer für $\gamma$, ein solcher ist
 schnell gefunden:
 \begin{equation}
 \hat\gamma=\frac{S_X^2}{S_Y^2}.
@@ -941,7 +941,7 @@ schnell gefunden:
 Um einen Test zu konstruieren, muss jetzt nur noch die Verteilung von
 $\hat\gamma$ ermittelt werden.
 
-Die Gr"ossen $(n-1)S_X^2/\sigma_X^2$ und $(m-1)S_Y^2/\sigma_Y^2$ sind jeweils
+Die Grössen $(n-1)S_X^2/\sigma_X^2$ und $(m-1)S_Y^2/\sigma_Y^2$ sind jeweils
 $\chi^2$-verteilte Zufallsvariablen mit $n-1$ bzw.~$m-1$ Freiheitsgraden.
 Per Definition ist der Quotient zweier $\chi^2$-verteilter Zufallsvariablen
 $F$-verteilt:
@@ -950,7 +950,7 @@ Sind $X$ und $Y$ $\chi^2$-verteilte Zufallsvariable mit $n$ bzw.~$m$
 Freiheitsgraden, dann heisst die Verteilung von $X/Y$ eine $F$-Verteilung
 mit $n,m$-Freiheitsgraden, auch $F_{n,m}$ geschrieben.
 \end{definition}
-Der Quotient der genannten Gr"ossen ist also
+Der Quotient der genannten Grössen ist also
 \begin{equation}
 \frac{(n-1)S_X^2\sigma_Y^2}{(m-1)S_Y^2\sigma_X^2}
 =\frac{n-1}{m-1}\frac{\hat\gamma}{\gamma}
@@ -958,8 +958,8 @@ Der Quotient der genannten Gr"ossen ist also
 $F_{n-1,m-1}$-verteilt.
 
 Unter der Hypothese ist $\sigma_X=\sigma_Y$, also $\gamma=1$.
-Der Test auf dem Niveau $\alpha$ wird also wie folgt durchgef"uhrt.
-Zun"achst berechnet man die Sch"atzung $\hat\gamma=S_X^2/S_Y^2$.
+Der Test auf dem Niveau $\alpha$ wird also wie folgt durchgeführt.
+Zunächst berechnet man die Schätzung $\hat\gamma=S_X^2/S_Y^2$.
 Dann
 findet man in der Tabelle der Quantilen der $F$-Verteilung mit $n-1,m-1$
 Freiheitsgraden den kritischen Wert $F_{n-1,m-1}^\alpha$.
@@ -970,12 +970,12 @@ Varianz haben.
 \subsubsection{Sind die Temperaturvarianzen gleich?}
 Im Abschnitt \ref{julitemperaturen} haben wir die
 Juli-Durchschnittstemperaturen mit Hilfe des $t$-Tests untersucht.
-Dabei haben wir nicht untersucht, ob die Varianzen, die f"ur den
-$t$-Test ja gleich sein m"ussen, auch wirklich gleich sein k"onnten.
+Dabei haben wir nicht untersucht, ob die Varianzen, die für den
+$t$-Test ja gleich sein müssen, auch wirklich gleich sein könnten.
 Inzwischen haben wir gelernt, dass genau dies mit dem $F$-Test getestet
 werden kann, und holen dies noch nach.
 
-Zun"achst berechnen wir die $F$-Werte aus der Tabelle der Temperatur-Varianzen
+Zunächst berechnen wir die $F$-Werte aus der Tabelle der Temperatur-Varianzen
 aus Abschnitt \ref{julitemperaturen}
 
 \begin{center}
@@ -993,12 +993,12 @@ aus Abschnitt \ref{julitemperaturen}
 \end{tabular}
 \end{center}
 
-Die Interpretation dieser Zahlen gestaltet sich etwas schwierig: F"ur derart
-viele Freiheitsgrade l"asst sich $F_{n,k}$ wegen der darin
+Die Interpretation dieser Zahlen gestaltet sich etwas schwierig: Für derart
+viele Freiheitsgrade lässt sich $F_{n,k}$ wegen der darin
 vorkommenden $\Gamma$-Funktionen fast nicht berechnen, der kritische Wert
 ist jedenfalls kleiner als $1.22$.
-Dies bedeutet, dass in etwa f"unf der
-f"unfzehn Paare die Hypothese verworfen werden muss, dass also die Varianzen
+Dies bedeutet, dass in etwa fünf der
+fünfzehn Paare die Hypothese verworfen werden muss, dass also die Varianzen
 verschieden sind.
-Damit ist nat"urlich auch die G"ultigkeit der Schlussweise
+Damit ist natürlich auch die Gültigkeit der Schlussweise
 beim Vergleich der Juli-Durchschnittstemperaturen in Frage gestellt.

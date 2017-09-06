@@ -5,48 +5,48 @@
 %
 \rhead{Zufallszahlgeneratoren}
 \chapter{Zufallszahlgeneratoren}
-Computer als deterministische Maschinen k"onnen grunds"atzlich keine
+Computer als deterministische Maschinen können grundsätzlich keine
 echten Zufallszahlen erzeugen.
 Aber durch geeignete Methoden kann man
 wenigstens Zahlfolgen erzeugen, welche 
 \begin{enumerate}
-\item gleichm"assig verteilt sind, und f"ur die es
+\item gleichmässig verteilt sind, und für die es
 \item ohne Kenntnis des Maschinenzustandes
-sehr schwer ist, die n"achste Zahl in der Folge vorherzusagen.
+sehr schwer ist, die nächste Zahl in der Folge vorherzusagen.
 \end{enumerate}
-F"ur einfache Simulationen ist vor allem die erste Bedingung wichtig.
-Wenn Zufallszahlen jedoch zur Schl"usselgenerierung ben"otigt werden,
-w"are ein Versagen bei Bedingung 2 katastrophal.
+Für einfache Simulationen ist vor allem die erste Bedingung wichtig.
+Wenn Zufallszahlen jedoch zur Schlüsselgenerierung benötigt werden,
+wäre ein Versagen bei Bedingung 2 katastrophal.
 
 Das Interesse an computererzeugten Zufallszahlen begann kurz nach dem
 Erscheinen der erstem Computer.
 John von Neumann schlug 1946
 vor, Zufallszahlen durch Quadrieren zu bilden.
 Wenn zum Beispiel
-der Vorg"angerwert 1234554321 ist, wird dies Zahl quadriert, was
+der Vorgängerwert 1234554321 ist, wird dies Zahl quadriert, was
 1524124371499771041 ergibt, und dann die mittleren 10 Stellen
 daraus entnommen, also 1243714997.
 Dieser Prozess kann offensichtlich
 beliebig oft wiederholt werden, und liefert zehnstellige Zahlen, die
-schwer vorherzusagen sind, die Folge scheint zuf"allig zu sein.
+schwer vorherzusagen sind, die Folge scheint zufällig zu sein.
 
 Weitere Untersuchungen haben dann gezeigt, dass dieser Zufallszahlgenerator
 ziemlich schlecht ist.
-Es scheint nicht so einfach zu sein, zuf"allige
+Es scheint nicht so einfach zu sein, zufällige
 Zahlen zu erzeugen, auch sehr komplizierte Programme haben die Tendenz,
-Zahlfolgen mit erkennbarer Gesetzm"assigkeit zu erzeugen.
+Zahlfolgen mit erkennbarer Gesetzmässigkeit zu erzeugen.
 
 Eine Referenz zum Thema dieses Abschnitts ist \ref{knuth-taocp2}.
 
 \section{Erzeugen}
 \subsection{Lineare Kongruenzen}
-Einer der "altesten Algorithmen zur Erzeugung von Pseudozufallszahlen
+Einer der ältesten Algorithmen zur Erzeugung von Pseudozufallszahlen
 wure von D.~H.~Lehmer 1949 vorgeschlagen.
 Er konstruiert eine Zahlenfolge
 $(X_k)_{k\in\mathbb{N}}$
 wie folgt.
 \begin{definition}
-Geeben seien drei nat"urliche Zahlen $m>0$, der Modulus, $a < m$, der
+Geeben seien drei natürliche Zahlen $m>0$, der Modulus, $a < m$, der
 Multiplikator, und $c< m$, das Inkrement.
 Dann definiert jeder Startwert
 $X_0<m$ eine Folge $(X_k)_{k\in\mathbb{N}}$ durch
@@ -56,54 +56,54 @@ X_{n+1}=(aX_n+c)\mod m,\quad\text{$n\ge 0$}.
 Diese Folge heisst die durch $m$, $a$, $c$ und $X_0$ definierte Folge
 linearer Kongruenzen.
 \end{definition}
-Nat"urlich wird $0\le X_n <m$ gelten f"ur alle $n$, und damit
-werden sich die Zahlen auch sp"atestens nach $m$ Werten zu wiederholen
-beginnen, manchmal auch schon bedeutend fr"uher.
-Eine Auskunft dar"uber, ob diese maximal m"ogliche Periode erreicht wird,
+Natürlich wird $0\le X_n <m$ gelten für alle $n$, und damit
+werden sich die Zahlen auch spätestens nach $m$ Werten zu wiederholen
+beginnen, manchmal auch schon bedeutend früher.
+Eine Auskunft darüber, ob diese maximal mögliche Periode erreicht wird,
 gibt der folgende Satz.
 
 \begin{satz}
 Die durch $m$, $a$, $c$ und $X_0$ definierte Folge linearer Kongruenzen
-hat Periodenl"ange $m$ genau dann wenn
+hat Periodenlänge $m$ genau dann wenn
 \begin{enumerate}
 \item $c$ ist relativ prim zu $m$
-\item $b=a-1$ ist ein Vielfaches von $p$ f"ur jede Primzahl $p$, die $m$
+\item $b=a-1$ ist ein Vielfaches von $p$ für jede Primzahl $p$, die $m$
 teilt.
 \item $b$ ist ein Vielfaches von 4, falls $m$ ein Vielfaches von 4 ist.
 \end{enumerate}
 \end{satz}
 
-Besonders interessant f"ur die Implementation auf einem Computer ist die
+Besonders interessant für die Implementation auf einem Computer ist die
 Wahl $m=2^e$.
-In diesem Fall sind $a$ und $c$ ungerade zu w"ahlen, womit
-bereits die ersten beiden Bedingungen des Satzes erf"ullt sind.
+In diesem Fall sind $a$ und $c$ ungerade zu wählen, womit
+bereits die ersten beiden Bedingungen des Satzes erfüllt sind.
 Wenn
 $a$ ausserdem Rest 1 hat bei Teilung durch 4, ist auch die dritte Bedingung
-erf"ullt.
+erfüllt.
 Mit $m=8$, $c=7$ und $a=5$ ist die von $X_0=0$ erzeugte Folge:
 \[
  0, 7, 2, 1, 4, 3, 6, 5, 0, 7, 2, 1, 4, 3, 6, 5, 0, \dots
 \]
 
 \subsection{Schieberegisterfolgen}
-Lineare Kongruenzen sind f"ur geeignet grosse Werte von $m$ durchaus
+Lineare Kongruenzen sind für geeignet grosse Werte von $m$ durchaus
 angemessen
-zuf"allig, aber nat"urlich f"ur kryptographische Anwendungen immer noch
+zufällig, aber natürlich für kryptographische Anwendungen immer noch
 absolut unbrauchbar.
 Es sind viele Varianten des Lehmerschen Algorithmus
-untersucht worden, grunds"atzlich ist es aber nicht m"oglich, eine l"angere
+untersucht worden, grundsätzlich ist es aber nicht möglich, eine längere
 Periode als $m$ zu erzeugen.
-Dazu w"are es n"otig, nicht nur den
+Dazu wäre es nötig, nicht nur den
 vorangegangenen Wert $X_n$ in die Berechnung von $X_{n+1}$ einfliessen
-zu lassen, sonderen auch $X_{n-1}$ oder noch fr"uhere Werte.
+zu lassen, sonderen auch $X_{n-1}$ oder noch frühere Werte.
 Der folgende
 Algorithmus stammt von G.~J.~Mitchell und D.~P.~Moore.
 Er geht von
-zuf"alligen Startwerten $X_0,\dots X_{54}$ aus und definiert
+zufälligen Startwerten $X_0,\dots X_{54}$ aus und definiert
 \begin{equation}
 X_n=(X_{n-24}+X_{n-55})\mod m.
 \end{equation}
-Die Zahlen 24 und 55 sind nicht zuf"allig, sondern wurden so gew"ahlt,
+Die Zahlen 24 und 55 sind nicht zufällig, sondern wurden so gewählt,
 dass das niedrigste Bit von $X_n$ eine Periode von $2^{55}-1$ hat.
 
 Seit der Entdeckung dieses Zufallszahlgenerators sind auch andere Paare
@@ -117,11 +117,11 @@ kann man durch
 Z_n=(X_n+Y_n)\mod m
 \end{equation}
 eine neue Zufallsfolge bilden.
-Deren Periode kann viel l"anger sein als die
+Deren Periode kann viel länger sein als die
 Perioden von $X_n$ und $Y_n$, falls diese verschieden sind.
 
 Man kann auch eine Folge $X_n$ noch etwas aufmischen, bevor man sie ausgibt,
-und so die Periode vergr"ossern.
+und so die Periode vergrössern.
 Dazu speichert man die ersten $k$
 Werte $X_0,\dots X_{k-1}$ in Speicherstellen $V_0,\dots V_{k-1}$.
 Ausserdem
@@ -129,27 +129,27 @@ verwendet man die Hilfsvariable $Y$, die man mit $X_k$ initialisiert.
 Nun wendet man folgenden Algorithmus auf $V$ und $Y$ an:
 \begin{enumerate}
 \item $j = \lfloor kY/m\rfloor$, wobei $m$ der Modulus der Folge $X_n$ ist.
-\item $Y = V_j$, gebe $Y$ aus und setze $V_j$ auf den n"achsten Wert
+\item $Y = V_j$, gebe $Y$ aus und setze $V_j$ auf den nächsten Wert
 in der Folge.
 \end{enumerate}
 Dieser Algorithmus stammt von Bays und Durham, er gibt die Zahlen der
-Folge $X_n$ in ge"anderter Reihenfolge zur"uck.
+Folge $X_n$ in geänderter Reihenfolge zurück.
 
 \subsection{Kryptographische Zufallszahlen}
 Die Anforderungen an Zufallszahlen, die in kryptographischen Anwendungen
-ben"otigt werden, sind wie bereits erw"ahnt bedeutend h"oher.
+benötigt werden, sind wie bereits erwähnt bedeutend höher.
 Die Entwicklung
-der n"otigen Grundlagen zur Beschreibung dieser Zufallszahlgeneratoren
-w"urde jedoch zu weit f"uhren.
+der nötigen Grundlagen zur Beschreibung dieser Zufallszahlgeneratoren
+würde jedoch zu weit führen.
 
 \section{Zufallszahlen mit einer bestimmten Verteilung}
-Gem"ass dem vorangehenden Abschnitt sind wir in der Lage, 
+Gemäss dem vorangehenden Abschnitt sind wir in der Lage, 
 Zufallszahlen so zu erzeugen, dass sie in einem gegebenen Intervall
 gleichverteilt sind.
-F"ur die Simulation von Wahrscheinlichkeitsexperimenten
+Für die Simulation von Wahrscheinlichkeitsexperimenten
 braucht man aber Zufallszahlen, die eine gegebene Verteilung haben.
 Wie kann man aus gleichverteilten Zufallszahlen solche berechnen,
-die einer bestimmten Verteilung gen"ugen?
+die einer bestimmten Verteilung genügen?
 
 \subsection{Zufallszahlen mit Verteilungsfunktion \texorpdfstring{$F$}{F}}
 Gegeben sei jetzt also eine Verteilungsfunktion $F$ mit
@@ -159,7 +159,7 @@ $[0,1]$.
 Gesucht ist eine Zufallsvariable $Y$, welche $F$ als
 Verteilungsfunktion hat.
 Der folgende Satz liefert eine
-einfache und effiziente L"osung dieses Problems.
+einfache und effiziente Lösung dieses Problems.
 
 \begin{satz}Ist $X$ gleichverteilt im Intervall $[0,1]$, und $F$ eine
 invertierbare
@@ -177,10 +177,10 @@ Gleichverteilung im Intervall: $P(x\le m)=m$.
 \end{proof}
 
 Im Allgemeinen wird eine Verteilungsfunktion nicht invertierbar sein.
-Trotzdem ist es m"oglich, $Y$ so zu w"ahlen, dass es $F$ als
+Trotzdem ist es möglich, $Y$ so zu wählen, dass es $F$ als
 Verteilungsfunktion hat.
-Man m"ochte erreichen, dass $P(Y\le y)=F(y)
-=P(X\le F(y))$, d.~h.~man $Y$ so w"ahlen, dass $Y\le y$ genau dann wenn
+Man möchte erreichen, dass $P(Y\le y)=F(y)
+=P(X\le F(y))$, d.~h.~man $Y$ so wählen, dass $Y\le y$ genau dann wenn
 $X\le F(y)$.
 Dies erreicht man offenbar mit
 \begin{equation}
@@ -189,7 +189,7 @@ Y(x)=\min_{F(\eta)\ge x}\eta,
 denn dies bedeutet, dass
 \begin{equation}
 Y\le y\qquad\Leftrightarrow\qquad
-F(\eta)\ge x\quad\text{f"ur alle}\quad \eta>y
+F(\eta)\ge x\quad\text{für alle}\quad \eta>y
 \end{equation}
 Da $F$ rechtsseitig stetig ist, ist die letzte Bedingung gleichbedeutend
 mit $F(y)\le x$.
@@ -208,16 +208,16 @@ Die so konstruierte Funktion
 G\colon\mathbb{R}\to\mathbb{R}\colon x\mapsto\min\{\eta\,|\,F(\eta)\ge x\}
 \end{equation}
 kann als eine verallgemeinerte Umkehrfunktion betrachtet werden.
-F"ur invertierbare Funktionen $F$ stimmt sie mit $F^{-1}$ "uberein.
+Für invertierbare Funktionen $F$ stimmt sie mit $F^{-1}$ überein.
 
-Zun"achst ist $G$ wie $F$ eine monotone Funktion.
-Ist die Funktion $F$ in einem Intervall konstant, dann l"asst sich ein maximales
+Zunächst ist $G$ wie $F$ eine monotone Funktion.
+Ist die Funktion $F$ in einem Intervall konstant, dann lässt sich ein maximales
 Intervall $[a,b)$ finden, in dem $F$ konstant ist.
-F"ur alle $x\in[a,b)$ gilt dann
+Für alle $x\in[a,b)$ gilt dann
 \begin{equation}
 G(F(x))=\min\{\eta\,|\,F(\eta)\ge F(x)\}=\min[a,\infty)=a.
 \end{equation}
-F"ur $y\ge F(x)$ gilt
+Für $y\ge F(x)$ gilt
 \begin{equation}
 G(y)=\min\{\eta\,|\,F(\eta)\ge y\}\ge b,
 \end{equation}
@@ -226,7 +226,7 @@ wie eben gezeigt wurde linksseitig stetig.
 
 Sei umgekehrt $x$ eine Sprungstelle von $F$, dann werden die
 Werte $(F(x+),F(x))$ nicht angenommen.
-F"ur ein $y\in(F(x+),F(x))$
+Für ein $y\in(F(x+),F(x))$
 gilt dann
 \begin{equation}
 G(y)=\min\{\eta\,|\,F(\eta)\ge y\}=\min\{\eta\,|\,F(\eta)\ge F(x)\}=x,
@@ -237,31 +237,31 @@ die Funktion $G$ ist also auf dem Intervall $(F(x+),F(x))$ konstant.
 Umgekehrt ist es interessant, wenn man eine Zufallsvariable so transformieren
 kann, dass sie eine bestimmte Verteilung bekommt.
 Dies ist zum 
-Beispiel n"utzlich, wenn man die Qualit"at eines Zufallszahlgenerators
+Beispiel nützlich, wenn man die Qualität eines Zufallszahlgenerators
 testen will.
 Verspricht der Zufallszahlgenerator, Zufallszahlen $X_i$ zu
 produzieren, die einer Verteilung mit Verteilungsfunktion $F$
-gen"ugen, dann sind nach Satz \ref{reduktion-auf-gleichverteilung} die
+genügen, dann sind nach Satz \ref{reduktion-auf-gleichverteilung} die
 $F(X_i)$ im Intervall $[0,1]$ gleichverteilte Zufallszahlen.
 
 \section{Testen}
 Nachdem wir nun einige Verfahren kennen, mit denen Zufallszahlen
-erzeugt werden k"onnen, stellt sich automatisch die Frage, welches
-den f"ur einen bestimmten Anwendungszweck geeignet ist.
+erzeugt werden können, stellt sich automatisch die Frage, welches
+den für einen bestimmten Anwendungszweck geeignet ist.
 Dabei spielen auch Aspekte eine Rolle, die nicht Gegenstand der
 Wahrscheinlichkeitsrechnung sind, zum Beispiel der Rechenaufwand
 zur Bestimmung einer grossen Zahl von Zufallswerten, oder die Periode
 des Zufallszahlgenerators, welcher in den Diskussionen des vorangegangenen
-Abschnitts ja bereits Platz einger"aumt worden ist.
+Abschnitts ja bereits Platz eingeräumt worden ist.
 
 In diesem Abschnitt interessieren jedoch nur die statistischen Eigenschaften
-von Zufallszahlgeneratoren, zum Beispiel m"ochte man die Verteilung
+von Zufallszahlgeneratoren, zum Beispiel möchte man die Verteilung
 der Zufallszahlen kennen.
-In Simulationen ben"otigt man Zufallsereignisse mit einer bestimmten
+In Simulationen benötigt man Zufallsereignisse mit einer bestimmten
 Verteilung.
 Um zum Beispiel Diffusion oder Brownsche Bewegung in
 zu beschreiben, muss man normalverteilte Zufallszahlen bekommen
-k"onnen, Um den Ausfall von Komponenten eines Systems zu simulieren,
+können, Um den Ausfall von Komponenten eines Systems zu simulieren,
 braucht man exponentialverteilte Zufallszahlen.
 Im einfachsten Fall,
 der zum Beispiel auch bei Spielen meistens vorkommt, verlangt man
@@ -274,17 +274,17 @@ Durch eine lineare Transformation
 \begin{equation}
 x\mapsto \frac{x+M}{2M}(b-a) + a,
 \end{equation}
-welche in Gleitkommaarithmetik durchzuf"uhren ist, erh"alt man
+welche in Gleitkommaarithmetik durchzuführen ist, erhält man
 Zufallszahlen im Intervall $[a,b]$.
 Wie kann man diese Hypothese testen?
 
 Im Kapitel \ref{chapter-hypothesen-testen} hatten wir mit dem $\chi^2$-Test
 und dem Kolmogorov-Smirnov-Test zwei Verfahren kennengelernt, mit denen
 man testen kann, ob eine Stichprobe (also eine Teilfolge der Zufallsfolge
-des Generators) einer bestimmten Verteilung gen"ugt.
+des Generators) einer bestimmten Verteilung genügt.
 Im vorliegenden Fall
 ist gefordert, dass die Zufallszahlen in einem Intervall gleichverteilt
-sein sollen, wof"ur sich sowohl der $\chi^2$-Test wie auch der
+sein sollen, wofür sich sowohl der $\chi^2$-Test wie auch der
 Kolmogorov-Smirnov-Test eignen.
 Haben die Zufallszahlen eine beliebige
 andere Verteilung mit Verteilungsfunktion $F$, kann dazu immer noch
@@ -293,23 +293,23 @@ nach Abschnitt \ref{gleichverteilte-zufallszahlen} erst auf eine
 Gleichverteilung transformiert.
 
 \subsection{Lokale Tests}
-Die eben beschriebenen Tests f"ur Gleichverteilung sind nicht in der
-Lage, lokale Regelm"assigkeiten zu erkennen.
+Die eben beschriebenen Tests für Gleichverteilung sind nicht in der
+Lage, lokale Regelmässigkeiten zu erkennen.
 Gibt der Zufallszahlgenerator
-zum Beispiel jede Zahl zweimal aus, dann f"uhrt dies immer noch zu
-einer gleichm"assigen Verteilung, aber man w"urde das wohl kaum als
+zum Beispiel jede Zahl zweimal aus, dann führt dies immer noch zu
+einer gleichmässigen Verteilung, aber man würde das wohl kaum als
 Zufallsverhalten bezeichnen.
-Daher m"ussen die Tests verfeinert werden,
-um lokale Regelm"assigkeiten f"ur die Tests sichtbar zu machen.
+Daher müssen die Tests verfeinert werden,
+um lokale Regelmässigkeiten für die Tests sichtbar zu machen.
 
 \subsubsection{Paartest}
 Beim Paartest wird aus jeweils zwei aufeinanderfolgenden Zahlen aus der
 Zufallsfolge ein Paar gebildet.
 Falls die Zufallsfolge $d$ verschiedene
-Werte liefert, gibt es $d^2$ verschiedene m"ogliche Paare, die alle
+Werte liefert, gibt es $d^2$ verschiedene mögliche Paare, die alle
 mit gleicher Wahrscheinlichkeit vorkommen sollten.
 Dies kann man mit einem
-$\chi^2$-Test f"ur die Verteilung der Paare "uberpr"ufen.
+$\chi^2$-Test für die Verteilung der Paare überprüfen.
 
 \subsubsection{Pokertest}
 \begin{table}
@@ -318,33 +318,33 @@ $\chi^2$-Test f"ur die Verteilung der Paare "uberpr"ufen.
 \hline
 $r$&Beschreibung&$p_r$\\
 \hline
-$1$&f"unf gleiche&$\frac{d}{d^5}=\frac1{d^4}$\\
+$1$&fünf gleiche&$\frac{d}{d^5}=\frac1{d^4}$\\
 $2$&Full house, vier gleiche&$ $\\
 $3$&zwei paare, drei gleiche&$ $\\
 $4$&ein paar&$ $\\
-$5$&alle verschieden&�$\frac{5!}{d^5}$\\
+$5$&alle verschieden&Ã$\frac{5!}{d^5}$\\
 \hline
 \end{tabular}
 \end{center}
 \caption{Quintupel mit $r$ verschiedenen Werten und ihre Wahrscheinlichkeit}
 \end{table}
-Der Pokertest f"uhrt den Paartest noch etwas weiter.
+Der Pokertest führt den Paartest noch etwas weiter.
 Er bildet aus jeweils
-f"unf Zahlen der Zufallsfolge ein ``Blatt'', und fragt danach, wie h"aufig
-in solchen F"unftupeln gewisse Konfigurationen vorkommen.
+fünf Zahlen der Zufallsfolge ein ``Blatt'', und fragt danach, wie häufig
+in solchen Fünftupeln gewisse Konfigurationen vorkommen.
 Im Poker
 unterscheidet man sieben verschiedene Muster: alle verschieden, ein Paar,
-zwei Paare, drei gleiche, full house, vier gleiche, f"unf
-gleiche\footnote{Tats"achlich kennt das Pokerspiel nat"urlich noch weitere
-Konfigurationen, die kleine und grosse Strasse sind F"alle, wo alle f"unf
-Karten verschieden sind, diese sind jedoch f"ur unsere Tests nicht
+zwei Paare, drei gleiche, full house, vier gleiche, fünf
+gleiche\footnote{Tatsächlich kennt das Pokerspiel natürlich noch weitere
+Konfigurationen, die kleine und grosse Strasse sind Fälle, wo alle fünf
+Karten verschieden sind, diese sind jedoch für unsere Tests nicht
 interessant.}.
-F"ur die praktische Durchf"uhrung der Tests ist es jedoch
-einfacher, nur die Anzahl $r$ der verschiedenen Werte in einem F"unftupel
+Für die praktische Durchführung der Tests ist es jedoch
+einfacher, nur die Anzahl $r$ der verschiedenen Werte in einem Fünftupel
 anzusehen.
-Ist die Zufallsfolge gleichverteilt, m"ussen $r$ verschiedene
+Ist die Zufallsfolge gleichverteilt, müssen $r$ verschiedene
 mit den Wahrscheinlichkeiten $p_r$ auftreten, was sich mit Hilfe eines
-$\chi^2$ Tests pr"ufen l"asst.
+$\chi^2$ Tests prüfen lässt.
 
 \subsubsection{Maximum von \texorpdfstring{$t$}{t}}
 In diesem Test bildet man aus $t$ Zufallsvariablen
@@ -352,10 +352,10 @@ $X_0,X_1,\dots,X_{j-1}$ eine neue Zufallsvariable
 \begin{equation}
 Y=\max(X_0,X_1,\dots,X_{j-1},
 \end{equation}
-und "uberpr"ufen mit dem Kolmogoroff-Smirnov-Test, ob $Y$ die richtige
+und überprüfen mit dem Kolmogoroff-Smirnov-Test, ob $Y$ die richtige
 Verteilung besitzt.
-Dazu m"ussen wir die Verteilung von $Y$ kennen,
-die folgenden S"atze geben dazu Auskunft.
+Dazu müssen wir die Verteilung von $Y$ kennen,
+die folgenden Sätze geben dazu Auskunft.
 \begin{satz}Sind $X$ und $Y$ unabh"nagige Zufallsvariable mit
 Verteilungsfunktionen $F_X$ und $F_Y$, dann hat $\max(X,Y)$
 die Verteilungsfunktion $F_XF_Y$ und $\min(X,Y)$ die Verteilungsfunktion
@@ -374,10 +374,10 @@ F_{\min(X,Y)}(x)&=&P(\min(X,Y)\le x)\nonumber\\
 \end{eqnarray}
 \end{proof}
 Bei mehr als zwei Zufallsvariablen lassen sich entsprechende
-Formeln angeben, wir interessieren uns jedoch nur f"ur den Fall,
+Formeln angeben, wir interessieren uns jedoch nur für den Fall,
 dass alle Zufallsvariablen die gleiche Verteilung haben, in dem
 die Formeln besonders einfach werden.
-\begin{satz}Sind $X_0,\dots,X_{j-1}$ unabh"angige Zufallsvariable mit
+\begin{satz}Sind $X_0,\dots,X_{j-1}$ unabhängige Zufallsvariable mit
 gemeinsamer Verteilungsfunktion $F$.
 Dann gilt
 \begin{enumerate}
@@ -387,11 +387,11 @@ Dann gilt
 \end{satz}
 
 \begin{proof}[Beweis]
-F"ur $Y$ folgt aus der Definition sofort
+Für $Y$ folgt aus der Definition sofort
 \begin{equation}
 P(Y\le x)=P(X_i\le x\forall i)=\prod_{i=0}^{j-1}P(X_i\le x)=F(x)^j.
 \end{equation}
-Entsprechend f"ur $Z$
+Entsprechend für $Z$
 \begin{eqnarray}
 P(Z\le x)&=&P(\exists i (X_i\le x)) = 1-P(X_i>x\forall i)\nonumber\\
 &=&1-\prod_{i=0}^{j-1} P(X_i>x)\nonumber\\
@@ -399,8 +399,8 @@ P(Z\le x)&=&P(\exists i (X_i\le x)) = 1-P(X_i>x\forall i)\nonumber\\
 \end{eqnarray}
 \end{proof}
 
-Der Maximum-von-$t$ pr"uft einen Zufallszahlgenerator dadurch, dass
+Der Maximum-von-$t$ prüft einen Zufallszahlgenerator dadurch, dass
 er jeweils von $t$ aufeinanderfolgenden Elementen der Zufallsfolge
-das Maximum bildet und mit dem Kolmogorov-Smirnov-Test pr"uft,
+das Maximum bildet und mit dem Kolmogorov-Smirnov-Test prüft,
 ob die so entstandenen Zufallsvariable die Funktion $F(x)=x^t$ als
 Verteilungsfunktion hat.

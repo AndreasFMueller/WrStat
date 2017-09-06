@@ -20,8 +20,8 @@ $P(|X-E(X)|>\varepsilon)$&
 \begin{minipage}{3.7in}
 $
 \begin{cases}
-e^{-a\varepsilon-1}&\qquad\text{f"ur $\varepsilon > \displaystyle\frac1a$}\\
-1-e^{a\varepsilon-1}+e^{-a\varepsilon-1}&\qquad\text{f"ur $\varepsilon \le \displaystyle\frac1a$}
+e^{-a\varepsilon-1}&\qquad\text{für $\varepsilon > \displaystyle\frac1a$}\\
+1-e^{a\varepsilon-1}+e^{-a\varepsilon-1}&\qquad\text{für $\varepsilon \le \displaystyle\frac1a$}
 \end{cases}
 $
 \end{minipage}
@@ -29,8 +29,8 @@ $
 \hline
 Anwendungen&\begin{minipage}{3.7in}%
 \strut
-$\bullet$ Prozess ohne Erinnerungsverm"ogen\\
-$\bullet$ Radioaktivit"at
+$\bullet$ Prozess ohne Erinnerungsvermögen\\
+$\bullet$ Radioaktivität
 \strut
 \end{minipage}\\
 \hline
@@ -49,23 +49,23 @@ Exponentialverteilung
 \label{bildexponentialverteilung}}
 \end{figure}
 Bei radioaktiven Stoffen und bei gewissen Bauteilen stellt man fest,
-dass ihr Zerfall bzw.~ihr Versagen kein Ged"achtnis hat.
-Die Wahrscheinlichkeit, dass ein Atomkern innerhalb der Zeit $t$ zerf"allt,
+dass ihr Zerfall bzw.~ihr Versagen kein Gedächtnis hat.
+Die Wahrscheinlichkeit, dass ein Atomkern innerhalb der Zeit $t$ zerfällt,
 ist gleich gross wie die Wahrscheinlichkeit, dass er zwischen $t_0$
-und $t_0+t$ zerf"allt, wenn er bis zur Zeit $t_0$ nicht zerfallen ist.
-Auch Bauteile ohne Erm"udungserscheinungen verhalten sich so.
+und $t_0+t$ zerfällt, wenn er bis zur Zeit $t_0$ nicht zerfallen ist.
+Auch Bauteile ohne Ermüdungserscheinungen verhalten sich so.
 
 \subsubsection{Verteilungsfunktion und Dichtefunktion}
 Etwas formaler sei $X$ eine Zufallsvariable, welche die Zeit angibt, zu der
-ein Atomkern zerf"allt.
-Die ``Ged"achtnislosigkeit'' bedeutet, dass die
-bedingte Wahrscheinlichkeit f"ur einen Zerfall vor $t_0+t$ unter der
+ein Atomkern zerfällt.
+Die ``Gedächtnislosigkeit'' bedeutet, dass die
+bedingte Wahrscheinlichkeit für einen Zerfall vor $t_0+t$ unter der
 Annahme, dass der Kern bis zur Zeit $t_0$ nicht zerfallen ist, gleich
 gross ist wie die Wahrscheinlichkeit eines Zerfalls bis zur Zeit $t$:
 \[
 P(X \le t) = P(X\le t_0+t\,|\,X > t_0)
 \]
-Dies ist nat"urlich gleichbedeutend mit der Wahrscheinlichkeit f"ur
+Dies ist natürlich gleichbedeutend mit der Wahrscheinlichkeit für
 die negierten Ereignisse:
 \[
 P(X > t) = P(X > t_0+t\,|\,X > t_0)
@@ -81,11 +81,11 @@ Die Bedingung an die Verteilung wird damit zu
 P(X>t)P(X>t_0)=P(X>t+t_0).
 \]
 Schreiben wir jetzt $g(t)=P(X>t)=1-F(t)$, werden die Formeln
-etwas "ubersichtlicher:
+etwas übersichtlicher:
 \[
 g(t)g(t_0)=g(t+t_0).
 \]
-Zun"achst leiten wir nach $t_0$ ab, wir nehmen ja an, dass wir
+Zunächst leiten wir nach $t_0$ ab, wir nehmen ja an, dass wir
 eine stetige Zufallsvariable haben, und dass die Verteilungsfunktion
 differenzierbar sein wird.
 Wir erhalten
@@ -97,12 +97,12 @@ die Differentialgleichung
 \[
 g'(t)=g'(0)g(t)
 \]
-f"ur $g(t)$.
+für $g(t)$.
 Diese lineare Differentialgleichung erster Ordnung
-muss als L"osung eine Exponentialfunktion haben.
+muss als Lösung eine Exponentialfunktion haben.
 Da $F(t)$
-monoton w"achst, muss $g(t)$ monoton fallen, ausserdem
-muss $g(t)$ beschr"ankt bleiben.
+monoton wächst, muss $g(t)$ monoton fallen, ausserdem
+muss $g(t)$ beschränkt bleiben.
 Damit bleibt nur
 $g(t)=e^{-at}$ mit einem positiven $a$.
 
@@ -118,22 +118,22 @@ mit $a>0$ heisst Exponentialverteilung.
 Ihre Verteilungsfunktion ist
 \[
 F(x)=\begin{cases}
-0&\qquad\text{f"ur $x < 0$}\\
-1-e^{-ax}&\qquad\text{f"ur $x\ge 0$}.
+0&\qquad\text{für $x < 0$}\\
+1-e^{-ax}&\qquad\text{für $x\ge 0$}.
 \end{cases}
 \]
 \end{definition}
 \index{Exponentialverteilung}
 \index{Verteilungsfunktion!Exponentialverteilung}
 \index{Wahrscheinlichkeitsdichte!Exponentialverteilung}
-Wir sollten noch nachrechnen, dass dies tats"achlich die richtige
+Wir sollten noch nachrechnen, dass dies tatsächlich die richtige
 Verteilungsfunktion ist.
-Zun"achst w"achst sie tats"achlich monoton,
-und auch der Grenzwert f"ur $t\to\infty$ ist wie gew"unscht.
+Zunächst wächst sie tatsächlich monoton,
+und auch der Grenzwert für $t\to\infty$ ist wie gewünscht.
 Aber
 auch die Ableitung ist richtig:
 \[
-\frac{d}{dt}(1-e^{-at})=ae^{-at}\qquad\text{f"ur}\quad t>0.
+\frac{d}{dt}(1-e^{-at})=ae^{-at}\qquad\text{für}\quad t>0.
 \]
 
 \subsubsection{Erwartungswert und Varianz}
@@ -149,9 +149,9 @@ E(X)&=\frac1a\\
 \end{align*}
 \end{satz}
 \begin{proof}[Beweis]
-Zur Berechnung von Erwartungswert und Varianz ist es n"utzlich die Integrale
+Zur Berechnung von Erwartungswert und Varianz ist es nützlich die Integrale
 $I_n=\int \xi^ne^{-\xi}\,d\xi$
-berechnen zu k"onnen.
+berechnen zu können.
 Diese findet man rekursiv durch partielle Integration:
 \begin{align*}
 I_n&=\int \xi^ne^{-\xi}\,d\xi\\
@@ -160,14 +160,14 @@ I_n&=\int \xi^ne^{-\xi}\,d\xi\\
 \end{align*}
 Um Erwartungswert und Varianz zu berechnen, verwendet man mit Vorteil die
 Variablentransformation $ax=\xi$.
-F"ur den Erwartungswert ergibt sich:
+Für den Erwartungswert ergibt sich:
 \begin{align*}
 E(X)&=\int_0^{\infty}ae^{-ax}x\,dx
 =\frac1a\int_0^{\infty}ax e^{-ax}a\,dx
 =\frac1a\int_0^{\infty}\xi e^{-\xi}\,d\xi\\
 &=\frac1a\left[-\xi e^{-\xi}-e^{-\xi}\right]_0^\infty=\frac1a
 \end{align*}
-Analog f"ur die Varianz:
+Analog für die Varianz:
 \begin{align*}
 E(X^2)
 &=
@@ -181,8 +181,8 @@ E(X^2)
 &=E(X^2)-E(X)^2=\frac2{a^2}-\left(\frac1a\right)^2=\frac1{a^2}
 \end{align*}
 \end{proof}
-Die Gr"osse $\frac1a$ l"asst sich also leicht interpretieren: sie ist die
-mittlere ``Lebensdauer'', man findet sie oft unter dem K"urzel MTBF f"ur
+Die Grösse $\frac1a$ lässt sich also leicht interpretieren: sie ist die
+mittlere ``Lebensdauer'', man findet sie oft unter dem Kürzel MTBF für
 mean time between failure.
 Und $\sqrt{\operatorname{var}(X)}$ 
 ist genau gleich gross. 
@@ -193,23 +193,23 @@ ist genau gleich gross.
 \begin{center}
 \includegraphics{images/exp-1.pdf}
 \end{center}
-\caption{Wahrscheinlichkeit f"ur eine grosse Abweichung bei einer
+\caption{Wahrscheinlichkeit für eine grosse Abweichung bei einer
 exponentialverteilten Zufallsvariable, oben die durch den Satz von Tschebyscheff
-gegebene Schranke (gr"un), unten die exakte Rechnung mit
+gegebene Schranke (grün), unten die exakte Rechnung mit
 Hilfe der Exponentialvereteilung (rot)\label{abweichung-exponential}}
 \end{figure}
 {
 \small
-Wir k"onnen nun auch die Wahrscheinlichkeit einer grossen Abweichung
+Wir können nun auch die Wahrscheinlichkeit einer grossen Abweichung
 berechnen:
-\begin{satz} F"ur eine exponentialverteilte Zufallsvariable mit
+\begin{satz} Für eine exponentialverteilte Zufallsvariable mit
 Erwartungswert $\frac1a$ ist die Wahrscheinlichkeit einer Abweichung
 $\varepsilon$ vom Erwartungswert
 \[
 P(|X-{\textstyle\frac1a}|>\varepsilon)=
 \begin{cases}
-e^{-a\varepsilon-1}&\qquad\text{f"ur $\varepsilon > \frac1a$}\\
-1-e^{a\varepsilon-1}+e^{-a\varepsilon-1}&\qquad\text{f"ur $\varepsilon \le \frac1a$}
+e^{-a\varepsilon-1}&\qquad\text{für $\varepsilon > \frac1a$}\\
+1-e^{a\varepsilon-1}+e^{-a\varepsilon-1}&\qquad\text{für $\varepsilon \le \frac1a$}
 \end{cases}
 \]
 \end{satz}
@@ -222,8 +222,8 @@ P(|X-{\textstyle\frac1a}|>\varepsilon)
 &=1-\left[-e^{-ax}\right]_{\max(0,\frac1a-\varepsilon)}^{\frac1a+\varepsilon}\\
 &=1+e^{-a\varepsilon-1}-e^{-\max(0,1-a\varepsilon)}\\
 &=\begin{cases}
-e^{-a\varepsilon-1}&\qquad\text{f"ur $\varepsilon > \frac1a$}\\
-1-e^{a\varepsilon-1}+e^{-a\varepsilon-1}&\qquad\text{f"ur $\varepsilon \le \frac1a$}
+e^{-a\varepsilon-1}&\qquad\text{für $\varepsilon > \frac1a$}\\
+1-e^{a\varepsilon-1}+e^{-a\varepsilon-1}&\qquad\text{für $\varepsilon \le \frac1a$}
 \end{cases}
 \end{align*}
 \end{proof}
@@ -233,54 +233,54 @@ zur Varianz
 P(|X-{\textstyle\frac1a}|>\varepsilon)\le
 \frac{\operatorname{var}(X)}{\varepsilon^2}=\frac{1}{a^2\varepsilon^2},
 \]
-selbstverst"andlich muss diese Ungleichung immer noch erf"ullt sein.
+selbstverständlich muss diese Ungleichung immer noch erfüllt sein.
 Also
 \begin{alignat*}{3}
-e^{-a\varepsilon-1}&\le&\frac1{a^2\varepsilon^2}&\qquad\text{f"ur $a\varepsilon>1$}\\
-1-e^{a\varepsilon-1}+e^{-a\varepsilon-1}&\le&\frac1{a^2\varepsilon^2}&\qquad\text{f"ur $a\varepsilon\le1$}
+e^{-a\varepsilon-1}&\le&\frac1{a^2\varepsilon^2}&\qquad\text{für $a\varepsilon>1$}\\
+1-e^{a\varepsilon-1}+e^{-a\varepsilon-1}&\le&\frac1{a^2\varepsilon^2}&\qquad\text{für $a\varepsilon\le1$}
 \end{alignat*}
-In allen Ausdr"ucken kommt immer nur das Produkt $a\varepsilon$ vor,
-wir k"onnen daher
-abk"urzend $u=a\varepsilon$ schreiben.
+In allen Ausdrücken kommt immer nur das Produkt $a\varepsilon$ vor,
+wir können daher
+abkürzend $u=a\varepsilon$ schreiben.
 Die zweite Ungleichung wird dann zu
 \[
-1-\frac{e^{u}-e^{-u}}e=1-\frac{2\sinh u}{e}\le\frac1{u^2}\qquad\text{f"ur $u\le1$}
+1-\frac{e^{u}-e^{-u}}e=1-\frac{2\sinh u}{e}\le\frac1{u^2}\qquad\text{für $u\le1$}
 \]
 In diesem Fall ist die rechte Seite mindestens 1,
-die Tschebyscheff-Ungleichung wird jetzt v"ollig nichtssagend, denn 
-gr"osser als 1 kann die Wahrscheinlichkeit f"ur eine Abweichung ohnehin
+die Tschebyscheff-Ungleichung wird jetzt völlig nichtssagend, denn 
+grösser als 1 kann die Wahrscheinlichkeit für eine Abweichung ohnehin
 nicht werden.
 
 Die erste Ungleichung wird zu
 \[
-e^{-u-1}\le\frac1{u^2}\qquad\text{f"ur $u > 1$}.
+e^{-u-1}\le\frac1{u^2}\qquad\text{für $u > 1$}.
 \]
-Diese Funktion f"allt monoton sehr schnell gegen 0, viel schneller
+Diese Funktion fällt monoton sehr schnell gegen 0, viel schneller
 als der Ausdruck $\frac1{u^2}$.
 In der Abbildung~\ref{abweichung-exponential}
 sieht man beide Schranken, die allgemeine, gegeben durch den
-Satz von Tschebyscheff, und die exakte f"ur die Exponentialverteilung.
+Satz von Tschebyscheff, und die exakte für die Exponentialverteilung.
 }
 
 \subsubsection{Anwendung}
-Ger"ate aller Art versuchen, die Lebensdauer dadurch zu erh"ohen, dass
+Geräte aller Art versuchen, die Lebensdauer dadurch zu erhöhen, dass
 kritische Komponenten redundant aufgebaut werden.
-Zum Beispiel verwenden Server h"aufig zwei Disks, deren Daten
+Zum Beispiel verwenden Server häufig zwei Disks, deren Daten
 gespiegelt sind, so dass der Ausfall eines Disks noch keinen Ausfall
 des Gesamtsystems verursacht.
 Wir wollen die erwartete Zeit bis zum
 Ausfall des Gesamtsystems berechnen, wenn zwei Disks verwendet werden,
 deren Zeit bis zum Ausfall exponentialverteilt ist.
 Weiter nehmen
-wir an, dass die Disks unabh"angig voneinander ausfallen.
+wir an, dass die Disks unabhängig voneinander ausfallen.
 
 Sei also $T_i$ die Zeit bis zum Ausfall von Disk $i$, mit
-Verteilungsfunktion $F_{T_i}(t)=1-e^{at}$ f"ur $t\ge 0$.
+Verteilungsfunktion $F_{T_i}(t)=1-e^{at}$ für $t\ge 0$.
 Gesucht
-ist die Verteilungsfunktion f"ur die Zeit $T$ bis zum Ausfall
+ist die Verteilungsfunktion für die Zeit $T$ bis zum Ausfall
 des Gesamtsystems, also die Funktion $F(t)=P(T\le t)$.
 Das Gesamtsystem
-f"allt aus, wenn beide Disks ausgefallen sind, es ist also
+fällt aus, wenn beide Disks ausgefallen sind, es ist also
 \begin{align*}
 F(t)
 &=P(T\le t)=P(T_1\le t\wedge T_2\le t)\\
@@ -288,7 +288,7 @@ F(t)
 = F_{T_1}(t) F_{T_2}(t)=(1-e^{-at})^2
 \end{align*}
 Zur Berechnung des Erwartungswertes von $T$ wird die
-Wahrscheinlichkeitsdichte ben"otigt, also die Ableitung davon:
+Wahrscheinlichkeitsdichte benötigt, also die Ableitung davon:
 \begin{equation}
 \varphi_{T}(t)=2(1-e^{-at})ae^{-at}.
 \label{disks-wdichte}
@@ -303,20 +303,20 @@ E(T)
 &=2\int_0^\infty ate^{-at}\,dt - \int_0^\infty t (2a)e^{-(2a)t}\,dt
 =2\cdot\frac1a-\frac1{2a}=\frac{4-1}2\cdot\frac1a=\frac32\cdot\frac1a.
 \end{align*}
-Durch Redundanz l"asst sich die mittlere Zeit bis zu einem Ausfall
-also nur um 50\% steigern, die Kosten f"ur das Disksystem werden
+Durch Redundanz lässt sich die mittlere Zeit bis zu einem Ausfall
+also nur um 50\% steigern, die Kosten für das Disksystem werden
 aber mehr als verdoppelt.
 Abbildung~\ref{graph:disksystem} zeigt, dass die Wahrscheinlichkeit
-eines ``fr"uhen'' Ausfalls stark reduziert wird, der eigentliche
-Nutzen der Redundanz ist also weniger die Verl"angerung der 
+eines ``frühen'' Ausfalls stark reduziert wird, der eigentliche
+Nutzen der Redundanz ist also weniger die Verlängerung der 
 Lebensdauer, sondern die Tatsache, dass man darauf verzichten kann,
-eine teure F"ahigkeit zur sofortigen Reaktion aufzubauen.
+eine teure Fähigkeit zur sofortigen Reaktion aufzubauen.
 \begin{figure}
 \centering
 \includegraphics{images/exp-3.pdf}
 \caption{Wahrscheinlichkeitsdichte (\ref{disks-wdichte}) 
 der Ausfallzeit eines redundanten Disksystems (blau)
-im Vergleich zur Verteilung der Ausfallzeit eines einzelnen Disk (gr"un).
+im Vergleich zur Verteilung der Ausfallzeit eines einzelnen Disk (grün).
 \label{graph:disksystem}}
 \end{figure}
 
