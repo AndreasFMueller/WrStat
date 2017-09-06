@@ -284,7 +284,7 @@ Verteilung eine Dichtefunktion $f(x,\vartheta)$ mit einem unbekannten
 Parameter $\vartheta$ besitzt. $\vartheta$ soll geschätzt werden.
 Wir bilden daraus die Likelihood-Funktion
 \begin{equation}
-L(x_1,\dots,x_n;\vartheta)=f(x_1,\vartheta)\cdots f(x_n,\vartheta),
+L(x_1,\dots,x_n;\vartheta)=\varphi(x_1,\vartheta)\cdots \varphi(x_n,\vartheta),
 \label{likelihood-funktion}
 \end{equation}
 also die $n$-dimensionale Dichtefunktion für die durch $n$-malige 
@@ -302,7 +302,7 @@ $\vartheta(X_1,\dots,X_n)$ heisst Maximum-Likelihood-Schätzer für
 $\vartheta$, wenn die Likelihood-Funktion (\ref{likelihood-funktion})
 maximal wird:
 \begin{equation}
-L(X_1,\dots,X_n;\vartheta(X_1,\dots,X_n)) \ge L(X_1,\dots,X_n;t)\quad\forall t.
+L(X_1,\dots,X_n;\vartheta(X_1,\dots,X_n)) \ge L(X_1,\dots,X_n;t)\qquad\forall t.
 \end{equation}
 \end{definition}
 
@@ -311,12 +311,15 @@ Maximum-Likelihood-Schätzer für den Erwartungswert
 einer normalverteilten Zufallsvariable.
 Die Dichtefunktion ist 
 \[
-f(x,\vartheta)=\frac1{\sqrt{2\pi}}e^{-\frac{(x-\vartheta)^2}{2\sigma^2}}
+\varphi(x,\vartheta)
+=
+\frac1{\sqrt{2\pi}\sigma}e^{-\frac{(x-\vartheta)^2}{2\sigma^2}}
 \]
 woraus sich die Likelihood-Funktion als
 \begin{equation}
-L(x_1,\dots,x_n;\vartheta)=
-\frac1{(\sqrt{2\pi})^n}e^{-\frac1{2\sigma^2}\sum_{i=1}^n(x_i-\vartheta)^2}
+L(x_1,\dots,x_n;\vartheta)
+=
+\frac1{(\sqrt{2\pi}\sigma)^n}e^{-\frac1{2\sigma^2}\sum_{i=1}^n(x_i-\vartheta)^2}
 \label{likelihood-funktion-normalverteilung}
 \end{equation}
 ergibt.
@@ -333,8 +336,12 @@ Durch Ableiten nach $\vartheta$ entsteht daraus
 \begin{equation}
 \frac{d}{d\vartheta}
 \sum_{i=1}^n (x_i-\vartheta)^2
-=-2\sum_{i=1}^n (x_i-\vartheta)=2\biggl(n\vartheta-\sum_{i=1}^nx_i\biggr)
-=2n\biggl(\vartheta-\frac1n\sum_{i=1}^nx_i\biggr)
+=
+-2\sum_{i=1}^n (x_i-\vartheta)
+=
+2\biggl(n\vartheta-\sum_{i=1}^nx_i\biggr)
+=
+2n\biggl(\vartheta-\frac1n\sum_{i=1}^nx_i\biggr)
 \end{equation}
 was genau dann verschwindet, wenn der Klammerausdruck $=0$ ist, also
 \begin{equation}
@@ -456,7 +463,7 @@ gleichverteilten Zufallsvariable $X$, dann ist
 \begin{equation}
 \vartheta(X_1,\dots,X_n)=\frac{n+1}{n}\max(X_1,\dots, X_n)
 \end{equation}
-eine erwartungstreuer Schätzer für die Intervalllänge $\vartheta$.
+ein erwartungstreuer Schätzer für die Intervalllänge $\vartheta$.
 \end{satz}
 
 \subsection{Schätzung des Parameters \texorpdfstring{$\lambda$}{lambda} einer Poissonverteilung}
@@ -892,8 +899,8 @@ wir daraus
 \\
 &=
 \frac{\Gamma(\frac{k+1}2)}{\sqrt{k\pi}\Gamma(\frac{k}2)}\biggl(1+\frac{t^2}k\biggr)^{-\frac{k+1}2}.
+\qedhere
 \end{align*}
-
 \end{proof}
 
 Auch zur $t$-Verteilung existieren Tabellen ähnlich der Normalverteilung,

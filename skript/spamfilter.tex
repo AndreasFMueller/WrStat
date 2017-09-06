@@ -96,7 +96,7 @@ P(S|X\cap Y)
 \frac{P(X\cap Y|S)P(S)}{P(X\cap Y)}\nonumber
 \\
 &=
-\frac{P(X\cap Y|S)P(S)}{P(X\cap Y|S)P(S)+P(X\cap Y|\bar S)P(\bar S)}
+\frac{P(X\cap Y|S)P(S)}{P(X\cap Y|S)P(S)+P(X\cap Y|\bar S)P(\bar S)}.
 \end{align}
 Das Problem mit dieser Formel ist, dass wir $P(X\cap Y|S)$ normalerweise
 nicht kennen.
@@ -121,7 +121,7 @@ P(S|X\cap Y)
 \frac{P(X\cap Y|S)P(S)}{P(X\cap Y|S)P(S)+P(X\cap Y|\bar S)P(\bar S)}\nonumber
 \\
 &=
-\frac{P(X|S)P(Y|S)P(S)}{P(X|S)P(Y|S)P(S)+P(X|\bar S)P(Y|\bar S)P(\bar S)}
+\frac{P(X|S)P(Y|S)P(S)}{P(X|S)P(Y|S)P(S)+P(X|\bar S)P(Y|\bar S)P(\bar S)}.
 \end{align}
 Im Prinzip könnte man an dieser Stelle aufhören, denn man hat ja jetzt
 alles, was man braucht.
@@ -159,7 +159,7 @@ P(S|X\cap Y)
 +
 \frac{P(\bar S|X)}{P(\bar S)}
 \frac{P(\bar S|Y)}{P(\bar S)}P(\bar S)
-}
+}.
 \end{align}
 In dieser Formel stehen nur noch die bereits ermittelten Wahrscheinlichkeiten
 $P(S|X)$ und die Wahrscheinlichkeiten von $S$ und $\bar S$.
@@ -173,7 +173,7 @@ P(S|X\cap Y)
 \frac{P(S|X)P(S|Y)}{P(S|X)P(S|Y)+P(\bar S|X)P(\bar S|Y)}\nonumber
 \\
 &=
-\frac{P(S|X)P(S|Y)}{P(S|X)P(S|Y)+(1-P(S|X))(1-P(S|Y))}
+\frac{P(S|X)P(S|Y)}{P(S|X)P(S|Y)+(1-P(S|X))(1-P(S|Y))}.
 \end{align}
 Damit dieser Wert möglichst gross wird, also $X\cap Y$ ein möglichst
 gutes Spam-Kriterium ist, sollte der zweite Term im Nenner möglichst klein

@@ -132,7 +132,7 @@ Wenn wir uns nur für die gezeigte Augenzahl interessieren,
 brauchen wir eine Funktion, welche jedem Elementarereignis diesen speziellen
 Ausgang zuordnet:
 \[
-X: \Omega\to{\mathbb Z}: \omega\mapsto X(\omega)
+X: \Omega\to{\mathbb Z}: \omega\mapsto X(\omega).
 \]
 Eine solche Abbildung heisst eine Zufallsvariable.
 Mit Hilfe der Zufallsvariable kann man jetzt das Ereignis, dass eine Sechs
@@ -346,7 +346,7 @@ E(X)&=
 5\cdot\frac16+
 6\cdot\frac16\\
 &=\frac{1+2+3+4+5+6}6\\
-&=\frac{31}{6}=3.5\\
+&=\frac{21}{6}=3.5.
 \end{align*}
 \subsubsection{Erwartete Augenzahl beim Würfeln mit zwei Würfel}
 Auch hier liegt ein diskreter Wahrscheinlichkeitsraum vor, dessen
@@ -365,7 +365,7 @@ E(X)&=\sum_{i=1}^6\sum_{j=1}^6\frac{i+j}{36}
 &=\frac1{36}(6\cdot 21 + 6\cdot21 )
 =\frac1{36}(2\cdot 6\cdot 21)
 =\frac1{6}(2\cdot 21)
-=7\\
+=7.
 \end{align*}
 Man kann als im Mittel mit einer Augensumme von 7 rechnen.
 Dies ist
@@ -433,7 +433,7 @@ Reihenfolge produziert, enthält dieses Ereignis $6!$ Elementarereignisse.
 Insgesamt hat $\Omega$ $N(N-1)(N-2)(N-3)(N-4)(N-5)$ Elemente, somit ist
 die Wahrscheinlichkeit, dass man gewinnt:
 \[
-P(A)=\frac{6!}{N(N-1)(N-2)(N-3)(N-4)(N-5)}
+P(A)=\frac{6!}{N(N-1)(N-2)(N-3)(N-4)(N-5)}.
 \]
 Damit
 kann man den erwarteten Gewinn ausrechnen:
@@ -530,7 +530,7 @@ p([0.982,0.993))\cdot 0.992\\
 0.35\cdot 0.990+
 0.25\cdot 0.991+
 0.1\cdot 0.992\\
-&=0.99015\\
+&=0.99015.
 \end{align*}
 
 \subsection{Unabhängigkeit und Produktregel}
@@ -571,7 +571,7 @@ Dann berechnet man:
 E(XY)&=\sum_{i=1}^n\sum_{j=1}^m X(A_i\cap B_j)Y(A_i\cap B_j)P(A_i\cap B_j)\\
 &=\sum_{i=1}^n\sum_{j=1}^m X(A_i)Y(B_j)P(A_i)P(B_j)\\
 &=\sum_{i=1}^n X(A_i)P(A_i)\sum_{j=1}^mY(B_j)P(B_j)\\
-&=E(X)\cdot E(Y)
+&=E(X)\cdot E(Y).
 \end{align*}
 Die oben verwendete Unabhängigkeitsbedingung kann man mit folgender
 Definition erzwingen:
@@ -702,9 +702,9 @@ Die letzte Gleichung kann man leicht nachrechnen:
 \operatorname{var}(X)&=E((X-E(X))^2)\\
 &=E(X^2-2XE(X)+E(X)^2)\\
 &=E(X^2)-2E(X)E(X)+E(X)^2\\
-&=E(X^2)-E(X)^2
+&=E(X^2)-E(X)^2.
 \end{align*}
-
+%%
 \begin{figure}
 \begin{center}
 %\includegraphics[width=\hsize]{images/erwartung-1}
@@ -712,7 +712,7 @@ Die letzte Gleichung kann man leicht nachrechnen:
 \end{center}
 \caption{Visualisierung von Erwartungswert und Varianz in einem Histogramm
 \label{histogram}}
-\end{figure}
+\end{figure}%
 
 Man beachte, dass $\operatorname{var}(X)$ die Masseinheit des Quadrates
 von $X$ hat.
@@ -824,7 +824,7 @@ Trotzdem lässt sich die Berechnung vereinfachen:
 E((X-\mu)^2)&=\frac1n\sum_{i=1}^n(x_i-\mu)^2\\
 &=\frac1n\sum_{i=1}^n(x_i^2-2\mu x_i+\mu^2)\\
 &=\frac1n\sum_{i=1}^nx_i^2-2\mu\frac1n\sum_{i=1}^n x_i+\mu^2\\
-&=\frac1n\sum_{i=1}^nx_i^2-\biggl(\frac1n\sum_{i=1}^nx_i\biggr)^2\\
+&=\frac1n\sum_{i=1}^nx_i^2-\biggl(\frac1n\sum_{i=1}^nx_i\biggr)^2.
 \end{align*}
 \subsubsection{Beobachtungen}
 \begin{enumerate}
@@ -875,7 +875,7 @@ Summe und Produkt folgende Varianz:
 \operatorname{var}(X+Y)&=\operatorname{var}(X)+\operatorname{var}(Y)\\
 \operatorname{var}(XY)&=\operatorname{var}(X)\operatorname{var}(Y)
 +
-\operatorname{var}(Y)E(X)^2+\operatorname{var}(X)E(Y)^2
+\operatorname{var}(Y)E(X)^2+\operatorname{var}(X)E(Y)^2.
 \end{align*}
 \end{satz}
 \begin{proof}[Beweis]Durch einfaches Nachrechnen unter Ausnützen der
@@ -887,9 +887,9 @@ Unabhängigkeit von $X$ und $Y$, d.~h.~$E(XY)=E(X)E(Y)$:
 &=E(X^2+2XY+Y^2)-(E(X)+E(Y))^2\\
 &=E(X^2)+2E(XY)+E(Y^2)-E(X)^2-2E(X)E(Y)-E(Y)^2\\
 &=E(X^2)-E(X)^2+E(Y^2)-E(Y)^2\\
-&=\operatorname{var}(X)+\operatorname{var}(Y)
+&=\operatorname{var}(X)+\operatorname{var}(Y).
 \end{align*}
-Durch ziehen der Wurzel folgt die Behauptung aus der letzten Gleichung.
+Durch Ziehen der Wurzel folgt die Behauptung aus der letzten Gleichung.
 Für das Produkt gilt
 \begin{align*}
 \operatorname{var}(XY)
@@ -925,7 +925,7 @@ Sind $X$ und $Y$ unabhängig, gilt daher die Formel
 &=
 \operatorname{var}(X)
 +
-\operatorname{var}(Y)
+\operatorname{var}(Y),
 \\
 \sqrt{\operatorname{var}(X+Y)}
 &=
@@ -933,7 +933,7 @@ Sind $X$ und $Y$ unabhängig, gilt daher die Formel
 \sqrt{\operatorname{var}(X)}^2
 +
 \sqrt{\operatorname{var}(Y)}^2
-}
+}.
 \end{align*}
 Die Grössen $\sqrt{\operatorname{var}(X)}$ und $\sqrt{\operatorname{var}(Y)}$
 werden daher wie die Katheten eines rechtwinkligen Dreiecks addiert,
@@ -953,7 +953,7 @@ $X_i$ wie folgt:
 $X_1$&Anzahl Kopf im ersten Wurf&$E(X_1)=\frac12$&$\operatorname{var}(X_1)=\frac14$\\
 $X_2$&Anzahl Kopf im zweiten Wurf&$E(X_2)=\frac12$&$\operatorname{var}(X_2)=\frac14$\\
 &$\dots$&&\\
-$X_n$&Anzahl Kopf im $n$-ten Wurf&$E(X_n)=\frac12$&$\operatorname{var}(X_n)=\frac14$\\
+$X_n$&Anzahl Kopf im $n$-ten Wurf&$E(X_n)=\frac12$&$\operatorname{var}(X_n)=\frac14$.
 \end{tabular}
 \end{center}
 Damit kann man Erwartungswert und Varianz von $X=X_1+X_2+\dots+X_n$ berechnen:
@@ -965,7 +965,7 @@ E(X_n)
 =
 \frac{1}2+
 \frac{1}2+\dots+
-\frac{1}2=\frac{n}2
+\frac{1}2=\frac{n}2,
 \\
 \operatorname{var}(X)
 &=
@@ -1038,7 +1038,7 @@ Ist eine Zufallsvariable $X$, dann lässt sich die Wahrscheinlichkeit,
 dass $X$ um mehr als $\varepsilon$ vom Erwartungswert abweicht, wie
 folgt abschätzen:
 \[
-P(|X-\mu| >\varepsilon)\le\frac{\operatorname{var}(X)}{\varepsilon^2}
+P(|X-\mu| >\varepsilon)\le\frac{\operatorname{var}(X)}{\varepsilon^2}.
 \]
 \end{satz}
 
@@ -1181,7 +1181,7 @@ mit der relativen Häufigkeit $h$ ein, dann ist die Wahrscheinlichkeit,
 dass $h$ um mehr als $\varepsilon$ von $P(A)$ abweicht
 \[
 P(|h- P(A)|>\varepsilon)\le \frac{P(A)(1-P(A))}{n\varepsilon^2}
-\le\frac{1}{4n\varepsilon^2}
+\le\frac{1}{4n\varepsilon^2}.
 \]
 \end{satz}
 \begin{proof}[Beweis]
@@ -1405,8 +1405,12 @@ Dies ist in Abbildung~\ref{regressionskoeffizient-graphik} dargestellt.
 Auch die Koeffizienten der Regressionsgeraden sind mit einfachen Formeln
 zu bestimmen, wenn man nur Messwerte, deren Quadrate und das Produkt summiert:
 \begin{align*}
-a&=\frac{\displaystyle n\sum_{i=1}^nx_iy_i-\sum_{i=1}^nx_i\sum_{i=1}^ny_i}{\displaystyle n\sum_{i=1}^nx_i^2-\biggl(\sum_{i=1}^nx_i\biggr)^2}\\
-b&=\frac1n\sum_{i=1}^ny_i-a\frac1n\sum_{i=1}^nx_i\\
+a
+&=
+\frac{\displaystyle n\sum_{i=1}^nx_iy_i-\sum_{i=1}^nx_i\sum_{i=1}^ny_i}{\displaystyle n\sum_{i=1}^nx_i^2-\biggl(\sum_{i=1}^nx_i\biggr)^2},\\
+b
+&=
+\frac1n\sum_{i=1}^ny_i-a\frac1n\sum_{i=1}^nx_i,\\
 r^2
 &=
 \frac{
@@ -1416,7 +1420,7 @@ r^2
 \displaystyle
 \biggl(n\sum_{i=1}^nx_i^2-\biggl(\sum_{i=1}^nx_i\biggr)^2\biggr)
 \biggl(n\sum_{i=1}^ny_i^2-\biggl(\sum_{i=1}^ny_i\biggr)^2\biggr)
-}
+}.
 \end{align*}
 
 \subsection{Anwendungsbeispiel}

@@ -494,23 +494,23 @@ In $\Omega$ lassen sich bereits bedeutend spannendere Ereignisse%
 } beschreiben:
 \begin{align*}
 A_1&=\{\text{mindestens eine ungerade Zahl}\}\\
-   &=\{(x,y)\in\Omega\;|\;x \equiv 1 \imod{2} \vee y\equiv 1 \imod{2}\}\\
+   &=\{(x,y)\in\Omega\;|\;x \equiv 1 \imod{2} \vee y\equiv 1 \imod{2}\},\\
 A_2&=\{\text{beide Augenzahlen sind gerade}\}\\
-   &=\{(x,y)\in\Omega\;|\;2|x \wedge 2|y\}\\
-X_i&=\{(i,y)\in\Omega\}\\
-Y_i&=\{(x,i)\in\Omega\}\\
-S_s&=\{(x,y)\in\Omega\;|\; x + y = s\}\\
-D_d&=\{(x,y)\in\Omega\;|\; |x - y| = d\}\\
+   &=\{(x,y)\in\Omega\;|\;2|x \wedge 2|y\},\\
+X_i&=\{(i,y)\in\Omega\},\\
+Y_i&=\{(x,i)\in\Omega\},\\
+S_s&=\{(x,y)\in\Omega\;|\; x + y = s\},\\
+D_d&=\{(x,y)\in\Omega\;|\; |x - y| = d\}.
 \end{align*}
 Und damit lassen sich auch etwas spannendere Rechnungen durchführen.
 Zum Beispiel:
 \begin{align*}
-A_1&=\Omega \setminus A_2 = \bar A_2\\
-A_1\cap A_2&=\emptyset\\
-A_1&=X_1\cup X_3 \cup X_5\cup Y_1\cup Y_3\cup Y_5\\
-X_4\cap Y_3&=\{(4,3)\}\\
-X_5\cap S_7&=\{(5,2)\}\\
-X_5\cap D_1&=\{(5,4), (5,6)\}\\
+A_1&=\Omega \setminus A_2 = \bar A_2,\\
+A_1\cap A_2&=\emptyset,\\
+A_1&=X_1\cup X_3 \cup X_5\cup Y_1\cup Y_3\cup Y_5,\\
+X_4\cap Y_3&=\{(4,3)\},\\
+X_5\cap S_7&=\{(5,2)\},\\
+X_5\cap D_1&=\{(5,4), (5,6)\}.
 \end{align*}
 \begin{figure}
 \centering
@@ -637,7 +637,7 @@ Damit kann man jetzt alle möglichen Elementarereignisse auflisten
 \cup
 \{(P_2,(x,y))\}
 \cup
-\{(P_1,(x,y))\}
+\{(P_1,(x,y))\}.
 \end{align*}
 Man sieht daraus zum Beispiel, dass es $30 + 6\cdot 36=246$
 Elementarereignisse gibt.
@@ -681,7 +681,7 @@ Q&=\{\text{totale Augensumme $\ge 10$}\}\\
 \\
 &\qquad
 \cup
-\{(P_1,(x,y))\,|\, x+y \ge 8\}
+\{(P_1,(x,y))\,|\, x+y \ge 8\}.
 \end{align*}
 
 \subsection{AIDS-Test}
@@ -693,8 +693,8 @@ die Menge der Elementarereignisse ist also die Menge aller betrachteten
 Personen.
 Darin unterscheiden wir:
 \begin{align*}
-H&=\{\text{Person hat HIV}\}\\
-T&=\{\text{Person hat positiven AIDS-Test}\}
+H&=\{\text{Person hat HIV}\},\\
+T&=\{\text{Person hat positiven AIDS-Test}\}.
 \end{align*}
 Es ist klar, dass $H\ne T$.
 Es gibt Personen, die zwar HIV haben, bei
@@ -1085,6 +1085,7 @@ Also gilt
 P(A\cup B)&=P(A\setminus B) + P(A\cap B) + P(B\setminus A)\\
 &=P(A) - P(A\cap B) + P(A\cap B) + P(B) - P(A\cap B)\\
 &=P(A) + P(B) - P(A\cap B).
+\qedhere
 \end{align*}
 \end{proof}
 Damit stehen uns Rechenregeln zur Verfügung, mit deren Hilfe wir
@@ -1273,7 +1274,7 @@ P(A_3)=P(A_{11})&=\frac{2}{36},\\
 P(A_4)=P(A_{11})&=\frac{3}{36},\\
 P(A_5)=P(A_9)&=\frac{4}{36},\\
 P(A_6)=P(A_8)&=\frac{5}{36},\\
-P(A_7)&=\frac{7}{36}.
+P(A_7)&=\frac{6}{36}.
 \end{align*}
 
 \subsection{Geburtstagsproblem}
@@ -1335,7 +1336,7 @@ berechnen.
 Es gilt ja:
 \begin{align*}
 P(A)&=P(\{\text{``zwei haben am gleichen Tag Geburstag''}\})\\
-&=1-P(\{\text{``alle Geburstage sind verschieden''}\})
+&=1-P(\{\text{``alle Geburstage sind verschieden''}\}).
 \end{align*}
 Die Anzahl der Geburtstagsverteilungen, bei denen alle Geburtstage
 verschieden sind, ist einfach zu ermitteln: Für die erste Person
@@ -1776,7 +1777,7 @@ P(E)&=P(E|B)P(B)+P(E|K)P(K)+P(E|A)P(A).
      + 90\%\cdot 30\%
      + 85\%\cdot 10\%
 \\
-&=0.8\cdot 0.6 + 0.9 \cdot 0.3 + 0.85 \cdot 0.1 = 0.835
+&=0.8\cdot 0.6 + 0.9 \cdot 0.3 + 0.85 \cdot 0.1 = 0.835.
 \end{align*}
 
 \subsubsection{Würfelspiel}
@@ -1807,7 +1808,7 @@ P(P_2)+
 P(P_3)+
 P(P_4)+
 P(P_5)+
-P(P_6)
+P(P_6),
 \\
 P(Z|P)
 &=
@@ -1818,14 +1819,14 @@ P(Z|P_3)P(P_3|P)
 &\qquad +
 P(Z|P_4)P(P_4|P)+
 P(Z|P_5)P(P_5|P)+
-P(Z|P_6)P(P_6|P)
+P(Z|P_6)P(P_6|P).
 \end{align*}
 Die Ereignisse haben wir auch früher schon untersucht, daraus kann
 man einige Wahrscheinlichkeiten bereits ablesen:
 \begin{align*}
-P(Z|P_6)&=1\\
-P(Z|P_5)&=1\\
-P(Z|P_4)&=1
+P(Z|P_6)&=1,\\
+P(Z|P_5)&=1,\\
+P(Z|P_4)&=1,
 \end{align*}
 denn in allen diesen Fällen erreicht man mit dem zweiten Wurf mit
 Sicherheit zehn oder mehr.
@@ -1928,7 +1929,7 @@ P(B_1)\\
 P(B_2)\\
 \vdots\\
 P(B_n)
-\end{pmatrix}
+\end{pmatrix}.
 \]
 Sind die Ereignisse $A_i$ ebenfalls paarweise disjunkt und decken ganz
 $\Omega$ ab, dann sind auch die Spalten von der Matrix $(P(A_i|B_j))$

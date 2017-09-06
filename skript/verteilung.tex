@@ -78,10 +78,10 @@ Für die
 Wahrscheinlichkeit für das Intervall $[a,b]\subset\mathbb{R}$ setzt
 man einfach
 \[
-P((a,b])=P(a< X\le b)
+P((a,b])=P(a< X\le b).
 %=P(X^{-1}((a,b])),
 \]
-das letzte $P$ ist dabei als Wahrscheinlichkeit eines Ereignisses $\Omega$
+Das letzte $P$ ist dabei als Wahrscheinlichkeit eines Ereignisses $\Omega$
 bereits bekannt.
 Noch etwas handlicher ist die folgende Definition.
 
@@ -118,7 +118,7 @@ dann gilt
 P((a,b])&=F(b)-F(a)\\
 P([a,b])&=\lim_{\xi\to a-} P((\xi,b])=F(b)-\lim_{\xi\to a-}F(\xi)\\
 P((a,b))&=\lim_{\xi\to b-} P((a,\xi])=\lim_{\xi\to b-}F(\xi)-F(a)\\
-P([a,b))&=\lim_{\eta\to b-}\lim_{\xi\to a-} P((\xi,\eta])=\lim_{\eta\to b-}F(\eta)-\lim_{\xi\to a-}F(\xi)\\
+P([a,b))&=\lim_{\eta\to b-}\lim_{\xi\to a-} P((\xi,\eta])=\lim_{\eta\to b-}F(\eta)-\lim_{\xi\to a-}F(\xi).
 \end{align*}
 \end{satz}
 \begin{proof}[Beweis]Durch Nachrechnen unmittelbar aus den Definitionen.
@@ -148,7 +148,7 @@ P(a_k)=F(a_k)-\lim_{x\to a_k-}F(x).
 Aus diesen Sprungstellen kann man jetzt eine Funktion konstruieren,
 die nur die Sprungstellen berücksichtigt:
 \[
-F_d(x)=\sum_{k=1, a_k\le x}^\infty P(a_k)
+F_d(x)=\sum_{k=1, a_k\le x}^\infty P(a_k).
 \]
 Die Funktion $F_d$ hat genau die gleichen Sprungstellen wie $F$, und
 auch die gleichen Sprunghöhen.
@@ -216,8 +216,9 @@ Nimmt man nun die Wahrscheinlichkeit auf beiden Seiten, folgt aus den
 Axiomen für $P$
 \[
 P\left(\left(a,a+{\textstyle\frac1n}\right]\right)
-= P\left(\left(a,a+{\textstyle \frac1N}\right]\right)+
-\sum_{k=n}^{N-1}P\left(\left(a+{\textstyle\frac1{k+1}},a+{\textstyle\frac1k}\right]\right)
+=
+P\left(\left(a,a+{\textstyle \frac1N}\right]\right)+
+\sum_{k=n}^{N-1}P\left(\left(a+{\textstyle\frac1{k+1}},a+{\textstyle\frac1k}\right]\right).
 \]
 Der Ausdruck $P\left(\left(a,a+{\frac1N}\right]\right)$ ist also der
 Rest einer unendlichen Reihe mit ausschliesslich positiven Gliedern,
@@ -235,7 +236,7 @@ auch
 P\left(\left(a,{\textstyle a+\frac1n}\right]\right)
 = 
 \sum_{k=n}^{\infty}
-P\left(\left(a+{\textstyle\frac1{k+1}},a+{\textstyle\frac1k}\right]\right)
+P\left(\left(a+{\textstyle\frac1{k+1}},a+{\textstyle\frac1k}\right]\right),
 \]
 d.~h.~die Reihe ist konvergent.
 Also streben die einzelnen Glieder gegen null,
@@ -315,7 +316,7 @@ heisst diskrete Wahrscheinlichkeitsverteilung auf der Menge $S$.
 \begin{satz}Für eine diskrete Wahrscheinlichkeitsverteilung $p$ gilt
 \begin{enumerate}
 \item $\displaystyle P(A)=\sum_{x\in A\cap S}p(x)$,
-\item $\displaystyle E(f(X))=\sum_{x\in S}f(x)p(x)$
+\item $\displaystyle E(f(X))=\sum_{x\in S}f(x)p(x)$.
 \end{enumerate}
 \end{satz}
 
@@ -370,7 +371,7 @@ unterteilen, dann gilt
 \sum_{i}P(I_i)\underline x_i\le
 E(X)
 \le
-\sum_{i}P(I_i)\overline x_i
+\sum_{i}P(I_i)\overline x_i.
 \]
 Da die Wahrscheinlichkeit des Intervalls $I_i$ mit Hilfe der
 Wahrscheinlichkeitsdichte berechnet werden kann:
@@ -380,7 +381,7 @@ kann man die Ungleichung noch etwas weiter fassen:
 \sum_{i}\underline x_i\bigl(\min_{\xi\in I_i}\varphi(\xi)\bigr)(\overline x_i-\underline x_i)\le
 E(X)
 \le
-\sum_{i}\overline x_i\bigl(\max_{\xi\in I_i}\varphi(\xi)\bigr)(\overline x_i-\underline x_i)
+\sum_{i}\overline x_i\bigl(\max_{\xi\in I_i}\varphi(\xi)\bigr)(\overline x_i-\underline x_i).
 \]
 Lässt man jetzt die Intervalllänge immer kleiner werden, wird wegen der
 Stetigkeit von $\varphi$ der Unterschied zwischen
@@ -436,11 +437,11 @@ Abweichung exakt zu berechnen:
 Verteilungsfunktion $F$ hat, dann ist
 \[
 P(|X-\mu|>\varepsilon)=
-1-F(\mu+\varepsilon)+\lim_{\xi\to (\mu-\varepsilon)-}F(\xi)
+1-F(\mu+\varepsilon)+\lim_{\xi\to (\mu-\varepsilon)-}F(\xi).
 \]
 Ist $\varphi$ eine Dichtefunktion, dann gilt
 \[
-P(|X-\mu|>\varepsilon)=1-\int_{\mu-\varepsilon}^{\mu+\varepsilon}\varphi(x)\,dx
+P(|X-\mu|>\varepsilon)=1-\int_{\mu-\varepsilon}^{\mu+\varepsilon}\varphi(x)\,dx.
 \]
 \end{satz}
 \begin{proof}[Beweis]Die Formel für die Dichtefunktion folgt offensichtlich
@@ -453,6 +454,7 @@ zu untersuchen.
 P(|X-\mu|\le\varepsilon)
 &=1-P(\{X\ge\mu-\varepsilon\}\cap\{X\le\mu+\varepsilon\})\\
 &=1-F(\mu+\varepsilon)+\lim_{\xi\to (\mu-\varepsilon)-}F(\xi).
+\qedhere
 \end{align*}
 \end{proof}
 Eine Wahrscheinlichkeitsfunktion erlaubt also eine wesentlich
@@ -511,7 +513,7 @@ E(X)
 \biggr)
 \\
 &=
-\frac12\frac{b^2+b-a^2+a}{b-a+1}=\frac{a+b}2.
+\frac12\frac{b^2+b-a^2+a}{b-a+1}=\frac{a+b}2,
 \\
 E(X^2)
 &=
@@ -526,7 +528,7 @@ E(X^2)
 \sum_{k=1}^bk^2-\sum_{k=1}^{a-1}k^2
 \biggr)
 =
-\frac{ 2(a^2+ab+b^2)+b-a}{6}
+\frac{ 2(a^2+ab+b^2)+b-a}{6},
 \\
 \operatorname{var}(X)
 &=
@@ -544,7 +546,7 @@ E(X^2)
 a^2-2ab+b^2+2b-2a+1-1
 \bigr)
 =
-\frac1{12}\bigl((b-a+1)^2 - 1\bigr)
+\frac1{12}\bigl((b-a+1)^2 - 1\bigr).
 \end{align*}
 }
 Die Varianz ist also im Wesentlichen die quadrierte Intervalllänge
@@ -594,7 +596,7 @@ E(X)
 \frac12\frac{b^2-a^2}{b-a}
 \\
 &=
-\frac{a+b}2
+\frac{a+b}2,
 \\
 E(X^2)
 &=
@@ -607,7 +609,7 @@ E(X^2)
 \frac13\frac{b^3-a^3}{b-a}
 \\
 &=
-\frac13(b^2+ab+a^2)
+\frac13(b^2+ab+a^2),
 \\
 \operatorname{var}(X)
 &=
@@ -759,13 +761,13 @@ Wahrscheinlichkeiten mit den Dichtefunktionen zu berechnen:
 \[
 P(a<Y\le b)
 =\int_a^b\varphi_Y(y)\,dy
-=\int_{f^{-1}(a)}^{f^{-1}(b)}\varphi_Y(f(x)) f'(x)\,dx
+=\int_{f^{-1}(a)}^{f^{-1}(b)}\varphi_Y(f(x)) f'(x)\,dx.
 \]
 Also muss $\varphi_Y(f(x))f'(x)$ die Wahrscheinlichkeitsdichte von
 $F_X$ sein, also 
 \begin{align*}
-\varphi_Y(y)&=\frac{\varphi_X(f^{-1}(y))}{f'(f^{-1}(y))}\\
-\varphi_Y(f(x))&=\frac{\varphi_X(x)}{f'(x)}
+\varphi_Y(y)&=\frac{\varphi_X(f^{-1}(y))}{f'(f^{-1}(y))},\\
+\varphi_Y(f(x))&=\frac{\varphi_X(x)}{f'(x)}.
 \end{align*}
 Wir fassen diese Resultate in einem Satz zusammen
 
@@ -795,7 +797,7 @@ $F(\operatorname{med}(X))=\frac12$ ist, der Median von $X$.
 Falls mehrere Zahlen diese Bedingung erfüllen, ist der Median als
 deren Infimum definiert:
 \[
-\operatorname{med}(X)=\inf \{x\in\mathbb{R}\;|\;F(x)\ge{\textstyle \frac12}\}
+\operatorname{med}(X)=\inf \{x\in\mathbb{R}\;|\;F(x)\ge{\textstyle \frac12}\}.
 \]
 \end{definition}
 Für den Median gilt $\operatorname{med}(Y)=f(\operatorname{med}(X))$.
@@ -824,8 +826,8 @@ Der Satz \ref{satz-variablentransformation} lässt sich hier unmittelbar
 anwenden, es ergeben sich Verteilungs- und Dichtefunktion von $Y$
 wie folgt:
 \begin{align*}
-F_Y(y)&=F_X(y\sigma+\mu)\\
-\varphi_Y(y)&=\sigma\varphi_X(y\sigma+\mu)
+F_Y(y)&=F_X(y\sigma+\mu),\\
+\varphi_Y(y)&=\sigma\varphi_X(y\sigma+\mu).
 \end{align*}
 Wir fassen diese Resultate in einem Satz zusammen:
 
@@ -840,12 +842,12 @@ eine Zufallsvariable mit Erwartungswert 0 und Varianz 1.
 Zwischen den Verteilungsfunktionen $F_X$ bzw.~$F_Y$ von $X$ bzw.~$Y$ 
 bestehen die Beziehungen
 \[
-F_Y(y)=F_X(y\sigma+\mu)\qquad F_X(x)=F_Y\left(\frac{x-\mu}\sigma\right)
+F_Y(y)=F_X(y\sigma+\mu)\qquad F_X(x)=F_Y\left(\frac{x-\mu}\sigma\right).
 \]
 Hat die Verteilungsfunktion eine Dichte, dann gilt ausserdem
 \[
 \varphi_Y(y)=\sigma\varphi_X(y\sigma+\mu)\qquad
-\varphi_X(x)=\frac1{\sigma}\varphi_Y\left(\frac{x-\mu}\sigma\right)
+\varphi_X(x)=\frac1{\sigma}\varphi_Y\left(\frac{x-\mu}\sigma\right).
 \]
 \end{satz}
 
@@ -922,7 +924,7 @@ $p_i(x)$ auf der Menge $S_i$, und es gilt
 \begin{align*}
 F(z)&=\sum_{x_1\in S_1, x_2\in S_2, x_1+x_2\le z}p(x_1)p(x_2)\\
 &=\sum_{x_1\in S_1}p(x_1)\sum_{x_2\in S_2, x_2 \le z - x_1}p(x_2)\\
-&=\sum_{x_1\in S_1}p(x_1) F_2(z-x_1)
+&=\sum_{x_1\in S_1}p(x_1) F_2(z-x_1).
 \end{align*}
 Oder, wenn vor allem die Wahrscheinlichkeitsverteilung interessiert:
 \[
@@ -941,12 +943,12 @@ F(z)&=\int_{-\infty}^{\infty}\int_{-\infty}^{z-x_1}\varphi_1(x_1)\varphi_2(x_2)
 &=\int_{-\infty}^{\infty}
 \varphi_1(x_1)
 F_2(z-x_1)
-\,dx_1\\
+\,dx_1.
 \end{align*}
 Nun interessiert uns vor allem die Wahrscheinlichkeitsdichte, also die
 ``Ableitung'' von $F$:
 \[
-\varphi(z)=\int_{-\infty}^{\infty}\varphi_1(x_1)\varphi_2(z-x_1)\,dx_1
+\varphi(z)=\int_{-\infty}^{\infty}\varphi_1(x_1)\varphi_2(z-x_1)\,dx_1.
 \]
 Diese Integral heisst die Faltung der Funktionen $\varphi_1$ und $\varphi_2$,
 $\varphi=\varphi_1*\varphi_2$.
@@ -961,7 +963,7 @@ Dann gilt für $z\ge 0$
 F_{X^2}(z)&=P(X^2\le z)=P(-\sqrt{z}\le X\le \sqrt{z})\\
 &=F_X(\sqrt{z})-F_X(-\sqrt{z})\\
 &=\int_{-\infty}^{\sqrt{z}}\varphi(x)\,dx-\int_{-\infty}^{-\sqrt{z}}\varphi(x)\,dx\\
-&=\int_{-\sqrt{z}}^{\sqrt{z}}\varphi(x)\,dx
+&=\int_{-\sqrt{z}}^{\sqrt{z}}\varphi(x)\,dx.
 \end{align*}
 Für negative $z$ verschwindet die Verteilungsfunktion natürlich, denn
 die Wahrscheinlichkeit dass $X^2\le z <0$ ist natürlich 0.
@@ -971,7 +973,7 @@ durch Ableiten finden können:
 \[
 \varphi_{X^2}(z)=\begin{cases}
 \frac{1}{2\sqrt{z}}\left(\varphi_X(\sqrt{z})+\varphi_X(-\sqrt{z})\right)&\qquad z\ge 0\\
-0&\qquad z<0
+0&\qquad z<0.
 \end{cases}
 \]
 Weitere Beispiele für aus mehreren unabhängigen Zufallsvariablen
@@ -989,7 +991,7 @@ F_{\sqrt{X}}(x)=P(\sqrt{X}\le x)=P(X\le x^2)=F_X(x^2)
 \]
 Für die Dichtefunktionen bedeutet das
 \[
-F_{\sqrt{X}}(x)=\int_0^{x^2}\varphi_X(t)\,dt
+F_{\sqrt{X}}(x)=\int_0^{x^2}\varphi_X(t)\,dt,
 \]
 woraus man die Dichtefunktion $\varphi_{\sqrt{X}}$ durch ableiten
 bestimmen kann:
@@ -1004,7 +1006,7 @@ Ist $\varphi_Y$ die Dichtefunktion von $Y$,
 und $F_X$ die Verteilungsfunktion von $X$, dann kann man die
 Verteilungsfunktion von $T$ wie folgt berechnen:
 \[
-P(T\le t)=P(X\le tY)=\int_0^\infty F_X(ty)\varphi_Y(y)\,dy
+P(T\le t)=P(X\le tY)=\int_0^\infty F_X(ty)\varphi_Y(y)\,dy.
 \]
 Die Ableitung nach $t$ ergibt die zugehörige Dichtefunktion
 \[
@@ -1033,7 +1035,7 @@ P(XY\le t\;\wedge\; X\in[x,x+dx])&=P(X\in[x,x+dx]\;\wedge\; Y\le t/x)\\
 Um nun die gesamte Wahrscheinlichkeit $P(XY\le t)$ zu finden, müssen die eben
 berechneten Terme ``summiert'' werden:
 \[
-P(XY\le t)=\int_0^\infty\varphi_X(x)F_Y(t/x)\,dx
+P(XY\le t)=\int_0^\infty\varphi_X(x)F_Y(t/x)\,dx.
 \]
 Durch Ableiten nach $t$ findet man
 \[

@@ -298,8 +298,11 @@ C^n_k=\frac{n(n-1)(n-2)\dotsm(n-k+1)}{k!}.
 Durch Erweitern mit $(n-k)!$ bekommt man eine etwas
 kompaktere Formel:
 \[
-C^n_k=\frac{n(n-1)(n-2)\dotsm(n-k+1)\cdot(n-k)(n-k-1)\dotsm2\cdot 1}{k!(n-k)!}
-=\frac{n!}{k!(n-k)!}
+C^n_k
+=
+\frac{n(n-1)(n-2)\dotsm(n-k+1)\cdot(n-k)(n-k-1)\dotsm2\cdot 1}{k!(n-k)!}
+=
+\frac{n!}{k!(n-k)!}.
 \]
 
 Auch für diese Grösse kann man eine Rekursionsformel finden.
@@ -312,7 +315,7 @@ Es muss also
 gelten:
 \index{Rekursionsformel!der Binomialkoeffizienten}
 \[
-C^n_k=C^{n-1}_{k-1}+C^{n-1}_{k}
+C^n_k=C^{n-1}_{k-1}+C^{n-1}_{k}.
 \]
 Diese Rekursionsformel ist aber identisch mit der Rekursionsformel
 der Binomialkoeffizienten, also gilt
@@ -407,7 +410,7 @@ Der Anteil dieser Delegationen ist
 =
 \frac{ \binom{9}{5} }{ \binom{10}{5} }
 =
-\frac{126}{252}=\frac12
+\frac{126}{252}=\frac12.
 \]
 \end{loesung}
 Bei den Männern führt die analoge Rechnung auf
@@ -453,12 +456,16 @@ Die Erfolgsfälle
 sind
 \[
 \binom{n}2-\binom{n-1}2
-=\frac{n(n-1)}2-\frac{(n-1)(n-2)}2
-=\frac{n-1}2(n-(n-2))=n-1.
+=
+\frac{n(n-1)}2-\frac{(n-1)(n-2)}2
+=
+\frac{n-1}2(n-(n-2))=n-1.
 \]
 Die Erfolgsquote ist also
 \[
-\frac{n-1}{\displaystyle\binom{n}2}=\frac{n-1}{\displaystyle\frac{n(n-1)}2}=\frac2n.
+\frac{n-1}{\displaystyle\binom{n}2}
+=
+\frac{n-1}{\displaystyle\frac{n(n-1)}2}=\frac2n.
 \]
 Man kann daraus schliessen, dass ein Medium, welches nichts kann,
 trotzdem in $2$ von $n$ Fällen die Tatwaffe finden wird.
@@ -625,7 +632,8 @@ C^{n-1}_0z
 +\dots
 +C^{n-1}_{n-2}z^{n-1}
 +C^{n-1}_{n-1}z^n
-=zp_{n-1}(z)
+=
+zp_{n-1}(z).
 \]
 Den Koeffizienten $C^{n-1}_{k-1}$ entspricht also die
 erzeugende Funktion $zp_{n-1}(z)$,
@@ -650,9 +658,10 @@ Für die Binomialkoeffizienten ergibt sich:
 Die erzeugende Funktion einer unendlichen Folge $a_0,a_1,a_2,\dots$ ist
 die Potenzreihe
 \[
-a_0+a_1z+a_2z^2+a_3z^3+\dots=\sum_{k=0}^\infty a_kz^k
+a_0+a_1z+a_2z^2+a_3z^3+\dots=\sum_{k=0}^\infty a_kz^k.
 \]
-Die erzeugende Funktion der Folge der Binomialkoeffizienten $\left(\binom{n}{k}\right)_{0\le k\le  n}$ ist also die Funktion $(1+z)^n$.
+Die erzeugende Funktion der Folge der Binomialkoeffizienten
+$\left(\binom{n}{k}\right)_{0\le k\le  n}$ ist also die Funktion $(1+z)^n$.
 Die erzeugende Funktion der konstanten Folge $1,1,1,\dots$ ist
 \begin{equation}
 1+z+z^2+z^3+\dots=\sum_{k=0}^\infty z^k=\frac1{1-z}.
@@ -710,7 +719,7 @@ $n$ herausgegeben werden kann, ist also
 \[
 a_n = \begin{cases}
 1&\qquad n\equiv 0\imod{5}\\
-0&\qquad \text{sonst}
+0&\qquad \text{sonst}.
 \end{cases}
 \]
 Die erzeugende Funktion davon ist
@@ -774,9 +783,9 @@ Arten man 11 Franken zusammensetzen kann, wenn man 2 Fünfliber,
 5 Zweifränkler und 11 Einfränkler zur Verfügung hat.
 Die Polynome werden
 \begin{align*}
-C_1&=z^{11}+z^{10}+z^9+z^8+z^7+z^6+z^5+z^4+z^3+z^2+z+1\\
-C_2&=z^{10}+z^8+z^6+z^4+z^2+1\\
-C_5&=z^{10}+z^5+1
+C_1&=z^{11}+z^{10}+z^9+z^8+z^7+z^6+z^5+z^4+z^3+z^2+z+1,\\
+C_2&=z^{10}+z^8+z^6+z^4+z^2+1,\\
+C_5&=z^{10}+z^5+1.
 \end{align*}
 In Octave können diese Polynome als Zeilenvektoren eingegeben werden:
 \begin{verbatim}
@@ -843,7 +852,7 @@ C_5(x) C_{10}(x) C_{20}(x) C_{50}(x)
 (1-x^{10})
 (1-x^{20})
 (1-x^{50})
-}
+}.
 \end{align*}
 Eine solche Funktion kann von einem Computer-Algebra-System sehr effizient
 in eine Reihe umgewandelt werden, an der man das Resultat ablesen kann.
@@ -860,7 +869,7 @@ derart, dass
 \[
 (1-x^5)(1-x^{10}) \sum_{k=0}^\infty c_kx^k=1
 =
-(1-x^5-x^{10}+x^{15}) \sum_{k=0}^\infty c_kx^k=1
+(1-x^5-x^{10}+x^{15}) \sum_{k=0}^\infty c_kx^k=1.
 \]
 Durch Ausmultiplizieren findet man aus der rechten Seite
 
@@ -899,7 +908,7 @@ die Gleichungen:
 c_5&=c_0=1\\
 c_{10}&=c_5+c_0=2\\
 c_{15}&=c_{10}+c_{5}-c_0=2 + 1 - 1=2\\
-c_{5n}&=c_{5(n-1)}+c_{5(n-2)}-c_{5(n-3)}
+c_{5n}&=c_{5(n-1)}+c_{5(n-2)}-c_{5(n-3)}.
 \end{align*}
 Für die Koeffizienten gibt es also eine Rekursionsgleichung, aus der wir
 nacheinander die Koeffizienten berechnen können.

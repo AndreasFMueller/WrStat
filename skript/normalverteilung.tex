@@ -146,19 +146,22 @@ definierte Verteilung tatsächlich die behaupteten Eigenschaften hat.
 Zunächst hat man die allgemeine Formel:
 \begin{align*}
 \int_{-\infty}^{\infty}f(x)\varphi(x)\,dx
-&=\frac1{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}\,dx\\
-&=\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(\sigma\xi+\mu)e^{-\frac{\xi^2}2}\,d\xi
+&=
+\frac1{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}\,dx\\
+&=
+\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(\sigma\xi+\mu)e^{-\frac{\xi^2}2}\,d\xi.
 \end{align*}
 Daraus kann man jetzt den Erwartungswert bestimmen indem man $f(x)=x$ verwendet:
 \begin{align*}
 E(X)
 &=\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}(\sigma\xi+\mu)e^{-\frac{\xi^2}2}\,d\xi\\
-&=\sigma\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}\xi e^{-\frac{\xi^2}2}\,d\xi+
-\mu\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{\xi^2}2}\,d\xi
+&=
+\sigma\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}\xi e^{-\frac{\xi^2}2}\,d\xi+
+\mu\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{\xi^2}2}\,d\xi.
 \end{align*}
 Für das erste Integral benutzt man
 \[
-\frac{d}{d\xi}e^{-\frac{\xi^2}{2}}=-\xi e^{-\frac{\xi^2}{2}}
+\frac{d}{d\xi}e^{-\frac{\xi^2}{2}}=-\xi e^{-\frac{\xi^2}{2}},
 \]
 woraus folgt
 \[
@@ -166,7 +169,7 @@ woraus folgt
 =
 -\frac1{\sqrt{2\pi}}\left[
  e^{-\frac{\xi^2}2}
-\right]_{-\infty}^{\infty}=0
+\right]_{-\infty}^{\infty}=0.
 \]
 Um das zweite Integral benutzt man wir den Trick, dass wir dessen
 Quadrat bestimmen:
@@ -181,9 +184,12 @@ e^{-\frac{\xi^2+\eta^2}2}
 \,d\xi\,d\eta\\
 &=
 \frac1{2\pi}\int_{0}^{\infty}\int_{0}^{2\pi}re^{-\frac{r^2}2}\,d\varphi\,dr\\
-&=\int_0^{\infty}re^{-\frac{r^2}2}\,dr
-=\bigl[-e^{-\frac{r^2}2}\bigr]_0^{\infty}
-=1
+&=
+\int_0^{\infty}re^{-\frac{r^2}2}\,dr
+=
+\bigl[-e^{-\frac{r^2}2}\bigr]_0^{\infty}
+=
+1.
 \end{align*}
 Dabei haben wir in der dritten Zeile auf Polarkoordinaten gewechselt.
 Somit ist $E(X)=\mu$.
@@ -197,7 +203,8 @@ genügt es, $E(X^2)$ zu berechnen:
 \begin{align*}
 E(X^2)
 &=\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}(\sigma\xi)^2e^{-\frac{\xi^2}2}\,d\xi\\
-&=\sigma^2\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\xi^2e^{-\frac{\xi^2}2}\,d\xi
+&=
+\sigma^2\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\xi^2e^{-\frac{\xi^2}2}\,d\xi.
 \end{align*}
 Das Integral kann durch partielle Integration mit den Faktoren
 $\xi$ und $\xi e^{-\frac{\xi^2}2}$ vereinfacht werden:
@@ -211,7 +218,7 @@ E(X^2)
 \biggr)\\
 &=\sigma^2\frac{1}{\sqrt{2\pi}}
 \int_{-\infty}^{\infty}e^{-\frac{\xi^2}2}\,d\xi\\
-&=\sigma^2
+&=\sigma^2.
 \end{align*}
 Also ist $\operatorname{var}(X)=\sigma$.
 
@@ -271,9 +278,9 @@ c-\frac{b^2}{4a}
 \frac{1}{\sqrt{a}}
 \exp\biggl(-\frac12\biggl(
 c-\frac{b^2}{4a}
-\biggr)\biggr)
+\biggr)\biggr),
 \end{align*}
-Wobei wir in der dritten Zeile die Substitution $\xi=x-\frac{b}{2a}$
+wobei wir in der dritten Zeile die Substitution $\xi=x-\frac{b}{2a}$
 und in der vierten die Substitution
 $\eta=\sqrt{a}\xi$
 verwendet haben.
@@ -366,7 +373,7 @@ ergibt sich
 \,dt\\
 &=
 \frac1{\sqrt{\sigma_1^2+\sigma_2^2}\sqrt{2\pi}}
-\exp\biggl(-\frac12\biggl[c-\frac{b^2}{4a} \biggr]\biggr)
+\exp\biggl(-\frac12\biggl[c-\frac{b^2}{4a} \biggr]\biggr).
 \end{align*}
 Der Ausdruck in der eckigen Klammer wird zu
 \begin{align*}
@@ -392,9 +399,9 @@ c-\frac{b^2}{4a}
 \frac{\sigma_2^2}{\sigma_1^2+\sigma_2^2}
 =
 \frac{z^2}
-{\sigma_1^2+\sigma_2^2}
+{\sigma_1^2+\sigma_2^2},
 \end{align*}
-Woraus sich für das Faltungsprodukt
+woraus sich für das Faltungsprodukt
 \begin{align*}
 \varphi_1*\varphi_2(z)
 &=
@@ -525,8 +532,8 @@ zentrale Grenzwertsatz aber trotzdem gilt.}.
 Für die momenterzeugende
 Funktion gilt die folgende Rechenregeln
 \begin{align*}
-M_{X+Y}(t)&=M_X(t)M_Y(t)\\
-M_{\lambda X}(t)&=M_X(\lambda t)
+M_{X+Y}(t)&=M_X(t)M_Y(t),\\
+M_{\lambda X}(t)&=M_X(\lambda t).
 \end{align*}
 
 Wenn $\varphi$ die Dichtefunktion zur Zufallsvariable $X$ ist, dann

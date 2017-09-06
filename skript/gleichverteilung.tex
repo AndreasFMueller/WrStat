@@ -115,26 +115,50 @@ hat.
 \begin{satz}Sei $X$ eine in $[a,b]$ gleichverteilte Zufallsvariable,
 dann gilt
 \begin{align*}
-E(X)&=\frac{a+b}2\\
-\operatorname{var}(X)&=\frac{(b-a)^2}{12}
+E(X)
+&=
+\frac{a+b}2,\\
+\operatorname{var}(X)
+&=
+\frac{(b-a)^2}{12}.
 \end{align*}
 \end{satz}
 \begin{proof}[Beweis]
 Mit Hilfe der Dichtefunktion berechnet man den Erwartungswert
 \begin{align*}
-E(X)&=\int_{-\infty}^\infty \varphi(x)x\,dx=\int_a^b\frac{x}{b-a}\,dx\\
-&=\frac1{b-a}\left[\frac12x^2\right]_a^b=\frac{b^2-a^2}{2(b-a)}=\frac{a+b}2
+E(X)
+&=
+\int_{-\infty}^\infty \varphi(x)x\,dx
+=
+\int_a^b\frac{x}{b-a}\,dx\\
+&=
+\frac1{b-a}\left[\frac12x^2\right]_a^b
+=
+\frac{b^2-a^2}{2(b-a)}
+=
+\frac{a+b}2
 \end{align*}
 und die Varianz
 \begin{align*}
-E(X^2)=&\int_{-\infty}^\infty x^2\varphi(x)\,dx=\frac1{b-a}\int_a^bx^2\,dx\\
-&=\frac1{b-a}\left[\frac{x^3}3\right]_a^b=\frac{b^3-a^3}{3(b-a)}=\frac{a^2+ab+b^2}3\\
-\operatorname{var}(X)&=\frac{a^2+ab+b^2}3-\frac{(b+a)^2}4\\
-&=\frac{4a^2+4ab+4b^2-3b^2-6ab-3a^2}{12}\\
-&=\frac{a^2-2ab+b^2}{12}=\frac13\left(\frac{b-a}2\right)^2\\
-\sqrt{\operatorname{var}(X)}&=\frac1{\sqrt{3}}\cdot\frac{b-a}2\simeq 0.57\cdot\frac{b-a}2.
+E(X^2)
+&=
+\int_{-\infty}^\infty x^2\varphi(x)\,dx=\frac1{b-a}\int_a^bx^2\,dx\\
+&=
+\frac1{b-a}\left[\frac{x^3}3\right]_a^b
+=
+\frac{b^3-a^3}{3(b-a)}=\frac{a^2+ab+b^2}3,\\
+\operatorname{var}(X)
+&=
+\frac{a^2+ab+b^2}3-\frac{(b+a)^2}4\\
+&=
+\frac{4a^2+4ab+4b^2-3b^2-6ab-3a^2}{12}\\
+&=
+\frac{a^2-2ab+b^2}{12}=\frac13\left(\frac{b-a}2\right)^2,\\
+\sqrt{\operatorname{var}(X)}
+&=
+\frac1{\sqrt{3}}\cdot\frac{b-a}2\simeq 0.57\cdot\frac{b-a}2.
+\qedhere
 \end{align*}
-
 \end{proof}
 
 \subsubsection{Wahrscheinlichkeit einer grossen Abweichung}

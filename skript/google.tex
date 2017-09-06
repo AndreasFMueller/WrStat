@@ -112,7 +112,7 @@ Das eben diskutierte Modell bedeutet
 \[
 P(S'_j|S_i)=\begin{cases}
 0&\qquad\text{es gibt keinen Link von $i$ auf $j$}\\
-\displaystyle\frac1n&\qquad\text{einer der $n$ Links auf Seite $i$ führt zu $j$}
+\displaystyle\frac1n&\qquad\text{einer der $n$ Links auf Seite $i$ führt zu $j$}.
 \end{cases}
 \]
 Die Ereignisse $S_i$ sind disjunkt, kein Surfer darf auf mehr als einer
@@ -169,8 +169,8 @@ Zur Illustration wollen wir das Beispiel-Internet in Abbildung \ref{google-sampl
 untersuchen.
 Die daraus abgeleitete $H$-Matrix ist:
 \[
-H=\left(
-\begin{matrix}
+H=
+\begin{pmatrix}
 0&0&0&0&0&0&\frac13&0\\
 \frac12&0&\frac12&\frac13&0&0&0&0\\
 \frac12&0&0&0&0&0&0&0\\
@@ -179,8 +179,7 @@ H=\left(
 0&0&0&\frac13&\frac13&0&0&\frac12\\
 0&0&0&0&\frac13&0&0&\frac12\\
 0&0&0&0&\frac13&1&\frac13&0\\
-\end{matrix}
-\right)
+\end{pmatrix} .
 \]
 Die Summe der Elemente jeder Spalte ist $1$, denn in jeder Spalte sind ja genau
 diejenigen Elemente $n$ von $0$ verschieden und haben den Wert $\frac1n$,
@@ -252,13 +251,14 @@ schreiben können.
 
 Betrachten wir die Matrix $A$ bestehend aus lauter Einsen:
 \[
-A=\left(\begin{matrix}
+A=
+\begin{pmatrix}
 1&1&1&\dots&1\\
 1&1&1&\dots&1\\
 1&1&1&\dots&1\\
 \vdots&\vdots&\vdots&\ddots&\vdots\\
 1&1&1&\dots&1\\
-\end{matrix}\right)
+\end{pmatrix}.
 \]
 Da die Summe der $p_i$ eins ergeben muss, folgt
 \[
