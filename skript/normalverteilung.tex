@@ -434,9 +434,9 @@ Exponentialverteilung zeigt sich, dass die zusätzliche Information
 über die Verteilung die Wahrscheinlichkeit für eine grosse
 Abweichung deutlich besser abschätzen lässt.
 
-\subsubsection{Der Zentrale Grenzwertsatz}
+\subsubsection{Der zentrale Grenzwertsatz}
 \label{zentraler-grenzwertsatz}
-\index{Zentraler Grenzwertsatz}
+\index{zentraler Grenzwertsatz}
 \index{Grenzwertsatz, zentraler}
 \index{Normalapproximation}
 In vielen Anwendungen sieht man die Zufallsprozesse nicht einzeln, sondern
@@ -466,7 +466,9 @@ S_n=\frac{X_1+\dots+X_n}{\sqrt{n}}
 gebildet, welche wiederum Erwartungswert $0$ und Varianz $1$ haben,
 weil
 \[
-\operatorname{var}(S_n)=\operatorname{var}\bigl(\frac1{\sqrt{n}}(X_1+\dots+X_n)\big)
+\operatorname{var}(S_n)
+=
+\operatorname{var}\biggl(\frac1{\sqrt{n}}(X_1+\dots+X_n)\biggr)
 =\frac1n\operatorname{var}(X_1+\dots+X_n)
 \]
 ist.
@@ -553,7 +555,7 @@ hat.
 Aus der Taylorentwicklung von $e^{tX}$ folgt
 \[
 M_{X_i}(t)=1+E(X)t+\operatorname{var}(X)\frac{t^2}{2!}+R_i(t)t^2
-=1+\frac{t^2}{2!}+R_i(t)t^2
+=1+\frac{t^2}{2!}+R_i(t)t^2.
 \]
 Dabei ist das Restglied $R_i(t)$ so beschaffen, dass
 $R_i(t)\to 0$ wenn $t\to 0$.
@@ -593,7 +595,7 @@ $M_{S_n}(t)$ mit Hilfe von
 $x_n=\frac{t^2}2+Q_n(t)$
 um als
 \[
-M_{S_n}(t)=\biggl(1+\frac{x_n}n\biggr)^n
+M_{S_n}(t)=\biggl(1+\frac{x_n}n\biggr)^n.
 \]
 Nun ist bereits aus der Analysis bekannt, dass
 \[
@@ -603,9 +605,9 @@ es gilt aber auch in verallgemeinerter Form:
 \[
 \biggl(1+\frac{x_n}{n}\biggr)^n\to e^x\quad\text{falls}\quad x_n\to x.
 \]
-Da in unserem Fall $x_n\to \frac{t^2}2$ erhalten wir
+Da in unserem Fall $x_n\to \frac{t^2}2$, erhalten wir
 \[
-\lim_{n\to\infty}M_{S_n}(t)=e^{\frac{t^2}{2}}
+\lim_{n\to\infty}M_{S_n}(t)=e^{\frac{t^2}{2}}.
 \]
 
 \medskip
@@ -630,7 +632,7 @@ dazu die Momente der Normalverteilung $\frac1{\sqrt{2\pi}}e^{-\frac{x^2}2}$
 \biggl[\frac{x^{2k+1}}{2k+1}e^{-\frac{x^2}2}\biggr]_{-\infty}^\infty
 +\frac1{(2k+1)}\int_{-\infty}^\infty x^{2k+2}e^{-\frac{x^2}2}\,dx\\
 &=
-\frac1{(2k+1)}\int_{-\infty}^\infty x^{2k+2}e^{-\frac{x^2}2}\,dx
+\frac1{(2k+1)}\int_{-\infty}^\infty x^{2k+2}e^{-\frac{x^2}2}\,dx.
 \end{align*}
 Insbesondere kann man das $2k+2$-te Moment mit Hilfe einer
 Rekursionsformel aus dem $2k$-ten Moment berechnen:
@@ -650,7 +652,7 @@ M(t)
 &=
 1+(t^2/2) +\frac{(t^2/2)^2}{2!} +\frac{(t^2/2)^3}{3!}
 +\frac{(t^2/2)^4}{4!}\\
-&=e^{\frac{t^2}2}
+&=e^{\frac{t^2}2}.
 \end{align*}
 Mit anderen Worten, die momenterzeugende Funktion der Normalverteilung
 stimmt überein mit der momenterzeugenden Funktion der Grenzverteilung.

@@ -44,7 +44,9 @@ neue Verteilungen konstruieren lassen.
 Die $\chi^2$-Verteilung mit $n$ Freiheitsgraden hat
 die Wahrscheinlichkeitsdichte
 \[
-\gamma_{\frac12,\frac{n}2}(x)=\frac1{\Gamma(\frac{n}2)}\sqrt{\frac1{2^n}x^{n-2}}e^{-\frac12x}\qquad,x\ge 0
+\gamma_{\frac12,\frac{n}2}(x)
+=
+\frac1{\Gamma(\frac{n}2)}\sqrt{\frac1{2^n}x^{n-2}}e^{-\frac12x}\qquad,x\ge 0.
 \]
 Die momenterzeugende Funktion der $\chi^2$-Verteilung ist
 \[
@@ -94,7 +96,7 @@ Dazu ist die Normierung zu prüfen:
 &=\int_0^\infty\frac1{\Gamma(\nu)}\alpha^\nu x^{\nu-1}e^{-\alpha x}\,dx\\
 &=\frac{1}{\Gamma(\nu)}\int_0^\infty (\alpha x)^{\nu-1}e^{-\alpha x}
 \alpha\,dx\\
-&=\frac1{\Gamma(\nu)}\int_0^\infty \xi^{\nu-1}e^{-\xi}\,d\xi=1
+&=\frac1{\Gamma(\nu)}\int_0^\infty \xi^{\nu-1}e^{-\xi}\,d\xi=1.
 \end{align*}
 Die letzte Gleichung folgt aus der Definition der Gamma-Funktion.
 
@@ -121,7 +123,7 @@ x^{\mu+\nu-1}
 &=\gamma_{\alpha,\mu+\nu}
 \cdot
 \frac{\Gamma(\mu+\nu)}{\Gamma(\mu)\Gamma(\nu)}
-\int_0^1 (1-\tau)^{\mu-1}\tau^{\nu-1}\,d\tau
+\int_0^1 (1-\tau)^{\mu-1}\tau^{\nu-1}\,d\tau,
 \end{align*}
 wobei für die Umformung des Integrals die Substitution $t=x\tau$ verwendet
 wurde.
@@ -130,7 +132,9 @@ wieder eine Gamma-Verteilung, da aber die Gamma-Verteilungen bereits
 normiert sind, muss der Faktor eins sein. Als Nebenprodukt erhalten
 wir also die Formel
 \[
-\int_0^1(1-t)^{\mu-1}t^{\nu-1}\,dt=\frac{\Gamma(\mu)\Gamma(\nu)}{\Gamma(\mu+\nu)}.
+\int_0^1(1-t)^{\mu-1}t^{\nu-1}\,dt
+=
+\frac{\Gamma(\mu)\Gamma(\nu)}{\Gamma(\mu+\nu)}.
 \]
 \end{proof}
 
@@ -142,18 +146,20 @@ Für $x>0$ gilt
 \begin{align*}
 F(x)&=P(X^2\le x)=P(-\sqrt{x}\le X\le\sqrt{x})\\
 &=\frac1{\sqrt{2\pi}}\int_{-\sqrt{x}}^{\sqrt{x}}e^{-\frac12 \xi^2}\,d\xi\\
-&=\sqrt{\frac{2}{\pi}}\int_0^{\sqrt{x}}e^{-\frac12\xi^2}\,d\xi
+&=\sqrt{\frac{2}{\pi}}\int_0^{\sqrt{x}}e^{-\frac12\xi^2}\,d\xi.
 \end{align*}
 Mit Hilfe der Substitution $\xi^2=t$ oder $\xi=t^{\frac12}$ können wir
 dies umformen zu
 \begin{align*}
 F(x)&=\frac1{\sqrt{2\pi}}\int_0^xe^{-\frac12t}t^{-\frac12}\,dt\\
 &=\frac1{\sqrt{2\pi}}\int_0^x\gamma_{\frac12,\frac12}(t)
-\frac{\Gamma(\frac12)}{{\frac12}^{\frac12}}\,dt
+\frac{\Gamma(\frac12)}{{\frac12}^{\frac12}}\,dt.
 \end{align*}
 Die Ableitung nach $x$ ergibt die Dichtefunktion:
 \[
-\varphi(x)=\frac1{\sqrt{\pi}}\Gamma({\textstyle\frac12})\gamma_{\frac12,\frac12}(x)
+\varphi(x)
+=
+\frac1{\sqrt{\pi}}\Gamma({\textstyle\frac12})\gamma_{\frac12,\frac12}(x).
 \]
 Der Wert der Gamma-Funktion
 \[
@@ -163,7 +169,7 @@ Der Wert der Gamma-Funktion
 kann mit der Substitution $x=\xi^2$ berechnet werden,
 \[
 \Gamma({\textstyle\frac12})=\int_0^\infty \xi^{-1}e^{-\xi^2}2\xi\,d\xi
-=\int_0^{\infty}e^{-\xi^2}\,d\xi
+=\int_0^{\infty}e^{-\xi^2}\,d\xi.
 \]
 Das Integral auf der echten Seite ist bis auf einen Normierungsfaktor
 das Integral über die Dichte einer Normalverteilung, also
@@ -182,7 +188,9 @@ dass für $n-1$ Summanden die Wahrscheinlichkeitsdichte
 $\gamma_{\frac12,\frac{n-1}2}$
 ist, dann erhalten wir für $n$ Summanden mit der Faltungseigenschaft
 \[
-\gamma_{\frac12,\frac12}*\gamma_{\frac12,\frac{n-1}2}=\gamma_{\frac12,\frac{n}2}.
+\gamma_{\frac12,\frac12}*\gamma_{\frac12,\frac{n-1}2}
+=
+\gamma_{\frac12,\frac{n}2}.
 \]
 
 Es bleibt, die momenterzeugende Funktion von $\chi_n^2$ zu berechnen.
@@ -250,7 +258,9 @@ $\chi^2$-Verteilung.
 Soll die Fehlerwahrscheinlichkeit $p$ sein,
 dann muss $M$ so gewählt werden, dass 
 \[
-P\biggl(\sum_{i=1}^nX_i^2>M\biggr)=\int_M^\infty \gamma_{\frac12,\frac{n}2}(t)\,dt = p.
+P\biggl(\sum_{i=1}^nX_i^2>M\biggr)
+=
+\int_M^\infty \gamma_{\frac12,\frac{n}2}(t)\,dt = p.
 \]
 Die Schranke $M$ ist für verschiedene Werte von $p$ in Abhängigkeit
 von der Anzahl Freiheitsgrade tabelliert, oder kann mit dem Computer
