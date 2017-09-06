@@ -604,7 +604,7 @@ M_{X_n}\biggl(s_n-\bar s+\frac{r}{n}\biggr)
 \exp\biggl(\frac{\sigma^2}{2}\sum_{i=1}^n(s_i-\bar s)^2\biggr)\label{umformung-mittelwert}
 \\
 &=
-M_{U,V}(0,\dots,0,r)M_{U,V}(s_1,\dots,s_n,0)
+M_{U,V}(0,\dots,0,r)M_{U,V}(s_1,\dots,s_n,0).
 \nonumber
 \end{align}
 In (\ref{umformung-mittelwert}) haben wir folgende zwei Identitäten verwendet:
@@ -628,7 +628,8 @@ In (\ref{umformung-mittelwert}) haben wir folgende zwei Identitäten verwendet:
 +\frac{r^2}{n}
 \nonumber\\
 &=
-\sum_{i=1}^n(s_i-\bar s)^2+\frac{r^2}{n} \label{si-varianz}
+\sum_{i=1}^n(s_i-\bar s)^2+\frac{r^2}{n}.
+\label{si-varianz}
 \end{align}
 Da sich die gemeinsame momenterzeugende Funktion faktorisieren
 lässt, sind die Zufallsvariablen $U_i$ und $V$ unabhängig,
@@ -824,8 +825,10 @@ die $t$-Verteilung mit $k$ Freiheitsgraden.
 
 \begin{satz}Die Wahrscheinlichkeitsdichte der $t$-Verteilung ist
 \begin{equation}
-\varphi_t(t)=\frac{\Gamma(\frac{k+1}{2})}{\sqrt{\pi k}\Gamma(\frac{k}2)}
-\biggl(1+\frac{t^2}{k}\biggr)^{-\frac{k+1}2}
+\varphi_t(t)
+=
+\frac{\Gamma(\frac{k+1}{2})}{\sqrt{\pi k}\Gamma(\frac{k}2)}
+\biggl(1+\frac{t^2}{k}\biggr)^{-\frac{k+1}2}.
 \end{equation}
 \end{satz}
 
@@ -838,7 +841,9 @@ Die Dichtefunktion von $Z$ und $V$ sind
 \\
 \varphi_V(x)
 &=
-\gamma_{\frac12,\frac{k}2}(x)=\frac1{\Gamma(\frac{k}2)}\frac1{2^\frac{k}2}x^{\frac{k-2}2}e^{-\frac12x}.
+\gamma_{\frac12,\frac{k}2}(x)
+=
+\frac1{\Gamma(\frac{k}2)}\frac1{2^\frac{k}2}x^{\frac{k-2}2}e^{-\frac12x}.
 \end{align*}
 Die Dichtefunktion von $V/k$ ist $\varphi_{V/k}(x)=k\varphi_V(kx)$, aus
 den Resultaten der Abschnitte \ref{verteilungsfunktion-wurzel}

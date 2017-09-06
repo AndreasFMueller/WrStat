@@ -67,13 +67,14 @@ E(X)
 &=\sum_{k=1}^n \frac{M\binom{M-1}{k-1}\binom{N-M}{n-k}}{\frac{N}{n}\binom{N-1}{n-1}}\\
 &=n\frac{M}{N}\sum_{k=0}^{n-1} \frac{\binom{M-1}{k}\binom{N-1-(M-1)}{n-1-k}}{\binom{N-1}{n-1}}\\
 &=n\frac{M}{N}\sum_{k=0}^{n-1}h(k|N-1;n-1;M-1)\\
-&=n\frac{M}{N}
+&=n\frac{M}{N}.
 \end{align*}
 Unter dem letzten Summenzeichen stehen die Wahrscheinlichkeiten für alle
 Fälle einer hypergeometrischen Verteilung in Stichproben, die um eins kleiner
 sind, deren Summe ist natürlich 1.
 
 Analog kann man bei der Berechnung der Varianz vorgehen:
+{\allowdisplaybreaks
 \begin{align*}
 E(X^2)
 &=\sum_{k=0}^n k^2h(k|N;M;n)\\
@@ -82,8 +83,9 @@ E(X^2)
 &=n\frac{M}{N}\biggl((n-1)\frac{M-1}{N-1}+1\biggr)\\
 \operatorname{var}(X)
 &=n\frac{M}{N}\biggl((n-1)\frac{M-1}{N-1}+1-n\frac{M}{N}\biggr)\\
-&=n\frac{M(N-M)(N-n)}{N^2(N-1)}
+&=n\frac{M(N-M)(N-n)}{N^2(N-1)}.
 \end{align*}
+}
 \begin{satz}
 Eine hypergeometrisch mit den Parametern $M$, $N$ und $n$
 verteilte Zufallsgrösse $X$
@@ -93,6 +95,6 @@ E(X)=n\frac{M}{N}
 \]
 und Varianz
 \[
-\operatorname{var}(X)=n\frac{M(N-M)(N-n)}{N^2(N-1)}
+\operatorname{var}(X)=n\frac{M(N-M)(N-n)}{N^2(N-1)}.
 \]
 \end{satz}

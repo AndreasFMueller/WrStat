@@ -59,7 +59,7 @@ Summe von $k$ Zufallsvariablen $\le x$ ist, jene von $k+1$ Zufallsvariable
 aber $>x$.
 Also
 \[
-P(X_1+\dots+X_k\le x \wedge X_1+\dots+X_{k+1}>x)
+P(X_1+\dots+X_k\le x \wedge X_1+\dots+X_{k+1}>x).
 \]
 Wir berechnen diese Wahrscheinlichkeit in zwei Schritten.
 
@@ -79,7 +79,8 @@ F_{X_1+\dots+X_k}(x)&=\begin{cases}
 \\
 \varphi_{X_1+\dots+X_k}(x)&=\begin{cases}
 {\displaystyle a^k\frac{x^{k-1}}{(k-1)!}e^{-ax}}&\qquad x\ge0\\
-0&\qquad x < 0\end{cases}
+0&\qquad x < 0.
+\end{cases}
 \end{align*}
 \end{satz}
 \begin{proof}[Beweis]
@@ -104,7 +105,7 @@ Dazu wird die Faltung verwendet, es gilt für $x>0$
 &=\int_0^x a^k\frac{t^{k-1}}{(k-1)!}e^{-at}ae^{-a(x-t)}\,dt\\
 &=a^{k+1}e^{-ax}\int_0^x \frac{t^{k-1}}{(k-1)!}\,dt\\
 &=a^{k+1}e^{-ax}\left[\frac{t^k}{k!}\right]_0^x\\
-&=a^{k+1}e^{-ax}\frac{x^k}{k!}=\varphi_{k+1}(x)
+&=a^{k+1}e^{-ax}\frac{x^k}{k!}=\varphi_{k+1}(x).
 \end{align*}
 Damit ist die Formel für $\varphi_k$ für alle $k$ gezeigt.
 
@@ -118,7 +119,7 @@ F_k(x)
 &=\int_0^xa^k\frac{t^{k-1}}{(k-1)!}e^{-at}\,dt\\
 &=\left[-a^{k-1}\frac{t^{k-1}}{(k-1)!}e^{-at}\right]_0^x+\int_0^xa^{k-1}\frac{t^{k-2}}{(k-2)!}e^-at\,dt\\
 &=-a^{k-1}\frac{x^{k-1}}{(k-1)!}e^{-ax}+F_{k-1}(x)\\
-&=-\frac{(ax)^{k-1}}{(k-1)!}e^{-ax}+F_{k-1}(x)
+&=-\frac{(ax)^{k-1}}{(k-1)!}e^{-ax}+F_{k-1}(x).
 \end{align*}
 Die Verteilungsfunktion $F_1$ von $\varphi_1$ kennen wir bereits:
 \[
@@ -126,7 +127,7 @@ F_1(x)=\int_0^xae^{-at}\,dt=-e^{-ax}+1.
 \]
 Daraus leiten wir ab
 \[
-F_k(x)=1-e^{-ax}\sum_{i=0}^{k-1}\frac{(ax)^i}{i!}
+F_k(x)=1-e^{-ax}\sum_{i=0}^{k-1}\frac{(ax)^i}{i!}.
 \]
 Die Summe ist die Partialsumme für die Reihenentwicklung von $e^{ax}$,
 insbesondere ist die Partialsumme immer kleiner als $a^{ax}$, also
@@ -149,7 +150,7 @@ ist jetzt also die Wahrscheinlichkeit, dass bis zur Zeit $x$ mindestens
 $k$ Ausfällen aufgetreten sind minus die Wahrscheinlichkeit, dass mehr
 als $k$ Ausfälle aufgetreten sind: 
 \[
-P_k(x)=P(\text{mindestens $k$ Ausfälle})-P(\text{mehr als $k$ Ausfälle})
+P_k(x)=P(\text{mindestens $k$ Ausfälle})-P(\text{mehr als $k$ Ausfälle}).
 \]
 Die Wahrscheinlichkeit von mehr als $k$ Ausfällen ist aber die Wahrscheinlichkeit
 von mindestens $k+1$ Ausfällen, also
@@ -158,7 +159,7 @@ P_k(x)
 &=P(\text{mindestens $k$ Ausfälle})-P(\text{mindestens $k+1$ Ausfälle})\\
 &=F_k(x)-F_{k+1}(x)\\
 &=1-e^{-ax}\sum_{i=0}^{k-1}\frac{(ax)^i}{i!}-1+e^{-ax}\sum_{i=0}^{k}\frac{(ax)^i}{i!}\\
-&=e^{-ax}\frac{(ax)^k}{k!}
+&=e^{-ax}\frac{(ax)^k}{k!}.
 \end{align*}
 Somit haben wir die Wahrscheinlichkeit berechnet, dass im betrachteten
 Intervall genau $k$ Bauteile versagen.
@@ -186,7 +187,7 @@ E(X)
 &=\sum_{k=0}^\infty k\frac{\lambda^k}{k!}e^{-\lambda}\\
 &=\lambda e^{-\lambda}\sum_{k=1}^\infty\frac{\lambda^{k-1}}{(k-1)!}\\
 &=\lambda e^{-\lambda}\sum_{k=0}^\infty\frac{\lambda^k}{k!}\\
-&=\lambda e^{-\lambda}e^\lambda=\lambda\\
+&=\lambda e^{-\lambda}e^\lambda=\lambda.
 \end{align*}
 Für $E(X^2)$ finden wir analog
 \begin{align*}
@@ -198,7 +199,7 @@ E(X^2)
 &=\lambda e^{-\lambda}\frac{d}{d\lambda}\lambda\sum_{k=1}^\infty \frac{\lambda^{k-1}}{(k-1)!}\\
 &=\lambda e^{-\lambda}\frac{d}{d\lambda}\lambda e^{\lambda}\\
 &=\lambda e^{-\lambda}(e^\lambda+\lambda e^\lambda)\\
-&=\lambda(1+\lambda)
+&=\lambda(1+\lambda).
 \end{align*}
 Daraus erhalten wir die Varianz:
 \[
@@ -284,7 +285,7 @@ Damit kann man jetzt die Approximation durchführen:
 \cdot
 \biggl(1-\frac{\lambda}n\biggr)^n
 \cdot
-\biggl(1-\frac{\lambda}n\biggr)^{-k}
+\biggl(1-\frac{\lambda}n\biggr)^{-k}.
 \end{align*}
 Für $n\to\infty$ strebt der letzte Term gegen $1$.
 Der zweitletzte Term strebt gegen $e^{-\lambda}$.
