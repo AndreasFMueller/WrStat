@@ -1,19 +1,19 @@
 Die einzelnen Pixel eines CCD-Chips einer Digitalkamera wandeln einfallende
 Photonen in Elektronen um, jedoch nicht perfekt, nur ein Teil der Photonen
-wird tats"achlich umgesetzt. Die sogenannte {\it Quanteneffizienz} eines
+wird tatsächlich umgesetzt. Die sogenannte {\it Quanteneffizienz} eines
 CCD-Chips ist die Wahrscheinlichkeit, dass ein einfallendes Photon
-auch tats"achlich zu einem Elektron wird.
+auch tatsächlich zu einem Elektron wird.
 
 Um die Quanteneffizienz eines Chips zu messen, wird folgendes Experiment
-durchgef"uhrt.
+durchgeführt.
 Der Chip wird eine Sekunde lang mit Licht bekannter
-Intensit"at bestrahlt und dann ausgelesen.
-Dies wiederholt man f"ur verschiedene Intensit"aten.
-Die gemessene Elektronenzahl sollte linear von der Intensit"at abh"angen.
+Intensität bestrahlt und dann ausgelesen.
+Dies wiederholt man für verschiedene Intensitäten.
+Die gemessene Elektronenzahl sollte linear von der Intensität abhängen.
 Technisch bedingt werden da noch Fehler hinzukommen
 (Rauschen, nicht optimale Transfer-Effizienz im CCD-Chip,
-Nichtlinearit"at f"ur stark ``gef"ullte'' Pixel),
-die Linearit"at wird also nicht exakt erf"ullt sein.
+Nichtlinearität für stark ``gefüllte'' Pixel),
+die Linearität wird also nicht exakt erfüllt sein.
 Gemessen wurden bei einem Pixel folgende Daten
 \begin{center}
 \begin{tabular}{|c|c|}
@@ -41,9 +41,9 @@ Wie gut ist die Approximation?
 \end{teilaufgaben}
 
 \begin{loesung}
-Da die Zahl der Elektronen linear von der Zahl der Photonen abh"angt,
+Da die Zahl der Elektronen linear von der Zahl der Photonen abhängt,
 ist die Quanteneffizienz die Steigung der Geraden, die Elektronenzahl $Y$
-in Abh"angigkeit von Photonenzahl $X$ zeigt. Diese Steigung findet man
+in Abhängigkeit von Photonenzahl $X$ zeigt. Diese Steigung findet man
 optimal mit einer linearen Regression. Dazu sind die Summen der gemessenen
 $x$ und $y$ Werte sowie deren Quadrate und Produkte zu berechnen:
 \begin{center}
@@ -61,7 +61,7 @@ $E$&2& 1194.6&6&2135212&3579.2\\
 \hline
 \end{tabular}
 \end{center}
-Aus den Formeln f"ur die Regressionsgerade kann man jetzt die
+Aus den Formeln für die Regressionsgerade kann man jetzt die
 Steigung ausrechnen:
 \begin{align*}
 a&=\frac{E(XY)-E(X)E(Y)}{E(X^2)-E(X)^2}=
@@ -83,13 +83,13 @@ Mit diesem Resultat kann man jetzt die einzelnen Fragen beantworten.
 \item Die Quanteneffizienz ist $595$ Elektronen pro 1000 Photonen, also
 $0.595$.
 \item
-Aus den Koeffizienten $a$ und $b$ bekomen wir f"ur $x=100000$
+Aus den Koeffizienten $a$ und $b$ bekomen wir für $x=100000$
 $y=ax+b=595\cdot 100+4.6=59504.6$.
 \item
 Ja, es werden im Mittel 4.6 Elektronen zu viel gemessen. Im Vergleich
 zur Gesamtzahl der Elektronen ist dies jedoch sehr wenig.
 \item
-Die Frage nach der Qualit"at der Approximation kann mit dem
+Die Frage nach der Qualität der Approximation kann mit dem
 Regressionskoeffizienten beantwortet werden.
 Es ist
 \begin{align*}
@@ -116,8 +116,8 @@ E(XY)-E(X)E(Y)=3579.2-2\cdot 2294.6=1190.0
 r&=\frac{1190.0}{\sqrt{2\cdot 708142.84}}=0.999934
 \end{align*}
 Dieser Wert von $r$ liegt extrem nahe bei $1$, die Anpassung ist also von
-hervorragender Qualit"at, was auch die graphische Darstellung
-in Abbildung~\ref{40000001:graphik} best"atigt.
+hervorragender Qualität, was auch die graphische Darstellung
+in Abbildung~\ref{40000001:graphik} bestätigt.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}

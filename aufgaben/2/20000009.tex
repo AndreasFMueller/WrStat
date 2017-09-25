@@ -26,17 +26,17 @@ H=\left(\begin{matrix}
 0&\frac12&1&0
 \end{matrix}\right)
 \]
-Die Eigenvektoren k"onnen zum Beispiel mit Mathematica gefunden
+Die Eigenvektoren können zum Beispiel mit Mathematica gefunden
 werden:
 \[
 \texttt{v = First[Eigenvectors[H]]; v/Apply[Plus, v]}.
 \]
-Der zweite Befehl sorgt daf"ur, dass die Summe der Elemente $1$ wird,
+Der zweite Befehl sorgt dafür, dass die Summe der Elemente $1$ wird,
 wie das von einem Vektor verlangt werden muss, der Wahrscheinlichkeiten
 darstellen soll.
 
-Da man aber den Eigenwert weiss, kann man auch $(H-E)p=0$ l"osen, was
-mit dem Gaussalgorithmus effizient m"oglich ist:
+Da man aber den Eigenwert weiss, kann man auch $(H-E)p=0$ lösen, was
+mit dem Gaussalgorithmus effizient möglich ist:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -76,13 +76,13 @@ mit dem Gaussalgorithmus effizient m"oglich ist:
 \hline
 \end{tabular}
 \end{align*}
-Die letzte Variable ist wie erwartet frei w"ahlbar, setzen wir sie auf $1$,
-erhalten wir als L"osungsvektor
+Die letzte Variable ist wie erwartet frei wählbar, setzen wir sie auf $1$,
+erhalten wir als Lösungsvektor
 \[
 \begin{pmatrix}1\\\frac12\\\frac34\\1\end{pmatrix}.
 \]
-Dieser Vektor hat nicht die gew"unschte Normierung: F"ur einen Vektor
-von Wahrscheinlichkeiten m"ussen die Komponenten sich zu $1$ aufaddieren.
+Dieser Vektor hat nicht die gewünschte Normierung: Für einen Vektor
+von Wahrscheinlichkeiten müssen die Komponenten sich zu $1$ aufaddieren.
 Dies kann man aber immer erreichen, indem man durch die Summe der Komponenten
 teilt:
 \[
@@ -95,7 +95,7 @@ p=\frac{4}{13}\begin{pmatrix}1\\\frac12\\\frac34\\1\end{pmatrix}=
 \end{pmatrix}.
 \]
 
-Auch mit Hilfe des in der Vorlesung vergef"uhrten Iterationsalgorithmus
+Auch mit Hilfe des in der Vorlesung vergeführten Iterationsalgorithmus
 kann man folgenden Eigenvektor zum Eigenwert $1$ finden:
 \[
 \begin{pmatrix}
@@ -105,13 +105,13 @@ kann man folgenden Eigenvektor zum Eigenwert $1$ finden:
 0.307692
 \end{pmatrix}
 \]
-Man kann dies auch mit Hilfe des beigef"ugten kleinen Programms
+Man kann dies auch mit Hilfe des beigefügten kleinen Programms
 {\tt google.cpp} herausfinden.
-Dass die Seiten $1$ und $4$ gleich bewertet sind ist darauf zur"uckzuf"uhren,
+Dass die Seiten $1$ und $4$ gleich bewertet sind ist darauf zurückzuführen,
 dass alle Besucher von Seite $4$ unbedingt auf Seite $1$ weitergeleitet
-werden, somit m"ussen die beiden Seiten gleich viele Besucher haben.
+werden, somit müssen die beiden Seiten gleich viele Besucher haben.
 \item
-Bei der Ber"ucksichtigung des Freien Willens wird die Matrix zu
+Bei der Berücksichtigung des Freien Willens wird die Matrix zu
 \[
 \alpha H+\frac{1-\alpha}N A
 =
@@ -131,13 +131,13 @@ wobei die Matrix $A$ aus lauter Einsen besteht.
 0.306401\\
 \end{matrix}\right)
 \]
-Man kann sehen, dass die Einf"uhrung des ``freien Willens'' die
+Man kann sehen, dass die Einführung des ``freien Willens'' die
 Unterbewertung der Seite $2$ etwas anhebt auf Kosten der
-"uberbewerteten Seiten $1$ und $4$.
+überbewerteten Seiten $1$ und $4$.
 
 Interessant ist auch, dass selbst die Verwendung sehr kleine Werte von
 $\alpha$ nahe $0$ nicht zu einer "Anderung der Rangfolge der vier
-Seiten f"uhrt.
+Seiten führt.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}

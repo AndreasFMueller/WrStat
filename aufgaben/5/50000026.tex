@@ -6,11 +6,11 @@ F(x)=\begin{cases}
 1-e^{-x}&\qquad x\ge 0
 \end{cases}
 \]
-erzeugen k"onnen. Wir nennen diese Zufallswerte die Zufallsvariable $X$.
+erzeugen können. Wir nennen diese Zufallswerte die Zufallsvariable $X$.
 \begin{teilaufgaben}
 \item Bestimmen Sie durch Simulation den Erwartungswert und die Varianz
 von $X$.
-\item Wieviele Zufallszahlen m"ussen Sie ber"ucksichtigen, damit Ihre
+\item Wieviele Zufallszahlen müssen Sie berücksichtigen, damit Ihre
 Simulationsrechnung mit Wahrscheinlichkeit 1\% einen auf drei Stellen
 nach dem Komma genauen Wert liefert?
 \end{teilaufgaben}
@@ -20,7 +20,7 @@ nach dem Komma genauen Wert liefert?
 \item Die Zufallsvariable $F(X)$ ist gleichverteilt, d.~h.~man kann aus
 einer gleichverteilten Zufallsvariablen $Y$ durch Anwendung der Inversen
 Funktion $F^{-1}$ eine Zufallsvariable mit Verteilungsfunktion $F$ bekommen.
-Die inverse Funktion ist f"ur positive $y$:
+Die inverse Funktion ist für positive $y$:
 \begin{align*}
 y&=F(x)=1-e^{-x}\\
 e^{-x}&=1-y\\
@@ -28,7 +28,7 @@ x&=-\log(1-y)
 \end{align*}
 Die verlangten Simulationen lassen sich mit dem Program
 \verbatimainput{sim.expanded.c} 
-durchf"uhren. Man findet $E(X)\simeq 1$ und $\operatorname{var}(X)\simeq 1$.
+durchführen. Man findet $E(X)\simeq 1$ und $\operatorname{var}(X)\simeq 1$.
 \item
 Das Gesetz der grossen Zahlen von Bernoulli besagt, dass 
 eine Abweichung des Mittelwertes $M_n$ von mehr als $\varepsilon= 0.0005$
@@ -43,10 +43,10 @@ Um die Schranke von 1\% zu unterschreiten braucht es also
 \qquad\Rightarrow\qquad
 \frac1{0.01\cdot 0.0005^2}=400000000\le n,
 \]
-400Mio Zufallswerte m"ussen gemittelt werden. Experimentell findet man
+400Mio Zufallswerte müssen gemittelt werden. Experimentell findet man
 jedoch, dass viel weniger Werte auch ausreichen, dies hat wieder mit der
 Tatsache zu tun, dass die Tschebyscheff-Ungleichung sehr grob ist, und
-daher f"ur ``gute'' Zufallsvariablen zu weite Schranken findet.
+daher für ``gute'' Zufallsvariablen zu weite Schranken findet.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}

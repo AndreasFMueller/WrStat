@@ -1,19 +1,19 @@
 In der Vorlesung wurde gezeigt, dass die Geschwindigkeit der "Uberschallrakete
-``Chicago'' bestimmt werden konnte. Dazu wurde ein Messger"at gebaut,
+``Chicago'' bestimmt werden konnte. Dazu wurde ein Messgerät gebaut,
 welches mit Hilfe eines Kalman-Filters aus der Beschleunigung die
 Geschwindigkeit bestimmt hat. Dabei wurde ein Zeitschritt von $\Delta t=0.01s$
 verwendet.
 \begin{teilaufgaben}
 \item Modellieren Sie das System.
-"Uberlegen Sie sich plausible Werte f"ur die Systemfehler $Q$.
+"Uberlegen Sie sich plausible Werte für die Systemfehler $Q$.
 Gehen Sie von einer Beschleunigungsunsicherheit von $1g$
 aus.
-\item Modellieren Sie den Messprozess. Verwenden Sie den Wert $1g$ f"ur
+\item Modellieren Sie den Messprozess. Verwenden Sie den Wert $1g$ für
 den Messfehler.
-\item Stellen Sie die Kalman-Filter-Formeln f"ur Pr"adiktor- und
+\item Stellen Sie die Kalman-Filter-Formeln für Prädiktor- und
 Korrektor-Schritt zusammen.
 \item Verwenden Sie die Daten im File {\tt data.csv} als Input zu einem
-Kalman-Filter, den Sie zum Beispiel in Octave implementieren k"onnen.
+Kalman-Filter, den Sie zum Beispiel in Octave implementieren können.
 \end{teilaufgaben}
 
 \begin{loesung}
@@ -23,13 +23,13 @@ Kalman-Filter, den Sie zum Beispiel in Octave implementieren k"onnen.
 x_k=\begin{pmatrix}v_k\\a_k\end{pmatrix},\qquad
 \varphi_k=\begin{pmatrix}1&\Delta t\\0&1\end{pmatrix}.
 \]
-Die Matrix der Systemfehler enth"alt ungef"ahre Gr"ossen f"ur die Dinge,
-die vernachl"assigt worden sind. Das Modell nimmt an, dass die
+Die Matrix der Systemfehler enthält ungefähre Grössen für die Dinge,
+die vernachlässigt worden sind. Das Modell nimmt an, dass die
 Beschleunigung konstant ist.
 Das ist zwar weitgehend richtig, aber es gibt Schwankungen durch
 nicht konstanten Abbrand und durch die "Anderung der Masse der
-Rakete (die Beschleunigung nimmt zu). Erfahrungsgem"ass ist die
-Massenabnahme der dominante Beitrag, die Beschleunigung "andert sich
+Rakete (die Beschleunigung nimmt zu). Erfahrungsgemäss ist die
+Massenabnahme der dominante Beitrag, die Beschleunigung ändert sich
 dabei um ca $1g$ im Laufe des Abbrandes des Motors (innert 1 Sekunde).
 Die Beschleunigungsfehler bewegen sich also im Bereich von $1g$, entsprechend
 ist die Geschwindigkeit pro Zeitschritt mit einer Unsicherheit von
@@ -45,14 +45,14 @@ Der Messprozess extrahiert aus dem Zustandsvektor die Beschleunigung
 \[
 H=\begin{pmatrix}0&1\end{pmatrix}.
 \]
-Da nur ein Messfehler vorhanden ist, n"amlich derjenige des
+Da nur ein Messfehler vorhanden ist, nämlich derjenige des
 Beschleunigungssensors, ist die Matrix
 \[
 R=\begin{pmatrix}
 (1g)^2
 \end{pmatrix}.
 \]
-\item Pr"adiktorschritt:
+\item Prädiktorschritt:
 \begin{align*}
 \hat x_{k|k-1}&=
 \begin{pmatrix}1&\Delta t\\0&1\end{pmatrix}
@@ -104,7 +104,7 @@ k_1k_2&k_2^2
 \end{pmatrix}
 \end{align*}
 \item
-Das folgende Octave-Programm f"uhrt die Berechnung durch.
+Das folgende Octave-Programm führt die Berechnung durch.
 \verbatimainput{kalman-expanded.m}
 \qedhere
 \end{teilaufgaben}

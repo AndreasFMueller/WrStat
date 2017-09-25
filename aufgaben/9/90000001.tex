@@ -1,27 +1,27 @@
 Ein weisser Zylinder wird auf der Aussenseite markiert, und zwar
 am oberen und unteren Rand mit einem schwarzen Kreis um den Zylinder
 herum und dazwischen mit einer Spirale, die sich genau einmal
-um den Zylinder windet, "ahnlich wie bei der Redstone Tr"agerrakete von
+um den Zylinder windet, ähnlich wie bei der Redstone Trägerrakete von
 Explorer 1, dem ersten amerikanischen Satelliten:
 \begin{center}
 \includeagraphics[width=2cm]{explorer.jpg}
 \end{center}
-Dann wird der Zylinder in Drehung um seine L"angsachse versetzt.
+Dann wird der Zylinder in Drehung um seine Längsachse versetzt.
 Auch aus grosser Distanz kann jetzt durch Ausmessen der Position
 der schwarzen Spirale zwischen den beiden Kreisen der aktuelle Drehwinkel
 ausgemessen werden. Leider erlauben die unscharfen Bilder nur
 eine fehlerbehaftete Bestimmung des Winkels.
 \begin{teilaufgaben}
 \item
-F"ur ein Experiment
-m"ochte man die aktuelle Winkelgeschwindigkeit wissen.
+Für ein Experiment
+möchte man die aktuelle Winkelgeschwindigkeit wissen.
 Stellen sie die Matrizen eines Kalmanfilters zusammen, der
-diesen zu Sch"atzen erlaubt.
+diesen zu Schätzen erlaubt.
 \item
-Die Kamera, mit der der Zylinder verfolgt wird, hat nat"urlich eine
-begrenzte Aufl"osung. Bei grosser Entfernung ist der Abstand der
+Die Kamera, mit der der Zylinder verfolgt wird, hat natürlich eine
+begrenzte Auflösung. Bei grosser Entfernung ist der Abstand der
 beiden Kreise am oberen und unteren Rand des Zylinders nur 60 Pixel.
-Bestimmen Sie N"aherungsweise die Matrix der Messfehlerkovarianzen.
+Bestimmen Sie Näherungsweise die Matrix der Messfehlerkovarianzen.
 \end{teilaufgaben}
 
 \begin{loesung}
@@ -29,7 +29,7 @@ Bestimmen Sie N"aherungsweise die Matrix der Messfehlerkovarianzen.
 \item
 Es geht um ein System, bei dem man konstante Drehgeschwindigkeit annehmen
 kann. Der Azimutwinkel $\varphi$ wird also aus der Winkelgeschwindigkeit
-$\omega$ und der Zeit $t$ berechnet werden k"onnen:
+$\omega$ und der Zeit $t$ berechnet werden können:
 \[
 \varphi=\omega t
 \]
@@ -38,7 +38,7 @@ die man in einem Vektor
 \[
 \begin{pmatrix}\varphi\\\omega\end{pmatrix}
 \]
-zusammenfassen kann. Der Winkel zu einem um $\Delta t$ sp"ateren Zeitpunkt
+zusammenfassen kann. Der Winkel zu einem um $\Delta t$ späteren Zeitpunkt
 $\varphi+\omega\Delta t$, die Entwicklungsgleichungen sind also
 \[
 \begin{pmatrix}\varphi_{k+1}\\\omega_{k+1}\end{pmatrix}
@@ -51,15 +51,15 @@ also
 H=\begin{pmatrix}1&0\end{pmatrix}
 \]
 \item
-Es stehen nur 60 Pixel zur Verf"ugung, mit denen Winkel zwischen $0$ und
-und $2\pi$ unterschieden werden k"onnen m"ussen.
+Es stehen nur 60 Pixel zur Verfügung, mit denen Winkel zwischen $0$ und
+und $2\pi$ unterschieden werden können müssen.
 Der Abstand zwischen den Winkeln, die aus der Pixelposition abgeleitet
-werden k"onnen, ist also $\frac{2\pi}{60}$. Zur Pixelposition $x$ geh"oren
+werden können, ist also $\frac{2\pi}{60}$. Zur Pixelposition $x$ gehören
 alle Winkel im Interval $[2\pi x/60-\delta, 2\pi x/60+\delta]$ mit
 \[
 \delta=\frac{\pi}{60}.
 \]
-Die Winkel sind also in einem Interval der L"ange $\frac{2\pi}{60}$ gleichverteilt,
+Die Winkel sind also in einem Interval der Länge $\frac{2\pi}{60}$ gleichverteilt,
 somit haben Sie die Varianz
 \[
 \varrho^2=\frac1{12}\left(\frac{2\pi}{60}\right)^2.

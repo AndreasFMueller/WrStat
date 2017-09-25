@@ -1,11 +1,11 @@
-In einem Projekt f"ur ein Ger"at mit digitaler Steuerung, welches
-seine Aufgabe mit m"oglichst geringem Stromverbrauch erf"ullen soll, stehen
+In einem Projekt für ein Gerät mit digitaler Steuerung, welches
+seine Aufgabe mit möglichst geringem Stromverbrauch erfüllen soll, stehen
 drei Algorithmen zur Auswahl, die alle nur mehr oder weniger gute
 Approximationen liefern. Keiner der Algorithmen ist klar besser wie
 die anderen. Weder Rechenzeit noch vorhandener Speicherplatz
 erlauben, alle drei Algorithmen zu implementieren. Die Ingenieure
-m"ussen sich daher f"ur einen entscheiden. Sie unterwerfen die drei
-Algorithmen daher zuf"allig generierten Testszenarien, und z"ahlen,
+müssen sich daher für einen entscheiden. Sie unterwerfen die drei
+Algorithmen daher zufällig generierten Testszenarien, und zählen,
 wie oft jeder Algorithmus das beste Resultat liefert. Sie erhalten
 folgendes Resultat:
 \begin{center}
@@ -24,12 +24,12 @@ anderen?
 Offenbar geht es hier darum, die Hypothese zu testen, dass alle
 drei Algorithmen gleich gut sind. Kann man diese Hypothese
 verwerfen, bedeutet dies, dass einer der Algorithmen klar besser ist,
-und das ist nat"urlich der Algorithmus B, da er am meisten Bestresultate
+und das ist natürlich der Algorithmus B, da er am meisten Bestresultate
 erzielt hat.
 
 Um die Hypothese zu testen, verwendet man den $\chi^2$-Test mit
 den Wahrscheinlichkeiten $p_1=p_2=p_3=\frac13$. Die Berechnung
-der Diskrepanz kann mit folgender Tabelle durchgef"uhrt werden:
+der Diskrepanz kann mit folgender Tabelle durchgeführt werden:
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -43,7 +43,7 @@ C& 9&$-3$&$\frac{9}{12}=\frac34$\\
 \hline
 \end{tabular}
 \end{center}
-F"ur zwei Freiheitsgrade und $\alpha=0.05$ ist der kritische Wert der
+Für zwei Freiheitsgrade und $\alpha=0.05$ ist der kritische Wert der
 Diskrepanz $D_{\text{krit}}=5.991$. Da $D<D_{\text{krit}}$ gibt es
 auf Grund der Datenlage keinen Grund daran zu zweifeln, dass alle drei
 Algorithmen gleich gut sind.

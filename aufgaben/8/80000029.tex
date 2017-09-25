@@ -1,12 +1,12 @@
 Sternen wird auf Grund ihrer Farbe die sogenannte Spektralklasse zugeordnet,
-eine Buchstabenkennzeichnung, die Information "uber Gr"osse und Temperatur
-enth"alt.
+eine Buchstabenkennzeichnung, die Information über Grösse und Temperatur
+enthält.
 In der Milchstrasse beobachtet man die folgende Verteilung
 der Spektralklassen:
 \begin{center}
 \begin{tabular}{|c|l|l|}
 \hline
-Klasse&Farbe     &H"aufigkeit\\
+Klasse&Farbe     &Häufigkeit\\
 \hline
 O     &blau      &0.0000003\\
 B     &blau-weiss&0.0013\\
@@ -18,7 +18,7 @@ M     &rot       &0.7645\\
 \hline
 \end{tabular}
 \end{center}
-Die spektrale Verteilung der Sterne einer Population "andert sich mit der
+Die spektrale Verteilung der Sterne einer Population ändert sich mit der
 Zeit, da die blauen Sterne sehr viel weniger lange leben.
 
 In einem neu entdeckten Kugelsternhaufen werden $100$ Sterne spektral
@@ -40,8 +40,8 @@ Ist diese Aussage gerechtfertigt?
 
 \begin{loesung}
 Die Nullhypothese ist, dass die ausgemessenen Sterne zur selben
-Population wie die Milchstrassensterne geh"oren.
-Wir m"ussen die beobachtete Verteilung mit der theoretischen Verteilung
+Population wie die Milchstrassensterne gehören.
+Wir müssen die beobachtete Verteilung mit der theoretischen Verteilung
 der Milchstrasse vergleichen.
 Dazu eignet sich ein $\chi^2$-Test mit $\alpha=5\%$.
 \begin{center}
@@ -61,16 +61,16 @@ Klasse&$p_i$    &$n_i$&$np_i$            &$(n_i-np_i)/\sqrt{np_i}$\\
 \hline
 \end{tabular}
 \end{center}
-Der kritische Wert f"ur $D$ f"ur $\alpha = 0.05$ und $6$ Freiheitsgrade
+Der kritische Wert für $D$ für $\alpha = 0.05$ und $6$ Freiheitsgrade
 ist $D_{\text{krit}}=12.592$. 
 Da $D>D_{\text{krit}}$ muss die Nullhypothese verworfen werden.
 \end{loesung}
 
 \begin{diskussion}
-Man k"onnte argumentieren, dass dieser $\chi^2$-Test nicht zul"assig ist,
+Man könnte argumentieren, dass dieser $\chi^2$-Test nicht zulässig ist,
 weil in den Spektralkalssen O bis F gar keine Sterne beobachtet wurden.
-Man k"onnte dem oben durchgef"uhrten Test daher auch einen Test
-gegen"uberstellen, in dem man nur die Spektralklassen G bis M ber"ucksichtigt.
+Man könnte dem oben durchgeführten Test daher auch einen Test
+gegenüberstellen, in dem man nur die Spektralklassen G bis M berücksichtigt.
 Dann muss man aber die Wahrscheinlichkeiten neu skalieren, so dass sie
 zusammen 1 ergeben.
 Aus der obigen Tabelle zur Berechnung der Diskrepanz wird dann:
@@ -107,7 +107,7 @@ Klasse&$p_i$    &$n_i$&$np_i$            &$(n_i-np_i)/\sqrt{np_i}$\\
 %
 %data:  nikurz
 %X-squared = 8.5859, df = 2, p-value = 0.01366
-Der kritische Wert f"ur zwei Freiheitsgrade und $\alpha=0.05$ ist
+Der kritische Wert für zwei Freiheitsgrade und $\alpha=0.05$ ist
 $D_{\text{krit}}=5.991$,
 so dass erneut die Nullhypothese verworfen werden kann.
 \end{diskussion}

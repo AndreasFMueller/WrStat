@@ -1,8 +1,8 @@
 In der Vorlesung wurden Mandarinen ausgemessen, die Resultate dieser
 Messkampagne sind im File \texttt{mandarinen.csv} zusammengestellt.
-Die Theorie l"asst vermuten, dass die Durchmesser normalverteilt sein
-sollten. Allerdings werden Landwirtschaftsprodukt h"aufig selektiert,
-was deren Gr"ossenverteilung verzerrt, extrem grosse und kleine
+Die Theorie lässt vermuten, dass die Durchmesser normalverteilt sein
+sollten. Allerdings werden Landwirtschaftsprodukt häufig selektiert,
+was deren Grössenverteilung verzerrt, extrem grosse und kleine
 Exemplare werden aussortiert. Sind die Mandarinen durchmesser normalverteilt?
 
 \begin{loesung}
@@ -10,20 +10,20 @@ Die Nullhypothese
 \begin{quote}
 Die Mandarinendurchmesser sind normalverteilt.
 \end{quote}
-l"asst sich mit einem Kolmogorov-Smirnov-Test "uberpr"ufen. Diesen f"uhrt
+lässt sich mit einem Kolmogorov-Smirnov-Test überprüfen. Diesen führt
 man am bequemsten mit Hilfe von $R$.
 
 Es stellt sich jedoch das Problem,
-dass der Kolmogorov-Smirnov-Test von $R$ nicht zul"asst, dass Werte
+dass der Kolmogorov-Smirnov-Test von $R$ nicht zulässt, dass Werte
 mehrfach vorkommen. Man muss also die Daten leicht modifizieren, so
 dass gleiche Werte unwahrscheinlich werden. Eine einfache Methode ist,
 zu den Daten einen kleinen Wert hinzuzuaddieren, so dass sie garantiert
 verschieden werden, aber so klein, dass es die zu untersuchenden Aussagen
-nicht wesentlich ver"andert. Diese Werte k"onnen zuf"allig gew"ahlt werden,
-dann empfiehlt es sich, sie normalverteilt zu w"ahlen, da damit der Test
+nicht wesentlich verändert. Diese Werte können zufällig gewählt werden,
+dann empfiehlt es sich, sie normalverteilt zu wählen, da damit der Test
 nicht beeinflusst wird. Man kann sie auch einer arithmetischen Folge
-entnehmen, was den Test ebenfalls nicht st"ort, wenn die Rohdaten in
-zuf"alliger Reihenfolge vorliegen.
+entnehmen, was den Test ebenfalls nicht stört, wenn die Rohdaten in
+zufälliger Reihenfolge vorliegen.
 
 \begin{figure}
 \begin{center}
@@ -37,11 +37,11 @@ sowie Normalverteilung (rot) mit gleichem Erwartungswert und Varianz.
 \begin{center}
 \includeagraphics[width=\hsize]{mandarinenqq.pdf}
 \end{center}
-\caption{Q-Q-Plot f"ur die Verteilung der Mandarinendurchmesser
+\caption{Q-Q-Plot für die Verteilung der Mandarinendurchmesser
 \label{80000022:qq}}
 \end{figure}
 
-Das folgende Skript l"ost das Problem. Es erzeugt auch PDF Files mit
+Das folgende Skript löst das Problem. Es erzeugt auch PDF Files mit
 graphischen Darstellungen der empirischen Verteilungsfunktion
 (Abbildung~\ref{80000022:ecdf}) sowie mit einem Q-Q-Plot
 (Abbildung~\ref{80000022:qq}).
@@ -50,14 +50,14 @@ graphischen Darstellungen der empirischen Verteilungsfunktion
 }
 Der Output des Skripts liefert die Resultate des Tests:
 \verbatimainput{mandarinen.ks}
-Der $p$-Wert ist $0.2822$, also immer noch gr"osser als der Wert
-$\alpha = 0.05$, den wir br"auchten, um die Hypothese verwerfen zu k"onnen.
+Der $p$-Wert ist $0.2822$, also immer noch grösser als der Wert
+$\alpha = 0.05$, den wir bräuchten, um die Hypothese verwerfen zu können.
 
 Es gibt einen weiteren, nicht in der Vorlesung behandelten Test, mit dem
-man Datens"atze darauf testen kann, ob sie normalverteilt sind. Dieser
+man Datensätze darauf testen kann, ob sie normalverteilt sind. Dieser
 sogenannte Shapiro-Wilk-Test liefert 
 \verbatimainput{mandarinen.shapiro}
 Hier ist der $p$-Wert nur $2.845\cdot 10^{-5}$, die Hypothese muss
-als f"ur ziemlich jede Wahl von $\alpha$ verworfen werden.
+als für ziemlich jede Wahl von $\alpha$ verworfen werden.
 \end{loesung}
 

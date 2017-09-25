@@ -9,16 +9,16 @@ Die Funktion
 \begin{figure}[h]
 \centering
 \includeagraphics[]{graph-1.pdf}
-\caption{Wahrscheinlichkeitsdichte f"ur Aufgabe~\ref{50000024}.
+\caption{Wahrscheinlichkeitsdichte für Aufgabe~\ref{50000024}.
 \label{50000024:dichte}}
 \end{figure}
 (Abbildung~\ref{50000024:dichte})
-sei die Wahrscheinlichkeitsdichte der unabh"angigen Zufallsvariablen
+sei die Wahrscheinlichkeitsdichte der unabhängigen Zufallsvariablen
 $X$ und $Y$.
 \begin{teilaufgaben}
 \item Berechnen Sie die Verteilungsfunktion von $X$.
 \item Zeichnen Sie einen Graphen der Verteilungsfunktion.
-\item Berechnen Sie die Wahrscheinlichkeit daf"ur, dass die Zufallsvariable
+\item Berechnen Sie die Wahrscheinlichkeit dafür, dass die Zufallsvariable
 Werte zwischen $-\frac12$ und $\frac12$ annimmt.
 \item Berechnen Sie Erwartungswert und Varianz von $X$.
 \item Zeichnen Sie Erwartungswert und $\sqrt{\operatorname{var}(X)}$ in
@@ -27,7 +27,7 @@ einem Graphen von $\varphi(x)$ ein.
 \end{teilaufgaben}
 
 \begin{hinweis}
-Verwenden Sie f"ur Teilaufgabe c) eine Computeralgebrasystem oder einen
+Verwenden Sie für Teilaufgabe c) eine Computeralgebrasystem oder einen
 entsprechenden Taschenrechner.
 \end{hinweis}
 
@@ -52,8 +52,8 @@ x-\frac13x^3
 \item Die Verteilungsfunktion ist Stammfunktion von $\varphi$, also kann man sie
 durch Integrieren finden:
 \begin{align*}
-F(x)&=0&&\text{f"ur $x < -1$}\\
-F(x)&=1&&\text{f"ur $x > 1$}\\
+F(x)&=0&&\text{für $x < -1$}\\
+F(x)&=1&&\text{für $x > 1$}\\
 F(x)&=\int_{-\infty}^x\varphi(\xi)\,d\xi =\int_{-1}^x\frac34(1-\xi^2)\,d\xi
 \\
 &=
@@ -62,7 +62,7 @@ F(x)&=\int_{-\infty}^x\varphi(\xi)\,d\xi =\int_{-1}^x\frac34(1-\xi^2)\,d\xi
 \right]_{-1}^x
 =\frac34(x-\frac13x^3-(-1)+\frac13(-1))
 \\
-&=-\frac14x^3+\frac34x+\frac12&&\text{f"ur $-1\le x\le 1$}
+&=-\frac14x^3+\frac34x+\frac12&&\text{für $-1\le x\le 1$}
 \end{align*}
 \item Der Graph der Verteilungsfunktion ist in
 Abbildung~\ref{50000024:verteilungsfunktion} dargestellt.
@@ -88,7 +88,7 @@ F\biggl(\frac12\biggr)-F\biggl(-\frac12\biggr)
 =
 \frac{11}{16}.
 \end{align*}
-\item Erwartungswert und Varianz k"onnen mit den Standardformeln gefunden 
+\item Erwartungswert und Varianz können mit den Standardformeln gefunden 
 werden:
 \begin{align*}
 E(X)&=
@@ -119,10 +119,10 @@ Die Wahrscheinlichkeitsdichte von $X+Y$ kann durch Faltung erhalten werden:
 =\int_{-\infty}^{\infty}\varphi(\xi)\varphi(x-\xi)\,d\xi
 =\int_{-1}^1\frac34(1-\xi^2)\varphi(x-\xi)\,d\xi
 \end{align*}
-Die Funktion $\varphi(x-\xi)$ verschwindet f"ur $\xi$-Werte ausserhalb
-des Intervals $[x-1,x+1]$, es gen"ugt also, das Integral "uber dieses
-Interval zu erstrecken. F"ur $x\ge 0$ bedeutet dies, dass nur noch
-"uber $[x-1,1]$ integriert werden muss. F"ur diese $x$ gilt also:
+Die Funktion $\varphi(x-\xi)$ verschwindet für $\xi$-Werte ausserhalb
+des Intervals $[x-1,x+1]$, es genügt also, das Integral über dieses
+Interval zu erstrecken. Für $x\ge 0$ bedeutet dies, dass nur noch
+über $[x-1,1]$ integriert werden muss. Für diese $x$ gilt also:
 \begin{align*}
 \varphi*\varphi(x)
 &=
@@ -130,15 +130,15 @@ Interval zu erstrecken. F"ur $x\ge 0$ bedeutet dies, dass nur noch
 =
 \int_{x-1}^1 \frac34(1-\xi^2)\frac34(1-(x-\xi)^2)\,d\xi
 \end{align*}
-F"ur die Berechnung des letzten Integrals verwendet man am besten
+Für die Berechnung des letzten Integrals verwendet man am besten
 ein Computeralgebrasystem, zum Beispiel Maxima:
 \verbatimainput{maximaintegration}
-Dies gilt jedoch nur f"ur $0\le x \le 2$. Die Dichtefunktion ist
+Dies gilt jedoch nur für $0\le x \le 2$. Die Dichtefunktion ist
 aber symmetrisch, also gilt
 \[
 \varphi*\varphi(x)=\varphi*\varphi(-x).
 \]
-Mit der Abk"urzung
+Mit der Abkürzung
 \[
 f(x)=-\frac3{160}x^5+\frac38x^3-\frac34x^2+\frac35
 \]

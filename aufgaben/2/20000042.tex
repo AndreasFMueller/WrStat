@@ -4,35 +4,35 @@ Notiz:
 \includeagraphics[width=0.5\hsize]{raeppler.jpg}
 \end{center}
 \begin{teilaufgaben}
-\item Wie gross ist der erwartete Gewinn, wenn man eine M"unze zuf"allig
-aus dem Raum ausw"ahlen kann?
+\item Wie gross ist der erwartete Gewinn, wenn man eine Münze zufällig
+aus dem Raum auswählen kann?
 \item
-Jeder konnte w"ahrend h"ochstens zwei Minuten versuchen, die 1-Millionen-Rappen
-M"unze zu finden. 
-Unter der Annahme, dass man pro Sekunde eine M"unze inspizieren kann, 
+Jeder konnte während höchstens zwei Minuten versuchen, die 1-Millionen-Rappen
+Münze zu finden. 
+Unter der Annahme, dass man pro Sekunde eine Münze inspizieren kann, 
 berechnen Sie die Gewinnerwartung dieses Spiels.
 \end{teilaufgaben}
-Wir gehen davon aus, dass man in beiden F"allen die ausgew"ahlten M"unzen
+Wir gehen davon aus, dass man in beiden Fällen die ausgewählten Münzen
 behalten darf.
 
 \begin{loesung}
 \begin{teilaufgaben}
 \item
-In dem Raum befinden sich 3999999 M"unzen mit Wert 1 und 1 M"unze mit
+In dem Raum befinden sich 3999999 Münzen mit Wert 1 und 1 Münze mit
 Wert 1000000.
-W"ahlt man eine M"unze zuf"allig, erh"alt man mit Wahrscheinlichkeit
-$3999999/4000000$ eine M"unze mit Wert 1, und mit Wahrscheinlichkeit
-$1/4000000$ Eine M"unze mit Wert 1000000.
+Wählt man eine Münze zufällig, erhält man mit Wahrscheinlichkeit
+$3999999/4000000$ eine Münze mit Wert 1, und mit Wahrscheinlichkeit
+$1/4000000$ Eine Münze mit Wert 1000000.
 Der erwartete Gewinn ist daher
 \[
 E(X) = \frac{3999999}{4000000}\cdot 5 + \frac{1}{4000000}\cdot 1000000
 =4.99999975 + 0.25 = 5.24999975\,\text{Rappen}.
 \]
 \item
-Da es nur eine einzige M"unze mit Wert 1000000 gibt, gewinnt man
+Da es nur eine einzige Münze mit Wert 1000000 gibt, gewinnt man
 in zwei Minuten entweder 120 Rappen oder 1000119 Rappen.
-Die Wahrscheinlichkeit, dass die 1000000 Rappen M"unze unter den
-120 M"unzen ist, ist $120/4000000$, so dass der erwartete Gewinn
+Die Wahrscheinlichkeit, dass die 1000000 Rappen Münze unter den
+120 Münzen ist, ist $120/4000000$, so dass der erwartete Gewinn
 \[
 \frac{3999880}{4000000}\cdot 120\cdot 5
 +
@@ -45,9 +45,9 @@ ist.
 \end{loesung}
 
 \begin{diskussion}
-Man kann f"ur dieses Resultat nat"urlich auch die hypergeometrische
+Man kann für dieses Resultat natürlich auch die hypergeometrische
 Verteilung verwenden, denn es geht ja darum, in einem ``Lotto'', bei dem
-man aus $n=4000000$ Zahlen $k=120$ ausw"ahlen darf, einen ``Einer''
+man aus $n=4000000$ Zahlen $k=120$ auswählen darf, einen ``Einer''
 zu erzielen.
 Die gesuchte Wahrscheinlichkeit ist
 \begin{align*}
@@ -57,6 +57,6 @@ Die gesuchte Wahrscheinlichkeit ist
 {\displaystyle\frac{n(n-1)(n-2)\dots(n-k+1)}{1\cdot 2\cdot\dots\cdots k}}
 =\frac{k}{n},
 \end{align*}
-wie in der L"osung verwendet.
+wie in der Lösung verwendet.
 \end{diskussion}
 

@@ -1,48 +1,48 @@
-Zwei faire W"urfel werden geworfen. Die W"urfel, die eine Sechs
-zeigen, bleiben liegen, mit den anderen wird ein zweites Mal gew"urfelt.
+Zwei faire Würfel werden geworfen. Die Würfel, die eine Sechs
+zeigen, bleiben liegen, mit den anderen wird ein zweites Mal gewürfelt.
 Welche Gesamtpunktzahl kann man erwarten?
-Wie "andert sich das Resultat, wenn man statt der Sechser die Einer
-beh"alt?
+Wie ändert sich das Resultat, wenn man statt der Sechser die Einer
+behält?
 
 \begin{loesung}
-Die Aufgabe spricht zwar von zwei W"urfeln, aber eigentlich kann man
-jeden dieser W"urfel f"ur sich betrachten, denn was mit einem W"urfel
-im Laufe des Spieles passiert h"angt nur davon ab, was er selbst
+Die Aufgabe spricht zwar von zwei Würfeln, aber eigentlich kann man
+jeden dieser Würfel für sich betrachten, denn was mit einem Würfel
+im Laufe des Spieles passiert hängt nur davon ab, was er selbst
 anzeigt.
 
-Wir haben also zwei F"alle zu unterscheiden: entweder zeigt der
-W"urfel im ersten Wurf eine Sechs (Ereignis $S$), dann bleibt er so liegen,
+Wir haben also zwei Fälle zu unterscheiden: entweder zeigt der
+Würfel im ersten Wurf eine Sechs (Ereignis $S$), dann bleibt er so liegen,
 oder er zeigt keine Sechs, dann wird er nochmals geworfen.
 Der erste Fall tritt mit Wahrscheinlichkeit $P(S)=\frac16$ ein,
 der zweite mit Wahrscheinlicheit $P(\bar{S})=\frac56$. Im ersten Fall
 erziehlt man die Augenzahl $6$, im zweiten die erwartete
-Augenzahl eines einzelnen W"urfels, also $3.5$. Der erwartete
+Augenzahl eines einzelnen Würfels, also $3.5$. Der erwartete
 Wert ist daher
 \[
 E(X)=6\cdot P(S) + 3.5 \cdot P(\bar S)=
 \frac16\cdot 6 +\frac56\cdot\frac72=\frac{12+35}{12}=\frac{47}{12}=3.916666
 \]
-Nun ist aber der Erwartungswert zweier solcher W"urfel
+Nun ist aber der Erwartungswert zweier solcher Würfel
 gefragt, also das Doppelte: $7.833333$.
 
-Wenn man die Einer statt die Sechser behalten will, k"onnte man
+Wenn man die Einer statt die Sechser behalten will, könnte man
 auch das bisherige Spiel spielen, dann aber die Augenzahl
-$x$ durch $7-x$ ersetzen. Dann wird f"ur jeden W"urfel auch
-die erwartete Augenzahl durch $7-E(X)$ ersetzt, f"ur zwei
-W"urfel erhalten wir also $12-7.833333 = 6.166666$.
+$x$ durch $7-x$ ersetzen. Dann wird für jeden Würfel auch
+die erwartete Augenzahl durch $7-E(X)$ ersetzt, für zwei
+Würfel erhalten wir also $12-7.833333 = 6.166666$.
 
-Will man trotzdem die drei F"alle gesondert untersuchen (wie
-viele Pr"ufungsteilnehmer es versucht haben), kann man wie
+Will man trotzdem die drei Fälle gesondert untersuchen (wie
+viele Prüfungsteilnehmer es versucht haben), kann man wie
 folgt vorgehen.
-Als Resultat des ersten Wurfes sind drei F"alle zu betrachten, die
+Als Resultat des ersten Wurfes sind drei Fälle zu betrachten, die
 der Anzahl der Sechser in diesem Wurf entsprechen.
 \begin{itemize}
 \item[0:] Kein Sechser, Ereignis $S_0$, dieser Fall tritt mit Wahrscheinlichkeit
-$\frac{25}{36}$ ein.  In diesem Fall wirft man beide W"urfel nochmals,
+$\frac{25}{36}$ ein.  In diesem Fall wirft man beide Würfel nochmals,
 dabei ist die erwartete Augenzahl $7$.
 \item[1:] Genau ein Sechser, Ereignis $S_1$,
 dieser Fall tritt mit Wahrscheinlichkeit
-$\frac{10}{36}$ ein.  In diesem Fall wirft man einen W"urfel nochmals,
+$\frac{10}{36}$ ein.  In diesem Fall wirft man einen Würfel nochmals,
 wobei man im Mittel die Augenzahl $3.5$ erwartet.  Zusammen mit dem
 bereits erziehlten Sechser ist die erwartete Gesamtpunktzahl in diesem
 Fall also $9.5$.
@@ -51,7 +51,7 @@ dieser Fall tritt mit Wahrscheinlichkeit
 $\frac{1}{36}$ ein.  In diesem Fall wirft man nicht nochmals, die
 erziehlte Punktzahl ist $12$.
 \end{itemize}
-Aus diesen F"allen kann man jetzt die erwartete Punktzahl zusammensetzen:
+Aus diesen Fällen kann man jetzt die erwartete Punktzahl zusammensetzen:
 \begin{align*}
 E(X)&=
 7 \cdot P(S_0) + (6 + 3.5)\cdot P(S_1) + 12\cdot P(S_2)
@@ -66,7 +66,7 @@ E(X)&=
 \frac{175+95+12}{36}=\frac{282}{36}=\frac{47}{6}
 =7.8333333
 \end{align*}
-F"ur die Einer "andert sich der erwartete Wert wie folgt:
+Für die Einer ändert sich der erwartete Wert wie folgt:
 \[
 7\cdot \frac{25}{36}
 +
@@ -77,11 +77,11 @@ F"ur die Einer "andert sich der erwartete Wert wie folgt:
 \frac{175+45+2}{36}=\frac{222}{36}=\frac{37}{6}
 =6.1666666.
 \]
-In beiden F"allen verschiebt sich das Resultat in Richtung der Zahlen,
+In beiden Fällen verschiebt sich das Resultat in Richtung der Zahlen,
 die auf dem Tisch liegen bleiben. Wenn man alles ausser Sechser nochmals
-w"urfeln darf, dann steigt die Wahrscheinlichkeit, Sechser zu erreichen,
+würfeln darf, dann steigt die Wahrscheinlichkeit, Sechser zu erreichen,
 und der Erwartungswert steigt von $7$ auf $7.83$. Darf man umgekehrt alles
-ausser Einer nochmals w"urfeln, dann steigt die Wahrscheinlichkeit,
+ausser Einer nochmals würfeln, dann steigt die Wahrscheinlichkeit,
 Einer zu erreichen, und der Erwartungswert sinkt um den symmetrischen Betrag
 von $7$ auf $6.17$.
 \end{loesung}

@@ -1,10 +1,10 @@
-Eine faire M"unze wird 12 mal geworfen und gez"ahlt, wie h"aufig die
-M"unze Kopf zeigt.
+Eine faire Münze wird 12 mal geworfen und gezählt, wie häufig die
+Münze Kopf zeigt.
 \begin{teilaufgaben}
 \item Berechnen Sie die Wahrscheinlichkeit exakt, dass mindestens vier mal
-und h"ochstens sieben mal Kopf geworfen wird.
-\item Approximieren Sie dieselbe Gr"osse mit Hilfe einer Normalverteilung.
-\item Erkl"aren Sie gegebenenfalls die Abweichung zwischen den Resultaten
+und höchstens sieben mal Kopf geworfen wird.
+\item Approximieren Sie dieselbe Grösse mit Hilfe einer Normalverteilung.
+\item Erklären Sie gegebenenfalls die Abweichung zwischen den Resultaten
 von a) und b)
 \end{teilaufgaben}
 
@@ -30,8 +30,8 @@ P(4\le X\le 7)&=\sum_{k=4}^7\binom{12}{k}
 \frac{3003}{4096}=0.73315
 \end{align*}
 \item
-F"ur eine Approximation mit der Normalverteilung brauchen wir Erwartungswert
-und Varianz, f"ur die vorliegende Binomialverteilung sind dies
+Für eine Approximation mit der Normalverteilung brauchen wir Erwartungswert
+und Varianz, für die vorliegende Binomialverteilung sind dies
 \begin{align*}
 E(K) &=np=6
 &\Rightarrow\quad\mu&=6
@@ -51,7 +51,7 @@ P\biggl(
 =F(\frac1{\sqrt{3}})-(1-F(\frac2{\sqrt{3}}))
 \end{align*}
 wobei $F$ die Verteilungsfunktion der Standardnormalverteilung ist. Aus
-der Tabelle erh"alt man
+der Tabelle erhält man
 \begin{align*}
 P(4\le X\le 7)
 &\simeq
@@ -60,22 +60,22 @@ F(0.57735) - (1-F(1.1547))
 &=0.7182 + 0.8765 - 1=0.5947
 \end{align*}
 \item
-F"ur die Anwendbarkeit der Normalapproximation ist die Anzahl $n=12$
+Für die Anwendbarkeit der Normalapproximation ist die Anzahl $n=12$
 eher etwas gering, so dass man nicht unbedingt mit einer guten Approximation
 rechnen darf.
 
 Die Approximation ist aber auch noch aus einem anderen Grund schlecht.
 Die Normalverteilung beschreibt eine Verteilung, bei der auch Zwischenwerte
-zwischen den ganzen Zahlen m"oglich sind. Die Binomialverteilung l"asst
+zwischen den ganzen Zahlen möglich sind. Die Binomialverteilung lässt
 dagegen nur ganze Zahlen als Werte zu. Die Aussage, dass die Normalverteilung
 die Binomialverteilung approximiere, bezieht sich aber nur auf die
 Verteilungsfunktion, welche im Falle der Normalverteilung auch die
-Zwischenwerte ber"ucksichtigt. Eine etwas genauere "Ubersetzung
+Zwischenwerte berücksichtigt. Eine etwas genauere "Ubersetzung
 ist wohl, dass die Zwischenwerte der normalverteilten Zufallsvariablen,
-die auf $k$ gerundet werden m"ussten, der Wahrscheinlichkeit der Zahl
+die auf $k$ gerundet werden müssten, der Wahrscheinlichkeit der Zahl
 $k$ bei der Binomialverteilung entsprechen. Das bedeutet, dass die
 Wahrscheinlichkeit der Zahl $k$ etwa $F(k+\frac12)-F(k-\frac12)$
-entsprechen m"usste.
+entsprechen müsste.
 Entsprechen kann man eine
 bessere Approximation erwarten, indem man als Grenzen
 $3.5$ und $7.5$ verwendet, in diesem Fall ergibt sich

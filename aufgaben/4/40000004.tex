@@ -1,26 +1,26 @@
-Ein Gl"ucksspiel wird wie folgt gespielt. Der Spieler bezahlt seinen
+Ein Glücksspiel wird wie folgt gespielt. Der Spieler bezahlt seinen
 Einsatz $a$. Dann wir einerseits ein
-Rouletterad gedreht, andererseits ein W"urfel geworfen. Falls
+Rouletterad gedreht, andererseits ein Würfel geworfen. Falls
 die beiden Zahlen teilerfremd sind, verliert man den Einsatz, falls
 sie einen gemeinsamen Teiler $>1$ haben, gewinnt man so viel, wie
 der Teiler angibt.
 \begin{teilaufgaben}
-\item Wie gross ist der gr"osstm"ogliche Gewinn?
+\item Wie gross ist der grösstmögliche Gewinn?
 \item Wie gross ist der wahrscheinlichste Gewinn?
-\item Wie gross darf $a$ h"ochstens sein, damit sich das Spiel langfristig
-f"ur den Spieler lohnt (oder anders herum, welchen minimalen Einsatz $a$
+\item Wie gross darf $a$ höchstens sein, damit sich das Spiel langfristig
+für den Spieler lohnt (oder anders herum, welchen minimalen Einsatz $a$
 muss das Spielcasino verlangen, damit es nicht ``drauflegt'')?
 \end{teilaufgaben}
 
 \begin{loesung}
 \begin{teilaufgaben}
 \item
-Die gr"osstm"ogliche Augenzahl ist $6$, die kommt auch als gemeinsamer
-Teiler vor, also ist  der gr"osstm"ogliche Gewinn $6$.
+Die grösstmögliche Augenzahl ist $6$, die kommt auch als gemeinsamer
+Teiler vor, also ist  der grösstmögliche Gewinn $6$.
 \item
-Die m"oglichen Gewinne sind $2$, $3$ und $6$. Wir m"ussen abz"ahlen,
-wie h"aufig jeder dieser Gewinne vorkommt. Dies geschieht am einfachsten
-mit folgender Tabelle, in der vertikal die W"urfelzahl, horizontal die
+Die möglichen Gewinne sind $2$, $3$ und $6$. Wir müssen abzählen,
+wie häufig jeder dieser Gewinne vorkommt. Dies geschieht am einfachsten
+mit folgender Tabelle, in der vertikal die Würfelzahl, horizontal die
 Roulettradzahl und in den Zellen der Gewinn dargestellt ist.
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -39,12 +39,12 @@ Roulettradzahl und in den Zellen der Gewinn dargestellt ist.
 \hline
 \end{tabular}
 \end{center}
-Daraus liest man die folgenden H"aufigkeiten f"ur die einzelnen
+Daraus liest man die folgenden Häufigkeiten für die einzelnen
 Gewinne ab:
 \begin{center}
 \begin {tabular}{|c|c|c|}
 \hline
-Gewinn&H"aufigkeit&Wahrscheinlichkeit\\
+Gewinn&Häufigkeit&Wahrscheinlichkeit\\
 \hline
 2&39&$\frac{39}{222}=\frac{13}{37}$\\
 3&18&$\frac{18}{222}=\frac9{111}=\frac3{37}$\\
@@ -70,17 +70,17 @@ a=E(X)&=2\cdot \frac{39}{222}+3\cdot\frac{18}{222}+4\cdot\frac{9}{222}
 \end{align*}
 \end{teilaufgaben}
 Leider hatte sich in der Aufgabenstellung ein Druckfehler eingeschlichen,
-es war von gemeinsamem Teiler $> 0$ die Rede, was nat"urlich unsinnig ist,
+es war von gemeinsamem Teiler $> 0$ die Rede, was natürlich unsinnig ist,
 denn Teiler sind immer $> 0$. Die meisten Kandidaten haben dies stillschweigend
-in Teiler $>1$ "ubersetzt, was auch richtig ist, weil ausdr"ucklich
-gesagt wird, dass f"ur teilerfremde Zahlen (als gemeinsamer Teiler $= 1$)
+in Teiler $>1$ übersetzt, was auch richtig ist, weil ausdrücklich
+gesagt wird, dass für teilerfremde Zahlen (als gemeinsamer Teiler $= 1$)
 kein Gewinn ausbezahlt wird.
 
 Auch wurde nicht festgehalten,
 dass die Nullen keinen Gewinn bringen, wie das beim Roulette-Rad so
-"ublich ist. Die Null ist durch jede Zahl teilbar. Wenn also das Roulette-Rad
-eine Null zeigt, ist der Gewinn gleich gross wie die Augenzahl des W"urfels,
-in der H"aufigkeitentabelle kommt also in jeder Zeile noch ein zus"atzliches
+üblich ist. Die Null ist durch jede Zahl teilbar. Wenn also das Roulette-Rad
+eine Null zeigt, ist der Gewinn gleich gross wie die Augenzahl des Würfels,
+in der Häufigkeitentabelle kommt also in jeder Zeile noch ein zusätzliches
 Elementarereignis dazu. Der Erwartungswert wird damit zu
 \[
 a=E(X)=

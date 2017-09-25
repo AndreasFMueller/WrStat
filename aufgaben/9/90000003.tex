@@ -1,10 +1,10 @@
-In einem Ger"at sollen zwei Beschleunigungssensoren verwendet
-werden. Ein AD22279, welcher einen etwas gr"osseren Messbereich von
-$\pm37g$ hat, aber eine etwas beschr"ankte Grenzfrequenz von nur 400Hz.
-Erg"anzt werden soll er durch einen Dreiachssensor ADIS16240,
-der weniger Strom braucht und ausserdem eine deutlich h"ohere
-Grenzfrequenz von 1600Hz hat, daf"ur aber nur bis $\pm19g$ messen kann.
-Das Datenblatt gibt f"ur den ADIS16240 eine Standardabweichung von
+In einem Gerät sollen zwei Beschleunigungssensoren verwendet
+werden. Ein AD22279, welcher einen etwas grösseren Messbereich von
+$\pm37g$ hat, aber eine etwas beschränkte Grenzfrequenz von nur 400Hz.
+Ergänzt werden soll er durch einen Dreiachssensor ADIS16240,
+der weniger Strom braucht und ausserdem eine deutlich höhere
+Grenzfrequenz von 1600Hz hat, dafür aber nur bis $\pm19g$ messen kann.
+Das Datenblatt gibt für den ADIS16240 eine Standardabweichung von
 $24\text{m}g$ an, beim AD22279 findet man $22\text{m}g$.
 Um wieviele Prozent kann man den Fehler, gemessen mit
 der Standardabweichung maximal korrigieren, wenn man beide
@@ -39,7 +39,7 @@ t&=\frac{\operatorname{var}(X_2)}{\operatorname{var}(X_1)+\operatorname{var}(X_2
 1-t&=
 \frac{\sigma_1^2}{\sigma_1^2+\sigma_2^2}
 \end{align*}
-Setzt man dies ein, erh"alt man die verbleibende Varianz
+Setzt man dies ein, erhält man die verbleibende Varianz
 \begin{align*}
 \operatorname{var}(X)
 &=
@@ -60,7 +60,7 @@ Setzt man dies ein, erh"alt man die verbleibende Varianz
 \frac{\sigma_1^2\sigma_2^2}{\sigma_1^2+\sigma_2^2}
 \end{align*}
 Unter Verwendung der Zahlen aus der Aufgabenstellung
-$\sigma_1=0.024$ und $\sigma_2=0.022$ findet man f"ur
+$\sigma_1=0.024$ und $\sigma_2=0.022$ findet man für
 den minimalen Fehler
 \[
 \frac{\sigma_1^2\sigma_2^2}{\sigma_1^2+\sigma_2^2}=\frac{0.022^2\cdot 0.024^2}{0.022^2+0.024^2}=0.000263

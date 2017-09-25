@@ -6,15 +6,15 @@ Berechnen Sie den Erwartungswert von $X$.
 \item
 Berechnen Sie ihre Varianz von $X$.
 \item
-Was passiert, wenn man $n$ beliebig gross werden l"asst?
+Was passiert, wenn man $n$ beliebig gross werden lässt?
 \end{teilaufgaben}
 
 \begin{loesung}
 \begin{teilaufgaben}
 \item Da $X$ symmetrisch verteilt ist, ist $E(X)=0$.
 \item
-F"ur die Varianz braucht man ausser dem Erwartungswert auch noch
-den quadratischen Mittelwert.  F"ur seine Berechnung braucht man die
+Für die Varianz braucht man ausser dem Erwartungswert auch noch
+den quadratischen Mittelwert.  Für seine Berechnung braucht man die
 Dichtefunktion $\varphi(x)=F'(x)$. Ausserdem kann man die Symmetrie
 von $\varphi(x)$ ausnutzen.
 \begin{align*}
@@ -42,23 +42,23 @@ E(X^2)
 =
 \frac{n}{n+2}
 \end{align*}
-Man kann das Integral nat"urlich auch konventioneller ausrechnen:
+Man kann das Integral natürlich auch konventioneller ausrechnen:
 \begin{align*}
 E(X^2)&=2\int_0^1x^2\cdot\frac{n}2x^{n-1}\,dx
 =
 n\int_0^1x^{n+1}\,dx=n\left[\frac{x^{n+2}}{n+2}\right]_0^1
 =\frac{n}{n+2}
 \end{align*}
-Daraus lesen wir f"ur die Varianz ab
+Daraus lesen wir für die Varianz ab
 \[
 \operatorname{var}(X)=E(X^2)-E(X)^2=E(X^2)=\frac{n}{n+2}.
 \]
 \item
-F"ur $n\to\infty$ strebt die Varianz gegen $1$, der Erwartungswert
-bleibt nat"urlich $0$. Man kann das auch der Verteilungsfunktion
+Für $n\to\infty$ strebt die Varianz gegen $1$, der Erwartungswert
+bleibt natürlich $0$. Man kann das auch der Verteilungsfunktion
 ansehen: Sie wird zu einer Stufenfunktion, die an den Stellen
-$\pm 1$ je eine Stufe der H"ohe $\frac12$ hat. Dies bedeutet
-nat"urlich, dass im Limes $n\to\infty$ nur noch die Werte $\pm1$ mit
+$\pm 1$ je eine Stufe der Höhe $\frac12$ hat. Dies bedeutet
+natürlich, dass im Limes $n\to\infty$ nur noch die Werte $\pm1$ mit
 Wahrscheinlichkeit auftreten werden.
 \qedhere
 \end{teilaufgaben}

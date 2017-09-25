@@ -1,25 +1,25 @@
-In einem Spiel wird statt eines W"urfels eine faire M"unze wie folgt verwendet:
-Der Spieler wirft die M"unze so lange, bis sie Kopf zeigt, maximal aber sechs mal.
-Sei $k$ die Anzahl der get"atigten W"urfe.
+In einem Spiel wird statt eines Würfels eine faire Münze wie folgt verwendet:
+Der Spieler wirft die Münze so lange, bis sie Kopf zeigt, maximal aber sechs mal.
+Sei $k$ die Anzahl der getätigten Würfe.
 \begin{teilaufgaben}
 \item
-Beschreiben Sie $\Omega$ f"ur dieses Experiment, und die Ereignisse zu jedem $k$.
+Beschreiben Sie $\Omega$ für dieses Experiment, und die Ereignisse zu jedem $k$.
 \item
-Berechnen Sie die Wahrscheinlichkeit f"ur jedes $k$.
+Berechnen Sie die Wahrscheinlichkeit für jedes $k$.
 \item
-Betrachten Sie folgende Variante des Experimentes: man wirft die M"unze genau
-sechs mal hintereinander und pr"uft erst nach dem letzten Wurf, in welchem Wurf
+Betrachten Sie folgende Variante des Experimentes: man wirft die Münze genau
+sechs mal hintereinander und prüft erst nach dem letzten Wurf, in welchem Wurf
 zum ersten Mal Kopf aufgetreten ist, dies ist die Zahl $k$.
-Wie sehen $\Omega$ und die Ereignisse f"ur jedes $k$ f"ur dieses Experiment aus?
+Wie sehen $\Omega$ und die Ereignisse für jedes $k$ für dieses Experiment aus?
 Berechnen Sie auch die Anzahl Elementarereignisse in jedem Ereignis.
 \item 
-Bestimmen Sie die Wahrscheinlichkeit f"ur $k$ f"ur die Variante des Experimentes
+Bestimmen Sie die Wahrscheinlichkeit für $k$ für die Variante des Experimentes
 aus Teilaufgabe c).
 \item
-Ist der sechste Wurf der M"unze n"otig? Wenn nein, wie sehen $\Omega$ und die
-Ereignisse f"ur jedes $k$ aus, wenn man die M"unze nur f"unf mal wirft?
+Ist der sechste Wurf der Münze nötig? Wenn nein, wie sehen $\Omega$ und die
+Ereignisse für jedes $k$ aus, wenn man die Münze nur fünf mal wirft?
 \item
-Was "andert sich, wenn eine beliebige Anzahl W"urfe erlaubt ist?
+Was ändert sich, wenn eine beliebige Anzahl Würfe erlaubt ist?
 Kontrollieren Sie insbesondere, ob $\Omega=\bigcup_{k=1}^\infty A_k$
 und ob die Summenformel stimmt.
 \end{teilaufgaben}
@@ -27,9 +27,9 @@ und ob die Summenformel stimmt.
 \begin{loesung}
 \begin{teilaufgaben}
 \item
-Die m"oglichen Versuchsausg"ange k"onnen durch die Folge von Kopf oder Zahl
-beschrieben werden, die mit K und Z abgek"urzt werden sollen.
-H"ochstens das letzte Zeichen der Folge darf ein K sein, da nach einem
+Die möglichen Versuchsausgänge können durch die Folge von Kopf oder Zahl
+beschrieben werden, die mit K und Z abgekürzt werden sollen.
+Höchstens das letzte Zeichen der Folge darf ein K sein, da nach einem
 K nicht mehr weiter geworfen werden darf.
 Somit ist
 \[
@@ -46,27 +46,27 @@ Somit ist
 Das Ereignis 
 \[
 A_k=\{
-\text{$k$ W"urfe bis zum Abbruch}
+\text{$k$ Würfe bis zum Abbruch}
 \}
 \]
-besteht f"ur $k<6$ genau aus dem Elementarereignis ``Kopf im $k$-ten Wurf'',
-f"ur $k=6$ ist $A_6= \{\text{ZZZZZK}, \text{ZZZZZZ}\}$.
+besteht für $k<6$ genau aus dem Elementarereignis ``Kopf im $k$-ten Wurf'',
+für $k=6$ ist $A_6= \{\text{ZZZZZK}, \text{ZZZZZZ}\}$.
 \item
-Der einzelne M"unzwurf ist zwar ein Laplace-Experiment, doch bedeutet das
+Der einzelne Münzwurf ist zwar ein Laplace-Experiment, doch bedeutet das
 nicht, dass die Elementarereignisse in $\Omega$ die gleiche Wahrscheinlichkeit
 haben.
-In der H"alfte der F"alle wird das Experiment wegen eines K im ersten Wurf abbrechen,
+In der Hälfte der Fälle wird das Experiment wegen eines K im ersten Wurf abbrechen,
 es kommt daher gar nicht mehr zu einem zweiten Wurf.
-Der Fortgang des Experimentes h"angt ab vom Resultat im ersten Wurf.
+Der Fortgang des Experimentes hängt ab vom Resultat im ersten Wurf.
 
-In der H"alfte der F"alle ist das Experiment nach dem ersten Wurf zu Ende,
+In der Hälfte der Fälle ist das Experiment nach dem ersten Wurf zu Ende,
 es ist also
 \[
 P(A_1) = \frac12.
 \]
-In der anderen H"alfte der F"alle wird noch einmal geworfen, dabei bricht das 
-Experiment wieder in der H"alfte der F"alle ab.
-Durch Wiederholen erh"alt man die Wahrscheinlichkeiten
+In der anderen Hälfte der Fälle wird noch einmal geworfen, dabei bricht das 
+Experiment wieder in der Hälfte der Fälle ab.
+Durch Wiederholen erhält man die Wahrscheinlichkeiten
 \[
 P(A_2)=\frac14,\qquad
 P(A_3)=\frac18,\qquad
@@ -74,7 +74,7 @@ P(A_4)=\frac1{16},\qquad
 P(A_5)=P(A_6)=\frac1{32}.
 \]
 \item
-In dieser Variante des Experiments wird die M"unze immer sechs mal geworfen,
+In dieser Variante des Experiments wird die Münze immer sechs mal geworfen,
 es entstehen also immer Folgen von sechs Zeichen K und Z,
 \begin{align*}
 \Omega&=\{
@@ -121,10 +121,10 @@ Zusammengefasst:
 \end{cases}
 \]
 \item
-Da der Ablauf des Experimentes nicht mehr von Zwischenresultaten abh"angig ist,
+Da der Ablauf des Experimentes nicht mehr von Zwischenresultaten abhängig ist,
 sind alle Elementarereignisse gleich wahrscheinlich, es liegt ein Laplace-Experiment
 vor.
-Daher kann man die Wahrscheinlichkeit aus der Kardinalit"at der Mengen $A_k$
+Daher kann man die Wahrscheinlichkeit aus der Kardinalität der Mengen $A_k$
 bestimmen:
 \[
 P(A_k)=\frac{|A_k|}{|\Omega|}
@@ -134,9 +134,9 @@ P(A_k)=\frac{|A_k|}{|\Omega|}
 \end{cases}
 \]
 \item
-Wenn im f"unften Wurf zum f"unften Mal ein Z geworfen wurde ist klar,
+Wenn im fünften Wurf zum fünften Mal ein Z geworfen wurde ist klar,
 dass das Ereignis $A_6$ eintreten wird.
-Es ist also nicht mehr n"otig, die M"unze ein sechstes Mal zu werfen, 
+Es ist also nicht mehr nötig, die Münze ein sechstes Mal zu werfen, 
 das Resultat hat keinen Einfluss mehr auf das Eintreten des Ereignisses
 $A_6$.
 Dieses modifizierte Experiment hat die Elementarereignisse
@@ -160,8 +160,8 @@ A_5=\{\text{ZZZZK}\},\quad
 A_6=\{\text{ZZZZZ}\}.
 \]
 \item
-Wenn die M"unze beliebig oft geworfen werden darf, dann wird $\Omega$ die unendlich
-viele Versuchsausg"ange
+Wenn die Münze beliebig oft geworfen werden darf, dann wird $\Omega$ die unendlich
+viele Versuchsausgänge
 \[
 \Omega = \{
 \text{K},
@@ -173,8 +173,8 @@ viele Versuchsausg"ange
 \dots
 \}
 \]
-enthalten, und die das Ereignis $A_k$ enth"alt genau das Elementarereignis,
-das man $\text{Z}^{k-1}\text{K}$ schreiben k"onnte.
+enthalten, und die das Ereignis $A_k$ enthält genau das Elementarereignis,
+das man $\text{Z}^{k-1}\text{K}$ schreiben könnte.
 Es hat Wahrscheinlichkeit
 \[
 P(A_k)=2^{-k}.
@@ -190,11 +190,11 @@ Die Summenformel liefert
 \frac12+\frac14+\frac18+\frac1{16}+\dots
 \]
 Rechts steht die Summe einer geometrischen Reihe mit Quotient $q=\frac12$ und
-Anfangsterm $a=\frac12$, die Summenformel f"ur die geometrische Reihe liefert
+Anfangsterm $a=\frac12$, die Summenformel für die geometrische Reihe liefert
 \[
 \frac12+\frac14+\frac18+\frac1{16}+\dots=\frac{a}{1-q}=\frac12\frac1{1-\frac12}=1,
 \]
-die Summenformel ist also erf"ullt.
+die Summenformel ist also erfüllt.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}

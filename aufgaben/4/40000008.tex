@@ -1,39 +1,39 @@
-Bei einem W"urfelspiel wird mit zwei W"urfeln gew"urfelt. Wenn
-auf beiden W"urfeln die gleiche Augenzahl erscheint, man nennt dies
+Bei einem Würfelspiel wird mit zwei Würfeln gewürfelt. Wenn
+auf beiden Würfeln die gleiche Augenzahl erscheint, man nennt dies
 einen Pasch, darf
-der Spieler noch ein zweites Mal w"urfeln.
+der Spieler noch ein zweites Mal würfeln.
 \begin{teilaufgaben}
-\item Wie gross ist die Wahrscheinlichkeit, ein zweites Mal w"urfeln
-zu d"urfen (Ereignis $P$)?
+\item Wie gross ist die Wahrscheinlichkeit, ein zweites Mal würfeln
+zu dürfen (Ereignis $P$)?
 \item Wie gross ist die Wahrscheinlichkeit, 10 zu erreichen,
-wenn man im ersten Wurf zwei gleiche gew"urfelt hat?
+wenn man im ersten Wurf zwei gleiche gewürfelt hat?
 \item Wie gross ist die
-Wahrscheinlichkeit, mehr als 10 zu w"urfeln (Ereignis $Z$)?
+Wahrscheinlichkeit, mehr als 10 zu würfeln (Ereignis $Z$)?
 \end{teilaufgaben}
 
 \begin{loesung}
 Teilaufgabe b) kann auf zwei
 Arten verstanden werden konnte: ``10 erreicht'' konnte
-entweder heissen, dass in beiden W"urfen mindestens 10 gew"urfelt wurde,
-oder es konnte heissen, dass in beiden W"urfen exakt 10 gew"urfelt wurde.
+entweder heissen, dass in beiden Würfen mindestens 10 gewürfelt wurde,
+oder es konnte heissen, dass in beiden Würfen exakt 10 gewürfelt wurde.
 Dies hat Auswirkungen auf b), nicht aber auf c).
 
 \begin{teilaufgaben}
-\item von 36 m"oglichen Ausg"angen beim W"urfeln mit zwei W"urfeln
-f"uhren 6 auf einen Pasch, die Wahrscheinlichkeit eines Pasches
+\item von 36 möglichen Ausgängen beim Würfeln mit zwei Würfeln
+führen 6 auf einen Pasch, die Wahrscheinlichkeit eines Pasches
 ist also $P(P)=\frac16$.
 \item
-Wie in der Einleitung zur L"osung erw"ahnt, betrachten wir hier beide
-M"oglichkeiten, die Aufgabe zu verstehen. Zun"achst der Fall, in
-dem mindestens Zehn gew"urfelt wird.
+Wie in der Einleitung zur Lösung erwähnt, betrachten wir hier beide
+Möglichkeiten, die Aufgabe zu verstehen. Zunächst der Fall, in
+dem mindestens Zehn gewürfelt wird.
 
 Bezeichnet man das Ereignis, die totale Augenzahl 10 zu erreichen (womit
-wir meinen, dass wir sie auch "ubertreffen k"onnen), mit
+wir meinen, dass wir sie auch übertreffen können), mit
 $Q$, dann wird die bedingte Wahrscheinlichkeit $P(Q|P)$ gesucht.
 
 Je nach Augenzahl im ersten Wurf ist die Wahrscheinlichkeit
-daf"ur verschieden, zusammen mit dem zweiten Wurf 10 zu erreichen.
-Man muss also das Ereignis $Q$ in die verschieedenen F"alle eines
+dafür verschieden, zusammen mit dem zweiten Wurf 10 zu erreichen.
+Man muss also das Ereignis $Q$ in die verschieedenen Fälle eines
 Pasches zerlegen. Sei also $P_k$ das Ereignis, dass im ersten Wurf
 ein $k$-er-Pasch geworfen worden ist. Jede Augenzahl ist in diesem
 ersten Wurf gleich wahrscheinlich, also
@@ -53,8 +53,8 @@ P(Q|P)
 \\
 &=\frac1{6}(P(A_8) + P(A_6) + P(A_4) + P(A_2) + 1 + 1),
 \end{align*}
-da $P(P_k|P)=\frac1{6}$. F"ur die Wahrscheinlichkeiten $P(A_l)$ muss man
-jetzt nur noch z"ahlen, wieviele Kombination von Augenzahlen die
+da $P(P_k|P)=\frac1{6}$. Für die Wahrscheinlichkeiten $P(A_l)$ muss man
+jetzt nur noch zählen, wieviele Kombination von Augenzahlen die
 verlangte Augensumme ergeben, die folgende Tabelle zeigt die
 Resultate:
 \begin{center}
@@ -85,13 +85,13 @@ P(Q|P)
 \frac{182}{216}.
 \]
 
-Man k"onnte die Teilaufgabe b) auch so verstehen, dass exakt die
+Man könnte die Teilaufgabe b) auch so verstehen, dass exakt die
 Augenzahl 10 erreicht werden muss. Wir bezeichnen dieses Ereignis
 mit $E$. In diesem Fall bleiben obige
 Formeln bestehen, wenn $A_l$ jetzt bedeutet, dass man im zweiten
 Wurf genau die Augensumme $l$ erreicht. Zur Vermeidung von Verwechslungen
-schreiben wir $B_l$ f"ur das Ereignis, exakt die Augensumme $l$ erreicht.
-F"ur diese $B_l$ ergibt sich
+schreiben wir $B_l$ für das Ereignis, exakt die Augensumme $l$ erreicht.
+Für diese $B_l$ ergibt sich
 folgende modifizierte Tabelle:
 \begin{center}
 \begin{tabular}{|c|c|}
@@ -124,9 +124,9 @@ P(E|P)
 \item
 Es wird $P(Z)$ gesucht.
 In der Teilaufgabe b) haben wir entweder das Ereignis
-$Q$ untersucht, welches auch noch die F"alle umfasst, in denen genau
+$Q$ untersucht, welches auch noch die Fälle umfasst, in denen genau
 die Augensumme $10$ erzielt wird, oder das Ereignis $E$, exakt die Augensumme
-10 zu erzielen. Es gilt nat"urlich
+10 zu erzielen. Es gilt natürlich
 \[
 Z\cup E = Q,\qquad Z\cap E=\emptyset.
 \]
@@ -134,9 +134,9 @@ also
 \[
 P(Z)=P(Q)-P(E).
 \]
-Auf jeden Fall muss man die F"alle unterschiedlich behandeln, in denen
+Auf jeden Fall muss man die Fälle unterschiedlich behandeln, in denen
 im ersten Wurf ein Pasch erzielt wurde oder eben nicht. Zusammensetzen
-kann man dann das Resultat wieder mit dem Satz "uber die totale
+kann man dann das Resultat wieder mit dem Satz über die totale
 Wahrscheinlichkeit. Es gilt
 \begin{align*}
 P(Q)&=P(Q|P)P(P) + P(Q|\bar P)P(\bar P)\\
@@ -148,23 +148,23 @@ $P(\bar P)=1-P(P)=1-\frac16=\frac56$. Man muss jetzt also nur noch die
 bedingten Wahrscheinlichkeiten ermitteln.
 
 Je nachdem, wie man die Teilaufgabe b) interpretiert hat, hat man $P(Q|P)$
-oder $P(E|P)$ bereits bestimmt. Man muss also zun"achst nach dem gleichen
+oder $P(E|P)$ bereits bestimmt. Man muss also zunächst nach dem gleichen
 Muster die noch fehlende bedingte Wahrscheinlichkeit ausrechnen.
 
 Ausserdem braucht man noch die Wahrscheinlichkeiten $P(Q|\bar P)$ und
-$P(E|\bar P)$. Diese ermittelt man durch abz"ahlen der F"alle, in denen
+$P(E|\bar P)$. Diese ermittelt man durch abzählen der Fälle, in denen
 das Ereignis $Q$ bzw.~$E$ ohne Pasch eintritt, also insbesondere in nur
 einem Wurf.
 
 Im Falle des Ereignisses $Q$, also mindestens Augenzahl 10, geschieht dies
 mit den Elementarereignissen $\{(4,6),(4,5),(5,4),(6,4)\}$, also bei 4 der 30
-m"oglichen Elementarreignisse ohne Pasch\footnote{In $\bar P$ sind tritt
+möglichen Elementarreignisse ohne Pasch\footnote{In $\bar P$ sind tritt
 niemals ein Pasch auf, wenn man also Wahrscheinlichkeiten in dieser Menge
-berechnet, darf man keinen Pasch mitz"ahlen, weder bei den
-g"unstigen Erreignissen noch bei den Ereignissen der Grundgesamtheit.}.
+berechnet, darf man keinen Pasch mitzählen, weder bei den
+günstigen Erreignissen noch bei den Ereignissen der Grundgesamtheit.}.
 Im Falle von $E$, also exakt
 der Augenzahl $10$ geschieht es hingegen in nur zwei dieser
-F"alle $\{(4,6), (6,4)\}$, also mit Wahrscheinlichkeit $\frac{2}{30}$.
+Fälle $\{(4,6), (6,4)\}$, also mit Wahrscheinlichkeit $\frac{2}{30}$.
 
 Damit kann man jetzt die Wahrscheinlichkeiten zusammensetzen:
 \begin{align*}
@@ -179,7 +179,7 @@ P(E)&=P(E|P)P(P) + P(E|\bar P)P(\bar P)\\
     &=\frac{14}{216}\cdot\frac16 + \frac{12}{216}\\
     &=\frac{26}{216}
 \end{align*}
-Damit bekommt man jetzt f"ur $P(Z)$ aus
+Damit bekommt man jetzt für $P(Z)$ aus
 \[
 P(Z)=P(Q)-P(E)
 =

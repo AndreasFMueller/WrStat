@@ -6,12 +6,12 @@ Dann beginnt der Spieler Karten aus dem Spiel zu ziehen.
 Zieht er eine Bildkarte, wird der Betrag auf dem Tisch vervierfacht.
 Zieht er eine Zahlkarte, ist das Spiel zu Ende, der Spieler gewinnt
 den auf dem Tisch liegenden Betrag.
-Was w"are ein fairer Einsatz f"ur dieses Spiel, wenn der Spieler
+Was wäre ein fairer Einsatz für dieses Spiel, wenn der Spieler
 maximal drei Karten ziehen darf (d.~h.~es wird gespielt, also ob die
-vierte Karte immer eine Zahlkarte w"are)?
+vierte Karte immer eine Zahlkarte wäre)?
 
 \begin{loesung}
-Wir brauchen die Wahrscheinlichkeit daf"ur, dass der Spieler $k$
+Wir brauchen die Wahrscheinlichkeit dafür, dass der Spieler $k$
 mal hintereinander eine Bildkarte zieht und dann eine andere Karte.
 Ist $p_k$ diese Wahrscheinlichkeit, dann ist der gesuchte faire
 Einsatz die Summe
@@ -38,9 +38,9 @@ p_k
 &=
 \frac{\displaystyle\binom{16}{k}}{\displaystyle\binom{52}{k+1}}\frac{36}{k+1}.
 \end{align*}
-In unserem Fall brauchen wir das nur f"ur $k\in \{0,1,2\}$, f"ur $k=3$
-spielt die nachfolgende Karte keine Rolle, der Faktor $36/49$ entf"allt.
-Numerisch erh"alt man die folgenden Resultate:
+In unserem Fall brauchen wir das nur für $k\in \{0,1,2\}$, für $k=3$
+spielt die nachfolgende Karte keine Rolle, der Faktor $36/49$ entfällt.
+Numerisch erhält man die folgenden Resultate:
 \begin{center}
 \begin{tabular}{|>{$}c<{$}|>{$}c<{$}|>{$}r<{$}>{$}l<{$}|>{$}r<{$}|}
 \hline
@@ -56,14 +56,14 @@ k&           X &                                    p_k&& X \cdot p_k   \\
 \end{tabular}
 \end{center}
 Der Erwartungswert des Gewinns $X$ ist $E(X)=4.225339$,
-dies w"are der faire Einsatz.
+dies wäre der faire Einsatz.
 \end{loesung}
 
 \begin{bewertung}
 Wahrscheinlichkeit $p_k$, dass bei der $k$-ten Karte die erste
 Zahlkarte gezogen wird ({\bf P}) 2 Punkt,
 Wahrscheinlichkeit im Spezialfall $k=3$ ({\bf 3}) 1 Punkt,
-Formel f"ur den Erwartungswert ({\bf E}) 1 Punkt,
+Formel für den Erwartungswert ({\bf E}) 1 Punkt,
 erwarteter Gewinn ({\bf G}) 1 Punkt,
 Interpretation als fairer Einsatz ({\bf F}) 1 Punkt.
 \end{bewertung}

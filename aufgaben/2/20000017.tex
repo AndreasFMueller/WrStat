@@ -1,17 +1,17 @@
 Eine Familie hat drei Kinder verschiedenen Jahrgangs. Welche der
-folgenden Ereignisse sind unabh"angig?
+folgenden Ereignisse sind unabhängig?
 
 \begin{tabular}{rl}
-A & Das "alteste und das j"ungste Kind haben das selbe Geschlecht.\\
-B & Die M"adchen sind in der "Uberzahl.\\
-C & Jeder Knabe hat eine j"ungere Schwester.
+A & Das älteste und das jüngste Kind haben das selbe Geschlecht.\\
+B & Die Mädchen sind in der "Uberzahl.\\
+C & Jeder Knabe hat eine jüngere Schwester.
 \end{tabular}
 
 \begin{loesung}
 Elementarereignisse sind Tripel bestehend aus dem Geschlecht
-des j"ungsten, mittlern und des "altesten Kindes.
+des jüngsten, mittlern und des ältesten Kindes.
 Jedes dieser 8 Elementarereignisse ist gleich wahrscheinlich (unter
-der Annahme, dass M"adchen und Knaben gleich wahrscheinlich sind). Die
+der Annahme, dass Mädchen und Knaben gleich wahrscheinlich sind). Die
 gesuchten Ereignisse sind
 \begin{center}
 \begin{tabular}{|c|l|l|}
@@ -28,40 +28,40 @@ $B\cap C$&MMM, MMK, MKM&0.375\\
 \hline
 \end{tabular}
 \end{center}
-Nun ist zu pr"ufen, ob $P(X\cap Y)=P(X)\cdot P(Y)$ gilt f"ur alle
-m"oglichen Paare von Ereignissen $A$, $B$, $C$.
-Die Produktregel trifft zu f"ur
-das Paar $(A,B)$ und $(A,C)$, nicht jedoch f"ur $(B,C)$.
-Somit sind $A,B$ und $A,C$ unabh"angig.
+Nun ist zu prüfen, ob $P(X\cap Y)=P(X)\cdot P(Y)$ gilt für alle
+möglichen Paare von Ereignissen $A$, $B$, $C$.
+Die Produktregel trifft zu für
+das Paar $(A,B)$ und $(A,C)$, nicht jedoch für $(B,C)$.
+Somit sind $A,B$ und $A,C$ unabhängig.
 \end{loesung}
 
 \begin{loesung}
-Das Ereignis $C$ ist gleichbedeutend damit, dass das j"ungste
-Kind ein M"adchen ist, also ist $P(C)=\frac12$. Das Ereignis $A$ hat
+Das Ereignis $C$ ist gleichbedeutend damit, dass das jüngste
+Kind ein Mädchen ist, also ist $P(C)=\frac12$. Das Ereignis $A$ hat
 offensichtlich ebenfalls Wahrscheinlichkeit $\frac12$.
-Die M"adchen sind in der "Uberzahl, wenn mindestens zwei Kinder M"adchen,
-das geschieht in 4 von 8 m"oglichen F"allen, also ist auch $P(B)=\frac12$.
+Die Mädchen sind in der "Uberzahl, wenn mindestens zwei Kinder Mädchen,
+das geschieht in 4 von 8 möglichen Fällen, also ist auch $P(B)=\frac12$.
 
-$A\cap B$: Wenn die M"adchen in der "Uberzahl sein m"ussen, dann kann
-das Ereignis $A$ nur eintreten, wenn das "alteste und das j"ungste Kind
-M"adchen sind, das Geschlecht des mittlere Kindes spielt also keine
-Rolle, es sind somit zwei F"alle m"oglich, $P(A\cap B)=\frac14$
+$A\cap B$: Wenn die Mädchen in der "Uberzahl sein müssen, dann kann
+das Ereignis $A$ nur eintreten, wenn das älteste und das jüngste Kind
+Mädchen sind, das Geschlecht des mittlere Kindes spielt also keine
+Rolle, es sind somit zwei Fälle möglich, $P(A\cap B)=\frac14$
 $\Rightarrow$
-$A$ und $B$ sind unabh"angig.
+$A$ und $B$ sind unabhängig.
 
-$A\cap C$: Da das j"ungste Kind ein M"adchen sein muss, m"ussen wieder
-das "alteste und das j"ungste Kind M"adchen sein. Sowohl ein Knabe
-wie auch ein M"adchen als mittleres Kind erf"ullt die Bedingung des
-Ereignisses $C$, es sind also wieder zwei F"alle m"oglich, $P(A\cap C)=\frac14$
+$A\cap C$: Da das jüngste Kind ein Mädchen sein muss, müssen wieder
+das älteste und das jüngste Kind Mädchen sein. Sowohl ein Knabe
+wie auch ein Mädchen als mittleres Kind erfüllt die Bedingung des
+Ereignisses $C$, es sind also wieder zwei Fälle möglich, $P(A\cap C)=\frac14$
 $\Rightarrow$
-$A$ und $C$ sind unabh"angig.
+$A$ und $C$ sind unabhängig.
 
-$B\cap C$: Wenn das j"ungste Kind ein M"adchen ist, dann muss das mittlere
-oder das "alteste Kind ein M"adchen sein, damit auch die Bedingung von
-Ereignis $B$ erf"ullt ist. Dies ist nur dann nicht gegeben, wenn
-das mittlere und das "alteste Kind Knaben Knaben sind. Diese drei
-F"alle haben Wahrscheinlichkeit $\frac38\ne P(B)\cdot P(C)$
+$B\cap C$: Wenn das jüngste Kind ein Mädchen ist, dann muss das mittlere
+oder das älteste Kind ein Mädchen sein, damit auch die Bedingung von
+Ereignis $B$ erfüllt ist. Dies ist nur dann nicht gegeben, wenn
+das mittlere und das älteste Kind Knaben Knaben sind. Diese drei
+Fälle haben Wahrscheinlichkeit $\frac38\ne P(B)\cdot P(C)$
 $\Rightarrow$
-$B$ und $C$ sind abh"angig.
+$B$ und $C$ sind abhängig.
 \end{loesung}
 

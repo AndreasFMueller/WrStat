@@ -1,4 +1,4 @@
-Ein Zufallszahlgenerator f"ur im Interval $[0,1]$ gleichverteilte
+Ein Zufallszahlgenerator für im Interval $[0,1]$ gleichverteilte
 Zufallszahlen hat die Zahlen
 \begin{center}
 \begin{tabular}{ccc}
@@ -12,7 +12,7 @@ Ist dies ein guter Zufallszahlgenerator?
 
 \begin{loesung}
 Wir testen die Zahlen mit einem Kolmogorov-Smirnov-Test.
-F"ur $n=9$ und $\alpha=0.01$ ist der kritische Wert
+Für $n=9$ und $\alpha=0.01$ ist der kritische Wert
 $K_{\text{krit}}=1.43878$. Die Werte von
 $K_n^-$ und $K_n^+$ sind:
 \begin{center}
@@ -37,15 +37,15 @@ $9$&$0.43987$&$0.5601300$&$-0.4490189$\\
 \end{center}
 Da $K_n^+>K_{\text{krit}}$ muss die Hypothese verworfen werden, dass
 die Zufallszahlen gleichverteilt seien.
-\item Die Wahrscheinlichkeit f"ur ein negatives Testresultat unter der
+\item Die Wahrscheinlichkeit für ein negatives Testresultat unter der
 Annahme von Gleichverteilung ist $\alpha$, also ist die erwartete Anzahl
 negativer Testresultate $n\alpha$.
 
-Die Berechnung kann nat"urlich auch mit R erfolgen. Wenn man die Daten
+Die Berechnung kann natürlich auch mit R erfolgen. Wenn man die Daten
 als CSV File der Form
 \verbatimainput{ks.csv}
 vorliegen hat, kann man die Berechnung der $K$-Werte mit folgendem
-R-Skript durchf"uhren:
+R-Skript durchführen:
 \verbatimainput{ks.R}
 Der Output ist:
 \verbatimainput{ks.log}

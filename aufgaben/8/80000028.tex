@@ -1,20 +1,20 @@
 Im Jahre 2002 hat das amerikanische National Center for Health Statistics
 die folgenden
-Informationen "uber die Verteilung des K"orpergewichtes in der
-Bev"olkerung publiziert:
+Informationen über die Verteilung des Körpergewichtes in der
+Bevölkerung publiziert:
 \begin{center}
 \begin{tabular}{l|cccc}
-Kategorie&untergewichtig&normal&"ubergewichtig&fettleibig\\
+Kategorie&untergewichtig&normal&übergewichtig&fettleibig\\
          &$\text{BMI}<18.5$&$18.5\le\text{BMI}<25$&$25\le\text{BMI}<30$&$30\le\text{BMI}$\\
 \hline
-H"aufigkeit&0.01&0.39&0.36&0.23
+Häufigkeit&0.01&0.39&0.36&0.23
 \end{tabular}
 \end{center}
-In einer Studie "uber den Zusammenhang zwischen K"orpergewicht und
+In einer Studie über den Zusammenhang zwischen Körpergewicht und
 Herzkrankheiten wurden $3326$ Teilnehmer untersucht.
-Die Resultate sind nat"urlich nur dann f"ur die Gesamtbev"olkerung 
-aussagekr"aftig, wenn die Stichprobe die K"orpergewicht-Verteilung in
-der Bev"olkerung repr"asentiert. 
+Die Resultate sind natürlich nur dann für die Gesamtbevölkerung 
+aussagekräftig, wenn die Stichprobe die Körpergewicht-Verteilung in
+der Bevölkerung repräsentiert. 
 Es wurden folgende Anzahlen gefunden
 \begin{center}
 \begin{tabular}{l|r}
@@ -22,25 +22,25 @@ Kategorie      &Anzahl\\
 \hline
 untergewichtig &    20\\
 normal         &   932\\
-"ubergewichtig &  1374\\
+übergewichtig &  1374\\
 fettleibig     &  1000
 \end{tabular}
 \end{center}
-Ist diese Stichprobe f"ur die Gesamtbev"olkerung repr"asentativ?
+Ist diese Stichprobe für die Gesamtbevölkerung repräsentativ?
 
 \begin{loesung}
-Man muss pr"ufen, ob die Zahlen zu den Wahrscheinlichkeiten aus der
+Man muss prüfen, ob die Zahlen zu den Wahrscheinlichkeiten aus der
 ersten Tabelle passen, was man mit einem $\chi^2$-Test machen kann.
 Die zu testende Nullhypothese ist also:
 Die beobachteten Anzahlen sind Beobachtungen der Verteilung der
-K"orpergewichte gem"ass National Center for Health Statistics.
+Körpergewichte gemäss National Center for Health Statistics.
 
-F"ur den Test ist zun"achst ein $\alpha$ zu w"ahlen, weil es sich
-um eine medizinische Anwendung handelt, m"ussten wir $\alpha=0.001$
-w"ahlen, doch dieser Wert kommt in unserer Tabelle nicht vor, also
-begn"ugen wir uns mit $\alpha=0.01$.
+Für den Test ist zunächst ein $\alpha$ zu wählen, weil es sich
+um eine medizinische Anwendung handelt, müssten wir $\alpha=0.001$
+wählen, doch dieser Wert kommt in unserer Tabelle nicht vor, also
+begnügen wir uns mit $\alpha=0.01$.
 Wir haben $4$ Klassen, also $3$ Freiheitsgrade, und finden in der
-Tabelle den zugeh"origen kritischen Wert der Diskrepanz als
+Tabelle den zugehörigen kritischen Wert der Diskrepanz als
 $D_{\text{krit}}=11.345$.
 
 Wir berechnen die Diskrepanz:
@@ -51,16 +51,16 @@ Kategorie     & p_i& n_i&(n_i-np_i)^2/np_i\\
 \hline
 untergewichtig&0.02&  20&   32.533\\
 normal        &0.39& 932&  102.786\\
-"ubergewichtig&0.36&1374&   26.059\\
+übergewichtig&0.36&1374&   26.059\\
 fettleibig    &0.23&1000&   72.204\\
 \hline
               &    &3325&D=233.581\\
 \hline
 \end{tabular}
 \end{center}
-Da $D>D_{\text{krit}}$ m"ussen wir die Nullhypothese
-verwerfen und k"onnen schliessen, dass diese Verteilung
-nicht repr"asentativ ist.
+Da $D>D_{\text{krit}}$ müssen wir die Nullhypothese
+verwerfen und können schliessen, dass diese Verteilung
+nicht repräsentativ ist.
 \end{loesung}
 
 \begin{bewertung}

@@ -1,12 +1,12 @@
 Der CCD-Chip einer Digitalkamera besteht aus einer grossen Zahl einzelner
-Pixel, die w"ahrend der Blichtung vom Licht erzeugte Elektronen speichern.
+Pixel, die während der Blichtung vom Licht erzeugte Elektronen speichern.
 Die Zahl $X$ dieser Photoelektronen ist proportional zur Belichtungszeit.
-Sie wird jedoch verf"alscht durch zwei Effekte:
+Sie wird jedoch verfälscht durch zwei Effekte:
 \begin{enumerate}
 \item
 Thermisches Rauschen: Durch die thermische Bewegung der Atome
 im Kristall des CCD-Chips gehen Elektronen verloren oder kommen hinzu,
-die nichts mit dem Lichteinfall zu tun haben. Dieser zus"atzliche
+die nichts mit dem Lichteinfall zu tun haben. Dieser zusätzliche
 Elektronenstrom hat Erwartungswert $0$ und bekannte Varianz $\sigma_T$,
 man findet $\sigma_T$ im Datenblatt des CCD-Chip.
 \item
@@ -14,58 +14,58 @@ Auslesefehler: Beim Auslesen der einzelnen Pixel entsteht ein Messfehler
 $\sigma_A$, der ebenfalls dem Datenblatt entnommen werden kann.
 \end{enumerate}
 Der 16 Megapixel-CCD-Chip KAF-16803 von Kodak hat Pixel, die $C = 100000$
-Elektronen fassen k"onnen (sogenannte {\it full well capacity}).
+Elektronen fassen können (sogenannte {\it full well capacity}).
 Das thermische Rauschen verursacht in jeder
-Sekunde $\sigma_T = 3$ zus"atzliche Elektronen, der Auslesefehler
-betr"agt $\sigma_A=9$ Elektronen.
+Sekunde $\sigma_T = 3$ zusätzliche Elektronen, der Auslesefehler
+beträgt $\sigma_A=9$ Elektronen.
 \begin{teilaufgaben}
 \item Wie gross ist der durch thermisches Rauschen und Auslesefehler
 verursachte Fehler bei einer Belichtungszeit von $n$ Sekunden?
-\item Nach welcher Belichtungszeit "ubersteigt der Beitrag des
+\item Nach welcher Belichtungszeit übersteigt der Beitrag des
 thermischen Rauschens den Auslesefehler?
 \item Wie lange darf man maximal belichten, wenn 95\% der Pixel einen Fehler
 von weniger als 1\% der Full well capacity aufweisen sollen.
 \end{teilaufgaben}
 
 \begin{hinweis}
-Sie d"urfen annehmen, dass eventuell vorhandene systematische
+Sie dürfen annehmen, dass eventuell vorhandene systematische
 Fehler durch Eichung des Chips bereits entfernt worden sind.
 \end{hinweis}
 
 \begin{loesung}
-Bei allen Zufallsvariablen d"urfen wir annehmen, dass sie normalverteilt
+Bei allen Zufallsvariablen dürfen wir annehmen, dass sie normalverteilt
 sind. Der Beitrag des thermischen Rauschens ist also in jeder Sekunde
 eine normalverteilte Zufallsvariable $T_t$ mit Erwartungswert 0
 und Varianz $\sigma_T^2$.
 Der Auslesefehler ist normalverteilt mit Erwartungswert 0 und
 Varianz $\sigma_A^2$.
 \begin{teilaufgaben}
-\item In $n$ Sekunden kommen die Beitr"age des thermischen Rauschens
-f"ur jede Sekunde zusammen. Das totale thermische Rauschen ist
+\item In $n$ Sekunden kommen die Beiträge des thermischen Rauschens
+für jede Sekunde zusammen. Das totale thermische Rauschen ist
 also
 \[
 T=\sum_{t=1}^n T_t
 \]
-Da die einzelnen Beitr"age unabh"angig sind, d"urfen wir die Varianzen
+Da die einzelnen Beiträge unabhängig sind, dürfen wir die Varianzen
 addieren:
 \[
 \operatorname{var}(T)
 =\sum_{t=1}^n\operatorname{var}(T_t)=n\sigma_T^2.
 \]
-Dazu kommt jetzt noch der Auslesefehler, der ebenfalls unabh"angig ist:
+Dazu kommt jetzt noch der Auslesefehler, der ebenfalls unabhängig ist:
 \begin{align*}
 \sigma_X^2&=\sigma_A^2+n\sigma_T^2\\
 \sigma_X&=\sqrt{\sigma_A^2+n\sigma_t^2}=\sqrt{81+9n}
 \end{align*}
-\item Wir m"ussen herausfinden, f"ur welches $n$ das thermische
-Rauschen $n\sigma_T^2$ den Auslesefehler "ubersteigt:
+\item Wir müssen herausfinden, für welches $n$ das thermische
+Rauschen $n\sigma_T^2$ den Auslesefehler übersteigt:
 \[
 n\sigma_T^2>\sigma_A^2\quad\Rightarrow\quad n>\frac{\sigma_A^2}{\sigma_T^2}=\frac{81}{9}=9.
 \]
 Nach $9$ Sekunden beginnt also das thermische Rauschen zu dominieren.
-F"ur l"angere Belichtunsgzeiten ist es daher unbedingt notwendig,
+Für längere Belichtunsgzeiten ist es daher unbedingt notwendig,
 das thermische Rauschen zu reduzieren, professionelle Kameras
-schaffen dies, indem sie den CCD-Chip stark abk"uhlen.
+schaffen dies, indem sie den CCD-Chip stark abkühlen.
 \item
 Die Elektronenzahl in einem Pixel nach $n$ Sekunden Belichtungszeit ist
 nach a) eine normalverteilte Zufallsvariable mit Erwartungswert
@@ -83,8 +83,8 @@ Nach Standardisierung bekommen wir daraus
 \[
 P\biggl(\frac{X-\mu}{\sigma}> \frac{1000}{\sigma}\biggr)=0.95.
 \]
-Die Gr"osse $(X-\mu)/\sigma$ ist eine standardnormalverteilte
-Zufallsvariable. den Wert f"ur $1000/\sigma$ k"onnen wir aus
+Die Grösse $(X-\mu)/\sigma$ ist eine standardnormalverteilte
+Zufallsvariable. den Wert für $1000/\sigma$ können wir aus
 der Normalverteilungstabelle ablesen:
 \[
 P\biggl(\frac{X-\mu}{\sigma}> \frac{1000}{\sigma}\biggr)=0.95.
@@ -97,14 +97,14 @@ F\biggl(\frac{1000}{\sigma}\biggr)=0.975
 \quad
 \frac{1000}{\sigma}=1.96.
 \]
-Die letzte Gleichung ist aber eine Gleichung f"ur $n$:
+Die letzte Gleichung ist aber eine Gleichung für $n$:
 \begin{align*}
 1000&=1.96\sqrt{\sigma_A^2 + n\sigma_T^2}\\
 n&=\frac1{\sigma_T^2}\biggl(\biggl(\frac{1000}{1.96}\biggr)^2-\sigma_A^2\biggr)
 =28914.
 \end{align*}
 Man kann also gut acht Stunden belichten, bis das Rauschen bei 95\% der
-Pixel die Schranke von 1\% der maximalen Amplitude "uberschritten hat.
+Pixel die Schranke von 1\% der maximalen Amplitude überschritten hat.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}

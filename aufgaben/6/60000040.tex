@@ -5,13 +5,13 @@ Im Datenblatt des Microcontrollers Atmel ATtiny25 steht:
 \end{center}
 Das bedeutet, dass die
 Wahrscheinlichkeit $10^{-6}$ sei\footnote{Genauer: die Wahrscheinlichkeit
-ist kleinar als $10^{-6}$, f"ur die Zwecke dieser Aufgabe gehen wir vom
+ist kleinar als $10^{-6}$, für die Zwecke dieser Aufgabe gehen wir vom
 worst case aus, dass also die Wahrscheinlichkeit genau $10^{-6}$ ist.}
-f"ur den Verlust eines Datenbits innerhalb
+für den Verlust eines Datenbits innerhalb
 von 100 Jahren bei $25^\circ$C.
 \begin{teilaufgaben}
 \item Bestimmen Sie die mittlere Lebensdauer eines Bits.
-\item Nach welcher Zeit ist die H"alfte der Bits verloren gegangen?
+\item Nach welcher Zeit ist die Hälfte der Bits verloren gegangen?
 \item Wie gross ist die Wahrscheinlichkeit, dass ein Bit nach 20000
 Jahren verloren gegangen ist?
 \item Wieviele Bits gehen im Mittel in dem 2kByte umfassenden Flash-Speicher
@@ -22,14 +22,14 @@ weniger als 3 Bits verloren gegangen sind?
 \end{teilaufgaben}
 
 \begin{hinweis}
-Da die Wahrscheinlichkeiten in dieser Aufgabe sehr klein sind, k"onnen
-in den Formeln f"ur die Verteilungsfunktionen lineare N"aherungen
+Da die Wahrscheinlichkeiten in dieser Aufgabe sehr klein sind, können
+in den Formeln für die Verteilungsfunktionen lineare Näherungen
 verwendet werden.
 \end{hinweis}
 
 \begin{loesung}
 Wir gehen davon aus, dass die Zeit bis zum Zerfall eines Bits 
-exponentialverteilt ist, und m"ussen zun"achst den Parameter $a$
+exponentialverteilt ist, und müssen zunächst den Parameter $a$
 aus den Angaben der Aufgabe bestimmen.
 
 Die Wahrscheinlichkeit, dass ein Bit nach 100 Jahren verloren gegangen
@@ -42,7 +42,7 @@ P(T < t) = 10^{-1}=
 \end{equation}
 Da die Lebensdauer $1/a$ eines Bits offenbar sehr lang ist, ist $at$
 eine so kleine Zahl, dass man alle auf $at$ folgenden Terme
-in (\ref{60000034:potenzreihe}) vernachl"assigen kann. Es folgt, dass
+in (\ref{60000034:potenzreihe}) vernachlässigen kann. Es folgt, dass
 \[
 a=\frac{10^{-6}}{100\text{ Jahre}}=10^{-8}\frac{1}{\text{Jahr}}
 \]
@@ -67,23 +67,23 @@ F(t)
 at-\frac{a^2t^2}{2!}+\frac{a^3t^3}{3!}-\dots
 \]
 Da $at=10^{-8}\cdot 2\cdot 10^4=2\cdot 10^{-4}$ sehr klein ist, kann man die 
-Terme h"oherer Ordnung vernachl"assigen, und bekommt
+Terme höherer Ordnung vernachlässigen, und bekommt
 \[
 P(T\le t) \simeq 2\cdot 10^{-4}.
 \]
 \item 
 Das Experiment ``Geht das Bit in 20000 Jahren verloren'' wird
-f"ur alle $2048\cdot 8$ Bits des Flash-Speichers wiederholt, und es
-wird gez"ahlt, wie oft der Fall eingetreten ist.
+für alle $2048\cdot 8$ Bits des Flash-Speichers wiederholt, und es
+wird gezählt, wie oft der Fall eingetreten ist.
 Dies ist ein Binomial-Experiment mit $p=2\cdot 10^{-4}$ und $n=16384$.
-Die erwartete Anzahl Ausf"alle ist $np=3.2768$.
+Die erwartete Anzahl Ausfälle ist $np=3.2768$.
 \item
-Ausf"alle von einzelnen Zellen in 20000 Jahren sind offenbar seltene Ereignisse,
-die mit der Poissonverteilung modelliert werden k"onnen.
+Ausfälle von einzelnen Zellen in 20000 Jahren sind offenbar seltene Ereignisse,
+die mit der Poissonverteilung modelliert werden können.
 In der vorangegangenen Teilaufgabe wurde der Erwartungswert der Anzahl
-der Ausf"alle zu $\lambda = 3.2768$ ermittelt, dies ist auch der Parameter
+der Ausfälle zu $\lambda = 3.2768$ ermittelt, dies ist auch der Parameter
 der Poisson-Verteilung.
-Die Wahrscheinlichkeit f"ur h"ochstens drei ausgefallene Bits ist
+Die Wahrscheinlichkeit für höchstens drei ausgefallene Bits ist
 \begin{align*}
 P(k\le 3)&=e^{-\lambda}\sum_{k=0}^3\frac{\lambda^k}{k!}
 \\
@@ -102,10 +102,10 @@ P(k\le 3)&=e^{-\lambda}\sum_{k=0}^3\frac{\lambda^k}{k!}
 
 \begin{bewertung}
 Exponentialverteilung ({\bf E}) 1 Punkt,
-Wert f"ur $a$ ({\bf A}) 1 Punkt,
+Wert für $a$ ({\bf A}) 1 Punkt,
 Halbwertszeit ({\bf H}) 1 Punkt,
-Ausfallwahrscheinlichkeit f"ur 20000 Jahre ({\bf L}) 1 Punkt,
+Ausfallwahrscheinlichkeit für 20000 Jahre ({\bf L}) 1 Punkt,
 Ausfallwahrscheinlichkeit in $8*2048$ bits ({\bf F}) 1 Punkt,
-Ausfallwahrscheinlichkeit f"ur drei bits ({\bf D}) 1 Punkt.
+Ausfallwahrscheinlichkeit für drei bits ({\bf D}) 1 Punkt.
 \end{bewertung}
 

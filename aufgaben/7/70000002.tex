@@ -1,21 +1,21 @@
-Auf einem Autobahnteilst"uck fanden in den letzten Jahren
+Auf einem Autobahnteilstück fanden in den letzten Jahren
 \[
 4, 7, 3, 7, 5, 4, 8, 6, 6, 4
 \]
-t"odliche Unf"alle statt.
-Wie gross ist die Wahrscheinlichkeit, dass im n"achsten Jahr
-weniger t"odliche Unf"alle passieren wie in jedem Vorjahr?
-Wie wahrscheinlich ist, dass so viele Unf"alle wie noch nie
+tödliche Unfälle statt.
+Wie gross ist die Wahrscheinlichkeit, dass im nächsten Jahr
+weniger tödliche Unfälle passieren wie in jedem Vorjahr?
+Wie wahrscheinlich ist, dass so viele Unfälle wie noch nie
 passieren?
 
 \begin{loesung}
 Die Unfallzahlen sind poissonverteilt.
 Der Parameter $\lambda$ ist gleichzeitig der Erwartunsgwert, also
-ist der Mittelwert ein konsistenter und erwartungstreuer Sch"atzer
-f"ur $\lambda$. der Mittelwert der vorliegenden Zahlen ist $\lambda=5.4$.
+ist der Mittelwert ein konsistenter und erwartungstreuer Schätzer
+für $\lambda$. der Mittelwert der vorliegenden Zahlen ist $\lambda=5.4$.
 
 Diesen $\lambda$-Wert kann man jetzt verwenden, um mit der Poissonverteilung
-die Wahrscheinlichkeit zu sch"atzen:
+die Wahrscheinlichkeit zu schätzen:
 \begin{align*}
 P(k<3)&=
 P_\lambda(0)
@@ -34,12 +34,12 @@ e^{-\lambda}\frac{\lambda^2}{2!}
 &=
 e^{-\lambda}\biggl(1+\lambda+\frac{\lambda^2}{2}\biggr)
 \end{align*}
-Setzt man darin den Wert $\lambda=5.4$ ein, erh"alt man
+Setzt man darin den Wert $\lambda=5.4$ ein, erhält man
 \[
 P(k<3)=e^{-5.4}(1+5.4+5.4^2/2)=0.004516581\cdot 20.98= 0.0948.
 \]
-F"ur die zweite Frage muss die Verteilungsfunktion f"ur die
-Poissonverteilung f"ur $x=8$ ausgewerte werden, also
+Für die zweite Frage muss die Verteilungsfunktion für die
+Poissonverteilung für $x=8$ ausgewerte werden, also
 \[
 P(k>8)=
 1-e^{-\lambda}\biggl(

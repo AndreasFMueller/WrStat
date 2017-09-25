@@ -1,7 +1,7 @@
 Bei einem Positionsbestimmungssystem eines Roboters sendet ein rotierender
-Laserstrahl regelm"assig einen Impuls zu einem am Rande des Spielfeldes
-stehenden Empf"anger, der daraus die $x$-Koordinaten bestimmen kann,
-wobei nat"urlich auch ein Messfehler entsteht.
+Laserstrahl regelmässig einen Impuls zu einem am Rande des Spielfeldes
+stehenden Empfänger, der daraus die $x$-Koordinaten bestimmen kann,
+wobei natürlich auch ein Messfehler entsteht.
 Da sich der Roboter auch drehen kann, ist die Zeit zwischen den Impulsen
 nicht immer gleich, und manchmal wird der Laser auch von Hindernissen, zum
 Beispiel von anderen Robotern verdeckt. Folgende Werte wurden gemessen
@@ -17,11 +17,11 @@ $t$&$x$\\
 \hline
 \end{tabular}
 \end{center}
-Geben sie die bestm"ogliche Sch"atzung an f"ur den Zeitpunkt,
-zu dem der Roboter die Marke $x=0$ "uberquert hat.
+Geben sie die bestmögliche Schätzung an für den Zeitpunkt,
+zu dem der Roboter die Marke $x=0$ überquert hat.
 
 \begin{loesung}
-Die bestm"ogliche Sch"atzung f"ur die Bewegung des Roboters erh"alt
+Die bestmögliche Schätzung für die Bewegung des Roboters erhält
 man mit linearer Regression.
 \begin{center}
 \begin{tabular}{|c|rr|rr|r|}
@@ -37,7 +37,7 @@ $i$&$t_i$&$x_i$&$t_i^2$&$x_i^2$&$t_ix_i$\\
 \hline
 \end{tabular}
 \end{center}
-Aus den Formeln f"ur die Koeffizienten der Regressionsgeraden finden
+Aus den Formeln für die Koeffizienten der Regressionsgeraden finden
 wir
 \begin{align*}
 a&=\frac{4\cdot 4 -9\cdot(-5)}{4\cdot 35-9^2}=\frac{61}{59}
@@ -51,8 +51,8 @@ b&=\frac14\cdot (-5)-a\frac14\cdot 9
 \simeq
 -3.57627
 \end{align*}
-Die beste Sch"atzung ist also der Wert von $t$, der
-$at+b=0$ erf"ullt, also
+Die beste Schätzung ist also der Wert von $t$, der
+$at+b=0$ erfüllt, also
 \[
 t=-\frac{b}{a}=\frac{844}{236}\cdot\frac{59}{61}
 =\frac{844}{4\cdot 61}=\frac{844}{244}
@@ -60,7 +60,7 @@ t=-\frac{b}{a}=\frac{844}{236}\cdot\frac{59}{61}
 \simeq 3.459016
 \]
 Man kann die Regression auch mit vertauschten Rollen von $t$ und $x$
-durchf"uhren, was f"ur die sp"ater verlangte Berechnung von $t$
+durchführen, was für die später verlangte Berechnung von $t$
 einfacher ist, aber ein leicht anderes Resultat ergibt. In diesem
 Fall sind die Koeffizienten $a$ und $b$:
 \begin{align*}

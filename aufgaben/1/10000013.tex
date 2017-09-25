@@ -1,26 +1,26 @@
-In einer etwas limitierten Programmiersprache k"onnen Variablennamen
+In einer etwas limitierten Programmiersprache können Variablennamen
 mit maximal 5 Zeichen gebildet werden, wobei das erste Zeichen nur
 einer der 26 Kleinbuchstaben sein darf, die folgenden hingegen Kleinbuchstaben
 oder Ziffern (Zeichenwiederholung ist erlaubt).
 \begin{teilaufgaben}
 \item
-Wie viele Variablennamen mit genau 5 Zeichen k"onnen gebildet werden?
+Wie viele Variablennamen mit genau 5 Zeichen können gebildet werden?
 \item
-Wie viele M"oglichkeiten bestehen insgesamt, Variablennamen zu bilden?
+Wie viele Möglichkeiten bestehen insgesamt, Variablennamen zu bilden?
 \item
-Wie "andert sich die Variablenanzahl in Frage a),
+Wie ändert sich die Variablenanzahl in Frage a),
 wenn Zeichenwiederholungen nicht erlaubt sind?
 \end{teilaufgaben}
 
 \begin{loesung}
 \begin{teilaufgaben}
-\item Die hinteren vier Zeichen k"onnen aus insgesamt 36 Zeichen ausgew"ahlt
+\item Die hinteren vier Zeichen können aus insgesamt 36 Zeichen ausgewählt
 werden, dies ist eine wiederholte Auswahl, daher ist die gesuchte Anzahl
 \[
 26\cdot 36^4=43670016.
 \]
 \item 
-Wir m"ussen das Resultat von a) f"ur alle Variablenl"angen verallgemeinern
+Wir müssen das Resultat von a) für alle Variablenlängen verallgemeinern
 und addieren:
 \[
 26
@@ -53,10 +53,10 @@ Jede Teilaufgabe zwei Punkte.
 \end{bewertung}
 
 \begin{diskussion}
-In den ersten Unix-Versionen war die L"ange von Identifiern im Assembler
+In den ersten Unix-Versionen war die Länge von Identifiern im Assembler
 auf 6 Zeichen limitiert. Der C-Compiler hat zudem allen von ihm 
-erzeugten Symbolen einen Unterstrich vorangestellt, so dass nur f"unf
-Zeichen tats"achlich benutzt wurden. Im Unterschied zur Aufgabe
+erzeugten Symbolen einen Unterstrich vorangestellt, so dass nur fünf
+Zeichen tatsächlich benutzt wurden. Im Unterschied zur Aufgabe
 waren die Namen in Unix aber case sensitive, Grossbuchstaben waren erlaubt,
 und wurden unterschieden.
 \end{diskussion}

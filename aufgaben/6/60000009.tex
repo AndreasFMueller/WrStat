@@ -1,38 +1,38 @@
-Ein Dreik"onigskuchen besteht aus mehreren Teilen, von denen genau einer 
+Ein Dreikönigskuchen besteht aus mehreren Teilen, von denen genau einer 
 eine kleine
-K"onigsfigur enth"alt. Ein B"acker will sich die Arbeit vereinfachen, und
-f"ugt die K"onigsfiguren bereits beim Mischen des Teigs hinzu,
-wobei er nat"urlich das Risiko eingeht, dass einzelne Kuchen mehrere oder
-gar keine K"onigsfiguren enthalten. Nehmen Sie an, dass der B"acker Teig
-f"ur $n$ K"onigskuchen mit je 10 Teilen mischt.
+Königsfigur enthält. Ein Bäcker will sich die Arbeit vereinfachen, und
+fügt die Königsfiguren bereits beim Mischen des Teigs hinzu,
+wobei er natürlich das Risiko eingeht, dass einzelne Kuchen mehrere oder
+gar keine Königsfiguren enthalten. Nehmen Sie an, dass der Bäcker Teig
+für $n$ Königskuchen mit je 10 Teilen mischt.
 \begin{teilaufgaben}
-\item Wie gross ist die Wahrscheinlichkeit, dass jeder Dreik"onigskuchen genau
-eine K"onigsfigur enth"alt?
-\item Wie gross ist die Wahrscheinlichkeit, dass ein Dreik"onigskuchen gar
-keine K"onigsfigur enth"alt?
+\item Wie gross ist die Wahrscheinlichkeit, dass jeder Dreikönigskuchen genau
+eine Königsfigur enthält?
+\item Wie gross ist die Wahrscheinlichkeit, dass ein Dreikönigskuchen gar
+keine Königsfigur enthält?
 \item Wie gross ist die Wahrscheinlichkeit, dass der erste von
-10 Dreik"onigskuchen zwei oder mehr K"onigsfiguren enth"alt?
-\item Wie gross ist die Wahrscheinlichkeit, dass in einem Dreik"onigskuchen,
-welcher zwei K"onigsfiguren enth"alt, ein Teil
-beide K"onigsfiguren enth"alt?
+10 Dreikönigskuchen zwei oder mehr Königsfiguren enthält?
+\item Wie gross ist die Wahrscheinlichkeit, dass in einem Dreikönigskuchen,
+welcher zwei Königsfiguren enthält, ein Teil
+beide Königsfiguren enthält?
 \end{teilaufgaben}
 
 \begin{loesung}
 \begin{teilaufgaben}
-\item Es gibt $n^n$ Zuteilungen von K"onigsfiguren zu K"onigskuchen.
-Davon sind $n!$ Zuteilungen, welche jedem Dreik"onigskuchen genau eine
-K"onigsfigur zuteilt, die K"onige also nur ihre ``K"onigreiche''
-vertauscht haben. Die Wahrscheinlichkeit, dass jeder Dreik"onigskuchen
-genau eine K"onigsfigur enth"alt, ist also
+\item Es gibt $n^n$ Zuteilungen von Königsfiguren zu Königskuchen.
+Davon sind $n!$ Zuteilungen, welche jedem Dreikönigskuchen genau eine
+Königsfigur zuteilt, die Könige also nur ihre ``Königreiche''
+vertauscht haben. Die Wahrscheinlichkeit, dass jeder Dreikönigskuchen
+genau eine Königsfigur enthält, ist also
 $\frac{n!}{n^n}$.
-\item Wenn ein Dreik"onigskuchen keine K"onigsfigur enth"alt, dann muss
-ein anderer mehr als eine K"onigsfigur enthalten.
-Jeder der Dreik"onigskuchen enth"alt genau dann genau eine K"onigsfigur, wenn
-kein Dreik"onigskuchen keine K"onigsfigur enth"alt, also $1-\frac{n!}{n^n}$.
+\item Wenn ein Dreikönigskuchen keine Königsfigur enthält, dann muss
+ein anderer mehr als eine Königsfigur enthalten.
+Jeder der Dreikönigskuchen enthält genau dann genau eine Königsfigur, wenn
+kein Dreikönigskuchen keine Königsfigur enthält, also $1-\frac{n!}{n^n}$.
 \item Die Wahrscheinlichkeit, dass der erste von $n$ Kuchen genau $k$
-enth"alt ist binomialverteilt mit $p=\frac1{n}$. Man kann sich n"amlich
-vorstellen, dass das ``Einstreuen'' der K"onigsfiguren ein Experiment
-mit zwei m"oglichen Ausg"angen ist: ``Figur ist im ersten Kuchen drin''
+enthält ist binomialverteilt mit $p=\frac1{n}$. Man kann sich nämlich
+vorstellen, dass das ``Einstreuen'' der Königsfiguren ein Experiment
+mit zwei möglichen Ausgängen ist: ``Figur ist im ersten Kuchen drin''
 bzw.~``Figur ist in einem anderen Kuchen drin''. Somit ist zu bestimmen
 \begin{align*}
 P(K\ge 2)
@@ -59,31 +59,31 @@ P(K\ge 2)
 &=
 1 - \biggl(\frac{2n-1}{n}\biggr) \biggl(\frac{n-1}{n}\biggr)^{n-1}.
 \end{align*}
-F"ur $n=10$ findet man:
+Für $n=10$ findet man:
 \[
 1-\frac{19}{10}\biggl(\frac{9}{10}\biggr)^9
 =
 0.2639010709.
 \]
-\item Es gibt $10^2$ M"oglichkeiten, zwei K"onigsfiguren auf 10 Teile
-zu verteilen, bei $10$ davon sind die beiden K"onigsfiguren im gleichen
+\item Es gibt $10^2$ Möglichkeiten, zwei Königsfiguren auf 10 Teile
+zu verteilen, bei $10$ davon sind die beiden Königsfiguren im gleichen
 Teil. Die Wahrscheinlichkeit ist also $\frac1{10}$.
 
-Oder: der ``erste'' K"onig markiert ein Teil, und wir m"ussen jetzt
-die Wahrscheinlichkeit bestimmen, dass der ``zweite'' K"onig in
-das gleiche Teil kommt. Diese ist nat"urlich $\frac1{10}$.
+Oder: der ``erste'' König markiert ein Teil, und wir müssen jetzt
+die Wahrscheinlichkeit bestimmen, dass der ``zweite'' König in
+das gleiche Teil kommt. Diese ist natürlich $\frac1{10}$.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}
 
 \begin{diskussion}
-Mit Hilfe der Stirling-Formel kann man die Wahrscheinlichkeit absch"atzen:
+Mit Hilfe der Stirling-Formel kann man die Wahrscheinlichkeit abschätzen:
 \[
 \frac{n!}{n^n}
 =
-\sqrt{2\pi n}\frac1{e^n}\to0\quad\text{f"ur}\quad n\to\infty.
+\sqrt{2\pi n}\frac1{e^n}\to0\quad\text{für}\quad n\to\infty.
 \]
-Die Wahrscheinlichkeit, dass jeder Dreik"onigskuchen genau eine K"onigsfigur
-enth"alt, wird also immer kleiner, je gr"osser die Anzahl der Kuchen wird.
+Die Wahrscheinlichkeit, dass jeder Dreikönigskuchen genau eine Königsfigur
+enthält, wird also immer kleiner, je grösser die Anzahl der Kuchen wird.
 \end{diskussion}
 

@@ -1,12 +1,12 @@
 Die Ladung eines Raketenmotors vom Typ J570W besteht aus 9 zylindrischen
-Treibstoffbl"ocken, den sogenannten Grains,
-die je 99g Treibstoff enthalten. Zur Vereinfachung der Qualit"atssicherung
-m"ochte man jetzt statt jedes einzelne Grain nur noch das Gesamtpaket
+Treibstoffblöcken, den sogenannten Grains,
+die je 99g Treibstoff enthalten. Zur Vereinfachung der Qualitätssicherung
+möchte man jetzt statt jedes einzelne Grain nur noch das Gesamtpaket
 aus 9 Grains
-w"agen. Die Messungen zeigen, dass die Mittelwerte recht gut eingehalten
-werden, im Mittel enth"alt ein Grain 98g Treibstoff (die gesetzlich erlaubte
-Abweichung ist viel gr"osser), und die Standardabweichung eines Pakets
-ist 10g. Welcher Prozentsatz aller Grains enth"alt mehr als 100g Treibstoff?
+wägen. Die Messungen zeigen, dass die Mittelwerte recht gut eingehalten
+werden, im Mittel enthält ein Grain 98g Treibstoff (die gesetzlich erlaubte
+Abweichung ist viel grösser), und die Standardabweichung eines Pakets
+ist 10g. Welcher Prozentsatz aller Grains enthält mehr als 100g Treibstoff?
 
 \begin{loesung}
 Die Treibstoffmenge ist eine normalverteilte Zufallsvariable $X_i$
@@ -24,8 +24,8 @@ eines Paketes ist
 \[
 E(X_1+\dots+X_9)=9E(X)=9\mu=9\cdot 98\text{g} = 882\text{g}.
 \]
-Die Wahscheinlichkeit daf"ur, dass ein Grain mehr als 100g Treibstoff
-enth"alt, kann jetzt mit der Normalverteilung berechnet werden:
+Die Wahscheinlichkeit dafür, dass ein Grain mehr als 100g Treibstoff
+enthält, kann jetzt mit der Normalverteilung berechnet werden:
 \begin{align*}
 P(X>100\text{g})
 &=
@@ -39,9 +39,9 @@ P(Z > 0.6)
 \end{align*}
 wobei $Z$ die standardnormalverteilte Zufallsvariable $(X-\mu)/\sigma$ ist.
 Die
-Verteilungsfunktion der Standardnormalverteilung hat gem"ass
+Verteilungsfunktion der Standardnormalverteilung hat gemäss
 Tabelle bei $0.6$
-den Wert $0.7257$, die Wahrscheinlichkeit f"ur einen Wert gr"osser
+den Wert $0.7257$, die Wahrscheinlichkeit für einen Wert grösser
 als $0.6$ ist also $0.2743$, mehr als 27\% der Grains haben mehr
 als 100g Treibstoff.
 \end{loesung}

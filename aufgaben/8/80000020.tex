@@ -1,19 +1,19 @@
-David Jones hat in seinem EEVblog auf Youtube 400 1k$\Omega$-Widerst"ande
-nachgemessen um zu sehen, ob die Widerstandswerte tats"achlich normalverteilt
-sind. Seine Rohdaten hat er f"ur diese "Ubungsaufgabe im File
-\verb+resistors.csv+ zur Verf"ugung gestellt.
+David Jones hat in seinem EEVblog auf Youtube 400 1k$\Omega$-Widerstände
+nachgemessen um zu sehen, ob die Widerstandswerte tatsächlich normalverteilt
+sind. Seine Rohdaten hat er für diese "Ubungsaufgabe im File
+\verb+resistors.csv+ zur Verfügung gestellt.
 \begin{teilaufgaben}
 \item Welchen mittleren Widerstandswert und welche Streuung ist auf Grund
 der Messungen zu erwarten?
 \item Wie gross ist die Wahrscheinlichkeit, dass der Wert eines Widerstandes
 aus dieser Charge mehr als 0.5\% vom Nennwert abweicht?
-\item Wieviele von 1000000 Widerst"anden weichen um mehr als 1\% vom
+\item Wieviele von 1000000 Widerständen weichen um mehr als 1\% vom
 Nennwert ab?
 \item Kann man davon ausgehen, dass die Widerstandswerte normalverteilt sind?
 \end{teilaufgaben}
 
 \begin{loesung}
-Die L"osung dieser Aufgabe mit {\tt R} ist im File {\tt eevblogresistors.R}
+Die Lösung dieser Aufgabe mit {\tt R} ist im File {\tt eevblogresistors.R}
 zu finden, die einzelnen Schritte werden im Folgenden diskutiert.
 \begin{figure}
 \begin{center}
@@ -37,11 +37,11 @@ ist die Wahrscheinlichkeit
 $1-P(995 < X \le 1005)$ gesucht.
 Diese kann mit der Funktion {\tt pnorm} berechnet werden:
 \verbatimainput{pnorm.txt}
-Die Wahrscheinlichkeit f"ur dieses Ereignis ist also $0.0032768$.
+Die Wahrscheinlichkeit für dieses Ereignis ist also $0.0032768$.
 \item
 Die Wahrscheinlichkeit $1-P(990 < X \le 1010)$ ist 
 \verbatimainput{pnorm2.txt}
-die erwartete Anzahl von Widerst"anden ist also
+die erwartete Anzahl von Widerständen ist also
 $1000000 \cdot 4.9\cdot 10^{-9}=0.004$, eine Abweichung von mehr als 1\%
 kommt also praktisch nicht vor.
 \item
@@ -56,16 +56,16 @@ so klein ist, muss die Nullhypothese verworfen werden, man muss also davon
 ausgehen, dass keine Normalverteilung vorliegt.
 
 Der Shapiro-Wilk-Test, der darauf spezialisiert ist, Daten auf Normalverteilung
-zu testen, best"atigt dies mit einem ebenfalls sehr kleinen $p$-Wert.
+zu testen, bestätigt dies mit einem ebenfalls sehr kleinen $p$-Wert.
 \verbatimainput{shapiro.txt}
 
-Die Ursache f"ur die Abweichung von der Normalverteilung ist in den Plots
+Die Ursache für die Abweichung von der Normalverteilung ist in den Plots
 \ref{80000020-ecdf} und \ref{80000020-qq} zu
 sehen. In der Mitte der empirischen Verteilungsfunktion sieht man, dass
 ziemlich genau eine Normalverteilung vorliegt, aber mit deutlich
 geringerer Varianz.
-F"ur diese ``schmalere'' Normalverteilung gibt es aber in den Daten
-zu viele st"arker abweichenden Werte.
+Für diese ``schmalere'' Normalverteilung gibt es aber in den Daten
+zu viele stärker abweichenden Werte.
 \end{teilaufgaben}
 \end{loesung}
 

@@ -1,27 +1,27 @@
 Beim Spiel ``Eile mit Weile'' wird in jeder Runden nach folgenden Regeln
 verfahren.
-W"urfelt man eine Zahl zwischen 1 und 5, darf man mit der Spielfigur
-um eine entsprechende Zahl Felder vorw"arts. W"urfelt man dagegen
-eine 6, darf man 12 Felder vorr"ucken, und nochmals nach den
-gleichen Regeln w"urfeln. W"urfelt man aber dreimal hintereinander
+Würfelt man eine Zahl zwischen 1 und 5, darf man mit der Spielfigur
+um eine entsprechende Zahl Felder vorwärts. Würfelt man dagegen
+eine 6, darf man 12 Felder vorrücken, und nochmals nach den
+gleichen Regeln würfeln. Würfelt man aber dreimal hintereinander
 eine 6, wird man damit bestraft, dass man auf die Startposition
-zur"uck muss, man kommt also nicht weiter.
+zurück muss, man kommt also nicht weiter.
 \begin{teilaufgaben}
-\item Sei $N$ das Ereignis, ``normal'' zu W"urfeln, also alles ausser drei
-Sechser. $Z$ sei dagegen das Ereignis, 3 Sechser zu w"urfeln. Wie gross
+\item Sei $N$ das Ereignis, ``normal'' zu Würfeln, also alles ausser drei
+Sechser. $Z$ sei dagegen das Ereignis, 3 Sechser zu würfeln. Wie gross
 sind die Wahrscheinlichkeiten von $N$ und $Z$.
 \item Wie weit kommt man pro Runde im Mittel?
 \item Wie wahrscheinlich ist, dass man in 10 Runden mindestens einmal
-ganz an den Anfang zur"uck musste?
-\item Wie viele Runden m"ussen gespielt werden, damit die Wahrscheinlichkeit,
-dass man im Laufe des Spieles auf den Anfang zur"uck musste, gr"osser als 50\%
+ganz an den Anfang zurück musste?
+\item Wie viele Runden müssen gespielt werden, damit die Wahrscheinlichkeit,
+dass man im Laufe des Spieles auf den Anfang zurück musste, grösser als 50\%
 wird?
 \item Wie weit ist man im Schnitt nach vier Runden?
 \item Bonusfrage: Wie weit ist man im Schnitt nach $n$ Runden?
 \end{teilaufgaben}
 
 \begin{loesung}
-Es sind folgende Ereignisse m"oglich
+Es sind folgende Ereignisse möglich
 \begin{center}
 \begin{tabular}{|ccc|c|r|r|r|}
 \hline
@@ -44,7 +44,7 @@ Es sind folgende Ereignisse m"oglich
 6&6&3&$\frac1{6^3} $&$12+12+1=27$&$               \frac{ 27}{6^3}$&$\frac{  729}{6^3}$\\
 6&6&4&              &$12+12+1=28$&$               \frac{ 28}{6^3}$&$\frac{  784}{6^3}$\\
 6&6&5&              &$12+12+1=29$&$               \frac{ 29}{6^3}$&$\frac{  841}{6^3}$\\
-6&6&6&              &zur"uck     &                                &                   \\
+6&6&6&              &zurück     &                                &                   \\
 \hline
  & & &              &            &$\frac{1125}{6^3}=\frac{1125}{216}$
                                                                   &$\frac{12445}{6^3}=\frac{12445}{216}$\\
@@ -52,11 +52,11 @@ Es sind folgende Ereignisse m"oglich
 \end{tabular}
 \end{center}
 \begin{teilaufgaben}
-\item Aus der Tabelle liest man die Wahrscheinlichkeit f"ur $Z$ in der letzten
+\item Aus der Tabelle liest man die Wahrscheinlichkeit für $Z$ in der letzten
 Zeile ab: $P(Z)=\frac1{216}$. Da $Z\cup N=\Omega$ ist
 $P(N)=1-P(Z)=\frac{215}{216}=0.9953704$.
 \item
-Erwartungswert und Varianz der Anzahl Felder, um die man in einer Runde vorr"ucken kann,
+Erwartungswert und Varianz der Anzahl Felder, um die man in einer Runde vorrücken kann,
 kann man wie folgt daraus berechnen:
 \begin{align*}
 E(X)
@@ -70,10 +70,10 @@ E(X)
 \sqrt{\operatorname{var}(X)}&\simeq 5.522
 \end{align*}
 \item
-Die Wahrscheinlichkeit, in einer Runde nicht an den Anfang zur"uck
-zu m"ussen ist $P(N)$. Die Wahrscheinlichkeit, dass man dieses
-Gl"uck in 10 Runden jedes mal hat, ist $P(N)^{10}$. Die Wahrscheinlichkeit,
-mindestens einmal zur"uck zu m"ussen ist also $1-P(N)^{10}=0.04534360167$.
+Die Wahrscheinlichkeit, in einer Runde nicht an den Anfang zurück
+zu müssen ist $P(N)$. Die Wahrscheinlichkeit, dass man dieses
+Glück in 10 Runden jedes mal hat, ist $P(N)^{10}$. Die Wahrscheinlichkeit,
+mindestens einmal zurück zu müssen ist also $1-P(N)^{10}=0.04534360167$.
 \item
 Man muss $n$ finden so dass $1-P(N)^n>\frac12$, also
 \begin{align*}
@@ -85,18 +85,18 @@ Man beachte, dass die Richtung des Vergleichszeichens im zweitletzten Schritt
 in der zweitletzten  Schritt kehrt, weil $\log P(N) < 0$. Man muss also mindestens
 150 Runden spielen.
 \item
-G"abe es die Regel nicht, dass man nach drei Sechsern zur"uck muss,
-w"are die gesuchte Gr"osse einfach $4 E(X)$. Da man aber
-jederzeit ``zur"uckgeworfen'' werden kann, kommt es nur darauf an,
-wie viele ``ungest"orte'' Runden man spielen konnte.
-Wir unterscheiden die Ereignisse $Z$, drei Sechser, zur"uck auf die
-Anfangsposition und $N$, normaler Wurf. Die Wahrscheinlichkeiten f"ur
+Gäbe es die Regel nicht, dass man nach drei Sechsern zurück muss,
+wäre die gesuchte Grösse einfach $4 E(X)$. Da man aber
+jederzeit ``zurückgeworfen'' werden kann, kommt es nur darauf an,
+wie viele ``ungestörte'' Runden man spielen konnte.
+Wir unterscheiden die Ereignisse $Z$, drei Sechser, zurück auf die
+Anfangsposition und $N$, normaler Wurf. Die Wahrscheinlichkeiten für
 die Ereignisse sind
 \begin{align*}
 P(Z)&= \frac1{216}\\
 P(N)&= 1-P(Z)=\frac{6^3-1}{6^3}=\frac{215}{216}
 \end{align*}
-Dann sind folgende Szenarien m"oglich:
+Dann sind folgende Szenarien möglich:
 \begin{center}
 \begin{tabular}{|cccc|c|c|c|}
 \hline
@@ -126,11 +126,11 @@ E(S_4)
 &=
 P(Z)\biggl(\sum_{k=0}^3kP(N)^k\biggr)+4P(N)^4
 \end{align*}
-Allgemein f"ur $n$ Runden wird analog gelten
+Allgemein für $n$ Runden wird analog gelten
 \begin{align*}
 E(S_n)&=P(Z)\biggl(\sum_{k=0}^{n-1} kP(N)^k\biggr) + nP(N)^n
 \end{align*}
-F"ur die Reihe gilt mit der Abk"urzung $p=P(N)$
+Für die Reihe gilt mit der Abkürzung $p=P(N)$
 \begin{align*}
 \sum_{k=1}^{n-1}kp^k
 &=p\frac{d}{dp}\sum_{k=0}^{n-1}p^k
@@ -145,7 +145,7 @@ E(S_n)
 =\frac{p(1-p^n)}{1-p}
 \label{40000007:eile}
 \end{equation}
-F"ur $n=4$ und $p=\frac{215}{216}$ folgt
+Für $n=4$ und $p=\frac{215}{216}$ folgt
 $
 E(S_4)=
 3.9539175
@@ -153,12 +153,12 @@ $.
 \item Wurde in der vorangegangenen Teilaufgabe bereits
 beantwortet.
 \end{teilaufgaben}
-Die Formel (\ref{40000007:eile}) f"ur $E(S_n)$ ist etwas "uberraschend,
+Die Formel (\ref{40000007:eile}) für $E(S_n)$ ist etwas überraschend,
 sie bedeutet,
 dass man im ``Eile mit Weile'' nur schwer sehr grosse Distanzen
-erreichen kann. F"ur $n\to\infty$ strebt $E(S_n)$
+erreichen kann. Für $n\to\infty$ strebt $E(S_n)$
 wegen $p^n\to 0$ gegen den Wert $p/(1-p)=215$.  Und darin ist die
-M"oglichkeit, dass andere Mitspieler eine Spielfigur wieder auf den
-Anfang zur"ucksetzen k"onnen, noch gar nicht ber"ucksichtigt.
+Möglichkeit, dass andere Mitspieler eine Spielfigur wieder auf den
+Anfang zurücksetzen können, noch gar nicht berücksichtigt.
 \end{loesung}
 

@@ -6,7 +6,7 @@ rechnen?
 \item Berechnen Sie die Wahrscheinlichkeit, genau $k$ fehlerhafte Teile in einem
 Batch von 10000 Teilen zu finden sowohl mit der Poisson-Verteilung als auch
 mit der Binomialverteilung, und stellen Sie die Resultate in einer Tabelle
-f"ur $0\le k\le 7$
+für $0\le k\le 7$
 zusammen.
 \end{teilaufgaben}
 
@@ -14,12 +14,12 @@ zusammen.
 \begin{teilaufgaben}
 \item Die erwartete Anzahl von fehlerhaften Teilen ist
 $E(X)=np=10000\cdot 5\cdot10^{-4}=5$.
-\item F"ur die Poissonverteilung brauchen wir $\lambda=E(X)=5$.
+\item Für die Poissonverteilung brauchen wir $\lambda=E(X)=5$.
 Die Berechnung der Werte der Binomialverteilung ist nicht ganz trivial, weil
 die Zahl $n=10000$ sehr gross ist.
 Mit R ist die Berechnung allerdings einfach:
 \verbatimainput{code}
-Gegen"ubergestellt:
+Gegenübergestellt:
 \begin{center}
 \begin{tabular}{c|rr}
 $k$&$\binom{n}{k}p^k(1-p)^{n-k}$&$P_\lambda(k)$\\

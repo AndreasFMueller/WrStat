@@ -1,12 +1,12 @@
 Ein System soll Laboranten ihre Arbeit erleichtern und Pulver auf mg genau
-automatisch abw"agen.
-Zur Verf"ugung steht ein steuerbares Pulverf"orderungsger"at und eine Waage.
-Allerdings l"asst sich das Pulverf"orderungsger"at nicht sofort stoppen,
-es l"auft immer noch genau eine Sekunde weiter.
-Die F"orderungsgeschwindigkeit ist jedoch in jedem F"ordervorgang
-konstant, kann aber zwischen Vorg"angen und zwischen verschiedenen
-Pulvern varieren. Das Abw"agesystem misst daher laufend die bereits 
-gef"orderte Menge. Folgende Massen wurden gemessen:
+automatisch abwägen.
+Zur Verfügung steht ein steuerbares Pulverförderungsgerät und eine Waage.
+Allerdings lässt sich das Pulverförderungsgerät nicht sofort stoppen,
+es läuft immer noch genau eine Sekunde weiter.
+Die Förderungsgeschwindigkeit ist jedoch in jedem Fördervorgang
+konstant, kann aber zwischen Vorgängen und zwischen verschiedenen
+Pulvern varieren. Das Abwägesystem misst daher laufend die bereits 
+geförderte Menge. Folgende Massen wurden gemessen:
 \begin{center}
 \begin{tabular}{|>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -20,12 +20,12 @@ t\text{[s]}&m\text{[mg]}\\
 \hline
 \end{tabular}
 \end{center}
-Wann soll das F"orderger"at angehalten werden, um m"oglichst genau
-60\,mg des Pulvers abzuw"agen?
+Wann soll das Fördergerät angehalten werden, um möglichst genau
+60\,mg des Pulvers abzuwägen?
 
 \begin{loesung}
-Mit linearer Regression kann der lineare Zusammenhang zwischen der F"orderzeit
-$t$ und der F"ordermenge $m$ gefunden werden. Dazu m"ussen verschiedene Summen
+Mit linearer Regression kann der lineare Zusammenhang zwischen der Förderzeit
+$t$ und der Fördermenge $m$ gefunden werden. Dazu müssen verschiedene Summen
 von Werten von $t$ und $m$ und ihren Produkten gebildet werden.
 \begin{center}
 \begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
@@ -52,14 +52,14 @@ a&=\frac{n\sum tm -\sum t\sum m}{n\sum t^2-(\sum t)^2}
 b&=\frac15\sum m-a\frac15\sum t
 =\frac15\cdot 103-9.5\cdot \frac15\cdot 10=1.6
 \end{align*}
-Die beste Approximation f"ur $m$ ist also $m=9.5t+1.6$. Um die Masse
-60mg zu erreichen, muss der F"ordermechanismus zur Zeit $t$ aufh"oren
-zu f"ordern, also wenn
+Die beste Approximation für $m$ ist also $m=9.5t+1.6$. Um die Masse
+60mg zu erreichen, muss der Fördermechanismus zur Zeit $t$ aufhören
+zu fördern, also wenn
 \begin{align*}
 60&=9.5t+1.6\\
 t&=6.147
 \end{align*}
-Da der F"ordermechanismus jeweils noch eine Sekunde weiterl"auft, muss
+Da der Fördermechanismus jeweils noch eine Sekunde weiterläuft, muss
 er zur Zeit $t=5.147\text{s}$ angehalten werden.
 \end{loesung}
 

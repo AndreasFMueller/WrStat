@@ -1,13 +1,13 @@
-Ein Ingenieur hat die Idee, ein Autofocus-System f"ur unendlich weit
-entfernte punktf"ormige
+Ein Ingenieur hat die Idee, ein Autofocus-System für unendlich weit
+entfernte punktförmige
 Lichtquellen (Sterne) nach folgendem Prinzip zu bauen.
 Solange das System nicht scharf gestellt ist,
-ist das Bild des Sterns eine Kreisfl"ache.
+ist das Bild des Sterns eine Kreisfläche.
 Mit einem Schrittmotor kann das Objektiv bewegt werden, wodurch der Kreis
-seinen Durchmesser ver"andert. Die Messung des Durchmessers ist 
-nat"urlich mit einem Fehler behaftet (Pixelgr"osse des CCD Sensors,
+seinen Durchmesser verändert. Die Messung des Durchmessers ist 
+natürlich mit einem Fehler behaftet (Pixelgrösse des CCD Sensors,
 Luftunruhe).
-F"ur verschiedene Positionen des Schrittmotors misst man folgende
+Für verschiedene Positionen des Schrittmotors misst man folgende
 Durchmesser:
 \begin{center}
 \begin{tabular}{|c|c|}
@@ -28,7 +28,7 @@ Welche Schrittmotorposition soll angefahren werden, um Scharfstellung
 Man kann davon ausgehen, dass der Zusammenhang zwischen Durchmesser
 des Bildes und der Position des Objektivs linear ist, dies ist der
 Strahlensatz. Wir bezeichnen die Position mit $x$ und den Durchmesser
-mit $y$ und suchen eine bestm"ogliche Approximation $y=ax+b$ mit
+mit $y$ und suchen eine bestmögliche Approximation $y=ax+b$ mit
 Hilfe linearer Regression. Dazu muss man die Summen der Messwerte und
 ihrer Quadrate und Produkte ermitteln.
 \begin{center}
@@ -45,7 +45,7 @@ $i$&$x_i$&$y_i$&$x_i^2$&$y_i^2$&$x_iy_i$\\
 \hline
 \end{tabular}
 \end{center}
-Aus den Formeln f"ur die lineare Regression findet man jetzt die
+Aus den Formeln für die lineare Regression findet man jetzt die
 Koeffizienten $a$ und $b$:
 \begin{align*}
 a&=\frac{
@@ -62,7 +62,7 @@ b&=\frac14\sum_{i=1}^4y_i-a\frac14\sum_{i=1}^4x_i
 =14 - a\cdot 25=28
 \end{align*}
 Die optimale lineare Approximation ist also $y=28-0.56x$.
-Fokus bedeutet Durchmesser $y=0$, dies wird f"ur die Schrittmotorposition
+Fokus bedeutet Durchmesser $y=0$, dies wird für die Schrittmotorposition
 $x_f$ erreicht:
 \[
 ax_f+b=0\quad\Rightarrow\quad x_f=-\frac{b}{a}=\frac{28}{0.56}=50

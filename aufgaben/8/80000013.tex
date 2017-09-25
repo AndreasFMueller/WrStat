@@ -1,50 +1,50 @@
-In j"ungster Zeit ist die Diskussion dar"uber erneut entbrannt,
-ob Frauenquoten n"otig sind. Verwendet man Quoten, um den Frauenanteil
-zu heben, dann muss man der Gleichberechtigung halber auch M"annerquoten
-definieren. Nat"urlich m"ussten sich solche Quoten nach der Zahl der
-verf"ugbaren Kandidaten beider Geschlechter richten, man kann ja nur
+In jüngster Zeit ist die Diskussion darüber erneut entbrannt,
+ob Frauenquoten nötig sind. Verwendet man Quoten, um den Frauenanteil
+zu heben, dann muss man der Gleichberechtigung halber auch Männerquoten
+definieren. Natürlich müssten sich solche Quoten nach der Zahl der
+verfügbaren Kandidaten beider Geschlechter richten, man kann ja nur
 schwer Positionen mit Frauen besetzen, wenn es keine qualifizierten
-Kandidatinnen daf"ur gibt.
+Kandidatinnen dafür gibt.
 \begin{teilaufgaben}
-\item Das Problem beginnt nat"urlich schon in der Ausbildung. Im Modul
+\item Das Problem beginnt natürlich schon in der Ausbildung. Im Modul
 WrStat an der HSR sind 74 Personen eingeschrieben, davon 4 Frauen.
-W"urde man aus
-der Bev"olkerung zuf"allig 74 Personen ausw"ahlen, wie wahrscheinlich
-w"are es, vier Frauen oder weniger zu w"ahlen?
+Würde man aus
+der Bevölkerung zufällig 74 Personen auswählen, wie wahrscheinlich
+wäre es, vier Frauen oder weniger zu wählen?
 \item Eine Firma muss $n$ Stellen neu besetzen und wir nehmen an, dass die
-Bef"ahigung vom Geschlecht nicht abh"angt,
-und dass unter den f"ahigen Kandidaten gleich viele Frauen wie M"anner
+Befähigung vom Geschlecht nicht abhängt,
+und dass unter den fähigen Kandidaten gleich viele Frauen wie Männer
 vorhanden sind. Wie gross muss die Abweichung der Anzahl Frauen von
 $\frac{n}2$ sein, damit wir der Firma mit ziemlicher Sicherheit ($\alpha=1\%$)
-Sexismus vorwerfen k"onnen?
+Sexismus vorwerfen können?
 \item
-Wieviele Frauen m"ussen in ein $n=10$-k"opfiges
-Gremium gew"ahlt werden, damit sich die Firma vor dem Vorwurf des
-Seximus sch"utzen kann?
-\item Eine Quote ist nur sinnvoll, wenn sie den tats"achlich zur
-Verf"ugung stehenden Kandidaten Rechnung tr"agt.
+Wieviele Frauen müssen in ein $n=10$-köpfiges
+Gremium gewählt werden, damit sich die Firma vor dem Vorwurf des
+Seximus schützen kann?
+\item Eine Quote ist nur sinnvoll, wenn sie den tatsächlich zur
+Verfügung stehenden Kandidaten Rechnung trägt.
 Sei $p$ die Wahrscheinlichkeit, dass ein in Frage kommender Kandidate
 eine Frau ist, und seien $n$ Stellen zu besetzen. Sei $F$ die
 Zahl der eingestellten Frauen.
-Damit die Quote weder f"ahige M"anner noch f"ahige Frauen bestraft,
+Damit die Quote weder fähige Männer noch fähige Frauen bestraft,
 muss die Quotenregelung so formuliert sein, dass der Frauenanteil nicht
-``zu weit'' von $np$ entfernt ist. Wieviel gr"osser als $np$ muss $F$
-sein, damit man der Firma vorwerfen kann, sie diskriminiere die M"anner?
+``zu weit'' von $np$ entfernt ist. Wieviel grösser als $np$ muss $F$
+sein, damit man der Firma vorwerfen kann, sie diskriminiere die Männer?
 Wieviel kleiner als $np$ muss $F$  sein, damit man ihr vorwerfen kann,
-sie diskriminiere die Frauen? Berechnen Sie diese Schranken f"ur
+sie diskriminiere die Frauen? Berechnen Sie diese Schranken für
 $n=10$ und $p=\frac13$.
 \end{teilaufgaben}
-{\it Bemerkung:} Schon die Fragestellung macht die m"oglicherweise falsche
+{\it Bemerkung:} Schon die Fragestellung macht die möglicherweise falsche
 Annahme, dass die Wahrscheinlichkeit
-$p$ konstant ist. Dies bedeutet n"amlich, dass man ein im Prinzip
+$p$ konstant ist. Dies bedeutet nämlich, dass man ein im Prinzip
 unbegrenztes Reservoir an Kandidaten hat, aus denen man Mitarbeiter
 rekrutieren kann. Oft ist aber bereits diese Annahme falsch: es ist
-denkbar, dass es f"ur eine Spezialistenfunktion nur wenige Kandidaten
+denkbar, dass es für eine Spezialistenfunktion nur wenige Kandidaten
 gibt.
 
 \begin{loesung}
 Die Anzahl Frauen ist in jedem Fall binomialverteilt.
-F"ur grosse $n$ kann die Binomialverteilung durch eine Normalverteilung
+Für grosse $n$ kann die Binomialverteilung durch eine Normalverteilung
 approximiert werden.
 \begin{teilaufgaben}
 \item
@@ -67,12 +67,12 @@ P\biggl( Z\le -\frac{70}{\sqrt{74}}\biggr)
 &=
 P(Z\le -7.6723)= 8.444\cdot 10^{-15}
 \end{align*}
-Vier Frauen auf 74 Studenten ist also h"ochstwahrscheinlich keine
-zuf"allige Auswahl.
+Vier Frauen auf 74 Studenten ist also höchstwahrscheinlich keine
+zufällige Auswahl.
 \item
-Wir verlangen, dass die Abweichung von einer parit"atischen
-Geschlechterverteilung so gross sein muss, dass sie zuf"allig nur
-mit Wahrscheinlichkeit $\alpha = 0.01$ eingetreten w"are, also
+Wir verlangen, dass die Abweichung von einer paritätischen
+Geschlechterverteilung so gross sein muss, dass sie zufällig nur
+mit Wahrscheinlichkeit $\alpha = 0.01$ eingetreten wäre, also
 $P(|F-\frac{n}2| >\Delta)=\alpha$, und verwenden wieder eine
 Normalapproximation mit $\mu=np$ und $\sigma^2=np(1-p)$.
 \begin{align*}
@@ -96,21 +96,21 @@ F\biggl(\frac{\Delta}{\sigma}\biggr)&=0.995\\
 \Rightarrow \Delta&\simeq 2.5758\sigma=2.5758\frac{ \sqrt{n}}2=1.2879\sqrt{n}
 \end{align*}
 \item
-F"ur $n=10$ folgt, dass die Abweichung gr"osser als $\Delta = 4.0477$ sein
-muss, es reicht also, eine Frau in das Gremium zu w"ahlen, die ber"uhmte
-Alibi-Frau. Allerdings ist die Verwendung der Normalapproximation f"ur
+Für $n=10$ folgt, dass die Abweichung grösser als $\Delta = 4.0477$ sein
+muss, es reicht also, eine Frau in das Gremium zu wählen, die berühmte
+Alibi-Frau. Allerdings ist die Verwendung der Normalapproximation für
 $n=10$ etwas gewagt. Man kann aber mit R auch die Wahrscheinlichkeit
-$P(F\le 1)$ f"ur $n=10$ ausrechnen. Man erh"alt $P(F\le 1)=0.01$, mit
+$P(F\le 1)$ für $n=10$ ausrechnen. Man erhält $P(F\le 1)=0.01$, mit
 einer Alibi-Frau schafft man es also auch in diesem Fall, sich vom
 Vorwurf des Seximus reinzuwaschen.
 \item
-Wir m"ussen zun"achst einen sinnvollen Wert von $\alpha$ festlegen. $\alpha$
+Wir müssen zunächst einen sinnvollen Wert von $\alpha$ festlegen. $\alpha$
 ist die Wahrscheinlichkeit, dass eine Firma, die bei der Stellenbesetzung
-versucht hat, m"oglichst nur auf die fachliche Qualifikation zu achten,
-per Zufall doch eine ``sexistische'' Besetzung erhalten hat. W"ahlt man
+versucht hat, möglichst nur auf die fachliche Qualifikation zu achten,
+per Zufall doch eine ``sexistische'' Besetzung erhalten hat. Wählt man
 also $\alpha$ gross, werden ``rechtschaffenen'' Firmen mit hoher
 Wahrscheinlichkeit ungerechtfertigterweise als sexistisch gebrandmarkt.
-W"ahlt man $\alpha$ allerdings zu klein, werden die Schranken derart weit,
+Wählt man $\alpha$ allerdings zu klein, werden die Schranken derart weit,
 dass die Quote jeden Sinn verliert.
 
 \begin{figure}
@@ -120,7 +120,7 @@ dass die Quote jeden Sinn verliert.
 \includeagraphics[width=0.49\hsize]{frauen-all.pdf}
 \end{tabular}
 \end{center}
-\caption{Frauenquoten f"ur $\alpha\in\{0.05,0.01, 0.001\}$.\label{frauen}}
+\caption{Frauenquoten für $\alpha\in\{0.05,0.01, 0.001\}$.\label{frauen}}
 \end{figure}
 
 \begin{figure}
@@ -130,12 +130,12 @@ dass die Quote jeden Sinn verliert.
 \caption{R-Programm zur Berechnung der Frauenquoten\label{quoten}}
 \end{figure}
 
-Wir suchen also Schranken $F_-$ und $F_+$ f"ur die Frauenzahl so, dass
+Wir suchen also Schranken $F_-$ und $F_+$ für die Frauenzahl so, dass
 $P(F<F_-)=\alpha$ und $P(F>F_+)=\alpha$. Dies kann man am einfachsten
-mit R durchf"uhren. Das Programm in Abbildung~\ref{quoten} berechnet die
-Graphiken in Abbildung~\ref{frauen}. Man sieht, dass f"ur kleine
+mit R durchführen. Das Programm in Abbildung~\ref{quoten} berechnet die
+Graphiken in Abbildung~\ref{frauen}. Man sieht, dass für kleine
 Gremien und hohe Anforderungen daran, dass keine unschuldigen Firmen
-angeschw"arzt werden nicht einmal die Alibi-Frau vorgeschrieben
+angeschwärzt werden nicht einmal die Alibi-Frau vorgeschrieben
 werden kann.
 \qedhere
 \end{teilaufgaben}

@@ -1,7 +1,7 @@
 Aus theoretischen "Uberlegungen folgt, dass die Laufzeit eines bestimmten
 Algorithmus proportional zur dritten Potenz $n^3$ der
-Gr"osse $n$ des Problems sein m"usste (der Gauss-Algorithmus
-f"ur lineare Gleichungssystem ist von dieser Art). Daher m"usste
+Grösse $n$ des Problems sein müsste (der Gauss-Algorithmus
+für lineare Gleichungssystem ist von dieser Art). Daher müsste
 der Logarithmus der Laufzeit 
 \[
 \log_2 t(n)=3\log_2(n) +C
@@ -22,12 +22,12 @@ $16$&$173.2$\\
 \end{tabular}
 \end{center}
 \begin{teilaufgaben}
-\item Welche Laufzeit ist f"ur $n=32$ zu erwarten?
-\item Wie gut ist das Potenzgesetz $n^3$ f"ur die Messdaten erf"ullt?
+\item Welche Laufzeit ist für $n=32$ zu erwarten?
+\item Wie gut ist das Potenzgesetz $n^3$ für die Messdaten erfüllt?
 \end{teilaufgaben}
 
 \begin{loesung}
-Hier wird offenbar lineare Regression f"ur die Logartihmen von $n$
+Hier wird offenbar lineare Regression für die Logartihmen von $n$
 und der Laufzeit gemacht, wir schreiben $X=\log_2 n$ und $Y=\log_2 t$.
 Damit haben wir die Daten
 \begin{center}
@@ -44,7 +44,7 @@ Damit haben wir die Daten
 \hline
 \end{tabular}
 \end{center}
-Nach den Formeln f"ur die lineare Regression sind Steigung
+Nach den Formeln für die lineare Regression sind Steigung
 und Achsabschnitt der Regressionsgereaden
 \begin{align*}
 a&=
@@ -58,14 +58,14 @@ E(Y)-aE(X)
 \begin{teilaufgaben}
 \item 
 Mit Hilfe der Koeffizienten $a$ und $b$ kann man jetzt auch die
-Laufzeit f"ur $n=32$, d.~h.~f"ur $X=5$ vorhersagen:
+Laufzeit für $n=32$, d.~h.~für $X=5$ vorhersagen:
 \begin{align*}
 \log_2 t(5)&=a\cdot 5+b= 10.96934
 \\
 t(5)&=2004.935
 \end{align*}
 \item 
-Die Qualit"at der Approximation wird durch den Regressionskoeffizienten
+Die Qualität der Approximation wird durch den Regressionskoeffizienten
 gemessen:
 \[
 r^2=\frac{(E(XY)-E(X)E(Y))^2}{
@@ -74,13 +74,13 @@ r^2=\frac{(E(XY)-E(X)E(Y))^2}{
 }=0.9833328
 \]
 Da $r^2$ ziemlich nahe bei $1$ liegt, kann man davon ausgehen, dass
-das Gesetz gut erf"ullt ist, allerdings eher f"ur den Exponenten
+das Gesetz gut erfüllt ist, allerdings eher für den Exponenten
 $a=3.458587$ statt $3$. Dies zeigt auch die Abbildung~\ref{400000025:log}.
 \begin{figure}
 \begin{center}
 \includeagraphics[width=\hsize]{log.pdf}
 \end{center}
-\caption{Logarithmische Darstellung der Abh"angigkeit der Laufzeit von
+\caption{Logarithmische Darstellung der Abhängigkeit der Laufzeit von
 $n$\label{40000026:log}}
 \end{figure}
 \qedhere
@@ -89,8 +89,8 @@ $n$\label{40000026:log}}
 
 \begin{bewertung}
 Lineare Regression ({\bf L}) 1 Punkt,
-Formeln f"ur ({\bf A}) und ({\bf B}) je 1 Punkt,
+Formeln für ({\bf A}) und ({\bf B}) je 1 Punkt,
 Berechnung der Koeffizienten ({\bf C}) 1 Punkt,
-Sch"atzung von $t(32)$ ({\bf T}) 1 Punkt,
-Regressionskoeffizient als Qualit"atskriterium ({\bf R}) 1 Punkt.
+Schätzung von $t(32)$ ({\bf T}) 1 Punkt,
+Regressionskoeffizient als Qualitätskriterium ({\bf R}) 1 Punkt.
 \end{bewertung}

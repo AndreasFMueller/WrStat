@@ -1,13 +1,13 @@
-Ein autonomer Sensor soll w"ahrend des Tages
-in regelm"assigen Zeitabst"anden von einer
+Ein autonomer Sensor soll während des Tages
+in regelmässigen Zeitabständen von einer
 Stunde Messdaten an einen zentralen Server senden.
-Damit die Zeitabst"ande gleich bleiben, hat der Sensor einerseits
-eine Uhr, andererseits erf"ahrt er bei jeder Daten"ubermittlung
-die als zuverl"assig angesehene Zeit des
-Servers\footnote{Die Zeit wird im Date-Feld einer HTTP-Antwort "ubermittelt.}.
+Damit die Zeitabstände gleich bleiben, hat der Sensor einerseits
+eine Uhr, andererseits erfährt er bei jeder Datenübermittlung
+die als zuverlässig angesehene Zeit des
+Servers\footnote{Die Zeit wird im Date-Feld einer HTTP-Antwort übermittelt.}.
 Durch Vergleich mit seiner eigenen Uhr kann der Sensor nicht nur die
 die Zeit ermitteln, sondern auch ausrechnen, ob seine Uhr zu schnell oder
-zu langsam l"auft. W"ahrend des Nachmittags stellt der Sensor folgende
+zu langsam läuft. Während des Nachmittags stellt der Sensor folgende
 Zeitdifferenzen fest:
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|c|}
@@ -19,26 +19,26 @@ Abweichung [s]&23&63&89&118&141\\
 \hline
 \end{tabular}
 \end{center}
-Offenbar l"auft die Sensor-Uhr etwas zu langsam.
+Offenbar läuft die Sensor-Uhr etwas zu langsam.
 \begin{teilaufgaben}
 \item Welche Zeit hat der Server in dem Moment, da der Sensor 07:00 hat.
-\item Die n"achste Messung soll m"oglichst genau um 07:00 stattfinden.
-Zu welcher Sensorzeit muss sie durchgef"uhrt werden?
-\item Beurteilen Sie die Qualit"at Ihrer Approximation.
-\item L"osen Sie das Problem auch unter Zuhilfenahme von R.
+\item Die nächste Messung soll möglichst genau um 07:00 stattfinden.
+Zu welcher Sensorzeit muss sie durchgeführt werden?
+\item Beurteilen Sie die Qualität Ihrer Approximation.
+\item Lösen Sie das Problem auch unter Zuhilfenahme von R.
 \end{teilaufgaben}
 
 \begin{figure}
 \begin{center}
 \includeagraphics[width=0.6\hsize]{sensor.pdf}
 \end{center}
-\caption{Lineare Regression f"ur das Sensorproblem}
+\caption{Lineare Regression für das Sensorproblem}
 \end{figure}
 \begin{loesung}
-Wir f"uhren eine lineare Regression durch. Dazu muss zun"achst eine
-geeignete Skala f"ur $X$ und $Y$ gew"ahlt werden. Dies ist auf
-verschiedene Weise m"oglich, die unten dargestellte L"osung ist nur
-eine von vielen m"oglichen L"osungen.
+Wir führen eine lineare Regression durch. Dazu muss zunächst eine
+geeignete Skala für $X$ und $Y$ gewählt werden. Dies ist auf
+verschiedene Weise möglich, die unten dargestellte Lösung ist nur
+eine von vielen möglichen Lösungen.
 
 Als $X$-Variable verwenden wir
 die Sensorzeit in Stunden, als $Y$-Variable die Abweichung in Sekunden.
@@ -68,12 +68,12 @@ Der Zusammenhang zwischen Sensorzeit $X$ und Abweichung $Y$ ist also
 Y=-378.8+29.1 X
 \]
 \begin{teilaufgaben}
-\item Zur Sensorzeit 07:00 am n"achsten Morgen entspricht $X=31$, die
+\item Zur Sensorzeit 07:00 am nächsten Morgen entspricht $X=31$, die
 Abweichung ist dann
 $Y=523.3$. Dies entspricht einer Serverzeit von 07:08:43.
 \item
-Um die richtige Sensorzeit f"ur eine Messung um 07:00 Serverzeit zu bekommen,
-brauchen wir die Serverzeit in Abh"angigkeit von der Sensorzeit. Diese erhalten
+Um die richtige Sensorzeit für eine Messung um 07:00 Serverzeit zu bekommen,
+brauchen wir die Serverzeit in Abhängigkeit von der Sensorzeit. Diese erhalten
 wir, indem wir die Abweichung in Stunden umrechnen und zur Sensorzeit
 hinzuaddieren:
 \[
@@ -89,8 +89,8 @@ X&=\frac{31\cdot 3600 + 378.8}{3629.1}=30.8558044694
 \end{align*}
 Dies entspricht einer Sensorzeit von 06:51:21.
 \item
-Um die Qualit"at der Approximation beurteilen zu k"onnen, muss
-der Regressionskoeffizient bestimmt werden und man muss pr"ufen,
+Um die Qualität der Approximation beurteilen zu können, muss
+der Regressionskoeffizient bestimmt werden und man muss prüfen,
 ob er nahe bei $1$ ist. Der Regressionskoeffizient ist
 \begin{align*}
 r&=\frac{\operatorname{cov}(X,Y)}{\sqrt{\operatorname{var}(X)\operatorname{var}(Y)}}
@@ -102,14 +102,14 @@ r&=\frac{\operatorname{cov}(X,Y)}{\sqrt{\operatorname{var}(X)\operatorname{var}(
 \end{align*}
 Da $r$ sehr nahe bei $1$ ist, liegt eine sehr gute Approxmation vor.
 \item
-Um das Problem mit R zu l"osen, muss man zun"achst die Daten in
+Um das Problem mit R zu lösen, muss man zunächst die Daten in
 elektronischer Form zur Verfuegung haben, zum Beispiel in Form
 eines Textfiles {\tt sensor.csv} mit dem Inhalt
 \verbatimainput{sensor.csv}
 Dann kann man diese Daten in ein Datenframe einlesen und das lineare
 Modell erzeugen. Bei der Berechnung des linearen Modelles muss als
 erstens Argument angegeben werden, welche Variable im Datenframe von
-welcher anderen Variable abh"angt:
+welcher anderen Variable abhängt:
 \verbatimainput{sensor.R}
 \qedhere
 \end{teilaufgaben}

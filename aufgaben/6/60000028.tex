@@ -1,33 +1,33 @@
-Die ESO (European Southern Observatory, Europ"aische S"udsternwarte)
-hat im Fr"uhjahr 2013 beschlossen,
+Die ESO (European Southern Observatory, Europäische Südsternwarte)
+hat im Frühjahr 2013 beschlossen,
 das E-ELT (European Extremely Large Telescope) auf dem
 Cerro Armazones in Chile zu bauen.
-Dieser Berggipfel 3064m "uber dem Meerspiegel soll das neue Teleskop
+Dieser Berggipfel 3064m über dem Meerspiegel soll das neue Teleskop
 mit 39m Spiegeldurchmesser beheimaten.
-Ein Faktor f"ur diese Wahl war die grosse Zahl klarer, f"ur astronomische
-Beobachtungen geeigneter N"achte von durchschnittlich 350 pro Jahr.
+Ein Faktor für diese Wahl war die grosse Zahl klarer, für astronomische
+Beobachtungen geeigneter Nächte von durchschnittlich 350 pro Jahr.
 \begin{teilaufgaben}
 \item Wie gross ist die Wahrscheinlichekeit,
-dass in einem Monat mehr als zwei N"achte
-nicht f"ur Beobachtungen geeignet sind?
-\item Wieviel Zeit verstreicht im Mittel zwischen zwei wolkigen N"achten?
-\item Ein Astronom braucht f"ur ein Forschungsprojekt Messungen aus
-14 aufeinanderfolgenden N"achten. Wie gross ist die Wahrscheinlichkeit,
+dass in einem Monat mehr als zwei Nächte
+nicht für Beobachtungen geeignet sind?
+\item Wieviel Zeit verstreicht im Mittel zwischen zwei wolkigen Nächten?
+\item Ein Astronom braucht für ein Forschungsprojekt Messungen aus
+14 aufeinanderfolgenden Nächten. Wie gross ist die Wahrscheinlichkeit,
 dass sich dieses Beobachtungsprogramm auf dem Cerro Armazones
-im ersten Anlauf realisieren l"asst?
+im ersten Anlauf realisieren lässt?
 \end{teilaufgaben}
 
 \begin{loesung}
-Wolkige N"achte auf dem Cerro Armazones sind offenbar seltene
-Ereignisse, k"onnen also mit der Poisson-Verteilung modelliert
+Wolkige Nächte auf dem Cerro Armazones sind offenbar seltene
+Ereignisse, können also mit der Poisson-Verteilung modelliert
 werden.
 \begin{teilaufgaben}
-\item Wolkige N"achte treten auf mit einer Rate 15 pro Jahr, oder
+\item Wolkige Nächte treten auf mit einer Rate 15 pro Jahr, oder
 $\lambda=\frac{15}{12}=1.25$ pro Monat. Mit Hilfe der Poisson-Verteilung
-kann man jetzt die Wahrscheinlichkeit f"ur $k=0,1,2$ wolkige N"achte
+kann man jetzt die Wahrscheinlichkeit für $k=0,1,2$ wolkige Nächte
 ausrechnen:
 \begin{align*}
-P(\text{mehr als 2 wolkige N"achte})
+P(\text{mehr als 2 wolkige Nächte})
 &=1-P(X\le 2)
 =
 1-\sum_{k=0}^2\frac{\lambda^k}{k!}e^{-\lambda}
@@ -36,26 +36,26 @@ P(\text{mehr als 2 wolkige N"achte})
 =0.13153
 \end{align*}
 \item 
-Wenn in einem Jahr auf 365 Tage mit 15 Schlechtwettern"achten gerechnet
+Wenn in einem Jahr auf 365 Tage mit 15 Schlechtwetternächten gerechnet
 werden muss, dann ist naheliegend, dass die  mittlere Zeit zwischen
-den Schlechtwettern"achten $\frac{365}{15}=24.3333$ sein k"onnte.
-Doch was k"onnte der Einfluss extrem unterschiedlicher Verteilung
-der vorkommenden Intervalle sein? K"onnte es sein, dass die mittlere
-Zeit zwischen zwei Schlechtwettern"achten kleiner wird, wenn die
-ungeeigneten N"achte zum Beispiel jeweils immer in der gleichen Jahreszeit
+den Schlechtwetternächten $\frac{365}{15}=24.3333$ sein könnte.
+Doch was könnte der Einfluss extrem unterschiedlicher Verteilung
+der vorkommenden Intervalle sein? Könnte es sein, dass die mittlere
+Zeit zwischen zwei Schlechtwetternächten kleiner wird, wenn die
+ungeeigneten Nächte zum Beispiel jeweils immer in der gleichen Jahreszeit
 auftreten?
 
 Die Poissonverteilung kann auch dazu verwendet werden, die Wahrscheinlichkeit
-daf"ur zu berechnen, dass in einem bestimmten Interval eine bestimmte
+dafür zu berechnen, dass in einem bestimmten Interval eine bestimmte
 Anzahl Ereignisse eintreten, deren Zeitintervalle exponentialverteilt ist.
-Dieses Modell ist dann verwendbar, wenn der Prozess, der wolkige N"achte
-verursacht, kein Erinnerungsverm"ogen hat. Dies d"urfe wegen der extremen
-Seltenheit von wolkigen N"achten auf dem Cerro Armazones der Fall sein.
+Dieses Modell ist dann verwendbar, wenn der Prozess, der wolkige Nächte
+verursacht, kein Erinnerungsvermögen hat. Dies dürfe wegen der extremen
+Seltenheit von wolkigen Nächten auf dem Cerro Armazones der Fall sein.
 
-Die Zeit zwischen wolkigen N"achten ist $1/a=\frac{365}{15}=24.33333$.
+Die Zeit zwischen wolkigen Nächten ist $1/a=\frac{365}{15}=24.33333$.
 \item
-Wir "uberlegen uns, wie
-die Zeit $X$ zwischen zwei wolkigen N"achten verteilt ist. Nach den Bemerkungen
+Wir überlegen uns, wie
+die Zeit $X$ zwischen zwei wolkigen Nächten verteilt ist. Nach den Bemerkungen
 in b) ist $X$ eine exponentialverteilte Zufallsvariable mit $1/a=24.3333$
 oder $a=0.04109589$.
 Sie hat die Verteilungsfunktion
@@ -63,32 +63,32 @@ $
 P(X\le x)=
 F(x)=1-e^{-ax}.
 $
-Das Programm l"asst sich durchf"uhren, wenn die Zeit zwischen zwei
-wolkigen N"achten $X> 14$ ist:
+Das Programm lässt sich durchführen, wenn die Zeit zwischen zwei
+wolkigen Nächten $X> 14$ ist:
 \begin{align*}
 P(X> 14)&=1-P(X\le 14)=1-F(14)=1-(1-e^{-14a})=e^{-14a}
 \\
 &= 0.56251219022075086284
 \end{align*}
 Die Chancen stehen also besser als $50:50$, dass dieses Projekt
-erfolgreich durchgef"uhrt werden kann.
+erfolgreich durchgeführt werden kann.
 
 Alternativ kann man diese Wahrscheinlichkeit auch so bestimmen:
 die Wahrscheinlichkeit, dass ein Nacht klar ist, ist $p=\frac{350}{365}=0.9589$.
 Entsprechend ist die Wahrscheinlichkeit, dass 14 aufeinanderfolgende
-N"achte klar sind: $p^{14}=0.5557$, in guter "Ubereinstimmung mit der
-ersten L"osung.
+Nächte klar sind: $p^{14}=0.5557$, in guter "Ubereinstimmung mit der
+ersten Lösung.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}
 
 \begin{diskussion}
-Mehr Information "uber das Observatorium auf dem Cerro Armazones
+Mehr Information über das Observatorium auf dem Cerro Armazones
 findet man auf \url{http://www.astronomictourism.com/cerro-armazones-observatory.html} oder auf der Website der ESO unter \url{http://www.eso.org}.
 \end{diskussion}
 
 \begin{bewertung}
 a) Poissonverteilung ({\bf P}) 1 Punkt, Wahrscheinlichkeit ({\bf W}) 1 Punkt.
 b) Exponentialverteilung ({\bf E}) 1 Punkt, Parameter $a$ ({\bf A}) 1 Punkt.
-c) L"osungsweg ({\bf L}) 1 Punkt, Resultate ({\bf R}) 1 Punkt.
+c) Lösungsweg ({\bf L}) 1 Punkt, Resultate ({\bf R}) 1 Punkt.
 \end{bewertung}

@@ -1,31 +1,31 @@
 Beim Wichtelspiel werden die Namen aller Teilnehmer auf Zettel geschrieben
 und in einen Korb getan.
 Die Teilnehmer ziehen der Reihe nach einen Zettel.
-Zieht jemand seinen eigenen Namen, legt er ihn zur"uck und probiert
+Zieht jemand seinen eigenen Namen, legt er ihn zurück und probiert
 nochmals, bis er einen anderen als den eigenen Namen zieht.
-Es kann nat"urlich passieren, dass dies beim letzten Teinehmer
+Es kann natürlich passieren, dass dies beim letzten Teinehmer
 nicht mehr klappt, dann ist die Namens-Zuteilung fehlgeschlagen und
 muss erneut begonnen werden.
 
 \begin{hinweis}
-Es gibt keine ``leichte'' Methode, Formeln f"ur die gesuchten
+Es gibt keine ``leichte'' Methode, Formeln für die gesuchten
 Wahrscheinlichkeiten anzugeben.
 \end{hinweis}
 
 \begin{teilaufgaben}
-\item Auf wieviele Arten k"onnen $n$ Teilnehmer die Namen zuteilen,
-wenn Sie nicht auf die Zettel schauen und zur"ucklegen, wenn sie ihren
+\item Auf wieviele Arten können $n$ Teilnehmer die Namen zuteilen,
+wenn Sie nicht auf die Zettel schauen und zurücklegen, wenn sie ihren
 eigenen Namen gezogen haben?
-\item Auf wieviele Arten k"onnen drei Teilnehmer die Namen zuteilen
+\item Auf wieviele Arten können drei Teilnehmer die Namen zuteilen
 so dass keiner seinen eigenen Namen zieht?
 \item Wie gross ist die Wahrscheinlichkeit dass drei Teilnehmer
 bei einer ``blinden Ziehung'' wie in a) eine Zuteilung erreichen, bei
 der niemand seinen eigenen Namen gezogen hat?
-\item Auf wieviele Arten k"onnen drei Teilnehmer die Namen zuteilen,
+\item Auf wieviele Arten können drei Teilnehmer die Namen zuteilen,
 so dass der letzte Teilnehmer seinen eigenen Namen zugeteilt bekommt?
-\item Beantworten Sie b) und d) f"ur 4 statt 3 Teilnehmer.
+\item Beantworten Sie b) und d) für 4 statt 3 Teilnehmer.
 \item Wie gross ist die Wahrscheinlichkeit, dass bei 4 Teilnehmern
-der Zuteilungsalgorithmus fehlschl"agt?
+der Zuteilungsalgorithmus fehlschlägt?
 \end{teilaufgaben}
 
 \begin{loesung}
@@ -34,7 +34,7 @@ der Zuteilungsalgorithmus fehlschl"agt?
 In diesem Fall werden einfach nur alle Permutationen erzeugt,
 das geht auf $n!$ Arten.
 \item
-Es gibt 6 Permutation der drei Namen,  n"amlich
+Es gibt 6 Permutation der drei Namen,  nämlich
 \begin{align*}
              1: \qquad&{\color{red}1}\;{\color{red}2}\;{\color{red}3}\\
              2: \qquad&{\color{red}1}\;            3 \;            2 \\
@@ -45,13 +45,13 @@ Es gibt 6 Permutation der drei Namen,  n"amlich
 \end{align*}
 Rote Ziffern zeigen eine Verletzung der Regeln an.
 Nur die Permutationen Nr.~{\color{blue}4} und {\color{blue}5}
-erf"ullen also alle Regeln.
+erfüllen also alle Regeln.
 \item
-Nach b) geht das in 2 von 6 F"allen, also mit Wahrscheinlichkeit $\frac13$.
+Nach b) geht das in 2 von 6 Fällen, also mit Wahrscheinlichkeit $\frac13$.
 \item
-Nur die Permutation Nr.~3 ist m"oglich.
+Nur die Permutation Nr.~3 ist möglich.
 \item
-Die gleiche L"osung kann auch auf 4 Personen angewendet werden:
+Die gleiche Lösung kann auch auf 4 Personen angewendet werden:
 \begin{align*}
  1: \qquad&{\color{red}1}\;{\color{red}2}\;{\color{red}3}\;{\color{red}4}\\
  2: \qquad&{\color{red}1}\;{\color{red}2}\;            4 \;            3 \\
@@ -98,10 +98,10 @@ Nur die 9 Permutationen Nr.~{\color{blue}8},
 {\color{blue}18},
 {\color{blue}19},
 {\color{blue}23} und
-{\color{blue}24} erf"ullen
+{\color{blue}24} erfüllen
 alle Bedingungen.
 Es gibt genau zwei Permutationen, bei denen dem vierten Teilnehmer der
-eigene Name zugeteilt wird, n"amlich Nr.~{\color{blue}9} und {\color{blue}13}.
+eigene Name zugeteilt wird, nämlich Nr.~{\color{blue}9} und {\color{blue}13}.
 \item
 Die Wahrscheinlichkeit, dass im Wichtelspiel die Ziehung wiederholt 
 werden muss ist $2/(9 + 2)=18.18\%$.

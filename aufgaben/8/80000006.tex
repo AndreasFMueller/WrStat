@@ -1,23 +1,23 @@
-Zur Vers"ussung der Pr"ufungsvorbereitung habe ich eine Rolle Smarties
-Schokobonbons genascht. Dabei kam die Farbe rot deutlich am h"aufigsten vor.
-Genauer: folgende Farbverteilung wurde gez"ahlt. 
+Zur Versüssung der Prüfungsvorbereitung habe ich eine Rolle Smarties
+Schokobonbons genascht. Dabei kam die Farbe rot deutlich am häufigsten vor.
+Genauer: folgende Farbverteilung wurde gezählt. 
 \begin{center}
 \begin{tabular}{|l|cccccccc|}
 \hline
-Farbe&rot&oragen&gelb&gr"un&blau&violett&pink&braun\\
+Farbe&rot&oragen&gelb&grün&blau&violett&pink&braun\\
 \hline
 Anzahl&22&    15&  15&   13&  12&     13&  13&   14\\
 \hline
 \end{tabular}
 \end{center}
-Kann man daraus schliessen, dass die roten Smarties generell am h"aufigsten
+Kann man daraus schliessen, dass die roten Smarties generell am häufigsten
 sind?
 
 \begin{loesung}
-Wir f"uhren einen $\chi^2$-Test auf dem Niveau $\alpha=0.05$
-f"ur die Nullhypothese 
+Wir führen einen $\chi^2$-Test auf dem Niveau $\alpha=0.05$
+für die Nullhypothese 
 ``{\it alle Farben sind gleich wahrscheinlich}'' durch.
-Die Nullhypothese bedeutet $p_i=\frac18$ f"ur alle $i$.
+Die Nullhypothese bedeutet $p_i=\frac18$ für alle $i$.
 Dazu ist die Diskrepanz zu berechnen:
 \begin{center}
 \begin{tabular}{|l|r|r|r|r|}
@@ -27,7 +27,7 @@ Farbe  &$n_i$   &$np_i$&$np_i-n_i$&$(np_i-n_i)^2/(np_i)$\\
 rot    &   22   &14.625&     7.375&              3.71902\\
 oragen &   15   &14.625&     0.375&              0.00962\\
 gelb   &   15   &14.625&     0.375&              0.00962\\
-gr"un  &   13   &14.625&    -1.625&              0.18056\\
+grün  &   13   &14.625&    -1.625&              0.18056\\
 blau   &   12   &14.625&    -2.625&              0.47115\\
 violett&   13   &14.625&    -1.625&              0.18056\\
 pink   &   13   &14.625&    -1.625&              0.18056\\
@@ -39,8 +39,8 @@ braun  &   14   &14.625&    -0.625&              0.02671\\
 \end{center}
 Die Zahl der Freiheitsgrade ist $8-1=7$, die kritische Diskrepanz
 $D_{\text{krit}}$ ist die Quantile der $\chi^2$-Verteilung 
-f"ur $p=1-\alpha=0.95$, aus der $\chi^2$-Tabelle finden wir den
-Wert $D_{\text{krit}}=14.067$. Da das berechnete $D$ nicht gr"osser
+für $p=1-\alpha=0.95$, aus der $\chi^2$-Tabelle finden wir den
+Wert $D_{\text{krit}}=14.067$. Da das berechnete $D$ nicht grösser
 ist als $D_{\text{krit}}$ gibt es keinen Hinweis darauf, dass
-tats"achlich eine Farbe h"aufiger vorkommt.
+tatsächlich eine Farbe häufiger vorkommt.
 \end{loesung}

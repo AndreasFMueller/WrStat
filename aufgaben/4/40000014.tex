@@ -18,8 +18,8 @@ Vertikal (von oben)&438&411&356&273&161
 \caption{Bildfolge eines Raketenstarts mit 30 Bildern pro Sekunde}
 \end{figure}
 \begin{teilaufgaben}
-\item Rechnen Sie die Datenpunkte Meter f"ur die vertikale Achse
-und Sekunden f"ur die horizontale Achse, speichern sie diese Daten
+\item Rechnen Sie die Datenpunkte Meter für die vertikale Achse
+und Sekunden für die horizontale Achse, speichern sie diese Daten
 im gleichen Datenframe unter den Namen {\tt t} und {\tt y}.
 \item Unter der Annahme konstanter Beschleunigung (die im vorliegenden Fall
 ziemlich genau zutrifft) bewegt sich die Rakete nach einem Gesetz
@@ -31,7 +31,7 @@ die Konstanten $a$, $b$ und $c$ sind noch zu bestimmen. Diese Aufgabe
 kann sehr effizient mit Hilfe eines nichtlinearen Modells in R erledigt
 werden. Dazu dient die Funktion {\tt nls}.
 \item Verwenden Sie den Ansatz der Methode der kleinsten Quadrate, um
-eine m"oglichst gute Approximation einer quadratischen Funktion
+eine möglichst gute Approximation einer quadratischen Funktion
 $c+bt+\frac12at^2$ an die Datenpunkte zu finden.
 \item Mit welcher Beschleunigung startete die Rakete im photographierten
 Zeitinterval?
@@ -41,22 +41,22 @@ Zeitinterval?
 \begin{center}
 \includeagraphics[width=0.8\hsize]{rakete.pdf}
 \end{center}
-\caption{Nichtlineare Regression f"ur das Raketenproblem}
+\caption{Nichtlineare Regression für das Raketenproblem}
 \end{figure}
 \begin{loesung}
 \begin{teilaufgaben}
 \item
-Die Daten werden zun"achst in ein File {\tt raw.csv}
+Die Daten werden zunächst in ein File {\tt raw.csv}
 geschrieben, welches folgenden Inhalt hat:
 \verbatimainput{raw.csv}
 Dann kann man diese Daten in eine Daten-Frame einlesen,
-und die n"otigen Umrechnungen gleich durch neue Spalten im
+und die nötigen Umrechnungen gleich durch neue Spalten im
 Datenframe abbilden:
 \verbatimainput{raw.R}
 \item
-Die Daten im Datenframe k"onnen jetzt verwendet werden, um
+Die Daten im Datenframe können jetzt verwendet werden, um
 das Polynom anzupassen. Dazu muss man die Formel, die angepasst
-werden soll, in f"ur R verst"andlicher Form formulieren.
+werden soll, in für R verständlicher Form formulieren.
 \verbatimainput{formula.R}
 Diese Formel ist das erste Argument der Funktion {\tt nls}, welche
 das nichtlineare Modell anpasst:
@@ -66,7 +66,7 @@ kann man ablesen, dass $a=398=50.6g$ ist.
 \item Wir gehen davon aus, dass $X$ und $Y$ Zufallsvariablen sind, und
 suchen die Werte $a$, $b$ und $c$ derart, dass die mittlere quadratische
 Abweichung, also
-$\Delta(a,b,c)=E((Y-(aX^2+bX+c))^2)$ so klein wie m"oglich ist.
+$\Delta(a,b,c)=E((Y-(aX^2+bX+c))^2)$ so klein wie möglich ist.
 Die Extremstellen finden wir aus den Ableitungen von $\Delta(a,b,c)$ nach
 den Parametern:
 \begin{align*}
@@ -91,7 +91,7 @@ E(2(Y-aX^2-bX-c)X)
 2E(Y)-2aE(X^2)-2bE(X)-2c
 \\
 \end{align*}
-F"ur die Werte $a$, $b$, $c$ finden wir also das lineare Gleichungssystem
+Für die Werte $a$, $b$, $c$ finden wir also das lineare Gleichungssystem
 \[
 \begin{pmatrix}
 E(X^4)&E(X^3)&E(X^2)\\
@@ -107,12 +107,12 @@ E(YX^2)\\E(YX)\\E(Y)
 \end{pmatrix}
 \]
 Zur Berechnung der Funktion rechnen wir die Daten erst auf SI Einheiten
-um. Aus der L"ange der Rakete bekommen wir die Umrechnungsformel
-$Y=\frac{438}{48} - \frac{0.75}{48}y$ f"ur die H"ohe.
+um. Aus der Länge der Rakete bekommen wir die Umrechnungsformel
+$Y=\frac{438}{48} - \frac{0.75}{48}y$ für die Höhe.
 Da der Bildabstand 100 Pixel
-betr"agt, zwischen den Bildern aber $\frac{1}{30}=0.03333$ Sekunden verstreichen,
-ist die Umrechung f"ur die Zeit $X=\frac{1}{3000}=0.00033333$. Damit
-lassen sich die Zeiten und H"ohen ebenso wie die ben"otigten Erwartungswerte
+beträgt, zwischen den Bildern aber $\frac{1}{30}=0.03333$ Sekunden verstreichen,
+ist die Umrechung für die Zeit $X=\frac{1}{3000}=0.00033333$. Damit
+lassen sich die Zeiten und Höhen ebenso wie die benötigten Erwartungswerte
 berechnen:
 \begin{center}
 \begin{tabular}{rrrrrrrr}
@@ -129,7 +129,7 @@ $X$&$Y$&$X^2$&$X^3$&$X^4$&$XY$&$X^2Y$\\
 \hline
 \end{tabular}
 \end{center}
-Daraus kann man jetzt die L"osung f"ur das Gleichungssystem ablesen:
+Daraus kann man jetzt die Lösung für das Gleichungssystem ablesen:
 \[
 \begin{pmatrix}
 a\\b\\c
@@ -145,7 +145,7 @@ a\\b\\c
 4.003125
 \end{pmatrix}
 \]
-Seine L"osung ist der Vektor
+Seine Lösung ist der Vektor
 \[
 \begin{pmatrix}
    205.35561\\
@@ -162,7 +162,7 @@ Das Resultat von Teilaufgabe a) zeigt, dass die Beschleunigng
 \[
 a_0=2a\simeq410.71122\frac{\text{m}}{\text{s}^2}\simeq42g
 \]
-betr"agt.
+beträgt.
 \end{teilaufgaben}
 In der folgenden Abbildung wurde die in Teilaufgabe b) gefunden Kurve
 in die Graphik hineingezeichnet:

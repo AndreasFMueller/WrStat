@@ -1,22 +1,22 @@
-In der linearen Algebra lernt man, dass ein "uberbestimmtes Gleichungssystem
+In der linearen Algebra lernt man, dass ein überbestimmtes Gleichungssystem
 mit $m$ Gleichungen und $n<m$ Unbekannten der Form $Ax=b$ im Sinne kleinster Quadrate
-gel"ost werden kann, indem man aus der $m\times n$-Matrix $A$ und dem 
+gelöst werden kann, indem man aus der $m\times n$-Matrix $A$ und dem 
 $m$-dimensionalen Vektor das Gleichungssystem
 \[
 A^tA x= A^tb
 \]
-mit genau $n$ Gleichungen f"ur die $n$ Unbekannten $x_1,\dots,x_n$ l"ost.
-In einem linearen Regressionsproblem f"ur die $m$ Datenpunkte $(x_i,y_i)$
-m"ochte man Koeffizienten $a$ und $b$ so finden, dass die Datenpunkte
-die Gleichung $y_i=ax_i+b$ ``m"oglichst gut'' erf"ullen.
+mit genau $n$ Gleichungen für die $n$ Unbekannten $x_1,\dots,x_n$ löst.
+In einem linearen Regressionsproblem für die $m$ Datenpunkte $(x_i,y_i)$
+möchte man Koeffizienten $a$ und $b$ so finden, dass die Datenpunkte
+die Gleichung $y_i=ax_i+b$ ``möglichst gut'' erfüllen.
 
-F"uhren Sie das Least-Squares-Verfahren aus der linearen Algebra durch und
-kontrollieren Sie, ob sie die gleichen Formeln f"ur $a$ und $b$ erhalten
+Führen Sie das Least-Squares-Verfahren aus der linearen Algebra durch und
+kontrollieren Sie, ob sie die gleichen Formeln für $a$ und $b$ erhalten
 wie im linearen Regressionsverfahren.
 
 \begin{loesung}
 Die Unbekannten des Least-Squares-Problems sind die Zahlen $a$ und $b$,
-wir schreiben das "uberbestimmte Gleichungssystem in der Form
+wir schreiben das überbestimmte Gleichungssystem in der Form
 \[
 \begin{linsys}{2}
   ax_1&+&     b&=&y_1\phantom{.}\\
@@ -45,7 +45,7 @@ y_n
 \end{pmatrix}.
 \]
 Das Least-Squares-Verfahren verlangt die Berechnung von $A^tA$ und $A^tb$,
-man erh"alt
+man erhält
 \[
 \begin{aligned}
 A^tA
@@ -83,8 +83,8 @@ y_n
 \end{pmatrix}.
 \end{aligned}
 \]
-Wenn man $A^tA$ und $A^tb$ beide durch $n$ dividiert, "andert dies nichts an
-der L"osung des Gleichungssystems $A^tAx=A^tb$, dann hat man aber ein
+Wenn man $A^tA$ und $A^tb$ beide durch $n$ dividiert, ändert dies nichts an
+der Lösung des Gleichungssystems $A^tAx=A^tb$, dann hat man aber ein
 Gleichungssystem mit Koeffizientenmatrix und rechter Seite wie folgt:
 \begin{align*}
 \frac1nA^tA&=\begin{pmatrix}
@@ -108,7 +108,7 @@ E(XY)\\E(Y)
 \end{align*}
 Dabei haben wir die Summen als empirische Erwartungswerte interpretiert.
 Das war genau die Matrix und die rechte Seite, die in der Vorlesung gefunden
-und mit dem Verfahren von Kramer gel"ost wurde, um die Koeffizienten $a$ und $b$
+und mit dem Verfahren von Kramer gelöst wurde, um die Koeffizienten $a$ und $b$
 der linearen Regression zu finden.
 Lineare Regression ist also ein Spezialfall des Least-Squares-Verfahrens.
 \end{loesung}

@@ -1,16 +1,16 @@
-Ein seltene Krankheit ist nach in Europa "ublicher Definition eine
+Ein seltene Krankheit ist nach in Europa üblicher Definition eine
 Krankheit, die weniger als 5 von 10000 Einwohnern haben. Wie gross
 ist die Wahrscheinlichkeit, dass in Rapperswil mit seinen 26177
 Einwohnern zwischen 12 und 14 Einwohner an einer bestimmen
-seltenen Krankheit leiden, die mit einer H"aufigkeit von 5 Erkrankten
+seltenen Krankheit leiden, die mit einer Häufigkeit von 5 Erkrankten
 pro 10000 Einwohnern auftritt?
 
 \begin{loesung}
 Die Poissonverteilung berechnet die Wahrscheinlichkeit, dass genau
-$k$ F"alle eintreten, wenn die F"alle mit einer H"aufigkeit
+$k$ Fälle eintreten, wenn die Fälle mit einer Häufigkeit
 von $\lambda$ eintreten. In Rapperswil tritt die Krankheit mit
-einer H"aufigkeit von $\lambda=0.00005 \cdot 26177=13.0885$ auf.
-Die Wahrscheinlichkeit, genau 12, 13, oder 14 F"alle zu finden, sind
+einer Häufigkeit von $\lambda=0.00005 \cdot 26177=13.0885$ auf.
+Die Wahrscheinlichkeit, genau 12, 13, oder 14 Fälle zu finden, sind
 daher
 \begin{center}
 \begin{tabular}{|c|c|}
@@ -27,8 +27,8 @@ $k$&$P_\lambda(k)$\\
 \end{center}
 Die gesuchte Wahrscheinlichkeit ist also $0.32$.
 
-Die Wahrscheinlichkeit kann nat"urlich mit der Binomialverteilung
-gel"ost werden, was aber die Berechnung sehr grosser Binomialkoeffizienten
+Die Wahrscheinlichkeit kann natürlich mit der Binomialverteilung
+gelöst werden, was aber die Berechnung sehr grosser Binomialkoeffizienten
 erfordert. Es ist
 \[
 p=\sum_{k=12}^{14}\binom{26177}{k}(1-p)^{26177-k}p^k=0.321897.

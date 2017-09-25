@@ -1,6 +1,6 @@
-Ein Gl"ucksspiel wird wie folgt gespielt. Aus einem Kartenspiel
-mit 52 Karten werden zuf"allig zwei Karten gezogen. Ist eine
-davon eine Bildkarte (K"onig, Dame, Bube oder Ass), oder sind die
+Ein Glücksspiel wird wie folgt gespielt. Aus einem Kartenspiel
+mit 52 Karten werden zufällig zwei Karten gezogen. Ist eine
+davon eine Bildkarte (König, Dame, Bube oder Ass), oder sind die
 Karten von verschiedener Farbe, hat der Spieler verloren. Nur wenn
 die Karten die gleiche Farbe haben, und ausserdem beide Zahlkarten
 sind, wird als Gewinn die Summe der von den Karten gezeigten Zahlen
@@ -14,7 +14,7 @@ ausbezahlt.
 \begin{teilaufgaben}
 \item
 Elementarereignisse sind Paare von Karten, wobei Paare mit zwei
-gleichen Karten nicht m"oglich sind. Es gibt $52^2-52=2652$ solche
+gleichen Karten nicht möglich sind. Es gibt $52^2-52=2652$ solche
 Paare, sie sind alle gleich wahrscheinlich. Nur die Paare mit gleicher
 Farbe gewinnen, von jeder Farbe sind dies $9^2-9=72$ Paare, also
 insgesamt $4\cdot 72=288$ Paare. Die Wahrscheinlichkeit zu gewinnen
@@ -66,7 +66,7 @@ E(X)&=4\sum_{\myatop{i,j=2}{i \ne j}}^{10} \text{``Gewinn bei Karten $(i,j)$''}
 \frac{1}{663}\sum_{\myatop{i,j=2}{i\ne j}}^{10}(i+j)
 \label{gewinn}
 \end{align}
-W"aren die F"alle $i=j$ nicht ausgeschlossen, w"are die Summe
+Wären die Fälle $i=j$ nicht ausgeschlossen, wäre die Summe
 \begin{align}
 \sum_{i,j=2}^{10}(i+j)
 &=
@@ -88,15 +88,15 @@ W"aren die F"alle $i=j$ nicht ausgeschlossen, w"are die Summe
 \notag
 \end{align}
 Die Umformungen in (\ref{umformung}) verwenden, dass der eine
-Summand nicht Summationsindex abh"angt, also einfach so oft
+Summand nicht Summationsindex abhängt, also einfach so oft
 addiert wird, wie die Summe Terme hat, also $9$ mal.
-Aus den F"allen $i=j$ sind darin aber noch
-m"ogliche Gewinne im Umfang von
+Aus den Fällen $i=j$ sind darin aber noch
+mögliche Gewinne im Umfang von
 \[
 \sum_{i=2}^{10}2i=2\biggl(\sum_{i=1}^{10}i-1\biggr)=2\cdot 54=108
 \]
-eingeschlossen, die tats"achlich m"ogliche Gewinnsumme ist
-f"ur eine Farbe ist also $972-108=864$. F"ur alle vier Farben
+eingeschlossen, die tatsächlich mögliche Gewinnsumme ist
+für eine Farbe ist also $972-108=864$. Für alle vier Farben
 wird der erwartete Gewinn also durch Einsetzen in (\ref{gewinn})
 \[
 E(X)=\frac{864}{663}=
@@ -105,8 +105,8 @@ E(X)=\frac{864}{663}=
 \]
 
 Man kann diese Gewinne auch etwas weniger abstrakt mit einer Tabelle
-addieren. Tabelle~\ref{tabelle} zeigt die Gewinnsituationen f"ur die
-Karten einer einzelnen Farbe. Jedes Feld der Tabelle steht f"ur eine gewinnendes
+addieren. Tabelle~\ref{tabelle} zeigt die Gewinnsituationen für die
+Karten einer einzelnen Farbe. Jedes Feld der Tabelle steht für eine gewinnendes
 Paar. Ist das Feld leer, gibt es nichts zu gewinnen.
 \begin{table}
 \begin{center}
@@ -129,23 +129,23 @@ A &  &  &  &  &  &  &  &  &  &  &  &  &  \\
 \hline
 \end{tabular}
 \end{center}
-\caption{Summierung der Gewinne f"ur eine einzelne Kartenfarbe
+\caption{Summierung der Gewinne für eine einzelne Kartenfarbe
 in Aufgabe 3\label{tabelle}}
 \end{table}
-Zur Summation der Gewinne kann man z"ahlen, wie oft jeder
-m"ogliche Gewinn vorkommt, wie dies in Tabelle~\ref{haeufigkeiten}
-durchgef"uhrt ist.
+Zur Summation der Gewinne kann man zählen, wie oft jeder
+mögliche Gewinn vorkommt, wie dies in Tabelle~\ref{haeufigkeiten}
+durchgeführt ist.
 \begin{table}
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
 Gewinn    &5&6&7&8&9&10&11&12&13&14&15&16&17&18&19\\
 \hline
-H"aufikeit&2&2&4&4&6& 6& 8& 8& 8& 6& 6& 4& 4& 2& 2\\
+Häufikeit&2&2&4&4&6& 6& 8& 8& 8& 6& 6& 4& 4& 2& 2\\
 \hline
 \end{tabular}
 \end{center}
-\caption{H"aufigkeiten der einzelnen Summen\label{haeufigkeiten}}
+\caption{Häufigkeiten der einzelnen Summen\label{haeufigkeiten}}
 \end{table}
 Die gesuchte Summe ist
 \[
@@ -157,9 +157,9 @@ Die gesuchte Summe ist
 +
 8\cdot(11+12+13)
 \]
-In den ersten drei Klammerausdr"ucken ergeben symmetrisch
+In den ersten drei Klammerausdrücken ergeben symmetrisch
 angeordnete Terme jeweils die Summe $24$, jeder dieser
-drei Klammerausdr"ucke hat also den Wert $48$. Die Summe ist
+drei Klammerausdrücke hat also den Wert $48$. Die Summe ist
 damit insgesamt
 \[
 (2+4+6)\cdot 48+8\cdot 36=12\cdot 48+8\cdot 36
@@ -169,13 +169,13 @@ damit insgesamt
 \]
 wie oben bereits gefunden.
 
-Will man nur die Gewinnerwartung wissen f"ur den Fall, dass
-man tats"achlich gewonnen hat, muss man noch durch die
-Wahrscheinlichkeit dividieren, "uberhaupt zu gewinnen:
+Will man nur die Gewinnerwartung wissen für den Fall, dass
+man tatsächlich gewonnen hat, muss man noch durch die
+Wahrscheinlichkeit dividieren, überhaupt zu gewinnen:
 \[
 E(X)=E(X|G)P(G)\quad\Rightarrow\quad E(X|G)=\frac{E(X)}{P(G)}.
 \]
-Durch Einsetzen der bekannten Werte f"ur $E(X)$ und $P(G)$
+Durch Einsetzen der bekannten Werte für $E(X)$ und $P(G)$
 ergibt sich:
 \[
 E(X|G)
@@ -188,15 +188,15 @@ E(X|G)
 %864/72
 12.
 \]
-Dies ist nat"urlich genau der mittlere Wert der m"oglichen
+Dies ist natürlich genau der mittlere Wert der möglichen
 Gewinne, wie man aus der Tabelle~\ref{haeufigkeiten}
-sehr sch"on ablesen kann. Dies ist aber nicht weiter
-"uberraschend, denn bei der Berechnung von $E(X|G)$
-schliesst man ja alle F"alle aus, in denen man nicht
-gewinnt, es bleiben nur die F"alle "ubrig, die durch
+sehr schön ablesen kann. Dies ist aber nicht weiter
+überraschend, denn bei der Berechnung von $E(X|G)$
+schliesst man ja alle Fälle aus, in denen man nicht
+gewinnt, es bleiben nur die Fälle übrig, die durch
 die Tabelle \ref{haeufigkeiten} beschrieben werden.
 
-Relativ h"aufig war der Fehler, mit den Zahlen $1$ bis $9$
+Relativ häufig war der Fehler, mit den Zahlen $1$ bis $9$
 zu arbeiten statt mit $2$ bis $10$. Die Gewinnerwartung
 im Falle eines Gewinns verschiebt sich dadurch zu
 $E(X|G)=10$, der erwartet Gewinn ist also in diesem Fall

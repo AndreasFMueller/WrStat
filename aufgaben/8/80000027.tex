@@ -1,12 +1,12 @@
-Mit dem folgenden Experiment soll herausgefunden werden, ob vier M"unzen
+Mit dem folgenden Experiment soll herausgefunden werden, ob vier Münzen
 fair sind.
-Die vier M"unzen werden 500 mal geworfen, und es wird gez"ahlt, wie
-wie oft die f"unf m"oglichen Anzahlen von Kopf auftreten.
+Die vier Münzen werden 500 mal geworfen, und es wird gezählt, wie
+wie oft die fünf möglichen Anzahlen von Kopf auftreten.
 Die Resultate sind
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline
-Anzahl Kopf&Anzahl W"urfe\\
+Anzahl Kopf&Anzahl Würfe\\
 \hline
 0& \phantom{0}43\\
 1& 127\\
@@ -16,17 +16,17 @@ Anzahl Kopf&Anzahl W"urfe\\
 \hline
 \end{tabular}
 \end{center}
-Sind die M"unzen fair?
+Sind die Münzen fair?
 
 \begin{loesung}
-Es geht hier um die Nullhypothese, dass die vier M"unzen fair sind,
+Es geht hier um die Nullhypothese, dass die vier Münzen fair sind,
 also Kopf und Zahl mit der gleichen Wahrscheinlichkeit von 0.5 zeigen.
-Wenn dem so ist, dann ist die Anzahl Kopf in einem Wurf von vier M"unzen
+Wenn dem so ist, dann ist die Anzahl Kopf in einem Wurf von vier Münzen
 binomailverteilt mit $p=0.5$ und $n=4$.
 
-Wir k"onnen diese Hypothese  mit einem $\chi^2$-Test mit 4 Freiheitsgraden
+Wir können diese Hypothese  mit einem $\chi^2$-Test mit 4 Freiheitsgraden
 testen.
-Wir w"ahlen $\alpha=0.05$, der zugeh"orige kritische Wert f"ur die Diskrepanz
+Wir wählen $\alpha=0.05$, der zugehörige kritische Wert für die Diskrepanz
 ist $D_{\text{krit}}=9.488$.
 Wir berechnen die Diskrepanz der Daten:
 \begin{center}
@@ -44,7 +44,7 @@ i&n_i&   p_i&  np_i& n_i-np_i&(n_i-np_i)^2/np_i\\
 \hline
 \end{tabular}
 \end{center}
-Da $D>D_{\text{krit}}$ ist, muss die Hypothese verworfen werden, die M"unzen
+Da $D>D_{\text{krit}}$ ist, muss die Hypothese verworfen werden, die Münzen
 sind also {\em nicht} fair.
 \end{loesung}
 

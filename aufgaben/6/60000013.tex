@@ -1,23 +1,23 @@
 In einer Firma werden in den Servern Fibrechannel-Karten verwendet,
-die sich als etwas unzuverl"assig herausgestellt haben.
+die sich als etwas unzuverlässig herausgestellt haben.
 Im Mittel gehen in einer Serverpopulation von 1000 Servern jede Woche
-drei Karten kaputt, aus vorerst noch unbekannten Gr"unden.
+drei Karten kaputt, aus vorerst noch unbekannten Gründen.
 Mit dem Support des Herstellers wird folgender Deal
-ausgehandelt: Bis das Problem vollst"andig gel"ost werden kann, 
+ausgehandelt: Bis das Problem vollständig gelöst werden kann, 
 ersetzt der Hersteller jede Woche bis zu 5 Karten kostenfrei.
-Sollten weitere Karten ersetzt werden m"ussen, muss die Firma
+Sollten weitere Karten ersetzt werden müssen, muss die Firma
 die Kosten von 4000 Franken selber tragen.
 \begin{teilaufgaben}
 \item
 Wie gross ist die Wahrscheinlichkeit, dass dies in einer Woche nicht
 reicht?
 \item
-Mit welchen w"ochentlichen Kosten muss die Firma rechnen?
+Mit welchen wöchentlichen Kosten muss die Firma rechnen?
 \end{teilaufgaben}
 
 \begin{loesung}
 Kaputte Fibrechannel-Karten sind selten, also kann
-die Wahrscheinlichkeitsverteilung f"ur die Anzahl $N$ der kaputten Karten
+die Wahrscheinlichkeitsverteilung für die Anzahl $N$ der kaputten Karten
 mit einer Poissonverteilung approximiert werden. Der Parameter $\lambda$
 ist die Rate, mit der die Karten kaputt gehen, als $\lambda=3$ (3 Karten
 pro Woche).
@@ -26,15 +26,15 @@ pro Woche).
 Die Wahrscheinlichkeit $p$, dass in einer Woche mehr als 5 Karten kaputt
 gehen, ist also
 \[
-p=1-P(\text{h"ochstens 5 Karten kaputt})=1-F_N(5)
+p=1-P(\text{höchstens 5 Karten kaputt})=1-F_N(5)
 =1-\sum_{k=0}^5\frac{\lambda^k}{k!}e^{-\lambda}
 =1-e^{-\lambda}\sum_{k=0}^5\frac{\lambda^k}{k!}
 \]
 Dabei ist $F_N(x)$ die Verteilungsfunktion der Poissonverteilung mit
 Parameter $\lambda=3$. Mit R oder durch direkte Berechnung dieser
-Summe findet man daf"ur 0.08391794.
+Summe findet man dafür 0.08391794.
 \item
-Bei Kosten $K_0$ f"ur eine einzelne Karte sind die zu erwartenden Kosten 
+Bei Kosten $K_0$ für eine einzelne Karte sind die zu erwartenden Kosten 
 \begin{align*}
 K
 &=
@@ -60,14 +60,14 @@ K_0\biggl(\lambda- e^{-\lambda}\sum_{k=1}^5\frac{\lambda^k}{(k-1)!} -5p\biggr)
 \end{align*}
 Dabei wurde ausgenutzt, dass der Erwartungswert der Poissonverteilung
 $\lambda$ ist.
-Numerische Auswertung ergibt f"ur die Terme mit $\lambda$
+Numerische Auswertung ergibt für die Terme mit $\lambda$
 \begin{align*}
 \lambda-e^{-\lambda}\sum_{k=1}^5\frac{\lambda^k}{(k-1)!}
 =
 3-e^{-3}\sum_{k=1}^5\frac{3^k}{(k-1)!}
 =0.55421.
 \end{align*}
-Zusammen mit dem in a) bereits berechneten $p$ findet man f"ur die
+Zusammen mit dem in a) bereits berechneten $p$ findet man für die
 zu erwartenden Kosten:
 \[
 K_0(0.55421 - 5\cdot 0.083918)=0.13462\cdot K_0 = 538.48.

@@ -2,28 +2,28 @@ Wieviele zehnstellige Zahlen gibt es, die genau dreimal die Ziffer
 3 enthalten?
 
 \begin{loesung}
-Die Aufgabe spezifiziert nicht, ob f"uhrende Nullen bei einer solchen
+Die Aufgabe spezifiziert nicht, ob führende Nullen bei einer solchen
 10-stelligen Zahl
-vorkommen d"urfen. Wir berechnen daher die Anzahl von $n$-stelligen
-Zahlen, die genau $k$ Dreier enth"alt zun"achst unter der Annahme,
-dass f"uhrende Nullen erlaubt sind (Anzahl $a(n,k)$) und dann auch
-noch unter der Annahme, dass f"uhrende Nullen nicht erlaubt sind.
+vorkommen dürfen. Wir berechnen daher die Anzahl von $n$-stelligen
+Zahlen, die genau $k$ Dreier enthält zunächst unter der Annahme,
+dass führende Nullen erlaubt sind (Anzahl $a(n,k)$) und dann auch
+noch unter der Annahme, dass führende Nullen nicht erlaubt sind.
 
-Um eine solche Zahl zu bilden, m"ussen zun"achst die $k$ Pl"atze
-f"ur die Ziffern 3 gew"ahlt werden, dies ist auf $\binom{n}{k}$
-Arten m"oglich. Zu jeder solchen Wahl m"ussen jetzt noch die
-verbleibenden Pl"atze mit Ziffern $\ne 3$ besetzt werden, dies
+Um eine solche Zahl zu bilden, müssen zunächst die $k$ Plätze
+für die Ziffern 3 gewählt werden, dies ist auf $\binom{n}{k}$
+Arten möglich. Zu jeder solchen Wahl müssen jetzt noch die
+verbleibenden Plätze mit Ziffern $\ne 3$ besetzt werden, dies
 geht auf $9^{n-k}$ Arten. Somit gibt es
 $$a(n,k)=\binom{n}{k}\cdot9^{n-k}$$
 Zahlen der genannten Art.
 
-Wenn wir jetzt f"uhrende Nullen verbieten, gibt es zwei F"alle zu
-betrachten. Die erste Ziffer ist eine $3$, dann muss f"ur die
-verbleibenden $n-1$ Stellen eine Zahl m"oglicherweise mit f"uhrender
-Null gew"ahlt werden, die genau $k-1$ Dreier erh"alt, das ist auf $a(n-1,k-1)$
-Arten m"oglich. Die erste Stelle k"onnte aber auch etwas anderes
-als eine Drei sein, das geht auf $8$ verschiedene Arten, f"ur den
-Rest m"ussen dann $n-1$ Stellen mit genau $k$ Dreiern gew"ahlt
+Wenn wir jetzt führende Nullen verbieten, gibt es zwei Fälle zu
+betrachten. Die erste Ziffer ist eine $3$, dann muss für die
+verbleibenden $n-1$ Stellen eine Zahl möglicherweise mit führender
+Null gewählt werden, die genau $k-1$ Dreier erhält, das ist auf $a(n-1,k-1)$
+Arten möglich. Die erste Stelle könnte aber auch etwas anderes
+als eine Drei sein, das geht auf $8$ verschiedene Arten, für den
+Rest müssen dann $n-1$ Stellen mit genau $k$ Dreiern gewählt
 werden, was auf $a(n-1,k)$ Arten geht. Die gesuchte Anzahl ist also
 \[
 1\cdot a(n-1,k-1) + 8\cdot a(n-1,k)=

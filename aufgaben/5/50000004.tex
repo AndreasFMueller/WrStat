@@ -1,24 +1,24 @@
 Bei der Abstimmung zur Minarett-Initiative fiel eine grosse Abweichung zwischen
-den Vorhersagen und dem tats"achlichen Resultat auf. Um abzusch"atzen,
+den Vorhersagen und dem tatsächlichen Resultat auf. Um abzuschätzen,
 wie Wahrscheinlich eine solche Abweichung ist, gehen wir von folgenden
-Annahmen aus. Wir nehmen an, dass 55\% der Be"olkerung der Initative
-zustimmen. Jetzt werden zuf"allig 1000 Leute befragt, und die Anzahl der
+Annahmen aus. Wir nehmen an, dass 55\% der Beölkerung der Initative
+zustimmen. Jetzt werden zufällig 1000 Leute befragt, und die Anzahl der
 Ja-Stimmen ermittelt.
 \begin{teilaufgaben}
 \item
 Wie gross ist die Wahrscheinlichkeit, dass die
-gew"ahlte Stichprobe die Initiative ablehnt, das Resultat der
+gewählte Stichprobe die Initiative ablehnt, das Resultat der
 Meinungsumfrage sich also am Abstimmungstag als falsch erweist?
-\item Wie gross m"usste der Anteil der Bef"uhrworter in der Bev"olkerung
-sein, damit die Wahrscheinlichkeit f"ur eine Fehlprognose 10\% ist?
+\item Wie gross müsste der Anteil der Beführworter in der Bevölkerung
+sein, damit die Wahrscheinlichkeit für eine Fehlprognose 10\% ist?
 \end{teilaufgaben}
 
 \begin{loesung}
-Offenbar stimmt ein zuf"allig ausgew"ahlter Stimmb"urger mit
+Offenbar stimmt ein zufällig ausgewählter Stimmbürger mit
 Wahrscheinlichkeit $p=0.55$ der Initiative zu. Die Zahl $X$ der Zustimmenden
-in einer Stichprobe von 1000 zuf"allig ausgew"ahlten Stimmb"urgern ist
-binomialverteilt. Wegen der betr"achtlichen Gr"osse der Stichprobe k"onnen
-wir n"aherungsweise von einer Normalverteilung mit Mittelwert $\mu=np=550$ und
+in einer Stichprobe von 1000 zufällig ausgewählten Stimmbürgern ist
+binomialverteilt. Wegen der beträchtlichen Grösse der Stichprobe können
+wir näherungsweise von einer Normalverteilung mit Mittelwert $\mu=np=550$ und
 Standardabweichung $\sigma=\sqrt{np(1-p)}
 % sqrt(1000 * 0.55 * 0.45)
 =15.732
@@ -35,9 +35,9 @@ P(X < 500)&=P\left(\frac{X-\mu}{\sigma}<\frac{500-\mu}{\sigma}\right)\\
 )=0.000741
 \end{align*}
 Diese Wahrscheinlichkeit ist also so klein, dass man schliessen muss,
-dass die Stichprobe nicht wirklich zuf"allig ausgew"ahlt war.
+dass die Stichprobe nicht wirklich zufällig ausgewählt war.
 \item
-Offenbar muss $p$ noch wesentlich n"aher bei $0.5$ liegen.  Wir suchen also
+Offenbar muss $p$ noch wesentlich näher bei $0.5$ liegen.  Wir suchen also
 $p>0.5$ so, dass
 \begin{align*}
 0.1=P(X<500)&=P\left(\frac{X-\mu}{\sigma}<\frac{500-\mu}{\sigma}\right)\\
@@ -45,7 +45,7 @@ $p>0.5$ so, dass
 -1.281552=
 z&=\frac{n(\frac12-p)}{\sqrt{n(1-p)}}
 \end{align*}
-Darin ist $p$ die Unbekannte, man kann nach $p$ aufl"osen
+Darin ist $p$ die Unbekannte, man kann nach $p$ auflösen
 \begin{align*}
 z^2np(1-p)&=n^2\biggl(\frac12-p\biggr)^2\\
 z^2np-z^2np^2

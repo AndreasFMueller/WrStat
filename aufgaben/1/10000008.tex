@@ -1,27 +1,27 @@
 Eine Skiverleihfirma besitzt 6 Paare weisser und 7 Paare schwarzer Skis
-einer bestimmten Gr"osse. Die Skis sind asymmetrisch, man kann linke
+einer bestimmten Grösse. Die Skis sind asymmetrisch, man kann linke
 und rechte Skis unterscheiden.
 Nach dem Sommer werden die Skis aus dem Lagercontainer geholt, 
 wo sie ziemlich durcheinander geraten sind.
 \begin{teilaufgaben}
-\item Auf wieviele Arten k"onnen die Skis zu Paaren zusammengef"ugt werden?
-\item Der Marketingchef findet, es d"urften durchaus auch gemischfarbige Paare
-vermietet werden, wieveile m"ogliche Paarungen gibt es in diesem
+\item Auf wieviele Arten können die Skis zu Paaren zusammengefügt werden?
+\item Der Marketingchef findet, es dürften durchaus auch gemischfarbige Paare
+vermietet werden, wieveile mögliche Paarungen gibt es in diesem
 Fall?
 \item Bei der Revision stellt sich heraus, das zwei schwarze linke Skis
 und eine linker weisser Ski nicht mehr zu reparieren sind. Wieviele
-m"ogliche Paarungen gibt es jetzt noch?
+mögliche Paarungen gibt es jetzt noch?
 \end{teilaufgaben}
 
 \begin{loesung}
 \begin{teilaufgaben}
 \item Stellt man sich vor, dass die linken Skier einer bestimmen
 Farbe in einer bestimmten
-Reihenfolge angeordnet sind, dann bekommt man alle m"oglichen Paarungen,
-indem man die rechten Skis der gleichen Farbe in allen m"oglichen
+Reihenfolge angeordnet sind, dann bekommt man alle möglichen Paarungen,
+indem man die rechten Skis der gleichen Farbe in allen möglichen
 Reihenfolgen anordnet.
-F"ur $n_c$ Paare der Farbe $c$ gibt es also $n_c!$ m"ogliche
-Paarungen f"ur Skis der Farbe $c$. F"ur die beiden Farben Schwarz
+Für $n_c$ Paare der Farbe $c$ gibt es also $n_c!$ mögliche
+Paarungen für Skis der Farbe $c$. Für die beiden Farben Schwarz
 und weiss ergibt sich:
 \[
 n_s!\cdot n_w!=7!\cdot 6!=5040\cdot 720=3628800
@@ -29,28 +29,28 @@ n_s!\cdot n_w!=7!\cdot 6!=5040\cdot 720=3628800
 \item
 Falls die Farbe keine Rolle spielt, ist das gleiche Argument wie vorhin
 anwendbar, wobei jetzt alle Skis die gleiche Farbe haben. Die Anzahl
-der m"oglichen Paarungen ist $13!=6227020800$.
+der möglichen Paarungen ist $13!=6227020800$.
 \item
 Hat man nur $n$ linke und $m$ rechte Skis einer gewissen Farbe, mit $n<m$,
-dann muss man offenbar zuerst aus den $m$ Skis deren $n$ ausw"ahlen,
-die man tats"achlich f"ur Paarungen verwenden will. Das geht auf $\binom{m}{n}$
+dann muss man offenbar zuerst aus den $m$ Skis deren $n$ auswählen,
+die man tatsächlich für Paarungen verwenden will. Das geht auf $\binom{m}{n}$
 Arten. Dann kann man wie vorhin $n!$ Anordnungen bilden. Die Gesamtzahl
-der m"oglichen Paarungen ist also 
+der möglichen Paarungen ist also 
 \[
 \binom{m}{n}n!=\frac{m!}{n!\,(m-n)!}\cdot n!=\frac{m!}{(m-n)!}
 =
 m\cdot(m-1)\cdot\dots\cdot(m-n+1).
 \]
-Im vorliegenden Fall ist f"ur die schwarzen Skis $n=5$ und $m=7$,
-f"ur die weissen Skis ist dagegen $n=5$ und $m=6$.
-Die Gesamtzahl der m"oglichen Paarungen ist daher
+Im vorliegenden Fall ist für die schwarzen Skis $n=5$ und $m=7$,
+für die weissen Skis ist dagegen $n=5$ und $m=6$.
+Die Gesamtzahl der möglichen Paarungen ist daher
 \[
 \frac{7!}{2!}\cdot \frac{6!}{1!}
 =\frac12\cdot 7!\,6!=1814400
 \]
 \end{teilaufgaben}
 Falls man wie in b) auch gemischtfarbige Paare zulassen will, muss
-man nur z"ahlen, auf wieviele Arten man die 10 vorhandenen
+man nur zählen, auf wieviele Arten man die 10 vorhandenen
 linken Skis mit den 13 rechten Skis paaren kann. Mit der gleichen
 Methode wie vorhin findet man
 \[
@@ -61,7 +61,7 @@ Methode wie vorhin findet man
 
 %\begin{bewertung}
 %a) Permutationen ({\bf P}) 1 Punkt, Produkt ({\bf M}) 1 Punkt.
-%b) Permutationen ohne Farbeinschr"ankung ({\bf F}) 1 Punkt.
+%b) Permutationen ohne Farbeinschränkung ({\bf F}) 1 Punkt.
 %c) Auswahl von passenden Skiern ({\bf A}) 1 Punkt,
 %Reihenfolgen ({\bf R}) 1 Punkt, Produkt ({\bf M2}) 1 Punkt.
 %\end{bewertung}

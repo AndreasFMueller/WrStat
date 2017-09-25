@@ -1,25 +1,25 @@
-W"ahrend eines Spazierganges wurden von einem GPS-Empf"anger die
+Während eines Spazierganges wurden von einem GPS-Empfänger die
 $(x,y)$-Positionsdaten im File \texttt{gps.csv} aufgezeichnet.
-In einer fr"uhren Messung wurde ermittelt, dass der mittlere Positionsfehler
-des GPS-Empf"angers bei ca 3m liegt.
-Ermitteln Sie zu jedem Zeitpunkt die bestm"ogliche Sch"atzung 
+In einer frühren Messung wurde ermittelt, dass der mittlere Positionsfehler
+des GPS-Empfängers bei ca 3m liegt.
+Ermitteln Sie zu jedem Zeitpunkt die bestmögliche Schätzung 
 der Geschwindigkeit.
 
-Die Daten f"ur diese Aufgabe wurden von Martin Stypinski beigetragen.
+Die Daten für diese Aufgabe wurden von Martin Stypinski beigetragen.
 
 \begin{loesung}
-Da die mittlere Geschwindigkeit eines Spazierg"angers bei etwa 1m/s liegt,
-w"urde eine numerische Ableitung der Rohdaten von den Messfehlern dominiert,
-man k"onnte keine sinnvollen Geschwindigkeitswerte ermitteln.
+Da die mittlere Geschwindigkeit eines Spaziergängers bei etwa 1m/s liegt,
+würde eine numerische Ableitung der Rohdaten von den Messfehlern dominiert,
+man könnte keine sinnvollen Geschwindigkeitswerte ermitteln.
 Andererseits kann man auch nicht einfach nur den ersten und letzten
 Datenpunkt nehmen und die mittlere Geschwindigkeit berechnen, weil
-sich die Richtung ja "andern k"onnte.
+sich die Richtung ja ändern könnte.
 
 Ein Kalman-Filter ist in der Lage, Position und Geschwindigkeit aus
-den Positionsdaten zu filtern. Dazu muss zun"achst ein Modell formuliert
+den Positionsdaten zu filtern. Dazu muss zunächst ein Modell formuliert
 werden. Ein Spaziergang spielt sich mit mehr oder weniger konstanter
 Geschwindigkeit ab, das Modell darf also annehmen, dass die Geschwindigkeit
-konstant ist. Als Zustandsvariablen f"ur das Modell kann man also die
+konstant ist. Als Zustandsvariablen für das Modell kann man also die
 zweidimensionalen Positionen und die zweidimensionalen Geschwindigkeit
 in einem vierdimensionalen Vektor kombinieren.
 Die Zeitentwicklung kann durch die Matrix
@@ -33,20 +33,20 @@ x_{k+1}=\varphi x_k=
 \end{pmatrix}
 \end{equation}
 beschrieben werden. Die Systemfehler beschreiben das Ausmass, in
-welchem die tats"achliche Zeitentwicklung von der modellierten
+welchem die tatsächliche Zeitentwicklung von der modellierten
 Zeitwentwicklung abweicht.
-F"ur die Geschwindigkeit ist das die zu erwartende Schwankung der
-Geschwindigkeit w"ahrend des Spaziergangs. Wenn der Spazierg"anger
+Für die Geschwindigkeit ist das die zu erwartende Schwankung der
+Geschwindigkeit während des Spaziergangs. Wenn der Spaziergänger
 alle paar Schritte stehen bleibt, dann ist die halbe Geschwindigkeit
 die mittlere Geschwindigkeitsabweichung. Wenn stehenbleiben selten
 ist, wird der Systemfehler der Geschwindigkeit entsprechend kleiner.
 Der Positionsfehler setzt sich zusammen aus einem Fehler, der vom
-Fehler der Geschwindigkeit herr"uhrt, und einem Fehler, der damit
-zusammenh"angt, dass w"ahrend eines Zeitschrittes die Geschwindigkeit
-sich "andern kann. Eine solche Positions"anderung ist von
-der Gr"ossenordnung $\frac12a\Delta t^2$. Die Beschleunigung kann nicht
+Fehler der Geschwindigkeit herrührt, und einem Fehler, der damit
+zusammenhängt, dass während eines Zeitschrittes die Geschwindigkeit
+sich ändern kann. Eine solche Positionsänderung ist von
+der Grössenordnung $\frac12a\Delta t^2$. Die Beschleunigung kann nicht
 mehr als $v/\Delta t$, sein, also ist der Positionsfehler von der
-Gr"ossenordnung $\frac12v \Delta t$. Damit k"onnen wir die Systemfehlermatrix
+Grössenordnung $\frac12v \Delta t$. Damit können wir die Systemfehlermatrix
 als
 \[
 Q=
@@ -64,10 +64,10 @@ Q=
 0&0&0&1\left(\frac{\text{m}}{\text{s}}\right)^2
 \end{pmatrix}
 \]
-Die Werte in der Matrix $Q$ sind naturgem"ass etwas unsicher, sie k"onnen
-sp"ater dazu benutzt werden, den Filter zu tunen.
+Die Werte in der Matrix $Q$ sind naturgemäss etwas unsicher, sie können
+später dazu benutzt werden, den Filter zu tunen.
 
-Der GPS-Empf"anger liefert nur die Position, also ist die Messmatrix
+Der GPS-Empfänger liefert nur die Position, also ist die Messmatrix
 \[
 H=
 \begin{pmatrix}
@@ -82,18 +82,18 @@ R=\begin{pmatrix}
 0&\varrho^2
 \end{pmatrix}.
 \]
-Damit ist der Messprozess vollst"andig beschrieben.
+Damit ist der Messprozess vollständig beschrieben.
 
 Mit diesen Daten kann man jetzt den Kalman-Filter konstruieren, die
-Formeln aus dem Skript lassen sich ohne "Anderung "ubernehmen.
+Formeln aus dem Skript lassen sich ohne "Anderung übernehmen.
 Der Vorhersage-Schritt ist
 \begin{align*}
 \hat x_{k+1|k}&=\varphi \hat x_k
 \\
 P_{k+1|k}&=\varphi P_k\varphi^t+Q.
 \end{align*}
-F"ur den Korrektur-Schritt muss man zun"achst die Kalman-Matrix 
-berechnen, daraus kann man dann die korrigierte Sch"atzung sowie
+Für den Korrektur-Schritt muss man zunächst die Kalman-Matrix 
+berechnen, daraus kann man dann die korrigierte Schätzung sowie
 ihren Fehler ermitteln:
 \begin{align*}
 K_{k+1}&=P_{k+1|k}H^t(HP_{k+1|k}H^t+R)^{-1}
@@ -103,7 +103,7 @@ K_{k+1}&=P_{k+1|k}H^t(HP_{k+1|k}H^t+R)^{-1}
 \\
 P_{k+1}&=(E-K_{k+1}H)P_{k+1|k}
 \end{align*}
-Die Berechnung der inversen Matrix in der Formel f"ur $K_{k+1}$ ist
+Die Berechnung der inversen Matrix in der Formel für $K_{k+1}$ ist
 unproblematisch, da es sich bei $HP_{k+1|k}H^t$ um eine $1\times 1$-Matrix
 handelt.
 Diesen Kalman-Filter kann man sehr einfach in Octave implementieren:

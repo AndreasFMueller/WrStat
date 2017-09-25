@@ -1,17 +1,17 @@
-Daten. F"ur statistische Datenanalysen m"ussen Daten zun"achst eingelesen
-oder auch in Files geschrieben werden k"onnen.
+Daten. Für statistische Datenanalysen müssen Daten zunächst eingelesen
+oder auch in Files geschrieben werden können.
 R kann mit vielen verschiedenen Datenquellen umgehen
-(plattformabh"angig), auf jeden Fall aber mit CSV Files.
+(plattformabhängig), auf jeden Fall aber mit CSV Files.
 "Ublicherweise gruppiert man die Daten nicht einfach nur in Vektoren, sondern
-in einem sogenannten Frame. Dies sieht aus wie ein Tabelle, enth"alt aber
-zus"atzlichen Informationen "uber Namen und Datentyp.
+in einem sogenannten Frame. Dies sieht aus wie ein Tabelle, enthält aber
+zusätzlichen Informationen über Namen und Datentyp.
 \begin{teilaufgaben}
 \item Verwenden Sie den Befehl
 \begin{verbatim}
 f <- data.frame(t = x, v = y)
 \end{verbatim}
 ein Datenframe, welches die Daten aus der vorangegangenen
-Aufgabe enth"alt. Die erste Spalte enth"alt die Werte aus dem Vektor
+Aufgabe enthält. Die erste Spalte enthält die Werte aus dem Vektor
 {\tt x} unter dem Namen {\tt t}.
 \item Schreiben Sie die Daten in ein File {\tt daten.csv} mit Hilfe der
 Funktion {\tt write.csv}.
@@ -22,8 +22,8 @@ Funktion {\tt write.csv}.
 Fortsetzung des Protokolls aus der Aufgabe 6:
 \verbatimainput{aufg6.script}
 
-Sie k"onnen die Daten jederzeit durch Aufrufen des Frames {\tt f}
-bzw.~{\tt f2} anschauen. Auf eine einzelne Spalte k"onnen Sie "uber
+Sie können die Daten jederzeit durch Aufrufen des Frames {\tt f}
+bzw.~{\tt f2} anschauen. Auf eine einzelne Spalte können Sie über
 den Namen der Spalte zugreifen. Die $t$-Spalte ist {\tt f\$t},
 die $v$-Spalte ist {\tt f\$v}.
 \end{loesung}

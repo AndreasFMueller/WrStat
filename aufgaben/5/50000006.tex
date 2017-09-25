@@ -1,18 +1,18 @@
-Eine Maschine soll Bonbons in den vier Farben rot, gelb, gr"un
+Eine Maschine soll Bonbons in den vier Farben rot, gelb, grün
 und orange so in
-Plastikt"uten einf"ullen, dass im Mittel von jeder Farbe gleich
-viele Bonbons vorkommen. Jede T"ute enth"alt $n=100$ Bonbons.
-Zur Qualit"atssicherung werden 100 T"uten ausgez"ahlt und
-es wird festgestellt, dass bei 10 T"uten die Zahl der roten
+Plastiktüten einfüllen, dass im Mittel von jeder Farbe gleich
+viele Bonbons vorkommen. Jede Tüte enthält $n=100$ Bonbons.
+Zur Qualitätssicherung werden 100 Tüten ausgezählt und
+es wird festgestellt, dass bei 10 Tüten die Zahl der roten
 Bonbons um mindestens 8 vom Sollwert abweicht. Beweist das,
-dass die Abf"ullmaschine ein Problem hat?
+dass die Abfüllmaschine ein Problem hat?
 
 \begin{loesung}
 Die Anzahl der roten Bonbons ist binomialverteilt mit $p=\frac{n}4$,
 die Binomialverteilung
 kann aber durch die Normalverteilung approximiert werden mit
 Varianz $np(1-p)$. Die Wahrscheinlichkeit, dass die Abweichung vom
-Sollwert gr"osser als 5 ist, kann also mit der Normalverteilung
+Sollwert grösser als 5 ist, kann also mit der Normalverteilung
 berechnet werden:
 \[
 P = P\left(\left|X-np\right|\ge 8\right)
@@ -31,14 +31,14 @@ rechten Seite der Ungleichung steht der Wert
 =\frac{8}{\sqrt{100\cdot\frac14\cdot\frac34}}\simeq 1.8475
 \]
 Die Verteilungsfunktion der Standardnormalverteilung hat den
-Wert $F(1.8475)\simeq0.9678$, daraus ergibt sich f"ur die
+Wert $F(1.8475)\simeq0.9678$, daraus ergibt sich für die
 Wahrscheinlichkeit einer Abweichung $>1.8475$
 \[
 P=2(1-F(1.8475))=0.644
 \]
 Eine so grosse Abweichung wird also nur in weniger als 7\%
-der F"alle auftreten. Beim Test sind es jedoch 10 T"uten,
+der Fälle auftreten. Beim Test sind es jedoch 10 Tüten,
 also deutlich mehr. Daher liegt die Vermutung nahe, dass
-die Abf"ullmaschine ein Problem hat.
+die Abfüllmaschine ein Problem hat.
 \end{loesung}
 

@@ -1,6 +1,6 @@
 Nach dem Sugus-Experiment hat ein Student festgestellt, dass bei den
-Fizzers m"oglicherweise Diskriminierung vorliegt. Inzwischen wurden
-$n=855$ Fizzers auszgez"ahlt mit folgendem Resultat
+Fizzers möglicherweise Diskriminierung vorliegt. Inzwischen wurden
+$n=855$ Fizzers auszgezählt mit folgendem Resultat
 \begin{center}
 \begin{tabular}{|l|r|}
 \hline
@@ -8,7 +8,7 @@ Farbe&Anzahl\\
 \hline
 weiss&187\\
 gelb&141\\
-gr"un&136\\
+grün&136\\
 orange&167\\
 pink&128\\
 rot&96\\
@@ -18,12 +18,12 @@ rot&96\\
 Was schliessen Sie daraus?
 
 \begin{loesung}
-Die Durchf"uhrung des $\chi^2$-Test f"ur diese Daten ergibt
+Die Durchführung des $\chi^2$-Test für diese Daten ergibt
 einen Diskrepanz-Wert von $D=35.0702$. Der kritische Diskrepanz-Wert
-f"ur $\alpha = 0.05$ und $5$ Freiheitsgrade ist $11.070$. Da
+für $\alpha = 0.05$ und $5$ Freiheitsgrade ist $11.070$. Da
 $D>D_{\text{krit}}$ muss die Hypothese verworfen werden.
 
-Mit R kann der $\chi^2$-Test mit der Funktion {\tt chisq.test} durchgef"uhrt
+Mit R kann der $\chi^2$-Test mit der Funktion {\tt chisq.test} durchgeführt
 werden:
 \verbatimainput{fizzers.txt}
 Da der $p$-Value Wert kleiner als $\alpha$ ist, muss die

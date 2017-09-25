@@ -1,29 +1,29 @@
 In seinem Buch ``Why people believe weird things'' beschreibt Michael
-Shermer den folgenden Test f"ur aussersinnliche Wahrnehmung
+Shermer den folgenden Test für aussersinnliche Wahrnehmung
 (ESP, extra sensory perception), den er bei der Association for Research and Enlightenment in Virginia Beach, Virginia, selbst miterlebt hat:
 die ``sendende'' Person konzentriert sich
-auf eines von f"unf Symbolen, die ``empfangende'' Person konzentriert sich 
+auf eines von fünf Symbolen, die ``empfangende'' Person konzentriert sich 
 auf die Stirn der sendenden Person und versucht das Symbol zu erkennen.
-Mit Hilfe einer ESP-Machine wird dann gez"ahlt, wie oft der ``Empf"anger''
+Mit Hilfe einer ESP-Machine wird dann gezählt, wie oft der ``Empfänger''
 das Symbol richtig erkannt hat.
 \begin{center}
 \includeagraphics[width=0.6\hsize]{esp-machine.png}
 \end{center}
-Das Experiment wird 25 mal wiederholt. Der Versuchsleiter erkl"arte:
+Das Experiment wird 25 mal wiederholt. Der Versuchsleiter erklärte:
 ``5 richtige ist Durchschnitt, 3 bis 7 ist Zufall,
-alles "uber 7 ist ein Hinweis auf aussersinnliche Wahrnehmung''.
+alles über 7 ist ein Hinweis auf aussersinnliche Wahrnehmung''.
 \begin{teilaufgaben}
-\item Wie wahrscheinlich ist, dass ein v"ollig unbegabter ``Empf"anger''
-mehr als 7 Symbole richtig empf"angt?
-\item Beschreiben Sie einen Test, mit dem man mit grosser Zuverl"assigkeit
-ESP-begabte ``Empf"anger'' identifizieren k"onnte.
-%\item Welchen Prozentsatz der Bev"olkerung wird von Ihrem Test als
+\item Wie wahrscheinlich ist, dass ein völlig unbegabter ``Empfänger''
+mehr als 7 Symbole richtig empfängt?
+\item Beschreiben Sie einen Test, mit dem man mit grosser Zuverlässigkeit
+ESP-begabte ``Empfänger'' identifizieren könnte.
+%\item Welchen Prozentsatz der Bevölkerung wird von Ihrem Test als
 %ESP-begabt erkannt, selbst wenn es ESP nicht gibt?
 \end{teilaufgaben}
 
 \begin{loesung}
 \begin{teilaufgaben}
-\item Ein Empf"anger, der nur zuf"allige Antworten gibt, w"ahlt
+\item Ein Empfänger, der nur zufällige Antworten gibt, wählt
 die richtige Antwort mit Wahrscheinlichkeit $p=\frac15$.
 Seine Anzahl $X$ richtiger Antworten in 25 Versuchen ist binomialverteilt mit
 $p=0.2$ und $n=25$. Gesucht ist die Wahrscheinlichkeit
@@ -44,7 +44,7 @@ P(X\le 7)=P\biggl(\frac{X-\mu}{\sigma}\le \frac{7-\mu}{\sigma}\biggr)
 =
 0.8413447
 \]
-Die Gr"osse $\frac{X-\mu}{\sigma}$ ist angen"ahrt standardnormalverteilt.
+Die Grösse $\frac{X-\mu}{\sigma}$ ist angenährt standardnormalverteilt.
 Noch etwas besser wird das Result allerdings, wenn man statt $7$ den
 Wert $7.5$ nimmt:
 \[
@@ -58,11 +58,11 @@ Die Wahrscheinlichkeit, mehr als 7 Symbole richtig zu Raten ist
 also $1-0.8943502= 0.1056498$.
 \item
 Wir verwenden einen Test mit $\alpha=0.01$.
-Der Empf"anger muss eine so grosse Zahl Symbole richtig erkennen,
-dass dies nur mit Wahrscheinlichkeit kleiner als $\alpha$ zuf"allig
+Der Empfänger muss eine so grosse Zahl Symbole richtig erkennen,
+dass dies nur mit Wahrscheinlichkeit kleiner als $\alpha$ zufällig
 passieren kann.
-Die Zahl $k$ der richtigen Antworten muss also so gew"ahlt sein,
-dass $P(X\ge k) \le \alpha$ ist f"ur binomialverteiltes $X$ mit $p=\frac15$
+Die Zahl $k$ der richtigen Antworten muss also so gewählt sein,
+dass $P(X\ge k) \le \alpha$ ist für binomialverteiltes $X$ mit $p=\frac15$
 und $n=25$. Wie in a) approximieren wir dies durch die Normalverteilung
 suchen also $k$ so, dass $P(X\ge k)\le\alpha$ unter der Annahme, dass
 $X$ normalverteilt ist mit $\mu=5$ und $\sigma=2$.
@@ -72,15 +72,15 @@ P\biggl(Z\le \frac{k - \mu}{\sigma}\biggr)&\ge 1-\alpha=0.99\\
 k&\ge 2\cdot 2.326348 + 5=9.652696
 \end{align*}
 Von ESP kann man also mit grosser Sicherheit erst dann sprechen, wenn
-ein Kandidat mindestens 10 Symbole richtig empf"angt.
-Bei etwas sorgf"altiger Approximation, d.~h.~unter Ber"ucksichtigung
+ein Kandidat mindestens 10 Symbole richtig empfängt.
+Bei etwas sorgfältiger Approximation, d.~h.~unter Berücksichtigung
 der Klassengrenzen bei halbzahligen $x$-Werten, findet man, dass
 $k\ge 10.15270$ sein muss, man also erst bei mindestens 11 richtig
-empfangenen Symbolen von den ESP-F"ahigkeiten der Testperson
-"uberzeugt sein kann.
+empfangenen Symbolen von den ESP-Fähigkeiten der Testperson
+überzeugt sein kann.
 %\item
 %Die Wahrscheinlichkeit, 10 (11) oder mehr Symbole richtig zu empfangen,
-%selbst wenn man nicht "uber ESP-F"ahigkeiten verf"ugt, kann wie in
+%selbst wenn man nicht über ESP-Fähigkeiten verfügt, kann wie in
 %a) berechnet werden. Man findet die folgenden Resultate:
 %\begin{center}
 %\begin{tabular}{|r|r|r|r|}

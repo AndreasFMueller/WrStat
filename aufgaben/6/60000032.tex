@@ -1,40 +1,40 @@
-Inspektor Columbo m"ochte herausfinden, ob in einem Spielkasino
+Inspektor Columbo möchte herausfinden, ob in einem Spielkasino
 am Roulette-Tisch betrogen wird.
 Da dort nicht gern gesehen wird, wenn sich die Leute umfangreiche Notizen
-machen, z"ahlt er im Kopf die Anzahl $X$ der ``roten'' Zahlen,
+machen, zählt er im Kopf die Anzahl $X$ der ``roten'' Zahlen,
 die im Laufe eines Abends auftreten.
 Wir gehen davon aus, dass an einem Abend 100 Spiele gespielt werden.
 \begin{teilaufgaben}
-\item Geben Sie ein Interval f"ur die Werte von $X$ an, die ``unverd"achtig''
-sind. W"ahlen Sie als Kriterium f"ur ``unverd"achtig'' ein Interval so, dass
-die Anzahl $X$ bei einem ehrlichen Casino nur in 1\% der F"alle nicht
-in dem Interval liegen w"urde.
-\item Um den vermuteten Betr"ugern das Handwerk zu legen, muss Columbo
-etwas Hartn"ackigkeit beweisen, und geht daher jeden Abend erneut
-ins Kasino um ``Rot'' zu z"ahlen. Durch Zufall kann es vorkommen, dass
-das Kriterium, welches Sie in Teilaufgabe a) f"ur ``verd"achtige''
-Werte von $X$ festgelegt haben, erf"ullt wird. Wie wahrscheinlich ist,
-dass das Kriterium an 30 Abenden mindestens einmal erf"ullt wird, selbst
+\item Geben Sie ein Interval für die Werte von $X$ an, die ``unverdächtig''
+sind. Wählen Sie als Kriterium für ``unverdächtig'' ein Interval so, dass
+die Anzahl $X$ bei einem ehrlichen Casino nur in 1\% der Fälle nicht
+in dem Interval liegen würde.
+\item Um den vermuteten Betrügern das Handwerk zu legen, muss Columbo
+etwas Hartnäckigkeit beweisen, und geht daher jeden Abend erneut
+ins Kasino um ``Rot'' zu zählen. Durch Zufall kann es vorkommen, dass
+das Kriterium, welches Sie in Teilaufgabe a) für ``verdächtige''
+Werte von $X$ festgelegt haben, erfüllt wird. Wie wahrscheinlich ist,
+dass das Kriterium an 30 Abenden mindestens einmal erfüllt wird, selbst
 wenn alle im Kasino ehrlich arbeiten?
 \end{teilaufgaben}
 
 \begin{loesung}
 \begin{teilaufgaben}
 \item
-``Rot'' und ``Nicht-Rot'' sind die Ausg"ange eines Bernoulli-Experiments mit
+``Rot'' und ``Nicht-Rot'' sind die Ausgänge eines Bernoulli-Experiments mit
 Wahrscheinlichkeit $p=\frac{18}{37}$. Die Anzahl $X$ von ``Rot'' ist daher
 eine binomialverteilte Zufallsvariable. Wegen der grossen Zahl $n=100$
 von Spielen, verwenden wir die Normalapproximation, nach der 
 \[
 \frac{X-E(X)}{\sqrt{\operatorname{var}(X)}}=\frac{X-np}{\sqrt{np(1-p)}}
 \]
-standardnormalverteilt ist. Verd"achtig sind Werte von $X$, die weit
-weg vom Erwartungswert $np$ sind. Wir w"ahlen die Schranken des Intervals
+standardnormalverteilt ist. Verdächtig sind Werte von $X$, die weit
+weg vom Erwartungswert $np$ sind. Wir wählen die Schranken des Intervals
 so, dass bei einem ehrlichen Betrieb die Zahl $X$ nur mit Wahrscheinlichkeit
 1\% ausserhalb des Intervals liegt. In anbetracht der Konsequenzen
-f"ur das Kasino, wenn sich Columbo irrt, ist das soger eher noch ein
-grosser Wert. Nach der Quantilentabelle f"ur die
-Standardnormalverteilung muss daf"ur die Zahl $X$ um mehr als $2.5758\sigma$
+für das Kasino, wenn sich Columbo irrt, ist das soger eher noch ein
+grosser Wert. Nach der Quantilentabelle für die
+Standardnormalverteilung muss dafür die Zahl $X$ um mehr als $2.5758\sigma$
 von $np$ abweichen, also
 \[
 \left.
@@ -54,9 +54,9 @@ von $np$ abweichen, also
 \end{aligned}
 \right.
 \]
-Anzahlen im Interval $[35,61]$ sind also unverd"achtig.
+Anzahlen im Interval $[35,61]$ sind also unverdächtig.
 
-Geht man statt von einer gr"unen Null von zwei gr"unen Nullen aus, verschiebt
+Geht man statt von einer grünen Null von zwei grünen Nullen aus, verschiebt
 sich die Wahrscheinlichkeit leicht, es ist jetzt $p=\frac{18}{38}$, dadurch
 ergeben sich jetzt folgende Zahlenwerte:
 \[
@@ -82,7 +82,7 @@ Und schliesslich kann man Wahrscheinlichkeit 10\% statt 1\% arbeiten,
 es ist dann $2.5758$ durch $1.6449$ zu ersetzen, es ergeben sich
 die Intervalle $[40.43, 56.87]$ bzw.~$[39.16, 55.58]$.
 \item
-Das Kriterium war so gew"ahlt, dass es nur in 1\% der F"alle zuf"allig
+Das Kriterium war so gewählt, dass es nur in 1\% der Fälle zufällig
 eintreten kann. Sei $A_i$ das Ereignis, dass das Kriterium am Abend $i$
 eingetritt, $P(A_i)=0.01$.
 Die Wahrscheinlichkeit, dass es an keinem Abend eintritt,
@@ -110,12 +110,12 @@ P(\overline{A}_{30})
 =0.99^{30}=0.7397
 \end{align*}
 Mit Wahrscheinlichkeit $1-0.7397=0.2603$ wird also das Kriterium an mindestens
-einem der 30 Abende erf"ullt sein.
+einem der 30 Abende erfüllt sein.
 
 Wenn man in a) mit 10\% gearbeitet hat, dann wird die Wahrscheinlichkeit in
-$b$ nat"urlich auch gr"osser: $0.9^{30}=0.0424$, die Wahrscheinlichkeit ist
+$b$ natürlich auch grösser: $0.9^{30}=0.0424$, die Wahrscheinlichkeit ist
 dann $0.9576$. Daran kann man sehen, dass $10\%$ ein zu grobes Kriterium
-f"ur diese Art Untersuchung ist.
+für diese Art Untersuchung ist.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}
@@ -124,7 +124,7 @@ f"ur diese Art Untersuchung ist.
 \begin{teilaufgaben}
 \item Binomialverteilung mit Normalapproximation ({\bf B}) 1 Punkt,
 Erwartungswert und Varianz ({\bf E}) 1 Punkt,
-Wahl einer geeigneten Wahrscheinlichkeit f"ur ein Interval ({\bf A}) 1 Punkt,
+Wahl einer geeigneten Wahrscheinlichkeit für ein Interval ({\bf A}) 1 Punkt,
 Berechnung der Intervallgrenzen ({\bf G}) 1 Punkt.
 \item Iteriertes Bernoulli-Experiment mit Wahrscheinlichkeit 1\% ({\bf I})
 1 Punkt,

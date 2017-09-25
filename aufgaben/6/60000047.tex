@@ -1,13 +1,13 @@
-Die 3D-Drucktechnik f"ur Consumer steckt immer noch etwas in den 
-Kinderschuhen, vor allem die Drucke gr"osserer oder sonstwie komplexer
-Teile schlagen "ofters fehl.
-F"ur ein Projekt werden 30 identische Teile ben"otigt,
-doch schl"agt der Druck eines Teils in einem von f"unf F"allen fehl.
+Die 3D-Drucktechnik für Consumer steckt immer noch etwas in den 
+Kinderschuhen, vor allem die Drucke grösserer oder sonstwie komplexer
+Teile schlagen öfters fehl.
+Für ein Projekt werden 30 identische Teile benötigt,
+doch schlägt der Druck eines Teils in einem von fünf Fällen fehl.
 Wieviele Drucke sollen geplant werden, damit mit Wahrscheinlichkeit 99\%
-gen"ugend brauchbare Teile darunter sind?
+genügend brauchbare Teile darunter sind?
 
 \begin{loesung}
-Gesucht ist die Zahl $n$ der n"otigen Drucke.
+Gesucht ist die Zahl $n$ der nötigen Drucke.
 3D-Druck eines Teils ist ein Bernoulli-Experiment mit
 Erfolgswahrscheinlichkeit $p=0.8$.
 Ist $X$ die Zahl der erfolgreich gedruckten Teile, dann ist $X$
@@ -25,7 +25,7 @@ P(X\ge 30)=P\biggl(
 \biggr)
 =P\biggl(Z\ge \frac{30-np}{\sqrt{np(1-p)}}\biggr)
 \]
-Die Zufallsvariable $Z$ ist angen"ahert standardnormalverteilt, die
+Die Zufallsvariable $Z$ ist angenähert standardnormalverteilt, die
 Wahrscheinlichkeit $0.99$ wird also erreicht, wenn 
 \[
 \frac{30-np}{\sqrt{np(1-p)}} = 2.3263=x
@@ -39,13 +39,13 @@ x^2 np(1-p)
 \\
 p^2{\color{red}n}^2-(60p+x^2p(1-p)){\color{red}n}+900&=0,
 \end{align*}
-eine quadratische Gleichung f"ur $n$ mit den L"osungen
+eine quadratische Gleichung für $n$ mit den Lösungen
 \[
 n=\frac{60p+x^2p(1-p)\pm\sqrt{(60p+x^2p(1-p))^2 - 3600p^2}}{2p^2}.
 \]
 Einsetzen der bekannten Zahlenwerte liefert die Nullstellen $31.02$ und $45.33$.
 Davon ist die erste sicher zu klein, denn bei $31$ Drucken kann man nur mit $24.8$ erfolgreichen Drucken rechnen.
-Es m"ussen also $46$ Drucke geplant werden.
+Es müssen also $46$ Drucke geplant werden.
 
 Zur Kontrolle berechnen wir die Wahrscheinlichkeit, dass von 46 Drucken
 weniger als 30 brauchbar sind mit Hilfe von R:
@@ -63,7 +63,7 @@ Bedingung $0.99 \ge P(x\le 30)$ ({\bf C}) 1 Punkt,
 Normalapproximation, insbesondere die Formeln $\mu=np$ und $\sigma^2=np(1-p)$
 ({\bf N}) 1 Punkt,
 Standardisierung ({\bf S}) 1 Punkt,
-Gleichung f"ur $n$ ({\bf G}) 1 Punkt,
+Gleichung für $n$ ({\bf G}) 1 Punkt,
 Bestimmung von $n$ ({\bf N}) 1 Punkt.
 \end{bewertung}
 

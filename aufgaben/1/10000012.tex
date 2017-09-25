@@ -1,37 +1,37 @@
-Ein Selecta-Automat enth"alt sechs Reihen von F"achern, in denen in einer
-Transportspirale Artikel eingef"ullt sind. Der Kunde bezahlt, w"ahlt ein
-Fach, und die Transportspirale bef"ordert ein St"uck in ein Fach, aus dem
+Ein Selecta-Automat enthält sechs Reihen von Fächern, in denen in einer
+Transportspirale Artikel eingefüllt sind. Der Kunde bezahlt, wählt ein
+Fach, und die Transportspirale befördert ein Stück in ein Fach, aus dem
 der Kunde den Artikel entnehmen kann.
 \begin{center}
 \includeagraphics[width=0.3\hsize]{selecta.jpg}
 \end{center}
 Ein Mathematik-Student ergattert einen Ferien-Job als
-Selecta-Automaten-Nachf"uller. Er findet es aber langweilig, die Artikel
-immer wieder in die gleichen F"acher nachzuf"ullen. Er stellt fest,
-dass es drei Gr"ossen von F"achern gibt: breite (9 in den obersten zwei Reihen),
+Selecta-Automaten-Nachfüller. Er findet es aber langweilig, die Artikel
+immer wieder in die gleichen Fächer nachzufüllen. Er stellt fest,
+dass es drei Grössen von Fächern gibt: breite (9 in den obersten zwei Reihen),
 normale (40, in den unteren vier Reihen), kleine (4, oben in der Mitte).
-Das bringt ihn auf neue Ideen. Man k"onnte doch beim Auff"ullen auch die 
+Das bringt ihn auf neue Ideen. Man könnte doch beim Auffüllen auch die 
 Anordnung der Produkte im Automaten etwas umstellen, so dass zum Beispiel
-die Paprika-Chips nach dem Auff"ullen nicht mehr oben links, sondern im
-Fach ganz rechts in der zweiten Reihe zu finden sind. Nat"urlich soll
-pro Fach immer noch nur ein Produkt eingef"ullt sein, und das Fach muss
-in der Gr"osse passend sein.
+die Paprika-Chips nach dem Auffüllen nicht mehr oben links, sondern im
+Fach ganz rechts in der zweiten Reihe zu finden sind. Natürlich soll
+pro Fach immer noch nur ein Produkt eingefüllt sein, und das Fach muss
+in der Grösse passend sein.
 \begin{teilaufgaben}
 \item
 Auf wieviele Arten kann man die Produkte im Automaten anordnen?
 \item
-Die normalen F"acher erm"oglichen sehr viele verschiedenen Anordnungen.
+Die normalen Fächer ermöglichen sehr viele verschiedenen Anordnungen.
 Weil das zu lange dauert, entschliesst sich der Student, nur noch die
-grossen und kleinen F"acher umzusortieren. Wieviele M"oglichkeiten
+grossen und kleinen Fächer umzusortieren. Wieviele Möglichkeiten
 gibt es jetzt noch?
 \item
-Wieviele M"oglichkeiten gibt es, die normal grossen Produkte
+Wieviele Möglichkeiten gibt es, die normal grossen Produkte
 umzuordnen, wenn es auf die Reihenfolge innerhalb einer Reihe des
 Automaten nicht ankommt?
 \item 
 Ein Kunde hat Kleingeld, welches ihm gestattet, genau drei Produkte
 aus den Reihen 3 oder 4 zu kaufen. Auf wieviele Arten kann er
-das tun, wenn er sich zus"atzlich die Bedinung auferlegt, dass alle
+das tun, wenn er sich zusätzlich die Bedinung auferlegt, dass alle
 drei Produkte aus der gleichen Reihe stammen?
 \item
 Auf wieviele Arten kann man an diesem Automaten drei Produkte einkaufen, wenn
@@ -41,8 +41,8 @@ der obersten Reihe kommen darf?
 
 \begin{loesung}
 \begin{teilaufgaben}
-\item Es gibt 9 grosse F"acher, 40 normale und 4 kleine. In jeder Gruppe
-k"onnen die $k$ Produkte auf $k!$ Arten angeordnet, werden. Insgesamt 
+\item Es gibt 9 grosse Fächer, 40 normale und 4 kleine. In jeder Gruppe
+können die $k$ Produkte auf $k!$ Arten angeordnet, werden. Insgesamt 
 bekommt man
 \begin{align*}
 9!\cdot 40!\cdot 4!&=
@@ -52,31 +52,31 @@ bekommt man
 \end{align*}
 \item $9!\cdot 4!=8709120$.
 \item
-F"ur jedes normale Fach muss ein Produkt ausgew"ahlt werden, dies ist
-auf $10!$ Arten m"oglich. Allerdings spielen die $10!$ Reihenfolgen
-in jeder Reihe keine Rolle, also ist die Anzahl der M"oglichkeiten
+Für jedes normale Fach muss ein Produkt ausgewählt werden, dies ist
+auf $10!$ Arten möglich. Allerdings spielen die $10!$ Reihenfolgen
+in jeder Reihe keine Rolle, also ist die Anzahl der Möglichkeiten
 \[
 \frac{40!}{(10!)^4}=4705360871073570227520.
 \]
 \item
-Es gibt $\binom{10}{3}$ M"oglichkeiten, $3$ Produkte aus Reihe 3
-auszuw"ahlen, und nochmals $\binom{10}{3}$ M"oglichkeiten, $3$ Produkte
-aus Reihe 4 auszuw"ahlen. Insgesamt gibt es also 
+Es gibt $\binom{10}{3}$ Möglichkeiten, $3$ Produkte aus Reihe 3
+auszuwählen, und nochmals $\binom{10}{3}$ Möglichkeiten, $3$ Produkte
+aus Reihe 4 auszuwählen. Insgesamt gibt es also 
 \[
 2\cdot\binom{10}{3}=2\cdot 120=240.
 \]
 \item
-Zun"achst sind drei Reihen auszuw"ahlen, aus denen ein Produkt stammen
+Zunächst sind drei Reihen auszuwählen, aus denen ein Produkt stammen
 kann.
-Dies ist auf $\binom{5}{3}=10$ Arten m"oglich.
-Da die zweite Reihe aber weniger verschiedene Artikel enth"alt, m"ussen
+Dies ist auf $\binom{5}{3}=10$ Arten möglich.
+Da die zweite Reihe aber weniger verschiedene Artikel enthält, müssen
 wir unterscheiden zwischen Auswahlen, die die zweite Reihe beinhalten,
 und anderen.
-Es gibt $\binom{4}{2}=6$ M"oglichkeiten, eine Auswahl mit der zweiten
-Reihe zu treffen, und $\binom{4}{3}=4$ M"oglichkeiten ohne die zweite Reihe.
-Zu jeder Auswahl ohne die zweite Reihe gibt es $10^3=1000$ M"oglichkeiten,
-Produkte aus den gew"ahlten Reihen auszuw"ahlen.
-Zu jeder Auswahl mit der zweiten Reihe gibt es $5\cdot 10^2=500$ M"oglichkeiten.
+Es gibt $\binom{4}{2}=6$ Möglichkeiten, eine Auswahl mit der zweiten
+Reihe zu treffen, und $\binom{4}{3}=4$ Möglichkeiten ohne die zweite Reihe.
+Zu jeder Auswahl ohne die zweite Reihe gibt es $10^3=1000$ Möglichkeiten,
+Produkte aus den gewählten Reihen auszuwählen.
+Zu jeder Auswahl mit der zweiten Reihe gibt es $5\cdot 10^2=500$ Möglichkeiten.
 Insgesamt gibt es 
 \[
 4\cdot 1000
@@ -84,7 +84,7 @@ Insgesamt gibt es
 6\cdot 500
 =4000 + 3000=7000
 \]
-Einkaufsm"oglichkeiten.
+Einkaufsmöglichkeiten.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}
@@ -96,7 +96,7 @@ Einkaufsm"oglichkeiten.
 \item 1 Punkt
 \item 1 Punkt
 \item Fallunterscheidung (\textbf{F}) 1 Punkt,
-Anzahl M"oglichkeiten (\textbf{M}) 1 Punkt.
+Anzahl Möglichkeiten (\textbf{M}) 1 Punkt.
 \end{teilaufgaben}
 \end{bewertung}
 

@@ -1,24 +1,24 @@
-W"unschelruteng"anger behaupten, sie k"onnten mit Hilfe eines Astes
-oder eines anderen mechanischen Werkzeugs erf"uhlen, wo sich Wasser
-im Boden befindet. Wie k"onnte man einen W"unschelruteng"anger testen?
+Wünschelrutengänger behaupten, sie könnten mit Hilfe eines Astes
+oder eines anderen mechanischen Werkzeugs erfühlen, wo sich Wasser
+im Boden befindet. Wie könnte man einen Wünschelrutengänger testen?
 
 \begin{loesung}
-Man k"onnte $n$ Wasserflaschen und Flaschen voller Sand im Boden vergraben,
-und den W"unschelruteng"anger herausfinden lassen, an welchen Stellen
-sich Wasserflaschen befinden. Nat"urlich darf die Person, die den
-W"unschelruteng"anger anleitet, auch nicht wissen, wo sich die
+Man könnte $n$ Wasserflaschen und Flaschen voller Sand im Boden vergraben,
+und den Wünschelrutengänger herausfinden lassen, an welchen Stellen
+sich Wasserflaschen befinden. Natürlich darf die Person, die den
+Wünschelrutengänger anleitet, auch nicht wissen, wo sich die
 Wasserflaschen befinden (Doppelblindversuch).
 
-Die Nullhypothese ist die Annahme, dass der Wunschelruteng"anger mit
+Die Nullhypothese ist die Annahme, dass der Wunschelrutengänger mit
 seinem Resultat mit
 gleicher Wahrscheinlichkeit richtig oder falsch liegt.
 Die Wahrscheinlichkeit, dass er  in $n$ Versuchen
 $k$ Flaschen richtig detektiert, ist
 binomialverteilt mit $p=\frac12$.
 Zweifel an der Nullhypothese bekommen wir erst
-dann, wenn die Anzahl $K$ der richtigen gr"osser als $K_+$ ist, wobei
-$K_+$ so gew"ahlt werden muss, dass unter der Nullhypothese
-$P(K>K_+)=1-\alpha$ ist. F"ur $\alpha=0.05$ und $n=10$ bedeutet
+dann, wenn die Anzahl $K$ der richtigen grösser als $K_+$ ist, wobei
+$K_+$ so gewählt werden muss, dass unter der Nullhypothese
+$P(K>K_+)=1-\alpha$ ist. Für $\alpha=0.05$ und $n=10$ bedeutet
 dies, dass er mindestens 8 mal richtig liegen muss. Diese Zahl
 kann man mit der Funktion {\tt pbinom} in R berechnen:
 \verbatimainput{aufg4.txt}

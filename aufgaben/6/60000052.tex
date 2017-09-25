@@ -1,9 +1,9 @@
-Um die Qualit"at des Chips einer CCD-Kamera zu untersuchen, werden mehrere
+Um die Qualität des Chips einer CCD-Kamera zu untersuchen, werden mehrere
 Bilder mit geschlossenem Verschluss aufgenommen.
 Die Bilder werden dann miteinander verglichen, von jeder Pixelposition
 wird Mittelwert und Standardabweichung ermittelt.
-Pixel, deren Werte zwischen den einzelnen Bildern deutlich st"arker streuen
-als der Durchschnitt, werden als besch"adigt eingestuft.
+Pixel, deren Werte zwischen den einzelnen Bildern deutlich stärker streuen
+als der Durchschnitt, werden als beschädigt eingestuft.
 Die Resultate werden in einem Bild im FITS-Format festgehalten, die
 gesuchten Informationen kann man dem Header entnehmen:
 \begin{verbatim}
@@ -16,16 +16,16 @@ NAXIS3  =                    1 / length of data axis 3
 BADPIXEL=                 2897 / Number of bad pixels  
 \end{verbatim}
 Man kann daraus ablesen, dass auf dem Chip im Format
-$3900\times 2616$ insgesamt 2897 besch"adigte Pixel gefunden wurden.
+$3900\times 2616$ insgesamt 2897 beschädigte Pixel gefunden wurden.
 Der Hersteller spezifiziert, dass die Wahrscheinlichkeit, dass ein Pixel
 schlecht ist, $0.0003$ sei.
-Wie gross ist die Wahrscheinlichkeit nicht mehr als 2897 besch"adigte Pixel
+Wie gross ist die Wahrscheinlichkeit nicht mehr als 2897 beschädigte Pixel
 zu finden?
 
 \begin{loesung}
 Die Untersuchung aller Pixel des CCD-Chip ist ein $n=3900\cdot2616=10202400$
 mal wiederholtes Bernoulli-Experiment mit $p=0.0003$.
-Sei die Zufallsvariable $X$ die Anzahl der besch"adigten Pixel.
+Sei die Zufallsvariable $X$ die Anzahl der beschädigten Pixel.
 Sie ist binomialverteilt mit den genannten Parametern $n$ und $p$.
 Sie kann durch eine Normalverteilung mit $\mu = np = 3060.72$
 und $\sigma = \sqrt{np(1-p)})=55.31$ approximiert werden.
@@ -41,8 +41,8 @@ P(Z\le -2.96)
 =
 1-P(Z\le 2.96)
 \end{align*}
-Den Wert f"ur die Normalverteilung entnimmt man der Tabelle f"ur die
-Verteilungsfunktion der Standardnormalverteilung und findet f"ur die
+Den Wert für die Normalverteilung entnimmt man der Tabelle für die
+Verteilungsfunktion der Standardnormalverteilung und findet für die
 gesuchte Wahrscheinlichkeit
 $P(X\le 2897) = 1-0.9985=0.0015$.
 \end{loesung}

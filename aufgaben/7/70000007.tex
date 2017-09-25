@@ -1,23 +1,23 @@
 Ein Zufallszahlgenerator liefert gleichverteilte Zufallszahlen im
 Intervall $[0,\vartheta]$. Aus $n$ Beobachtungen $x_1,\dots,x_3$ kann
-man den Wert von $\vartheta$ sch"atzen, indem man das Maximum der
-drei Werte ermittelt. Dieser Sch"atzer ist sicher konsistent.
+man den Wert von $\vartheta$ schätzen, indem man das Maximum der
+drei Werte ermittelt. Dieser Schätzer ist sicher konsistent.
 Bestimmen Sie experimentell, ob er auch erwartungstreu sein kann.
 Schreiben Sie dazu ein Simulationsprogramm, welches jeweils $n=3$
-Zufallszahlen ermittelt, und davon den gr"ossten Wert als
-Sch"atzwerte $\hat\vartheta$ bestimmt.
-Dieses Zufallsexperiment wird $N=10000$ durchgef"uhrt, und der Mittelwert
+Zufallszahlen ermittelt, und davon den grössten Wert als
+Schätzwerte $\hat\vartheta$ bestimmt.
+Dieses Zufallsexperiment wird $N=10000$ durchgeführt, und der Mittelwert
 der $\hat\vartheta$ ermittelt. Was ergibt sich und was schliessen Sie
 daraus?
 
 \begin{loesung}
-Die Simulation ist m"oglich mit dem Program:
+Die Simulation ist möglich mit dem Program:
 {\small
 \verbatimainput{sim.c.expanded}
 }
-F"ur $n=3$ und $N=10000$ ergeben sich Werte  um $E(\hat\vartheta)=0.75$.
-Der Sch"atzer ist also h"ochstwahrscheinlich nicht erwartungstreu.
+Für $n=3$ und $N=10000$ ergeben sich Werte  um $E(\hat\vartheta)=0.75$.
+Der Schätzer ist also höchstwahrscheinlich nicht erwartungstreu.
 Dies deckt sich mit der Theorie, welche vorhersagt, dass der Erwartungswert
-des Sch"atzers $\frac{n}{n+1}$ ist.
+des Schätzers $\frac{n}{n+1}$ ist.
 \end{loesung}
 

@@ -1,17 +1,17 @@
-Dave Jones vom EEVblog hat 400 1k$\Omega$ Widerst"ande aus dem gleichen
-Produktionslos mit einem Pr"azisionsmessger"at (mit 5\nicefrac{1}{2} Stellen
+Dave Jones vom EEVblog hat 400 1k$\Omega$ Widerstände aus dem gleichen
+Produktionslos mit einem Präzisionsmessgerät (mit 5\nicefrac{1}{2} Stellen
 Genauigkeit) ausgemessen. 
-Ein Viertel der Widerst"ande hatten einen Wert von "uber $1000.72\Omega$,
+Ein Viertel der Widerstände hatten einen Wert von über $1000.72\Omega$,
 10\% Prozent hatten nicht mehr als $997.90\Omega$.
-Sch"atzen Sie den mittleren Widerstand und Standardabweichung dieser
+Schätzen Sie den mittleren Widerstand und Standardabweichung dieser
 Messreihe ab.
 
 \begin{loesung}
-Wir nehmen an, dass die Widerst"ande normalverteilte Werte haben\footnote{
+Wir nehmen an, dass die Widerstände normalverteilte Werte haben\footnote{
 Dies ist nicht richtig, wie man mit einem Hypothesen-Test nachweisen kann.
 Auch Dave Jones hat dies angenommen, und ein Histogramm suggeriert
-dies auch. Die Widerst"ande sind jedoch nicht normalverteilt, weil zu
-stark abweichende Widerst"ande eliminiert werden.}, sei $X$ die Zufallsvariable
+dies auch. Die Widerstände sind jedoch nicht normalverteilt, weil zu
+stark abweichende Widerstände eliminiert werden.}, sei $X$ die Zufallsvariable
 des Widerstands.
 Wir nehmen an, dass $X$ normalverteilt ist mit Parametern $\mu$ und $\sigma$.
 Wir wissen aus der Aufgabe:
@@ -31,7 +31,7 @@ P\biggl(\frac{X-\mu}{\sigma}\le \frac{1000.72-\mu}{\sigma}\biggr)&=0.75,
 P\biggl(\frac{X-\mu}{\sigma}\le \phantom{0}\frac{997.90-\mu}{\sigma}\biggr)&=0.10.
 \end{aligned}
 \end{equation*}
-Aus der Quantilentabelle f"ur die Standardnormalverteilung liest man ab:
+Aus der Quantilentabelle für die Standardnormalverteilung liest man ab:
 \[
 \begin{aligned}
 F(x_+)&=0.75&&\Rightarrow&&x_+&=\phantom{-}0.6745,\\
@@ -58,14 +58,14 @@ und daraus kann man jetzt durch einsetzen auch $\mu$ bestimmen:
 \mu&=1000.72-0.6745\sigma=999.75,\\
 \mu&=\phantom{0}997.90+1.2816\sigma=999.75.
 \end{align*}
-Der Mittelwert d"urfte also $\mu=999.79\Omega$ sein, die Standardabweichung
+Der Mittelwert dürfte also $\mu=999.79\Omega$ sein, die Standardabweichung
 $\sigma=1.44\Omega$.
 \end{loesung}
 
 \begin{diskussion}
 Rechnet man Mittelwert und Standardabweichung direkt aus den aus, findet man
 $\mu=999.8746$ und $\sigma=1.695783$.
-Die Abweichung r"uhrt unter anderem daher, dass die Hypothese der
+Die Abweichung rührt unter anderem daher, dass die Hypothese der
 Normalverteilung nicht zutrifft.
 \end{diskussion}
 
@@ -75,6 +75,6 @@ Ansatz, Gleichungen (\ref{60000042:prob}) ({\bf A}) 1 Punkt,
 Standarddisierung ({\bf S}) 1 Punkt,
 Quantilien ({\bf Q}) 1 Punkt,
 lineares Gleichungssytem ({\bf L}) 1 Punkt,
-Werte f"ur $\mu$ und $\sigma$ ({\bf W}) 1 Punkt.
+Werte für $\mu$ und $\sigma$ ({\bf W}) 1 Punkt.
 \end{bewertung}
 

@@ -1,17 +1,17 @@
-Ein App f"ur Skifahrer soll mit Hilfe von GPS alle Bewegungen
+Ein App für Skifahrer soll mit Hilfe von GPS alle Bewegungen
 eines Skifahrers auf Pisten und Skiliften aufzeichnen.
 Auch die Neigung der Pisten sollen aufgezeichnet werden.
-Dabei muss ber"ucksichtigt werden, dass sowohl die
-Positionsmessungen als auch die H"ohe nicht ohne Messfehler
-bestimmt werden k"onnen.  Die beste L"osung f"ur diese Art
-von Problem w"are nat"urlich ein Kalmanfilter, dazu w"aren
-aber Informationen "uber Systemfehler n"otig, die stark vom Fahrstil
-eines Skisportlers abh"angt.  Daher wird folgende einfachere
+Dabei muss berücksichtigt werden, dass sowohl die
+Positionsmessungen als auch die Höhe nicht ohne Messfehler
+bestimmt werden können.  Die beste Lösung für diese Art
+von Problem wäre natürlich ein Kalmanfilter, dazu wären
+aber Informationen über Systemfehler nötig, die stark vom Fahrstil
+eines Skisportlers abhängt.  Daher wird folgende einfachere
 Strategie verwendet: Aus den jeweils 4 letzten Positionsmessungen
-wird ein m"oglichst guter Steigungswert bestimmt.
+wird ein möglichst guter Steigungswert bestimmt.
 \begin{center}
 \begin{tabular}{cc}
-Distanz [m]&H"ohenunterschied [m]\\
+Distanz [m]&Höhenunterschied [m]\\
 \hline
  0&    0\\
 50&$-27$\\
@@ -22,7 +22,7 @@ Distanz [m]&H"ohenunterschied [m]\\
 \end{center}
 \begin{teilaufgaben}
 \item
-Welche Gel"andeneigung hat die Piste an dieser Stelle?
+Welche Geländeneigung hat die Piste an dieser Stelle?
 \item
 Wie weit unter dem Ausgangspunkt befindet sich der Skifahrer
 voraussichtlich nach 150m Fahrt?
@@ -44,7 +44,7 @@ $i$&$x_i$&$x_i^2$&$y_i$&$y_i^2$&$x_iy_i$\\
 \hline
 \end{tabular}
 \end{center}
-Die Formeln f"ur $a$ und $b$ liefern
+Die Formeln für $a$ und $b$ liefern
 \begin{align*}
 a
 &=\frac{4\cdot(-14384)-272\cdot (-141)}{4\cdot 27864 - 272^2}
@@ -61,8 +61,8 @@ b
 \end{align*}
 \begin{teilaufgaben}
 \item Der beste Steigungswert ist also $-0.51195559$, oder etwa 51\%.
-\item Setzt man in den linearen Ausdruck $ax+b$ f"ur $x$ den Wert
-150 ein, erh"alt man den erwarteten H"ohenunterschied
+\item Setzt man in den linearen Ausdruck $ax+b$ für $x$ den Wert
+150 ein, erhält man den erwarteten Höhenunterschied
 \[
 a\cdot 150 + b= 
 -77.2303586678052946193.
