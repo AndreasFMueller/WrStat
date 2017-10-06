@@ -31,8 +31,13 @@
 \usepackage{paralist}
 \usepackage{color}
 \usepackage[colorlinks=true]{hyperref} % changed
+\hypersetup{
+    linktoc=all,
+    linkcolor=blue
+}
 \usepackage{environ}
 \usepackage{nicefrac}
+\usepackage{etoolbox}
 
 \setlength{\headheight}{15pt} % fix for headheight warning
 
@@ -79,6 +84,7 @@ Hochschule für Technik, Rapperswil, 2011-2016
 }{\end{proof}}
 \mainmatter
 \input uebungen.tex
+\openthemaindex
 \setboolean{loesungen}{true}
 \aufgabetoplevel{./}
 
@@ -139,5 +145,7 @@ können.
 
 \bigskip
 \input r.tex
+\closethemaindex
+\printthemata
 \input aufgabensammlung.ind
 \end{document}
