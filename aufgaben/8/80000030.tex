@@ -1,0 +1,66 @@
+Eine Hochschule, die sich sehr um die Gesundheit ihrer Studenten sorgt,
+befragte ihre Neueintretenden danach, wie häufig sie irgend eine Form von
+Fitness-Training absolvierten:
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline
+Trainingshäufigkeit&Studenten\\
+\hline
+kaum               &    60\% \\
+gelegentlich       &    25\% \\
+regelmässig        &    15\% \\
+\hline
+\end{tabular}
+\end{center}
+Etwas alarmiert hat die Hochschule daher eine Werbeinitiative gestartet, 
+um den Studenten die Sportangebote näher zu bringen.
+Um die Wirkung dieser Initative zu beurteilen, wurden die Studenten erneut
+befragt, und es ergaben sich die folgenden Zahlen:
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline
+Trainingshäufigkeit&Studenten\\
+\hline
+kaum               &    255  \\
+gelegentlich       &    125  \\
+regelmässig        &     90  \\
+\hline
+\end{tabular}
+\end{center}
+Hat die Werbeinitiative gewirkt?
+
+\thema{Hypothesentest}
+
+\begin{loesung}
+Die Nullhypothese ``die Trainingshäufigkeit hat sich nicht verändert'' kann
+mit einem $\chi^2$-Test getestet werden.
+Dazu berechnen wir die Diskriminante mit folgender Tabelle
+\begin{center}
+\begin{tabular}{|l|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|}
+\hline
+$i$                &p_i &  n_i& np_i&n_i - np_i&(n_i-np_i)^2/np_i \\
+\hline
+\text{kaum}        &0.60&  255&282.0&     -27.0&   2.585\\
+\text{gelegentlich}&0.25&  125&117.5&       7.5&   0.479\\
+\text{regelmässig} &0.15&   90& 70.5&      19.5&   5.394\\
+\hline
+                   &    &n=470&     &          & D=8.457\\
+\hline
+\end{tabular}
+\end{center}
+Für $\alpha=5\%$ und die Anzahl $2$ der Freiheitsgrade finden wir für
+den kritischen Wert der Diskrepanz: $D_{\text{krit}}=5.991$. 
+Da $D>D_{\text{krit}}$ ist verwerfen wir die Nullhypothese und schliessen,
+dass die Werbeinitiative erfolgreich war.
+\end{loesung}
+
+\begin{bewertung}
+Hypothese ({\bf H}) 1 Punkt,
+Wahl eines geeigneten $\alpha$ ({\bf A}) 1 Punkt,
+Anzahl Freiheitsgrade ({\bf F}) 1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 1 Punkt,
+kritischer Wert für die Diskrepanz ({\bf K}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+
+
