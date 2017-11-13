@@ -21,7 +21,17 @@ X=\frac1{25}(X_1+\cdots +X_{25}).
 \]
 Der Mittelwert von $X$ ist $99.8\text{kg}$, für die Varianz gilt
 \[
-\operatorname{var}(X)=\frac1{25}\operatorname{var}{X_1}=\frac1{25},
+\operatorname{var}(X)
+=
+\operatorname{var}\biggl(
+\frac{X_1+\dots+X_25}{25}
+\biggr)
+=
+\frac1{25^2}\operatorname{var}(X_1+\dots+X_n)
+=
+\frac1{25}\operatorname{var}{X_1}
+=
+\frac1{25},
 \]
 also für die Standardabweichung
 \[
