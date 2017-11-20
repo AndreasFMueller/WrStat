@@ -1,0 +1,25 @@
+Die Zufallsvariable $X$ ist potenzverteilt mit Parametern $x_{\text{min}}$
+und $\alpha$.
+Finden Sie $x$ so, dass $x$ nur in 5\% der Fälle von $X$ übertroffen wird.
+
+\thema{Potenzverteilung}
+
+\begin{loesung}
+Gesucht wird $x$ so, dass $P(X\le x)=0.95$ ist.
+Die Potenzverteilung hat die Verteilungsfunktion
+\begin{align*}
+F(x)
+&=1-\biggl(\frac{x}{x_{\text{min}}}\biggr)^{1-\alpha}=0.95
+\\
+\biggl(\frac{x}{x_{\text{min}}}\biggr)^{1-\alpha}
+&=1-0.95=0.05
+\\
+x&=\root{1-\alpha}\of{0.05} x_{\text{min}}
+=
+\exp\biggl(
+\frac1{1-\alpha}\log 0.05
+\biggr)
+\qedhere
+\end{align*}
+\end{loesung}
+
