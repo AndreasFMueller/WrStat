@@ -1,0 +1,9 @@
+> regression
+
+Call:
+lm(formula = logF ~ logx, data = d)
+
+Coefficients:
+(Intercept)         logx  
+    -0.1126      -1.3987  
+
