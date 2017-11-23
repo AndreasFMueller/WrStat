@@ -1,0 +1,67 @@
+Das File \texttt{data.csv} enthält 100 potenzverteilte Zufallszahlen mit
+$x_{\text{min}}=1$ und $\alpha=2.5$.
+Ziel dieser Aufgabe ist, zu verstehen, wie man sich davon überzeugen
+kann, dass die Zahlen tatsächlich potenzverteilt sind.
+Dazu muss die Verteilungsfunktion der Potenzverteilung mit einer
+empirischen Verteilungsfunktion verglichen weren.
+Diese kann wie folgt gewonnen werden:
+\[
+F_{\text{empirisch}}(x)
+=
+\frac{\text{Anzahl Werte $\le x$}}{\text{Gesamtzahl der Werte}}.
+\]
+Sortiert man die Werte $x_0,x_1,\dots,x_{n-1}$, dann ist 
+\begin{equation}
+F_{\text{empirisch}}(x_j) = \frac{j}{n}
+\label{60000057}
+\end{equation}
+\begin{teilaufgaben}
+\item 
+Erstellen Sie einen $\log$-$\log$-Plot der Funktion $1-F(x)$.
+\item
+Welche Steigung hat die in a) gefundene Gerade?
+\item
+Zeichnen Sie die Punkte $(x_j,1-F_{\text{empirisch}}(x_j))$
+im selben Graphen.
+\item
+Verwenden Sie lineare Regression, um $\alpha$ aus den Daten 
+zu bestimmen.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{figure}
+\centering
+\includeagraphics[width=\hsize]{d.pdf}
+\caption{Empirische Verteilung potenzverteilter Zufallszahlen
+\label{60000057:graph}}
+\end{figure}
+\begin{teilaufgaben}
+\item
+Aus der Verteilungsfunktion der Potenzverteilung wissen wir
+\[
+1-F(x)
+=
+\biggl(\frac{x}{x_{\text{min}}} \biggr)^{1-\alpha}.
+\]
+Der Logarithmus davon ist
+\begin{equation}
+\log(1-F(x))=(1-\alpha)(\log(x) - \log(x_{\text{min}})).
+\label{60000057:log}
+\end{equation}
+\item
+Die Gleichung \eqref{60000057:log} beschreibt eine Gerade mit
+Steigung $1-\alpha$.
+\item
+Ein solcher Graph kann mit dem R-Program
+\verbatimainput{p.R}
+ermittelt werden.
+\item
+Die Berechnung mit dem eben gezeigten R-Programm liefert
+\verbatimainput{computation.txt}
+woraus man die Steigung $1-\alpha=-1.3987$ oder $\alpha=2.3987$ 
+ablesen kann.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+
