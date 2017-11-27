@@ -1,0 +1,79 @@
+Finden Sie den Maximum-Likelihood-Schätzer für $\sigma^2$ der Normalverteilung
+\[
+\varphi(x,\sigma^2)
+= 
+\frac1{\sqrt{2\pi \sigma^2}} e^{-\frac{x^2}{2\sigma^2}}
+\]
+einer normalverteilten Zufallsvariable mit Erwartungswert $\mu=0$ für die
+Daten $x_1,\dots,x_n$.
+
+\begin{loesung}
+Die Likelihood-Funktion ist das Produkt der Wahrscheinlichkeitsdichten:
+\[
+L(\sigma^2,x_1,\dots,x_n)
+=
+\frac1{(\sqrt{2\pi \sigma^2})^n}
+e^{-\frac{x_1^2}{2\sigma^2}}
+\dots
+e^{-\frac{x_n^2}{2\sigma^2}}
+\]
+Wir müssen das Maximum suchen, und vereinfachen zu diesem Zweck zunächst
+die Likelihood-Funktion noch etwas:
+\[
+L(\sigma^2,x_1,\dots,x_n)
+=
+\frac1{(\sqrt{2\pi \sigma^2})^n}
+e^{-(x_1^2+\dots+x_n^2)/2\sigma^2}
+\]
+Um das finden des Maximus etwas zu vereinfachen, schreiben wir $s=1/\sigma^2$,
+also
+\[
+L(1/s,x_1,\dots,x_n)
+=
+\frac{s^{\frac{n}2}}{(2\pi)^{\frac{n}2}}
+e^{-(x_1^2+\dots+x_n^2)s/2}
+\]
+Ableitung nach $s=1/\sigma^2$ ergibt
+\begin{align*}
+\frac{d}{ds}
+L(1/s,x_1,\dots,x_n)
+&=
+\frac{n}2s^{\frac{n-2}2}
+\frac1{(2\pi)^{\frac{n}2}}
+e^{-(x_1^2+\dots+x_n^2)s/2}
+-
+s^{\frac{n}2}
+(x_1^2+\dots+x_n^2)
+\frac1{(2\pi)^{\frac{n}2}}
+e^{-(x_1^2+\dots+x_n^2)s/2}
+\\
+&=
+s^{\frac{n}2}
+\frac1{(2\pi)^{\frac{n}2}}
+e^{-(x_1^2+\dots+x_n^2)s/2}
+\biggl(
+\frac{n}2
+s^{-1}
+-
+(x_1^2+\dots+x_n^2)/2
+\biggr).
+\end{align*}
+Dieser Ausdruck wird genau dann $0$, wenn die grosse Klammer auf der
+rechten Seite verschwindet, also wenn
+\begin{align*}
+\frac{n}2
+s^{-1}
+&=
+(x_1^2+\dots+x_n^2)/2
+\\
+\Rightarrow\qquad
+\sigma^2
+&=
+\frac{x_1^2+\dots+x_n^2}n.
+\end{align*}
+Dies ist genau der Schätzer, den wir seit der 5.~Woche kennnen.
+Inzwischen wissen wir, dass dieser Schätzer nicht erwartungstreu ist.
+\end{loesung}
+
+
+
