@@ -74,3 +74,69 @@ Man kann also den Fehler von $0.022g$ auf
 $0.016g$ reduzieren, eine Reduktion um 27\%.
 \end{loesung}
 
+\begin{diskussion}
+Man kann diese gewichtete Mittelung auch für $n$ Zufallsvariablen $X_i$
+mit Varianzen $\sigma_i^2$ durchführen.
+Dazu muss man die Gewichte $t_i$ so bestimmen, dass die Varianz
+\[
+\operatorname{var}(X)
+=
+t_1^2\operatorname{var}(X_1)
++\dots+
+t_n^2\operatorname{var}(X_n)
+\]
+minimal wird unter der Nebenbedingung 
+\[
+t_1+\dots+t_n=1.
+\]
+Dazu verwendet man die Methode der Lagrange-Multiplikatoren, die auf
+die Vektorgleichung
+\[
+\operatorname{grad}\biggl(\sum_{i=1}^nt_i^2\sigma_i^2\biggr)
+=
+\lambda \operatorname{grad}\biggl(\sum_{i=1}^nt_i\biggr)
+\]
+und damit auf das Gleichungssystem
+\begin{align*}
+2t_i\sigma_i^2&=\lambda\qquad \forall i
+\end{align*}
+führt.
+Daraus liest man ab, dass 
+\[
+t_i
+=
+\frac{\lambda}{2\sigma_i^2}
+\]
+gilt.
+Da die Summe der $t_i$ $1$ ergeben muss, erhält man
+\[
+\sum_{i=1}^n t_i
+=
+\frac{\lambda}{2}
+\sum_{i=1}^n \frac{1}{\sigma_i^2}
+=
+1
+\qquad\Rightarrow\qquad
+\lambda=\frac{2}{\displaystyle\sum_{i=1}^n\frac1{\sigma_i^2}}
+\]
+Damit kann man jetzt die endgültige Formel für die $t_i$ herleiten:
+\[
+t_i
+=
+\frac{1}{\displaystyle\sigma_i^2\sum_{j=1}^n\frac{1}{\sigma_j^2}}.
+\]
+Die gesamte Varianz entsteht als Summe 
+\[
+\operatorname{var}(X)
+=
+\sum_{i=1}^n\sigma_i^2t_i^2
+=
+\sum_{i=1}^n\frac{1}{\sigma_i^2}
+\frac{1}{\displaystyle\sigma_i^4\biggl(\sum_{j=1}^n\frac{1}{\sigma_j^2}\biggr)^2}
+=
+\frac{\displaystyle\sum_{i=1}^n \frac1{\sigma_i^2}}{
+\biggl(\displaystyle\sum_{j=1}^n\frac{1}{\sigma_j^2}\biggr)^2}.
+\]
+Für $n=2$ entsteht wieder die bereits bekannte Formel.
+\end{diskussion}
+
