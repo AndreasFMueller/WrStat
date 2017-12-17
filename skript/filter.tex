@@ -103,7 +103,7 @@ Die Folgen $\hat x_k$ und $p_k^2$, definiert durch die Anfangswerte
 $\hat x_0=x$ und $p_0^2=0$ und die Iterationsgleichungen
 \begin{align*}
 K&=\frac{p_k^2+\sigma^2}{p_k^2+\sigma^2+\rho^2}\\
-\hat x_{k+1}&=\hat x_k + K (\hat x_k-z_{k+1})\\
+\hat x_{k+1}&=\hat x_k + K ( z_{k+1} - \hat x_k)\\
 p_{k+1}^2&=(1-K)^2(p_k^2+\sigma^2)+K^2\rho^2,
 \end{align*}
 ergeben die bestmögliche Schätzung $\hat x_k$ von $x_k$ mit
