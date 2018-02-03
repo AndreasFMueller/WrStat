@@ -1,0 +1,123 @@
+Die Wahrscheinlichkeit, sich während einer Grippe-Epidemie anzustecken,
+ist sehr hoch.
+Auf dem Internet kann man verschiedene Werte für die Wahrscheinlichkeit
+einer Ansteckung finden.
+Eine Website spricht von 50\%.
+Für die Prüfung WrStat sind 96 Studierende angemeldet.
+Während einer solchen Grippe-Epidemie müsste man also mit 48 Studierenden
+rechnen, die krank an die Prüfung müssen.
+
+Die Grippeimpfung reduziert die Infektionsgefahr etwas.
+Nehmen Sie an, dass nur 30\% der Geimpften erkranken.
+Nehmen Sie ausserdem an, dass die Hälfte der Studierenden geimpft ist.
+Sei $X_u$ die Zahl der ungeimpft erkrankten und $X_i$ die Zahl der geimpft
+erkrankten.
+Wie gross ist die Wahrscheinlichkeit, dass immer noch
+mehr als die Hälfte der Studierenden krank an die Prüfung kommen, also
+dass $X=X_u+X_i>48$?
+
+\thema{Binomialverteilung}
+\thema{Normalapproximation}
+\thema{Standardisierung}
+
+\begin{loesung}
+Beide Zufallsvariablen sind binomialverteilt, $X_u$ mit $p_u=0.5$ und $n_u=48$,
+$X_i$ mit $p_i=0.3$ und $n_i=48$.
+Uns interessiert aber $X=X_u+X_i$.
+Wir können $X_u$ und $X_i$ approximieren mit Hilfe einer Normalverteilung
+\[
+\begin{aligned}
+\mu_u&=n_up_u=24,  &&&\sigma_u^2&=n_up_u(1-p_u)=12 \\
+\mu_i&=n_ip_i=14.4, &&&\sigma_i^2&=n_ip_i(1-p_i)=10.08
+\end{aligned}
+\]
+Die Summe $X_u+X_i$ ist dann ebenfalls normalverteilt mit 
+\[
+\mu=\mu_u + \mu_i = 38.4
+\qquad\text{und}\qquad
+\sigma^2 = \sigma_u^2 + \sigma_i^2 = 22.08.
+\]
+Die Wahrscheinlichkeit für $X>48$ können wir daher mit Hilfe von
+Standardisierung ausrechnen:
+\begin{align*}
+P(X\le 48)
+&=
+P\biggl(
+\frac{X-\mu}{\sigma}
+\le
+\frac{48 - \mu}{\sigma}
+\biggr)
+=
+F\biggl(
+\frac{48-38.4}{4.69894}
+\biggr)
+=
+F(2.043)
+=
+0.9793
+\\
+\Rightarrow
+\qquad
+P(X>48)
+&=
+1-P(X\le 48)
+=
+1-0.9793=0.0207.
+\end{align*}
+
+Alternativ kann man auch wie folgt argumentieren.
+Sei $E$ das Ereigniss, dass ein Studierender erkrankt ist, und $I$
+das Ereignis, dass ein Studierender geimpft ist.
+Dann ist die Wahrscheinlichkeit, dass ein Studierender Erkrankt nach dem
+Satz von der totalen Wahrscheinlichkeit
+\[
+P(E)
+=
+P(E|I)\,P(I)
++
+P(E|\bar I)\,P(\bar I)
+=
+0.3\cdot0.5 + 0.5\cdot 0.5
+=
+0.4.
+\]
+Erkrankung ist jetzt ein Bernoulli-Experiment mit $p=0.4$, welches $n=96$ mal
+wiederholt wird.
+Die Anzahl Eintreten des Ereignisses $E$ kann mit der Normalapproximation
+mit $\mu=38.4$ und $\sigma=4.8$ berechnet werden.
+Standardisierung ergibt:
+\begin{align*}
+P(X\le 48)
+&=
+P\biggl(\frac{X-\mu}{\sigma}\le \frac{48-\mu}{\sigma}\biggr)
+=
+F\biggl(\frac{48-38.4}{4.8}\biggr)
+=
+F(2.000)
+=
+0.9772
+\\
+\Rightarrow
+\qquad
+P(X>48)
+&=1-P(X\le 48)=1-0.9772 = 0.0228.
+\qedhere
+\end{align*}
+\end{loesung}
+
+\begin{bewertung}
+Normalapproximation von $X_u$ ($\textbf{N}_u$) und $X_i$ ($\textbf{N}_i$)
+je 1 Punkt,
+$X=X_u+X_i$ ist normalverteilt ({\bf N}) 1 Punkt,
+Erwartungswert und Varianz von $X$ ({\bf E}) 1 Punkt,
+Standardisierung für $P(X\le 48)$ ({\bf S}) 1 Punkt,
+gesuchte Wahrscheinlichkeit ({\bf W}) 1 Punkt.
+
+Alternativer Lösungsweg: Ereignisse ({\bf V}) 1 Punkt,
+Wahrscheinlichkeiten ({\bf C}) 1 Punkt,
+Totale Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Erwarungswert und Varianz ({\bf E}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+gesuchte Wahrscheinlichkeit ({\bf W}) 1 Punkt.
+\end{bewertung}
+

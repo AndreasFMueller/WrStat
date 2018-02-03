@@ -1,0 +1,108 @@
+In der Fachzeitschrift {\em Science} erschien 2004 ein Artikel über den
+Border-Collie Rico, der 200 verschiedene Objekte, meistens Spielsachen
+für Kinder, beim Namen kannte.
+Rief ihm seine Halterin den Namen des Objektes zu, konnte er das verlangte
+Objekt in einem Nebenraum in 37 von 40 Fällen holen.
+
+Rico konnte sogar ein Spielzeug erkennen, dessen Namen er noch nicht
+kannte.
+Fügte man ein solches Spielzeug hinzu und verlangte von Rico, es zu bringen,
+erkannte er in 7 von 10 Fällen das ihm unbekannte Spielzeug.
+
+Nehmen Sie an, dass Rico einfach zufällig gewählte Spielzeuge aus
+dem Nebenraum bringt, also die Namen gar nicht versteht.
+Dann würde es wohl nur ganz selten eine Übereinstimmung geben.
+\begin{teilaufgaben}
+\item
+Wie gross wäre dann die Wahrscheinlichkeit, genau 37 mal das richtige
+Spielzeug zu bringen?
+\item
+Wie wahrscheinlich wäre, dass Rico auch nur ein einziges Spielzeug richtig
+bringt?
+\item
+Wie wahrscheinlich wäre, dass Rico das unbekannte Spielzeug mindestens
+einmal finden würde?
+\end{teilaufgaben}
+
+\thema{Poisson-Verteilung}
+
+\begin{loesung}
+Rein zufällig könnte Rico das richtige Spielzeug nur mit Wahrscheinlichkeit
+$p=1/200$ bringen.
+In $n=40$ Versuchen könnte man so nur mit $np=0.2$ richtigen rechnen.
+Sie $K$ die Anzahl der richtigen Spielzeuge, die Rico gefunden hat.
+Wir können die Wahrscheinlichkeit $P(K=k)$ in diesem Experiment mit der
+Poisson-Verteilung
+\[
+P(K=k)
+=
+P_\lambda(k)
+=
+e^{-\lambda}\frac{\lambda^k}{k!}
+\]
+mit $\lambda=0.2$ approximieren.
+\begin{teilaufgaben}
+\item
+Die Wahrscheinlichkeit ist verschwindend klein:
+\[
+P_\lambda(37)
+=
+e^{-0.2}\frac{0.2^{37}}{37!}=8.1755\cdot10^{-70}.
+\]
+Mit der Binomialverteilung:
+\[
+\binom{40}{37}p^{37}(1-p)^{40-37}=7.0814\cdot10^{-82}.
+\]
+\item
+Die gesuchte Wahrscheinlichkeit ist
+\begin{align*}
+P(K>0)
+&=
+\sum_{k=1}^\infty P_\lambda(k)
+=
+1-P_\lambda(0)
+=
+1-e^{-\lambda}\frac{\lambda^0}{0!}
+=
+0.181269.
+\end{align*}
+Mit Binomialverteilung:
+\[
+\binom{40}{1}p^1(1-p)^{40-1}=40\cdot0.005\cdot 0.995^39 = 0.16449.
+\]
+Die Aufgabe wurde auch so verstanden: Wie gross ist die Wahrscheinlichkeit,
+dass Rico höchstens 1 Spielzeug richtig bringt.
+In diesem Fall ist 
+\[
+P(K\le 1)
+=
+P_\lambda(0)
++
+P_\lambda(1)
+=
+0.98248.
+\]
+\item
+In diesem Experiment ist $p=1/201$ und $n=10$, also $\lambda=0.049751$.
+Die gleiche Rechnung wie in Teilaufgabe b) liefert jetzt
+\[
+1-P_\lambda(0)
+=
+1-e^{\lambda}
+=0.048534.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Verwendung der Poisson-Verteilung ({\bf P}) 1 Punkt,
+Bestimmung von $\lambda$ ($\bm{\Lambda_1}$) 1 Punkt,
+\begin{teilaufgaben}
+\item Berechnung von $P_\lambda(37)$ ({\bf A}) 1 Punkt,
+\item Summenformel und Berechnung von $P(K>0)$ ({\bf 0}) 1 Punkt,
+\item Neues $p$ und neues Lambda ($\bm{\Lambda_2}$) 1 Punkt,
+Wahrscheinlichkeit $1-P_\lambda(0)$ ({\bf W}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+

@@ -1,0 +1,15 @@
+phi1: a * (1-x^2);
+phi2: a;
+
+n: integrate(phi1, x, -1, 0) + integrate(phi2, x, 0, 1);
+solve([n = 1], [a]);
+
+ex: integrate(x * phi1, x, -1, 0) + integrate(x * phi2, x, 0, 1);
+subst(3/5, a, ex);
+
+ex2: integrate(x^2 * phi1, x, -1, 0) + integrate(x^2 * phi2, x, 0, 1);
+subst(3/5, a, ex2);
+
+var: ex2 - ex^2;
+subst(3/5, a, var);
+

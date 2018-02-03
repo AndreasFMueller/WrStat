@@ -1,0 +1,89 @@
+Über Jahrhunderte ist die Temperatur der Erde gemessen worden.
+Eine Messgenauigkeit von $0.1^\circ \text{C}$ ist üblich.
+Für unsere Betrachtungen gehen wir von der Tagesmitteltemperatur aus,
+die die Meteorologen seit langer Zeit erfassen.
+Diese schwankt über das Jahr.
+Wir gehen von einer Schwankung von $\pm 10^\circ\text{C}$ aus,
+obwohl Standorte mit kontinentalem Klima grössere
+Schwankungen haben können.
+
+Bis zum Beginn der industriellen Revolution waren die Sonneneinstrahlung
+und die Ausstrahlung im Gleichgewicht, die Temperatur der Erde hat sich
+nicht verändert.
+Seit die Menschheit im grossen Stil $\text{CO}_2$ in die Atmosphäre
+pumpt, hat sich dieses Gleichgewicht verschoben.
+Die Ausstrahlung ist durch den Treibhauseffekt reduziert worden,
+so dass sich die Atmosphäre langsam aufheizt.
+Wir können den Zusammenhang zwischen Strahlung und Temperatur mit einer
+einzigen Grösse $p$ beschreiben.
+In einem Zeitinterval $\Delta t$ nimmt die Tempertur der Erde um
+$p\cdot\Delta t$ zu.
+$p=0$ bedeutet, dass sich die Temperatur der Atmosphäre nicht verändert,
+dies ist der vorindustrielle Zustand.
+
+Wir können $p$ nicht direkt messen.
+Wir möchten daher einen Kalman-Filter designen, der $p$ aus den
+Temperaturmessungen ausfiltert.
+Stellen Sie die Matrizen zusammen, die für den Kalman-Filter benötigt werden,
+soweit dies mit den Informationen aus der Aufgabenstellung möglich ist.
+
+\thema{Kalman-Filter}
+
+\begin{loesung}
+Wir verwenden $T$ und $p$ als Systemvariablen.
+Das System kann dann mit 
+\[
+x_{k+1}
+=
+\begin{pmatrix}
+T_{k+1}\\p_{k+1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+T_k + p_k\Delta t\\
+p_k
+\end{pmatrix}
+=
+\underbrace{
+\begin{pmatrix}
+1&\Delta t\\
+0&1
+\end{pmatrix}
+}_{\displaystyle=\varphi}
+\begin{pmatrix}T_k\\p_k\end{pmatrix}
+\]
+modelliert werden.
+Gemessen wird nur die Temperatur, d.~h.~die Messmatrix ist
+\[
+H=\begin{pmatrix}1&0\end{pmatrix}.
+\]
+Bekannt ist ausserdem die Messgenauigkeit, der Messfehler ist $0.1\text{K}$,
+also ist die Messfehlermatrix
+\[
+R=\begin{pmatrix}0.01\text{K}^2\end{pmatrix}.
+\]
+Über die Systemfehler wissen wir aus der Aufgabenstellung nur wenig.
+Die Systemfehlerkovarianzmatrix muss die Form
+\[
+Q=\begin{pmatrix}
+\sigma_T^2&0\\
+0&\sigma_p^2
+\end{pmatrix}
+\]
+haben.
+Für $\sigma_T^2$ könnten wir schätzen, dass wir in unserem Modell die
+Wetterentwicklung nicht modelliert haben, die Temperaturschwankungen
+duch das Wetter müssen also im Systemfehler untergebracht werden.
+Gemäss Aufgabenstellung ist $\sigma_T=10\text{K}$.
+In der Aufgabenstellung haben wir keine Information über $\sigma_p^2$.
+\end{loesung}
+
+\begin{bewertung}
+Wahl der Zustandsvariablen ({\bf Z}) 1 Punkt,
+Zeitentwicklungsmatrix ($\bm{\varphi}$) 1 Punkt,
+Messmatrix ({\bf H}) 1 Punkt,
+Messfehlermatrix ({\bf R}) 1 Punkt,
+Systemkovarianz-Matrix Struktur ({\bf S}) 1 Punkt,
+Varianzwert $\sigma_T^2$ ({\bf T}) 1 Punkt.
+\end{bewertung}
+

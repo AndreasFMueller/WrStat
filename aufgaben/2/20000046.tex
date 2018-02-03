@@ -1,0 +1,91 @@
+An einer gewissen Hochschule sind 4\% der Studenten grösser als 1.8m
+aber nur 1\% der Frauen.
+Die Hochschule ist offenbar nicht die HSR, denn das Verhältnis von
+Männern zu Frauen ist $2:3$.
+Sie begegnen einer Person, die an dieser Hochschule studiert und über
+1.8m gross ist.
+Wie gross ist die Wahrscheinlichkeit, dass es sich um eine Frau handelt?
+
+\thema{bedingte Wahrscheinlichkeit}
+\thema{Satz von Bayes}
+\thema{totale Wahrscheinlichkeit}
+
+\begin{loesung}
+Ereignisse und bedingte Wahrscheinlichkeiten:
+\begin{align*}
+F&=\{\text{Frau}\}&P(F)&=\frac{3}{5}\\
+M&=\{\text{Mann}\}&P(M)&=\frac{2}{5}\\
+G&=\{\text{über 1.8m gross}\}&&
+\end{align*}
+Ausserdem sind die bedingten Wahrscheinlichkeiten für $G$ bekannt:
+\begin{align*}
+P(G|M)&= 0.04\\
+P(G|F)&= 0.01
+\end{align*}
+Gesucht ist $P(F|G)$.
+
+Nach dem Satz von Bayes ist zunächst
+\begin{equation}
+P(F|G)
+=
+P(G|F)\frac{P(F)}{P(G)},
+\label{20000046:1}
+\end{equation}
+darin ist aber $P(G)$ zunächst noch nicht bekannt.
+Wir können $P(G)$ aber mit Hilfe des Satzes von der totalen Wahrscheinlichkeit
+ermitteln, es gilt nämlich
+\begin{align*}
+P(G)
+&=
+P(G|M)P(M) + P(G|F)P(F)
+\\
+&=
+0.04\cdot 0.4+0.01\cdot0.6=0.022.
+\end{align*}
+Eingesetzt in \eqref{20000046:1} erhalten wir
+\begin{align*}
+P(F|G)
+&=0.01\cdot\frac{0.6}{0.022}
+=
+\frac{0.006}{0.022}
+=
+\frac{3}{11}
+=
+0.272727272.
+\qedhere
+\end{align*}
+\end{loesung}
+
+\begin{diskussion}
+Man kann die Aufgabe auch missverstehen indem man annimmt, dass 
+das Wort ``Studenten'' im ersten Satz sowohl Männer als auch Frauen 
+meint.
+Dies entspricht jedoch nicht dem aktuell akzeptierten politisch
+korrekten Sprachgebrauch, in dem sich das Wort ``Studenten'' nur
+auf Männer beziehen kann, während für Männer und Frauen das Wort
+``Studierende'' verwendet werden muss.
+
+Trotz dieses Missverständnisses kann man zu einer Schlussfolgerung kommen.
+Gegenüber der Lösung oben braucht man in diesem Fall
+$P(G)=0.04$, während wir nichts über $P(G|M)$ wissen.
+Gefragt ist
+\[
+P(F|G)
+=
+P(G|F)\frac{P(F)}{P(G)}
+=
+0.01\cdot
+\frac{0.6}{0.04}
+=
+0.15.
+\]
+\end{diskussion}
+
+\begin{bewertung}
+Ereignisse ({\bf E}) 1 Punkt,
+bedingte Wahrscheinlichkeiten ({\bf C}) 1 Punkt,
+Satz von Bayes ({\bf B}) 1 Punkt,
+Satz von der totalen Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Wahrscheinlichkeit $P(G)$ ({\bf G}) 1 Punkt,
+Wahrscheinlichkeit $P(F|G)$ ({\bf P}) 1 Punkt.
+\end{bewertung}

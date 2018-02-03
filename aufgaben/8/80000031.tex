@@ -1,0 +1,68 @@
+In der Rassismus-Diskussion in den USA wird oft behauptet, dass
+Schwarze besonders häufig Opfer von Gewaltverbrechen durch Weisse werden.
+Youtuber Thunderf00t hat sich dieser Behauptung angenommen und die
+Behauptung mit ziemlich eindeutigen Daten des FBI ganz offensichtlich
+wiederlegt.
+
+Mit den folgenden (fiktiven) Daten ist jedoch nicht mehr so eindeutig
+erkennbar, ob Schwarze häufiger Opfer von Gewaltverbrechen werden als
+auf Grund ihrer Häufigkeit in der Bevölkerung zu erwarten wäre:
+\begin{center}
+\begin{tabular}{|
+>{$}c<{$}|
+>{$}l<{$}|
+>{$}c<{$}|
+>{$}r<{$}|}
+\hline
+i&\text{Farbe}  &\text{Bevölkerungsanteil}&\text{Opfer}\\
+\hline
+1&\text{Weiss}  &  70\%                   &    1888    \\
+2&\text{Schwarz}&  15\%                   &     387    \\
+3&\text{andere} &  15\%                   &     342    \\
+\hline
+\end{tabular}
+\end{center}
+Können Sie darüber eine Entscheidung fällen?
+
+\thema{Hypothesentest}
+\thema{$\chi^2$-Test}
+
+\begin{loesung}
+Wir testen die Nullhypothese ``Die Anzahl der Opfer für jede Hauptfarbe
+entspricht der Verteilung der Hauptfarben in der Bevölkerung''.
+Wir testen diese Hypothese mit einem $\chi^2$-Test.
+\begin{center}
+\begin{tabular}{|
+>{$}c<{$}|
+>{$}r<{$}
+>{$}r<{$}|
+>{$}r<{$}
+>{$}r<{$}
+|}
+\hline
+i& p_i&   n_i&n_i-np_i&(n_i-np_i)^2/np_i\\
+\hline
+1&0.70&  1888& 56.10&1.7180\\
+2&0.15&   387& -5.55&0.0785\\
+3&0.15&   342&-50.55&6.5095\\
+\hline
+ &    &n=2617&      &D=8.3060\\
+\hline
+\end{tabular}
+\end{center}
+Der kritische Wert für die Diskrepanz bei zwei Freiheitsgraden und
+$\alpha = 5\%$ ist $D_{\text{krit}}=5.991$.
+Da $D>D_{\text{krit}}$ müssen wir die Nullhypothese verwerfen und schliessen
+daher, dass die Hautfarben der Opfer anders verteilt sind als die Hauptfarben
+in der Bevölkerung.
+\end{loesung}
+
+\begin{bewertung}
+Nullhypothese ({\bf H}) 1 Punkt,
+$\chi^2$-Test ({\bf$\chi$}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Freiheitgrade und kritischer Wert der Diskrepanz von ({\bf K})  1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+

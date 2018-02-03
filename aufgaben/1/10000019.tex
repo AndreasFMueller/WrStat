@@ -1,0 +1,131 @@
+20 Stundenten wollen zusammen Skifahren gehen.
+\begin{teilaufgaben}
+\item
+Die Studenten rechnen aus, dass sie mit fünf Autos zu je vier Plätzen
+den Transport ins Skigebiet bewerkstelligen könnten.
+Auf wieviele Arten können sich die Studenten auf die Autos
+aufteilen, wenn es auf die Platzierung innerhalb der Autos
+ankommt?
+\item
+Fünf Studenten bieten an, mit ihren Autos die Studenten ins Skigebiet
+zu fahren.
+Auf wieviele Arten können die übrigen Studenten auf die Autos verteilt werden,
+wenn es auf die Anordnung der Studenten (ausser dem Fahrer natürlich)
+innerhalb eines Autos {\em nicht} ankommt?
+\item
+Bei der weiteren Planung stellt sich heraus, dass fünf der Nicht-Fahrer
+unter Reisekrankheit leiden und daher in einem Auto vorne sitzen
+müssen.
+Auf wievele Arten können die Studenten unter dieser Einschränkung noch
+den Autos zugeordnet werden?
+Auf die Anordnung der Teilnehmer auf den hinteren Plätzen im Auto
+soll es nicht ankommen.
+\end{teilaufgaben}
+
+\thema{Kombinatorik}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Es stehen 20 Plätze für 20 Studenten zur Verfügung, dies ist ein
+Anordnungsproblem, die Anzahl der Anordnungen ist
+\[
+20!
+=
+2432902008176640000
+\]
+\item
+Die Fahrer sind den Autos bereits zugeordnet, es geht also nur noch darum,
+die 15 anderen Studenten zu verteilen.
+Für das erste Auto müssen 3 aus den 15 ausgewählt werden, für das zweite
+3 aus den verbleibenden 12, etc.
+Dies ist auf
+\[
+\binom{15}{3}
+\binom{12}{3}
+\binom{9}{3}
+\binom{6}{3}
+\binom{3}{3}
+=
+455\cdot 220\cdot 84 \cdot 20\cdot 1
+=
+168168000.
+\]
+Übrigens kann man diese Zahl auch mit Hilfe der Fakultätsformel ausrechnen:
+\begin{align*}
+\binom{15}{3}
+\binom{12}{3}
+\binom{9}{3}
+\binom{6}{3}
+\binom{3}{3}
+&=
+\frac{15!}{3!\,12!}
+\frac{12!}{3!\,9!}
+\frac{9!}{3!\,6!}
+\frac{6!}{3!\,3!}
+\frac{3!}{3!\,0!}
+=
+\frac{15!\,12!\,9!\,6!\,3!}{(3!)^5\,12!\,9!\,6!\,3!}
+=
+\frac{15!}{(3!)^5}
+=
+168168000.
+\end{align*}
+
+Alternativ kann man auch wie folgt argumentieren.
+15 Studenten sind auf die 15 ``Nichtfahrer''-Plätze zu verteilen.
+Damit sind aber alle möglichen Anordnungen innerhalb der Autos mitgezählt.
+In jedem Auto können die ``Nichtfahrer'' auf $3!$ Arten angeordnet werden.
+Es gibt also zu einer Zuteilen zu den Autos jeweils $3!^5$ Möglichkeiten,
+wie sich die zugeteilten innerhalb der Autos anordnen können.
+Die Anzahl Möglichkeiten ist daher
+\[
+\frac{15!}{3!^5}
+=
+168168000.
+\]
+\item
+Die fünf Reisekranken müssen je einem Auto zugeteilt werden, dies ist
+ein Anordnungsproblem, welches auf $5!=120$ Arten gelöst werden kann.
+Die verbleibenden 10 Studenten müssen je zu zweit auf die fünf Autos 
+verteilt werden. Dies kann nach dem gleichen Verfahren wie in
+Teilaufgabe~b) gemacht werden.
+Die gesamte Zahl der Zuordnungen wird
+\[
+5!\cdot
+\binom{10}{2}
+\binom{8}{2}
+\binom{6}{2}
+\binom{4}{2}
+=
+5!\cdot
+\frac{10!}{2^5}
+=
+120\cdot\frac{3628800}{32}
+=
+13608000.
+\]
+Alternativ kann man wie folgt argumentieren.
+Die 5 Beifahrer können auf $5!$ Arten den Autos zugeordnet werden.
+Die 10 ``Nichtbeifahrer'' können auf $10!$ Arten den Autos zugeordnet
+werden, aber sie können in jedem Auto die Plätze auf der Rückbank auf
+$2!=2$ Arten einnehmen, insgesamt also $2^5$ Möglichkeiten.
+Diese Möglichkeiten sind in $10!$ mitgezählt, um die gesuchte Anzahl
+zu erhalten, müssen wir also noch durch $2^5$ dividieren:
+\[
+5!\cdot
+\frac{10!}{2^5}
+=
+120\cdot\frac{3628800}{32}
+=
+13608000.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Jede Teilaufgabe 2 Punkte.
+Teilpunkte für Binomialkoeffizienten-Faktoren in den Produkten in Teilaufgaben 
+b) und c) oder für den Faktor $5!$ in c).
+\end{bewertung}
