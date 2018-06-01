@@ -22,16 +22,27 @@ Kann man daraus schliessen, dass die Dellen eine Wirkung haben?
 Wir testen die Nullhypothese, dass der mittlere Verbrauch in den
 beiden Situationen gleich ist.
 Können wir die Nullhypothese verwerfen, schliessen wir, dass die
-Dellen tatsächlich einen Einfluss auf den Verbraucht haben.
+Dellen tatsächlich einen Einfluss auf den Verbrauch haben.
 
 Für den Test verwenden wir einen $t$-Test, ein Alpha von
 $\alpha=0.05$ scheint angebracht.
 
-Die mittleren Verbrauchswerte sind 95ml/km mit und 101.3ml/km ohne
-Dellen.
-Allerdings ist die Testgrösse für den $t$-Test
-$T=1.21635$ und diese ist grösser als der kritische Wert für
-einen einseitigen und damit leichter zu bestehenden $t$-Test mit
+Die mittleren Verbrauchswerte sind $\overline X=95\,\text{ml/km}$ mit und
+$\overline{Y}=101.3\,\text{ml/km}$ ohne Dellen.
+Die empirische Varianz ist $S_X^2 = 67$ bzw.~$S_Y^2 = 14.3$.
+Daraus berechnet sich die Testgrösse für den $t$-Test nach
+\[
+T
+=
+\frac{95-101.3}{\sqrt{2\cdot 67+2\cdot 14.3}}
+\sqrt{\frac{3\cdot 3\cdot(3+3-2)}{3+3}}
+=
+\frac{-6.3}{12.75408}\sqrt{6}
+=
+-1.21.
+\]
+Allerdings ist diese Abweichung kleiner als der kritische Wert $t_\text{krit}$
+für einen (einseitigen und damit leichter zu bestehenden) $t$-Test mit
 $3+3-2=4$ Freiheitsgraden und
 $\alpha=0.05$: $t_{\text{krit}}=2.1318$
 %[1]  86.13225  97.83724 102.09296
@@ -58,5 +69,9 @@ $\alpha=0.05$: $t_{\text{krit}}=2.1318$
 %> t
 %[1] -2.288029
 %> 
+Die Daten zeigen also keinen genügend grossen Unterschied, dass man die
+Nullhypothese verwerfen können.
+Das Experiment der Mythbusters ist nicht aussagekräftig genug um zu
+beweisen, dass Dellen im Auto den Benzinverbrauch verändern.
 \end{loesung}
 
