@@ -1,0 +1,68 @@
+Ein Maschinenbauer bezieht Schrauben von drei verschiedenen Lieferanten,
+die nicht den gleichen Anteil an seinem Gesamtbedarf decken.
+Er führt Statistik darüber, wie oft Schrauben jedes Lieferanten
+zu Defekten führen:
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Lieferant&Anteil&Schadenfälle
+\\
+\hline
+1&25\%&13
+\\
+2&25\%&27
+\\
+3&50\%&40
+\\
+\hline
+\end{tabular}
+\end{center}
+Auf den ersten Blick scheint Lieferant~2 im Vergleich zu seinem 
+Volumen einen besonders hohen Anteil an den Schadenfällen zu haben,
+die Geschäftsleitung beschliesst daher, sich nach einem anderen
+Lieferanten umzusehen.
+Handelt sie rational?
+
+\thema{Hypothesentest}
+\thema{$\chi^2$-Test}
+
+\begin{loesung}
+Die Nullhypothese $H_0$ ist: Die Häufigkeit der Schadenfälle
+entspricht dem Liefervolumen eines Lieferanten.
+
+Mit einem $\chi^2$-Test mti $\alpha=0.05$ lässt sich diese Hypothese
+testen.
+Wir berechnen die Diskrepanz:
+\begin{center}
+\begin{tabular}{|c|>{$}c<{$}|>{$}r<{$}|>{$}c<{$}|>{$}r<{$}|>{$}r<{$}|}
+\hline
+Lieferant& p_i& n_i&np_i&n_i-np_i&(n_i-np_i)^2/np_i
+\\
+\hline
+1        &0.25&  13&  20&      -7&  2.45
+\\
+2        &0.25&  27&  20&       7&  2.45
+\\
+3        &0.50&  40&  40&       0&  0.00
+\\
+\hline
+         &    &n=80&    &        &D=4.90
+\\
+\hline
+\end{tabular}
+\end{center}
+Der kritische Wert für die Diskrepanz bei $3-1=2$ Freiheitsgraden ist
+$D_{\text{krit}}=5.991$.
+Da $D<D_{\text{krit}}$ kann der Test die Nullhypothese nicht verwerfen,
+die Geschäftsleitung handelt irrational.
+\end{loesung}
+
+\begin{bewertung}
+Nullhypothese ({\bf H}) 1 Punkt,
+$\chi^2$-Test ({\bf$\chi$}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Freiheitgrade und kritischer Wert der Diskrepanz ({\bf K})  1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+

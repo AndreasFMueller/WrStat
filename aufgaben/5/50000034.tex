@@ -1,0 +1,104 @@
+Ein Sprachschüler möchte im standardisierten Abschlusstest seines
+Sprachaufenthalts
+ein besonders gutes Resultat erreichen, da es mit darüber entscheidet,
+ob er ein Visum für einen weiteren Aufenthalt erhält.
+Er weiss, dass 5\% der Schüler im Abschlusstest weniger als 420 Punkte
+erreichen, und dass ein Drittel mehr als als 540 Punkte erreichen.
+Er möchte zu den besten 10\% gehören, welche Punktzahl muss
+er erreichen?
+
+\thema{Normalverteilung}
+\thema{Standardisierung}
+
+\begin{loesung}
+Man darf annehmen, dass die Punktzahl $X$ eine normalverteilte
+Zufallsvariable mit Erwartungswert $\mu$ und Varianz $\sigma^2$ ist.
+Wir müssen $\mu$ und $\sigma$ aus den gegebenen Informationen bestimmen.
+Die beiden Schranken erfüllen
+\begin{align*}
+P(X\le 420)&= 0.05
+&
+&%\Rightarrow
+&
+&\hspace{-10pt}&
+P\biggl(\frac{X-\mu}{\sigma}\le \frac{420-\mu}{\sigma}\biggr)
+&=
+0.05
+&&\Rightarrow
+&
+\frac{420-\mu}{\sigma}
+&=
+-1.6449
+\\
+P(X> 540)&=0.33
+&
+&\Rightarrow
+&
+P(X\le 540)=\mathstrut
+&\hspace{-10pt}&
+P\biggl(\frac{X-\mu}{\sigma}\le \frac{540-\mu}{\sigma}\biggr)
+&=
+0.66
+&&\Rightarrow&
+\frac{540-\mu}{\sigma}
+&=
+\phantom{-}
+0.43.
+\end{align*}
+Multipliziert man mit $\sigma$, findet man das Gleichungssystem
+\begin{align}
+420-\mu&=-1.6449\sigma
+\label{50000034:gl1}
+\\
+540-\mu&=\phantom{-}0.43\phantom{00}\sigma.
+\label{50000034:gl2}
+\end{align}
+Die Differenz
+$
+\eqref{50000034:gl2}
+-
+\eqref{50000034:gl1}
+$
+ist
+\[
+120=2.0749\sigma
+\qquad\Rightarrow\qquad
+\sigma=57.83.
+\]
+Einsetzen von $\sigma$ in der Gleichung
+\eqref{50000034:gl2}
+liefert
+\[
+\mu=540-0.43\sigma=540-0.43\cdot 57.83=515.13.
+\]
+Der Sprachschüler möchte jetzt aber unter den besten 10\% sein, d.h. er
+muss die Punktzahl $x$ erreichen, so dass 90\% der Schüler schlechter sind,
+also
+\begin{align*}
+P(X\le x)=0.9
+&=
+P\biggl(\frac{X-\mu}{\sigma}\le \frac{x-\mu}{\sigma}\biggr)=0.9
+&&\Rightarrow&
+\frac{x-\mu}{\sigma} &= 1.2816
+\\
+&
+&&\Rightarrow&
+x &= \mu+1.2816\sigma
+\\
+&&&&
+  &=515.13 + 1.2816\cdot 57.83=589.24.
+\end{align*}
+Er muss also eine Punktzahl von 590 Punkten erreichen, um zu den
+obersten 10\% zu gehören.
+\end{loesung}
+
+\begin{bewertung}
+Normalverteilung ({\bf N}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Gleichungen für $\mu$ und $\sigma$ ({\bf G}) 1 Punkt,
+Wert von $\mu$ ({\bf M}) 1 Punkt,
+Wert von $\sigma$ ({\bf V}) 1 Punkt,
+Punktzahl ({\bf P}) 1 Punkt.
+\end{bewertung}
+
+

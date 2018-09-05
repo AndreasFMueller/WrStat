@@ -1,0 +1,79 @@
+In der Diskussion um Drogen-Schnelltests wurde argumentiert, dass
+Polizisten ein gutes Gespür dafür hätten, ob eine Person Drogen
+konsumiert.
+Nehmen Sie an, dass ein Polizist 90\% der Drogenkonsumenten erkennt,
+und bei 5\% der Nichtkonsumenten meint, einen Drogenkonsumenten vor sich
+zu haben.
+Nehmen Sie weiter an, dass etwa 22\% tatsächlich konsumieren.
+\begin{teilaufgaben}
+\item
+Wie wahrscheinlich ist, dass der Polizist eine Person des Drogenkonsums
+verdächtigt?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass eine Person tatsächlich Drogen
+konsumiert, wenn der Polizist dies glaubt.
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir betrachten die Ereignisse 
+\begin{align*}
+D&=\{\text{konsumiert Drogen}\}
+\\
+V&=\{\text{vom Polizisten des Drogenkonsums verdächtigt}\}
+\end{align*}
+Aus dem Text lesen wir die folgenden Wahrscheinlichkeiten ab:
+\begin{align*}
+P(V|D)
+&=
+0.9
+\\
+P(V|\overline{D})
+&=
+0.05
+\\
+P(D)
+&=
+0.22
+\end{align*}
+\begin{teilaufgaben}
+\item
+Die Wahrscheinlichkeit, dass der Polizist eine Person des Drogenkonsums
+verdächtigt, ist nach dem Satz von der totalen Wahrscheinlichkeit
+\begin{align*}
+P(V)
+&=
+P(V|D)\,P(D) + P(V|\overline{D})\,P(\overline{D})
+=
+P(V|D)\,P(D) + P(V|\overline{D})\,(1-P(D))
+\\
+&=
+0.9\cdot 0.22 + 0.05\cdot 0.78
+=
+0.237.
+\end{align*}
+\item
+Gesucht ist $P(D|V)$.
+Nach dem Satz von Bayes gilt
+\begin{align*}
+P(D|V)
+&=
+P(V|D)\frac{P(D)}{P(V)}
+=
+0.9\cdot\frac{0.22}{0.237}
+=
+0.835.
+\end{align*}
+In einem von sechs Fällen ist der Verdacht des Polizisten also falsch.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Ereignisse ({\bf E}) 1 Punkt,
+bedingte Wahrscheinlichkeiten ({\bf C}) 1 Punkt,
+Satz von Bayes ({\bf B}) 1 Punkt,
+Satz von der totalen Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Wahrscheinlichkeit $P(V)$ ({\bf V}) 1 Punkt,
+Wahrscheinlichkeit $P(D|V)$ ({\bf D}) 1 Punkt.
+\end{bewertung}
+
