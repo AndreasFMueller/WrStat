@@ -11,7 +11,7 @@ Die Redaktion hat dann Mittelwerte der Punktzahlen verglichen und eine
 Rangliste der Politiker erstellt.
 Die (angenommenen) Resultate sind in der folgenden Tabelle zusammengefasst.
 $n$ ist die Anzahl der Antworten, $\bar X$ die gemittelte Note und 
-$S_X$ die empirische Varianz.
+$S_X^2$ die empirische Varianz.
 \begin{center}
 \begin{tabular}{l|>{$}r<{$}>{$}r<{$}>{$}r<{$}}
 Kandidat    & n&\bar X& S_X \\
@@ -23,6 +23,9 @@ Kim Yong Un &13&   1.8& 0.24\\
 \end{center}
 Kann man aus den (angenommenen) Noten
 schliessen, dass Donald Trump tatsächlich unbeliebter ist?
+
+\thema{Hypothesentest}
+\thema{$t$-Test}
 
 \begin{loesung}
 Wir führen eine $t$-Test durch mit $\alpha=0.95$ durch.
@@ -52,4 +55,11 @@ gering ist, man also nicht schliessen kann, dass Trump weniger bliebt ist.
 \end{loesung}
 
 \begin{bewertung}
+Verwendung des studentschen $t$-Tests ({\bf S}) 1 Punkt,
+Wahl eines geeigneten $\alpha$ ({\bf A}) 1 Punkt,
+Berechnung der Testgrösse $T$ ({\bf T}) 1 Punkt,
+Berechnung der Freiheitsgrade für die $t$-Verteilung und kritischer Wert
+({\bf K}) 1 Punkt,
+Entscheidung, Nullhypothese wird nicht verworfen ({\bf E}) 1 Punkt.
 \end{bewertung}
+
