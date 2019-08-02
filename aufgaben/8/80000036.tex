@@ -1,0 +1,60 @@
+Ein Wirebonder ist eine Maschine, die die Anschluss-Pads eines Chips
+mit den Anschluss-Pins des Chip-Gehäuses verbindet.
+Sie kann bis zu 40 Verbindungen pro Sekunde aus einem dünnen Golddraht
+herstellen.
+Leider sind nicht alle Verbindungen immer gut, manchmal haftet der
+Draht nicht auf dem Pad oder er bricht.
+Ein Chiphersteller verwendet Wirebonder von drei verschiedenen
+Herstellern, die jedoch einen unterschiedlichen Anteil an der Produktion
+haben.
+Über die Fälle fehlerhafter Verbindungen wird Buch geführt:
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Wirebonder&Anteil&fehlerhafte Chips\\
+\hline
+$A$&40\%&92
+\\
+$B$&40\%&118
+\\
+$C$&20\%&60
+\\
+\hline
+\end{tabular}
+\end{center}
+Auf Grund der hohen Zahl von fehlerhaften Chips, die der Wirebonder des
+Herstellers $B$ produziert hat, beschliesst das Management, diese
+Wirebonder zu ersetzen.
+Ist diese Entscheidung rational gerechtfertigt?
+
+\begin{loesung}
+Wir überprüfen mit Hilfe eines $\chi^2$-Tests, ob die Anzahl der fehlerhaften
+Chips ungewöhnlich von der auf Grund der Produktionsanteile zu erwartenden
+Verteilung abweicht.
+Die Nullhypothese lautet daher, dass die Anzahlen der fehlerhaften Chips
+den Anteilen an der Produktion entsprechen.
+Jetzt muss die Diskrepanz berechnet werden:
+\begin{center}
+\begin{tabular}{|l|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|}
+\hline
+Wirebonder&p_i&n_i&np_i&n_i-np_i&(n_i-np_i)^2/np_i
+\\
+\hline
+$A$&0.4&   92&108&-16& 2.37
+\\
+$B$&0.4&  118&108& 10& 0.92
+\\
+$C$&0.2&   60& 54&  6& 0.66
+\\
+\hline
+   &   &n=270&   &   &D=3.95
+\\
+\hline
+\end{tabular}
+\end{center}
+Der kritische Wert für die Diskrepanz bei $3-1=2$ Freiheitsgraden ist
+$D_{\text{krit}}=5.991$.
+Da $D<D_{\text{krit}}$ kann der Test die Nullhypothese nicht verwerfen,
+das Management hat also nicht rational entschieden.
+\end{loesung}
+

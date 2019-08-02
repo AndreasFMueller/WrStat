@@ -1,0 +1,55 @@
+Eine Zeitung hat im Dezember 2018 eine Leserumfrage darüber durchgeführt,
+welche Politiker bei den Lesern am beliebtesten sind.
+Dabei hat sich zum Erstaunen der Redaktion herausgestellt, dass Kim Yong Un
+beliebter ist als Donald Trump.
+Leider wurden die Rohdaten nicht veröffentlicht, so dass man die
+Schlussfolgerung der Redaktion, obwohl naheliegend und verständlich,
+nicht wirklich nachvollziehen kann.
+Nehmen wir daher an, dass Leute befragt wurden, verschiedenen Politikern 
+Noten auf einer Skala von 1--10 zu geben. 
+Die Redaktion hat dann Mittelwerte der Punktzahlen verglichen und eine
+Rangliste der Politiker erstellt.
+Die (angenommenen) Resultate sind in der folgenden Tabelle zusammengefasst.
+$n$ ist die Anzahl der Antworten, $\bar X$ die gemittelte Note und 
+$S_X$ die empirische Varianz.
+\begin{center}
+\begin{tabular}{l|>{$}r<{$}>{$}r<{$}>{$}r<{$}}
+Kandidat    & n&\bar X& S_X \\
+\hline
+Donald Trump&11&   1.6& 0.23\\
+Kim Yong Un &13&   1.8& 0.24\\
+\hline
+\end{tabular}
+\end{center}
+Kann man aus den (angenommenen) Noten
+schliessen, dass Donald Trump tatsächlich unbeliebter ist?
+
+\begin{loesung}
+Wir führen eine $t$-Test durch mit $\alpha=0.95$ durch.
+Die Nullhypothese ist, dass die beiden Mittelwerte zur gleichen Verteilung
+gehören.
+Die Anzahl der Freiheitsgrade ist $k=11+13-2=22$, dazu gehört der kritische
+Wert $t_{\text{krit}}=1.7171$ (oder $t_{\text{krit}}=2.0739$
+für einen beidseitigen Test).
+Die Testgrösse ist
+\begin{align*}
+T
+&=
+\frac{\bar X -\bar Y}{\sqrt{(n-1)S_X^2 + (m-1)S_Y^2}}
+\sqrt{\frac{nm(n+m-2)}{n+m}}
+\\
+&=
+\frac{1.6-1.8}{10\cdot0.23^2 + 12\cdot 0.24^2}\sqrt{\frac{11\cdot13\cdot22}{24}}
+=
+-2.072947
+\end{align*}
+Daraus liest man ab, dass die Nullhypothese verworfen werden muss, dass
+also ein signifikanter Unterschied zwischen den beiden Bewertungen besteht,
+dass also Donald Trump tatsächlich unbeliebter ist.
+
+Bei einem zweiseitigen Test sieht man dagegen, dass der Unterschied zu
+gering ist, man also nicht schliessen kann, dass Trump weniger bliebt ist.
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}

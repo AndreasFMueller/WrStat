@@ -1,0 +1,117 @@
+{\em The Slow Mo Guys} haben am 13.~Dezember 2018 ein Video auf Youtube
+veröffentlicht, in dem Sie mit einer Hochgeschwindigkeitskamera die
+Ausbreitung eines Bruchs in getempertem Glas aufgezeichnet haben.
+Mit Hilfe einer Skala auf dem Glas konnten Sie anschliessend die 
+Ausbreitungsgeschwindigkeit des Bruchs bestimmen.
+Die Auswertung des Films ergab, dass der Bruch zur Zeit $t$ die folgende
+$x$-Position erreicht hatte:
+\begin{center}
+\begin{tabular}{ll|rrrrrrr}
+%Zeit   &[$\mu$s]&3941.62&4157.65&4360.98&4577.01&4780.33&4996.36&5225.10\\
+Zeit    &[$\mu$s]&3942&4158&4361&4577&4780&4996&5225\\
+\hline
+Position&[ft]    &1      &2      &3      &4     &5     &6     &7
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item
+Bestimmen Sie den bestmöglichen Wert für die Ausbreitungsgeschwindigkeit
+des Bruchs in $[\text{ft}/\text{ms}]$.
+\item
+Breitet sich der Bruch wirklich mit konstanter Geschwindigkeit durch das
+Glas aus?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wenn sich der Bruch tatsächlich mit konstanter Geschwindigkeit im Glas 
+ausbreitet, dann gibt es einen linearen Zusammenhang zwischen Zeit $t$ und
+Position $x$ des Bruchs in der Form $x=at+b$, wobei $a$ die
+Ausbreitungsgeschwindigkeit des Bruchs ist.
+Lineare Regression kann daher die bestmögliche Schätzung von $a$ liefern wie
+auch eine Aussage über die Qualität der Approximation.
+
+Zur Durchführung der Berechnung benötigen wir die Mittelwerte von der
+der Messwerte $t_i$ und $x_i$ sowie ihrer Quadrate und Produkte:
+\begin{center}
+\begin{tabular}{|>{$}r<{$}|>{$}r<{$} >{$}r<{$}| >{$}r<{$} >{$}r<{$}|>{$}r<{$}|}
+\hline
+i& t_i&x_i&   t_i^2&x_i^2&t_ix_i\\
+\hline
+1&3942&  1&15539364&    1&  3942\\
+2&4158&  2&17288964&    4&  8316\\
+3&4361&  3&19018321&    9& 13083\\
+4&4577&  4&20948929&   16& 18308\\
+5&4780&  5&22848400&   25& 23900\\
+6&4996&  6&24960016&   36& 29976\\
+7&5225&  7&27300625&   49& 36575\\
+\hline
+E&4577&  4&21129231&   20& 19157\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{teilaufgaben}
+\item
+Wir bestimmen die Ausbreitungsgeschwindigkeit $a$ mit Hilfe der Formel
+\begin{align*}
+a
+&=
+\frac{\displaystyle\frac1n\sum_{i=1}^n t_ix_i - \frac1n\sum_{i=1}^n t_i\cdot \frac1n\sum_{i=1}^n x_i}{\displaystyle\frac1n\sum_{i=1}^n t_i^2 - \biggl(\frac1n\sum_{i=1}^nt_i\biggr)^2}
+\\
+&=
+\frac{19157-4577\cdot 4}{21129231 - 4577^2}
+=
+\frac{849}{180302}
+=
+0.00471
+=
+4.71 [\text{ft}/\text{ms}].
+\end{align*}
+\item
+Die Qualität der Approximation wird mit dem Regressionskoeffizienten
+gemessen.
+Er ist
+\begin{align*}
+r^2
+&=
+\frac{\displaystyle
+\biggl(
+\frac1n\sum_{i=1}^n t_ix_i
+-
+\frac1n\sum_{i=1}^nt_i
+\cdot
+\frac1n\sum_{i=1}^nx_i
+\biggr)^2
+}{\displaystyle
+\biggl(
+\frac1n\sum_{i=1}^nt_i^2 - \biggl(\frac1n\sum_{i=1}^nt_i\biggr)^2
+\biggr)
+\biggl(
+\frac1n\sum_{i=1}^nx_i^2 - \biggl(\frac1n\sum_{i=1}^nx_i\biggr)^2
+\biggr)
+}
+\\
+&=
+\frac{(19157 - 4577\cdot 4)^2}{
+(21129231-4577^2)(20-4^2)
+}
+=
+\frac{849^2}{721208}
+=
+\frac{720801}{721208}
+=
+0.999436.
+\end{align*}
+Da $r^2$ sehr nahe bei $1$ liegt, ist die lineare Approximation sehr gut,
+die Ausbreitungsgeschwindigkeit des Bruchs ist also in sehr guter Näherung
+konstant.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Das Video der Slow Mo Guys:
+\url{https://www.youtube.com/watch?v=GIMVge5TYz4}
+\end{diskussion}
+
+

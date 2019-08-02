@@ -1,0 +1,41 @@
+Jedes Jahr werden 3\% der Schweizer Wohnbevölkerung für eine Befragung
+im Rahmen der Volks\-zählung ausgewählt.
+Wie gross ist die Wahrscheinlichkeit, dass die Anzahl der ausgewählten
+aus Rapperswil (Bevölkerung 26034) um mehr als 30 von der erwarteten
+Anzahl abweicht?
+
+\begin{loesung}
+Sie $X$ die Anzahl der ausgewählten Bewohner von Rapperswil.
+$X$ ist binomialverteilt mit $p=0.03$ und $n=26034$.
+Die erwartete Anzahl ausgewählter Personen ist $\mu X=np=781$.
+Gesucht ist die Wahrscheinlichkeit
+\begin{equation}
+P(X < \mu - 30 \vee X > \mu + 30)
+=
+1-P(\mu - 30 \le X \le \mu + 30).
+\label{50000036:gesucht}
+\end{equation}
+Wir verwenden die Normalapproximation für $X$ und wenden daher
+Standardisierung mit $\sigma=\sqrt{np(1-p)}=27.52$ auf
+die Wahrscheinlichkeit in der rechten Seite von
+\eqref{50000036:gesucht}
+an:
+\begin{align*}
+P(\mu - 30 \le X \le \mu + 30)
+&=
+P\biggl(
+\frac{-30}{\sigma} \le \frac{X-\mu}{\sigma} \le \frac{30}{\sigma})
+\biggr)
+\\
+&=
+P(-1.0899 \le Z \le 1.0899)
+=
+2F(1.0899)-1
+=
+2\cdot 0.8621 - 1
+=
+0.7242.
+\end{align*}
+Die gesuchte Wahrschinlichkeit ist daher $1-0.7242= 0.3738$.
+\end{loesung}
+
