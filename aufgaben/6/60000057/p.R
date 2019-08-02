@@ -1,7 +1,7 @@
 #
 # p.R -- display power law samples
 #
-# (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+# (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
 #
 
 d <- read.csv("data.csv")
@@ -11,7 +11,7 @@ d$logx = log(d$x)
 regression = lm(logF ~ logx, d)
 regression
 pdf("d.pdf", 7, 5);
-plot(d$F ~ d$x, col = "red", log = "xy",  xlab = "x", ylab = "log(1-F(x))")
+plot(d$F ~ d$x, col = "red", log = "xy", xlab = "x", ylab = "log(1-F(x))")
 abline(regression, col = "blue")
 
 

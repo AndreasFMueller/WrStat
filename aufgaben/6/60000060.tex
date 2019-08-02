@@ -1,0 +1,72 @@
+Bei Verbindungsexperimenten mit Long Range Wide Area Network (LoRaWAN, 
+drahtloses Netzwerk für das Internet of Things)
+wurde bei verschiedenen Distanzen gezählt, welcher Prozentsatz der
+gesendeten Pakete ankommt.
+\begin{teilaufgaben}
+\item
+Bei einer Distanz von 1\,km kommen recht viele Pakete an,
+typischerweise etwa 60\%.
+Wie gross ist die Wahrscheinlichkeit, dass mehr als 20 von 50 Paketen
+ankommen?
+\item
+Bei einer Distanz von 10\,km kommen nur noch ganz selten Pakete an,
+im Mittel etwa 1\%.
+Wie gross ist die Wahrscheinlichkeit, dass mindestens zwei von 50 Pakete
+ankommen?
+\end{teilaufgaben}
+
+\thema{Poisson-Verteilung}
+\thema{Binomial-Verteilung}
+\thema{Normalapproximation}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Anzahl $X$ der ankommenden Pakete ist binomialverteilt mit $p=0.6$ und
+$n=50$.
+Gesucht ist $P(X > 20)$, aber dies ist nicht einfach direkt zu berechnen.
+Daher verwenden wir die Normalapproximation mit $\mu=np$ und $\sigma^2=np(1-p)$
+und erhalten
+\begin{align*}
+P(X>20)
+&=
+1-P(X\le 20)
+=
+1- P\biggl( \frac{X-\mu}{\sigma}\le \frac{20-\mu}{\sigma}\biggr)
+=
+1-P(Z\le -2.88675)
+\\
+&=
+P(Z\le 2.887)
+=0.9981
+\end{align*}
+\item
+Die Wahrscheinlichkeit kann mit der Poissonverteilung berechnet werden.
+Die Anzahl $X$ der angekommenen Pakete ist Poisson-verteilt mit $\lambda=0.5$.
+Die gesuchte Wahrscheinlichkeit ist
+\begin{align*}
+P(X\ge 2)
+&=1-P(X < 2) = 1-\sum_{k=0}^1 P(X=k)
+= 1-\sum_{k=0}^1 e^{-\lambda}\frac{\lambda^k}{k!}
+\\
+&= 1- e^{-\lambda}\biggl(1 + \frac{\lambda}{1!}\biggr)
+= 1- e^{-0.5}(1+0.5)=1-0.909796=0.090204.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Binomialverteilung ({\bf B}) 1 Punkt,
+Normalapproximation mit Parametern $\mu$ und $\sigma$ ({\bf N}) 1 Punkt,
+Wahrscheinlichtkeit ({\bf P}) 1 Punkt.
+\item
+Poissonverteilung und Parameter $\lambda$ ({\bf L}) 1 Punkt,
+Summenformel ({\bf S}) 1 Punkt,
+Wahrscheinlichkeit ({\bf W}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
+

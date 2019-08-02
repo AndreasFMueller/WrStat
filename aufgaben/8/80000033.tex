@@ -1,0 +1,69 @@
+Nach einer Prüfung, in der Studenten zweier Studiengänge $A$ und $B$
+geprüft wurden, möchten die Studiengangleiter wissen, ob man zwischen
+den beiden Studiengängen einen Unterschied sehen kann.
+Der prüfungsverantwortliche Dozent teilt den Studiengangleitern
+folgende Daten mit:
+\begin{center}
+\begin{tabular}{c|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}}
+Studiengang
+	&\text{Teilnehmer}
+		&\text{Mittelwert}
+			&\text{emprische Standardabweichung}
+\\
+\hline
+A	&60	&4.45	&1.1
+\\
+B	&15	&4.11	&0.8
+\\
+\end{tabular}
+\end{center}
+und überlässt ihnen die Auswertung.
+Ist der Leiter von Studiengang $A$ auf Grund dieser Daten berechtigt,
+sich mit der Überlegenheit seines Studiengangs zu brüsten?
+
+\thema{Hypothesentest}
+\thema{$t$-Test}
+
+\begin{loesung}
+Wir testen dies mit einem $t$-Test.
+Die Nullhypothese $H_0$ ist: ``es gibt keinen Unterschied zwischen den
+beiden Mittelwerten''.
+Wir führen einen Test mit $\alpha=0.05$ durch.
+Die Messgrösse ist
+\begin{align*}
+T
+&=
+\frac{\overline{X}-\overline{Y}}{\sqrt{S_X^2(n_X-1)+S_Y^2(n_Y-1)}}
+\sqrt{\frac{n_Xn_Y(n_X+n_Y-2)}{n_X+n_Y}}
+\\
+&=(\overline{X}-\overline{Y})
+\frac{1}{\sqrt{1.1^2\cdot 59+0.8^2\cdot 14}}
+\sqrt{\frac{60\cdot15(60+15-2)}{60+15}}
+\\
+&=(\overline{X}-\overline{Y})
+\frac{\sqrt{876}}{8.9638}
+=(\overline{X}-\overline{Y})\cdot 3.302
+\\
+&=0.34\cdot 3.302
+=1.123
+\end{align*}
+Der kritische Wert für $\alpha=0.05$ und
+$n_X+n_Y-2=60+15-2=73$
+Freiheitsgrade ist
+$t_{\text{krit}}=1.66$ für $p=1-\alpha=0.95$.
+Da $T<t_{\text{krit}}$ gibt es keinen Grund an der Nullhypothese zu zweifeln.
+Der Leiter von Studiengang $A$ handelt trotz des grossen Unterschieds der
+Mittelwerte nicht rational, wenn er seinen Studiengang für besser ansieht.
+\end{loesung}
+
+\begin{bewertung}
+Nullhypothese ({\bf N}) 1 Punkt,
+Verwendung des studentschen $t$-Tests ({\bf S}) 1 Punkt,
+Wahl eines geeigneten $\alpha$ ({\bf A}) 1 Punkt,
+Berechnung der Testgrösse $T$ ({\bf T}) 1 Punkt,
+Berechnung der Freiheitsgrade für die $t$-Verteilung und kritischer Wert
+({\bf K}) 1 Punkt,
+Entscheidung, Nullhypothese wird nicht verworfen ({\bf E}) 1 Punkt.
+\end{bewertung}
+
+

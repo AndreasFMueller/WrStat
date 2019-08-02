@@ -1,0 +1,113 @@
+Ein Schmidt-Cassegrain-Teleskop hat einen gefalteten Strahlengang,
+man kann daher die Brennweite nicht direkt messen.
+Um die Brennweite $f$ zu bestimmen, verwendet man folgende Methode.
+Man richtet das Teleskop auf einen Stern, durch die Erddrehung bewegt
+er sich mit der Winkelgeschwindigkeit
+$\omega=360^\circ/24\,h=2\pi/86400\,s$.
+Mit einem Okular mit einer eingebauten Messplatte
+\begin{center}
+\begin{tabular}{ccc}
+\begin{minipage}{0.25\hsize}
+\includeagraphics[width=\hsize]{20040512Micro3.jpg}
+\end{minipage}&\qquad\qquad\qquad&
+\begin{minipage}{0.2\hsize}
+\begin{tabular}{>{$}r<{$}|>{$}c<{$}}
+ t_i\,[\text{s}]&x_i\,[\text{mm}]\\
+\hline
+ 0&1.32\\
+10&2.24\\
+20&3.21\\
+30&4.02\\
+40&5.03
+\end{tabular}
+\end{minipage}
+\end{tabular}
+\end{center}
+beobachtet man die Bewegung des Sterns entlang der horizontalen Skala
+in der Mitte.
+Er bewegt sich mit der Geschwindigkeit $f\omega$.
+Ein Teilstrich dieser Skala ist 0.1\,mm.
+In regelmässigen Zeitabständen liest man die Position des Sterns ab
+und erhält die Datenpunkte gemäss obiger Tabelle.
+\begin{teilaufgaben}
+\item
+Bestimmen Sie den bestmöglichen Wert für die Brennweite $f$ des Teleskops.
+\item
+Bestimmen Sie den Zeitpunkt, zu dem der Stern sich genau in der Mitte der
+Skala befand.
+\item
+Wie gut ist diese Approximation?
+\end{teilaufgaben}
+
+\thema{lineare Regression}
+
+\begin{loesung}
+Die Position hängt linear von der Zeit ab, es ist $x=x_0 + vt$.
+Um die Brennweite $f$ zu bestimmen, müssen wir aus den Daten
+mit Hilfe von linearer Regression den Wert $v$ bestimmen und
+daraus die Brennweite $f=v/\omega$ ablesen.
+\begin{center}
+\begin{tabular}{|
+>{$}c<{$}|
+>{$}r<{$}|
+>{$}r<{$}|
+>{$}r<{$}|
+>{$}r<{$}|
+>{$}r<{$}|}
+\hline
+i&t_i&  x_i&t_i^2&  x_i^2&t_ix_i\\
+\hline
+1&  0& 1.32&    0& 1.7424&    0.0\\
+2& 10& 2.24&  100& 5.0176&   22.4\\
+3& 20& 3.21&  400&10.3041&   64.2\\
+4& 30& 4.02&  900&16.1604&  120.6\\
+5& 40& 5.03& 1600&25.3009&  201.2\\
+\hline
+ &100&15.82& 3000&58.4254&  408.4\\
+\hline
+\end{tabular}
+\end{center}
+Daraus kann man die gesuchten Grössen wie folgt bekommen:
+\begin{align*}
+x_0
+&=
+\frac{5\cdot 408.4 - 100\cdot 15.82}{5\cdot 3000-100^2}=0.092
+\\
+v
+&=
+\frac15\cdot 15.82 - 0.092\cdot \frac15\cdot 100
+=
+1.324
+\\
+r^2
+&=
+0.999183
+\end{align*}
+Damit lassen sich die Teilaufgaben jetzt wie folgt lösen.
+\begin{teilaufgaben}
+\item
+Die Brennweite ist $f=v/\omega=1265\,\text{mm}$.
+\item
+Wir suchen den Zeitpunkt $t$ mit der Eigenschaft
+\[
+x_0+vt=3.0
+\qquad\Rightarrow\qquad
+t = \frac{3.0-x_0}{v} = \frac{3.0-1.324}{0.092}=18.22.
+\]
+\item
+Der Regressionskoeffizient $r^2$ ist sehr nahe bei $1$, es handelt sich
+also um eine sehr gute Approximation.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Lineare Regression ({\bf L}) 1 Punkt,
+Berechnung von $x_0$ und $v$ ({\bf V}) 1 Punkt,
+Bestimmung der Brennweite ({\bf F}) 1 Punkt,
+Bestimmung des Zeitpunkts ({\bf Z}) 1 Punkt,
+Berechnung von $r^2$ ({\bf R}) 1 Punkt,
+Qualitätsbeurteilung mit Hilfe von $r^2$ ({\bf Q}) 1 Punkt.
+\end{bewertung}
+
+

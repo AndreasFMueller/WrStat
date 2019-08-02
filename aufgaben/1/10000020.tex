@@ -1,0 +1,128 @@
+An einem Workshop nehmen 24 Teilnehmer teil.
+\begin{teilaufgaben}
+\item
+Für Gruppenarbeiten sollen 4er Teams gebildet werden.
+Auf wieviele Arten ($n_1$) ist dies möglich?
+\item
+Für Gruppenarbeiten sollen 4er Teams gebildet werden, aber die
+sechs Teamleiter sind schon vorgängig bestimmt worden.
+\item
+Der Workshopleiter kommt auf die Idee, die Teams wie folgt zu
+bestimmen.
+Er wirft eine grosse Zahl von farbigen Zetteln mit sieben verschiedenen
+Farben in einen Topf, jedem Team entspricht eine Farbe.
+Die Teilnehmer müssen jetzt jeweils einen Zettel ziehen, was deren
+Team-Zugehörigkeit festlegt.
+Auf wieviele Arten ($n_3$) kann man auf diese Weise Teams bilden?
+Warum ist diese Zahl viel grösser als $n_1$?
+\end{teilaufgaben}
+
+\thema{Kombinatorik}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item 
+Um ein Vierer-Team zu bilden, müssen $4$ Personen aus $24$ ausgewählt werden.
+Dies ist auf $\binom{24}{4}$ Arten möglich.
+Von den verbleibenden $20$ Teilnehmern müssen jetzt für das zweite Vierer-Team
+wieder $4$ Personen ausgewählt werden.
+Insgesamt ist dies auf 
+\[
+\binom{24}{4}
+\binom{20}{4}
+\binom{16}{4}
+\binom{12}{4}
+\binom{8}{4}
+\binom{4}{4}
+\]
+Arten möglich.
+Allerdings entstehen auf diese Weise die Teams in jeder denkbaren
+Reihenfolge, von denen es $6!$ gibt.
+Die gesucht Anzahl $n$ ist daher
+\begin{align*}
+n_1
+&=
+\frac{1}{6!}
+\binom{24}{4}
+\binom{20}{4}
+\binom{16}{4}
+\binom{12}{4}
+\binom{8}{4}
+\binom{4}{4}
+=
+\frac{1}{6!}
+\frac{24!}{20!\,4!}
+\frac{20!}{16!\,4!}
+\frac{16!}{12!\,4!}
+\frac{12!}{8!\,4!}
+\frac{8!}{4!\,4!}
+\frac{4!}{0!\,4!}
+\\
+&=
+\frac1{6!}\cdot \frac{24!}{(4!)^6}
+=
+4509264634875
+.
+\end{align*}
+\item 
+Mit der gleichen Methode wie in Teilaufgaben a), jetzt aber mit 18 Teilnehmern
+finden wir
+\begin{align*}
+n_2
+&=
+\frac1{6!}
+\binom{18}{3}
+\binom{15}{3}
+\binom{12}{3}
+\binom{9}{3}
+\binom{6}{3}
+\binom{3}{3}
+=
+\frac{1}{6!}
+\frac{18!}{15!\,3!}
+\frac{15!}{12!\,3!}
+\frac{12!}{9!\,3!}
+\frac{9!}{6!\,3!}
+\frac{6!}{3!\,3!}
+\frac{3!}{0!\,3!}
+\\
+&=
+\frac{1}{6!}
+\frac{18!}{(3!)^6}
+=
+190590400
+.
+\end{align*}
+\item
+Dies ist das Perlenketten-Problem, 
+also
+\[
+n_3
+=
+7^{24}
+=
+191581231380566414401.
+\]
+Auf diese Weise entstehen 7 verschiedene Teams statt 6, und es entstehen
+auch Teams mit einer anderen Anzahl
+Mitgliedern als $4$.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item[a) und b)]
+Auswahl ({\bf A}) 1 Punkt,
+wiederholte Auswahl (Produktregel) ({\bf W}) 1 Punkt,
+Permutationen der Teams ({\bf P}) 1 Punkt,
+Resultat ($\text{\bf N}$) 1 Punkt,
+\item[c)]
+Perlenkettenproblem ({\bf V}) 1 Punkt,
+Begründung für die grosse Anzahl ({\bf B}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
+
+
+
