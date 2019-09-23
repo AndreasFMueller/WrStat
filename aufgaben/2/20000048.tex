@@ -1,0 +1,77 @@
+Ein Paläontolge weiss, dass er Fossilien einer bestimmte Dinosaurierart $B$
+mit Wahrscheinlichkeit $0.8$ in den Schichten der Zeitspanne $A$, 
+aber nur mit Wahrscheinlichkeit $0.6$ in Schichten aller anderen in
+Frage kommenden Zeiträume finden wird.
+Die Analyse der Gesteine an einer Grabungsstelle ergab, dass die Gesteine
+mit Wahrscheinlichkeit $0.2$ zur Zeitspanne $A$ gehören.
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, an der Grabungsstelle ein Fossil
+der Art $B$ zu finden?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass die Gesteine tatsächlich zur
+Zeitspanne $A$ gehören, wenn ein Fossil der genannten Art gefunden wird?
+\end{teilaufgaben}
+
+\thema{bedingte Wahrscheinlichkeit}
+\thema{Satz von Bayes}
+\thema{totale Wahrscheinlichkeit}
+
+\begin{loesung}
+Wir betrachten die Ereignisse
+\begin{align*}
+F&=\{\text{Fossil der Art $B$ gefunden}\},
+\\
+A&=\{\text{Gesteine gehören zum Zeitraum $A$}\}.
+\end{align*}
+Gegeben sind die folgenden Wahrscheinlichkeiten:
+\begin{align*}
+P(A)&=0.2,
+\\
+P(F|A)&=0.8,
+\\
+P(F|\bar A)&=0.6.
+\end{align*}
+\begin{teilaufgaben}
+\item
+Gesucht ist die Wahrscheinlichkeit $P(F)$, dies ist mit dem Satz von der
+totalen Wahrscheinlichkeit möglich:
+\begin{align*}
+P(F)
+&=
+P(F|A)\,P(A) + P(F|\bar A)\,P(\bar A)
+=
+P(F|A)\,P(A) + P(F|\bar A)(1-P(A))
+\\
+&=
+0.8\cdot 0.2 + 0.6\cdot (1-0.2)
+=
+0.8\cdot 0.2 + 0.6\cdot 0.8
+=0.64.
+\end{align*}
+\item
+Gesucht ist die Wahrscheinlichkeit $P(A|F)$, die mit dem Satz von Bayes 
+gefunden werden kann:
+\begin{align*}
+P(A|F)
+&=
+\frac{P(A)}{P(F)}P(F|A)
+=
+\frac{0.2}{0.64}\cdot 0.8
+=
+0.25.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Ereignisse ({\bf E}) 1 Punkt,
+bedingte Wahrscheinlichkeiten ({\bf C}) 1 Punkt,
+Satz von Bayes ({\bf B}) 1 Punkt,
+Satz von der totalen Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Wahrscheinlichkeit $P(F)$ ({\bf F}) 1 Punkt,
+Wahrscheinlichkeit $P(A|F)$ ({\bf A}) 1 Punkt.
+\end{bewertung}
+
+
