@@ -1,0 +1,40 @@
+Beim Roulette wird die Null speziell behandelt, weil sie zum Beispiel
+weder als gerade noch als ungerade gilt und auch kein Gewinn über
+die Einsätze auf rot oder schwarz möglich sind.
+Ohne die Null wäre die Gewinnerwartung im Roulette-Spiel 0,
+dank der Null wird die Gewinnerwartung für den Mitspieler negativ
+und für das Casino positiv. 
+In einigen Varianten des Spiels wird diese Balance durch die Doppelnull
+noch weiter zu Gunsten des Casinos verschoben.
+Ein betrügerisches Casino könnte also versucht sein, durch Manipulation
+des Roulettekessels die Wahrscheinlichkeit für die Null zu erhöhen.
+Was muss ein Ankläger tun, wenn er eine solche Manipulation
+aus Daten über die Häufigkeit der gespielten Zahlen nachweisen möchte?
+Nehmen Sie an, dass dem Ankläger die Resultate von $n=10000$ Spielen
+zur Verfügung stehen.
+Wir gross ist die Wahrscheinlichkeit, dass der Beweis des Anklägers
+ein Zufallsresultat ist?
+
+\begin{loesung}
+Der Ankläger muss einen Hypothesentest für die Anzahl $k$ der gespielten
+Nullen in $n$ Spielen durchführen.
+Die Nullhypothese besagt, dass die Null Wahrscheinlichkeit $p=1/37$ hat.
+Die Zahl der Nullen ist binomialverteilt.
+Der erwartete Wert für die Anzahl der Nullen ist $\mu=np$.
+Für eine grosse Anzahl $n$ von Versuchen kann man die Binomialverteilung
+mit der Normalverteilung Approximation mit $\sigma = \sqrt{np(1-p)}$ 
+approximieren.
+
+Wählt man $\alpha=0.01$, dann ist diese auch gleichzeitig die
+Wahrscheinlichkeit dafür, dass der Ankläger einen Fehler erster Art
+begeht.
+Eine Zahl $k$ ausserhalb des Intervals
+\[
+[ \mu - 2.5758\,\sigma, \mu + 2.5758\,\sigma]
+=
+[228.50, 312.04]
+\]
+ist ein Beweis im Sinne eines Hypothesentests.
+\end{loesung}
+
+
