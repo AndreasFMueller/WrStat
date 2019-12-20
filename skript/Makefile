@@ -37,8 +37,6 @@ SOURCES =								\
 	a-datenblaetter/db-paretoverteilung.tex				\
 	a-datenblaetter/db-poissonverteilung.tex			\
 	b-tabellen/tabellen.tex						\
-	generatoren.tex			\
-	junkscience.tex 				\
 	skript.tex 
 
 skript.pdf:	$(SOURCES) skript.ind
