@@ -10,6 +10,8 @@ SOURCES =								\
 	0-einleitung/einleitung.tex					\
 	1-kombinatorik/kombinatorik.tex					\
 	2-ereignisse/wahrscheinlichkeit.tex				\
+	2-ereignisse/spamfilter.tex					\
+	2-ereignisse/google.tex						\
 	3-zufallsvariable/erwartung.tex					\
 	3-zufallsvariable/learning.tex					\
 	4-verteilung/verteilung.tex					\
@@ -24,6 +26,9 @@ SOURCES =								\
 	5-katalog/poissonverteilung.tex					\
 	5-katalog/potenzverteilung.tex					\
 	5-katalog/stetige-verteilungen.tex				\
+	6-schaetzen/schaetzen.tex					\
+	7-testen/testen.tex						\
+	8-filter/filter.tex						\
 	a-datenblaetter/datenblaetter.tex				\
 	a-datenblaetter/db-binomialverteilung.tex			\
 	a-datenblaetter/db-exponentialverteilung.tex			\
@@ -32,10 +37,8 @@ SOURCES =								\
 	a-datenblaetter/db-paretoverteilung.tex				\
 	a-datenblaetter/db-poissonverteilung.tex			\
 	b-tabellen/tabellen.tex						\
-	schaetzen.tex 		\
-	testen.tex filter.tex generatoren.tex			\
-	spamfilter.tex 				\
-	google.tex junkscience.tex 				\
+	generatoren.tex			\
+	junkscience.tex 				\
 	skript.tex 
 
 skript.pdf:	$(SOURCES) skript.ind
