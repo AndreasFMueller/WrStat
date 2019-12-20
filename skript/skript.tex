@@ -105,22 +105,22 @@ Hochschule für Technik, Rapperswil, 2006-2019
 \newtheorem{annahme}{Annahme}[chapter]
 \mainmatter
 \allowdisplaybreaks
-\input einleitung.tex
-\input kombinatorik.tex
-\input wahrscheinlichkeit.tex
+\input{0-einleitung/einleitung.tex}
+\input{1-kombinatorik/kombinatorik.tex}
+\input{2-ereignisse/wahrscheinlichkeit.tex}
 \input spamfilter.tex
 \input google.tex
-\input erwartung.tex
-\input verteilung.tex
-\input stetige-verteilungen.tex
-\input diskrete-verteilungen.tex
+\input{3-zufallsvariable/erwartung.tex}
+\input{4-verteilung/verteilung.tex}
+\input{5-katalog/stetige-verteilungen.tex}
+\input{5-katalog/diskrete-verteilungen.tex}
 \input schaetzen.tex
 \input testen.tex
 \input filter.tex
 \appendix
 %\input junkscience.tex
-\input datenblaetter.tex
-\input tabellen.tex
+\input{a-datenblaetter/datenblaetter.tex}
+\input{b-tabellen/tabellen.tex}
 \clearpage
 \pagebreak
 \ifodd\value{page}\else\null\clearpage\fi
