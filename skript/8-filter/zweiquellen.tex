@@ -1,0 +1,226 @@
+%
+% zweiquellen.tex
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Optimale Mittelung
+\label{section:optimale-mittelung}}
+Ein Filter ist in der Lage, von einem Zufallsprozess gestörte Information 
+aus einer oder mehreren Quellen auf optimale Art und Weise wiederherzustellen.
+Als protoypisches Beispiel für diese Art von Problem betrachten wir hier
+die folgende Aufgabe.
+
+\begin{aufgabe}
+\label{filter:aufgabe1}
+Eine Grösse wird mit zwei verschiedenen Messgeräten mit unterschiedlichen
+Messfehlern gemessen.
+Wie müssen die Resultate gemittelt werden, um die bestmögliche Schätzung
+für die gemessen Grösse zu bekommen?
+\end{aufgabe}
+
+Etwas abstrakter können wir das wie folgt formulieren.
+Seien $X_1$ und $X_2$ Zufallsvariablen mit Varianzen
+$\operatorname{var}(X_1)=\sigma_1^2$ und
+$\operatorname{var}(X_2)=\sigma_2^2$, die beide den gleichen Erwartungswert
+$E(X_1)=E(X_2)=\mu$ haben.
+Die Zufallsvariable $tX_1 + sX_2$ ist eine Mittelung von der beiden
+Messwerte mit verschiedenen Gewichte und eine Schätzung für $\mu$.
+Der Erwartungswert davon ist
+\[
+E(tX_1+sX_2)
+=
+tE(X_1) + sE(X_2)
+=
+(t+s)\mu.
+\]
+Die Mittelwertbildung ist also nur dann ein erwartungstreuer Schätzer
+für $\mu$, wenn $t+s=1$ ist oder $s=1-t$.
+Damit wird die Aufgabe~\ref{filter:aufgabe1} zur folgenden Aufgabe.
+
+\begin{aufgabe}
+\label{filter:aufgabe2}
+Seien $X_i$ mit $i=1,2$ unabhängige Zufallsvariablen mit $E(X_i)=\mu$
+und $\operatorname{var}(X_i)=\sigma_i^2$.
+Wie muss man $t$ wählen, damit die Zufallsvariable $X=tX_1 +(1-t)X_2$
+minimale Varianz hat?
+\end{aufgabe}
+
+Die Lösung der Aufgaben~\ref{filter:aufgabe2} liefert also ein Verfahren,
+aus zwei verschiedenen Messungen das Resultat mit kleinstmöglichem
+Fehler zu ermitteln.
+
+Zur Lösung des Problems berechnen wir die Varianz von $X$ und 
+ermitteln dann denjeningen Wert von $t$, der die Varianz minimiert.
+Die Varianz von $X$ ist
+\begin{align*}
+\operatorname{var}(X)
+&=
+\operatorname{var}(tX_1+(1-t)X_2)
+\\
+&=
+t^2\operatorname{var}(X_1) + (1-t)^2\operatorname{var}(X_2).
+\\
+&=t^2\sigma_1^2 + (1-t)^2\sigma_2^2
+\intertext{Die Ableitung nach $t$ ist}
+\frac{d}{dt}\operatorname{var}(X)
+&=
+2t\sigma_1^2 - 2(1-t)\sigma_2^2
+\\
+\Rightarrow
+\qquad
+0&=t\sigma_1^2 - (1-t)\sigma_2^2
+=t(\sigma_1^2 + \sigma_2^2) -\sigma_2^2.
+\end{align*}
+Daraus lässt sich $t$ bestimmen als
+\begin{equation}
+t=\frac{\sigma_2^2}{\sigma_1^2+\sigma_2^2}
+\qquad\text{und}\qquad
+1-t=\frac{\sigma_1^2}{\sigma_1^2+\sigma_2^2}.
+\end{equation}
+Mit diesem $t$ lässt sich jetzt auch die minimal mögliche Varianz
+bestimmen:
+\begin{align*}
+\sigma^2=\operatorname{var}(X)
+&=
+\biggl(\frac{\sigma_2^2}{\sigma_1^2+\sigma_2^2}\biggr)^2\sigma_1^2
++
+\biggl(\frac{\sigma_1^2}{\sigma_1^2+\sigma_2^2}\biggr)^2\sigma_2^2
+\\
+&=
+\frac{\sigma_2^4\sigma_1^2}{(\sigma_1^2+\sigma_2^2)^2}
++
+\frac{\sigma_1^4\sigma_2^2}{(\sigma_1^2+\sigma_2^2)^2}
+\\
+&=
+\frac{(\sigma_1^2+\sigma_2^2)\sigma_1^2\sigma_2^2}{(\sigma_1^2+\sigma_2^2)^2}
+=
+\frac{\sigma_1^2\sigma_2^2}{\sigma_1^2+\sigma_2^2}
+\\
+\frac{1}{\sigma^2}
+&=
+\frac{1}{\sigma_1^2}+\frac1{\sigma_2^2}
+\end{align*}
+Wir fassen die Resultate im folgenden Satz zusammen.
+
+\begin{satz}
+Sind $X_1$ und $X_2$ unabhängige Zufallsvariablen mit dem Erwartungswert
+$E(X_i)=\mu$ und Varianz $\operatorname{var}(X_i)=\sigma_i^2$,
+dann ist $X=tX_1+(1-t)X_2$ eine Schätzung für $\mu$ mit minimale Varianz
+genau dann, wenn
+\[
+t=\frac{\sigma_2^2}{\sigma_1^2+\sigma_2^2}.
+\]
+Der Schätzfehler ist $\operatorname{var}(X)
+=\sigma_1^2\sigma_2^2/(\sigma_1^2+\sigma_2^2)$.
+\end{satz}
+
+Man kann das Resultat auch noch etwas verallgemeinern auf mehrere
+Messungen.
+
+\begin{satz}
+Sind $X_i$ unabhängige Zufallsvariablen mit Erwartungswert $E(X_i)=\mu$
+und Varianz $\operatorname{var}(X_i)=\sigma_i^2$, dann hat der 
+gewichtete Mittelwert
+\[
+X=t_1X_1+\dots+t_nX_n = \sum_{i=1}^n t_iX_n
+\]
+genau dann minimale Varianz, wenn man
+\[
+t_k= \frac{1}{\sigma_k^2} \biggl(\sum_{i=1} \frac{1}{\sigma_i^2}\biggr)^{-1}
+\]
+wählt und die minimale Varianz $\sigma^2=\operatorname{var}(X)$ erfüllt
+die Gleichung
+\[
+\frac{1}{\sigma^2}
+=
+\sum_{i=1}^n \frac{1}{\sigma_i^2}.
+\]
+\end{satz}
+
+\begin{proof}
+Der gewichtete Mittelwert ist nur dann ein erwartungstreuer Schätzer, wenn
+\begin{equation}
+E\biggl(\sum_{i=1}^n t_iX_i\biggr)
+=
+\sum_{i=1}^n t_iE(X_i)=\mu\sum_{i=1}^n = \mu
+\qquad\Rightarrow\qquad
+\sum_{i=1}^n t_i = 1
+\label{filter:optimal:nebenbedingung}
+\end{equation}
+ist.
+Wir haben daher das Minimum von $\operatorname{var}(X)$ zu finden unter
+der Nebenbedingung~\eqref{filter:optimal:nebenbedingung}.
+
+Die Varianz ist
+\begin{align}
+\operatorname{var}(X)
+&=
+\operatorname{var}\biggl(
+\sum_{i=1}^n t_iX_i
+\biggr)
+=
+\sum_{i=1}^n t_i^2 \operatorname{var}(X_i).
+\label{filter:varianz:n}
+\end{align}
+Das Minimum unter der Nebenbedingung~\eqref{filter:optimal:nebenbedingung}.
+kann mit Hilfe eines Lagrange-Multiplikators $\lambda$ gefunden werden.
+Die Gradienten von $\operatorname{var}(X)$ und der Nebenbedingung müssen
+proportional sein, also
+\begin{equation}
+\left.
+\begin{aligned}
+\frac{\partial}{\partial t_k} \operatorname{var}(X)
+&= 2t_k \sigma_k^2
+\\
+\frac{\partial}{\partial t_k}\sum_{i=1}^nt_i&=1
+\end{aligned}
+\quad
+\right\}
+\qquad
+\Rightarrow
+\qquad
+2t_k \sigma_i^2 =\lambda.
+\quad
+\Rightarrow
+\quad
+t_k = \frac{\lambda}{2\sigma_i^2}
+\end{equation}
+Da die Summe der $t_i$ den Wert $1$ ergeben muss, folgt für $\lambda$
+\[
+1
+=
+\sum_{k=1}^n t_k
+=
+\sum_{k=1}^n \frac{\lambda}{2\sigma_k^2}
+=
+\frac{\lambda}{2}\sum_{k=1}^{n} \frac{1}{\sigma_k^2}
+\qquad\Rightarrow\qquad
+\lambda = 2\biggl(
+\sum_{k=1}^{n} \frac{1}{\sigma_k^2}
+\biggr)^{-1}.
+\]
+Daraus kann man jetzt die Formel für die $t_i$ ableiten:
+\[
+t_k
+=
+\frac{1}{\sigma_k^2} \;\biggl(\sum_{i=1}^n \frac{1}{\sigma_i^2}\biggr)^{-1}.
+\]
+Durch Einsetzen in \eqref{filter:varianz:n} kann man auch den Wert für
+die Varianz finden, nämlich
+\begin{align*}
+\sigma^2
+=
+\operatorname{var}(X)
+&=
+\sum_{i=1}^n \frac{1}{\sigma_i^2}
+\cdot
+\biggl(\sum_{i=1}^n \frac{1}{\sigma_i^2}\biggr)^{-2}
+=
+\biggl(\sum_{i=1}^n \frac{1}{\sigma_i^2}\biggr)^{-1}
+\\
+\frac{1}{\sigma^2}
+&=
+\sum_{i=1}^n \frac{1}{\sigma_i^2}.
+\qedhere
+\end{align*}
+\end{proof}

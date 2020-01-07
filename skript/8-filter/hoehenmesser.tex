@@ -1,0 +1,64 @@
+%
+% hoehenmesser.tex -- Hoehenmesser mit Kalman-Filter
+%
+% (c) 2006-2015 Prof. Dr. Andreas Mueller, Hochschule Rapperswil
+%
+
+\section{Beispiel: Höhenmesser mit Scheitelpunktermittlung}
+Modellraketen verwenden oft einen elektronischen Höhenmesser, der die Höhe
+barometrisch mit Hilfe eines Drucksensors bestimmt.
+Die fliegende Modellrakete
+kann in erster Näherung als Massepunkt behandelt werden, der nur unter dem
+Einfluss der konstanten Schwerkraft fliegt.
+Der Systemzustand besteht
+dann aus Höhe $h$, Vertikalgeschwindigkeit $v$ und Beschleunigung $a$.
+Die Kinematik beschreibt die zeitliche Änderung mit Hilfe des
+Differentialgleichungssystems
+\[
+\frac{d}{dt}
+\begin{pmatrix}
+h\\v\\a
+\end{pmatrix}
+=
+\begin{pmatrix}
+0&1&0\\
+0&0&1\\
+0&0&0
+\end{pmatrix}
+\begin{pmatrix}
+h\\v\\a
+\end{pmatrix}
+\]
+Die Entwicklungsgleichung für einen Zeitschritt der Länge $\Delta t$ ist
+\[
+\varphi=\begin{pmatrix}
+1&\Delta t&\frac{\Delta t^2}2\\
+0&1&\Delta t\\
+0&0&1\\
+\end{pmatrix}
+\]
+Wir nehmen an, dass die Systemfehler, also die Matrix $Q$ ebenfalls diagonal sind,
+und alle Komponenten den gleichen Fehler $\sigma^2$ haben, also
+\[
+Q=\begin{pmatrix}
+\sigma^2&0&0\\
+0&\sigma^2&0\\
+0&0&\sigma^2\\
+\end{pmatrix}
+\]
+
+Mit dem Drucksensor kann nur die Höhe bestimmt werden, also
+\[
+H=\begin{pmatrix}1&0&0\end{pmatrix}
+\]
+und entsprechend ist die Matrix $R_k$ ebenfalls nur eine Zahl, welche
+den Messfehler $\varrho^2$ der Messung wiedergibt.
+
+Zur Berechnung der Kalmanmatrix muss die Matrix $HP_{k+1|k}H^t+R$ invertiert werden.
+Aber $HP_{k+1|k}H^t$ ist einfach nur die Zahl in der linken oberen Ecke, also
+der mittlere quadratische Schätzfehler der Höhe.
+Das Produkt $P_{k+1|k}H^t$
+ist die erste Spalte der Kovarianzmatrix.
+Die Kalmanmatrix ist also die erste
+Spalte der Kovarianzmatrix dividiert durch $(P_{k+1|k})_{11}+\rho^2$.
+

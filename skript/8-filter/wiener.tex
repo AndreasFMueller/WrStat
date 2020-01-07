@@ -1,0 +1,78 @@
+%
+% wiener.tex
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Wiener-Filter
+\label{section:wiener-filter}}
+Ein ähnliches Problem findet man in der Übertragungstechnik.
+Wir gehen davon aus, dass ein Übertragungskanal ein Signal abschwächt
+und mit einem Rauschsignal überlagert.
+Die Abschwächung können wir selbstverständlich wieder rückgängig
+machen, dabei wird aber auch das Rauschen verstärkt, so dass das
+verstärkte Signal wenig mit dem ursprünglichen Signal zu tun hat.
+Je stärker das Rauschen ist, desto vorsichtiger müssen wir mit
+der Verstärkung sein.
+Es dürfte also einen optimalen Verstärkungsfaktor geben, der 
+das ursprüngliche Signal zwar nicht vollständig wiederherstellt, 
+aber doch auf eine Weise, dass der Fehler möglichst klein ist.
+
+Eine mathematischere Formulierung dieser Aufgabe ist die folgende.
+
+\begin{aufgabe}
+Sei $X$ eine Zufallsvariable mit Varianz $\operatorname{X}=\sigma$,
+die von einem Übertragungskanal um den Faktor $a$ gedämpft wird.
+Zusätzlich wird ein Rauschsignal $N$ mit Varianz $\sigma_N^2$ überlagert,
+$X$ und $N$ sind unabhängig.
+Finde den Faktor $b$, mit dem das gestörte Signal $Y=aX+N$ verstärkt werden
+muss, damit sich ein Signal ergibt, dessen Abweichung vom ursprünglichen Signal
+minimale Varianz hat.
+\end{aufgabe}
+
+Die Abweichung des verstärkten Signals $bY$ von $X$ hat die Varianz
+\begin{align*}
+\operatorname{var}(bY-X)
+&=
+\operatorname{var}(b(aX+N)-X)
+=
+\operatorname{var}((ab-1)X+bN)
+=
+(ab-1)^2 \operatorname{var}(X) + b^2\operatorname{var}(N).
+\end{align*}
+Um das Minimum zu bestimmen, leiten wir nach $b$ ab
+\begin{align*}
+0
+&=
+\frac{\partial}{\partial b} \operatorname{var}(bY-X)
+=
+2(ab-1)a \operatorname{var}(X) +2b\operatorname{var}(N)
+\\
+0&=
+b(a^2\sigma^2 + \sigma_N^2) - a\sigma^2
+\qquad\Rightarrow\qquad
+b
+=
+\frac{a\sigma^2}{a^2\sigma^2+\sigma_N^2}
+=
+\frac{a}{a^2+\sigma_N^2/\sigma^2}
+=
+\frac{1}{a+\sigma_N^2/a\sigma^2}.
+\end{align*}
+Diese Formel lässt sich auch leicht plausiblisieren.
+Falls kein Rauschen vorhanden ist, also $\sigma_N=0$, dann kann
+man für $b$ den Faktor $1/a$ verwenden, der die Abschwächung
+vollständig rückgängig macht.
+Falls das Rauschen im Vergleich zum Signal sehr gross ist, wird
+$b\simeq 0$, es ist also gar nicht möglich, das Signal sinnvoll
+wiederherzustellen.
+
+Wir fassen dieses Resultat im folgenden Satz zusammen.
+
+\begin{satz}
+\label{filter:wiener:primitiv}
+\end{satz}
+
+
+
+
+

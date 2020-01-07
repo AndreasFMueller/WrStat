@@ -1,0 +1,107 @@
+%
+% einfuehrung.tex -- Einfuehrung Kalman-Filter
+%
+% (c) 2006-2015 Prof. Dr. Andreas Mueller, Hochschule Rapperswil
+%
+
+\section{Ein Einführungsbeispiel}
+Als Motivation für die nachstehend zu entwickelnde Filtertheorie betrachten
+wir ein System mit einer einzigen Zustandsvariablen $x$, die sich in diskreten
+Zeitschritten entwickelt.
+Wir haben also mit eine Folge von Zuständen $x_k$ zu tun, wobei
+bis auf eine zufällige Störung $x_{k+1}$ mit $x_k$ übereinstimmt,
+also $x_{k+1}=x_k+u_k$.
+Die Zufallsvariable beschreibt den Systemfehler, wir
+nehmen an, dass $E(u_k)=0$ und $\operatorname{var}(u_k)=\sigma^2$.
+
+Den Zustand $x_k$ versuchen wir nun zu schätzen, für jeden Zeitpunkt
+$k$ gibt es also eine Zufallsvariable $\hat x_k$, die ein Schätzer für
+$x_k$ sein soll.
+Da wir davon ausgehen, dass sich $x$ nicht ändert, können wir $\hat x_k$
+als eine nur auf den zum Zeitpunkt $k$ bekannten Informationen basierende
+Schätzung $\hat x_{k+1|k}=\hat x_k$ verwenden.
+Der Erwartungswert von $\hat x_{k+1|k}$ ist $E(x_{k+1|k})=x_{k+1}$, die Varianz
+ist
+\[
+\operatorname{var}(\hat x_{k+1|k})
+=\operatorname{var}(\hat x_k)+\operatorname{var}(u_k)=p_k^2+\sigma^2,
+\]
+wobei wir $\operatorname{var}(\hat x_k)=p_k^2$ abkürzen.
+
+Nun wird zu jedem Zeitpunkt auch eine Messung $z_{k+1}$ mit einem Messfehler
+$\operatorname{var}(z_{k+1})=\rho^2$ durchführt.
+Auch hier haben wir als
+Erwartungswert $E(z_{k+1})=x_{k|k+1}$, wir haben jetzt also zwei Zufallsvariablen
+$\hat x_{k+1|k}$ und $z_{k+1}$, die beide Information über den tatsächlichen
+Zustand $x_{k+1}$ liefern, allerdings mit unterschiedlichen Varianzen.
+Wir
+versuchen daher, die Schätzung $\hat x_{k+1}$ als gewichtetes Mittel 
+von $\hat x_{k+1|k}$ und $z_{k+1}$ zu bilden
+\begin{equation}
+\hat x_{k+1}=(1-K)\hat x_{k+1|k}+Kz_{k+1}=\hat x_{k+1|k}+K( z_{k+1} - \hat x_{k+1|k}).
+\label{1dimentwicklung}
+\end{equation}
+Der Gewichtsfaktor $K$ soll so gewählt werden, dass die Varianz von $\hat x_{k+1}$
+minimal wird.
+Dazu berechnen wir zunächst die Varianz
+\begin{align}
+\operatorname{var}(\hat x_{k+1})
+&=
+(1-K)^2\operatorname{var}(x_{k+1|k})+K^2\operatorname{var}(z_{k+1})\notag\\
+&=(1-K)^2(p_k^2+\sigma^2)+K^2\rho^2.\label{varianzentwicklung}
+\end{align}
+Das Minimum kann durch Ableiten nach $K$ und Nullsetzen gefunden werden:
+\begin{align*}
+\frac{d}{dK}\operatorname{var}(\hat x_{k+1})
+=0&=
+-2(1-K)(p_k^2+\sigma^2)+2K\rho^2\\
+p_k^2+\sigma^2&=K(p_k^2+\sigma^2+\rho^2)\\
+K&=\frac{p_k^2+\sigma^2}{p_k^2+\sigma^2+\rho^2}
+\end{align*}
+Damit wird die Schätzung $\hat x_{k+1}$
+\[
+\hat x_{k+1}=\frac{\rho^2}{p_k^2+\sigma^2+\rho^2}\hat x_k+\frac{p_k^2+\sigma^2}{p_k^2+\sigma^2+\rho^2}z_{k+1}
+\]
+Ebenso kann man jetzt die Varianz $\operatorname{var}(\hat x_{k+1})=p_{k+1}^2$
+mit (\ref{varianzentwicklung}) berechnen.
+Insgesamt haben wir also folgenden
+Satz gewonnen
+
+\begin{satz}
+Sei $x_k$ eine Folge von Zufallsvariablen, für die $x_{k+1}=x_k+u_k$ gilt, wobei
+$u_k$ eine Zufallsvariable mit Erwartungswert $0$ und Varianz $\sigma^2$ ist.
+Sei
+ausserdem $z_{k+1}$ eine Folge von Messungen von $x_{k+1}$, d.~h.~$E(x_{k+1})=E(z_{k+1})$
+und $\operatorname{var}(z_{k+1})=\rho^2$.
+Weiter sei der Anfangszustand $x_0=x$ bekannt.
+Die Folgen $\hat x_k$ und $p_k^2$, definiert durch die Anfangswerte
+$\hat x_0=x$ und $p_0^2=0$ und die Iterationsgleichungen
+\begin{align*}
+K&=\frac{p_k^2+\sigma^2}{p_k^2+\sigma^2+\rho^2}\\
+\hat x_{k+1}&=\hat x_k + K ( z_{k+1} - \hat x_k)\\
+p_{k+1}^2&=(1-K)^2(p_k^2+\sigma^2)+K^2\rho^2,
+\end{align*}
+ergeben die bestmögliche Schätzung $\hat x_k$ von $x_k$ mit
+einem mittleren quadratischen Fehler $p_k^2$.
+\end{satz}
+Der Gewichtsfaktor $K$ heisst Kalman Filter Faktor.
+Ist $K$ gross, wird der
+Schätzwert $\hat x_{k+1}$ vor allem durch die Messung bestimmt, ist er
+klein, hat die bisherige Schätzung $\hat x_k$ mehr Gewicht.
+$K$ wird gross,
+also nahe bei $1$, wenn, $\rho^2$ sehr klein ist, wenn also die Messung
+sehr genau ist.
+In diesem Fall wird auch $p_{k+1}^2$ vor allem durch die
+die Grösse $K^2\rho^2$ bestimmt, die Schätzung $\hat x_k$  ist also
+ähnlich präzise Messung.
+Ist die Messgenauigkeit dagegen gering,
+wird die Iteration von einem einmal gefundenen Schätzwert $\hat x_k$
+nur in kleinen Schritten abrücken.
+Dabei besteht die Gefahr, dass
+der Fehler $p_k^2$ stark anwächst, wen nämlich $\sigma^2$ zu gross
+ist, kann es geschehen, dass $p_{k+1}^2>p_{k}^2$, so dass der Filter
+mit der Zeit immer ungenauer wird.
+Daher ist es wichtig, einerseits
+eine möglichst gut zutreffende Systembeschreibung zu haben und andererseits
+den Systemzustand möglichst genau zu messen.
+

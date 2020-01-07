@@ -29,6 +29,12 @@ SOURCES =								\
 	6-schaetzen/schaetzen.tex					\
 	7-testen/testen.tex						\
 	8-filter/filter.tex						\
+	8-filter/zweiquellen.tex					\
+	8-filter/einfuehrung.tex					\
+	8-filter/problemstellung.tex					\
+	8-filter/loesung.tex						\
+	8-filter/positionsmessung.tex					\
+	8-filter/hoehenmesser.tex					\
 	a-datenblaetter/datenblaetter.tex				\
 	a-datenblaetter/db-binomialverteilung.tex			\
 	a-datenblaetter/db-exponentialverteilung.tex			\
