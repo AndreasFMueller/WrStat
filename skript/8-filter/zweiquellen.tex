@@ -96,16 +96,17 @@ bestimmen:
 =
 \frac{\sigma_1^2\sigma_2^2}{\sigma_1^2+\sigma_2^2}
 \\
+\text{oder}\qquad
 \frac{1}{\sigma^2}
 &=
-\frac{1}{\sigma_1^2}+\frac1{\sigma_2^2}
+\frac{1}{\sigma_1^2}+\frac1{\sigma_2^2}.
 \end{align*}
 Wir fassen die Resultate im folgenden Satz zusammen.
 
 \begin{satz}
 Sind $X_1$ und $X_2$ unabhängige Zufallsvariablen mit dem Erwartungswert
 $E(X_i)=\mu$ und Varianz $\operatorname{var}(X_i)=\sigma_i^2$,
-dann ist $X=tX_1+(1-t)X_2$ eine Schätzung für $\mu$ mit minimale Varianz
+dann ist $X=tX_1+(1-t)X_2$ eine Schätzung für $\mu$ mit minimaler Varianz
 genau dann, wenn
 \[
 t=\frac{\sigma_2^2}{\sigma_1^2+\sigma_2^2}.
@@ -142,7 +143,7 @@ Der gewichtete Mittelwert ist nur dann ein erwartungstreuer Schätzer, wenn
 \begin{equation}
 E\biggl(\sum_{i=1}^n t_iX_i\biggr)
 =
-\sum_{i=1}^n t_iE(X_i)=\mu\sum_{i=1}^n = \mu
+\sum_{i=1}^n t_iE(X_i)=\mu\sum_{i=1}^nt_i = \mu
 \qquad\Rightarrow\qquad
 \sum_{i=1}^n t_i = 1
 \label{filter:optimal:nebenbedingung}
@@ -179,11 +180,11 @@ proportional sein, also
 \qquad
 \Rightarrow
 \qquad
-2t_k \sigma_i^2 =\lambda.
+2t_k \sigma_k^2 =\lambda.
 \quad
 \Rightarrow
 \quad
-t_k = \frac{\lambda}{2\sigma_i^2}
+t_k = \frac{\lambda}{2\sigma_k^2}
 \end{equation}
 Da die Summe der $t_i$ den Wert $1$ ergeben muss, folgt für $\lambda$
 \[
@@ -218,6 +219,7 @@ die Varianz finden, nämlich
 =
 \biggl(\sum_{i=1}^n \frac{1}{\sigma_i^2}\biggr)^{-1}
 \\
+\text{oder}\qquad
 \frac{1}{\sigma^2}
 &=
 \sum_{i=1}^n \frac{1}{\sigma_i^2}.

@@ -54,11 +54,9 @@ b
 =
 \frac{a\sigma^2}{a^2\sigma^2+\sigma_N^2}
 =
-\frac{a}{a^2+\sigma_N^2/\sigma^2}
-=
-\frac{1}{a+\sigma_N^2/a\sigma^2}.
+\frac{a}{a^2+\sigma_N^2/\sigma^2}.
 \end{align*}
-Diese Formel lässt sich auch leicht plausiblisieren.
+Diese Formel lässt sich auch leicht plausibilisieren.
 Falls kein Rauschen vorhanden ist, also $\sigma_N=0$, dann kann
 man für $b$ den Faktor $1/a$ verwenden, der die Abschwächung
 vollständig rückgängig macht.
@@ -66,10 +64,54 @@ Falls das Rauschen im Vergleich zum Signal sehr gross ist, wird
 $b\simeq 0$, es ist also gar nicht möglich, das Signal sinnvoll
 wiederherzustellen.
 
+Die Varianz des vestärkten Signals lässt sich jetzt ebenfalls
+ausrechnen.
+Sie ist
+\begin{align*}
+\operatorname{var}(bY-X)
+&=
+\biggl(\frac{a^2}{a^2+\sigma_N^2/\sigma^2}-1\biggr)^2\sigma^2
++
+\biggl(\frac{a}{a^2+\sigma_N^2/\sigma^2}\biggr)^2 \sigma_N^2
+\\
+&=
+\frac{\sigma_N^4/\sigma^2}{(a^2+\sigma_N^2/\sigma^2)^2}
++
+\frac{a^2\sigma_N^2}{(a^2+\sigma_N^2/\sigma^2)^2}
+=
+\sigma_N^2\frac{a^2+\sigma_N^2/\sigma^2}{(a^2+\sigma_N^2/\sigma^2)^2}
+\\
+&=
+\frac{\sigma_N^2}{a^2+\sigma_N^2/\sigma^2}.
+\end{align*}
+Auch diese Formel ist intuitiv nachvollziehbar.
+Falls kein Rauschen vorhanden, also $\sigma_N=0$, ist die Rekonstruktion
+ohne Fehler möglich.
+Je grösser das Rauschen wird, desto grösser wird auch der Fehler.
+Wenn das Rauschen viel stärker ist als das Signal,
+also $\sigma_N^2 \gg \sigma^2$, dann ist der Summand $a^2$ im
+Nenner vernachlässigbar und die Varianz strebt gegen $\sigma^2$,
+
+
 Wir fassen dieses Resultat im folgenden Satz zusammen.
 
-\begin{satz}
+\begin{satz}[Wiener]
 \label{filter:wiener:primitiv}
+Wir ein Signal $X$ mit Varianz $\sigma^2$ um den Faktor $a$ abgeschwächt
+und von einem unabhängigen Rauschsignal $N$ mit Varianz $\sigma_N^2$
+überlagert, dann kann aus $Y=aX+N$ das ursprüngliche Signal durch
+Vestärkung mit dem Verstärkungsfaktor
+\[
+b=\frac{a}{a^2 + \displaystyle\frac{\sigma_N^2}{\sigma^2}}
+\]
+optimal wiederhergestellt werden in dem Sinn, dass die Varianz
+von $bY-X$ minimal ist und den Wert
+\[
+\operatorname{var}(bY-X)
+=
+\frac{\sigma_N^2}{a^2+\sigma_N^2/\sigma^2}.
+\]
+hat.
 \end{satz}
 
 
