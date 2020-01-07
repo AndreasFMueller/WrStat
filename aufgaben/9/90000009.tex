@@ -1,0 +1,80 @@
+Schon seit langer Zeit wird das Meeresniveau millimetergenau gemessen.
+Natürlich ist ein grosser Teil der Schwankungen durch die Gezeiten
+verursacht, die aber vollständig bekannt sind.
+Es verbleiben einerseits zufällige Schwankunge von der
+Grössenordnung von etwa 10\,mm sowie ein gleichmässiger Anstieg, verursacht
+durch das Abschmelzen des Polareises und der Gletscher wegen des Klimawandels.
+
+In erster Näherung können wir annehmen, dass der jährliche Anstieg $d$
+der Höhe $h$ konstant ist.
+Wegen der geringen Zunahme von Jahr zu Jahr kann man $d$ nicht direkt
+messen sondern muss einen möglichst genauen Wert aus den Messdaten
+für die Höhe herausfiltern.
+Stellen Sie die Matrizen zusammen, die für den Kalman-Filter für diese
+Filteraufgabe benötigt werden.
+
+\thema{Kalman-Filter}
+
+\begin{loesung}
+Wir verwenden $h$ und $d$ als Systemvariablen.
+Das System kann dann mit 
+\[
+x_{k+1}
+=
+\begin{pmatrix}
+h_{k+1}\\
+d_{k+1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+h_k + d_k \Delta t\\
+d_k
+\end{pmatrix}
+=
+\underbrace{
+\begin{pmatrix}
+1&\Delta t\\
+0&1
+\end{pmatrix}}_{\displaystyle\varphi}
+\begin{pmatrix}
+h_k\\d_k
+\end{pmatrix}
+\]
+modelliert werden.
+Gemessen wird nur die Höhe, d.~h.~Messmatrix ist
+\[
+H=\begin{pmatrix}
+1&0
+\end{pmatrix}.
+\]
+Bekannt ist ausserdem die Messgenauigkeit, der Messfehler ist $1\,\text{mm}$,
+also ist die Messfehlermatrix
+\[
+R=\begin{pmatrix}
+1\text{mm}^2
+\end{pmatrix}.
+\]
+Über die Systemfehler wissen wir aus der Aufgabenstellung nur wenig.
+Die Systemfehlerkovarianzmatrix muss die Form
+\[
+Q=\begin{pmatrix}
+\sigma_h^2&0\\
+0&\sigma_d^2
+\end{pmatrix}
+\]
+haben.
+Die Aufgabe gibt Auskunft über $\sigma_h=10\,\text{mm}$, allerdings
+finden wir nichts über $\sigma_d^2$.
+\end{loesung}
+
+\begin{bewertung}
+Wahl der Zustandsvariablen ({\bf Z}) 1 Punkt,
+Zeitentwicklungsmatrix ($\bm{\varphi}$) 1 Punkt,
+Messmatrix ({\bf H}) 1 Punkt,
+Messfehlermatrix ({\bf R}) 1 Punkt,
+Systemkovarianz-Matrix Struktur ({\bf S}) 1 Punkt,
+Varianzwert $\sigma_h^2$ ({\bf V}) 1 Punkt.
+\end{bewertung}
+
+
+
