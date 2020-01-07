@@ -6,13 +6,38 @@
 #
 all:	skript.pdf checklist.pdf
 
-SOURCES = einleitung.tex wahrscheinlichkeit.tex 		\
-	erwartung.tex verteilung.tex stetige-verteilungen.tex	\
-	diskrete-verteilungen.tex schaetzen.tex 		\
-	testen.tex filter.tex generatoren.tex			\
-	spamfilter.tex tabellen.tex 				\
-	google.tex junkscience.tex 				\
-	tabellen.tex skript.tex kombinatorik.tex
+SOURCES =								\
+	0-einleitung/einleitung.tex					\
+	1-kombinatorik/kombinatorik.tex					\
+	2-ereignisse/wahrscheinlichkeit.tex				\
+	2-ereignisse/spamfilter.tex					\
+	2-ereignisse/google.tex						\
+	3-zufallsvariable/erwartung.tex					\
+	3-zufallsvariable/learning.tex					\
+	4-verteilung/verteilung.tex					\
+	5-katalog/binomialverteilung.tex				\
+	5-katalog/chi2verteilung.tex					\
+	5-katalog/dgleichverteilung.tex					\
+	5-katalog/diskrete-verteilungen.tex				\
+	5-katalog/exponentialverteilung.tex				\
+	5-katalog/gleichverteilung.tex					\
+	5-katalog/hypergeometrisch.tex					\
+	5-katalog/normalverteilung.tex					\
+	5-katalog/poissonverteilung.tex					\
+	5-katalog/potenzverteilung.tex					\
+	5-katalog/stetige-verteilungen.tex				\
+	6-schaetzen/schaetzen.tex					\
+	7-testen/testen.tex						\
+	8-filter/filter.tex						\
+	a-datenblaetter/datenblaetter.tex				\
+	a-datenblaetter/db-binomialverteilung.tex			\
+	a-datenblaetter/db-exponentialverteilung.tex			\
+	a-datenblaetter/db-gleichverteilung.tex				\
+	a-datenblaetter/db-normalverteilung.tex				\
+	a-datenblaetter/db-paretoverteilung.tex				\
+	a-datenblaetter/db-poissonverteilung.tex			\
+	b-tabellen/tabellen.tex						\
+	skript.tex 
 
 skript.pdf:	$(SOURCES) skript.ind
 	pdflatex skript.tex
