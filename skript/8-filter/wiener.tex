@@ -17,6 +17,8 @@ Es dürfte also einen optimalen Verstärkungsfaktor geben, der
 das ursprüngliche Signal zwar nicht vollständig wiederherstellt, 
 aber doch auf eine Weise, dass der Fehler möglichst klein ist.
 
+\subsection{Grundprinzip
+\label{filter:wiener:subsection:grundprinzip}}
 Eine mathematischere Formulierung dieser Aufgabe ist die folgende.
 
 \begin{aufgabe}
@@ -85,7 +87,7 @@ Sie ist
 \frac{\sigma_N^2}{a^2+\sigma_N^2/\sigma^2}.
 \end{align*}
 Auch diese Formel ist intuitiv nachvollziehbar.
-Falls kein Rauschen vorhanden, also $\sigma_N=0$, ist die Rekonstruktion
+Falls kein Rauschen vorhanden ist, also $\sigma_N=0$, ist die Rekonstruktion
 ohne Fehler möglich.
 Je grösser das Rauschen wird, desto grösser wird auch der Fehler.
 Wenn das Rauschen viel stärker ist als das Signal,
@@ -115,6 +117,206 @@ hat.
 \end{satz}
 
 
+\subsection{Spektrale Filterung
+\label{filter:wiener:subsection:spektral}}
+Das grundlegende Filter-Prinzip von Satz~\ref{filter:wiener:primitiv}
+ist zwar grundsätzlich anwendbar und wir werden den Formeln in
+Abschnitt~\ref{filter:section:einfuerung} in einer praktischen 
+Anwendung wieder begegnen.
+
+In einem realen Übertragungskanal wird natürlich kein konstantes Signal
+übermittelt,
+vielmehr ist der Wert $X$ von der Zeit abhängig.
+Auch werden von einem realen Übertragungskanal nicht alle Frequenzen
+im gleichen Mass abgeschwächt, die Annahme eines einzigen, für alle
+Frequenzen gleichermassen gültigen Faktors $a$ ist daher unrealistisch.
+Ziel dieses Abschnitts ist daher die Entwicklung einer Verallgemeinerung
+des Filterprinzips~\ref{filter:wiener:primitiv} für ein zeitabhängiges
+Signal $X(t)$.
+
+Sei also $X(t)$ ein beliebiges zeitabhängiges Signal mit $t\in\mathbb [0,2\pi]$.
+Der Einfachheit halber nehmen wir an, dass der Erwartungswert von $X(t)$
+verschwindet, also
+\[
+E(X) = \frac{1}{2\pi}\int_{-\infty}^\infty X(t)\,dt.
+\]
+Ein solches Signal kann man als Fourier-Reihe darstellen, die wir in der
+komplexen Form
+\[
+X(t)
+=
+\sum_{k=-\infty}^\infty c_k e^{ik t}
+\]
+schreiben.
+Wir nehmen an, dass sich die Wirkung des Übertragungskanals auf das
+Signal dadurch beschreiben lässt, wie die einzelnen Koeffizienten
+$c_k$ abgeschwächt werden.
+Wir nehmen also an, dass das modifizierte Signal $GX(t)$ die Fourier-Reihe
+\[
+GX(t)
+=
+\sum_{k=-\infty}^\infty g_kc_k e^{ikt}
+\]
+hat.
+$G$ ist ein linearer Operator auf zeitabhängigen Signalen.
+Zusätzlich wird dem Signal jetzt noch ein unkorreliertes Störsignal
+$N(t)$ überlagert, welches die Fourier-Reihe 
+\[
+N(t) = \sum_{k=-\infty}^\infty n_ke^{ikt}
+\]
+hat.
+Auch hier nehmen wir der Einfachheit halber an, dass der Erwartungswert
+verschwindet.
+
+Das Störsignal $N$ soll nicht mit $X(t)$ korreliert sein.
+
+Die Aufgabe ist jetzt, das Signal $X(t)$ durch geeignetes Verstärken
+der mit Verstärkungsfaktoren $h_k$ zu rekonstruieren zu
+\[
+Y(t)
+=
+\sum_{k=-\infty}^\infty h_k(g_kc_k + n_k)e^{ikt}
+\]
+derart, dass die Varianz von $Y(t)-X(t)$ minimal ist.
+Auch diese Operation können wir als Operator
+\[
+H(GX(t) + N(t))
+=
+\sum_{k\in\mathbb Z} h_k(g_kc_k+n_k)e^{ikt}
+\]
+beschreiben.
 
 
+Die Varianz kann als Skalarprodukt von Funktionen geschrieben werden:
+\begin{align}
+\operatorname{var}(X-Y)
+&=
+\int_0^{2\pi} |Y(t)-X(t)|^2\,dt
+\notag
+\\
+&=
+\int_0^{2\pi} (Y(t)-X(t)) \cdot \overline{(Y(t)-X(t))}\,dt
+\notag
+\\
+&=
+\langle Y(t)-X(t), Y(t)-X(t)\rangle
+\notag
+\\
+&=
+\langle H(GX(t) + N(t))- X(t), H(GX(t)+N(t))-X(t) \rangle
+\notag
+\\
+&=
+\langle (HG-I)X-HN, (HG-I)X-HN\rangle
+\notag
+\\
+&=
+\notag
+\langle (HG-I)X,(HG-I)X\rangle
++
+\langle HN,HN\rangle
+\\
+&\qquad
++
+\langle (HG-I)X,HN\rangle
++
+\langle HN,(HG-I)X\rangle
+\intertext{%
+Wir nehmen an, das Signal und Rauschen unabhängig sind, dass also die
+letzten zwei Terme verschwinden.
+Das Parseval-Theorem besagt, dass man diese Skalarprodukte auch mit
+den Fourier-Koeffizienten berechnen kann:}
+&=
+\sum_{k\in\mathbb Z}
+(|(h_kg_k-1)c_k|^2 + |h_kn_k|^2).
+\label{wiener:spektral:summe}
+\end{align}
+Die Koeffizienten $h_k$ können offenbar unabhängig voneinander gewählt
+werden, man muss also nur noch sicherstellen, dass jeder einzelne Term
+der Summe~\eqref{wiener:spektral:summe} minimal wird.
+
+Wir müssen jetzt das Problem lösen, $h_k$ so zu bestimmen, dass
+der zugehörige Term in \eqref{wiener:spektral:summe} minimal wird.
+Zur Vereinfachung lassen wir die Indizes $k$ weg.
+Wir brauchen das folgende Resultate
+
+\begin{hilfssatz}
+Seien $g,c,n\in\mathbb C$ gegeben.
+Der Ausdruck
+\[
+Z = |(hg-1)c|^2 + |hn|^2
+\]
+wird minimiert durch 
+\[
+h = \frac{\overline{g}}{|g^2|+|n|^2/|c|^2}
+\qquad\text{mit}\qquad
+Z = \frac{|n|^2}{|g|^2 + |n|^2/|c|^2}
+\]
+\end{hilfssatz}
+
+\begin{proof}[Beweis]
+Der Ausdruck $Z$ ist ein komplexes Skalarprodukt
+\[
+Z
+=
+\begin{pmatrix}
+(hg-1)c&hn
+\end{pmatrix}
+\begin{pmatrix}
+\overline{(hg-1)c}\\\overline{hn}
+\end{pmatrix}.
+\]
+Das Minimum wird erreicht, wenn die Ableitung des ersten Faktors nach
+$h$ einen Vektor liefert, der orthogonal ist zum zweiten:
+\begin{align*}
+0
+=
+\begin{pmatrix}
+gc&n
+\end{pmatrix}
+\begin{pmatrix}
+\overline{(hg-1)c}\\\overline{hn}
+\end{pmatrix}
+=
+(\overline{h} |g|^2 - g )|c|^2
++
+\overline{h} |n|^2
+\quad&\Rightarrow\quad
+\overline{h}(|g|^2|c|^2+|n|^2)=g|c|^2
+\\
+\quad&\Rightarrow\quad
+h=\frac{\overline{g}}{|g|^2 + |n|^2/|c|^2}
+\end{align*}
+Durch Einsetzen dieses Wertes von $h$ in $Z$ erhält man
+\[
+Z
+=
+\biggl|
+\frac{|g|^2}{|g|^2+|n|^2/|c|^2}
+-1
+\biggr|^2 |c|^2
++
+\frac{|g|^2|n|^2}{(|g|^2+|n|^2/|c|^2)^2}
+=
+\frac{|n|^4/|c|^2 + |n|^2 |g|^2}{(|g|^2+|n|^2/|c|^2)^2}
+=
+\frac{|n|^2}{|g|^2+|n|^2/ |c|^2}.
+\]
+Damit ist alles bewiesen.
+\end{proof}
+
+Damit können wir jetzt den Wiener-Filter für ein beliebiges Signal
+formulieren.
+
+\begin{satz}[Wiener-Filter]
+\[
+Y(t)
+=
+\sum_{k\in\mathbb Z}
+\frac{\overline{h_k}}{|g_k|^2+|n_k|^2/|c_k|^2} y_k e^{ikt}
+\]
+\end{satz}
+
+\subsection{Anwendung: Bildverbesserung mit Wiener-Filter
+\label{filter:wiener:subsection:bildverbesserung}}
 
