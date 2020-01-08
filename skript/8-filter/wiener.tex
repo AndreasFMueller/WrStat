@@ -317,6 +317,170 @@ Y(t)
 \]
 \end{satz}
 
+%
+% Entfaltung eines Signals
+%
+\subsection{Anwendung: Entfaltung
+\label{filter:wiener:subsection:deconvolution}}
+\begin{figure}
+\centering
+\includegraphics{8-filter/images/faltung.pdf}
+\caption{Graph der Faltung von $G*X$ des Beispiels aus
+Abschnitt~\ref{filter:wiener:subsection:deconvolution}
+\label{filter:wiener:faltung:graph}}
+\end{figure}
+Als Beispiel für die Funktion des Wiener-Filters betrachten wir das Signal 
+\[
+X(t) = \begin{cases}
+1&\quad 0\le t\le 1\\
+0&\quad\text{sonst}
+\end{cases}
+\]
+und falten es mit einer exponentiell abfallenden Impulsantwort
+\[
+G(t)
+=
+\begin{cases}
+e^{-t}&\quad t \ge 0\\
+0&\quad \text{sonst}
+\end{cases}
+\]
+Die Ausführung der Faltung ergibt
+\begin{equation}
+X*G(t)
+=
+\begin{cases}
+0&\quad t\le 0
+\\[10pt]
+\displaystyle
+\int_0^t e^{\tau-t}\,d\tau
+=
+e^{-t}
+\int_0^t e^{\tau}\,d\tau
+=
+e^{-t}[e^\tau]_0^t
+=
+e^{-t}(e^t-1)
+=
+1-e^{-t}
+&\quad 0\le t\le 1
+\\[10pt]
+\displaystyle
+\int_0^1 e^{\tau-t}\,dt
+=
+e^{-t}[e^\tau]_0^1
+=
+e^{-t}(e-1)
+&\quad 1\le t
+\end{cases}
+\end{equation}
+Das Signal $Y=G*X$ ist in Abbildung~\ref{filter:wiener:faltung:graph}
+dargestellt, die steilen Flanken des ursprünglichen Rechteckimpulses
+sind verloren gegangen.
+
+Der Faltungssatz besagt, dass
+$\mathcal{F}Y= \mathcal{F} (G*X) = \mathcal{F}G \cdot \mathcal{F}X$
+ist.
+Falls $\mathcal{F}G$ nirgends verschwindet, kann $X$ durch Division 
+rekonstruiert werden:
+\begin{equation}
+\mathcal{F}X
+=
+\frac{\mathcal{F}Y}{\mathcal{F}G}
+\quad\Rightarrow\quad
+X=\mathcal{F}^{-1}
+\frac{\mathcal{F}Y}{\mathcal{F}G}.
+\label{filter:wiener:invertierung}
+\end{equation}
+Im Allgemeinen kann man aber nicht davon ausgehen, dass $\mathcal{F}G$
+keine Nullstellen hat.
+Die Funktionen $\mathcal{F}Y$ und $\mathcal{F}G$ müssen aber die gleichen 
+Nullstellen haben.
+Wenn die Nullstellen isoliert sind, kann die
+Invertierung~\eqref{filter:wiener:invertierung} trotzdem funktionieren.
+
+Zusätzlich wird dem Signal jetzt noch ein weisses Rauschen überlagert.
+Jetzt kann man nicht mehr davon ausgehen, dass $\mathcal{F}Y$ und 
+$\mathcal{F}G$ die gleichen Nullstellen haben, die 
+Invertierung~\eqref{filter:wiener:invertierung} kann also nicht
+mehr funktionieren.
+
+Die Fouriertransformation von $G(t)$ ist
+\begin{equation}
+\mathcal{F}G(k)
+=
+\hat{G}(k)
+=
+\int_0^\infty e^{-t} e^{ikt}\,dt
+=
+\int_0^\infty e^{(ik-1)t}\,dt
+=
+\biggl[\frac{1}{ik-1}e^{ik-1}\biggr]_0^\infty
+=
+\frac{1}{1-ik}.
+\end{equation}
+Im vorliegenden Fall verschwindet $\mathcal{F}G$ nirgends, aber
+für $k\to\infty$ geht $\mathcal{F}G(k)$ gegen $0$.
+Die Fouriertransformation des überlagerten Rauschens ist dagegen überall
+unter gleich gross, der Quotient $\hat{N}/\hat{G}$ wird also für
+grosse $k$ über alle Grenzen wachsen.
+Es ist daher notwendig, den Wiener-Filter anzuwenden.
+
+Nach der allgemeinen Theorie muss zur approximativen Rekonstruktion
+von $X$ aus $Y=G*X+N$ die Fourier-Transformierte von $Y$ statt mit
+$1/\hat{G}$ mit
+\[
+\frac{\overline{\hat{G}(k)}}{
+|\hat{G}(k)|^2
++
+|\hat{N}(k)|^2/|\hat{X}(k)|^2
+}
+=
+\frac{1/(1+ik)}{
+1/(1+k^2)
++
+|\hat{N}(k)|^2/|\hat{X}(k)|^2
+}
+=
+\frac{1-ik}{1+(1+k^2) |\hat{N}(k)|^2/|\hat{X}(k)|^2}
+\]
+multipliziert werden.
+
+Im vorliegenden Beispiel $\hat{X}$ zwar bekannt, aber im Allgemeinen
+kann man nur davon ausgehen, eine ungefähre Grössenordnung für das
+Verhältnis $|\hat{N}(k)|/\hat{X}(k)|$ von Rauschen zum Signal
+zu kennen.
+Für ein weisses Rauschen können wir zum Beispiel annehmen, das $\hat{N}(k)$
+für alle $k$ ungefähr gleich gross ist.
+Wir können daher das Verhältnis von Rauschen zum Signal durch einen
+konstanten Wert $n$ ersetzen.
+Der Korrekturfaktor des Wiener-Filters wird damit
+\[
+\frac{1-ik}{1+(1+k^2) s},
+\]
+wobei $s$ ein Parameter ist, mit dem die Leistung des Filters gesteuert
+werden kann.
+
+\begin{figure}
+\centering
+\includegraphics{8-filter/images/filterung.pdf}
+\caption{Entfaltung am Beispiel der Funktionen in
+Abschnitt~\ref{filter:wiener:subsection:deconvolution}.
+In der oberen Abbildung das gefaltete Signal $G*X$ in grün,
+das verrauschte Signal $G*X+N$ in rot.
+In der unteren Abbildung die Rekonstruktion des Signals ohne
+Rauschen (pink) und die Rekonstruktion des verrauschten Signals
+mit Hilfe des Wiener-Filters in blau.
+\label{filter:wiener:rekonstruktion}}
+\end{figure}
+In Abbildung~\ref{filter:wiener:rekonstruktion} ist oben das 
+gefaltete Signal $G*X$ grün dargestellt und rot das gleiche Signal
+mit überlagertem Rauschen.
+Im unteren Graphen ist in pink die Rekonstruktion des unverrauschten
+Signals mit Hilfe der Fourier-Theorie dargestellt.
+Blau ist die Rekonstruktion des verrauschten Signals mit Hilfe
+des Wiener-Filters.
+
 \subsection{Anwendung: Bildverbesserung mit Wiener-Filter
 \label{filter:wiener:subsection:bildverbesserung}}
 
