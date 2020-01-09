@@ -13,3 +13,8 @@ filterung.pdf:	filterung.tex wienerpaths.tex
 
 wienerpaths.tex:	wiener1.m	
 	octave wiener1.m
+
+blurr:	M31-blurred.jpg
+
+M31-blurred.jpg:	bild.m M31.jpg
+	octave bild.m

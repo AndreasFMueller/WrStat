@@ -499,8 +499,51 @@ Es stellt sich die Frage, ob uns die genaue Kenntnis des Objektivs und der
 Verteilung des Rauschens in die Lage versetzt, das Bild möglichst
 gut zu rekonstruieren.
 
+\begin{figure}
+\centering
+\includegraphics[width=0.48\hsize]{8-filter/images/lena.jpg}
+\quad
+\includegraphics[width=0.48\hsize]{8-filter/images/lena-noisy.png}
+\caption{Originalbild und mit einer Gaussfunktion verschmiertes Bild.
+Durch die Rundung auf ganzzahlige Pixelwerte im Interval $[0,255]$
+nach der Faltung mit der Gaussfunktion wird für das Auge nicht
+sichtbares Quantisierungsrauschen hinzugefügt, welches bereits die
+exakte Wiederherstellung des Bildes verunmöglicht.
+\label{filter:wiener:figure:faltung}}
+\end{figure}
 
-
+\begin{figure}
+\centering
+\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l001.png}
+\quad
+\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l005.png}
+\quad
+\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l009.png}
+\\
+\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l002.png}
+\quad
+\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l006.png}
+\quad
+\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l010.png}
+\\
+\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l003.png}
+\quad
+\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l007.png}
+\quad
+\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l011.png}
+\\
+\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l004.png}
+\quad
+\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l008.png}
+\quad
+\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l012.png}
+\caption{Wiederherstellung des Bildes mit Hilfe des Wiener-Filters.
+Das Quantisierungsrauschen verunmöglicht die exakte Wiederherstellung,
+die für sehr kleinem Parameterwert ganz links oben erwartet wird.
+Sehr grosse Werte von $K$ dämpfen die hohen Frequenzen wieder dermassen
+stark, dass die Kanten wieder unscharf werden.
+\label{filter:wiener:figure:wiederherstellung}}
+\end{figure}
 
 
 
