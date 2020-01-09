@@ -138,7 +138,11 @@ Sei also $X(t)$ ein beliebiges zeitabhängiges Signal mit $t\in\mathbb [0,2\pi]$
 Der Einfachheit halber nehmen wir an, dass der Erwartungswert von $X(t)$
 verschwindet, also
 \[
-E(X) = \frac{1}{2\pi}\int_{-\infty}^\infty X(t)\,dt.
+E(X)
+=
+\frac{1}{2\pi}\int_{-\infty}^\infty X(t)\,dt
+=
+0.
 \]
 Ein solches Signal kann man als Fourier-Reihe darstellen, die wir in der
 komplexen Form
@@ -250,7 +254,7 @@ wird minimiert durch
 \[
 h = \frac{\overline{g}}{|g^2|+|n|^2/|c|^2}
 \qquad\text{mit}\qquad
-Z = \frac{|n|^2}{|g|^2 + |n|^2/|c|^2}
+Z = \frac{|n|^2}{|g|^2 + |n|^2/|c|^2}.
 \]
 \end{hilfssatz}
 
@@ -309,13 +313,31 @@ Damit können wir jetzt den Wiener-Filter für ein beliebiges Signal
 formulieren.
 
 \begin{satz}[Wiener-Filter]
+\label{filter:wiener:satz}
+Sie $X(t)$ ein Signal mit Fourier-Koeffizienten $c_k$ und $N(t)$
+ein von $X(t)$ unabhängiges Rauschen mit Fourier-Koeffizienten $n_k$.
+Das Signal wird der Funktion $G(t)$ mit Fourier-Koeffizienten
+$g_k$ gefaltet.
+Eine im Sinne minimaler Varianz optimale Schätzung des gefalteten und
+verrauschten Signals $Y(t) = G*X(t) + N(t)$ mit den Fourier-Koeffizienten
+$y_k = g_kc_k+n_k$ wird durch 
 \[
-Y(t)
+Z(t)
 =
 \sum_{k\in\mathbb Z}
 \frac{\overline{g_k}}{|g_k|^2+|n_k|^2/|c_k|^2} y_k e^{ikt}
 \]
+gegeben.
 \end{satz}
+
+Viele Filter in der Praxis sind FIR-Filter und können daher genau
+in der Form einer Faltung mit einer Funktion $G$ formuliert werden.
+Auch ist das Rauschen $N(t)$ in der Praxis unvermeidlich.
+Schon die Digitalisierung des Signals $G*X$ führt ein Rauschen von der
+Grössenordnung eines Bits ein.
+Dies reicht bereits, direkte Rekonstruktion des Signals $X(t)$ (siehe
+Abschnitt~\ref{filter:wiener:subsection:deconvolution}) mit
+Hilfe der Fourier-Theorie zu verunmöglichen.
 
 %
 % Entfaltung eines Signals
@@ -489,16 +511,6 @@ wiederhergestellt werden.
 
 \subsection{Anwendung: Bildverbesserung mit Wiener-Filter
 \label{filter:wiener:subsection:bildverbesserung}}
-Die optische Abbildung einer Szene führt zu Verlusten zum Beispiel
-durch Unzulänglichkeiten der Optik oder ungenügende Scharfstellung.
-Die Wellennatur des Lichtes und die daraus resultierende
-Beugung führt zu einer unvermeidlichen Beschränkung der Auflösung.
-Die Digitalisierung des Bildes durch den Bildsensor führt zusätzliches,
-zufälliges Rauschen ein.
-Es stellt sich die Frage, ob uns die genaue Kenntnis des Objektivs und der
-Verteilung des Rauschens in die Lage versetzt, das Bild möglichst
-gut zu rekonstruieren.
-
 \begin{figure}
 \centering
 \includegraphics[width=0.48\hsize]{8-filter/images/lena.jpg}
@@ -511,32 +523,9 @@ sichtbares Quantisierungsrauschen hinzugefügt, welches bereits die
 exakte Wiederherstellung des Bildes verunmöglicht.
 \label{filter:wiener:figure:faltung}}
 \end{figure}
-
 \begin{figure}
 \centering
-\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l001.png}
-\quad
-\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l005.png}
-\quad
-\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l009.png}
-\\
-\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l002.png}
-\quad
-\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l006.png}
-\quad
-\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l010.png}
-\\
-\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l003.png}
-\quad
-\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l007.png}
-\quad
-\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l011.png}
-\\
-\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l004.png}
-\quad
-\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l008.png}
-\quad
-\includegraphics[width=0.31\hsize]{8-filter/images/lena-deblurred-l012.png}
+\includegraphics[width=\hsize]{8-filter/images/deconvolution.pdf}
 \caption{Wiederherstellung des Bildes mit Hilfe des Wiener-Filters.
 Das Quantisierungsrauschen verunmöglicht die exakte Wiederherstellung,
 die für sehr kleinem Parameterwert ganz links oben erwartet wird.
@@ -544,6 +533,81 @@ Sehr grosse Werte von $K$ dämpfen die hohen Frequenzen wieder dermassen
 stark, dass die Kanten wieder unscharf werden.
 \label{filter:wiener:figure:wiederherstellung}}
 \end{figure}
+Die optische Abbildung einer Szene führt zu Verlusten zum Beispiel
+durch Unzulänglichkeiten der Optik oder ungenügende Scharfstellung.
+Die Wellennatur des Lichtes und die daraus resultierende
+Beugung führt zu einer unvermeidlichen Beschränkung der Auflösung.
+Die Digitalisierung des Bildes durch den Bildsensor führt zusätzliches,
+zufälliges Rauschen ein.
+Es stellt sich die Frage, ob uns die genaue Kenntnis des Objektivs und der
+Verteilung des Rauschens in die Lage versetzt, das Bild möglichst
+gut zu rekonstruieren.
+
+Mathematisch können Bilder als Funktionen $f(x,y)$ von Pixelkoordinaten 
+betrachtet werden.
+Die Bildveränderungen bei der Abbildung können als Faltung mit der sogenannten
+point spread function $G(x,y)$ beschrieben werden.
+Zum Beispiel führt die Faltung mit der gausssche Funktion
+\[
+G(x,y) = \frac{1}{2\pi\sigma^2} e^{-(x^2+y^2)/2\sigma^2}
+\]
+zu einem unscharfen Bild, wie in Abbildung~\ref{filter:wiener:figure:faltung}
+dargestellt.
+Das Faltungstheorem für Funktionen in der Ebene besagt, dass die
+zweidimensionale Fourier-Transformation die Faltung in ein punktweises
+Produkt verwandelt.
+Der Wiener-Filter nach Satz~\ref{filter:wiener:satz} gilt daher sinngemäss
+auch für Bilder.
+
+Um den Wiener-Filter anzuwenden, muss man Informationen über die spektrale
+Verteilung des Rauschens haben, also die Koeffizienten $n_k$ kennen.
+Oft genügt es, eine Schätzung für das Verhältnis zwischen Rauschen und
+Signal zu verwenden.
+Zum Beispiel führt die Rundung von Pixelwerten auf ganzzahlige Werte im
+Interval $[0,255]$ zu unvermeidlichem Quantisierungsrauschen mit einer
+Varianz der Grössenordnung $1/(256^2)\simeq 10^{-5}$.
+Oft enthalten Bilder grosse Gebiete gleicher Helligkeit.
+Die einzige Variabilität innerhalb solcher Gebiet stammt vom Rauschen her.
+Die Varianz der Pixelwerte in einem solche Gebiet ist daher eine gute
+Schätzung für das Rauschen.
+
+Ausserdem muss man Informationen über die point spread function $G$ haben.
+Enthält die abgebildete Szene isolierte helle Punkte, wie dies in der
+Astrophotographie üblicherweise der Fall ist, dann ist das Bild
+eines solchen Punktes ein guter Ausgangspunkt für die Funktion $G$.
+Manchmal lässt sich eine gute Hypothese für die point spread function
+aus theoretischen Überlegungen ableiten.
+Ein unscharf eingestelltes Objektiv kann zum Beispiel als Faltung mit
+einer Kreisscheibe, auch bekannt als {\em Bokeh}, modellieren.
+Luftunruhe führt dagegen zu einer point spread function, die gut
+von einer Gauss-Funktion wiedergeben wird.
+
+Die Wirkung des Wiener-Filters ist in den
+Abbildungen~\ref{filter:wiener:figure:faltung} und
+\ref{filter:wiener:figure:wiederherstellung} dargestellt.
+In Abbildung~\ref{filter:wiener:figure:faltung} wird ein Bild
+mit einer Gaussfunktion gefaltet, was zu einem unscharfen Bild führt.
+Nicht erkannbar im rechten Bild in Abbildung~\ref{filter:wiener:figure:faltung}
+ist das Quantisierungsrauschen, welches bei der Umwandlung der
+reellen Werte der Faltung in ganzzahlige Pixelwerte entsteht.
+Diese für das blosse Auge nicht erkennbare Rauschen ist bereits
+genug, die Rekonstruktion des Bildes zu verunmöglichen.
+
+In Abbildung~\ref{filter:wiener:figure:wiederherstellung}
+wird der Wiener-Filter mit verschiedenen von $k$ unabhängigen Werten
+$K$ für $|n_k|^2/|c_k|^2$ auf das unscharfe Bild von
+Abbildung~\ref{filter:wiener:figure:faltung} angewendet.
+Zu kleine Werte von $K$ führen zu einem nicht erkennbaren Bild, die
+hochfrequenten Komponenten des Bildes und vor allem des Rauschens
+sind derart verstärkt worden, dass das ursprüngliche Bild wiedergefunden
+werden kann.
+Zu grosse Werte von $K$ führen kaum zu einer Verbesserung des Bildes.
+Es wird vor allem das Rauschen reduziert, welches ohnehin nicht
+erkennbar war.
+
+
+
+
 
 
 
