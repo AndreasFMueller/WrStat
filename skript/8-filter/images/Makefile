@@ -12,4 +12,4 @@ filterung.pdf:	filterung.tex wienerpaths.tex
 	pdflatex filterung.tex
 
 wienerpaths.tex:	wiener1.m	
-	octave < wiener1.m
+	octave wiener1.m

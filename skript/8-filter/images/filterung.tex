@@ -14,12 +14,9 @@
 \usepackage{pgfplots}
 \begin{document}
 
-\definecolor{darkgreen}{rgb}{0,0.6,0}
-\definecolor{pink}{rgb}{0.8,0.2,0.8}
-
-\def\achsen{
+\def\achsen#1{
 \draw[->] (-0.03,0)--(4.2,0) coordinate[label={$t$}];
-\draw[->] (0,-0.03)--(0,1.5);
+\draw[->] (0,-0.03)--(0,#1);
 \draw (1,-0.03)--(1,0.03);
 \draw (2,-0.03)--(2,0.03);
 \draw (3,-0.03)--(3,0.03);
@@ -38,15 +35,19 @@
 \begin{tikzpicture}[>=latex,thick,scale=3]
 
 \begin{scope}
-\achsen
+\achsen{1.1}
 \clean
 \noisy
 \end{scope}
 
-\begin{scope}[yshift=-1.8cm]
-\achsen
+\begin{scope}[yshift=-1.6cm]
+\achsen{1.4}
 \cleanreconstructed
-\reconstructed
+\reconstructedone
+\reconstructedtwo
+\reconstructedthree
+\reconstructedfour
+\reconstructedfive
 \end{scope}
 
 \end{tikzpicture}

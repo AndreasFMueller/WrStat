@@ -313,7 +313,7 @@ formulieren.
 Y(t)
 =
 \sum_{k\in\mathbb Z}
-\frac{\overline{h_k}}{|g_k|^2+|n_k|^2/|c_k|^2} y_k e^{ikt}
+\frac{\overline{g_k}}{|g_k|^2+|n_k|^2/|c_k|^2} y_k e^{ikt}
 \]
 \end{satz}
 
@@ -366,7 +366,7 @@ e^{-t}(e^t-1)
 &\quad 0\le t\le 1
 \\[10pt]
 \displaystyle
-\int_0^1 e^{\tau-t}\,dt
+\int_0^1 e^{\tau-t}\,d\tau
 =
 e^{-t}[e^\tau]_0^1
 =
@@ -470,7 +470,8 @@ In der oberen Abbildung das gefaltete Signal $G*X$ in grün,
 das verrauschte Signal $G*X+N$ in rot.
 In der unteren Abbildung die Rekonstruktion des Signals ohne
 Rauschen (pink) und die Rekonstruktion des verrauschten Signals
-mit Hilfe des Wiener-Filters in blau.
+mit Hilfe des Wiener-Filters mit verschiedenen angenommen
+Werten von $|\hat{N}|^2/|\hat{X}^2|$ in blau.
 \label{filter:wiener:rekonstruktion}}
 \end{figure}
 In Abbildung~\ref{filter:wiener:rekonstruktion} ist oben das 
@@ -478,9 +479,30 @@ gefaltete Signal $G*X$ grün dargestellt und rot das gleiche Signal
 mit überlagertem Rauschen.
 Im unteren Graphen ist in pink die Rekonstruktion des unverrauschten
 Signals mit Hilfe der Fourier-Theorie dargestellt.
-Blau ist die Rekonstruktion des verrauschten Signals mit Hilfe
-des Wiener-Filters.
+In verschiedenen Blautönen ist die Rekonstruktion des verrauschten
+Signals mit Hilfe des Wiener-Filters für verschiedene angenommene
+Werte von $|\hat{N}|^2/|\hat{X}|^2$ oder gleichwertig verschiedene
+Werte des Parameters $s$ dargestellt.
+Für grosse Werte des Parameters $s$ wird das Rauschen zwar sehr stark
+reduziert, aber die steilen Flanken des Signals können auch nicht
+wiederhergestellt werden.
 
 \subsection{Anwendung: Bildverbesserung mit Wiener-Filter
 \label{filter:wiener:subsection:bildverbesserung}}
+Die optische Abbildung einer Szene führt zu Verlusten zum Beispiel
+durch Unzulänglichkeiten der Optik oder ungenügende Scharfstellung.
+Die Wellennatur des Lichtes und die daraus resultierende
+Beugung führt zu einer unvermeidlichen Beschränkung der Auflösung.
+Die Digitalisierung des Bildes durch den Bildsensor führt zusätzliches,
+zufälliges Rauschen ein.
+Es stellt sich die Frage, ob uns die genaue Kenntnis des Objektivs und der
+Verteilung des Rauschens in die Lage versetzt, das Bild möglichst
+gut zu rekonstruieren.
+
+
+
+
+
+
+
 
