@@ -1,0 +1,63 @@
+An den National- und Ständeratswahlen 2019 haben sich 46\% der 
+Wahlberechtigten beteiligt.
+Die Gratiszeitung 20minuten hat eine Leserumfrage gemacht, nach der sich
+84\% der an Wahlresultaten interessierten Leser an der Wahl beteiligt haben.
+Offenbar sind Wahlteilnahme und Interesse an Wahlresultaten nicht unabhängig.
+Nehmen Sie an, dass alle Wahlteilnehmer auch an den Resultaten interessiert
+sind.
+\begin{teilaufgaben}
+\item
+Welcher Anteil der Bevölkerung interessiert sich für Wahlresultate?
+\item 
+Welcher Anteil der Personen, die nicht an der Wahl teilgenommen haben,
+interessiert sich für die Resultate?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir verwenden die Ereignisse
+\begin{align*}
+W&=\{\text{hat sich an den Wahlen beteiligt}\}
+\\
+I&=\{\text{interessiert sich für die Wahlresultate}\}.
+\end{align*}
+Aus dem Text wissen wir, dass
+\begin{align*}
+P(W)&=0.46&P(W|I)&=0.84\\
+    &     &P(I|W)&=1.
+\end{align*}
+\begin{teilaufgaben}
+\item
+Wir verwenden den Satz von Bayes und lösen nach $P(I)$ auf:
+\[
+P(W|I)=P(I|W)\frac{P(W)}{P(I)}
+\qquad\Rightarrow\qquad
+P(I)=P(W) \frac{P(I|W)}{P(W|I)}
+=
+0.5467.
+\]
+\item
+Wir wenden den Satz von Bayes erneut an, diesmal auf $P(I|\overline{W})$ und
+verwenden die Rechenregeln und das Resultat von a):
+\[
+P(I|\overline{W})
+=
+P(\overline{W}|I)\frac{P(I)}{P(\overline{W})}
+=
+(1-P(W|I))\frac{P(I)}{1-P(W)} = 0.16226.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Wahl geeigneter Ereignisse ({\bf E}) 1 Punkt,
+Bestimmung der Bedingungen Wahrscheinlichkeiten ({\bf C}) 1 Punkt,
+\begin{teilaufgaben}
+\item
+Satz von Bayes ({\bf B}) 1 Punkt,
+Wahrscheinlichkeit ({\bf B}) 1 Punkt,
+\item
+Negation ({\bf N}) 1 Punkt,
+Wahrscheinlichkeit ({\bf W}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}

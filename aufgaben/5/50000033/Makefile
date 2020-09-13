@@ -3,5 +3,6 @@
 #
 # (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
 #
-all:	l.maxima
+all:	
+l:	l.maxima
 	maxima -b l.maxima

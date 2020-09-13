@@ -1,0 +1,77 @@
+Brustkrebs tritt bei etwa 1\% der Frauen auf.
+Im Rahmen der Diskussion um die Krankenkassenprämien wird allenthalben
+die Frage nach der Wirksamkeit von Vorsorgeuntersuchungen ins Feld 
+geführt.
+Ein Mammogramm kann bei einer an Brustkrebs erkrankten Frau in 80\% der
+Fälle den Krebs korrekt erkennen.
+Bei einer gesunden Frau zeigt das Mammogramm aber trotzdem in 9.6\% der Fälle
+eine Erkrankung an.
+
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, dass ein Mammogramm Krebs anzeigt?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass eine Frau, deren Mammogramm
+Krebs anzeigt, tatsächlich Brustkrebs hat?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir verwenden die folgenden Ereignisse
+\begin{align*}
+B&=\{\text{an Brustkrebs erkrankt}\}
+\\
+M&=\{\text{Mammogramm zeigt Krebs}\}.
+\end{align*}
+Bekannt sind die folgenden Wahrscheinlichkeiten
+\begin{align*}
+P(B)&=0.01\\
+P(M|B)&=0.8\\
+P(M|\bar{B})&=0.096.
+\end{align*}
+\begin{teilaufgaben}
+\item
+Die Wahrscheinlichkeit kann mit dem Satz über die totale Wahrscheinlichkeit
+ermittelt werden:
+\begin{align*}
+P(M)
+&=
+P(M|B) P(B) + P(M|\bar{B}) P(\bar{B})
+=
+P(M|B) P(B) + P(M|\bar{B}) (1-P(B))
+\\
+&=
+0.8\cdot 0.01 + 0.096\cdot 0.99
+=
+0.10304.
+\end{align*}
+\item
+Gesucht ist die Wahrscheinlichkeit $P(B|M)$, sie kann mit dem Satz von
+Bayes berechnet werden:
+\begin{align*}
+P(B|M)
+&=
+\frac{P(B)}{P(M)} P(M|B)
+=
+\frac{0.01}{0.10304}\cdot 0.8
+=
+0.07764.
+\end{align*}
+Nur etwa in jedem 13-ten Fall ist die Diagnose des Mammogramms also richtig.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Dieses Problem wird auf der Website
+\url{https://betterexplained.com/articles/an-intuitive-and-short-explanation-of-bayes-theorem/}
+in einem Video erklärt.
+\end{diskussion}
+
+\begin{bewertung}
+Ereignisse ({\bf E}) 1 Punkt,
+Wahrscheinlichkeiten ({\bf W}) 1 Punkt,
+Satz von der totalen Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Wert für $P(M)$ ({\bf M}) 1 Punkt,
+Satz von Bayes ({\bf B}) 1 Punkt,
+Wert für $P(B|M)$ ({\bf Z}) 1 Punkt.
+\end{bewertung}
