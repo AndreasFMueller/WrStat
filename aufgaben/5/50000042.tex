@@ -1,0 +1,82 @@
+In einer Umfrage wurde festgestellt, dass 18\% der 18--34-jährigen
+der Meinung sind, die Mondlandung sei eine Verschwörung.
+Im Vergleich dazu sind Flat Earther relativ selten, nur 1.28\%
+der Menschen derselben Altersgruppe sind davon überzeugt, dass
+die Erde flach ist.
+
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit sich in einer Stichprobe von
+100 Menschen dieser Altersgruppe mehr als 20 finden lassen, die die
+Mondlandung für eine Verschwörung halten?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass in der gleichen Stichprobe
+mehr als zwei Personen davon überzeugt sind, dass die Erde flach ist?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Sei $X$ die Anzahl der Mondlandungsverweigerer in der Stichprobe.
+$X$ ist binomialverteilt mit $p=0.18$ und $n=100$.
+Gesucht ist die Wahrscheinlichkeit $P(X>20)$.
+Wir approximieren die Wahrscheinlichkeit mit Hilfe der Normalverteilung.
+Der Erwartungswert der Binomialverteilung ist $\mu=np=18$ und die
+Standardabweichung ist $\sigma=\sqrt{np(1-p)}=3.84187$.
+Die gesuchte Wahrscheinlichkeit ist
+\begin{align*}
+P(X>20)
+&=
+1-P(X\le 20)
+\\
+P(X\le 20)
+&=
+P\biggl( \frac{X-\mu}{\sigma} \le \frac{20.5-\mu}{\sigma}\biggr)
+=
+\Phi\biggl(\frac{20.5-\mu}{\sigma}\biggr)
+=
+\Phi(0.6507)
+=
+0.7424
+\\
+P(X>20)&\simeq 1-0.7424 = 0.2576.
+\end{align*}
+Die Wahrscheinlichkeit, mehr als 20 Mondlandungsverschwörer in der
+Stichprobe zu finden ist also $25.76\%$.
+\item
+Da Flat Earther so selten sind, approximieren wir die Binomialverteilung
+mit der Poisson-Verteilung.
+Die erwartete Anzahl Flat Earther ist $\lambda = np = 100\cdot 0.0128=1.28$.
+Die Wahrscheinlichkeit, mehr als 2 Flat Earther zu finden ist daher
+\begin{align*}
+P(X > 2)&=1-P(X\le 2) = 1-P(X=0) - P(X=1) - P(X=2)
+\\
+&=
+1-P\lambda(0) -P_\lambda(1) -P_\lambda(2)
+\\
+&=
+1-e^{-\lambda}\biggl(1 + \lambda + \frac{\lambda^2}{2}\biggr)
+\\
+&=
+1- 0.86169 = 0.138307,
+\end{align*}
+die Wahrscheinlichkeit, mehr als zwei Flat Earther zu finden, ist also
+13.8\%.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Binomalverteilung ({\bf B}) 1 Punkt,
+Formel für Erwartungswert und Varianz ({\bf F}) 1 Punkt.
+\begin{teilaufgaben}
+\item
+Normalapproximation ({\bf N}) 1 Punkt,
+Wahrscheinlichkeit ({\bf W}) 1 Punkt,
+\item
+Approximation mit der Poisson-Verteilung ({\bf P}) 1 Punkt,
+Wahrscheinlichkeit ({\bf W}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
+

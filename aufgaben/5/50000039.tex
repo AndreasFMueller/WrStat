@@ -1,0 +1,137 @@
+%
+% shot noise 
+%
+% (c) 2019 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+%
+% Vendor Sensor    Dimensionen    Pixelgrösse      Full well    AD Auflösung
+% Sony   IMX586    8000 x 6000    0.8              4500
+%
+Der CMOS-Bildsensor IMX586 von Sony mit seinen 48 Megapixeln ist sehr beliebt
+in Mobiltelefonen. 
+Er hat sehr kleine Pixel von nur $0.8\,\mu\text{m}$ Kantenlänge, die im
+Maximum etwa 4500 Elektronen fassen können.
+Ein einfallendes Photon wird mit Wahrscheinlichkeit 56\% in ein Elektron
+umgewandelt.
+Am Ende der Belichtungszeit werden die Elektronen aus dem Pixel ausgelesen
+und von einem A/D-Wandler gezählt.
+\begin{teilaufgaben}
+\item
+In einem hellen Bildteil fallen während der Belichtungszeit $7000$\,Photonen
+auf den Pixel.
+Welchen Wert (Signal) erwarten Sie am Ausgang des A/D-Wandlers und welche
+Varianz hat er?
+\item
+In einem dunklen Bildteil fallen während der Belichungszeit nur $200$\,Photonen
+auf einen Pixel.
+Welchen Wert erwartet Sie am Ausgang des A/D-Wandlers und welche Varianz
+hat er?
+\item
+Wenn während der Belichtungszeit $n$ Photonen auf den Pixel fallen,
+wie gross ist das erwartet Signal und die Varianz?
+\item
+Das Rauschen ist die Standardabweichung von $X$.
+Wie gross ist das Verhältnis von Rauschen zu Signal und wie hängt
+es von $n$ ab?
+\end{teilaufgaben}
+Das in dieser Aufgabe beschriebene Rauschphänomen heisst {\em Schrotrauschen}
+(engl.~{\em shot noise}, auch bekannt als Schottky-Rauschen).
+Es manifestiert sich in unregelmässigen Helligkeitsschwankungen, die
+vor allem bei geringer Bildhelligkeit auffallen
+(Abbildung~\ref{50000039:shotnoise}).
+
+\begin{diskussion}
+Schrotrauschen ist unvermeidlich, wenn sich ein Signal aus Quanten
+zusammensetzt, die mit einer gewissen Wahrscheinlichkeit detektiert werden.
+Es fällt vor allem bei geringer Intensität auf.
+Im Gegensatz zum thermischen Rauschen, welches unabhängig von der
+Intensität ist, lässt es sich durch Kühlung nicht reduzieren.
+
+Eine weitere Quelle von Rauschen bei Bildsensoren ist die Umwandlung
+der Ladung in einem Pixel in eine elektrische Spannung. 
+Bei modernen CMOS-Sensoren ist dieses Rauschen von der Grössenordnung
+eines einzelnen Elektrons, also vernachlässigbar im Vergleich zum
+Schrotrauschen.
+Das thermische Rauschen wird bei Chip-Temperaturen um $-20^\circ\text{C}$
+klein im Vergleich zum Schrotrauschen.
+
+Da der Rauschanteil mit $1/\sqrt{n}$ geht, helfen nur grössere Pixel mit
+einer grösseren Zahl von Elektronen gegen das Schrotrauschen.
+Der grossformatige CCD-Sensoren wie der KAF-16803 von Onsemi hat
+Pixel mit $9\,\mu\text{m}$ Kantenlänge, die etwa 100000 Elektronen
+fassen können. 
+Die Quanteneffizienz ist $p=0.6$.
+Daraus ergibt sich für den Rauschanteil nahe der Sättigung der
+Wert $0.0026$, mehr als zehnmal besser als der beschriebene
+CMOS-Sensor.
+
+In der Astrophotographie und anderen Gebieten (z.~B.~Fluoreszenzmikroskopie
+in der Biologie), wo man sehr geringe Signalintensitäten aufzeichnen muss,
+erhöht man die Belichtungszeit, weil sich dadurch die Zahl $n$ erhöht. 
+Wenn man statt einer einzelnen Aufnahmen 100 Aufnahmen mit der gleichen
+Belichtungszeit addiert, verkleinert sich der Rauschanteil um den
+Faktor 10.
+\end{diskussion}
+
+\begin{figure}[h]
+\centering
+\includeagraphics[width=1.0\hsize]{shotnoise.png}
+\caption{Schrottrauschen eines Bildsensors
+\label{50000039:shotnoise}}
+\end{figure}
+
+
+\begin{loesung}
+Die Zahl $X$ der Elektronen, die vom A/D-Wandler gezählt wird, entsteht
+als Resultat eines wiederholten Bernoulli-Experiments mit Wahrscheinlichkeit
+$p=0.56$.
+Für $n$ einfallende Elektronen erwartet man $E(X)=np$ gezählte Elektronen
+mit einer Varianz $\operatorname{var}(X)=np(1-p)$.
+\begin{teilaufgaben}
+\item
+Für $n=7000$ ist das erwartete Signal $np=3920$ mit einer Varianz
+von $np(1-p)=1724.8$.
+\item
+Für $n=200$ ist das erwartete Signal $np=112$ mit einer Varianz von
+$np(1-p)=49.28$.
+\item
+$E(X)=np$, $\operatorname{var}(X)=np(1-p)$
+\item
+Die Standardabweichung ist $\sqrt{\mathstrut np(1-p)}$ und das Verhältnis
+zwischen Rauschen und Signal ist
+\[
+\frac{\sqrt{\mathstrut\operatorname{var}(X)}}{E(X)}
+=
+\frac{\sqrt{\mathstrut np(1-p)}}{np}
+=
+\frac{1}{\sqrt{\mathstrut n}}
+\cdot
+\sqrt{\frac{1-p}{p}}
+=
+0.8864\cdot\frac{1}{\sqrt{n\mathstrut}}.
+\]
+Der Rauschanteil wird also mit zunehmender Signalintensität kleiner.
+Für die beiden Werte $n=7000$ und $n=800$ sind die Verhältnisse
+\begin{align*}
+\frac{0.8864}{\sqrt{800}} &= 0.0313
+&
+&\text{and}&
+\frac{0.8864}{\sqrt{7000}} &= 0.0106,
+\end{align*}
+trotz des grösseren Absolutwertes des Rauschens bei grösserer Intensität
+ist das Verhältnis zwischen Signal und Rauschen bei hoher Intensität
+dreimal besser als bei niedriger Intensität.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item 2 Punkte für Erwartungswert und Varianz
+\item 2 Punkte für Erwartungswert und Varianz
+\item 1 Punkt für Formeln
+\item Verhältnis 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
+

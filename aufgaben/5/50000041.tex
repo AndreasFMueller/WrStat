@@ -1,0 +1,140 @@
+Gibt es den Durchschnittsmenschen? 
+Diese Frage hat sich die amerikanische Air Force in den 40er Jahren gestellt
+als es darum ging, für die Piloten der neuen und schnelleren Kampfjets
+genügend enge Anzüge zu beschaffen, mit denen den erhöhten G-Kräften
+begegnet werden konnte.
+In einer grossangelegten Untersuchung wurden von Tausenden von
+Air Force-Angehörigen über 150 Masse genommen und statistisch ausgewertet.
+Es stellte sich heraus, dass es niemanden gab, der in all diesen Massen
+dem Mittel entsprach.
+
+Dies kann man am folgenden einfachen Modell verstehen.
+Nehmen wir an, dass es $n$ unabhängige Messgrössen $X_i$, $1\le i\le n$  gibt,
+die Mittelwerte $E(X) = \mu_i$ und Varianzen
+$\sigma_i^2 = \operatorname{var}(X_i)$ haben.
+
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, dass alle Werte innerhalb einer
+Standardabweichung vom Mittelwert liegen?
+\item
+Wenn man die Toleranz verkleinert, wird die Wahrscheinlichkeit noch kleiner.
+Sei $r\in\mathbb R$ und wir fragen nach der Wahrscheinlichkeit, dass alle
+Masse innerhalb von $r\sigma_i$ vom jeweiligen Mittelwert $\mu_i$ liegen.
+Nehmen Sie an, dass $n=20$.
+Wir muss man $r$ wählen, dass die Wahrscheinlichkeit kleiner als $0.1\%$
+wird?
+\item
+Nehmen Sie an, dass $n=18$.
+Wie gross ist die erwartete Anzahl von Individuen in einer Stichprobe
+vom Umfang $N=4000$, deren Masse alle innerhalb einer Standardabweichung
+des Mittelwertes liegen?
+\item
+Unter den Voraussetzungen von c), wie gross ist die Wahrscheinlichkeit,
+in der Stichprobe mehr als 2 Individuen zu finden, deren Masse alle
+innerhalb einer Standardabweichung vom Mittelwert liegen?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir schreiben $p(r)= P(|X_i-\mu_i|\le r\sigma_i)$.
+In den Teilaufgaben a), c) und d) geht es um $p(1)$, in b) muss $r$ bestimmt
+werden.
+Die Tabelle der Normalverteilung besagt, dass
+\begin{align*}
+p(r)
+&=
+P(\mu_i-r\sigma_i < X_i \le \mu_i+r\sigma_i)
+\\
+&=
+\Phi(r) - \Phi(-r)
+=
+\Phi(r) - (1-\Phi(r))
+=
+2\Phi(r)-1
+\\
+p(1)
+&=
+2\Phi(1)-1
+=
+2\cdot 0.8413 -1
+=
+0.6826.
+\end{align*}
+Natürlich kann man auch $\Phi(r)$ aus $p(r)$ bestimmen:
+$\Phi(r)=\frac12(p(r)+1)$.
+\begin{teilaufgaben}
+\item
+Da die Zufallsvariablen $X_i$ unabhängig sind, kann man die Produktregel
+verwenden und findet
+\begin{align*}
+P(|X_i-\mu_i|\le \sigma_i\forall i)
+&=
+\prod_{i=1}^n P(|X_i-\mu_i|\le \sigma_i)
+=
+p(1)^n
+=
+0.6826^n.
+\end{align*}
+\item
+Mit einer Rechnung analog zu der von a) findet man
+\[
+P(|X_i-\mu_i|\le r\sigma_i) =p(r)^n,
+\]
+es muss also die Gleichung $p(r)^n = 0.001$ gelöst werden:
+\begin{align*}
+p(r)^{20} &= 0.001
+\\
+p(r)&=\sqrt[20]{0.001} = 0.70795
+\\
+\Phi(r)&=\frac12(0.70795+1)=0.85938
+\\
+r&=1.070795
+\end{align*}
+\item
+Wie in a) findet man für die Wahrscheinlichkeit den Wert $p(1)^{18}=0.001027$.
+Die Anzahl Individuen ist binomialverteilt mit $N=4000$ und $p=0.001027$,
+daher ist der erwartete Wert $Np=4.1079$.
+\item
+Die Wahrscheinlichkeit von c) ist ziemlich klein, wir approximieren daher
+die Binomialverteilung der Anzahl $X$ von Individuen, die die Bedingung
+erfüllen, mit Hilfe der Poissonverteilung mit $\lambda=Np=4.1079$.
+Gefragt ist nach
+\begin{align*}
+P(X>2)
+&=
+1- P_\lambda(0)-P_\lambda(1)-P_\lambda(2)
+\\
+&=
+1-e^{-\lambda}\biggl(1+\lambda + \frac{\lambda^2}2\biggr)
+=
+0.77728.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Die Untersuchung der Air Force zum ``Durchschnittspiloten'' wird im Detail
+erklärte von Youtuber Matt Parker vom Kanal Standupmaths in seinem Buch
+{\em Humble Pi}, das 2019 erschienen ist.
+\end{diskussion}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Wahrscheinlichkeit $p(1)$ ({\bf P}) 1 Punkt,
+Wahrscheinlichkeit $p(1)^n$ ({\bf N}) 1 Punkt,
+\item
+Bestimmung von $r$ ({\bf R}) 1 Punkt,
+\item
+Binomialverteilung mit $N=4000$ und $p=p(1)^18$ ({\bf B}) 1 Punkt,
+Erwartungswert ({\bf E}) 1 Punkt,
+\item
+Poisson ({\bf P}) 1 Punkt:
+\end{teilaufgaben}
+\end{bewertung}
+
+
+
+
+
