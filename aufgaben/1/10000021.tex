@@ -1,0 +1,89 @@
+Ein Kind hat 2 gerade und 8 gekrümmte Schienenstücke ($45^\circ$) für
+ein Holzspielbahn.
+Die gekrümmten Stücke können sowohl als Rechts- als auch als
+Links-Kurven eingesetzt werden (siehe Abbildung~\ref{10000021:bild}).
+\begin{figure}[h]
+\centering
+\includeagraphics[width=0.65\hsize]{brio.jpg}
+\quad
+\includeagraphics[width=0.25\hsize]{BRI-33710.jpg}
+\caption{Schienenstücke für eine Holzspielbahn
+\label{10000021:bild}}
+\end{figure}
+
+\begin{teilaufgaben}
+\item
+Wie viele verschiedene Bahnanlagen lassen sich aus diesen Schienenstücken
+bauen, wenn die Bahn nicht geschlossen sein muss und nicht darauf geachtet
+werden muss, ob sich die Schienen kreuzen?
+\item
+Was ändert sich, wenn eines der gekrümmten Schienenstücke durch ein
+gekrümmtes Stück aus Kunststoff ersetzt wird, welches nur als Linkskurve
+eingesetzt werden kann, dafür aber einen Torbogen über der Bahn aufbaut
+(Abbildung~\ref{10000021:bild} rechts)?
+\item
+Jetzt sollen nur noch geschlossene Bahnanlagen gebaut werden.
+Wieviele verschiedene solche Anlagen können aus 2 geraden und 8
+gekrümmten Schienenstücken gebauten werden?
+Wieviele verschiedene solche Anlagen sind möglich, wenn statt der
+8 nur 7 gekrümmte Schienen und der Torbogen zur Verfügung stehen?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Es sind Folgen von 10 Schienenstücken zu bilden.
+Zwei davon müssen gerade sein, es müssen also zwei von 10 Plätzen für die
+geraden Schienen ausgewählt werden.
+Dies ist auf $\binom{10}{2}=45$ Arten möglich.
+Die gekrümmten Schienen können jeweils in zwei Richtungen eingesetzt werden,
+für die 8 gekrümmten Schienen bedeutet das $2^8$ verschiedene Möglichkeiten.
+Die Gesamtzahl der möglichen Bahnanlagen ist daher
+\[
+\binom{10}{2}\cdot 2^8 = 45\cdot 256=11520.
+\]
+\item
+Wie in a) müssen erst die zwei Plätze für die geraden Schienenstücke 
+ausgewählt werden.
+Einer der verbleibenden acht Plätze wird jetzt für den Torbogen verwendet,
+dies ist auf 8 Arten möglich.
+Die 7 Holzschienen können wieder als Rechts- oder als Links-Kurven eingesetzt
+werden, was auf $2^7$ Arten möglich ist.
+Es gibt also insgesamt
+\[
+\binom{10}{2}\cdot 8 \cdot 2^7
+=
+\binom{10}{2}\cdot 2^{10}
+=
+\binom{10}{2}2^{8}\cdot 4
+=
+46080.
+\]
+\item
+Eine geschlossen Bahn lässt sich nur bauen, wenn aus jeweils vier 
+gekrümmten Schienenstücken $180^\circ$-Kurven gebaut werden, die
+mit den zwei geraden Teilstücken verbunden werden.
+Es entsteht ein Oval mit zwei $180^\circ$-Kurven, die mit geraden
+Schienenstücken verbunden sind.
+
+Ein solches Oval ist auf zwei Arten möglich, indem die Kurvenstücke
+alle als Rechts- oder alle als Links-Kurven eingesetzt werden.
+Beim Einsatz des Torbogens müssen alle Kurven als Linkskurven eingesetzt
+werden.
+Jedes der 8 Kurvenstücke kann durch den Torbogen ersetzt werden, aber
+die beiden $180^\circ$-Kurven gehen durch Drehung der ganzen Anlage 
+auseinander hervor, es sind also nur 4 tatsächlich verschiedene Bahnanlagen
+möglich.
+
+Insgesamt erhalten wir 6 Möglichkeiten, geschlossene Bahnanlagen zu bauen.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Jede Teilaufgabe 2 Punkte.
+\end{bewertung}
+
+
+
+

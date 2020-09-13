@@ -1,0 +1,168 @@
+Auf wieviele Arten kann man die Schuhe binden?
+Diese Frage stellt sich Youtuber Mathologer in einem Video, das er am
+20.~Juni 2020 veröffentlich hat\footnote{\url{https://www.youtu.be/CSw3Wqoim5M}}.
+Bei einer Schuhbindung wird der Bändel abwechselnd durch zwei Reihen von
+Ösen gefädelt bis alle Ösen benutzt sind.
+Dabei kommt es offenbar nicht darauf an, ob man den Bändel von innen oder
+von aussen durch die Öse fädelt.
+\begin{center}
+\def\eyelet#1{
+	\draw[color=white,line width=0.18cm] #1 circle[radius=0.2];
+	\draw[color=black,line width=0.12cm] #1 circle[radius=0.2];
+}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\def\segment#1#2{
+	%\draw[color=white,line width=0.12cm] #1 -- #2;
+	\draw[round cap-round cap,color=darkred,line width=0.1cm] #1 -- #2;
+}
+\begin{tikzpicture}[>=latex,thick]
+
+\begin{scope}[xshift=-4cm]
+	\segment{(-1,-1)}{(1,-1)}
+	\eyelet{(1,-1)}
+	\eyelet{(-1,-1)}
+	\segment{(1,-1)}{(-1,0)}
+	\segment{(-1,-1)}{(1,0)}
+	\eyelet{(1,0)}
+	\eyelet{(-1,0)}
+	\segment{(-1,0)}{(1,1)}
+	\segment{(1,0)}{(-1,1)}
+	\eyelet{(1,1)}
+	\eyelet{(-1,1)}
+	\segment{(1,1)}{(-1,1)}
+\end{scope}
+
+\begin{scope}[xshift=0cm]
+	\segment{(-1,-2)}{(1,-2)}
+	\eyelet{(-1,-2)}
+	\eyelet{(1,-2)}
+	\segment{(-1,-2)}{(1,2)}
+	\eyelet{(1,2)}
+	\segment{(1,-2)}{(-1,-1)}
+	\eyelet{(-1,-1)}
+	\segment{(-1,-1)}{(1,-1)}
+	\eyelet{(1,-1)}
+	\segment{(1,-1)}{(-1,0)}
+	\eyelet{(-1,0)}
+	\segment{(-1,0)}{(1,0)}
+	\eyelet{(1,0)}
+	\segment{(1,0)}{(-1,1)}
+	\eyelet{(-1,1)}
+	\segment{(-1,1)}{(1,1)}
+	\eyelet{(1,1)}
+	\segment{(1,1)}{(-1,2)}
+	\eyelet{(-1,2)}
+	\segment{(-1,2)}{(1,2)}
+\end{scope}
+
+\begin{scope}[xshift=5cm]
+\draw[<->] (-1.5,-2) -- (-1.5,2);
+\draw[line width=0.2pt] (-1.7,-2)--(-1,-2);
+\draw[line width=0.2pt] (-1.7,2)--(-1,2);
+\node at (-1.5,0) [above,rotate=90] {$n$ Ösenpaare};
+
+\draw[densely dotted,densely dotted,color=darkred,line width=0.1cm] (0,-1.5) -- (-0.5,-1.75);
+\segment{(-1,-2)}{(-0.5,-1.75)}
+\eyelet{(-1,-2)}
+\segment{(-1,-2)}{(1,-2)}
+\eyelet{(1,-2)}
+\segment{(1,-2)}{(0.75,-1.5)}
+\draw[densely dotted,densely dotted,color=darkred,line width=0.1cm] (0.5,-1) -- (0.75,-1.5);
+
+%\draw[densely dotted,densely dotted,color=darkred,line width=0.1cm] #1 -- #2;
+
+\draw[color=darkred,line width=0.1cm,densely dotted] (0,-0.5) -- (0.5,-0.25);
+
+\segment{(0.5,-0.25)}{(1,0)}
+\eyelet{(1,0)}
+\segment{(1,0)}{(-1,2)}
+\eyelet{(-1,2)}
+\segment{(-1,2)}{(1,1)}
+\eyelet{(1,1)}
+\segment{(1,1)}{(-1,0)}
+\eyelet{(-1,0)}
+\segment{(-1,0)}{(1,2)}
+\eyelet{(1,2)}
+\segment{(1,2)}{(-1,1)}
+\eyelet{(-1,1)}
+\segment{(-1,1)}{(-0.5,0)}
+\draw[color=darkred,line width=0.1cm,densely dotted] (-0.5,0) -- (0,-1);
+
+\end{scope}
+
+\end{tikzpicture}
+\end{center}
+
+\begin{teilaufgaben}
+\item
+Auf wieviele Arten kann man einen Schuh mit $2n$ Ösen binden, wenn der
+Bändel abwechselnd durch Ösen der beiden Reihen gefädelt werden soll?
+\item
+Auf wieviele Arten kann man einen Schuh mit $2n$ Ösen binden, wenn
+es zusätzlich darauf ankommt, ob der Bändel von innen oder von aussen
+durch die Öse gefädelt wird?
+\item
+Auf wieviele Arten kann man einen Schuh mit $2n$ Ösen binden,
+wenn es nicht einmal darauf ankommt, dass der Bändel abwechselnd
+durch Ösen beider Reihen gefädelt wird?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Da der Bändel durch alle Ösen gefädelt werden muss, können wir, um die
+Schuhbindungen zu zählen, in der linken oberen Ecke beginnen.
+Der Bändel muss anschliessend durch eine der $n$ Ösen in der rechten
+Reihe gefädelt werden.
+Von dort muss er wieder zurück gefädelt werden durch eine der
+verbleibenden $n-1$ Ösen der linken Reihe.
+Auf der rechten Seite bleiben dann $n-1$ Ösen.
+Die Anzahl der möglichen Bindungen, die in der linken oberen Ecke beginnen,
+ist daher
+\[
+n\cdot (n-1) \cdot (n-1) \cdot \dots \cdot 3\cdot 2 \cdot 2 \cdot 1 \cdot 1
+=
+n! \cdot (n-1)!
+\]
+In diesem Prozess haben wir aber alle Bindungen doppelt gezählt.
+Da der Bändel auch wieder zur ersten Öse zurück führt, können wir die
+Bindung auch ``rückwärts'' durchlaufen und erhalten so nochmals dieselbe
+Bindung, sie wurde aber separat gezählt.
+Die tatsächliche Anzahl der Bindungen ist daher
+\[
+\frac{n!(n-1)!}2.
+\]
+\item 
+Die Anzahl der Fädelungen ist immer noch dieselbe, aber wir müssen
+jetzt bei jeder Öse zulassen, dass der Bändel von oben nach unten
+oder von unten nach oben durch die Öse gefädelt wird.
+Die Auswahl der Fädelungsrichtung ist auf $2^{2n}$ Arten möglich.
+Die Anzahl der Bindungen ist damit
+\[
+2^{2n-1}\, n!\, (n-1)!
+\]
+\item
+Wenn es nicht darauf ankommt, ob dass der Bändel abwechselnd durch
+Ösen dir beiden Reihen gefädelt wird, dann wird die Zählung etwas
+einfacher.
+Nach der ersten Öse in der linken oberen Ecke gibt es $2n-1$ Möglichkeiten
+für die zweite Öse, $2n-2$ Möglichkeiten für die dritte Öse usw.
+Da auch in diesem Fall jede Bindung doppelt gezählt wurde, ist
+die Anzahl der Bindungen
+\[
+\frac{(2n-1)!}{2}
+\] 
+bei Vernachlässigung der Fädelungsrichtung (wie in a)\,) und
+\[
+2^{2n-1} \cdot (2n-1)!
+\]
+wenn die Fädelungsrichtung durch die Öse wie in (wie in c)\,)
+berücksichtigt werden soll.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Für jede Teilaufgabe 1 Punkt für einen erfolgversprechenden Lösungsweg
+und 1 Punkt für das korrekte Resultat.
+\end{bewertung}
