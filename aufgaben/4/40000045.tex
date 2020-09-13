@@ -1,0 +1,178 @@
+Auf einer indischen Website wurden folgende Information über den
+Zusammenhang zwischen Autoverkaufszahlen in einem Jahr und
+dem Bruttosozialprodukt (GDP, in nicht spezifizierten Einheiten)
+des Vorjahres gefunden:
+\begin{center}
+\begin{tabular}{|l|r|r|}
+\hline
+Jahr&GDP&Verkäufe (Mio)\\
+\hline
+2011&6.2\phantom{0}&2.63\phantom{0}\\
+2012&6.2\phantom{0}&2.665\\
+2013&5.48&2.503\\
+2014&6.54&2.601\\
+2015&7.18&2.79\phantom{0}\\
+2016&7.93&3.047\\
+\hline
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item 
+Im aktuellen Jahr erreichte des Bruttosozialprodukt den Wert $9$.
+Welche Anzahl von Autoverkäufen kann man im nächsten Jahr erwarten?
+\item
+Bei welchem Bruttosozialprodukt kann man damit rechnen, dass die
+Zahl von 3 Millionen verkaufter Autos erreicht wird?
+\item
+Wie zuverlässig ist diese Prognose?
+\end{teilaufgaben}
+
+\begin{loesung}
+Dieses Problem kann mit linearer Regression gelöst werden.
+Wir bezeichnen das Bruttosozialprodukt mit $x$, die Zahl der
+Autoverkäufe mit $y$.
+Wir müssen die Summen der Werte, Quadrate und Produkte der Datenpunkte
+berechnen:
+%1 1 6.20 2.630 38.4400 6.916900 16.30600
+%2 2 6.20 2.665 38.4400 7.102225 16.52300
+%3 3 5.48 2.503 30.0304 6.265009 13.71644
+%4 4 6.54 2.601 42.7716 6.765201 17.01054
+%5 5 7.18 2.790 51.5524 7.784100 20.03220
+%6 6 7.93 3.047 62.8849 9.284209 24.16271
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+i& x_i & y_i  & x_i^2  & y_i^2   & x_iy_i  \\
+\hline
+1& 6.20& 2.630& 38.4400& 6.916900& 16.30600\\
+2& 6.20& 2.665& 38.4400& 7.102225& 17.32250\\
+3& 5.48& 2.503& 30.0304& 6.265009& 13.71644\\
+4& 6.54& 2.601& 42.7716& 6.765201& 17.01054\\
+5& 7.18& 2.790& 51.5524& 7.784100& 20.03220\\
+6& 7.93& 3.047& 62.8849& 9.284209& 24.16271\\
+\hline
+ &39.53&16.236&264.1193&44.11764\phantom{0}&107.75089\\
+\hline
+\end{tabular}
+\end{center}
+Daraus kann man Steigung und Achsbschnitt der Regressionsgeraden
+ermitteln:
+\begin{align*}
+a
+&=
+\frac{6\cdot 107.75089 - 39.53\cdot 16.236}{6\cdot 264.1193-39.53^2}
+=
+\frac{4.62246}{21.1469}
+=
+0.21255
+\\
+b
+&=
+\frac{16.236}{6} - a\cdot \frac{39.53}{6}
+=
+1.30565
+\end{align*}
+\begin{teilaufgaben}
+\item
+Mit der Regressionsgeraden kann man die zu erwartenden Verkäufe
+prognostizieren:
+\[
+y = ax+b = a \cdot 9 + b
+=
+3.2186
+\]
+\item
+Gesucht ist $x$ derart, dass
+\[
+3=ax+b
+\qquad\Rightarrow\qquad
+x
+=
+\frac{3-b}{a}
+=
+7.971536
+\]
+Wenn das Bruttosozialprodukt von 7.983329 erreicht wird kann man davon
+ausgehen, dass die Verkaufszahlen 3 Mio überschreiten werden.
+\item
+Über die Qualität der Approximation gibt der Regressionskoeffizient
+Auskunft.
+Im vorliegenden Fall ist er
+\[
+r^2
+=
+\frac{
+(6\cdot 107.75089 - 39.53\cdot 16.236)^2
+}{
+(6\cdot 264.1193-39.53^2)(6\cdot44.11764-16.236^2)
+}
+=
+0.909
+\]
+Da $r^2$ nicht so wahnsinnig nahe bei $1$ ist, ist die Zuverlässigkeit
+der Prognose fraglich.
+\end{teilaufgaben}
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex,scale=3.7]
+\draw[->,line width=0.7pt] (4.98,2)--(9.3,2) coordinate[label={$x$}];
+\draw[->,line width=0.7pt] (5,1.98)--(5,3.5) coordinate[label={right:$y$}];
+\def\punkt#1{
+\fill[color=red] #1 circle[radius=0.02];
+}
+\punkt{(6.20,2.630)}
+\punkt{(6.50,2.665)}
+\punkt{(5.48,2.503)}
+\punkt{(6.54,2.601)}
+\punkt{(7.18,2.790)}
+\punkt{(7.93,3.047)}
+\def\a{0.218588}
+\def\b{1.25494}
+\draw[line width=1pt,color=blue] ({4.9},{\a*4.9+\b})--(9.3,{\a*9.3+\b});
+
+\draw[line width=0.3pt] (9,2)--(9,{\a*9+\b});
+\draw[line width=0.3pt] (5,{\a*9+\b})--(9,{\a*9+\b});
+%\draw[line width=0.7pt] (4.97,{\a*9+\b})--(5.03,{\a*9+\b});
+%\node at (4.97,{\a*9+\b}) [left] {$3.222$};
+\fill[color=blue] (9,{\a*9+\b}) circle[radius=0.02];
+\node at (9,{\a*9+\b}) [above left] {$y=3.222$};
+
+\draw[line width=0.3pt] (5,3)--({(3-\b)/\a},3);
+\draw[line width=0.3pt] ({(3-\b)/\a},3)--({(3-\b)/\a},2);
+\node at ({(3-\b)/\a},3) [rotate=90,below left] {$x=7.983$};
+\fill[color=blue] ({(3-\b)/\a},3) circle[radius=0.02];
+
+\draw[line width=0.7pt] (6,1.98)--(6,2.02);
+\draw[line width=0.7pt] (7,1.98)--(7,2.02);
+\draw[line width=0.7pt] (8,1.98)--(8,2.02);
+\draw[line width=0.7pt] (9,1.98)--(9,2.02);
+\node at (6,1.97) [below] {$6$};
+\node at (7,1.97) [below] {$7$};
+\node at (8,1.97) [below] {$8$};
+\node at (9,1.97) [below] {$9$};
+\draw[line width=0.7pt] (4.98,3)--(5.02,3);
+\node at (4.97,3) [left] {$3$};
+\node at (5,2) [left] {$2$};
+\node at (5,2) [below] {$5$};
+\end{tikzpicture}
+\caption{Abhängigkeit zwischen Autoverkäufen und Bruttosozialprodukt
+(Aufgabe~\ref{40000045}).
+\label{40000045:graph}}
+\end{figure}
+Der Zusammenhang zwischen Brutosozialprodukt und Autoverkäufen auf der
+Basis obiger Daten ist in Abbildung~\ref{40000045:graph} dargestellt.
+\end{loesung}
+
+\begin{diskussion}
+Die Daten dieser Aufgabe stammen von der Website
+\url{https://towardsdatascience.com/linear-regression-with-example-8daf6205bd49}.
+\end{diskussion}
+
+\begin{bewertung}
+Lineare Regression Steigung ({\bf A}) 1 Punkt,
+Achsabschnitt ({\bf B}) 1 Punkt,
+a) Verkäufe ({\bf V}) 1 Punkt,
+b) GDB ({\bf G}) 1 Punkt,
+c) Berechnung von $r^2$ ({\bf R}) 1 Punkt,
+Qualitätskriterium ({\bf Q}) 1 Punkt.
+\end{bewertung}

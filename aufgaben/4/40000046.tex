@@ -1,0 +1,112 @@
+Auf einer Waage werden 2000\,mg einer Flüssigkeit abgewogen.
+Mit dem Ende der Wägung beginnt die Flüssigkeit auch sofort zu
+verdampfen, wie die untenstehenden Messwerte zeigen.
+\begin{teilaufgaben}
+\item Bestimmen Sie den bestmöglichen Wert für die Verdunstungsrate.
+\item Zu welcher Zeit war die Masse genau 2000\,mg?
+\item Beurteilen Sie die Qualität der Approximation.
+\end{teilaufgaben}
+
+\begin{center}
+\begin{tabular}{ll}
+\begin{minipage}{5cm}
+\begin{center}
+\begin{tabular}{|>{$}r<{$}|>{$}r<{$}|}
+\hline
+\text{Zeit [s]}&\text{Masse [mg]}\\
+\hline
+  0.0&1999.49\\
+ 20.0&1999.23\\
+ 40.0&1998.99\\
+ 60.0&1998.72\\
+ 80.0&1998.48\\
+100.0&1998.21\\
+120.0&1997.96\\
+140.0&1997.70\\
+\hline
+\end{tabular}
+\end{center}
+\end{minipage}&%
+\begin{minipage}{9cm}
+\begin{center}
+\includeagraphics[]{graph.pdf}
+\end{center}
+\end{minipage}
+\end{tabular}
+\end{center}
+
+
+\begin{loesung}
+Es ist eine lineare Regression durchzuführen, dazu berechnen wir die
+nachfolgende Tabelle.
+Damit nicht so grosse Zahlen auftreten, verwenden wir den Excess der 
+Masse über $1997\,\text{mg}$.
+Bei der Berechnung mit der ganzen Masse können kleine Abweichungen auftreten,
+die damit zu tun haben, dass die Berechnung der Varianz numerisch
+problematisch ist, da in $E(X^2)-E(X)^2$ eine Differenz fast gleich
+grosser Zahlen gebildet, ist das Resultat starker Auslöschung unterworfen.
+wird
+\begin{center}
+\begin{tabular}{|>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+i&  t_i&    m_i&  t_i^2&    m_i^2& t_im_i\\
+\hline
+1&    0&   2.49&      0&   6.2001&    0.0\\
+2&   20&   2.23&    400&   4.9729&   44.6\\
+3&   40&   1.99&   1600&   3.9601&   79.6\\
+4&   60&   1.72&   3600&   2.9584&  103.2\\
+5&   80&   1.48&   6400&   2.1904&  118.4\\
+6&  100&   1.21&  10000&   1.4641&  121.0\\
+7&  120&   0.96&  14400&   0.9216&  115.2\\
+8&  140&   0.70&  19600&   0.4900&   98.0\\
+\hline
+ &  560&  12.78&  56400&  23.1576&  680.0\\
+\hline
+\end{tabular}
+\end{center}
+Die Parameter der Regressionsgerade werden damit:
+\begin{align*}
+a&= \frac{8\cdot 680.0 - 560\cdot 12.78}{8\cdot 56400-560^2}
+=
+\frac{-1716.80}{137600}=-0.0124767
+\\
+b&=\frac18 \cdot 12.78 -a\frac18\cdot 560=2.47087
+\end{align*}
+Damit können jetzt die einzelnen Fragen beantwortet werden:
+\begin{teilaufgaben}
+\item
+Der bestmögliche Wert für die Verdunstungsrate ist $a=-0.0124767\text{[mg/s]}$.
+\item
+Gesucht ist die Zeit $t$ so, dass $at+b=3$.
+Es folgt
+\[
+t=\frac{3-b}{a}=-42.409133\,\text{[s]}.
+\]
+\item
+Die Qualität der Approximation kann mit dem Regressionskoeffizienten
+beurteilt werden.
+\begin{align*}
+r
+&=
+\frac{
+8\cdot 680 - 560\cdot 12.78
+}{
+\sqrt{8\cdot 56400-560^2}\sqrt{8\cdot 23.1576-12.78^2}
+}
+=
+-0.988251
+\end{align*}
+Da $r$ sehr nahe bei $-1$ kann man die Qualität der Approximation als
+sehr gut betrachten.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Lineare Regression ({\bf LR}) 1 Punkt,
+Berechnungsmethode Tabelle von Summen ({\bf M}) 1 Punkt,
+Formeln für $a$ ({\bf A}) 1 Punkt,
+Formel für $b$ und Berechnungsmethode für Zeitpunkt bin b)  ({\bf B}) 1 Punkt,
+Qualitätskriterium mit $r^2$ ({\bf Q}) 1 Punkt,
+Folgerung für die Qualität in c) ({\bf C}) 1 Punkt.
+\end{bewertung}
