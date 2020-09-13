@@ -5,4 +5,6 @@
 #
 
 all:
+
+beispiel:
 	octave beispiel.m
