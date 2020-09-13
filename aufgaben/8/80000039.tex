@@ -1,0 +1,80 @@
+In einem Projekt muss zwischen zwei Methoden der Positionsbestimmung
+entschieden werden.
+Die beiden Methoden sind verschieden genau, man kennt allerdings nur
+empirische Werte für den Fehler.
+Bei der genaueren Methode gibt es Hinweise darauf, dass sie möglicherweise einen
+noch nicht verstandenen systematischen Fehler aufweist.
+Um diese Frage zu klären, werden zwei Versuchsreihen von je 10 Messungen
+gemacht.
+Die gemessenen Mittelwerte und empirischen Standardabweichungen sind
+\begin{center}
+\begin{tabular}{|c|cc|}
+\hline
+Methode&Mittelwert&Standardabweichung\\
+\hline
+A      & 3.1469   &   0.8002         \\
+B      & 4.0772   &   1.4323         \\
+\hline
+\end{tabular}
+\end{center}
+Es wird erkennbar, dass A genauer sein dürfte, der Unterschied zwischen
+den mittleren Positionen ist allerdings nicht sehr gross.
+Kann man auf Grund dieser Daten schliessen, dass es tatsächlich einen
+Unterschied der ermittelten Positionen gibt?
+
+% m1 =  3.1469
+% s1 =  0.80018
+% m2 =  4.0772
+% s2 =  1.4323
+% sp =  1.1601
+% k =  18
+% t = -1.7930
+% tkrit =  1.7341
+% tkrittwosided =  2.1009
+% s =  0.51881
+% nkrit =  1.0169
+
+\begin{loesung}
+Die gestellte Frage ist ein Test für die Nullhypothese 
+\begin{quote}
+Es gibt keinen Unterschied zwischen den Mittelwerten der
+beiden Messmethoden.
+\end{quote}
+Diese Hypothese kann mit Hilfe eines $t$-Tests getestet werden.
+Dazu muss die Teststatistik
+\begin{align*}
+T
+&=
+\frac{\bar{X}-\bar{Y}}{\sqrt{(n-1)S_X^2 + (m-1)S_Y^2}}
+\sqrt{\frac{nm(n+m-2)}{n+m}}
+=-1.7930
+\end{align*}
+berechnet werden.
+Die Anzahl der Freiheitsgrade ist $k=n+m-2 = 18$, der zugehörige kritische
+Wert für $\alpha=5\%$ ist $t_{\text{krit}}=1.7341$ für einen
+einseitigen Test und $t_{\text{krit}}=2.1009$ für einen zweiseitigen Test.
+Im vorliegenden Fall ist $|T|<t_{\text{krit}}$ für den zweiseitigen Test,
+die verfügbaren Daten gestatten also nicht, die Nullhypothese zu verwerfen.
+
+Für den einseitigen Test ist der kritische Wert überschritten, man könnte
+also versucht sein, die Nullhypothese zu verwerfen.
+Dies ist aber nicht korrekt, weil die Nullhypothese nichts darüber
+sagt, ab $T$ positiv oder negativ sei, der Test muss also beide
+Vorzeichen berücksichtigen.
+
+Im Falle des einseitigen Tests ist $|T|$ zwar grösser als der kritische
+Wert, aber nur wenig.
+Dies ist ein Hinweis darauf, dass das Resultat möglicherweise ohnehin
+ein Zufallsresultat ist.
+\end{loesung}
+
+\begin{bewertung}
+Nullhypothese ({\bf N}) 1 Punkt,
+$t$-Test ({\bf T}) 1 Punkt,
+Freiheitsgrade ({\bf F}) 1 Punkt,
+Wahl eines $\alpha$ und kritischer Wert für $T$ ({\bf K}) 1 Punkt,
+Berechnung des $T$-Wertes ({\bf D}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+
+

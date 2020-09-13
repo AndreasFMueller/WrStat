@@ -1,0 +1,75 @@
+MrThriveAndSurvive, Flacherdler und Youtuber, versucht zu beweisen,
+dass Mondlicht etwas grundsätzlich anderes sei als Sonnenlicht, weil
+Mondlicht im Gegensatz zum Sonnenlicht nicht wärme, sondern kühle.
+Er führt fünf Messungen durch, in denen er im übrigen identische Gegenstände
+mit einem Infrarot-Thermometer misst.
+Die einen sind direkt dem Mondlicht
+ausgesetzt, die anderen werden von einem Schirm geschützt.
+Natürlich ist er nicht in der Lage zu verstehen, dass der von dieser
+Messanordnung möglicherweise gemessene Temperaturunterschied eher von
+der sogenannten radiativen Kühlung kommt, der Tatsache, dass Gegenstände
+unter freiem Himmel durch Abstrahlung von Wärme ins Weltall schneller
+abkühlen als Gegenstände unter einem Schirm.
+Er bekommt die folgenden, nicht sehr unterschiedlichen Temperaturen:
+\begin{center}
+\begin{tabular}{l >{$}c<{$} >{$}c<{$}}
+\hline
+Messung&\text{Temperatur in $\mathstrut^\circ$F mit Mondlicht}&\text{Temperatur in $\mathstrut^\circ$F im Schatten}\\
+\hline
+1&71.7&74.1\\
+2&71.6&72.5\\
+3&69.9&70.5\\
+4&69.9&69.2\\
+5&71.9&72.3\\
+\hline
+Mittelwert&71&71.72\\
+Varianz&1.02&3.612\\
+\hline
+\end{tabular}
+\end{center}
+Kann man aus diesen Daten schliessen, dass es tatsächlich einen Unterschied
+zwischen Mond und Schatten gibt?
+
+\begin{loesung}
+Es geht darum, den Mittelwert der Beiden Datensätze zu vergleichen.
+Dies ist mit einem $t$-Test möglich.
+Die Nullhypothese ist
+\begin{quote}
+Es gibt keinen Unterschied in der Verteilung der Messwerte zwischen
+Mondlicht und Schatten.
+\end{quote}
+Ein Test mit $\alpha=0.05$ und $f=n+m-2 = 5+5-2=8$ Freiheitsgraden 
+verwendet einen kritischen Wert $t_{\text{krit}}= 2.3060$ für einen
+zweiseitigen Test.
+Der $t$-Wert kann mit Hilfe der Formel 
+\begin{align*}
+T
+&=
+\frac{\mu_X-\mu_Y}{\sqrt{(n-1)S_X^2+(m-1)S_Y^2}}\sqrt{\frac{nm(n+m-2)}{n+m}}
+\\
+&=
+\frac{71-71.72}{\sqrt{4\cdot 1.02 + 4\cdot 3.612}}\sqrt{\frac{25\cdot 8}{10}}
+=
+\frac{-0.72}{4.3044}\sqrt{20}
+=
+-0.74806.
+\end{align*}
+Da dieser Unterschied viel kleiner ist als der kritische Wert, kann man
+die Nullhypothese nicht verwerfen.
+Das Experiment beweist also nichts.
+\end{loesung}
+
+\begin{diskussion}
+Das Experiment wurde von Youtuber AB science in einem Video gehörig zerzaust: 
+\url{https://www.youtube.com/watch?v=5J7ovRNbBcU}
+\end{diskussion}
+
+\begin{bewertung}
+$t$-Test ({\bf T}) 1 Punkt,
+Nullhypothese ({\bf N}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Freiheitsgrade und kritischer $t$-Wert ({\bf F}) 1 Punkt,
+Berechnung von $t$ ({\bf T}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+

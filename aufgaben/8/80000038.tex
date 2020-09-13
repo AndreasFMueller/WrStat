@@ -1,0 +1,70 @@
+Im Jahre 1996 wurde in Bahia in Südamerika untersucht, ob besser
+klassifizierte Hotels auch mehr Personal für die Betreuung ihrer
+Gäste anstellen.
+Folgende Resultate wurde dabei gefunden:
+\begin{center}
+\begin{tabular}{|c|r|r|r|r|}
+\hline
+Sterne&Hotels&Zimmer&Anteil&Angestellte\\
+\hline
+     5&     5&  1205&0.1869&        769\\
+     4&    16&  1747&0.2710&       1189\\
+     3&    32&  1865&0.2893&        945\\
+     2&    10&   303&0.0470&        123\\
+     1&    41&  1327&0.2058&        418\\
+\hline
+Total&    104&  6447&      &       3444\\
+\hline
+\end{tabular}
+\end{center}
+In der vierten Spalte steht der Anteil der Zimmer dieser Klasse an der
+Gesamtzahl der Zimmer.
+Auf den ersten Blick sieht es so aus, als würden in allen Kategorieren
+ungefähr ähnlich viele Angestellte pro Zimmer beschäftigt.
+Können Sie dies bestätigen?
+
+\begin{loesung}
+Wir führen einen $\chi^2$-Test dafür durch, ob die Angestelltenverteilung
+zur Verteilung der Hotelzimmer auf die Sterne-Klassen passt.
+Die Nullhypothese is
+\begin{quote}
+Die Verteilung der Angestellten auf die Hotelklassen entspricht den Anteilen
+der Zimmer an den Hotelklassen.
+\end{quote}
+Wir wählen $\alpha=5\%$, die Anzahl der Freiheitsgrade ist 4, der kritische
+Wert der Diskrepanz ist $D_{\text{krit}}=9.488$.
+Die Diskrepanz wird mit der folgenden Tabelle berechnet:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|}
+\hline
+i&p_i   &  np_i& n_i& (np_i-n_i)^2/np_i \\
+\hline
+5&0.1869& 815.6&   769&     24.38         \\
+4&0.2710&1182.6&  1189&     70.09         \\
+3&0.2893&1272.5&   945&      2.64         \\
+2&0.0470& 205.1&   123&      9.33         \\
+1&0.2058& 898.1&   418&    119.36         \\
+\hline
+ &      &      &n=3444& D= 225.80         \\
+\hline
+\end{tabular}
+\end{center}
+Die Diskrepanz ist offenbar viel grösser als der kritische Wert, die
+Nullhypothese muss verworfen werden.
+
+Man kann allerdings nicht schliessen, dass die billigeren Kategorien
+weniger Angestellte pro Zimmer beschäftigen, denn das Maximum der
+Anzahl Beschäftigte pro Zimmer wird für 4-Stern-Hotels erreicht.
+\end{loesung}
+
+\begin{bewertung}
+Nullhypothese ({\bf N})  1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 1 Punkt,
+Anzahl Freiheitsgrade ({\bf F}) 1 Punkt,
+Wahl eines $\alpha$ ({\bf A}) 1 Punkt,
+kritischer Wert für  die Diskrepanz ({\bf K}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+
+
+

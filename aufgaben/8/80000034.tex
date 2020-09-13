@@ -1,0 +1,118 @@
+Das Universum dehnt sich aus mit einer Geschwindigkeit, welche
+durch die sogenannte Hubble-Konstante $H_0$ gegeben wird.
+Ein allgemein üblicher Wert ist etwa $70 \text{km}\,\text{s}^{-1}/\text{Mpc}$.
+Ein Problem der modernen Kosmologie ist jedoch, dass es zwei verschiedene
+Methoden gibt, $H_0$ zu messen.
+Eine Methode verwendet Entfernungsmessungen zu weit entfernten Galaxien,
+die sogenannte Entfernungsleiter.
+Es ist aber auch möglich, $H_0$ aus Messungen des kosmischen
+Mikrowellenhintergrundes zu bestimmen.
+\begin{teilaufgaben}
+\item
+Alte Messungen basierend auf den Satelliten Hipparcos und WMAP ergaben
+die Werte
+\begin{center}
+\begin{tabular}{|l|r|r|}
+\hline
+Methode               &Wert für $H_0\,[\text{km}\,\text{s}^{-1}/\text{Mpc}]$&Messfehler $\sigma\,[\text{km}\,\text{s}^{-1}/\text{Mpc}]$\\
+\hline
+Entfernungsleiter     &74.2&2.4\\
+Mikrowellenhintergrund&70.5&2.5\\
+\hline
+\end{tabular}
+\end{center}
+Wie wahrscheinlich ist es, dass dieser Unterschied rein zufällig durch
+die Messfehler verursacht worden ist?
+Ist der Unterschied signifikant?
+\item
+Für lange Zeit gaben die unterschiedlichen Resultate, die man aus diesen
+beiden Methoden erhalten hat, nicht zu Bedenken Anlass.
+Neuere Präzisionsmessungen zum Beispiel mit dem GAIA-Satelliten für 
+die Entfernungsmessung oder dem Planck-Satelliten für die kosmische
+Hintergrundstrahlung haben die folgenden Werte ergeben:
+\begin{center}
+\begin{tabular}{|l|r|r|}
+\hline
+Methode               &Wert für $H_0\,[\text{km}\,\text{s}^{-1}/\text{Mpc}]$&Messfehler $\sigma\,[\text{km}\,\text{s}^{-1}/\text{Mpc}]$\\
+\hline
+Entfernungsleiter     &73\phantom{.0}&1.8\\
+Mikrowellenhintergrund&67.3&1.2\\
+\hline
+\end{tabular}
+\end{center}
+Wie gross ist die Wahrscheinlichkeit dafür, dass ein derart grosser
+Unterschied rein zufällig entstehen könnte?
+\end{teilaufgaben}
+
+\begin{loesung}
+In beiden Teilaufgaben führen wir die gleiche Rechnung durch mit
+verschiedenen Zahlen.
+Die beiden Messwerte sind normalverteilte Zufallsgrössen $X_1$ und $X_2$ 
+mit bekannten Erwartungswerten $\mu_1$ und $\mu_2$ und
+mit Standardabweichungen $\sigma_1$ und $\sigma_2$.
+
+Die zugrundeliegende Hypothese ist, dass die beiden Messprozesse den
+gleichen Wert für die Hubble-Konstante ergeben, dass also 
+$E(X_1-X_2)=0$ sein sollten.
+Die Differenz $Y=X_1-X_2$ ist ebenfalls normalverteilt, die Standardabweichung
+ist 
+$\sigma=\sqrt{\sigma_1^2+\sigma_2^2}$.
+
+In den Daten beobachten wir, dass $Y=X_1-X_2$ mindestens in b) relativ 
+gross ist.
+Es stellt sich die Frage, wie wahrscheinlich die beobachteten grossen Werte
+von $Y$ unter diesen Hypothesen sind.
+Gesucht ist also die Wahrscheinlichkeit $ P(Y > \mu_1-\mu_2).  $
+Zur Abkürzung schreiben wir $\mu=\mu_1-\mu_2$ und Formen um
+\begin{align*}
+P(Y> \mu)
+&=
+1-P(Y\le \mu)
+\\
+&=
+1-P\biggl(\frac{X-0}{\sigma} < \frac{\mu-0}{\sigma}\biggr)
+\\
+&=
+1-P(Z < \mu/\sigma)
+\end{align*}
+In der zweiten Zeile haben wir standardisiert und Verwendet, dass
+$E(Y)=0$ ist.
+\begin{teilaufgaben}
+\item
+In diesem Fall ist $\mu_1=74.2$, $\mu_2=70.5$, $\mu=3.7$,
+$\sigma_1=2.4$, $\sigma_2=2.5$, $\sigma=3.465$ und damit die
+gesuchte Wahrscheinlichkeit
+\[
+P(Y>\mu)
+=1-P(Z<1.50) = 1-0.933 = 0.067.
+\]
+Die Wahrscheinlichkeit ist also $>5\%$, der Unterschied ist damit
+nicht signifikant.
+\item
+In diesem Fall ist $\mu = 5.4$ und $\sigma=2.163$ und damit
+\[
+P(Y>\mu)
+=1-P(Z<2.50) = 1-0.9938 = 0.0062.
+\]
+Die Wahrscheinlichkeit ist also sehr klein, dass dieser Unterschied
+zufällig ist.
+Dieser Unterschied ist signifikant.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Mehr Information über das Problem der Diskrepanz der Hubble-Konstanten,
+die sogenannte {\em Hubble-Tension}, kann man im
+Youtube-Video \url{https://www.youtube.com/watch?v=uoAkFq-KIrk}
+finden.
+\end{diskussion}
+
+\begin{bewertung}
+Normalverteilung ({\bf N}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Differenz hat Erwartungswert 0 ({\bf D}) 1 Punkt,
+Varianz der Differenz ({\bf V}) 1 Punkt,
+Wahrscheinlichkeit in a) ({\bf A}) 1 Punkt,
+Wahrscheinlichkeit in b) ({\bf B}) 1 Punkt.
+\end{bewertung}

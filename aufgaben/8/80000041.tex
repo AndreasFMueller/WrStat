@@ -1,0 +1,56 @@
+Eine vorläufige chinesische Studie stellte bei 2000 CoVID-19 Patienten
+die folgende Verteilung der Blutgruppen $A$, $B$, $AB$ und $0$ fest:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}|>{$}c<{$}|}
+\hline
+\text{Blutgruppe}&\text{Häufigkeit}&\text{CoVID-19 Fälle}\\
+\hline
+A &           32.16\,\% &  755 \\
+B &           24.90\,\% &  528 \\
+AB& \phantom{0}9.10\,\% &  201 \\
+0 &           33.84\,\% &  516 \\
+\hline
+\end{tabular}
+\end{center}
+In der Spalte ``Häufigkeit'' stehen die Häufigkeiten der Blutgruppen
+in der Gesamtbevölkerung.
+Wie aussagekräftig ist dieses Resultat?
+
+\begin{loesung}
+Die Nullhypothese ist, dass sich die Blutgruppenzahlen der CoVID-19-Fälle
+nicht von denen unterscheiden, die man aufgrund der Blutgruppenhäufigkeit
+in der Bevölkerung erwarten würde.
+Diese Hypothese kann man mit einem $\chi^2$-Test testen.
+Da es sich um eine vorläufige Studie mit einer relativ geringen Zahl
+von Fällen ($n=2000$) handelt, ist $\alpha=5\,\%$ angemessen.
+Dazu berechnet man die Diskrepanz
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|}
+\hline
+\text{Blutgruppe $i$} & n_i   & p_i    & np_i   & (n_i-np_i)^2/np_i \\
+\hline
+A &    755 & 0.3216 & 643.2 & 19.43 \\
+B &    528 & 0.2490 & 498.0 &  1.81 \\
+AB&    201 & 0.0910 & 182.0 &  1.98 \\
+0 &    516 & 0.3384 & 676.8 & 30.24 \\
+\hline
+  & n=2000 &        &       & D = 54.36 \\
+\hline
+\end{tabular}
+\end{center}
+Für $k=3$ Freiheitsgrade und $\alpha=5\,\%$ ist der kritische Wert der 
+Diskpreanz $D_{\text{krit}}=7.815$.
+Da $D_{\text{krit}}$ viel kleiner ist als $D$, muss man schliessen, dass
+die Nullhypothese verworfen werden muss.
+Es scheint also einen Zusammenhang zwischen Blutgruppenverteilung und
+Corona-Anfälligkeit zu geben.
+\end{loesung}
+
+\begin{bewertung}
+Nullhypothese ({\bf N}) 1 Punkt,
+$\chi^2$-Text ({\bf X}) 1 Punkt,
+Wahl von $\alpha=0.05$ ({\bf A}) 1 Punkt,
+Freiheitsgrade und kritische Diskrepanz ({\bf F}) 1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 1 Punkt,
+Schlussfolgerung ({\bf F}) 1 Punkt.
+\end{bewertung}
