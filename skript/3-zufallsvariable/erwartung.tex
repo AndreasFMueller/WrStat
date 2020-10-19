@@ -284,11 +284,15 @@ die in den folgenden Abschnitten konkretisiert werden soll.
 \begin{definition}
 Sei $X$ eine Funktion auf $\Omega$, und lasse sich $\Omega$ in endlich
 viele Ereignisse $A_i$ zerlegen, auf denen $X(\omega)$ konstant ist,
-dann ist der {\bf Erwartungswert} von $X$
+dann ist der {\em Erwartungswert} von $X$
 \[
 E(X)=\sum_{i=0}^nP(A_i)\cdot X(A_i)
 \]
 \end{definition}
+
+Der Einfachheit halber bedeutet in dieser Definition $X(A_i)$ den
+konstanten Wert, den $X$ auf dem Ereignis $A_i$ annimmt.
+
 Aus der Definition lassen sich unmittelbar folgende Rechenregeln ableiten:
 \begin{satz}
 \label{rechenregeln-erwartungswert}
@@ -691,7 +695,7 @@ Die Einführungsbespiele motivieren folgende Definition:
 \begin{definition}
 Sei $X\colon\Omega\to\mathbb{R}$ eine Zufallsvariable, dann
 heisst die durch $\operatorname{var}(X)^2=E((X-E(X))^2)$ definierte Grösse $\operatorname{var}(X)$ die
-{\bf Varianz} von $X$.
+{\em Varianz} von $X$.
 Es ist insbesondere
 \[
 \operatorname{var}(X)=E((X-E(X))^2)=E(X^2)-E(X)^2
