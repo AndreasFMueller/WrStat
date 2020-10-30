@@ -1,7 +1,9 @@
 Die Funktionsfähigkeit eines Gerätes hängt kritisch von einem etwas
 heiklen Bauteil ab, welches zur Verbesserung der Verfügbarkeit redundant
-ausgeführt ist. Das Gerät kann also selbst beim Ausfall der einen
-Komponente noch weiterlaufen. Die einzelne Komponente hat eine mittlere
+(d.~h.~doppelt)
+ausgeführt ist. Das Gerät kann also selbst beim Ausfall einer dieser
+kritischen
+Komponenten noch weiterlaufen. Die einzelne Komponente hat eine mittlere
 Lebensdauer von einem Jahr.
 \begin{teilaufgaben}
 \item Wie wahrscheinlich ist der Ausfall des Bauteils innerhalb der
@@ -10,12 +12,14 @@ ersten Betriebswoche?
 ersten Woche?
 \item Die Autoren der Wartungsvorschriften können sich im folgenden Punkt
 nicht einigen. Der eine will verlangen, dass das Gerät bei der jährlichen
-Revision ausgetauscht werden muss, der andere will dies nur tun, wenn
-die kritische Komponente kaputt ist.
+Revision immer ausgetauscht werden muss, der andere will dies nur tun, wenn
+eine der kritischen Komponenten kaputt ist.
 Der erste behauptet, die Zuverlässigkeit werde so erhöht, der zweite
 stellt sich auf den Standpunkt, sein Vorschlag sei genauso zuverlässig,
-aber viel billiger. Wer hat recht? Wie wahrscheinlich ist, dass nach der
-zweiten Variante das Gerät ausgetauscht werden muss?
+aber viel billiger. Wer hat recht?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass nach einem Jahr genau
+eine der kritischen Komponenten kaputt ist?
 \end{teilaufgaben}
 
 \thema{Exponentialverteilung}
@@ -47,6 +51,7 @@ Da es sich um einen Prozess ohne Gedächtnis handelt, bringt es
 nichts, das Gerät auszutauschen, wenn die beiden redundanten Komponenten
 noch funktionsfähig sind. Da sie nicht altern, sind sie, sofern sie
 noch ganz sind, neuwertig.
+\item
 Der Fall, dass eine Komponente kaputt ist, die andere aber noch ganz,
 ist
 \begin{align*}
