@@ -1,0 +1,210 @@
+\newboolean{lang}
+\setboolean{lang}{true}
+In den Anfangsjahren des italienischen Bekleidungsherstellers Benetton
+ergaben sich für die Ausgaben für Werbung und die Einnahmen aus
+Verkäufen folgende Zahlen:
+\begin{center}
+\begin{tabular}{|>{$}r<{$}|>{$}r<{$}|}
+\hline
+\text{Werbung (Mio)}&\text{Verkäufe (Mio)}\\
+\hline
+23&  651\\
+26&  762\\
+30&  856\\
+34& 1063\\
+43& 1190\\
+48& 1298\\
+52& 1421\\
+57& 1440\\
+58& 1518\\
+\hline
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item
+Können Sie ein einfaches Modell für den Zusammenhang zwischen Werbung
+und Verkäufen aufstellen?
+\item
+Wieviel muss für Werbung ausgegeben werden, damit die Verkäufe
+\ifthenelse{\boolean{lang}}{
+1600 Mio
+}{
+1300 Mio
+}
+erreichen?
+\item 
+Wie gut ist das Modell?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Man kann ein lineares Modell der Form $Y=aX+b$ verwenden, wobei $X$
+für die Werbeausgaben und $Y$ für die Verkäufe steht.
+Zur Berechnung der Koeffizienten $a$ und $b$ verwenden wir die Tabelle
+\begin{center}
+\def\p{\phantom{.00}}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+i&x_i\p&     y_i\p& x_i^2\p&   y_i^2\p& x_iy_i\p\\
+\hline
+1& 23\p&     651\p&   529\p&  423801\p&  14973\p\\
+2& 26\p&     762\p&   676\p&  580644\p&  19812\p\\
+3& 30\p&     856\p&   900\p&  732736\p&  25680\p\\
+4& 34\p&    1063\p&  1156\p& 1129969\p&  36142\p
+\ifthenelse{\boolean{lang}}{\\
+5& 43\p&    1190\p&  1849\p& 1416100\p&  51170\p\\
+6& 48\p&    1298\p&  2304\p& 1684804\p&  62304\p\\
+7& 52\p&    1421\p&  2704\p& 2019241\p&  73892\p\\
+8& 57\p&    1440\p&  3249\p& 2073600\p&  82080\p\\
+9& 58\p&    1518\p&  3364\p& 2304324\p&  88044\p
+}{}\\
+\hline
+\ifthenelse{\boolean{lang}}{
+ &41.22&   1133.22& 1859.00&1373913.22& 50455.22
+}{
+ &28.25&    833.00&  815.25& 716787.50& 24151.75
+}
+\\
+ &E(X)\p&   E(Y)\p&E(X^2)\p&  E(Y^2)\p&  E(XY)\p\\
+\hline
+\end{tabular}
+\end{center}
+Daraus kann man jetzt die Koeffizienten des Modells ableiten:
+\begin{align*}
+a
+&=
+\frac{E(XY)-E(X)E(Y)}{E(X^2)-E(X)^2}
+=
+\ifthenelse{\boolean{lang}}{
+\frac{50455.22 - 41.22 \cdot 1133.22}{1859.00 - 41.22^2} = 23.423
+}{
+\frac{24151.75 - 28.25 \cdot 833}{815.25 - 28.25^2} = 36.044
+}
+\\
+b
+&=
+E(Y) - aE(X)
+=
+\ifthenelse{\boolean{lang}}{
+1133.22 - 23.423 \cdot 41.22
+}{
+833 - 36.044 \cdot 28.25
+}
+=
+\ifthenelse{\boolean{lang}}{
+167.68
+}{
+-185.23
+}.
+\end{align*}
+\item
+Die Gleichung
+\[
+Y=aX +b 
+\qquad\Rightarrow\qquad
+X
+=
+\frac{Y-b}{a}
+=
+\ifthenelse{\boolean{lang}}{
+\frac{1600 - 167.68}{23.423} = 61.151
+}{
+\frac{1300 + 185.23}{36.044} = 41.207
+}
+\]
+liefert den Wert
+\ifthenelse{\boolean{lang}}{
+61.151
+}{
+41.207
+}
+Mio
+als Werbebudget, um Verkäufe im Umfang von
+\ifthenelse{\boolean{lang}}{
+1600
+}{
+1300
+}
+Mio
+zu erreichen.
+\item
+Die Qualität der linearen Regression kann man beurteilen mit Hilfe 
+des Regressionskoeffizienten:
+\begin{align*}
+r
+&=
+\frac{
+\operatorname{cov}(X,Y)
+}{
+\sqrt{\operatorname{var}(X)\operatorname{var}(Y)}
+}
+=
+\ifthenelse{\boolean{lang}}{
+\frac{3741.3}{\sqrt{159.73\cdot 89720.61728}} = 0.98829
+}{
+\frac{619.50}{\sqrt{17.188\cdot 22898.5}} = 0.98749
+}.
+\end{align*}
+Da $r$ nahe bei $1$ ist, kann man die von einer guten Approximation sprechen.
+\begin{center}
+\begin{tikzpicture}[>=latex,thick,scale=0.2]
+\ifthenelse{\boolean{lang}}{
+\def\a{23.423} \def\b{167.68}
+}{
+\def\a{36.044} \def\b{-185.23}
+}
+\def\s{0.01}
+\def\punkt#1#2{
+\fill[color=red] (#1,{#2*\s}) circle[radius=0.3];
+}
+\draw[->] (22,0) -- (60,0) coordinate[label={$X$}];
+\draw[->] (22,0) -- (22,20) coordinate[label={right:$Y$}];
+\draw[color=blue,line width=1pt]
+	(22,{(\a*22+(\b))*\s})
+	--
+	(58,{(\a*58+(\b))*\s});
+\punkt{23}{651}
+\punkt{26}{762}
+\punkt{30}{856}
+\punkt{34}{1063}
+\ifthenelse{\boolean{lang}}{
+\punkt{43}{1190}
+\punkt{48}{1298}
+\punkt{52}{1421}
+\punkt{57}{1440}
+\punkt{58}{1518}
+}{}
+\def\strich#1{
+	\draw (#1,{-0.1/0.2}) -- (#1,{0.1/0.2});
+	\node at (#1,0) [below] {$#1$};
+}
+\strich{22}
+\strich{30}
+\strich{40}
+\strich{50}
+\strich{58}
+\def\hstrich#1{
+	\draw ({22-0.1/0.2},{#1*\s}) -- ({22+0.1/0.2},{#1*\s});
+	\node at (22,{#1*\s}) [left] {$#1$};
+}
+\hstrich{400}
+\hstrich{800}
+\hstrich{1200}
+\hstrich{1600}
+\end{tikzpicture}
+\end{center}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Methode der linearen Regression ({\bf L}) 1 Punkt,
+Wert von $a$ ({\bf A}) 1 Punkt,
+Wert von $b$ ({\bf B}) 1 Punkt,
+Berechnung von $x$ ({\bf X}) 1 Punkt,
+Wert von $r$ ({\bf R}) 1 Punkt,
+Beurteilung mit Kriterium ``$r^2$ nahe bei 1'' ({\bf U}) 1 Punkt.
+\end{bewertung}
+
+
+% Quelle: https://www.displayr.com/what-is-linear-regression/#:~:text=Linear%20regression%20quantifies%20the%20relationship,s)%20and%20one%20outcome%20variable.&text=For%20example%2C%20it%20can%20be,height%20(the%20outcome%20variable).
