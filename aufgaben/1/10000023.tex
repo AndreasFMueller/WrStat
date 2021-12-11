@@ -1,0 +1,106 @@
+Ein Kartenspiel mit 52 Karten besteht aus 26 roten und 26 schwarzen
+Karten.
+\begin{teilaufgaben}
+\item
+Auf wieviele Arten kann man das Kartenspiel mischen?
+\item
+Auf wieviele Arten kann man das Kartenspiel mischen, so dass die oberste
+und die unterste Karte die gleiche Farbe haben?
+\item 
+Welcher Prozentsatz der möglichen Kartenstapel hat gleichfarbige
+oberste und unterste Karten?
+\item
+Jetzt werden dem Spiel noch drei Joker-Karten hinzugefügt, die sowohl
+als rot als auch als schwarz betrachtet werden können.
+Auf wieviele Arten kann man das erweiterte Kartenspiel mischen so, 
+dass die oberste und unterste Karte die gleiche Farbe haben?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Dies ist ein Anordnungsproblem, es gibt $52!$ solche Reihenfolgen.
+\item
+Wir können alle möglichen Kartenstapel wie folgt erzeugen.
+Zunächst wählen wir eine von 52 Karten, dies wird die oberste
+Karte.
+Dann wählen wir eine Karte der gleichen Farbe, davon gibt es noch 25,
+dies wird die unterste Karte.
+Die verbleibenden 50 Karten können in jeder beliebigen Reihenfolge
+dazwischen gelegt werden, was auf $50!$ Arten möglich ist.
+Somit gibt es insgesamt
+\[
+52\cdot 25\cdot 50!
+\]
+\item
+Dies ist der Quotient
+\[
+\frac{52\cdot 25\cdot 50!}{52!}
+=
+\frac{25\cdot 50!}{51!}
+=
+\frac{25\cdot 50!}{51\cdot 50!}
+=
+\frac{25}{51}
+=
+0.490196%07843137254901
+\]
+\item
+Wir verwenden den gleichen Prozess, um die Karten zu mischen, wie oben in 
+b).
+Allerdings gibt es jetzt zwei Situtationen für die erste Karte: diese
+erste Karte könnte eine Farbkarte sein oder eine Jokerkarte.
+Wir zählen diese beiden Arten separat.
+
+Es gibt drei möglich Jokerkarten für die erste Karte, da zu passt dann jede
+beliebige andere Karte als unterste Karte, von denen gibt es 54.
+Die verbleibenden 53 Karten können in jeder beliebigen Reihenfolge dazwischen 
+gelegt werden. 
+Insgesamt erhalten wir $3\cdot 54 \cdot 53!$ Arten.
+
+Ist die erste Karte eine Farbkarte, was auf 52 Arten möglich ist, dann
+gibt es $25+3$ mögliche Farb- bwz.~Jokerkarten, die als gleichfarbig
+gelten.
+Die verbleibenden 53 Karten können dann wieder dazwischen gelegt werden.
+Wir erhalten also 
+$52\cdot 28\cdot 53!$.
+
+Die beiden Fälle sind disjunkt, so dass die gesamte Zahl die Summe ist,
+also
+\[
+3\cdot 54 \cdot 53! + 52 \cdot 28 \cdot 53!
+=
+(3\cdot 54 + 52\cdot 28)\cdot 53!
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Man kann nachrechnen, dass die Gesamtzahl der verschiedenen Stapel (55!)
+nur noch
+\[
+\frac{ (3\cdot 54 + 52\cdot 28)\cdot 53!}{55!}
+=
+\frac{3\cdot 54+52\cdot 28}{55\cdot 54}
+=
+\frac{323}{594}
+=
+0.543771\dots
+\]
+mal mehr ist also die Zahl der Stapel mit gleicher
+oberster und unterster Karte, so dass die Wahrscheinlichkeit eines
+Stapels mit gleichfarbiger oberster und unterster Karte leicht
+gestiegen ist.
+\end{diskussion}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item ({\bf A}) 1 Punkt.
+\item ({\bf B}) 1 Punkte.
+\item ({\bf C}) 1 Punkt.
+\item Fallunterscheidung ({\bf U}) 1 Punkt
+Berechnung Fall Farbkarte ({\bf F}) 1 Punkt,
+Berechnung Fall Joker ({\bf J} 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}

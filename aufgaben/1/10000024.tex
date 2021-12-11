@@ -1,0 +1,81 @@
+Gegeben ist der Stapel der Spielkarten vom Ass bis zur Nummer 10,
+das Ass zählt dabei als $1$.
+\begin{center}
+\includeagraphics[width=0.6\hsize]{tencards.png}
+\end{center}
+
+\begin{teilaufgaben}
+\item 
+Auf wieviele Arten kann man zwei Karten aus dem Stapel ziehen?
+\item
+Auf wieviele Arten kann man zwei Karten aus dem Stapel ziehen derart,
+dass die Summe der Zahlen gerade ist?
+\item
+Auf wieviele Arten kann man zwei Karten aus dem Stapel ziehen derart,
+dass die Summe der Zahlen ungerade ist?
+\item
+Auf wievele Arten kann man einen Stapel von Karten ziehen, der
+nur aus geraden Karten besteht, wenn man eine gerade Anzahl Karten
+zieht und nur aus ungeraden, wenn man eine ungerade Anzahl Karten zieht?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Dies ist ein Auswahlproblem, es gibt $\binom{10}{2}=45$ solche Auswahlen.
+\item
+Wenn die Summe gerade sein soll, dann müssen beide Zahlen gerade oder beide
+ungerade sein, sie müssen also die gleiche Parität haben.
+Wählt man also irgend eine Karte, dann gibt es noch vier weitere der gleichen
+Parität, die man als zweite Karten auswählen kann.
+Es gibt also $10\cdot 4$ solche Auswahlen.
+Dabei hat man aber auch alle Reihenfolgen doppelt gewählt, man muss also
+noch durch 2 teilen.
+Es gibt also 20 Arten.
+\item
+Wenn die Summe ungerade sein soll, dann müssen die beiden Zahlen verschiedene
+Partität haben.
+Zu den zehn Möglichkeiten der ersten gewählten Karte gibt es 5 weitere
+Karten, die entgegengesetzte Parität haben, also $10\cdot 5$ Arten.
+Dabei hat man aber wieder die Reihenfolgen doppelt erzeugt, man muss
+also noch durch 2 teilen und erhält $25$ Arten.
+\item
+Man zieht also immer Karten gleicher Parität, und ausserdem der gleichen
+Parität wie die Anzahl der Karten.
+Sei $k$ die Anzahl der gezogenen Karten, dann muss man $k$ Karten der gleichen
+Parität wie $k$ ziehen.
+Da es gleich viele gerade Karten  wie ungerade Karten gibt, geht das immer
+auf $\binom{5}{k}$ Arten.
+Dies muss man für alle möglichen Anzahlen $k$ von 0 bis 5 durchführen, man
+erhält
+\[
+\binom{5}{0}
++
+\binom{5}{1}
++
+\binom{5}{2}
++
+\binom{5}{3}
++
+\binom{5}{4}
++
+\binom{5}{5}
+=
+2^5
+=
+32.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item ({\bf A}) 1 Punkt.
+\item ({\bf B}) 1 Punkt.
+\item ({\bf C}) 1 Punkt.
+\item Aufteilung in je drei Fälle für $k$ ({\bf K}) 1 Punkt,
+Möglichkeiten für jeden Fall $k$ ({\bf M}) 1 Punkt,
+Summe ({\bf S}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
