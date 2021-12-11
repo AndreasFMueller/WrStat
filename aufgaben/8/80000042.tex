@@ -1,0 +1,76 @@
+Am 14. Oktober 2020 erschien in der Zeitschrift {\em Blood Advances}
+ein Artikel über die Resultate einer dänischen Studie mit über 7000
+Subjekten über einen Zusammenhang zwischen Blutgruppe und Covid-19-Risiko,
+deren Resultate graphisch wie folgt zusammengefasst wurden:
+\begin{center}
+\includeagraphics[width=8cm]{summary.png}
+\end{center}
+In der Studie wurden Daten von immerhin 473654 Corona-Tests ausgewertet,
+wovon 7422 positiv waren.
+Die Studie behauptet, dass die Blutgruppe ein Risikofaktor sei für einen
+positiven Test, aber nichts aussagt über das Risiko für einen schweren
+Verlauf der Krankheit.
+
+Formulieren Sie einen Test, mit dem man allein auf der
+Basis der dargestellten Informationen entscheiden kann, ob
+die Resultate dieser Studie aussagekräftig sind.
+
+\begin{hinweis}
+Im Orginalartikel stehen auch die beobachteten Fallzahlen in Abhängigkeit
+von der Blutgruppe, für die Graphik wurden diese in Prozentzahlen umgerechnet,
+die sich aber nicht einmal zu 100\% summieren.
+Um diese Schwierigkeit müssen Sie sich natürlich auch kümmern.
+\end{hinweis}
+
+\begin{loesung}
+Die Studie untersucht die Nullhypothese
+\begin{quote}
+Die Wahrscheinlichkeit einer Person mit Blutgruppe
+$i\in\{\text{0},\text{A},\text{B},\text{AB}\}$ an Covid-19 zu erkranken
+entspricht der Wahrscheinlichkeitsverteilung der Blutgruppen in der
+Bevölkerung.
+\end{quote}
+Die Hypothese kann mit einem $\chi^2$-Test getestet werden, dieser braucht
+aber nicht Prozentzahlen für die $n=7422$ Test-Subjekte, sondern Anzahlen.
+Diese kann man aber durch Multiplikation der Wahrscheinlichkeiten mit $n$
+erhalten.
+Wir wählen in diesem Fall $\alpha=0.01$, die Zahl der Freiheitsgrade
+ist $4-1=3$, der kritische Wert der Diskrepanz ist
+$D_{\text{krit}} = 11.345$.
+Wir berechnen die Diskrepanz:
+\begin{center}
+\begin{tabular}{|c|r>{$}r<{$}|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+Blutgruppe
+  &      &  n_i   &  p_i &   np_i & (n_i-np_i)^2/np_i \\
+\hline
+0 & 38\% & 2820.4 & 0.42 & 3086.1 &  22.876 \\
+A & 44\% & 3265.7 & 0.42 & 3086.1 &  10.452 \\
+B & 12\% &  890.6 & 0.11 &  808.7 &   8.294 \\
+AB&  5\% &  371.1 & 0.04 &  293.9 &  20.278 \\
+\hline
+  &      & 7347.8 &      &        &D=61.900 \\
+\hline
+\end{tabular}
+\end{center}
+Die Diskrepanz ist also deutlich grösser als $D_{\text{krit}}$,
+die Nullhypothese muss daher verworfen werden und man darf nach heutigem
+Wissensstand tatsächlich davon ausgehen, dass die Blutgruppe einen Einfluss
+auf das Ansteckungsrisiko hat.
+\end{loesung}
+
+\begin{bewertung}
+$\chi^2$-Text ({\bf X}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Bestimmung des kritischen $D$ ({\bf K}) 1 Punkt,
+Ermittelung der $n_i$ aus den vorhandene Daten ({\bf I}) 1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+
+\begin{diskussion}
+Die Studie macht viele weitere detailliertere Aussagen, die in
+\url{https://ashpublications.org/bloodadvances/article/4/20/4990/463793/Reduced-prevalence-of-SARS-CoV-2-infection-in-ABO}
+nachgelesen werden können.
+\end{diskussion}
+

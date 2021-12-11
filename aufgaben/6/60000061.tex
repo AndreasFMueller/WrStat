@@ -1,0 +1,124 @@
+Auf der Website \url{http://blutspende.ch} findet man Informationen
+über die Verteilung der verschiedenen Blutgruppen in der
+Bevölkerung.
+Zum Beispiel steht da, dass die Blutgruppe A+ die häufigste ist, 38\%
+der der Menschen in der Schweiz haben diese Blutgruppe.
+Relativ selten ist aber die Blutgruppe B- mit nur 1\%.
+Bei einer Blutspendeaktion, wie sie jedes Jahr auch in den Räumlichkeiten
+der OST RJ stattfinden, wurden 200 Spenden abgegeben.
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, dass weniger als 70 Proben die
+Blutgruppe A+ haben?
+\item
+Wie gross ist die Wahrscheinlichkeit, mehr als 3 Proben der Blutgruppe B-
+zu finden?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Anzahl $X$ der Blutproben mit Blutgruppe A+ ist binomialverteilt mit
+$n=200$ und $p=0.38$.
+Wir approximieren die Verteilung mit der Normalverteilung, dazu müssen
+wir mit Erwartungswert $\mu=np=76$ und Varianz $\sigma^2=np(1-p)=47.12$
+standardisieren:
+\begin{align*}
+P(X<70)
+&=
+P(X\le 69.5)
+=
+P\biggl(
+\frac{X-\mu}{\sigma} \le \frac{69.5-\mu}{\sigma}
+\biggr)
+\\
+&=
+\Phi\biggl(
+\frac{69.5-\mu}{\sigma}
+\biggr)
+=
+1-\Phi\biggl(
+\frac{\mu-69.5}{\sigma}
+\biggr)
+=
+1-\Phi\biggl(
+\frac{76-69.5}{6.864}
+\bigr)
+=
+1-\Phi\biggl(
+\frac{6.5}{6.864}
+\biggr)
+\\
+&=
+1-\Phi(0.947)
+=
+1-0.8282
+=
+0.1718.
+\end{align*}
+Die Wahl der Grenze $69.5$ liefert die beste Approximation, $69$ und $70$
+ebenfalls akzeptabel Schranken.
+Definitiv falsch ist jedoch die Schranke $70.5$, da damit die Anzahl $70$,
+die in der Aufgabenstellung ausgeschlossen ist, explizit mit eingerechnet
+wird.
+\item
+Die Anzahl $Y$ der Blutproben der Blutgruppe B- ist ebenfalls binomialverteilt,
+aber da diese Blutgruppe selten ist, wird sie besser mit einer
+Poisson-Vorteilung approximiert.
+Die erwartete Anzahl von Blutproben ist $\lambda=2$.
+Die Wahrscheinlichkeit mehr als zwei Blutproben mit Blutgruppe B-
+zu finden ist
+\begin{align*}
+P(Y>3)
+=
+1-P(Y\le 3)
+&=
+1-(
+P_{\lambda}(0)
++
+P_{\lambda}(1)
++
+P_{\lambda}(2)
++
+P_{\lambda}(3)
+)
+)
+\\
+&=
+1
+-
+\frac{\lambda^0}{0!}e^{-\lambda}
+-
+\frac{\lambda^1}{1!}e^{-\lambda}
+-
+\frac{\lambda^2}{2!}e^{-\lambda}
+-
+\frac{\lambda^3}{3!}e^{-\lambda}
+\\
+&=
+1-e^{-2}\biggl((1+\lambda+\frac12\lambda^2+\frac16\lambda^3\biggr)
+=
+1-e^{-2}\biggl(1+2+\frac{2^2}{2}+\frac{8}{6}\biggr)
+\\
+&=
+1-e^{-2}\frac{3+6+6+4}{3}
+=
+1-e^{-2}\frac{19}{3}
+=
+0.1429.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Erwartungswert $\mu$ ({\bf M}) 1 Punkt,
+Varianz $\sigma^2$ ({\bf V}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Normalapproximation ({\bf N}) 1 Punkt,
+Wahrscheinlichkeit der Normalapproximation ({\bf W}) 1 Punkt,
+Poissonverteilung und Wahrscheinlichkeit ({\bf P}) 1 Punkt.
+\end{bewertung}
+
+
+

@@ -1,0 +1,60 @@
+Bei einer Untersuchung der Häufigkeit von Verkehrsunfällen in
+verschiedenen Altersgruppen wurden folgende Zahlen für die Anzahl der 
+Unfälle verursacht durch eine standardisierte Anzahl Lenker
+in jeder Kategorie gefunden:
+\begin{center}
+\begin{tabular}{l|cccccc}
+Altersgruppe   & 17--20 & 21--30 & 31--40 & 41--50 & 51--60 & über 60 \\
+\hline
+Anzahl Unfälle &   45   &   39&      25   &   29   &   26   &   25    \\
+\end{tabular}
+\end{center}
+Kann man daraus ableiten, dass Junglenker mehr Unfälle verursachen?
+
+\begin{loesung}
+Die Nullhypothese, die wir testen wollen ist
+\begin{quote}
+Unfälle sind in allen Alterskategorien gleich häufig.
+\end{quote}
+Wir testen diese Hypothese mit einem $\chi^2$-Test für $\alpha=0.05$ und
+$\alpha=0.01$.
+Die Zahl der Freiheitsgrade ist 5, die kritischen Werte für die Diskrepanz
+sind $D_{0.05}=11.070$ und $D_{0.01}=15.086$.
+Wir berechnen die Diskrepanz mit der folgenden Tabelle:
+\begin{center}
+\begin{tabular}{|c|>{$}r<{$}|>{$}c<{$}>{$}c<{$}|>{$}r<{$}|}
+\hline
+Altersgruppe&   n_i&p_i    &np_i& (n_i-np_i)^2/np_i \\
+\hline
+17--20      &    45&\frac16&31.5&           5.78571 \\
+21--30      &    39&\frac16&31.5&           1.78571 \\
+31--40      &    25&\frac16&31.5&           1.34127 \\
+41--50      &    29&\frac16&31.5&           0.19841 \\
+51--60      &    26&\frac16&31.5&           0.96032 \\
+über 60     &    25&\frac16&31.5&           1.34127 \\
+\hline
+            &n=189&       &    &        D = 11.413 \\
+\hline
+\end{tabular}
+\end{center}
+Daraus schliesst man wegen $D>D_{0.05}$, dass sich für $\alpha=0.05$
+die Nullhypothese verwerfen lässt, wegen $D< D_{0.01}$ aber nicht
+für $\alpha=0.01$. 
+Es gibt in den Daten also einen Hinweis darauf, dass Junglenker
+vielleicht mehr Unfälle verursachen, aber wirklich sicher sein kann
+man da nicht.
+\end{loesung}
+
+
+% Quelle: https://www.open.ac.uk/socialsciences/spsstutorial/files/tutorials/chi-square.pdf
+\begin{bewertung}
+Hypothese ({\bf H}) 1 Punkt,
+$\chi^2$-Test ({\bf X}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Freiheitsgrade und kritische Diskrepanz ({\bf F}) 1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+
+
+

@@ -1,0 +1,91 @@
+Am 12.~Dezember 2020 hatte die Schweiz 76371 aktive Covid-19 Fälle,
+d.~h.~bestätigte Fälle, in denen der Patient noch nicht genesen oder
+gestorben ist.
+Es wird geschätzt, dass es in etwa 3\% der Fälle zu einer Hospitalisierung
+kommt und in etwa 1\% der Fälle zum Tod.
+\begin{teilaufgaben}
+\item
+Mit wievielen Covid-19-bedingten Hospitalisierungen muss man rechnen, und
+wie gross ist die Varianz dieser Anzahl?
+\item
+Die Besorgnis ob der Ausbreitung von SARS-CoV-2 betrifft vor allem die
+Überlastung des Gesundheitswesens.
+Wir verwenden ein sehr simplistisches Modell, welches von 2350 
+verfügbaren Spitalplätzen ausgeht.
+Dies ist mehr, als man erwartet.
+Wie gross ist die Wahrscheinlichkeit, dass es trotzdem zu einem Engpass kommt?
+\item
+Die aktiven Fälle machen 0.9\% der Bevölkerung aus.
+Nimmt man Gleichverteilung der Fälle an, wie gross ist dann die
+Wahrscheinlichkeit, in einem Dorf mit 200 Einwohnern mehr als 2 
+aktive Fälle zu finden?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Anzahl $X$ Hospitalisierungen ist binomialverteilt mit $p=0.03$ und
+$n=76371$.
+Der Erwartungswert ist $E(X)=np = 2291.13$ und
+$\operatorname{var}(X)=np(1-p)=2222.3961$
+\item
+Für die Anzahl $X$ kann man die Normalapproximation verwenden und damit
+die gesuchte Wahrscheinlichkeit $P(X>2300)$ mit Hilfe von Standardisierung
+berechnen:
+\begin{align*}
+P(X>2300)
+&=
+1-P(X<2350)
+=
+1-P(X\le 2350)
+=
+1-P\biggl(\frac{X-\mu}{\sigma}\le \frac{2350-\mu}{\sigma}\biggr)
+\\
+&=
+1-\Phi\biggl(\frac{2350-\mu}{\sigma}\biggr)
+=
+1-\Phi(1.249)
+=
+1-0.8942
+=
+0.1058.
+\end{align*}
+\item
+Die Anzahl der aktiven Fälle $Y$ ist ebenfalls binomialverteilt,
+wir approximieren sie mit Hilfe der Poissonverteilung mit
+$\lambda = 0.009\cdot 200 = 1.8$.
+Es ist
+\begin{align*}
+P(X > 2)
+=
+1-P(X\le 2)
+&=
+1-P_{\lambda}(0)-P_{\lambda}(1)-P_{\lambda}(2)
+\\
+&=
+1-
+\frac{\lambda^0}{0!}e^{-\lambda}
+-
+\frac{\lambda^1}{1!}e^{-\lambda}
+-
+\frac{\lambda^2}{2!}e^{-\lambda}
+\\
+&=
+1-(1+\lambda+{\textstyle\frac12}\lambda^2)e^{-\lambda}
+=
+0.2694.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Erwartungswert $\mu$ ({\bf M}) 1 Punkt,
+Varianz $\sigma^2$ ({\bf V}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Normalapproximation ({\bf N}) 1 Punkt,
+Wahrscheinlichkeit der Normalapproximation ({\bf W}) 1 Punkt,
+Poissonverteilung un Wahrscheinlichkeit ({\bf P}) 1 Punkt.
+\end{bewertung}
+
+

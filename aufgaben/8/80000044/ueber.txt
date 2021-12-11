@@ -1,0 +1,85 @@
+> data <- read.csv("data.csv")
+> 
+> d <- data.frame(woche = 1:50)
+> 
+> d$jahr2020 <- data$jahr2020
+> d$vorjahre <- data$jahr2019 + data$jahr2018 + data$jahr2017 + data$jahr2016 + data$jahr2015
+> 
+> m <- data.frame(gruppe = 1:5)
+> m
+  gruppe
+1      1
+2      2
+3      3
+4      4
+5      5
+> 
+> m$jahr2020 <- c(
++ sum(d$jahr2020[seq( 1,10,1)]),
++ sum(d$jahr2020[seq(11,20,1)]),
++ sum(d$jahr2020[seq(21,30,1)]),
++ sum(d$jahr2020[seq(31,40,1)]),
++ sum(d$jahr2020[seq(41,50,1)])
++ )
+> m$vorjahre <- c(
++ sum(d$vorjahre[seq( 1,10,1)]),
++ sum(d$vorjahre[seq(11,20,1)]),
++ sum(d$vorjahre[seq(21,30,1)]),
++ sum(d$vorjahre[seq(31,40,1)]),
++ sum(d$vorjahre[seq(41,50,1)])
++ )
+> 
+> m
+  gruppe jahr2020 vorjahre
+1      1      141      831
+2      2      183      744
+3      3      150      793
+4      4      170      832
+5      5      133      770
+> 
+> m$p = m$vorjahre / sum(m$vorjahre)
+> m$pj = m$jahr2020 / sum(m$jahr2020)
+> m
+  gruppe jahr2020 vorjahre         p        pj
+1      1      141      831 0.2093199 0.1814672
+2      2      183      744 0.1874055 0.2355212
+3      3      150      793 0.1997481 0.1930502
+4      4      170      832 0.2095718 0.2187902
+5      5      133      770 0.1939547 0.1711712
+> 
+> n = sum(m$jahr2020)
+> n
+[1] 777
+> m$np = n * m$p
+> m$np
+[1] 162.6416 145.6141 155.2043 162.8373 150.7028
+> m$D = (m$np - m$jahr2020)^2 / m$np
+> 
+> m
+  gruppe jahr2020 vorjahre         p        pj       np         D
+1      1      141      831 0.2093199 0.1814672 162.6416 2.8796895
+2      2      183      744 0.1874055 0.2355212 145.6141 9.5986929
+3      3      150      793 0.1997481 0.1930502 155.2043 0.1745091
+4      4      170      832 0.2095718 0.2187902 162.8373 0.3150664
+5      5      133      770 0.1939547 0.1711712 150.7028 2.0795112
+> 
+> D = sum(m$D)
+> 
+> D
+[1] 15.04747
+> 
+> chisq.test(m$jahr2020, p = m$vorjahre / sum(m$vorjahre))
+
+	Chi-squared test for given probabilities
+
+data:  m$jahr2020
+X-squared = 15.047, df = 4, p-value = 0.004604
+
+> 
+> pdf("ueber.pdf")
+> m$vorjahre / sum(m$vorjahre)
+[1] 0.2093199 0.1874055 0.1997481 0.2095718 0.1939547
+> plot(m$jahr2020/sum(m$jahr2020), col="red", type="h", lwd = 10, ylab = "Todesfallhäufigkeit", main = "Todesfallhäufigkeit 20-39jährige", xlab="Wochengruppe")
+> points(m$vorjahre/sum(m$vorjahre), col="blue", type="l", xlab="Wochengruppe", ylab="Häufigkeit", lwd=3)
+> 
+> 

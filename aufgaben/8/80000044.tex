@@ -1,0 +1,60 @@
+Während der Covid-19 Pandemie im Jahre 2020 ging in den sozialen Medien
+und den Fake News die Behauptung um, es gäbe keine Veränderung der
+Sterblichkeit unter jüngeren Menschen.
+In der folgenden Tabelle sind die Todesfallzahlen für
+20--39-jährige in der Schweiz für
+das Jahr 2020 und die Todesfallhäufigkeit in den Vorjahren 2015-2019
+zusammengestellt.
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Wochen         &Todesfälle 2020&Todesfallhäufikeit Vorjahre\\
+\hline
+\phantom{0}1--10&            141&         0.2093199 \\
+          11--20&            183&         0.1874055 \\
+          21--30&            150&         0.1997481 \\
+          31--40&            170&         0.2095718 \\
+          41--50&            133&         0.1939547 \\
+\hline
+\end{tabular}
+\end{center}
+Was kann man auf Grund dieser Zahlen über obige Behauptung sagen?
+
+\begin{loesung}
+Man kann die folgende Nullhypothese testen:
+\begin{quote}
+Die Verteilung der Todesfallzahlen unter den 20--39-jährigen im Jahr
+2020 unterscheidet sich nicht von der langjährigen Todesfallhäufigkeit.
+\end{quote}
+Diese Aussage kann mit einem $\chi^2$-Test getestet werden.
+Für einen Test auf dem Niveau $\alpha=5\%$ ist die kritische 
+Diskrepanz $D_{\text{krit}}=9.488$.
+Die Berechnung der Diskrepanz liefert:
+\begin{center}
+\begin{tabular}{|c|rr|rr|}
+\hline
+Wochen           &  $n_i$& $p_i$     & $np_i$   & $(n_i-np_i)^2/np_i$  \\
+\hline
+\phantom{0}1--10 &   141 & 0.2093199 & 162.6416 &  2.87968 \\
+11--20           &   183 & 0.1874055 & 145.6141 &  9.59869 \\
+21--30           &   150 & 0.1997481 & 155.2043 &  0.17450 \\
+31--40           &   170 & 0.2095718 & 162.8373 &  0.31506 \\
+41--50           &   133 & 0.1939547 & 150.7028 &  2.07951 \\
+\hline
+                 &$n=777$&           &          &$D= 15.04747$\\
+\hline
+\end{tabular}
+\end{center}
+Da die Diskrepanz deutlich grösser ist als die kritische Diskrepanz,
+also $D>D_{\text{krit}}$, muss die Nullhypothese verworfen werden.
+Die Behauptung, die Pandemie hätte keine Auswirkungen auf die
+20--39-jährigen, ist also falsch.
+
+Man kann in der Tabelle auch ablesen, dass der wesentliche Beitrag
+zur Diskrepanz in den Wochen 11--20 zustande kam, also währen der
+ersten Welle.
+Man kann auch erkennen, dass sogar ein Test mit $\alpha=0.01$ 
+einen signifikanten Effekt nachweist.
+\end{loesung}
+
+
