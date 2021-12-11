@@ -1,0 +1,152 @@
+Man erwartet, dass die Masse von Kartoffeln einer Sorte normalverteilt ist.
+Dies hat zur Folge, dass manchmal auch sehr grosse oder sehr kleine 
+Kartoffeln vorkommen.
+In der Praxis werden solche Produkte daher meistens nach Grösse
+selektiert.
+Wenn man ein Kartoffeln aus einer breiten Normalverteilung selektiert,
+dann bleiben nur noch Kartoffeln, deren Massen besser mit einer
+Gleichverteilung in einem Interval beschrieben werden als mit einer
+Normalverteilung.
+
+Jetzt sollen Kartoffeln mit einer Masse zwischen 80g und 100g bestellt
+werden, so dass man mindestens 10kg Kartoffeln bekommt.
+Normalerweise würde man natürlich nach Gewicht bestellen, aber im neuen
+Webshop muss man aus unerfindlichen Gründen die Kartoffeln
+nach Anzahl beziehen
+(der Manager, der das entschieden hat, arbeitet nicht mehr für die Firma\dots).
+Man möchte also $n$ Kartoffeln bestellen.
+
+\begin{teilaufgaben}
+\item
+Wie gross ist die Varianz der Masse einer selektierten Kartoffel?
+\item
+Wie gross muss $n$ sein, damit man mit mindestens 10kg Kartoffeln rechnen kann?
+\item
+Da die Masse der Kartoffeln immer noch streuen kann, wird
+man manchmal zu viel erhalten, 
+in einigen Fällen aber auch nicht die verlangten 10kg.
+Um sicher zu sein, bestellt man daher noch zwei Kartoffeln mehr.
+Wie gross ist die Wahrscheinlichkeit, dass es immer noch nicht reicht?
+\ifthenelse{\boolean{pruefung}}{}{
+\item
+Wieviele Kartoffeln müssen bestellt werden, damit die Masse 10kg in
+99\% der Fälle erreicht wird.
+(Diese Aufgabe war nicht Teil der Prüfung.)
+}
+\end{teilaufgaben}
+
+\begin{loesung}
+Sei $K$ die Masse einer selektierten Kartoffel.
+Wir gehen davon aus, dass $K$ gleichverteilt ist im Intervall zwischen
+$a=80\text{g}$  und $b=100\text{g}$.
+Insbesondere ist $E(K) = 90\text{g}=\mu_0$.
+\begin{teilaufgaben}
+\item
+Die Varianz einer Gleichverteilung zwischen $a$ und $b$ ist
+\[
+\sigma_0^2
+=
+\operatorname{var}(K)
+=
+\frac{b^2-a^2}2
+=
+200\text{g}^2.
+\]
+\item
+Die Masse $K_1,\dots,K_n$ der $n$ Kartoffeln sind gleichverteilte
+Zufallsvariablen mit Erwartungswert 90g, daher hat die Summe
+$X=K_1+\dots+K_n$
+den Erwartungswert
+$E(X)=n \mu_0$.
+Damit der Erwartungswert 10kg erreicht wird, muss $n\ge 10kg/\mu_0$ sein,
+also $n=112$.
+\item
+Nach dem zentralen Grenzwertsatz ist $X$ annähernd normalverteilt
+mit Erwartungswert $\mu=n\mu_0$ und Varianz
+$\sigma^2=n\sigma_0^2$.
+Die Wahrscheinlichkeit, dass $X< 10\text{kg}$ ist, kann jetzt mit
+Standardisierung berechnet werden:
+\begin{align}
+P(X< 10\text{kg})
+=
+P(X\le 10\text{kg})
+&=
+P\biggl(
+\frac{X-\mu}{\sigma} \le \frac{10\text{kg}-\mu}{\sigma}
+\biggr)
+\notag
+\\
+&=
+P\biggl(
+Z \le \frac{10\text{kg}-\mu}{\sigma}
+\biggr)
+=
+P\biggl(
+Z \le
+\frac{10\text{kg}-n\mu_0}{\sqrt{n}\sigma_0}
+\biggr)
+=
+\Phi
+\biggl(
+\frac{10\text{kg}-n\mu_0}{\sqrt{n}\sigma_0}
+\biggr)
+\notag
+\intertext{Da das Argument $\Phi$ negativ ist, gehen wir zum Komplement über}
+&=
+1-
+\Phi
+\biggl(
+\frac{n\mu_0 - 10\text{kg}}{\sqrt{n}\sigma_0}
+\biggr).
+\label{50000046:formel}
+\end{align}
+Für $n=114$ ergibt sich
+\[
+P(X<10\text{kg})
+=
+1-\Phi(1.722)
+=
+1-0.9575
+=
+0.0425.
+\]
+\item
+Damit die rechte Seite von \eqref{50000046:formel} den Wert $0.99$
+ergibt, muss das Argument den Wert 2.3263 haben, also
+\begin{align*}
+\frac{n\mu_0-10\text{kg}}{\sqrt{n}\sigma_0}
+&=
+2.3263
+\\
+\Rightarrow\qquad
+\mu_0\,n
+-2.3263\sigma_0\,\sqrt{n} - 10\text{kg}&=0.
+\end{align*}
+Dies ist eine quadratische Gleichung für $\sqrt{n}$, wir können sie mit
+der bekannten Lösungsformel lösen:
+\begin{align*}
+\sqrt{n}
+&=
+\frac{2.3263\sigma_0 \pm\sqrt{2.3263^2\sigma_0^2 + 10000\text{g}}}{2\mu_0}
+=
+10.725281
+\\
+\Rightarrow\qquad
+n
+&=
+115.03166.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item Varianz ({\bf V}) 1 Punkt
+\item Wert für $n$ ({\bf N}) 1 Punkt
+\item Normalverteilungsapproximation ({\bf A}) 1 Punkt,
+Standardisierung mit $\mu$ ({\bf M}) und $\sigma$ ({\bf S}) je ein Punkt,
+Wert für die Wahrscheinlichkeit ({\bf P}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+

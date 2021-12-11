@@ -1,0 +1,153 @@
+In einem nicht gerade sorgfältig konstruierten Gerät gibt es eine
+Komponente, die sehr häufig kaputt geht und ersetzt werden muss.
+Die mittlere Lebensdauer ist eine Woche.
+Nach einem Jahr (52 Wochen) wird man also diese Komponenten etwa 52
+mal ausgewechselt haben, was natürlich mit hohen Kosten verbunden
+ist.
+Es können aber auch mehr oder weniger Auswechselaktionen nötig werden.
+Für Budgetzwecke wird angenommen, dass man mit 10 zusätzlichen
+Austauschaktionen pro Jahr durchkommt.
+\def\teilaufgabea{Verwenden Sie eine geeignete, einfache Approximation
+um die Wahrscheinlichkeit zu berechnen, dass das Budget nicht reicht.}
+\ifthenelse{\boolean{pruefung}}{%
+\teilaufgabea
+}{%
+\begin{teilaufgaben}
+\item
+\teilaufgabea
+\item
+Wie gross muss die Anzahl der zusätzlichen Austauschaktionen sein,
+damit das Budget mit Wahrscheinlichkeit 99\% reicht.
+(Diese Teilaufgabe war nicht Teil der Prüfung.)
+\end{teilaufgaben}
+}
+
+\begin{hinweis}
+Verwenden Sie eine Woche als Masseinheit für die Zeit, damit die Formeln
+nicht zu kompliziert werden.
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Jede der Komponenten hat eine exponentialverteilte Lebensdauer
+$T_1,\dots,T_n$ mit $a=1\,[\text{Woche}^{-1}]$.
+Gefragt ist die Wahrscheinlichkeit, dass die gesamte Lebensdauer der $n$
+Komponenten kleiner ist als $52$.
+Wir schreiben daher $X=T_1+\dots+T_n$ und versuchen, $P(X<52)$ zu berechnen.
+
+Für eine gute Näherung können wir die Eigenschaft verwenden, dass die
+Summe vieler kleiner Einflüsse auf eine Normalverteilung führt.
+Die Summe $X$ ist also approximativ normalverteilt mit Erwartungswert
+$\mu=E(X)=n E(T) = n\cdot 1\,[\text{Woche}]$
+und Varianz
+$\sigma^2=\operatorname{var}(X) = n\operatorname{var}(T)
+=
+n\cdot 1\,[\text{Woche}^2]$.
+Damit können wir die Wahrscheinlichkeit durch Standardisierung ermitteln:
+\begin{align*}
+P(X< 52)
+=
+P(X\le 52)
+&=
+P\biggl(\frac{X-\mu}{\sigma}\le \frac{52-\mu}{\sigma}\biggr)
+=
+P\biggl(Z\le \frac{52-n}{\sqrt{n}}\biggr)
+\end{align*}
+Da $52-n<0$ finden wir den zugehörigen Wert nicht in der Tabelle der
+Verteilungsfunktion der Normalverteilung, wir gehen daher über zum 
+Komplement:
+\begin{align*}
+P\biggl(Z\le \frac{52-n}{\sqrt{n}}\biggr)
+=
+1-
+P\biggl(Z\le \frac{n-52}{\sqrt{n}}\biggr)
+\end{align*}
+Für $n=62$ ist $P(Z\le 10/\sqrt{62})=P(Z\le 1.27) \approx 0.898$
+und damit ist die Wahrscheinlichkeit $P(X<52)\approx 0.112$.
+
+Wir können können aber auch eine exakte Antwort finden.
+Da es um die Anzahl $K$ der Ereignisse geht, die eintreten, ist die
+Poisson-Verteilung die richtige Wahl.
+Der Erwartungswert für die Anzahl der Austauschaktionen in einem
+Jahr ist $\lambda=52$.
+$P_\lambda(k)$ gibt dann die Wahrscheinlichkeit für genau $k$
+Austauschaktionen in einem Jahr an.
+Die Wahrscheinlichkeit für höchstens $n$ Austauschaktionen ist
+\[
+P(K\le n)
+=
+\sum_{k=0}^n  P_{\lambda}(k).
+\]
+Die Wahrscheinlichkeit dafür, dass es mehr als $n$ Austauschaktionen 
+braucht, ist daher
+\[
+P(K>n)
+=
+1-P(K\le n)
+=
+1-\sum_{k=0}^n P_{\lambda}(n).
+\]
+für $n=62$ finden wir
+\[
+P(K>62)
+=
+1-\sum_{k=0}^n P_{\lambda}(n)
+=
+1-0.924105
+=
+0.075895.
+\]
+\item
+In diesem Fall muss man $n$ so gross wählen, dass
+\[
+\sum_{k=0}^nP_\lambda(k) >0.99.
+\]
+Mit etwas probieren findet man, dass $n\ge 69$ sein muss.
+
+Alternativ kann man wieder die Approximation verwenden.
+Es muss dann das $n$ gefunden werden, für das $P(Z\le (n-52)/\sqrt{n})=0.99$
+ist.
+Dies tritt ein für
+\begin{align*}
+\frac{n-52}{\sqrt{n}}&=2.3263\\
+n-2.3263\sqrt{n}-52&=0
+\end{align*}
+Dies ist eine quadratische Gleichung mit der Unbekannten $\sqrt{n}$, sie hat
+die Lösung
+\begin{align*}
+\sqrt{n}
+&=
+\frac{2.3263}{2}\pm\sqrt{\biggl(\frac{2.3263}{2}\biggr)^2+52}
+=
+1.16315 + \sqrt{52+1.16315^2}
+=
+8.467
+\\
+n&=71.6978.
+\end{align*}
+Um sicher zu sein, dass das Budget in 99\% der Fälle reicht, muss man
+also mindestens $72-52=20$ zusätzlichen Austauschaktionen budgetieren.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Exakte Lösung: Poisson-Verteilung ({\bf P}) 1 Punkt,
+Bestimmung von $\lambda$ ({\bf L}) 1 Punkt,
+Poisson-Terme ({\bf T}) 1 Punkt,
+Summenformel ({\bf S}) 1 Punkt,
+Komplement ({\bf K}) 1 Punkt,
+Zahlenwert für die Wahrscheinlichkeit ({\bf W}) 1 Punkt.
+
+Approximation: Wahl der Exponentialverteilung ({\bf X}) 1 Punkt,
+Verwendung der Approximation mit der Normalverteilung ({\bf N}) 1 Punkt,
+Erwartungswert von $X$ ({\bf E}) 1 Punkt,
+Varianz von $X$ ({\bf V}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Komplement ({\bf K}) 1 Punkt,
+Berechnung der Wahrscheinlichkeit ({\bf W}) 1 Punkt.
+\end{bewertung}
+
+
+

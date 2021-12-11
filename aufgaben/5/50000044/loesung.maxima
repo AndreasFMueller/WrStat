@@ -1,0 +1,5 @@
+phil: a * sqrt(x+1);
+phir: a * sqrt(1-x);
+
+integrate(phil, x, -1, 0);
+

@@ -1,0 +1,102 @@
+Bei der Produktion von 1k$\Omega$-Widerständen werden in der
+Qualitätskontrolle alle Widerstände, die um mehr als 5\% vom Sollwert
+abweichen, aussortiert.
+Es stellt sich heraus, dass 5\% einen zu grossen Wert haben und
+1\% einen zu kleinen.
+\begin{teilaufgaben}
+\item
+Bestimmen sie den Erwartungswert und die Varianz der produzierten
+Widerstände.
+\item
+Wie gross ist die Wahrscheinlichkeit, dass ein Widerstand um weniger
+als $1\%$ vom Sollwert abweicht.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Der Wert $X$ eines Widerstandes ist eine normalverteilte Zufallsvariable.
+Wir können die Wahrscheinlichkeit dafür, dass $X$ ausserhalb des
+Toleranzintervalls liegt, mit Hilfe von Standardisierung berechnen:
+\begin{align*}
+P(X<0.95)
+&=
+P\biggl(\frac{X-\mu}{\sigma} < \frac{0.95-\mu}{\sigma}\biggr)
+=
+\phantom{1-\mathstrut}
+\Phi\biggl(\frac{0.95-\mu}{\sigma}\biggr)
+=
+0.01
+&&\Rightarrow&
+\frac{0.95-\mu}{\sigma}
+&=
+-2.3263,
+\\
+P(X>1.05)
+&=
+P\biggl(\frac{X-\mu}{\sigma} > \frac{1.05-\mu}{\sigma}\biggr)
+=
+1-\Phi\biggl(\frac{1.05-\mu}{\sigma}\biggr)
+=0.05
+&&\Rightarrow&
+\frac{1.05-\mu}{\sigma}
+&=
+\phantom{-}1.6449.
+\end{align*}
+Dies führt auf das lineare Gleichungssystem 
+\[
+\left.
+\begin{aligned}
+\mu-2.3263\sigma&=0.95\\
+\mu+1.6449\sigma&=1.05
+\end{aligned}
+\quad
+\right\}
+\qquad\text{mit der Lösung}\qquad
+\left\{
+\quad
+\begin{aligned}
+\mu&=1.008579\\
+\sigma&=0.025181.
+\end{aligned}
+\right.
+\]
+\item
+Die Wahrscheinlichkeit für einen 1\% Widerstand ist
+\begin{align*}
+P(0.99<X<1.01)
+&=
+P\biggl(
+\frac{0.99-\mu}{\sigma} < \frac{X-\mu}{\sigma} < \frac{1.01-\mu}{\sigma}
+\biggr)
+\\
+&=
+P(-0.7378 < X < 0.0564)
+\\
+&=
+\Phi(0.0564) - (1-\Phi(0.7378))
+=
+\Phi(0.0564) + \Phi(0.7378) - 1
+\\
+&=
+0.5225 + 0.7697 - 1
+=
+0.2922.
+\end{align*}
+Fast ein Drittel der produzierten Widerstände könnte also auch als
+1\%-Widerstände verkauft werden.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Standardisierung ({\bf S}) 1 Punkt,
+Gleichungssystem ({\bf G}) 1 Punkt,
+Bestimmung von $\mu$ ({\bf M}) 1 Punkt,
+Bestimmung von $\sigma$ ({\bf V}) 1 Punkt,
+Wahrscheinlichkeit für 1\%-Widerstand ({\bf W}) 2 Punkt,
+\end{bewertung}
+
+
+
+

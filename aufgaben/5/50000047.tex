@@ -1,0 +1,111 @@
+In einem Abpackungsbetrieb werden Mandarinen vor der Verpackung
+individuell gemessen.
+Zu kleine und zu grosse Mandarinen werden aussortiert.
+Es stellt sich heraus, dass 10\% der Mandarinen einen Durchmesser
+kleiner als 50mm Durchmesser haben und 5\% einen Durchmesser grösser als 60mm.
+\begin{teilaufgaben}
+\item
+Wie gross ist der mittlere Durchmesser einer Mandarine?
+\item
+Wie gross ist die Wahrscheinlichkeit, unter den aussortierten 
+Mandarinen eine zu finden, deren Durchmesser grösser als 62mm ist?
+\end{teilaufgaben}
+
+\begin{loesung}
+Der Durchmesser einer Mandarine ist normalverteilt mit Erwartungswert
+$\mu$ und Standardabweichung $\sigma$.
+Die Angaben über die Sortierresultate zeigen
+\begin{align*}
+P(X<50) &= 0.10 \qquad\text{und}\\
+P(X>60) &= 0.95.
+\end{align*}
+Mit Standardisierung erhalten wir
+\begin{align*}
+P\biggl(\frac{X-\mu}{\sigma} < \frac{50-\mu}{\sigma}\biggr)
+=
+\Phi\biggl(\frac{50-\mu}{\sigma}\biggr)
+&= 0.1
+&&\Rightarrow&
+\frac{50-\mu}{\sigma} 
+&=
+-1.2816
+&&\Rightarrow&
+\mu
+-1.2816\sigma&=
+50,
+\\
+P\biggl(\frac{X-\mu}{\sigma} < \frac{60-\mu}{\sigma}\biggr)
+=
+\Phi\biggl(\frac{60-\mu}{\sigma}\biggr)
+&= 0.95
+&&\Rightarrow&
+\frac{60-\mu}{\sigma}
+&=
+1.6449
+&&\Rightarrow&
+\mu+1.6449\sigma
+&=
+60.
+\end{align*}
+Die Lösung des linearen Gleichungssystems ist
+\[
+\mu = 54.3793
+\qquad\text{und}\qquad
+\sigma = 3.4171.
+\]
+\begin{teilaufgaben}
+\item
+Der mittlere Durchmesser ist $\mu=54.3793\text{mm}$.
+\item
+Die Wahrscheinlichkeit, eine Mandarine mit Durchmesser $>62$ 
+zu finden, ist
+\begin{align*}
+P(X>62)
+&=
+1-P(X<62)
+=
+1-P\biggl(\frac{X-\mu}{\sigma} < \frac{62-\mu}{\sigma}\biggr)
+=
+1-\Phi\biggl(\frac{65-\mu}{\sigma}\biggr)
+\\
+&=
+1-\Phi(2.2302)
+=
+1-0.9871
+=
+0.0129.
+\end{align*}
+Dies ist aber die Wahrscheinlichkeit, unter {\em allen} Mandarinen
+eine mit Durchmesser grösser als 62mm zu finden.
+Gesucht war die Wahrscheinlichkeit, unter den Mandarinen mit
+Durchmesser grösser als 60mm eine mit 62mm zu finden.
+Diese ist die bedingte Wahrscheinlichkeit
+\begin{align*}
+P(X > 62 | X > 60)
+&=
+\frac{P(\{X>62\}\cap\{X>60\})}{P(X>60)}
+=
+\frac{P(X>62\wedge X>60)}{P(X>60)}
+=
+\frac{P(X>62)}{P(X>60)}
+\\
+&=
+\frac{0.0129}{0.05}
+=
+0.258.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Standardisierung ({\bf S}) 1 Punkt,
+Gleichungssystem ({\bf G}) 1 Punkt,
+Bestimmung von $\mu$ ({\bf M}) 1 Punkt,
+Bestimmung von $\sigma$ ({\bf V}) 1 Punkt,
+Wahrscheinlichkeit für $X>62$ ({\bf W}) 1 Punkt,
+bedingte Wahrscheinlichkeit ({\bf B}) 1 Punkt.
+\end{bewertung}
+
+
+
