@@ -1,0 +1,77 @@
+Ein Entomologe entdeckt ein Insekt. Wegen eines speziellen Musters auf
+dem Rücken des Insekts vermutet er, dass es zu einer seltenen Art
+gehört.
+98\% dieser seltenen Art haben das Muster.
+Aber auch bei den weniger seltenen Arten kommt das Muster in 5\% der
+Fälle vor.
+Nur eines von 1000 Insekten gehört zu dieser seltenen Unterart.
+
+\begin{teilaufgaben}
+\item
+Wie wahrscheinlich ist es, spezielle Muster zu finden?
+\item
+Wie wahrscheinlich ist, dass das gefundene Insekt tatsächlich zu der
+seltenen Unterart gehört?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir verwenden die Ereignisse
+\begin{align*}
+S&=\{\text{gehört zur seltenen Unterart}\}
+\\
+M&=\{\text{hat das besondere Muster}\}
+\end{align*}
+mit den Wahrscheinlichkeiten
+\begin{align*}
+P(S) &= 0.001
+\\
+P(M|S) &= 0.98
+\\
+P(M|\overline{S}) &= 0.05.
+\end{align*}
+Damit kann man die Fragen jetzt beantworten
+\begin{teilaufgaben}
+\item
+Der Satz von der totalen Wahrscheinlichkeit liefert
+\begin{align*}
+P(M)
+&=
+P(M|S)P(S) + P(M|\overline{S})P(\overline{S})
+\\
+&=
+P(M|S)P(S) + P(M|\overline{S})(1-P(S))
+\\
+&=
+0.98\cdot 0.001 + 0.05\cdot 0.999
+=
+0.05093.
+\end{align*}
+\item
+Mit dem Satz von Bayes kann man jetzt auch $P(S|M)$ berechnen:
+\[
+P(S|M)
+=
+\frac{P(S)}{P(M)}P(M|S)
+=
+\frac{0.001}{0.05093}0.98
+=
+0.019242.
+\]
+Aus der Beobachtung des Musters darf man also keinesfalls schliessen,
+dass man ein Exemplar der seltene Insektenart gefunden hat.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Ereignisse ({\bf E}) 1 Punkt,
+Wahrscheinlichkeiten ({\bf W}) 1 Punkt,
+Satz von der Totalen Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Wahrscheinlichkeit $P(M)$ ({\bf P}) 1 Punkt,
+Satz von Bayes ({\bf B}) 1 Punkt,
+Wahrscheinlichkeit $P(S|M)$ ({\bf Q}) 1 Punkt.
+\end{bewertung}
+
+
+
+

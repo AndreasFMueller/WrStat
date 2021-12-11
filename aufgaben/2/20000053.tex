@@ -1,0 +1,70 @@
+Ein Test, der Allergie auf Katzenhaare diagnostizieren kann, 
+zeigt bei 80\% der Personen, die tatsächlich eine Katzenallergie haben,
+ein positives Resultat.
+Bei denjenigen Personen, die keine Allergie haben, zeigt er trotzdem
+in 10\% der Fälle eine Allergie an.
+Die Allergie selbst ist nicht so verbreitet, nur etwa 1\% der Bevölkerung
+haben sie.
+\begin{teilaufgaben}
+\item
+Wie häufig zeigt der Test ein positives Resultat an?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass eine Person mit positivem
+Test tatsächlich Katzenhaarallergie haben?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir verwenden die folgenden Ereignisse:
+\begin{align*}
+A&=\{\text{Person hat Allergie auf Katzenhaare}\}
+\\
+T&=\{\text{Test zeigt Katzenhaarallergie an}\}
+\end{align*}
+und Wahrscheinlichkeiten
+\begin{align*}
+P(T|A)&=0.8\\
+P(T|\overline{A})&=0.1\\
+P(A)&=0.01
+\end{align*}
+Damit lassen sich die Fragen jetzt beantworten.
+\begin{teilaufgaben}
+\item
+Mit dem Satz von der totalen Wahrscheinlichkeit findet man
+\begin{align*}
+P(T) 
+&=
+P(T|A)P(A) + P(T|\overline{A}) P(\overline{A})
+\\
+&=
+P(T|A)P(A) + P(T|\overline{A}) (1-P(A))
+\\
+&=
+0.8\cdot 0.01 + 0.1 \cdot 0.99
+= 0.107.
+\end{align*}
+\item
+Gefragt ist $P(A|T)$, was man mit dem 
+Satz von Bayes bestimmen kann:
+\begin{align*}
+P(A|T)
+&=
+\frac{P(A)}{P(T)}P(T|A)
+=
+\frac{0.01}{0.107} 0.8
+=
+0.074766.
+\end{align*}
+Der Test ist also eigentlich wertlos.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Ereignisse ({\bf E}) 1 Punkt,
+Wahrscheinlichkeiten ({\bf W}) 1 Punkt,
+Satz von der Totalen Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Wahrscheinlichkeit $P(T)$ ({\bf P}) 1 Punkt,
+Satz von Bayes ({\bf B}) 1 Punkt,
+Wahrscheinlichkeit $P(A|T)$ ({\bf Q}) 1 Punkt.
+\end{bewertung}
+
