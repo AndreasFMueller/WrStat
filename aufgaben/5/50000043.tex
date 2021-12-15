@@ -11,6 +11,7 @@ a(x^2-x^4)&\qquad 0< x \le 1\\
 soll als Wahrscheinlichkeitsdichte einer Zufallsvariable $X$ verwendet werden.
 \begin{center}
 \begin{tikzpicture}[>=latex,thick,scale=3]
+\definecolor{darkgreen}{rgb}{0,0.6,0}
 \fill[color=red!20]
 	plot[domain=0:1,samples=100] ({\x},{(15/2)*(\x*\x*(1-\x*\x))})
 	--
@@ -51,6 +52,11 @@ Bestimmen Sie die Varianz von $X$.
 \label{50000043:median}
 Bestimmen Sie den Median von $X$.
 \end{teilaufgaben}
+
+\thema{Wahrscheinlichkeitsdichte}
+\thema{Verteilungsfunktion}
+\thema{Erwartungswert}
+\thema{Varianz}
 
 \begin{loesung}
 \begin{teilaufgaben}

@@ -46,7 +46,7 @@
 
 \newcommand\myatop[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
 
-\input linsys.tex
+\input{linsys.tex}
 \makeindex
 \begin{document}
 \pagestyle{fancy}
@@ -72,7 +72,8 @@ Andreas Müller
 \end{flushright}
 \vspace*{\stretch{2}}
 \begin{center}
-OST Ostschweizer Fachhochschule, Rapperswil, 2011-2020
+HSR Hochschule für Technik, Rapperswil, 2011-2020\\
+OST Ostschweizer Fachhochschule, Rapperswil, 2020-2021
 \end{center}
 \end{titlepage}
 \hypersetup{
@@ -86,7 +87,7 @@ OST Ostschweizer Fachhochschule, Rapperswil, 2011-2020
 \renewcommand{\qedsymbol}{$\bigcirc$}
 }{\end{proof}}
 \mainmatter
-\input uebungen.tex
+\input{uebungen.tex}
 \openthemaindex
 \setboolean{loesungen}{true}
 \newboolean{pruefung}
@@ -96,38 +97,38 @@ OST Ostschweizer Fachhochschule, Rapperswil, 2011-2020
 \chapter{Kombinatorik}
 \lhead{Kapitel~\thechapter}
 \rhead{Kombinatorik}
-\input 1.tex
+\input{1.tex}
 \chapter{Ereignisse und ihre Wahrscheinlichkeit}
 \lhead{Kapitel~\thechapter}
 \rhead{Ereignisse und ihre Wahrscheinlichkeit}
-\input 2.tex
+\input{2.tex}
 %\chapter{Wahrscheinlichkeit und Kombinatorik}
 %\rhead{Wahrscheinlichkeit Kombinatorik}
 %\input 3.tex
 \chapter{Erwartungswert und Varianz}
 \lhead{Kapitel~\thechapter}
 \rhead{Erwartungswert und Varianz}
-\input 4.tex
+\input{4.tex}
 \chapter{Wahrscheinlichkeitsverteilung}
 \lhead{Kapitel~\thechapter}
 \rhead{Wahrscheinlichkeitsverteilung}
-\input 5.tex
+\input{5.tex}
 \chapter{Ein Katalog von Wahrscheinlichkeitsverteilungen}
 \lhead{Kapitel~\thechapter}
 \rhead{Ein Katalog von Wahrscheinlichkeitsverteilungen}
-\input 6.tex
+\input{6.tex}
 \chapter{Schätzen}
 \lhead{Kapitel~\thechapter}
 \rhead{Schätzen}
-\input 7.tex
+\input{7.tex}
 \chapter{Testen}
 \lhead{Kapitel~\thechapter}
 \rhead{Testen}
-\input 8.tex
+\input{8.tex}
 \chapter{Filtern}
 \lhead{Kapitel~\thechapter}
 \rhead{Filtern}
-\input 9.tex
+\input{9.tex}
 \chapter{Einführung in die Software R}
 \rhead{Einführung in R}
 Die Aufgaben in diesem Kapitel sind als Lernaufgabe gedacht, mit deren
@@ -152,5 +153,5 @@ können.
 \input{r.tex}
 \closethemaindex
 \printthemata
-\input aufgabensammlung.ind
+\input{aufgabensammlung.ind}
 \end{document}

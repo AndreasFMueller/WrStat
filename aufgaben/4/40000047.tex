@@ -11,12 +11,13 @@ Verkäufen folgende Zahlen:
 23&  651\\
 26&  762\\
 30&  856\\
-34& 1063\\
+34& 1063
+\ifthenelse{\boolean{lang}}{\\
 43& 1190\\
 48& 1298\\
 52& 1421\\
 57& 1440\\
-58& 1518\\
+58& 1518}{}\\
 \hline
 \end{tabular}
 \end{center}
@@ -35,6 +36,8 @@ erreichen?
 \item 
 Wie gut ist das Modell?
 \end{teilaufgaben}
+
+\thema{lineare Regression}
 
 \begin{loesung}
 \begin{teilaufgaben}
