@@ -25,6 +25,8 @@
 *.maf
 *.mtc
 *.mtc0
+*.dSYM
+*.swp
 skript/images/*.mpx
 skript/images/*.eps
 skript/images/*.pdf
