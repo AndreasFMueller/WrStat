@@ -102,7 +102,9 @@
 }
 \def\thema#1{\themaL{#1}{#1}}
 % Thema-Information anzeigen
-\def\themasection#1#2{ \item[#2]\label{thema:#1} }
+\def\themasection#1#2{
+\item[#2] \label{thema:#1}
+}
 \newcommand{\printthemata}{
   \IfFileExists{./thema.tex}{
     \chapter*{Aufgaben nach Themen}
