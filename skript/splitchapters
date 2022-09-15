@@ -1,0 +1,59 @@
+#! /bin/bash
+#
+# splitchapters -- split PDF into one file per chapter
+#
+# (c) 2022 Prof Dr Andreas Müller
+#
+if [ ! -f skript.aux ]
+then
+	echo "file skript.aux missing"
+	exit 1
+fi
+
+if [ ! -d chapters ]
+then
+	mkdir chapters
+fi
+
+awk 'BEGIN {
+	offsetpage = 12
+	startpage = 0
+	identifier = ""
+	chapterno = "0"
+}
+/newlabel{chapter:/ {
+	s = substr($0, 19, length($0) - 19)
+	i = match(s, "}{{")
+	newidentifier = substr(s, 1, i-1)
+
+	s = substr(s, i+3, length(s)-i-3)
+	i = match(s, "}{")
+	newchapterno = substr(s, 1, i-1)
+
+	s = substr(s, i+2, length(s)-i-2)
+	i = match(s, "}{")
+	newpage = int(substr(s, 1, i))
+
+	if (length(identifier) == 0) {
+		printf("pdfjam --outfile chapters/WrStat-front.pdf skript.pdf 1-%d\n",
+			newpage + offsetpage - 1)
+	} else {
+		printf("pdfjam --outfile chapters/WrStat-%s-%s.pdf skript.pdf %d-%d\n",
+			chapterno, identifier, startpage + offsetpage,
+			newpage + offsetpage - 1)
+		printf("ln -s WrStat-%s-%s.pdf chapters/WrStat-chapter-%s.pdf\n",
+			chapterno, identifier, startpage + offsetpage,
+			identifier, chapterno);
+		chapterno = newchapterno
+	}
+	startpage = newpage
+	identifier = newidentifier
+}
+END {
+	printf("pdfjam --outfile chapters/WrStat-%s-%s.pdf skript.pdf %d-\n",
+		chapterno, identifier, startpage + offsetpage)
+	printf("ln -s WrStat-%s-%s.pdf chapters/WrStat-%s.pdf\n",
+		chapterno, identifier, chapterno);
+}' skript.aux | bash
+
+
