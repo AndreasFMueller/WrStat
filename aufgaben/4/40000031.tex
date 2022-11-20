@@ -37,7 +37,7 @@ P(|M_n-E(X)|>\varepsilon)\le
 =\frac{35}{12\cdot 47000\cdot 0.01^2}=0.62
 \]
 Im worst case erwartet man also in mehr als der Hälfte der Durchführungen
-dieses Experimentes eine Abweichung von mehr als  0.01.
+dieses Experimentes eine Abweichung von mehr als 0.01.
 \item
 Aus dem Gesetz der grossen Zahlen von Bernoulli haben wir folgende Formel
 für die Wahrscheinlichkeit einer Abweichung der relativen Häufigkeit von
@@ -55,11 +55,21 @@ P(|h_n-p(A)|>\varepsilon)\le \frac{P(A)(1-P(A))}{n\varepsilon^2}
 Nur in drei Prozent der Versuche wird man eine Abweichung relativen
 Häufigkeit von der tatsächlichen Wahrscheinlichkeit von mehr als 0.01
 finden.
-\item Eine Simulation mit 100000 Wiederholungen des in der Aufgabe
-beschriebenen Experimentes ergibt, eine Wahrscheinlichkeit von 0.204
-für eine Abweichung des Mittelwertes von mehr als 0.01 vom tatsächlichen
-Wert. In 100000 Versuchen wich die relative Häufigkeit kein einziges
+\item
+Achtung: diese Teilaufgabe ist nicht der Fall $n=100000$ des obigen
+Experimentes, sondern die Aufforderung, das Experiment mit einem
+Computer 100000 mal durchzuführen.
+Eine Simulation mit einem kleinen Programm ergab
+eine Wahrscheinlichkeit von 0.204 für eine Abweichung des Mittelwertes
+von mehr als 0.01 vom tatsächlichen Wert.
+In 100000 Versuchen wich die relative Häufigkeit kein einziges
 Mal mehr als 0.01 vom theoretischen Wert ab.
+Die von der Tschebyscheff-Ungleichung vorhergesagte Wahrscheinlichkeit
+wird als bei weitem nicht erreicht.
+Würde man den Prozess besser verstehen, könnte man einen genaueren
+Wert für $P(|h_n-P(A)|>\varepsilon)$ bestimmen, der viel kleiner als
+der von der Tschebyscheff-Ungleichung vorhergesagte Wert ist.
+Die Tschebyscheff-Ungleichung ist eine ``worst-case''-Abschätzung.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}
