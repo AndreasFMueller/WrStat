@@ -43,6 +43,12 @@ SOURCES =								\
 	a-datenblaetter/db-paretoverteilung.tex				\
 	a-datenblaetter/db-poissonverteilung.tex			\
 	b-tabellen/tabellen.tex						\
+	b-tabellen/chi2.tex						\
+	b-tabellen/ftable.tex						\
+	b-tabellen/ks.tex						\
+	b-tabellen/norm.tex						\
+	b-tabellen/normquant.tex					\
+	b-tabellen/t.tex						\
 	skript.tex 
 
 skript.pdf:	$(SOURCES) skript.ind
