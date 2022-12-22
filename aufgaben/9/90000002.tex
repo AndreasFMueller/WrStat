@@ -56,11 +56,11 @@ R=\begin{pmatrix}
 \]
 \item Prädiktorschritt:
 \begin{align*}
-\hat x_{k|k-1}&=
+\hat x_{k+1|k}&=
 \begin{pmatrix}1&\Delta t\\0&1\end{pmatrix}
-\hat x_{k-1}
+\hat x_{k}
 \\
-P_{k|k-1}&=
+P_{k+1|k}&=
 \begin{pmatrix}1&\Delta t\\0&1\end{pmatrix}P_k
 \begin{pmatrix}1&0\\\Delta t&1\end{pmatrix}
 +
