@@ -1,0 +1,124 @@
+Beim Spiel {\em Glückswurf}\/%
+\footnote{\url{https://www.spielregeln-spielanleitungen.de/wuerfelspiel/glueckswurf/}}
+würfelt der Spieler mit fünf Würfeln.
+Die Augenzahlen werden addiert, aber erst nach folgenden Modifikationen:
+\begin{enumerate}
+\item Jede \epsdice{1} wird auf \epsdice{6} gedreht
+\item Die \epsdice{5} gilt als Jocker: Falls eine \epsdice{5} vorkommt,
+werden alle Würfel auf \epsdice{6} gedreht.
+\end{enumerate}
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit $P(J)$ für einen Joker?
+\item
+Mit welcher Augenzahl kann man rechnen, wenn man nur die Spiele
+ohne Joker zählt?
+\item
+Welche Augenzahl kann man erwarten, wenn man sowohl die Spiele mit
+als auch ohne Joker zählt?
+\end{teilaufgaben}
+
+\begin{hinweis}
+Berechnen Sie zuerst die Erwartung für die einzelnen Fälle $J$ und
+$\overline{J}$ und setzen Sie diese dann zusammen.
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir bezeichnen das Ereignis, dass ein Joker aufgetreten ist mit $J$.
+Die Wahrscheinlichkeit, dass einer der Würfel keine \epsdice{5} zeigt,
+ist $\frac{5}{6}$. 
+Die Wahrscheinlichkeit, dass alle 5 Würfel keine \epsdice{5} zeigen, ist
+$(\frac{5}{6})^5$.
+Die Wahrscheinlichkeit, dass mindesstens einer der Würfel eine \epsdice{5}
+zeigt, ist
+\[
+P(J)
+=
+1-\biggl(\frac{5}{6}\biggr)^5\approx 0.598122.
+\]
+\item
+Sei $X$ die Punktzahl eines Würfels unter Ausschluss der Joker.
+In einem Spiel ohne Joker hat ein Würfel die möglichen Resultate
+\epsdice{2}--\epsdice{4} und \epsdice{6}.
+Die Wahrscheinlichkeit von \epsdice{2}--\epsdice{4} ist $\frac{1}{5}$,
+da die \epsdice{5} ausgeschlossen worden ist.
+Die Wahrscheinlichkeit für \epsdice{6} ist doppelt so gross, nämlich
+$\frac{2}{5}$.
+Der Erwartungswert eines einzelnen Würfels ist daher
+\[
+E(X)
+=
+\frac15\cdot 2
++
+\frac15\cdot 3
++
+\frac15\cdot 4
++
+\frac25\cdot 6
+=
+\frac{2+3+4+2\cdot 6}5
+=
+\frac{21}{5} = 4.2.
+\]
+Nun hat man aber fünf unabhängige solche Würfel $X_1,\dots,X_5$,
+die die gleiche Verteilung haben wir $X$.
+Der Erwartungswert der Summe ist
+\[
+E(X_1+\dots+X_5)
+=
+E(X_1)+\dots+E(X_5)
+=
+5\cdot \frac{21}{5} = 21.
+\]
+\item
+Bei einem Joker ist die erreiche Punktzahl $5\cdot\epsdice{6}=30$,
+die Wahrscheinlichkeit dafür ist in Teilaufgabe a)
+als $1-(\frac{5}{6})^5$ berechnet worden.
+Die erwartete Punktzahl ist daher
+\begin{align*}
+E(X)
+&=
+P(J)
+\cdot 30
++
+P(\overline{J})
+\cdot E(X|\overline{J})
+=
+\biggl(
+1-
+\biggl( \frac{5}{6}\biggr)^5
+\biggr)
+\cdot 30
++
+\biggl( \frac{5}{6}\biggr)^5
+\cdot 21
+\\
+&=
+\frac{4651}{7776}\cdot 30 + \frac{3125}{7776}\cdot 21
+=
+\frac{4651\cdot 30 + 3125\cdot 21}{7776}
+=
+\frac{205155}{7776}
+=
+26.3831.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Wahrscheinlichkeit für den Joker von einem Würfel ({\bf J}) 1 Punkt,
+Wahrscheinlichkeit für den Joker von allen Würfeln ({\bf A}) 1 Punkt.
+\item
+Erwartungswert von einem Würfel {(\bf E)} 1 Punkt,
+Erwartungswert von allen Würfeln {(\bf B)} 1 Punkt.
+\item
+Fallunterscheidung mit und ohne Joker ({\bf F}) 1 Punkt,
+kombinierter Erwartungswert ({\bf G}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+

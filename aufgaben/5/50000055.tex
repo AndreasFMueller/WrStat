@@ -1,0 +1,85 @@
+Die QAnon-Verschwörungstheorie hat inzwischen die Popularität
+der schon länger etablierten Religionen erreicht.
+14\% der Amerikaner glauben, dass eine einflussreiche, weltweit agierende,
+satanische Elite vom Keller einer Pizzeria in Washington
+aus einen Kinderhändlerring betreibt (das Gebäude hat keinen Keller).
+Sie sind überzeugt, dass diese Elite die Wiederwahl Donald Trumps
+verhindert hat.
+Innerhalb der Republikaner sind es sogar 29\%.
+
+In einer Umfrage 2017 sind die Flacherdler dagegen vergleichsweise
+selten, nicht einmal 1\% glauben, dass die Erde flach ist.
+
+Das Dorf Hyder in Alaska hat 87 Einwohner, die sich politisch ungefähr
+so wie in den übrigen USA verteilen.
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit mehr als 10 QAnon-Anhänger zu finden?
+\item
+Wie wahrscheinlich ist es, dass Hyder mehr als zwei Flacherdler hat?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Sei $X$ die Zufallsvariable der Anzahl der QAnon-Anhänger in Hyder.
+Sie ist binomialverteilt mit $n=87$ und $p=0.14$.
+Der Erwartungswert ist $\mu=np=12.180$ und die Standardabweichung
+ist $\sigma=\sqrt{np(1-p)}\approx 3.2365$.
+Mit der Normalverteilungsapproximation der Binomialverteilung
+kann man jetzt die Wahrscheinlichkeit ausrechnen.
+Dazu bestimmt man die Standardisierung $Z=(X-\mu)/\sigma$ und
+bekommt
+\begin{align*}
+P(X\le 10)
+&\approx
+P\biggl(Z < \frac{10.5-\mu}{\sigma}\biggr)
+=
+P(Z < -0.5191) = 0.3018,
+%\\
+%P(X>10)
+%&\approx 30.2\%,
+\\
+P(X > 10)
+&\approx
+1-0.302 = 0.698
+\end{align*}
+die gesuchte Wahrscheinlichkeit ist $69.8\%$.
+\item
+Da Flacherdler so selten sind, kann man ihre Anzahl mit der
+Poisson-Verteilung mit dem Parameter $\lambda = n\cdot 0.01=0.87$
+beschreiben.
+Sei $X$ die Anzahl der Flacherdler, dann ist die Wahrscheinlichkeit,
+mehr als 2 Flacherdler zu finden
+\begin{align*}
+P(X>2)
+&\approx
+1-\sum_{k=0}^2 P_\lambda(k)
+=
+1-e^{-\lambda} \sum_{k=0}^2 \frac{\lambda^k}{k!}
+\\
+&=
+1-e^{-\lambda}\biggl(1+\lambda+\frac{\lambda^2}{2}\biggr)
+=
+1- 0.9420
+=
+0.0580.
+\end{align*}
+also 5.08\%.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Binomialverteilung ({\bf B}) 1~Punkt,
+Erwartungswert und Varianz ({\bf E}) 1~Punkt,
+Standardisierung ({\bf S}) 1~Punkt,
+Wahrscheinlichkeit ({\bf W}) 1~Punkt,
+\item
+Poisson-Verteilung und Wert des Parameters ({\bf P}) 1~Punkt,
+Resultierende Wahrscheinlichkeit ({\bf R}) 1~Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+

@@ -1,0 +1,156 @@
+Betrachten Sie die Funktion
+\[
+\varphi(x)
+=
+\begin{cases}
+(x+1)^2&\qquad -1\le x\le 0\\
+1-x^2&\qquad 0\le x\le 1\\
+0&\qquad\text{sonst.}
+\end{cases}
+\]
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[>=latex,thick,scale=2.5]
+\pgfmathparse{sqrt(5/36)}
+\xdef\varianz{\pgfmathresult}
+\ifthenelse{\boolean{loesungen}}{
+\fill[color=darkgreen!20] (0,0) rectangle (1,1);
+\fill[color=red!20] 
+	plot[domain=-1:0,samples=20] (\x,{(\x+1)*(\x+1)})
+	--
+	plot[domain=0:1,samples=20] (\x,{1-\x*\x});
+\draw[color=blue] ({1/6},-0.05) -- ({1/6},1.05);
+\node[color=blue] at ({1/6+0.05},1.00) [above] {$E(X)$};
+\draw[color=blue] ({1/6-\varianz},-0.05) -- ({1/6-\varianz},1.05);
+\draw[color=blue] ({1/6+\varianz},-0.05) -- ({1/6+\varianz},1.05);
+}{}
+
+\draw[->] (0,-0.05) -- (0,1.4) coordinate[label={left:$\varphi(x)$}];
+\draw[->] (-2.05,0) -- (2.2,0) coordinate[label={$x$}];
+\foreach \x in {-2,-1,1,2}{
+	\draw (\x,-0.05) -- (\x,0.05);
+	\node at (\x,-0.05) [below] {$\x\mathstrut$};
+}
+\draw[color=red,line width=1.4pt] 
+	(-2,0)
+	--
+	plot[domain=-1:0,samples=20] (\x,{(\x+1)*(\x+1)})
+	--
+	plot[domain=0:1,samples=20] (\x,{1-\x*\x})
+	--
+	(2,0);
+\end{tikzpicture}
+\caption{Graph der Funktion $\varphi(x)$ in Aufgabe~\ref{50000051}
+\label{50000051:fig}}
+\end{figure}
+
+\begin{teilaufgaben}
+\item
+Warum ist dies eine Wahrscheinlichkeitsdichte?
+\item
+Bestimmen Sie den Erwartungswert $E(X)$ einer Zufallsvariable $X$ mit
+der Wahrscheinlichkeitsdichte $\varphi(x)$.
+\item
+Bestimmen Sie $\operatorname{var}(X)$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Man muss überprüfen, dass die Normierungsbedingung
+\[
+\int_{-\infty}^\infty \varphi(x)\, dx = 1
+\]
+erfüllt ist.
+Die rote Fläche unter dem Graphen von $\varphi(x)$ kann in das flächengleiche
+Einheitsquadrat umgewandelt werden, indem der Teil der Fläche zwischen
+$x=-1$ und $x=0$ vertikal gespiegelt und als die grüne Fläche
+zwischen $x=0$ und $x=1$ wieder eingesetzt wird.
+\item
+Der Erwartungswert ist
+\begin{align*}
+E(X)
+&=
+\int_{-\infty}^\infty x\varphi(x)\,dx
+=
+\int_{-1}^0 x(x+1)^2\,dx
++
+\int_0^1 x(1-x^2)\,dx
+\\
+&=
+\int_{-1}^0 x^3+2x^2+x \,dx
++
+\int_0^1 x-x^3\,dx
+\\
+&=
+\left[
+\frac{x^4}{4} + \frac{2x^3}{3} + \frac{x^2}2
+\right]_{-1}^0
++
+\left[
+\frac{x^2}{2} - \frac{x^4}{4}
+\right]_0^1
+\\
+&=
+-\frac14+\frac23-\frac12+\frac12-\frac14
+=
+\frac16.
+\end{align*}
+\item
+Die Varianz kann mit der Formel $\operatorname{var}(X)=E(X^2)-E(X)^2$
+bestimmt werden.
+Dazu rechnen wir
+\begin{align*}
+E(X^2)
+&=
+\int_{-\infty}^\infty x^2\varphi(x)\,dx
+=
+\int_{-1}^0 x^2(x+1)^2\,dx
++
+\int_0^1 x^2(1-x^2)\,dx
+\\
+&=
+\int_{-1}^0 x^4+2x^3 + x^2\,dx
++
+\int_0^1 x^2-x^4\,dx
+\\
+&=
+\left[
+\frac{x^5}{5} + \frac{2x^4}{4} + \frac{x^3}{3}
+\right]_{-1}^0
++
+\left[
+\frac{x^3}{3}-\frac{x^5}{5}
+\right]_0^1
+\\
+&=
+\frac15-\frac12+\frac13+\frac13-\frac15
+=\frac16
+\\
+\operatorname{var}(X)
+&=
+E(X^2) - E(X)^2
+=
+\frac16-\frac{1}{36}
+=
+\frac{5}{36}
+\approx
+0.13888.
+\end{align*}
+\end{teilaufgaben}
+Der Erwartunswert wie auch das Interval zwischen
+$E(X) - \sqrt{\operatorname{var}(X)}$
+und
+$E(X) + \sqrt{\operatorname{var}(X)}$
+sind in Abbildung~\ref{50000051:fig} blau eingezeichnet.
+\end{loesung}
+
+\begin{bewertung}
+Normierungsbedingung ({\bf N}) 1 Punkt,
+Integral für Erwartungswert ({\bf I}) 1 Punkt,
+Wert des Erwartungswertes ({\bf E}) 1 Punkt,
+Formel für die Varianz ({\bf V}) 1 Punkt,
+Erwartungswert von $X^2$ ({\bf E}2) 1 Punkt,
+Wert der Varianz ({\bf W}) 1 Punkt.
+\end{bewertung}

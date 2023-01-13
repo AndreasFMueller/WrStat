@@ -1,0 +1,7 @@
+phi1: (x+1)^2;
+phi2: 1-x^2;
+
+N: integrate(phi1, x, -1, 0) + integrate(phi2, x, 0, 1);
+Ex: integrate(phi1 * x, x, -1, 0) + integrate(phi2 * x, x, 0, 1);
+Ex2: integrate(phi1 * x^2, x, -1, 0) + integrate(phi2 * x^2, x, 0, 1);
+varX: Ex2 - Ex^2;
