@@ -1,0 +1,99 @@
+In grossen Teilen der Welt beschenken sich die Menschen zur Zeit
+der Wintersonnenwende gegenseitig, ein Brauch, der auf das römische
+Fest der Saturnalien zurückgeht.
+In der westlichen Welt machen sich Eltern zusätzlich einen Spass 
+daraus, den Kindern zu erzählen, die Geschenke würden von einem
+übergewichtigen älteren Herrn namens Santa gebracht, der zu diesem Zweck
+unter Missachtung aller Vorschriften zur Arbeitsplatzsicherheit
+in völlig ungeigneter Kleidung durch Kamine weltweit in Häuser eindringt.
+Gerade in Zeiten einer Pandemie entsteht für Paketlieferdienste
+ein grosser zusätzlicher Aufwand durch die vielen Geschenkpakete.
+Viele Leute senden ihre Geschenkpakete rechtzeitig, 25\% der Pakete
+kommen schon am 18.~Dezember an.
+Für einige wird es aber knapp, 5\% der Pakete kommen erst nach dem
+28.~Dezember an.
+\begin{teilaufgaben}
+\item
+An welchem Tag ist Peak Santa, d.~h.~an welchem Tag werden
+am meisten Pakete ausgeliefert?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass ein Paket erst im neuen
+Jahr ausgeliefert wird?
+\end{teilaufgaben}
+
+\begin{hinweis}
+Nehmen sie an, dass die Paketverteilung stetig ist, wie wenn die
+Paketedienste ohne freie Tage rund um die Uhr arbeiten würden.
+\end{hinweis}
+
+\begin{loesung}
+Wir nehmen an, dass der Auslieferungszeitpunkt $X$ eines Paketes
+eine normalverteilte Zufallsvariable mit Erwartungswert $\mu$ und
+Standardabweichung $\sigma$ ist.
+Die beiden Bedingungen besagen
+\[
+\begin{aligned}
+P(X<18)&=0.25&&            &         &       \\
+P(X>28)&=0.05 &&\Rightarrow& P(X<28) &= 0.95
+\end{aligned}
+\]
+oder nach Standardisierung
+\[
+\begin{aligned}
+P\biggl(\frac{X-\mu}{\sigma} < \frac{18-\mu}{\sigma}\biggr) &= 0.25 \\
+P\biggl(\frac{X-\mu}{\sigma} < \frac{28-\mu}{\sigma}\biggr) &= 0.95.\\
+\end{aligned}
+\]
+Da $Z=(X-\mu)/\sigma$ standardnormalverteilt ist, folgt
+\[
+\left.
+\begin{aligned}
+\frac{18-\mu}{\sigma} &=          - 0.6745 \\
+\frac{28-\mu}{\sigma} &= \phantom{-}1.6449 
+\end{aligned}
+\;
+\right\}
+\qquad\Rightarrow\qquad
+\left\{\;
+\begin{linsys}{3}
+18 &=& \mu &-& 0.6745\sigma\phantom{.}\\
+28 &=& \mu &+& 1.6449\sigma.
+\end{linsys}
+\right.
+\]
+Dieses lineare Gleichungssystem kann zum Beispiel mit einer der vielen
+Methoden gelöst werden, man findet
+\begin{align*}
+\mu &= 20.9081 \\
+\sigma &= \phantom{0}4.3115.
+\end{align*}
+Damit kann man jetzt die gestellten Fragen beantworten.
+\begin{teilaufgaben}
+\item
+Peak Santa ist $\mu$, also am 20.~Dezember.
+\item
+Die Wahrscheinlichkeit, dass ein Paket erst im neuen Jahr ausgeliefert
+wird, ist
+\[
+P(X>32)
+=
+1-P\biggl(Z<\frac{32-\mu}{\sigma}\biggr)
+=
+1-P(Z < 2.5727) 
+=
+0.00504,
+\]
+also etwa 0.5\% der Pakete kommen erst im neuen Jahr an.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Normalverteilung ({\bf N}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Quantilen ({\bf Q}) 1 Punkt,
+Gleichungssystem für $\mu$ und $\sigma$ ({\bf G}) 1 Punkt,
+Wert für $\mu$ und Peak Santa ({\bf P}) 1 Punkt,
+Wahrscheinlichkeit für Januarlieferung ({\bf J}) 1 Punkt.
+\end{bewertung}
+

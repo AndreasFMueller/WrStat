@@ -1,0 +1,97 @@
+Jeden Tag finden weltweit über 1 Milliarde Kreditkartentransaktionen
+statt.
+2020 wurden mit Karten der grossen Anbieter 468 Milliarden 
+Transaktionen durchgeführt, davon entfielen 40\% auf Visa-Karten.
+Im Vergleich zu diesen riesigen Transaktionszahlen sind betrügerische
+Transaktionen sehr selten, richten aber dennoch beträchtlichen
+finanziellen Schaden an, er erreicht etwa 1\% des gesamten
+Zahlungsvolumens.
+2020 wurden 459297 Fälle von Kreditkartenbetrug gemeldet.
+Mit modernen Authentisierungsverfahren kann die Häufigkeit
+betrügerischer Transaktionen stark gesenkt werden.
+\begin{teilaufgaben}
+\item 
+Ein international tätiger Online-Händler will die Plausibilität
+seiner Kreditkartentransaktionen etwas überwachen und zählt daher die 
+Zahl der Transaktionen, die eine Visa-Karte verwenden.
+Wenn anteilsmässig zu viele Transaktionen eine Visa-Karte verwenden,
+dann liegt der Verdacht nahe, dass ein Betrüger versucht, mit einem
+Batch gestohlener Visa-Karten in vielen kleinen Transaktionen Produkte
+zu ergaunern.
+Wie wahrscheinlich ist es, in einer Stichprobe von 1000 Transaktionen
+mehr als 430 Visa-Transaktion zu finden?
+\item
+Unter der Annahme, dass die Wahrscheinlichkeit einer betrügerischen
+Transaktion 0.1\% ist, wie wahrscheinlich ist es, dass der Händler
+in einer Stichprobe von 1000 Transaktionen mehr als 3 betrügerische
+findet?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Sei $X$ die Anzahl der Visa-Transaktionen in einer Stichprobe.
+$X$ ist Binomialverteilt mit $p=0.4$ und $n=1000$.
+Die gesuchte Wahrscheinlichkeit ist $P(X> 430)=1-P(X \le 430)$, sie kann mit
+Hilfe der Normalapproximation bestimmt werden.
+Sei $Y$ eine normalverteilte Zufallsvariable mit $\mu=np=400$ und 
+Varianz $\sigma^2=np(1-p)=240$.
+\begin{align*}
+P(X\le  430)
+&\approx
+P\biggl(Y\le 430+\frac12\biggr)
+\intertext{Standardisierung führt auf die standardnormalverteilte
+Zufallsvariable $Z=(Y-\mu)/\sigma$ mit der Wahrscheinlichkeit}
+P\biggl(\frac{Y-\mu}{\sigma}\le \frac{430+\frac12}{\sigma}\biggr)
+&=
+P\biggl(Z\le \frac{430.5 - 400}{\sqrt{240}}\biggr)
+=
+P(Z\le 1.9688)
+=
+0.97551.
+\end{align*}
+Die gesuchte Wahrscheinlichkeit ist daher
+$P(X\le 431)\approx 0.02449$.
+\item
+Sei $B$ die Zahl der Betrugsfälle.
+Da diese selten sind, darf man annehmen, dass $B$ Poisson-verteilt
+ist mit $\lambda = 0.001 \cdot 1000 = 1$.
+Die Wahrscheinlichkeit, mehr als 3 betrügerische Transaktionen
+zu haben, ist daher
+\begin{align*}
+P(B>3)
+&=
+1-P(B\le 3)
+\\
+&=
+1-\sum_{k=0}^3 P_\lambda(k)
+\\
+&=
+1- e^{-\lambda} \sum_{k=0}^3 \frac{\lambda^k}{k!}
+\\
+&=
+a-e^{-1}\biggl(
+1 + \frac{\lambda}{1} + \frac{\lambda^2}{2!} + \frac{\lambda^3}{3!}
+\biggr)
+\\
+&=
+1-e^{-1}\biggl(1+1+\frac12+\frac16\biggr)
+=
+1-e^{-1}\cdot \frac{16}{6} \approx 0.018988
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Binomialverteilung ({\bf B}) 1~Punkt,
+Erwartungswert und Varianz ({\bf E}) 1~Punkt,
+Standardisierung ({\bf S}) 1~Punkt,
+Wahrscheinlichkeit ({\bf W}) 1~Punkt,
+\item
+Poisson-Verteilung und Wert des Parameters ({\bf P}) 1~Punkt,
+Resultierende Wahrscheinlichkeit ({\bf R}) 1~Punkt.
+\end{teilaufgaben}
+\end{bewertung}

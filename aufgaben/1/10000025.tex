@@ -1,0 +1,67 @@
+\begin{teilaufgaben}
+\item
+Wieviele verschiedene Wörter kann man aus den Buchstaben des
+Wortes {\texttt{MISSISSIPI}} bilden?
+\item
+In einem Setzkasten sind alle Buchstaben des Alphabetes in grosser 
+Zahl vorhanden.
+Wieviele Wörter der Länge $10$ kann man bilden, die nur die Buchstaben
+\texttt{M}, \texttt{S}, \texttt{I} und \texttt{P} verwenden?
+\item 
+Jetzt wird mit den Wörtern der Teilaufgabe a) ein Ratespiel gespielt.
+Der Spieler muss die Plätze der Buchstaben \texttt{S} vorhersagen.
+Dann wird das Wort aufgedeckt und kontrolliert, ob die Buchstabenplätze
+richtig vorhergesagt worden sind.
+Wieviele verschiedene Wörter kann man aus den Buchstaben des Wortes
+{\texttt{MISSISSIPI}} bilden, wenn die Plätze der Buchstaben \texttt{S}
+zum vornherein festgelegt sind?
+\item
+Wie gross ist die Wahrscheinlichkeit, im Spiel von Teilaufgabe c)
+vier richtige Plätze vorherzusagen?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Es stehen 10 Buchstaben zur Verfügung, die in $10!$ Anordnungen
+zu einem Wort zusammengefügt werden können.
+Dabei werden in jedem solchen Wort auch die Anordnungen
+der vier \texttt{S} und der vier \texttt{I} mitgezählt, die
+Anzahl der Wörter wird also um den Faktor $4!\cdot 4!$ überschätzt.
+Die gesuchte Anzahl ist daher
+\[
+\frac{10!}{4!\,4!} = \frac{3628800}{24\cdot 24}= 6300.
+\]
+\item
+Dies ist ein Perlenkettenproblem für eine Perlenkette der Länge 10
+aus Perlen in 4 Farben.
+Die Anzahl der Wörter ist daher $4^{10} = 2^{20} = 1048576$.
+\item
+In diesem Fall müssen nur noch die 6 verbleibenden Buchstaben auf
+die 6 verbleibenden Plätze verteilt werden, dies ist auf $6!$ Arten
+möglich.
+Dabei wurden aber die $4!$ verschiedenen Permutationen von \texttt{I}
+mehrfach gezählt, die tatsächliche Anzahl Wörter ist also
+$6!/4!=6\cdot 5=30$.
+\item
+Da $30$ der $6300$ möglichen Wörter die Buchstaben \texttt{S} an der
+richtigen Stelle haben, ist die gesuchte Wahrscheinlichkeit 
+$30/6300 = 1/210 \approx 0.00476$.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item Permutationen ({\bf P}) 1 Punkt, wiederholte Buchstaben ({\bf W}) 1 Punkt,
+\item Variation ({\bf V}) 1 Punkt,
+\item Auswahl der Plätze der {\tt I} ({\bf I}) 1 Punkt, Permutation der
+übrigen Buchstaben ({\bf U}) 1 Punkt (alternativ: Vorgehen wie in a),
+total 2 Punkte),
+\item Wahrscheinlichkeit ({\bf P}) 1 Punkt (alternativ, Verwendung
+der hypergeometrischen Verteilung ({\bf H}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
+
+
