@@ -1,0 +1,69 @@
+Ein Psychiater möchte wissen, ob die sozioökonomische Klasse einer
+Person einen Einfluss auf die Wahrscheinlichkeit einer Selbstvergiftung
+hat, wie er sie in seiner Praxis gezählt hat.
+Er vergleicht dazu die Anzahl der Fälle
+mit der Wahrscheinlichkeit einer Hospitalisierung auf Grund
+eines Magen-Darm-Problems, wie sie von einem grossen Spital
+ermittelt worden ist.
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|}
+\hline
+\text{Klasse} &  \text{Selbstvergiftungen} & \text{Hospitalisierungswahrscheinlichkeit} \\
+\hline
+\text{I}      &           17         & \phantom{0}3.7\% \\
+\text{II}     &           25         &           15.7\% \\
+\text{III}    &           39         &           25.4\% \\
+\text{IV}     &           52         &           36.6\% \\
+\text{V}      &           32         &           18.6\% \\
+\hline
+\text{Total}  &          165         &                  \\
+\hline
+\end{tabular}
+\end{center}
+Kann man daraus schliessen, dass eine Abhängigkeit zwischen
+sozioökonomischer Klasse und Selbstvergiftungswahrscheinlichkeit
+besteht?
+
+\begin{loesung}
+Die Nullhypothese, die wir testen müssen ist:
+\begin{quote}
+Die beobachteten Selbstvergiftungszahlen weichen nicht wesentlich
+von der Verteilung der Hospitalisierungen ab.
+\end{quote}
+Wir verwenden einen $\chi^2$-Test mit 4 Freiheitsgraden.
+Ein sinnvoller Wert $\alpha=5\%$ scheint angemessen.
+Der kritische Wert der Diskrepanz für $p=0.95$ und $k=4$ ist
+$D_{\text{krit}}=9.488$. 
+Die Nullhypothese wird verworfen, wenn die aus obigen Daten
+berechnete Diskrepanz grösser ist als $D_{\text{krit}}$.
+
+Berechnung der Diskrepanz:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+i &  p_i   &   n_i  & np_i   &n_i-np_i& (n_i-npi)^2/np_i \\
+\hline
+1 & 0.037  &   17   &  6.105 & 10.895 &   19.44324 \\
+2 & 0.157  &   25   & 25.905 & -0.905 &    0.03161 \\
+3 & 0.254  &   39   & 41.910 & -2.910 &    0.20205 \\
+4 & 0.366  &   52   & 60.390 & -8.390 &    1.16562 \\
+5 & 0.186  &   32   & 30.690 &  1.310 &    0.05591 \\
+\hline
+  &        & n=165  &        &        & D=20.89846 \\
+\hline
+\end{tabular}
+\end{center}
+Da die Diskrepanz $D>D_{\text{krit}}$ klar grösser ist als die kritische
+Diskrepanz $D_{\text{krit}}$ muss die Nullhypothese verworfen werden.
+Es folgt also, dass es einen Zusammenhang zwischen sozioökonomischer 
+Klasse und Selbstvergifgungen gibt.
+\end{loesung}
+
+\begin{bewertung}
+Nullhypothese ({\bf H}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Freiheitsgrade und kritische Diskrepanz ({\bf F}) 1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 2 Punkt,
+Entscheid und Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+

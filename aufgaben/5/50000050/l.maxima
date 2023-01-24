@@ -1,0 +1,6 @@
+phi1: a*x^2;
+phi2: a*(x-2)^2;
+
+i: integrate(phi1 * x^2, x, 0, 1) + integrate(phi2 * x^2, x, 1, 2);
+
+1/5 + 31/5 - 15 + 28/3;

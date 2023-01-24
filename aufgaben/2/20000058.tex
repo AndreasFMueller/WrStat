@@ -1,0 +1,83 @@
+In einer Kunstausstellung bieten die Künstler Salvador D., Vincent G.~und
+Pablo P.~Bilder zum Verkauf an.
+Dabei hat Salvador die Hälfte aller in der Ausstellung gezeigten
+Bilder eingereicht und Pablo einen Drittel.
+Über die Wahrscheinlichkeit, dass ein Bild verkauft wird, weiss
+man folgendes: bei den Werken von Salvador ist die Wahrscheinlichkeit
+4\%, bei den Werken von Vincent ist sie 6\%, bei Pablos Werken ist sie 3\%.
+\begin{teilaufgaben}
+\item Wie gross ist die Wahrscheinlichkeit, dass ein Bild verkauft wird?
+\item Wie gross ist die Wahrscheinlichkeit, dass ein verkauftes
+Bild von Salvador ist?
+\end{teilaufgaben}
+
+\begin{loesung}
+Das Experiment besteht darin, ein Bild zufällig auszuwählen und dann
+festzustellen, von welchem Künstler es stammt und ob es verkauft wurde.
+Wir haben die folgenden Ereignisse:
+\begin{align*}
+V&=\{\text{Werke von Vincent~G.}\}\\
+S&=\{\text{Werke von Salvador~D.}\}\\
+P&=\{\text{Werke von Pablo~P.}\}\\
+A&=\{\text{verkauft}\}
+\end{align*}
+Die bekannten Wahrscheinlichkeiten sind
+\begin{align*}
+P(A|S)&=0.04 & P(S)&=\frac12\\
+P(A|P)&=0.06 & P(P)&=\frac13\\
+P(A|V)&=0.03 & P(V)&=1-P(S)-P(V) = \frac16
+\end{align*}
+\begin{teilaufgaben}
+\item
+Zu bestimmen ist $P(A)$.
+Nach dem Satz von der totalen Wahrscheinlichkeit ist
+\begin{align*}
+P(A)
+&=
+P(A|S)P(S)
++
+P(A|V)P(V)
++
+P(A|P)P(P)
+\\
+&=
+0.04\cdot 0.5
++
+0.06\cdot 0.1666
++
+0.03\cdot 0.3333
+\\
+&=0.039995.
+\end{align*}
+\item
+Gesucht ist die Wahrscheinlichkdit $P(S|A)$, dies kann mit dem 
+Satz von Bayes geschehen:
+\begin{align*}
+P(S|A)
+&=
+P(A|S)\frac{P(S)}{P(A)}
+=
+0.04\frac{0.5}{0.039995}
+=
+\frac{0.020}{0.039995}
+=
+0.5001
+\approx
+50.01\%.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Ereignisse ({\bf E})  1 Punkt,
+Bedingte Wahrscheinlichkeiten ({\bf C}) 1 Punkt,
+Satz von der totalen Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Wahrscheinlichkeit von $A$ ({\bf A}) 1 Punkt.
+\item
+Satz von Bayes ({\bf B}) 1 Punkt,
+Wahrscheinlichkeit ({\bf W}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}

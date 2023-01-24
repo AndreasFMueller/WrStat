@@ -1,0 +1,107 @@
+Eine Untersuchung möchte Wissen, ob das Sternzeichen einer
+Personen einen Einfluss auf die Persönlichkeit hat.
+Dazu wurden 256 Künstler nach ihrem Sternzeichen befragt,
+es ergaben sich die Resultate der folgenden Tabelle:
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline
+Sternzeichen & Anzahl \\
+\hline
+Widder     & 29 \\
+Stier      & 24 \\
+Zwillinge  & 22 \\
+Krebs      & 19 \\
+Löwe       & 21 \\
+Jungfrau   & 18 \\
+Waage      & 19 \\
+Skorpion   & 20 \\
+Schütze    & 23 \\
+Steinbock  & 18 \\
+Wassermann & 20 \\
+Fische     & 23 \\
+\hline
+\end{tabular}
+\end{center}
+Es scheint, dass Künstler häufiger das Sternzeichen Widder
+haben als andere, doch reicht das?
+Kann damit eine Aussage darüber machen, ob das Sternzeichen einen
+Einfluss darauf hat, ob eine Person ein Künstler ist?
+
+\begin{hinweis}
+Um den Rechenaufwand für die Handrechnung zu reduzieren, dürfen Sie
+auf Wunsch die rechnerische Auswertung auch nur mit der ersten Hälfte
+der Tabelle durchführen.
+\end{hinweis}
+
+\begin{loesung}
+Die Nullhypothese, die wir testen müssen ist
+\begin{quote}
+Die Eigenschaft, ein Künstler zu sein, ist unabhängig vom 
+Sternzeichen.
+\end{quote}
+Wir verwenden einen $\chi^2$-Test mit 11 Freiheitsgraden.
+Ein sinnvoller Wert $\alpha=5\%$ scheint angemessen.
+Der kritische Wert der Diskrepanz für $p=0.95$ und $k=11$ ist
+$D_{\text{krit}}=19.675$. 
+Die Nullhypothese wird verworfen, wenn die aus obigen Daten
+berechnete Diskrepanz grösser ist als $D_{\text{krit}}$.
+\begin{center}
+\begin{tabular}{|r|l|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+   & Sternzeichen    & n_i&        p_i &     np_i &  n_i-np_i  &(n_i-np_i)^2/np_i \\
+\hline
+1  & Aries           & 29 & 0.08333333 & 21.33333 &  7.66666 & 2.75520 \\
+2  & Taurus          & 24 & 0.08333333 & 21.33333 &  2.66666 & 0.33333 \\
+3  & Gemini          & 22 & 0.08333333 & 21.33333 &  0.66666 & 0.02083 \\
+4  & Cancer          & 19 & 0.08333333 & 21.33333 & -2.33333 & 0.25520 \\
+5  & Leo             & 21 & 0.08333333 & 21.33333 & -0.33333 & 0.00520 \\
+6  & Virgo           & 18 & 0.08333333 & 21.33333 & -3.33333 & 0.52083 \\
+7  & Libra           & 19 & 0.08333333 & 21.33333 & -2.33333 & 0.25520 \\
+8  & Scorpio         & 20 & 0.08333333 & 21.33333 & -1.33333 & 0.08333 \\
+9  & Sagittarius     & 23 & 0.08333333 & 21.33333 &  1.66666 & 0.13020 \\
+10 & Capricorn       & 18 & 0.08333333 & 21.33333 & -3.33333 & 0.52083 \\
+11 & Aquarius        & 20 & 0.08333333 & 21.33333 & -1.33333 & 0.08333 \\
+12 & Pisces          & 23 & 0.08333333 & 21.33333 &  1.66666 & 0.13020 \\
+\hline
+   &            & n = 256 &            &          &            & 5.09375 \\
+\hline
+\end{tabular}
+\end{center}
+Da die Diskrepanz $D<D_{\text{krit}}$ klar kleiner ist als die kritische
+Diskrepanz $D_{\text{krit}}$, gibt es keinen Grund, an der Nullhypothese
+zu zweifeln.
+Das Sternzeichen hat keinen Einfluss darauf, ob jemand ein Künstler ist.
+
+Führt man die Rechnung nur mit der ersten Hälfte der Tabelle durch,
+erhält man:
+\begin{center}
+\begin{tabular}{|r|l|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+  & Sternzeichen & n_i &        p_i &     np_i & n_i-np_i &(n_i-np_i)^2/np_i \\
+\hline
+1 & Aries        &  29 & 0.1666667 & 22.16667 &  6.833333 & 2.106511 \\
+2 & Taurus       &  24 & 0.1666667 & 22.16667 &  1.833333 & 0.151623 \\
+3 & Gemini       &  22 & 0.1666667 & 22.16667 & -0.166667 & 0.001253 \\
+4 & Cancer       &  19 & 0.1666667 & 22.16667 & -3.166667 & 0.452382 \\
+5 & Leo          &  21 & 0.1666667 & 22.16667 & -1.166667 & 0.061409 \\
+6 & Virgo        &  18 & 0.1666667 & 22.16667 & -4.166667 & 0.783208 \\
+\hline
+   &         & n = 133 &           &          &         & D=3.556391 \\
+\hline
+\end{tabular}
+\end{center}
+Die Anzahl der Freiheitsgrade reduziert sich auf $5$ und die kritische
+Diskrepanz auf $D_{\text{krit}}=11.070$.
+Da die Diskrepanz $D<D_{\text{krit}}$ auch in diesem Fall klar kleiner
+ist als die kritische Diskrepanz $D_{\text{krit}}$, gibt es auch mit
+der kleineren Datenmenge keinen Grund, an der Nullhypothese zu zweifeln.
+\end{loesung}
+
+\begin{bewertung}
+Nullhypothese ({\bf Z}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Freiheitsgrade und kritische Diskrepanz ({\bf F}) 1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 2 Punkt,
+Entscheid und Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+

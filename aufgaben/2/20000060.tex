@@ -1,0 +1,243 @@
+In einem Dreikönigskuchen mit 7 Teilen befindet sich in genau einem
+Teil eine kleine Königsfigur.
+$A$ und $B$ möchten unter sich ausmachen, wer König sein soll.
+Sie einigen sich darauf, dass sie abwechselnd jeweils ein Teil
+des Kuchens wählen und essen dürfen.
+Sobald eine der beiden Personen den König hat, endet die Ausmarchung.
+$A$ beginnt.
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, dass $A$ den König gewinnt?
+\item
+Ist dies ein faires Spiel?
+\item
+Wieviele Kuchenteile werden im Mittel für so eine Ausmarchung gegessen?
+\item
+Wie gross ist die erwartete Anzahl Kuchenteile, die $A$ essen muss?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir lösen das Problem für einen $n$-teiligen Kuchen.
+Sie $K$ die Anzahl der Teile, die gegessen werden, bis das Resultat
+der Ausmarchung festliegt.
+
+\begin{teilaufgaben}
+\item
+Damit die Ausmarchung genau im $k$-ten Schritt endet, müssen erst
+$k-1$ Teile ohne König gewählt werden, dann der König.
+Nach $i$ Schritten ohne König ist die Anzahl der zur Auswahl
+stehenden Teile $n-i$ und die Wahrscheinlichkeit, im nächsten Schritt
+wieder ein Teil ohne König zu wählen ist $(n-i-1)/(n-i)$.
+Nach $n-1$ Schritten ist diese Wahrscheinlichkeit
+\[
+\frac{n-(n-1)-1}{n-(n-1)}
+=
+\frac{0}{1}=0,
+\]
+dies drückt aus, dass die Ausmarchung nach dem $n$-ten Schritt nicht
+mehr weitergehen kann.
+Die Wahrscheinlichkeit, dass der König genau im $k$-ten Schritt gefunden
+wird, ist
+\begin{align*}
+P(K=k)
+&=
+\underbrace{
+\frac{n-1}{n}
+\cdot
+\frac{n-2}{n-1}
+\cdot \ldots \cdot
+\frac{n-(k-2)-1}{n-(k-2)}
+}_{\text{$k-1$ Teile ohne König}}
+\cdot
+\underbrace{
+\frac{1}{n-(k-1)}
+}_{\text{König im Teil $k$}}
+=
+\frac{1}{n}.
+\end{align*}
+
+In obiger Rechnung sind wir davon ausgegangen, dass der König fest
+``verankert'' ist, und haben die Wahrscheinlichkeit untersucht, dass
+er von der Auswahl ``gefunden'' wird.
+Wir könnten uns aber auch vorstellen, dass die Reihenfolge, in der
+die Stücke gewählt werden, in den Köpfen der Teilnehmer bereits 
+festgelegt ist, und wir jetzt einfach noch einen König zufällig
+da hineinsprenkeln.
+Dann wird das Problem viel übersichtlicher: für den König gibt es 
+genau $n$ mögliche Schritte, in denen er gefunden wird.
+Die Wahrscheinlichkeiteit, dass er im $k$-ten Schritt gefunden wird
+ist also $\frac1n$, wie vorhin schon gefunden.
+
+\item
+$A$ gewinnt, wenn die Ausmarchung in einem ungeraden Schritt endet.
+Die Wahrscheinlichkeit dafür ist
+\[
+P(A)
+= 
+P(K=1) + P(K=3) + P(K=5) + \dots 
+=
+\sum_{l=0}^{\lfloor\frac{n-1}{2}\rfloor} P(K=2l+1)
+=
+\sum_{l=0}^{\lfloor\frac{n-1}{2}\rfloor} \frac1n
+=
+\biggl(
+1+
+\biggl\lfloor \frac{n-1}{2}\biggr\rfloor
+\biggr)
+\cdot
+\frac{1}{n}.
+\]
+Man beachte, dass die Wahrscheinlichkeit für die beiden
+Mitspieler verschieden ist, wenn $n$ ungerade ist.
+Wenn $n$ gerade ist, bekommen $A$ und $B$ gleichviele
+Chancen, ein Kuchenstück zu probieren.
+Wenn $n$ ungerade ist, dann kommt $A$ am Ende noch ein
+zusätzliches Mal dran und hat damit auch die grössere
+Wahrscheinlichkeit zu gewinnen.
+Aus diesem Grund sollten Dreikönigskuchen immer eine
+durch möglichst viele Zahlen teilbare Anzahl Teile haben,
+zum Beispiel 6 oder 12 (teilbar durch 2, 3, 4, 6).
+
+\item
+$K$ ist die Anzahl der Kuchenstücke, die in der Ausmarchung
+gegessen werden.
+Der Erwartungswert von $K$ ist die Summe
+\[
+E(K)
+=
+\sum_{k=1}^n k P(K=k)
+=
+\frac1n \sum_{k=1}^n k
+=
+\frac1n\cdot\frac{n(n+1)}2
+=
+\frac{n+1}2.
+\]
+
+\item
+$E(K)$ ist nicht die erwartete Anzahl Kuchenteile, die ein
+Teilnehmer essen muss, dazu müssen wir anders vorgehen.
+Sei $K_A$ die Zufallsvariable, die angibt, wie viele Kuchenteile
+$A$ essen muss.
+Da $A$ beginnt, ist $K_A\ge 1$.
+Wenn er den König findet, oder wenig $B$ im nächsten Schritt
+den König findet, dann ist $K_A=1$.
+Die Wahrscheinlichkeit dafür ist also $\frac{2}n$.
+Es ist $K_A=2$, wenn $K=2$ oder $K=3$.
+Allgemein ist $K_A=l$ wenn $K=2l$ oder $K=2l+1$.
+Da jeder Wert von $K$ gleich wahrscheinlich ist, ist auch jeder
+mögliche Wert von $K_A$ gleich wahrscheinlich, mit Ausnahme des
+grössten, wenn $n$ ungerade ist.
+Für gerades $n$ ist
+\begin{align*}
+E(K_A)
+&=
+1\cdot P(K=1\vee K=2) + 2\cdot P(K=3\vee K=4) + \dots
++ \frac{n}2\cdot P(K=n-1\vee K=n)
+\\
+&=
+1\cdot \frac{2}{n} + 2 \cdot \frac{2}{n} + \dots + \frac{n}{2}\cdot \frac{2}{n}
+\\
+&=
+\frac{2}{n}\cdot\biggl(1+2+\dots+\frac{n}2\biggr)
+=
+\frac{2}{n} \cdot \frac{\frac{n}2\left(\frac{n}{2}+1\right)}{2}
+=
+\frac{n}{4}+\frac12,
+\intertext{für ungerades $n$ kommt noch ein letzter Term hinzu}
+E(K_A) &=
+1\cdot P(K=1\vee K=2) %+ 2\cdot P(K=3\vee K=4)
++ \dots
++ \frac{n-1}2\cdot P(K=n-2\vee K=n-1)
++ \frac{n+1}2\cdot P(K=n)
+\\
+&=
+1\cdot\frac{2}{n}
++
+2\cdot\frac{2}{n}
++
+\dots
++
+\frac{n-1}2\cdot\frac{2}{n}
+{\color{red}\mathstrut+
+\frac{n+1}2\cdot\frac{1}{n}}
+\\
+&=
+\frac2n \cdot \biggl(1+2+ \dots +\frac{n-1}2\biggr)
++\frac{n+1}2\cdot\frac{1}{n}
+\\
+&=
+\frac{2}n \cdot \frac{\frac{n-1}{2}\left(\frac{n-1}2+1\right)}{2}
++\frac{n+1}2\cdot\frac{1}{n}
+=
+\frac{(n-1)(n+1)}{4n} + \frac{n+1}{2n}
+\\
+&=
+\frac{(n-1)(n+1)}{4n} + \frac{2(n+1)}{4n}
+=
+\frac{n^2+2n+1}{4n}
+=
+\frac{n}4+\frac12 + \frac{1}{4n}
+\end{align*}
+Im Fall $n$ ungerade kommt also noch ein zusätzlicher Summand $\frac{1}{4n}$
+hinzu, man kann sich vorstellen, dass er von den höhren Gewinnchancen von $A$
+in diesem Fall herrührt.
+\end{teilaufgaben}
+
+Nach diesen allgemeinen Vorarbeiten können wir jetzt die einzelnen Fragen
+beantworten:
+\begin{teilaufgaben}
+\item
+Für $n=7$ ist die Wahrscheinlichkeit 
+\[
+P(A)
+=
+\biggl(1+\frac{7-1}{2}\biggr)\cdot \frac17
+=
+\frac{4}{7}
+=
+0.\overline{571428}.
+\]
+\item
+Für ungerades $n$ ist das Spiel unfair, da $A$ eine Wahlmöglichkeit mehr
+hat, den König zu gewinnen.
+\item
+Die erwartete Anzahl Teile ist
+\[
+E(K)
+=
+\frac{7+1}{2}
+=
+4.
+\]
+\item
+Die erwartete Anzahl der Kuchenteile, die $a$ ist, ist
+\[
+E(K_A)=\frac{n}4+\frac12+\frac{1}{4\cdot 7}
+=
+\frac{49 + 14 + 1}{28}
+=
+\frac{64}{28}
+=
+\frac{16}{7}
+=
+2.\overline{285714}.
+\qedhere
+\]
+\end{teilaufgaben}
+
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Wahrscheinlichkeit für König im $k$-ten Schritt ({\bf K}) 1 Punkt,
+Anzahl Möglichkeiten für $A$ ({\bf M}) 1 Punkt.
+\item
+Spiel ist unfair, weil $n=7$ ungerade ist ({\bf U}) 1 Punkt.
+\item
+Erwartungswert für $K$ ({\bf E}) 1 Punkt, Zahlenwert ({\bf Z}) 1 Punkt.
+\item
+Erwartungswert für $K_A$ ({\bf A}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}

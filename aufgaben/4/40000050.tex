@@ -1,0 +1,197 @@
+Wann startet das James Webb Space Telescope?
+Im Laufe des Projekts des James Webb Space Telescope kam es immer 
+wieder zu Verzögerungen.
+Das geplante Startdatum wurde im Laufe der Zeit immer später, wie dies
+die in der folgenden Graphik zusammengefasst ist
+(Quelle \url{https://xkcd.com/2014/}):
+\begin{center}
+\includeagraphics[width=10cm]{jwstdelays.png}
+\end{center}
+\begin{teilaufgaben}
+\item
+Verwenden Sie die folgenden Daten, um ein Modell für das geplante
+Startdatum in Abhängigkeit von der Zeit aufzustellen.
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}|>{$}r<{$}|}
+\hline
+i&\text{Prognosedatum}&\text{Startdatum}\\
+\hline
+1&2002& 2010\\
+2&2006& 2014\\
+3&2010& 2016\\
+4&2014& 2019\\
+5&2018& 2020\\
+\hline
+\end{tabular}
+\end{center}
+\item 
+Beurteilen Sie die Qualität Ihres Modells.
+\item
+Wann wird nach Ihrem Modell das JWST gestartet?
+\end{teilaufgaben}
+
+%https://youtu.be/OVjbelWgGkw
+
+\begin{hinweis}
+Ignorieren Sie bei Ihrer Lösung, dass das JWST am 25.~Dezember tatsächlich
+gestartet und inzwischen auch im Lagrange-Punkt $L_2$ angekommen ist.
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Zur Berechnung der Parameter eines linearen Modells verwendet man die Tabelle
+\begin{center}
+\hspace*{-1cm}
+\begin{tabular}{|>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+i&      x_i&      y_i\phantom{.0}&    x_i^2&     y_i^2\phantom{.0}&   x_iy_i \\
+\hline
+1&     2002&     2010\phantom{.0}&  4008004&   4040100\phantom{.0}&   4024020\\
+2&     2006&     2014\phantom{.0}&  4024036&   4056196\phantom{.0}&   4040084\\
+3&     2010&     2016\phantom{.0}&  4040100&   4064256\phantom{.0}&   4052160\\
+4&     2014&     2019\phantom{.0}&  4056196&   4076361\phantom{.0}&   4066266\\
+5&     2018&     2020\phantom{.0}&  4072324&   4080400\phantom{.0}&   4076360\\
+\hline
+ &\sum x_i = 10050& \sum y_i = 10079\phantom{.0}& \sum x_i^2 = 20200660& \sum y_i^2 = 20317313\phantom{.0}& \sum x_iy_i = 20258890\\
+\hline
+ & E(X)= 2010& E(Y)= 2015.8& E(X^2) = 4040132& E(Y^2) =4063462.6& E(XY) = 4051778\\
+\hline
+\end{tabular}
+\end{center}
+Die Kovarianzen und Varianzen sind
+\[
+\begin{aligned}
+\operatorname{cov}(X,Y)
+&=
+20,
+&
+&&
+\operatorname{var}(X)
+&=
+32
+\\
+&&
+&\text{und}&
+\operatorname{var}(Y)
+&=
+12.96.
+\end{aligned}
+\]
+Daraus kann man jetzt die Parameter der Regressionsgeraden ableiten:
+\begin{align*}
+a
+&=
+\frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X)}
+=
+\frac{20}{32}
+=
+\frac{5}{8} 
+=
+0.625,
+\\
+b
+&=
+E(Y) - aE(X)
+=
+2015.8 - 0.625 \cdot 2010
+=
+759.55.
+\end{align*}
+\item
+Zur Beurteilung des Modells muss der Regressionskoeffizient
+\[
+r
+=
+\frac{
+\operatorname{cov}(X,Y)
+}{
+\sqrt{\operatorname{var}(X)\operatorname{var}(Y)}
+}
+=
+\frac{20}{\sqrt{32\cdot 0.625}}
+\approx
+0.9821
+\]
+bestimmen.
+Da $r$ sehr nahe bei $1$ ist, kann man das Modell als gut beurteilen.
+\item
+Gesucht ist der Zeitpunkt, wo sich die Vorhersage des Modells und die
+aktuelle Zeit treffen, also eine Lösung der Gleichung
+\[
+\begin{aligned}
+&&ax+b&=x
+\\
+&\Rightarrow&(a-1)x&=-b
+\\
+&\Rightarrow& x&=\frac{b}{1-a}.
+\end{aligned}
+\]
+Durch Einsetzen der oben ermittelten Zahlen findet man für den zu
+erwartenden Startzeitpunkt
+\[
+x
+=
+\frac{b}{1-a}
+=
+\frac{759.55}{0.375}
+=
+2025.4666.
+\]
+Nach diesem Modell wird das JWST also im Jahr 2025 gestartet.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}Mehr zu den Verzögerungen des
+James Webb Space Telescope im Sixty-Symbols Video
+\url{https://youtu.be/OVjbelWgGkw} mit Prof.~Mike Merryfield.
+\end{diskussion}
+
+\begin{bewertung}
+Lineare Regression ({\bf LR}) 1 Punkt,
+Berechnungsmethode ({\bf M}) 1 Punkt,
+Wert für $a$ ({\bf A}) 1 Punkt,
+Wert für $b$ ({\bf B}) 1 Punkt,
+Regressionskoeffizient $r^2$ und Beurteilung ({\bf R}) 1 Punkt,
+Schätzung für Startzeitpunkt ({\bf S}) 1 Punkt.
+\end{bewertung}
+
+%t =
+%
+%   2002   2010
+%   2006   2014
+%   2010   2016
+%   2014   2019
+%   2018   2020
+%
+%t =
+%
+%      2002      2010   4008004   4040100   4024020
+%      2006      2014   4024036   4056196   4040084
+%      2010      2016   4040100   4064256   4052160
+%      2014      2019   4056196   4076361   4066266
+%      2018      2020   4072324   4080400   4076360
+%
+%s =
+%
+%      10050      10079   20200660   20317313   20258890
+%
+%e =
+%
+% Columns 1 through 3:
+%
+%   2.010000000000000e+03   2.015800000000000e+03   4.040132000000000e+06
+%
+% Columns 4 and 5:
+%
+%   4.063462600000000e+06   4.051778000000000e+06
+%
+%covXY = 20
+%varX = 32
+%varY = 12.96000000042841
+%a = 0.625000000000000
+%b = 759.5500000000000
+%r = 0.982092751631750
+%JWST = 2025.466666666666
+%

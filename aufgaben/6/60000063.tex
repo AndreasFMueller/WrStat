@@ -1,0 +1,154 @@
+Nach den US-Wahlen 2020 hat die Trump-Administration in einer Klage vor
+dem obersten Gerichtshof behauptet, die Wahrscheinlichkeit für das 
+Wahlresultat im Staat Michigan sei kleiner als $10^{-15}$.
+Das Argument eines Ökonomen namens Charles J.~ Cicchetti ging etwa so:
+Am Wahltag haben von 4662328 Wählern 51.09\% für Trump abgegeben.
+Später kamen dann noch 268204 Stimmen von Briefwählern hinzu, von denen 
+71.6\% für Biden waren.
+
+\begin{teilaufgaben}
+\item
+Unter der Annahme, dass die Wahrscheinlichkeit, für Trump zu stimmen, unter
+den Wählern, die am Wahltag ihre Stimme abgegeben haben gleich ist wie
+die entsprechende Wahrscheinlichkeit unter den Briefwählern, wie gross
+ist die Wahrscheinlichkeit dass so viel mehr Briefwähler für Biden stimmen?
+\item
+Warum ist dieses Argument völlig falsch?
+\item
+Woher kommt wohl die Zahl $10^{-15}$?
+\end{teilaufgaben}
+
+Matt Parker vom Youtube-Kanal Stand-up Maths hat die Lächerlichkeit
+dieser ziemlich naiven Argumentation von Herr Cicchetti in einem
+unterhaltsamen Video dargestellt: \url{https://youtu.be/ua5aOFi-DKs}.
+
+\begin{teilaufgaben}
+\item
+Unter der genannten Annahme ist die Anzahl $X$ der Briefstimmen für
+Trump binomialverteilt mit $p=0.5109$ und $n=268204$.
+Gefragt wird die Wahrscheinlichkeit
+\begin{align*}
+P(X < 0.284\cdot n) 
+&=
+P\biggl(\frac{X-np}{\sqrt{np(1-p)}} < \frac{0.284 n -np}{\sqrt{np(1-p)}}\biggr)
+\\
+&=
+\Phi\biggl(
+\frac{n(0.284-p)}{\sqrt{np(1-p)}}
+\biggr)
+=
+1
+-
+\Phi\biggl(
+\frac{(p-0.284)n}{\sqrt{np(1-p)}}
+\biggr)
+=
+1-\Phi(235.7)
+\intertext{Da $\Phi(235.7)$ sehr nahe bei $1$ sind, ist die Differenz
+nicht wirklich numerisch berechenbar, siehe auch Teilaufgabe c).
+Man kann aber numerisch wie folgt rechnen:}
+P(X < 0.284\cdot n) 
+=
+\Phi(-235.7).
+\end{align*}
+Das Argument von $\Phi$ ist derart klein, dass man auch mit den 
+breitesten Datentypen auf einem Computer den Wert nicht von $0$
+unterscheiden kann.
+\item
+Die Annahme, dass die Briefwähler mit der gleichen Wahrscheinlichkeit
+für Trump stimmen wie die Wähler, die am Wahltag gewählt haben, ist
+völlig unhaltbar.
+Das Gegenteil ist der Fall und wurde von den Parteien sogar aktiv
+herbeitgeführt.
+Die Repulikaner haben Briefwählen dämonisiert und ihren Anhängern empfohlen,
+am Wahltag zu wählen.
+Die Demokraten haben dagegen empfohlen, wegen der Pandemie brieflich
+zu wählen.
+\item
+Der Wert von $\Phi(z)$ ist sehr nahe bei $1$.
+Da aber nur die Differenz $1-\Phi(z)$ interessiert, ist die kleinste
+Differenz, die mit einer \texttt{double}-Variablen im Computer dargestellt
+werden kann, ungefähr $10^{-15}$.
+Es handelte sich also gar nicht um eine sinnvolle Wahrscheinlichkeitsangabe,
+sondern nur um eine Angabe über die Maschinengenauigkeit des verwendeten
+Computers, was die ganze Gesichte natürlich noch viel lächerlicher macht.
+\end{teilaufgaben}
+
+\begin{diskussion}
+Man kann versuchen $\Phi(-235.7)$ abzuschätzen.
+Zum Beispiel ist klar, dass
+\[
+\Phi(z)
+=
+\frac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{z} e^{-x^2/2}\,dx
+\ge
+\frac{1}{\sqrt{2\pi}}
+\int_{z-1}^{z} e^{-x^2/2}\,dx
+\ge
+\frac{1}{\sqrt{2\pi}}
+e^{-(z-1)^2/2},
+\]
+indem man vom ganzen uneigentlichen Integral nur ein Interval der Länge $1$
+mitnimmt.
+Für $z=-235.7$ folgt dann
+\[
+\Phi(-235.7)
+\ge
+\frac{e^{-236.7^2/2}}{\sqrt{2\pi}}.
+\]
+Auch diesen Wert kann man mit dem Computer nicht berechnen.
+Aber man kann den Logarithmus davon berechnen:
+\[
+\log_{10}
+\frac{e^{-236.7^2/2}}{\sqrt{2\pi}}
+=
+-\frac{236.7^2}{2} \log_{10}e - \frac12 \log_{10}(2\pi)
+=
+-12166.48.
+\]
+Man kann daraus schliessen, dass die gesuchte Wahrscheinlichkeit
+zwar kleiner ist als mit jedem beliebigen Maschinentypen darstellbar,
+aber mit Sicherheit grösser ist also $10^{-12166}$.
+
+Man kann den Wert $\Phi(-235.7)$ mit Hilfe einer geeigneten
+Bibliothek für hochgenaue Gleitkomma-Typen wie die GNU MPFR
+berechnen.
+Die MPFR beinhaltet eine Implementation der komplementären Fehlerfunktion
+$\operatorname{erfc}(x) = 1-\operatorname{erfc}(x)$.
+Mit einem kleinen Programm kann man jetzt die Wahrscheinlichkeit
+berechnen und erhält:
+\[
+\Phi(-235.7)
+=
+\frac12\operatorname{erfc}\biggl(\frac{-235.7}{\sqrt{2}}\biggr)
+=
+5.298\cdot10^{-12067},
+\]
+was natürlich mit obiger Abschätzung konsistent ist.
+Die Trumpisten lagen mit ihrer Berechnung der Wahrscheinlichkeit
+nur etwa 12052 Grössenordnungen daneben.
+
+Die grosse Entfernung vom Erwartungswert bedeutet, dass die Normalapproximation
+wohl kaum adäquat ist.
+Man kann aber mit MPFR die Berechnung auch für die Binomialverteilung exakt
+durchführen.
+Dabei kommt man auf $1.35999\cdot 10^{-12363}$, also nochmals etwa
+296 Grössenordnungen kleiner.
+Betrachtet man aber nur die Logarithmen der Wahrscheinlichkeiten,
+was für derart kleine Zahlen sinnvoll sein kann, dann ist die
+Normalapproximation nur 2\% daneben.
+
+So eine Zahl mit über 12000 Stellen wäre in der genannten Klage sicher
+noch viel eindrucksvoller gewesen.
+Zum Vergleich, zwischen der Planck Länge (etwa $10^{-20}$ mal der Durchmesser
+eines Protons) und dem Durchmesser des beobachtbaren Universums sind nur
+etwa 60 Grössenordnungen.
+Aber es ist auch nachvollziehbar, dass die oben durchgeführte Berechnung
+von $\Phi(-235.7)$ weit über das mathematische Niveau der Klagenden
+hinausgeht.
+\end{diskussion}
+
+
+
+

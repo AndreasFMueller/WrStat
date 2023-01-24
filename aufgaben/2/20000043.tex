@@ -64,7 +64,17 @@ Aus dem zweiten Absatz weiss man, dass die nicht immunen Kinder mit
 Wahrscheinlichkeit 20\% krank werden.
 Die Wahrscheinlichkeit, dass ein Kind immun ist, ist $P(J)=0.7225$.
 Also ist die Wahrscheinlichkeit, dass ein Kind an Masern erkrankt
-$P(M)=0.2\cdot P(J)=0.1445$.
+\[
+P(M)
+=
+\underbrace{P(M|J)}_{\displaystyle=0}P(J)
++
+P(M|\overline{J})P(\overline{J})
+=
+P(M|\overline{J})P(\overline{J})
+=
+0.2\cdot (1-P(J))=0.0555.
+\]
 \item
 Gesucht ist die Wahrscheinlichkeit $P(\overline{I}|M)$.
 Nach dem Satz von Bayes gilt

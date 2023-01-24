@@ -1,0 +1,102 @@
+In der Silvesternacht wird jeweils aus unerfindlichen Gründen eine grosse
+Menge Feuerwerk durch Privatpersonen abgebrannt.
+Angeblich soll es im neuen Jahr Glück bringen, doch Länder, in denen
+diese Form von Aberglauben nicht üblich ist, scheinen nicht weniger
+von Glück gesegnet zu sein.
+Natürlich ist dieses Geknalle meistens völlig desorganisiert, scheint
+sich aber ungefähr um Mitternacht zu konzentrieren.
+Etwa 5\%  scheinen aber nicht warten zu können und brennen ihr
+Feuerwerk schon vor 22 Uhr abends ab.
+Aber auch nach Mitternacht hört das Geballer nicht auf, 25\% werden erst
+nach 1~Uhr verfeuert.
+\begin{teilaufgaben}
+\item Zu welcher Zeit erreicht die Explosionsdichte ihr Maximum?
+\item Wie gross ist die Wahrscheinlichkeit, dass auch nach 2 Uhr
+immer noch Feuerwerk explodiert?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir nehmen an, dass Zeitpunkte, zu denen ein Feuerwerkskörper 
+abgebrannt wird, eine normalverteilte Zufallsvariable $X$
+ist mit Erwartungswert $\mu$ und Standardabweichung $\sigma$.
+Die beiden Bedingungen lauten
+\[
+\begin{aligned}
+P(X < 22) &= 0.05 &&           &         &       \\
+P(X > 25) &= 0.25 &&\Rightarrow& P(X<25) &= 0.75
+\end{aligned}
+\]
+oder nach Standardisierung
+\begin{align*}
+P\biggl( \frac{X-\mu}{\sigma} < \frac{21-\mu}{\sigma} \biggr) &= 0.05 \\
+P\biggl( \frac{X-\mu}{\sigma} < \frac{25-\mu}{\sigma} \biggr) &= 0.75
+\end{align*}
+Da $Z=(X-\mu)/\sigma$ standardnormalverteilt ist, folgt
+\[
+\left.
+\begin{aligned}
+\frac{22-\mu}{\sigma} &=          - 1.6449 \\
+\frac{25-\mu}{\sigma} &= \phantom{-}0.6745
+\end{aligned}
+\quad
+\right\}
+\qquad\Rightarrow\qquad
+\left\{
+\quad
+\begin{linsys}{3}
+22 &=& \mu &-& 1.6449\sigma\phantom{.}\\
+25 &=& \mu &+& 0.6745\sigma.
+\end{linsys}
+\right.
+\]
+Dieses lineare Gleichungssystem kann zum Beispiel mit der Cramerschen
+Regel gelöst werden, welche
+\[
+\mu
+=
+\frac{
+\left|\begin{matrix*}[r]22&-1.6449\\25&0.6745\end{matrix*}\right|
+}{
+\left|\begin{matrix*}[r]1&-1.6449\\1&0.6745\end{matrix*}\right|
+}
+=
+\frac{55.962}{2.3194}
+=
+24.1276
+\qquad\text{und}\qquad
+\sigma
+=
+\frac{
+\left|\begin{matrix*}[r]1&22\\1&25\end{matrix*}\right|
+}{
+\left|\begin{matrix*}[r]1&-1.6449\\1&0.6745\end{matrix*}\right|
+}
+=
+\frac{3}{2.3194}
+=
+1.2934
+\]
+ergibt.
+\begin{teilaufgaben}
+\item
+Das Maximum wird zur Zeit $\mu$ erreicht, also um 00:08 Uhr.
+\item
+Die Wahrscheinlichkeit, auch nach 2 Uhr noch Explosionen zu hören ist
+\[
+P(X>26) = P\biggl(Z> \frac{26-\mu}{\sigma}\biggr)
+=
+1-
+P(Z <  1.4477) = 1 - 0.9261 = 0.0739
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Normalverteilung ({\bf N}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Quantilen ({\bf Q}) 1 Punkt,
+Gleichungssystem für $\mu$ und $\sigma$ ({\bf G}), 1 Punkt,
+Teilaufgaben a) ({\bf A}) und b) ({\bf B}) je 1 Punkt.
+
+\end{bewertung}

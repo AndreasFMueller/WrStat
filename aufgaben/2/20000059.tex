@@ -1,0 +1,88 @@
+In einem Computerladen werden Computer von drei Herstellern angeboten:
+HAL, Ananas und \reflectbox{ASUS}.
+Zwei Drittel der ausgestellten Computer stammen von \reflectbox{ASUS},
+die anderen beiden Hersteller teilen sich den Rest zu gleichen Teilen.
+Die Wahrscheinlichkeit, dass an einem Tag ein Computer von HAL verkauft
+wird, ist trotz der sogar in Dokumentarfilmen\footnote{Gut bekannt ist
+der Film von Stanley Kubrik, IMDb-Eintrag
+\url{https://www.imdb.com/title/tt0062622/}}
+festgehaltenen
+Benutzerfeindlichkeit 5\%, bei \reflectbox{ASUS} sind es 2\%.
+Die Computer von Ananas mit dem berühmten Logo mit einer angebissenen
+Ananas sind sehr beliebt und werden mit einer Wahrscheinlichkeit von 8\%
+verkauft.
+
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, dass ein Computer verkauft wird?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass ein verkaufter Computer ein
+Ananas-Computer ist?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir verewnden die Ereignisse
+\begin{align*}
+H&=\{\text{Computer von HAL}\}
+\\
+A&=\{\text{Computer von Ananas}\}
+\\
+S&=\{\text{Computer von \reflectbox{ASUS}}\}
+\\
+V&=\{\text{verkauft}\}
+\end{align*}
+Die folgenden Wahrscheinlichkeiten sind bekannt:
+\begin{align*}
+P(V|S)&= 0.02 & P(S) &= \frac23 \\
+P(V|H)&= 0.05 & P(H) &= \frac16 \\
+P(V|A)&= 0.08 & P(A) &= \frac16 
+\end{align*}
+\begin{teilaufgaben}
+\item
+Gesucht ist die Wahrscheinlichkeit $P(V)$, die mit dem Satz von
+der totalen Wahrscheinlichkeit ermittel werden kann:
+\begin{align*}
+P(V)
+&=
+P(V|S)P(S)
++
+P(V|H)P(H)
++
+P(V|A)P(A)
+\\
+&=
+0.02\cdot \frac23
++
+0.08\cdot \frac16
++
+0.05\cdot \frac16
+\\
+&=
+0.035.
+\end{align*}
+\item
+Gesucht ist die bedingte Wahrscheinlichkeit $P(A|V)$, die mit
+dem Satz von Bayes verkauft werden kann:
+\begin{align*}
+P(A|V)
+&=
+P(V|A)\frac{P(A)}{P(V)}
+=
+0.08 \frac{1/6}{0.035}
+=
+\frac{0.08}{0.21}
+\approx
+38.1\%.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Ereignisse ({\bf E}) 1 Punkt,
+bedingte Wahrscheinlichkeiten ({\bf C}) 1 Punkt,
+Satz von der totalen Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Wahrscheinlichkeit in a) ({\bf A}) 1 Punkt,
+Satz von Bayes ({\bf B}) 1 Punkt,
+Wahrscheinlichkeit in b) ({\bf W}) 1 Punkt.
+\end{bewertung}
