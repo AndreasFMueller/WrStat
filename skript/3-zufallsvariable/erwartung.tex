@@ -810,6 +810,43 @@ E((X-E(X))^2)=E\biggl(\biggl(X-\frac12\biggr)^2\biggr)
 &=\frac12\cdot\frac14+\frac12\cdot\frac14=\frac14.
 \end{align*}
 
+\subsubsection{Varianz eines Würfels}
+Ist $X$ die Augenzahl eines fairen Würfels, dann ist der
+Erwartungswert  $E(X)=\frac{7}2$ bereits bekannt.
+Für die Berechnung der Varianz muss zusätzlich $E(X^2)$ ermittelt
+werden.
+Dazu werden die Werte quadriert, die Wahrscheinlichkeiten bleiben gleich:
+\begin{align*}
+E(X^2)
+&=
+\frac16 \cdot 1^2
++
+\frac16 \cdot 2^2
++
+\frac16 \cdot 3^2
++
+\frac16 \cdot 4^2
++
+\frac16 \cdot 5^2
++
+\frac16 \cdot 6^2
+\\
+&=
+\frac16\cdot( 1+4+9+16+25+36)
+=
+\frac{91}{6}
+\\
+\operatorname{var}(X)
+&=
+E(X)^2-E(X)^2
+=
+\frac{91}{6}-\biggl(\frac{7}{2}\biggr)^2
+=
+\frac{91}{6}-\frac{49}{4}
+=
+\frac{182-147}{12}=\frac{35}{12}.
+\end{align*}
+
 \subsection{Empirische Berechnung}
 \index{Varianz!angenäherte Berechnung}
 Wir betrachten das praktische Beispiel der Bestimmung der Varianz
