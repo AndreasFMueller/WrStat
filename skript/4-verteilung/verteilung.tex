@@ -86,6 +86,7 @@ bereits bekannt.
 Noch etwas handlicher ist die folgende Definition.
 
 \begin{definition}
+\label{verteilung:definition:verteilungsfunktion}
 Die Funktion $F\colon\mathbb{R}\to\mathbb{R}:x\mapsto P(X\le x)$
 heisst Verteilungsfunktion von $P$.
 \end{definition}
@@ -357,9 +358,26 @@ P(X\le x)=F(x)=\int_{-\infty}^x\varphi(\xi)\,d\xi
 gilt.
 Man spricht in diesem Fall von einer stetigen Wahrscheinlichkeitsverteilung.
 \end{definition}
-Abbildung \ref{bildstetigeverteilungsfunktion} zeigt die
+Abbildung~\ref{bildstetigeverteilungsfunktion} zeigt die
 Wahrscheinlichkeitsdichte der stetigen Komponente der Verteilungsfunktion
 aus Abbildung \ref{bildverteilungsfunktion}.
+
+Aus den Eigenschaften der Verteilungsfunktion $F(x)$
+gemäss Definition \ref{verteilung:definition:verteilungsfunktion}
+folgen sofort Eigenschaften der Wahrscheinlichkeitsdichte $\varphi(x)$.
+Da $F(x)$ monoton wachsend ist, muss die Ableitung $\varphi(x)\ge 0$
+sein.
+Da der Grenzwert $\lim_{x\to\infty}F(x)=1$ ist, muss das Integral
+über ganz $\mathbb{R}$ den Wert $1$ haben, also
+\begin{equation}
+\int_{-\infty}^\infty \varphi(x)\,dx = 1.
+\label{verteilung:wahrscheinlichkeitsdichte:normierung}
+\end{equation}
+Die Gleichung \eqref{verteilung:wahrscheinlichkeitsdichte:normierung}
+heisst auch die {\em Normierungsbedingung} für die Wahrscheinlichkeitsdichte.
+Eine Funktion $\varphi(x)$ kann also nur die Wahrscheinlichkeitsdichte
+einer stetigen Zufallsvariable sein, wenn sie nicht negativ ist und
+\eqref{verteilung:wahrscheinlichkeitsdichte:normierung} gilt.
 
 Bei diskreten Wahrscheinlichkeitsverteilungen folgte die Formel für den
 Erwartungswert von $X$ sofort aus der Definition, für den stetigen
