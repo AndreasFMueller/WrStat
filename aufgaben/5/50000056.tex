@@ -1,0 +1,90 @@
+41\% der Amerikaner glauben, dass vor langer Zeit Aliens auf der
+Erde gelandet sind und sich Spuren davon immer noch nachweisen lassen.
+Dieser Unsinn geht auf Bücher von Erich von Däniken zurück und wurde
+in den USA durch die Fernsehserie {\em Ancient Aliens}
+mit ähnlich tiefen intellektuellen Standards popularisiert.
+
+Im Vergleich dazu sind die Leute, die an die Thesen von Masaru Emoto
+(\begin{CJK}{UTF8}{min}江本 勝\end{CJK}, 1943--2014) glauben,
+vergleichsweise selten.
+Dieser glaubt, dass die Bildung von Schneeflocken dadurch positiv
+beeinflusst werden kann, indem man den Behälter des Wassers mit
+positiven Botschaften beschriftet.
+Wenn man die Zahl der Google-Treffer als Masszahl für die Verbreitung
+solcher Pseudowissenschaften annimmt, dann sind Emotos Jünger etwa
+hundert mal seltener.
+
+Das Dorf Union im Staat Connecticut in den USA hat 693 Einwohner.
+\begin{teilaufgaben}
+\item
+Wie wahrscheinlich ist es, mehr als 300 Leute in Union zu finden,
+die an Ancient Aliens glauben?
+\item
+Wie wahrscheinlich ist es, mehr als drei Leute in Union zu finden,
+die an Masaru Emotos belebtes Wasser glauben?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Sei $X$ die Zufallsvariable der Anzahl der Ancient-Aliens-Anhänger in Union.
+Sie ist binomialverteilt mit $n=693$ und $p=0.41$.
+Der Erwartungswert ist $\mu=np=284.13$ und die Standardabweichung
+ist $\sigma=\sqrt{np(1-p)}\approx 12.9475$.
+Mit der Normalverteilungsapproximation der Binomialverteilung
+kann man jetzt die Wahrscheinlichkeit ausrechnen.
+Dazu bestimmt man die Standardisierung $Z=(X-\mu)/\sigma$ und
+bekommt
+\begin{align*}
+P(X\le 300)
+&\approx
+P\biggl(Z < \frac{300.5-\mu}{\sigma}\biggr)
+=
+P(Z < 1.26434) = 0.8969461,
+\\
+P(X>300)
+&\approx 0.10305,
+\end{align*}
+die gesuchte Wahrscheinlichkeit ist $10.3\%$.
+\item
+Da der Glaube an Masaru Emotos Thesen so selten ist, kann man ihn
+mit einer
+Poisson-Verteilung mit dem Parameter $\lambda = n\cdot 0.0041=2.8413$
+beschreiben.
+Sei $X$ die Anzahl der Flacherdler, dann ist die Wahrscheinlichkeit,
+mehr als 3 Flacherdler zu finden
+\begin{align*}
+P(X>3)
+&\approx
+1-\sum_{k=0}^3 P_\lambda(k)
+=
+1-e^{-\lambda} \sum_{k=0}^2 \frac{\lambda^k}{k!}
+\\
+&=
+1-e^{-\lambda}\biggl(1+\lambda+\frac{\lambda^2}{2}+\frac{\lambda^3}{3!}\biggr)
+=
+1- 0.68274
+=
+0.31726.
+\end{align*}
+Die Wahrscheinlichkeit, mehr als 3 Emoto-Jünger zu finden, ist daher 
+immer noch 31.73\%.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Binomialverteilung ({\bf B}) 1~Punkt,
+Erwartungswert und Varianz ({\bf E}) 1~Punkt,
+Standardisierung ({\bf S}) 1~Punkt,
+Wahrscheinlichkeit ({\bf W}) 1~Punkt,
+\item
+Poisson-Verteilung und Wert des Parameters ({\bf P}) 1~Punkt,
+Resultierende Wahrscheinlichkeit ({\bf R}) 1~Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
+
+

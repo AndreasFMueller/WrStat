@@ -1,0 +1,136 @@
+Man betrachte die Funktion
+\[
+\varphi(x)
+=
+\begin{cases}
+a&\qquad -\frac32\le x\le -\frac12 \text{ oder } \frac12\le x\le \frac32
+\\
+0&\qquad\text{sonst}
+\end{cases}
+\]
+\begin{teilaufgaben}
+\item
+Wie muss $a$ gewählt werden, damit $\varphi(x)$ die
+Wahrscheinlichkeitsdichte einer Zufallsvariable $X$ wird?
+\item
+Zeichnen Sie einen Graphen der Verteilungsfunktion $F_X(x)$.
+\item
+Bestimmen Sie $E(X)$.
+\item
+Bestimmen Sie die Varianz $\operatorname{var}(X)$.
+\end{teilaufgaben}
+
+
+\begin{loesung}
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex,thick]
+\def\sx{2}
+\def\sy{3}
+\def\a{0.5}
+\draw[->] ({-2.1*\sx},0) -- ({2.1*\sx},0) coordinate[label={$x$}];
+\draw[->] (0,-0.1) -- (0,{2*\sx}) coordinate[label={left:$\color{darkgreen}F_X(x)$}];
+\fill[color=red!20] ({-1.5*\sx},0) rectangle ({-0.5*\sx},{\a*\sy});
+\fill[color=red!20] ({1.5*\sx},0) rectangle ({0.5*\sx},{\a*\sy});
+\draw[color=red,line width=1pt] ({-1.5*\sx},{\a*\sy}) -- ({-0.5*\sx},{\a*\sy});
+\draw[color=red,line width=1pt] ({1.5*\sx},{\a*\sy}) -- ({0.5*\sx},{\a*\sy});
+\draw[color=red,line width=1pt] ({-2*\sx},0) -- ({-1.5*\sx},0);
+\draw[color=red,line width=1pt] ({2*\sx},0) -- ({1.5*\sx},0);
+\draw[color=red,line width=1pt] ({-0.5*\sx},0) -- ({0.5*\sx},0);
+\draw[color=red,line width=0.1pt] ({-1.5*\sx},0) -- ({-1.5*\sx},{\a*\sy});
+\draw[color=red,line width=0.1pt] ({-0.5*\sx},0) -- ({-0.5*\sx},{\a*\sy});
+\draw[color=red,line width=0.1pt] ({1.5*\sx},0) -- ({1.5*\sx},{\a*\sy});
+\draw[color=red,line width=0.1pt] ({0.5*\sx},0) -- ({0.5*\sx},{\a*\sy});
+\draw[color=darkgreen,line width=1.4pt]
+	   ({-2*\sx},0)
+	-- ({-1.5*\sx},0)
+	-- ({-0.5*\sx},{0.5*\sy})
+	-- ({0.5*\sx},{0.5*\sy})
+	-- ({1.5*\sx},{\sy})
+	-- ({2*\sx},\sy);
+\draw ({-1*\sx},-0.05) -- ({-1*\sx},0.05);
+\node at ({-1*\sx},-0.05) [below] {$-1$};
+\draw ({1*\sx},-0.05) -- ({1*\sx},0.05);
+\node at ({1*\sx},-0.05) [below] {$1$};
+\node[color=red] at ({1.4*\sx},{\a*\sy}) [above right] {$\varphi(x)$};
+\draw (-0.05,{\sy}) -- (0.05,\sy);
+\node at (-0.05,\sy) [left] {$1$};
+\node[color=blue] at (0.05,{\a*\sy}) [above left] {$a=\frac12$};
+\draw[color=blue,line width=1.5pt] (-0.1,{\a*\sy}) -- (0.1,{\a*\sy});
+\draw[color=orange,line width=1.4pt]
+	({sqrt(13/12)*\sx},-0.2) -- ({sqrt(13/12)*\sx},{1.2*\sy});
+\draw[color=orange,line width=1.4pt]
+	({-sqrt(13/12)*\sx},-0.2) -- ({-sqrt(13/12)*\sx},{1.2*\sy});
+\draw[<->,color=orange,line width=0.2pt] 
+	({-sqrt(13/12)*\sx},{0.85*\sy}) -- (0,{0.85*\sy});
+\draw[<->,color=orange,line width=0.2pt] 
+	({sqrt(13/12)*\sx},{0.85*\sy}) -- (0,{0.85*\sy});
+\node[color=orange] at ({0.5*sqrt(13/12)*\sx},{0.85*\sy})
+	[above] {$\sqrt{\operatorname{var}(X)}$};
+%\node[color=orange] at ({-0.5*sqrt(13/12)*\sx},{0.85*\sy})
+%	[above] {$\sqrt{\operatorname{var}(X)}$};
+\end{tikzpicture}
+\caption{Verteilungsfunktion der Zufallsvariable $X$ von
+Aufgabe~\ref{50000058}.
+\label{50000058:verteilungsfunktion}}
+\end{figure}
+\begin{teilaufgaben}
+\item
+Das Integral von $\varphi(x)$ muss $1$ werden.
+\begin{align*}
+1&=
+\int_{-\infty}^\infty \varphi(x)\,dx
+=
+\int_{-\frac32}^{-\frac12} a\,dx
++
+\int_{\frac12}^{\frac32} a\,dx
+=
+a+a
+\qquad\Rightarrow\qquad a=\frac12.
+\end{align*}
+\item
+$F_X$ ist konstant in den Teilen des Definitionsbereiches, wo
+$\varphi(x)=0$ ist.
+Ausserhalb dieser Bereich hat der Graph die Steigung $a=\frac12$.
+Der Graph von $F_X(x)$ ist in Abbildung~\ref{50000058:verteilungsfunktion}
+dargestellt.
+\item
+Da $\varphi(x)$ eine gerade Funktion ist, ist $E(X)=0$.
+\item
+Die Varianz kann mit Hilfe von
+\[
+\]
+berechnet werden.
+Der Erwartungswert von $X^2$ ist
+\begin{align*}
+E(X^2)
+&=
+\int_{-\infty}^\infty x^2\,\varphi(x)\,dx
+=
+\int_{-\frac32}^{-\frac12}\frac12x^2\,dx
++
+\int_{\frac12}^{\frac32}\frac12x^2\,dx
+=
+2\int_{\frac12}^{\frac32}\frac12x^2\,dx
+=
+\biggl[\frac13x^3\biggr]_{\frac12}^{\frac32}
+\\
+&=
+\frac13\biggl(\frac{27}{8} - \frac18\biggr)
+=
+\frac13\cdot\frac{26}{8}
+=
+\frac{13}{12}.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Bestimmung von $a$ ({\bf A}) 1 Punkt,
+Graph von $F_X(x)$ ({\bf G}) 1 Punkt,
+Erwartungswert ({\bf E}) 1 Punkt,
+Integralformel für $E(X^2)$ ({\bf I}) Punkt,
+Varianzformel $\operatorname{var}(X)=E(X^2)-E(X)^2$ ({\bf V}) 1 Punkt,
+Wert der Varianz ({\bf Z}) 1 Punkt.
+\end{bewertung}
