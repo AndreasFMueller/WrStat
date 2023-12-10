@@ -1,0 +1,119 @@
+Ein Skigebiet bietet den Skifahrern 15 verschiedene Liftanlagen an, die
+man mit einer Tageskarte alle benutzen kann.
+Ein Tag dauert aber nicht beliebig lang, man kann also nur eine beschränkte
+Anzahl Liftfahrten tatsächlich fahren.
+Wir nehmen an, dass 13 Fahren möglich sind.
+\begin{teilaufgaben}
+\item
+Auf wieviele verschiedene Arten kann man die Abfolge von Liftfahrten
+in einem Skitag wählen, wenn es möglich ist von jeder Bergstation mit einer
+Abfahrt jede Talstation zu erreichen?
+Es ist erlaubt, mehrmals mit dem gleichen Lift zu fahren.
+\item
+Das Skigebiet hat 4 Sessellifte und 11 Skilifte.
+Auf wieviele Arten kann man, unter denselben Voraussetzungen wie
+in Teilaufgabe a), die Fahrten planen, wenn man genau 6 der
+Fahrten mit einem Sessellift durchführen will?
+\item
+Die Annahme in Teilaufgabe a), dass man von jeder Bergstation in einer
+Abfahrt zu jeder Talstation gelangen kann, ist nicht ganz richtig.
+Vielmehr ist das Skigebiet zusammengewachsen aus zwei ursprünglich
+getrennten Gebieten, einem mit 6 Liften und einem mit 8 Liften.
+In jedem dieser Gebiete ist es möglich, jede Talstation mit einer
+Abfahrt von jeder Bergstation aus zu erreichen.
+Dazwischen wurde ein neuer Lift gebaut, dessen Talstation von allen
+Liften erreichbar ist.
+Von der Bergstation des neuen Lifts sind alle Talstationen erreichbar,
+von den Bergstationen der Teilgebiet nur die eigenen Talstationen und 
+die des Verbindungsliftes.
+Leider muss man am Verbindungslift ziemlich lange anstehen, was man nur
+einmal an einem Tag machen will, damit immer noch 12 Fahrten über den
+ganzen Tag möglich bleiben (inkl.~Verbindungslift).
+Auf wieviele Arten kann man Fahrten eines Tages planen, wenn man im ersten
+Teilgebiet $5$ Fahrten (ohne die Fahrt auf dem Verbindungslift)
+und 6 im zweiten fahren will (ohne Verbindungslift).
+\ifthenelse{\boolean{pruefung}}{}{
+\item 
+Stellen Sie eine Formel auf für die Anzahl der Möglichkeiten eines
+Szenarios wie in Teilaufgabe b) mit $n$ Fahrten im ersten und dem
+Rest der Fahrten im zweiten Teilgebiet.
+\item 
+Nehmen Sie jetzt an, dass man mindestens eine Fahrt im ersten Teilgebiet
+durchführt, dann wechselt und die restlichen Fahrten im zweiten Teilgebiet
+durchführt.
+Stellen Sie eine Formel auf, mit der man die Anzahl der Arten
+berechnen kann, auf die dies möglich ist.
+}
+\end{teilaufgaben}
+
+\ifthenelse{\boolean{pruefung}}{}{
+\begin{hinweis}
+Die Teilaufgaben d) und e) sind in der Prüfung nicht gestellt worden.
+\end{hinweis}
+}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Für jede der 12 Fahrten kann kann ein beliebiger der 15 Lifte Lift
+gewählt werden, dies ist auf
+\[
+15^{13} = 1946195068359375
+\]
+Arten möglich
+(Perlenkettenproblem).
+\item
+6 Fahrten mit 4 Sesselliften sind auf $4^6$ Arten möglich,
+7 Fahrten mit 11 Skiliften auf $11^7$ Arten (Perlenkettenproblem).
+Zusätzlich ist jetzt auszuwählen, welche der 13 Fahrten
+des Tages Sesselliftfahrten sein sollen.
+Diese Auswahl ist auf $\binom{13}{6}$ Arten möglich (Auswahlproblem).
+Insgesamt gibt es also
+\[
+\binom{13}{6}\cdot 4^6\cdot 11^7
+=
+1716\cdot 4096 \cdot 19487171
+=
+136970180345856
+\]
+\item
+$5$ Fahrten mit den $6$ Liften des ersten Teilgebietes kann man auf
+$6^5$ Arten planen, die $6$ Fahrten auf den $8$ Liften im zweiten auf
+$8^6$ Arten.
+Es gibt aber noch die Wahlmöglichkeit, in welchem Teilgebiet man 
+beginnen will, was noch einen zusätzlichen Faktor $2$ einführt.
+Die Gesamtzahl der Möglichkeiten ist daher
+\[
+2\cdot 6^5\cdot 8^6
+=
+2\cdot 7776\cdot 262144
+=
+4076863488
+\]
+\item
+$n$ Fahrten kann man auf $6^n$ Arten planen, die verbleibenden Fahrten
+auf $8^{12-n}$ Arten.
+Die Gesamtzahl der Möglichkeiten ist
+\[
+6^n\cdot 8^{12-n}.
+\]
+\item
+Man muss die Summe über alle möglichen $n$ bilden, also
+\[
+\sum_{n=1}^{11} 6^n \cdot 8^{12-n}.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item Perlenkettenproblem ({\bf P}) 1 Punkt,
+\item Auswahlproblem ({\bf A}) 1 Punkt,
+Perlenkettenprobleme für Teilgebiet ({\bf T}) 1 Punkt,
+Multiplikation ({\bf M}) 1 Punkt,
+\item
+Startgebiet ({\bf S}) 1 Punkt,
+Resultat ({\bf R}) 1 Punkt.
+\end{teilaufgaben} 
+\end{bewertung}
