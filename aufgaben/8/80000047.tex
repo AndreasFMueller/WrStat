@@ -1,0 +1,77 @@
+Der Eötvös-Effekt ist die vertikale Ablenkung eines Körpers, der sich
+auf der rotierenden Erde parallel zu einem Breitenkreis bewegt.
+Bewegt er sich in Richtung der Erddrehung (von Westen nach Osten),
+führt dies zu einer grösseren Winkelgeschwindigkeit um die Erdachse
+und damit zu höherer Zentrifugalkraft, der Körper scheint leichter
+zu werden.
+Bewegt er sich gegen die Erddrehung (von Osten nach Westen), führt
+dies zu einer geringeren Winkelgeschwindigkeit um die Erdachse und
+damit zu geringerer Zentrifugalkraft, der Körper scheint leichter
+zu werden.
+Youtuber Wolfie6020 hat eine Präzisionswaage in ein Flugzeug
+mitgenommen und bei breitenkreisparallelen Flügen über Australien
+das Gewicht einer Testmasse gemessen:
+\begin{center}
+\includeagraphics[width=10cm]{eotvos.jpg}
+\end{center}
+Dabei stellte er einen kleinen Unterschied zwischen dem Flug in
+Ost-West- und West-Ost-Richtung fest:
+\begin{center}
+\begin{tabular}{|l|rrr|}
+\hline
+        &Mittelwert [g]&Standardabweichung [g]&Messungen\\
+\hline
+Ost-West&        499.62&                  1.38&       83\\
+West-Ost&        495.23&                  1.06&       82\\
+\hline
+\end{tabular}
+\end{center}
+Allerdings sind die Messfehler relativ gross, zeitweise kreuzen sich
+die Kurven der Messdaten, wie man in der Abbildung sehen kann.
+Kann man aus den Messdaten mit hoher Sicherheit den Schluss ziehen,
+dass der Eötvös-Effekt tatsächlich vorhanden ist?
+
+%
+%Eotvos-Effekt: 07:09, zwei Datensätz mit Mittelwerten und
+%Varianzen
+%https://www.youtube.com/watch?v=ELPRxCtuhGs
+%
+
+\begin{loesung}
+Die Nullhypothese
+\begin{quote}
+Die beiden Werte sind Mittelwerte von Stichproben von normalverteilten
+Zufallsvariablen mit dem gleichen Erwartungswert
+\end{quote}
+lässt sich mit dem $t$-Test testen.
+Um eine hohe Sicherheit zu erreichen, verwenden wir $\alpha=1\%$.
+Die Anzahl der Freiheitsgrade ist $f=n+m-2= 163$.
+Der kritische Wert für $p=1-\frac{\alpha}2=0.995$ und die genannte
+Zahl der Freiheitsgrade ist nicht in der $t$-Tabelle im Skript,
+aber er muss zwischen $t_{\text{krit}}=2.6259$ und $2.5857$ sein.
+Um auf der sicheren Seite zu liegen, verwenden wir den grösseren Wert.
+Für den Test wird die Grösse
+\[
+T = \frac{\bar{X}-\bar{Y}}{\sqrt{(n-1)S_X^2 + (m-1)S_Y^2}}
+\sqrt{\frac{nm(n+m-2)}{n+m}}
+\]
+für 
+\begin{equation*}
+\begin{aligned}
+\bar{X}&=499.62,&&& S_X&=1.38,&&&  n&=83\\
+\bar{Y}&=495.23,&&& S_Y&=1.06,&&&  m&=82
+\end{aligned}
+\end{equation*}
+berechnet, es ergibt sich $T=22.896$.
+Da $T\gg t_{\text{krit}}$, muss die Nullhypothese verworfen werden.
+Damit ist der Eötvös-Effekt nachgewiesen.
+\end{loesung}
+
+\begin{bewertung}
+$t$-Test ({\bf T}) 1 Punkt,
+Wahl von $\alpha\le 1\%$ ({\bf A}) 1 Punkt,
+Freiheitsgrade ({\bf F}) 1 Punkt,
+Kritischer Wert für $t$ ({\bf K}) 1 Punkt,
+Berechnung des Wertes für $T$ ({\bf B}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
