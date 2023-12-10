@@ -1,0 +1,102 @@
+Um Twitter für einen überhöhten Preis zu kaufen, musste Elon Musk
+Tesla Aktien im grossen Stil verkaufen, was deren Wert zusammenbrechen
+liess:
+\begin{center}
+\begin{tabular}{|l|r|r|}
+\hline
+Datum&Monat&Kurs\\
+\hline
+26.~August 2022   & 8&288.09\\
+27.~September 2022& 9&282.94\\
+27.~Oktober 2022  &10&225.09\\
+28.~November 2022 &11&182.92\\
+27.~Dezember 2022 &12&109.10\\
+\hline
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item
+Finden Sie ein einfaches Modell, mit dem sich die Entwicklung des
+Kurses der Tesla-Aktie modellieren lässt.
+\item
+Wann sagt Ihr Modell voraus, dass die Tesla-Aktie wertlos wird?
+\item
+Beurteilen Sie die Qualität Ihres Modells.
+\end{teilaufgaben}
+
+\ainput{tesla.tex}
+
+\begin{loesung}
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex,thick]
+\def\dx{1}
+\def\ox{0}
+\def\dy{0.01}
+\draw[color=blue] ({7.5*\dx+\ox},{(7.5*\teslaa+\teslab)*\dy})
+	-- ({15.5*\dx+\ox},{(15.5*\teslaa+\teslab)*\dy});
+\draw[->] (7.45,0) -- (15.5,0) coordinate[label={Zeit $X$}];
+\draw[->] (7.5,-0.05) -- (7.5,4) coordinate[label={right:$Y = \text{TSLA}$}];
+\foreach \x in {8,...,15}{
+	\draw ({\x*\dx+\ox},-0.05) -- ({\x*\dx+\ox},0.05);
+	\node at ({\x*\dx+\ox},-0.05) [below] {\x};
+}
+\teslapunkte
+\fill[color=darkgreen] ({\teslax*\dx+\ox},0) circle[radius=0.08];
+\end{tikzpicture}
+\caption{Der Kurs der Tesla-Aktie im zweiten Halbjahr 2022
+\label{40000052:kurs}}
+\end{figure}
+\begin{teilaufgaben}
+\item
+Wir verwenden ein lineares Modell, führen also lineare Regression durch.
+Dazu berechnen wir:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+i&x_i&x_i^2&y_i&y_i^2&x_iy_i\\
+\hline
+\tesladata
+\hline
+ & E(X)= \teslaEX & \operatorname{var}(X) = \teslavarX & E(Y) = \teslaEY & \operatorname{var}(Y)=\teslavarY & \operatorname{cov}(X,Y)=\teslacovXY \\
+\hline
+\end{tabular}
+\end{center}
+Daraus lassen sich jetzt Steigung $a$ und Achsabschnitt $b$ ermitteln:
+\begin{align*}
+a &= \frac{\operatorname{cov}(X,Y)}{\operatorname{var}(X)} = \teslaa\\
+b &= E(Y) - a E(X) = \teslab
+\end{align*}
+\item
+Die Aktie erreicht den Wert $0$ wenn
+\[
+ax+b=0
+\qquad
+\text{ oder}
+\qquad
+x  = -\frac{b}{a} = \teslax
+\]
+ist.
+Damit wäre nach diesem Modell im März 2023 zu rechnen.
+\item
+Die Qualität des Modells lässt sich mit dem Regressionskoeffizienten
+\[
+r^2 = \teslarr
+\qquad\Rightarrow\qquad
+r = \teslar
+\]
+beurteilen.
+Da $r$ relativ nahe an $-1$ ist, kann man die Genauigkeit als ausreichen
+betrachten.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Lineare Regression ({\bf L}) 1 Punkt,
+Berechnung von $a$ ({\bf A}) 1 Punkt,
+Berechnung von $b$ ({\bf B}) 1 Punkt,
+Vorhersage für Wert 0 ({\bf V}) 1 Punkt,
+Qualitätskriterium $r^2\approx 1$ ({\bf Q}) 1 Punkt,
+Berechnung von $r^2$ und Qualitätsurteil ({\bf R}) 1 Punkt.
+\end{bewertung}
