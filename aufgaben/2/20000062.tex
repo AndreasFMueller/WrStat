@@ -1,0 +1,91 @@
+In einem perfekten Justizsystem werden Schuldige verurteilt und
+Unschuldige freigesprochen.
+Reale Justizsysteme sind dagegen eher stochastische Prozesse, in denen
+Fehler mit nicht verschwindender Wahrscheinlichkeit auftreten.
+Eine statistische Langzeituntersuchung über Angeklagte und ihr Schicksal
+hat folgende Zahlen zu Tage gefördert.
+Da es der Staatsanwaltschaft nicht immer gelingt, Schuld zu beweisen,
+werden nur 82\% der Schuldigen tatsächlich verurteilt.
+Normalerweise werden Unschuldige freigesprochen, dies geschieht in
+80\% der Fälle.
+Von den Angeklagten sind 85\% schuldig.
+
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, dass ein Angeklagter 
+verurteilt wird?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass ein Verurteilter tatsächlich
+unschuldig ist?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir verwenden die Ereignisse
+\begin{align*}
+S&=             \{\text{schuldig}\}      \\
+U&=\overline{S}=\{\text{unschuldig}\}    \\
+V&=             \{\text{verurteilt}\}    \\
+F&=\overline{V}=\{\text{freigesprochen}\}.
+\end{align*}
+Aus dem Aufgabentext können folgende Wahrscheinlichkeiten abgelesen
+werden:
+\[
+\begin{aligned}
+P(S)   &= 0.85 &&\Rightarrow& P(\bar{S}) &= 1- P(S) = 0.15 \\
+P(V|S) &= 0.82 &&\Rightarrow&     P(F|S) &= P(\bar{V}|S) = 1-P(V|S) = 0.18 \\
+P(F|U) &= 0.80 &&\Rightarrow&     P(V|U) &= P(\bar{V}|U) = 1-P(F|U) = 0.20
+\end{aligned}
+\]
+Damit können die Fragen beantwortet werden.
+\begin{teilaufgaben}
+\item
+Mit dem Satz von der totalen Wahrscheinlichkeit findet man
+\begin{align*}
+P(V)
+&=
+P(V|S) P(S) + P(V|\bar{S}) P(\bar{S})
+\\
+&=
+P(V|S) P(S) + P(V|U) P(\bar S)
+\\
+&=
+P(V|S) P(S) + P(V|U) (1-P(S))
+\\
+&=
+0.82\cdot 0.85 + 0.20\cdot 0.15
+=
+0.727.
+\end{align*}
+72.7\% der Angeklagten werden verurteilt.
+\item
+Gesucht ist die bedingte Wahrscheinlichkeit $P(U|V)=1-P(S|V)$,
+wir wissen jedoch nur $P(V|S)$.
+Man kann die gesuchte Wahrscheinlichekit
+wie folgt mit dem Satz von Bayes berechnen:
+\begin{align*}
+P(S|V)
+&=
+P(V|S)\frac{P(S)}{P(V)}
+=
+0.82\cdot\frac{0.85}{0.727}
+=
+0.9587.
+\end{align*}
+Daraus  findet man
+\[
+P(U|V) = 1-0.9587 = 0.0413.
+\]
+4.13\% der Verurteilten sind unschuldig.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Ereignisse ({\bf E}) 1 Punkt,
+bedingte Wahrscheinlichkeiten ({\bf C}) 1 Punkt,
+Satz von der totalen Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Wahrscheinlichkeit in a) ({\bf A}) 1 Punkt,
+Satz von Bayes ({\bf B}) 1 Punkt,
+Wahrscheinlichkeit in b) ({\bf W}) 1 Punkt.
+\end{bewertung}
+
