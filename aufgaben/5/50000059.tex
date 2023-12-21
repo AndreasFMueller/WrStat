@@ -1,0 +1,138 @@
+Im Mandarinenexperiment im HS 2022 wurden 94 Mandarinen ausgemessen.
+\begin{teilaufgaben}
+\item
+Es stellte sich heraus, dass 17\% der Mandarinen einen Durchmesser
+grösser als 60\,mm hatten, während 63.8\% einen Durchmesser 
+grösser als 55\,mm hatten.
+Bestimmen Sie den Mittelwert $\mu$ und die Varianz $\sigma^2$
+des Mandarinendurchmessers.
+\item
+Ausgehend von $\mu$ und $\sigma$ aus Teilaufgabe b),
+wie gross ist die Varianz des Mittelwertes $M_n = (X_1+\dots+X_n)/n$
+von $n=94$ Messungen $X_1,\dots,X_n$ des Mandarinendurchmessers?
+\ifthenelse{\boolean{pruefung}}{}{
+\item
+Im Mandarinenexperiment wurde als Mittelwert von $n=94$ Mandarinen
+der Wert $56.65\,\text{mm}$ bestimmt.
+Wie gross ist die Wahrscheinlichkeit, eine Abweichung des Mittelwertes
+von dieser Grössenordnung zu finden?
+(Diese Teilaufgabe war nicht Teil der Prüfung.)
+}
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Es darf angenommen werden dass die Mandarinendurchmesser $X$ eine
+normalverteilte Zufallsvariable ist sind mit Erwartungswert $\mu$
+und Varianz $\sigma^2$.
+Die Wahrscheinlichkeit, dass der Mandarinendurchmesser $\le x$ ist,
+ist
+\[
+P(X\le x)
+=
+P\biggl(
+\underbrace{\frac{X-\mu}{\sigma}}_{\displaystyle=Z}
+\le
+\frac{x-\mu}{\sigma}
+\biggr)
+=
+\Phi\biggl(
+\frac{x-\mu}{\sigma}
+\biggr).
+\]
+Da $Z$ standardnormalverteilt ist, kann die rechte Seite mit der
+Verteilungsfunktion $\Phi$ der Standardnormalverteilung berechnet werden.
+Indem man die Funktion $\Phi$ umkehrt, kann man nach $(x-\mu)/\sigma$
+auflösen:
+\[
+p
+=
+\Phi\biggl(\frac{x-\mu}{\sigma}\biggr)
+\qquad\Rightarrow\qquad
+\frac{x-\mu}{\sigma}
+=
+\Phi^{-1}(p)
+\qquad\Rightarrow\qquad
+\mu + \Phi^{-1}(p)\sigma = x.
+\]
+Dies ist eine lineare Gleichung für $\mu$ und $\sigma$.
+Für die Datenpunkte in der Aufgabe ist
+\begin{align*}
+P(X > 60) &= 0.17  &&\Rightarrow& P(X\le 60) &= 0.83 \\
+          &        &&\Rightarrow& \Phi^{-1}(0.83) &= 0.954
+&&\Rightarrow& \mu+0.954 \sigma &= 60\\[4pt]
+P(X > 55) &= 0.638 &&\Rightarrow& P(X\le 55) &= 0.362 \\
+          &        &&\Rightarrow& \Phi^{-1}(0.362) &= -0.353
+&&\Rightarrow& \mu-0.353 \sigma &= 55
+\end{align*}
+Dies ist ein lineares Gleichungssystem für die beiden Unbekannten $\mu$
+und $\sigma$, es hat die Lösungen
+\[
+\left.\begin{aligned}
+\mu+0.954 \sigma &= 60\\
+\mu-0.353 \sigma &= 55
+\end{aligned}\;\right\}
+\qquad\Rightarrow\qquad
+\left\{\;\begin{aligned}
+\sigma&= \frac{60-55}{0.954+0.353} = 3.826\\
+\mu   &= 55+0.353\cdot 3.811 = 56.35
+\end{aligned}\right.
+\]
+\item
+Die Varianz ist
+\[
+\operatorname{var}(M_n)
+=
+\frac{\operatorname{var}(X)}{n}
+=
+\frac{\sigma^2}{94}
+=
+\frac{3.826^2}{94}
+=
+0.1557,
+\qquad
+\sigma_1
+=
+\sqrt{\operatorname{var}(M_n)} = 0.3946.
+\]
+\item
+Gesucht ist die Wahrscheinlichikeit dafür, dass die normalverteilte 
+Zufallsvariable $M_n$ mit Varianz $\sigma_1$ um mehr als
+$|56.35-56.65|=0.30$ vom Erwartungswert $\mu$ abweicht.
+Sie ist
+\begin{align*}
+P(|M_n-\mu|>0.30)
+&=
+2 \cdot P((M_n-\mu) >0.30)
+\\
+&=
+2(1-P(M_n\le 0.30))
+\\
+&=
+2\biggl(1-P\biggl(\frac{M_n-\mu}{\sigma_1}\le \frac{0.30}{\sigma}\biggr)\biggr)
+\\
+&=
+2\biggl(1-\Phi\biggl(\frac{0.30}{\sigma_1}\biggr)\biggr)
+\\
+&=
+2(1-\Phi(0.7377))
+\\
+&=
+2(1-0.7697)
+\\
+&=
+0.4606.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Normalverteilung ({\bf N}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Gleichungen für $\mu$ und $\sigma$ ({\bf G}) 1 Punkt,
+Werte für $\Phi^{-1}(x)$ ({\bf P}) 1 Punkt,
+Werte von $\mu$ und $\sigma$ ({\bf L}) 1 Punkt,
+Varianz von $M_n$ in Teilaufgabe b) ({\bf B}) 1 Punkt.
+\end{bewertung}

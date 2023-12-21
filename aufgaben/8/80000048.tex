@@ -1,0 +1,74 @@
+\bgroup
+\ainput{data.tex}
+Die Sternenflotte rekrutiert Personal für ihre Raumschiffe für 
+die vier Bereiche {\em Command}, {\em Science}, {\em Engineering} und
+{\em Security}.
+Die anteilsmässige Grösse dieser Bereiche ist in
+Tabelle~\ref{80000048:data} festgehalten.
+Auf der Mission der Enterpreise NCC-1701 in den Jahren 2265--2269 kamen 
+insgesamt 40 Besatzungsmitglieder um.
+Die Aufteilung der Todesfälle auf die Bereich ist ebenfalls in der
+Tabelle zusammengestellt.
+Es wird behauptet, nicht in allen Bereichen seien die Überlebenschancen
+gleich gut.
+Können Sie dies beweisen oder wiederlegen?
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|rrr|}
+\hline
+            &Shirtfarbe&Anteil [\%]&Todesfälle\\
+\hline
+Command     &      gold&      \pone&         9\\
+Science     &      blau&      \ptwo&         7\\
+Engineering &       rot&    \pthree&         6\\
+Security    &       rot&     \pfour&        18\\
+\hline
+\end{tabular}
+\caption{Rekrutierungsanteile für die vier Bereiche und Anzahl der
+Todesfälle auf der Mission des Raumschiffs NCC-1701 Enterprise 
+in den Jahren 2265--2269.
+\label{80000048:data}}
+\end{table}
+
+\begin{hinweis}
+Die Zahlen in Tabelle~\ref{80000048:data} weichen von den Zahlen
+über Todesfälle in Star Trek ab, mit denen der Begriff der bedingten
+Wahrscheinlichkeit in der Vorlesung eingeführt worden ist.
+\end{hinweis}
+
+\begin{loesung}
+Wir testen die Nullhypothese
+\begin{quote}
+Die Häuffigkeit von Todesfällen in den einzelnen Bereichen entspricht
+den Anteilen, die die Bereich an der Besatzung haben.
+\end{quote}
+mit Hilfe eines $\chi^2$-Tests.
+Wir verwenden $\alpha=5\%$, also $p=0.95$.
+Da es $4$ mögliche Ausgänge gibt, müssen wir den kritischen Wert
+für $3$ Freiheitsgrade aus der $\chi^2$-Tabelle zu lesen, wir
+erhalten den Wert $D_{\text{krit}} = 7.815$.
+Die Diskrepanz kann mit der folgenden Tabelle berechnet werden:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|}
+\hline
+i&    p_i& n_i&np_i&(n_i-np_i)^2/np_i\\
+\hline
+\tabledata
+\hline
+ &       &n=40&    & D=\D\\
+\hline
+\end{tabular}
+\end{center}
+Da $D>D_{\text{krit}}$ ist, muss die Nullhypothese verworfen werden.
+\end{loesung}
+\egroup
+
+\begin{bewertung}
+Nullhypothese ({\bf H}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Freiheitsgrade und kritische Diskrepanz ({\bf F}) 1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 2 Punkt,
+Entscheid und Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+
