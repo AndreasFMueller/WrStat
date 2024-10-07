@@ -20,19 +20,45 @@ Welche Varianz hat der Gewinn?
 \end{figure}
 Sei $X$ die Zufallsvariable des Gewinns.
 Es führt wohl nichts daran vorbei, alle möglichen Gewinne aufzulisten.
-Diese sind
-\[
-\begin{tabular}{|cccccc|}
-\hline
-1&1&1&1&1&1\\
-1&2&1&2&1&2\\
-1&1&3&1&1&3\\
-1&2&1&4&1&2\\
-1&1&1&1&5&1\\
-1&2&3&2&1&6\\
-\hline
-\end{tabular}
-\]
+Diese sind in einer quadratischen Tabelle mit den Augenzahlebn der beiden 
+Würfel als Koordinaten wie folgt zusammengefasst:
+%\[
+%\begin{tabular}{|cccccc|}
+%\hline
+%1&1&1&1&1&1\\
+%1&2&1&2&1&2\\
+%1&1&3&1&1&3\\
+%1&2&1&4&1&2\\
+%1&1&1&1&5&1\\
+%1&2&3&2&1&6\\
+%\hline
+%\end{tabular}
+%\]
+\begin{center}
+\def\feld#1#2#3{
+	\node at ({(#1-0.5)*\h},{(6.5-(#2))*\h}) {\strut$#3\mathstrut$};
+}
+\def\h{0.6}
+\begin{tikzpicture}[>=latex,thick]
+\draw (0,0) rectangle ({6*\h},{6*\h});
+\foreach \x in {1,2,3,4,5}{
+	\draw ({\x*\h},0) -- ++(0,{6*\h});
+	\draw (0,{\x*\h}) -- ++({6*\h},0);
+}
+
+\foreach \k in {1,...,6}{
+	\node at ({(\k-0.6)*\h},{6*\h}) [above] {\tiny $\k$};
+	\node at (0,{(6.5-\k)*\h}) [left] {\tiny $\k$};
+}
+
+\feld{1}{1}{1} \feld{1}{2}{1} \feld{1}{3}{1} \feld{1}{4}{1} \feld{1}{5}{1} \feld{1}{6}{1}
+\feld{2}{1}{1} \feld{2}{2}{2} \feld{2}{3}{1} \feld{2}{4}{2} \feld{2}{5}{1} \feld{2}{6}{2}
+\feld{3}{1}{1} \feld{3}{2}{1} \feld{3}{3}{3} \feld{3}{4}{1} \feld{3}{5}{1} \feld{3}{6}{3}
+\feld{4}{1}{1} \feld{4}{2}{2} \feld{4}{3}{1} \feld{4}{4}{4} \feld{4}{5}{1} \feld{4}{6}{1}
+\feld{5}{1}{1} \feld{5}{2}{1} \feld{5}{3}{1} \feld{5}{4}{1} \feld{5}{5}{5} \feld{5}{6}{1}
+\feld{6}{1}{1} \feld{6}{2}{2} \feld{6}{3}{3} \feld{6}{4}{1} \feld{6}{5}{1} \feld{6}{6}{6}
+\end{tikzpicture}
+\end{center}
 Daraus kann man abzählen, dass die Werte 1 bis 6 folgende
 Wahrscheinlichkeiten haben, ein Histogram der Gewinne ist in 
 Abbildung~\ref{40000023:histogram} dargestellt.
