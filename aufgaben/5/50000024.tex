@@ -8,7 +8,23 @@ Die Funktion
 \]
 \begin{figure}[h]
 \centering
-\includeagraphics[]{graph-1.pdf}
+\def\h{2.5}
+\begin{tikzpicture}[>=latex,thick]
+\fill[color=darkred!10] 
+	plot[domain=-1:1,samples=100] ({\x*\h},{\h*3*(1-\x*\x)/4})
+		-- (\h,0) -- (-\h,0) -- cycle;
+\draw[->] ({-2.1*\h},0) -- ({2.3*\h},0) coordinate[label={$x$}];
+\draw[->] (0,{-0.1*\h}) -- (0,{1.2*\h}) coordinate[label={$\varphi(x)$}];
+\draw[color=darkred,line width=1.4pt] ({-2.1*\h},0) -- (-\h,0) --
+	plot[domain=-1:1,samples=100] ({\x*\h},{\h*3*(1-\x*\x)/4})
+	-- (\h,0) -- ({2.1*\h},0);
+\foreach \x in {-2,-1,1,2}{
+	\draw ({\x*\h},-0.1) -- ({\x*\h},0.1);
+	\node at ({\x*\h},-0.1) [below] {$\x$};
+}
+\draw (-0.1,\h) -- (0.1,\h);
+\node at (-0.1,\h) [left] {$1$};
+\end{tikzpicture}
 \caption{Wahrscheinlichkeitsdichte für Aufgabe~\ref{50000024}.
 \label{50000024:dichte}}
 \end{figure}
@@ -74,7 +90,23 @@ F(x)&=\int_{-\infty}^x\varphi(\xi)\,d\xi =\int_{-1}^x\frac34(1-\xi^2)\,d\xi
 Abbildung~\ref{50000024:verteilungsfunktion} dargestellt.
 \begin{figure}
 \centering
-\includeagraphics[]{graph-3.pdf}
+\def\h{2.5}
+\begin{tikzpicture}[>=latex,thick]
+\draw[line width=0.2pt] (0,\h) -- (\h,\h);
+\draw[->] ({-2.1*\h},0) -- ({2.3*\h},0) coordinate[label={$x$}];
+\draw[->] (0,{-0.1*\h}) -- (0,{1.2*\h}) coordinate[label={right:$F(x)$}];
+\draw[color=darkgreen,line width=1.4pt] ({-2.1*\h},0) -- (-\h,0) --
+	plot[domain=-1:1,samples=100]
+		({\x*\h},{\h*(0.5+0.75*(\x)-0.25*(\x*\x*\x))})
+	-- (\h,\h) -- ({2.1*\h},{\h});
+\foreach \x in {-2,-1,1,2}{
+	\draw ({\x*\h},-0.1) -- ({\x*\h},0.1);
+	\node at ({\x*\h},-0.1) [below] {$\x$};
+}
+\draw (-0.1,\h) -- (0.1,\h);
+\node at (-0.1,\h) [left] {$1$};
+\end{tikzpicture}
+%\includeagraphics[]{graph-3.pdf}
 \caption{Graph der Verteilungsfunktion von Aufgabe~\ref{50000024}
 \label{50000024:verteilungsfunktion}}
 \end{figure}
@@ -94,7 +126,8 @@ F\biggl(\frac12\biggr)-F\biggl(-\frac12\biggr)
 =
 \frac{11}{16}.
 \end{align*}
-\item Erwartungswert und Varianz können mit den Standardformeln gefunden 
+\item
+Erwartungswert und Varianz können mit den Standardformeln gefunden 
 werden:
 \begin{align*}
 E(X)&=
@@ -109,11 +142,37 @@ E(X)&=
 =\frac32\cdot\frac{5-3}{15}=\frac15.
 \end{align*}
 \item 
-Abbildung~\ref{50000024:exvarx} zeigt die Wahrscheinlichkeitsdichte $\varphi(x)$
-mit eingezeichnetem Erwartungswert $E(X)$ und Varianz.
+Abbildung~\ref{50000024:exvarx} zeigt die Wahrscheinlichkeitsdichte
+$\varphi(x)$ mit eingezeichnetem Erwartungswert $E(X)$ und Varianz.
 \begin{figure}
 \centering
-\includeagraphics[]{graph-2.pdf}
+\def\h{2.5}
+\begin{tikzpicture}[>=latex,thick]
+\fill[color=darkred!10] 
+	plot[domain=-1:1,samples=100] ({\x*\h},{\h*3*(1-\x*\x)/4})
+		-- (\h,0) -- (-\h,0) -- cycle;
+\draw[->] ({-2.1*\h},0) -- ({2.3*\h},0) coordinate[label={$x$}];
+\draw[->] (0,{-0.1*\h}) -- (0,{1.2*\h}) coordinate[label={right:$\varphi(x)$}];
+\draw[color=darkred,line width=1.4pt] ({-2.1*\h},0) -- (-\h,0) --
+	plot[domain=-1:1,samples=100] ({\x*\h},{\h*3*(1-\x*\x)/4})
+	-- (\h,0) -- ({2.1*\h},0);
+\foreach \x in {-2,-1,1,2}{
+	\draw ({\x*\h},-0.1) -- ({\x*\h},0.1);
+	\node at ({\x*\h},-0.1) [below] {$\x$};
+}
+\draw[color=blue] (0,-0.1) -- (0,{1.1*\h});
+\node[color=blue] (0,{-0.1*\h}) [below] {$E(X)$};
+\draw[color=blue] ({-0.4472*\h},-0.1) -- ({-0.4472*\h},{1.1*\h});
+\draw[color=blue] ({0.4472*\h},-0.1) -- ({0.4472*\h},{1.1*\h});
+\draw[<->,color=blue] ({0.4472*\h},{0.5*\h}) -- (0,{0.5*\h});
+\draw[<->,color=blue] ({-0.4472*\h},{0.5*\h}) -- (0,{0.5*\h});
+\node[color=blue] at ({-0.2236*\h},{0.5*\h})
+	[below] {\tiny $\sqrt{\operatorname{var}(X)}$};
+\node[color=blue] at ({0.2236*\h},{0.5*\h})
+	[below] {\tiny $\sqrt{\operatorname{var}(X)}$};
+\draw (-0.1,\h) -- (0.1,\h);
+\node at (-0.1,\h) [left] {$1$};
+\end{tikzpicture}
 \caption{Graph der Wahrscheinlichkeitsdichte von Aufgabe~\ref{50000024} mit
 eingezeichnetem Erwartungswert $E(X)$ und Varianz $\sqrt{\operatorname{var}(X)}$.
 \label{50000024:exvarx}}
@@ -162,7 +221,32 @@ der Summe von $X$ und $Y$.
 \qedhere
 \begin{figure}
 \centering
-\includeagraphics[]{graph-4.pdf}
+\def\h{2.5}
+\begin{tikzpicture}[>=latex,thick]
+\fill[color=darkred!10] 
+	plot[domain=-2:0,samples=100]
+		({\x*\h},{\h*((((3/160)*\x*\x-(3/8))*\x-(3/4))*\x*\x+3/5)})
+	--
+	plot[domain=0:2,samples=100]
+		({\x*\h},{\h*((-((3/160)*\x*\x-(3/8))*\x-(3/4))*\x*\x+3/5)})
+	-- ({2*\h},0) -- ({-2*\h},0) -- cycle;
+\draw[->] ({-2.1*\h},0) -- ({2.3*\h},0) coordinate[label={$x$}];
+\draw[->] (0,{-0.1*\h}) -- (0,{1.2*\h}) coordinate[label={right:$\varphi_{X+Y}(x)$}];
+\draw[color=darkred,line width=1.4pt] 
+	plot[domain=-2:0,samples=100]
+		({\x*\h},{\h*((((3/160)*\x*\x-(3/8))*\x-(3/4))*\x*\x+3/5)})
+	--
+	plot[domain=0:2,samples=100]
+		({\x*\h},{\h*((-((3/160)*\x*\x-(3/8))*\x-(3/4))*\x*\x+3/5)});
+
+\foreach \x in {-2,-1,1,2}{
+	\draw ({\x*\h},-0.1) -- ({\x*\h},0.1);
+	\node at ({\x*\h},-0.1) [below] {$\x$};
+}
+\draw (-0.1,\h) -- (0.1,\h);
+\node at (-0.1,\h) [left] {$1$};
+\end{tikzpicture}
+%\includeagraphics[]{graph-4.pdf}
 \caption{Wahrscheinlichkeitsdichte $\varphi_{X+Y}(x)$ der Summe von zwei Kopien
 der Zufallsvariable $X$, sie ist die Faltung der in Abbildung~\ref{50000024:dichte}
 dargestellten Wahrscheinlichkeitsdichte $\varphi(x)$.
