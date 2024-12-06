@@ -1,0 +1,139 @@
+\section{Permutationen: Reihenfolge} \label{kombinatorik-permutation}
+\index{Permutation}
+\index{Reihenfolge}
+Die Frage ``Auf wieviele Arten lassen sich $n$ verschieden Objekte anordnen?''
+ist gleichbedeutend mit der Frage, wieviele Permutationen von $n$
+Objekten es gibt.
+Die Zahl  $P_n$ der Permutationen von $n$ Objekten
+kann durch den folgenden Abzählprozess gefunden werden.
+Offenbar muss für jedes der Objekte ein Platz gewählt werden, dies will
+man Schrittweise tun.
+Für das erste Objekt stehen $n$ Plätze
+zur Verfügung.
+Für jede Wahl des Platzes des ersten Objektes 
+ist jetzt zu bestimmen, auf wieviele Arten die verbleibenden
+$n-1$ Objekte platziert werden können.
+Für das zweite
+Objekt muss einer der $n-1$ verbleibenden Plätze gewählt werden.
+Bisher haben sind also $n(n-1)$ Möglichkeiten gefunden worden.
+Für das dritte Objekt verbleiben jetzt noch $n-2$ Plätze,
+was die bisher gefundenen Möglichkeiten auf $n(n-1)(n-2)$
+erhöht.
+So geht es weiter bis zum letzten Objekt, für welches
+genau ein Platz übrig bleibt.
+Es folgt
+\[
+P_n=n(n-1)(n-2)\dotsm 2\cdot 1=n!
+\]
+
+Man kann für $P_n$ auch eine Rekursionsformel finden.
+Um $n$ Objekte
+zu platzieren, muss man zunächst einen Platz für das erste Objekt
+platzieren, was auf $n$ Arten möglich ist.
+Für jede solche Wahl
+muss man dann $n-1$ Objekte platzieren, dafür gibt es $P_{n-1}$
+Möglichkeiten.
+Also muss gelten
+\[
+P_n=nP_{n-1}.
+\]
+Löst man die Rekursion auf, ergibt sich wieder $P_n=n!$.
+
+
+\begin{beispiele}
+\item In wievielen verschiedenen Reihenfolgen können die acht Läufer
+eines Rennens im Ziel eintreffen?
+
+\begin{loesung}
+Jede Reihenfolge ist möglich, also $8!=40320$ mögliche Reihenfolgen.
+\end{loesung}
+
+\item Einer der Läufer von Beispiel 1 ist unbestrittener Favorit,
+es ist klar, dass er gewinnen wird.
+Von einem anderen ist bekannt, dass er keine Chance hat.
+Wieviele Reihenfolgen bleiben übrig?
+
+\begin{loesung}
+Nur noch sechs der acht Läufer können in beliebiger Reihenfolge
+eintreffen, also in $6!=720$ verschiedene Reihenfolgen.
+\end{loesung}
+
+\item An einem Wettkampf treten 7 Männer und 7 Frauen an.
+Die Männer
+ermitteln untereinander einen Sieger, und die Frauen tun dasselbe.
+Am Schluss stellen sich alle für ein Erinnerungsfoto auf: links
+die Männer rechts die Frauen, beide in der im Wettkampf ermittelten
+Rangfolge.
+Wieviele Erinnerungsfotos sind möglich?
+
+\begin{loesung}
+Es gibt $7!=5040$ Rangfolgen der Männer, und ebensoviele bei den
+Frauen.
+Die Ermittelung der Rangfolge bei den Männern ist offensichtlich
+unabhängig von derjenigen bei den Frauen, so dass die Gesamtzahl der
+möglichen Anordnungen auf dem Erinnerungsfoto $7!\cdot 7!=5040^2=25401600$
+ist.
+\end{loesung}
+
+\item
+\label{nachtessen}
+Drei Mathematiker und drei Ingenieure treffen sich zu einem
+Nachtessen an einem runden Tisch.
+\begin{teilaufgaben}
+\item
+Auf wieviele Arten können die Teilnehmer die Plätze einnehmen?
+\item
+Auf wieviel Arten können 
+die Teilnehmer die Plätze einnehmen, wenn nicht alle drei Mathematiker
+oder Ingenieure nebeneinander sitzen dürfen?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Man muss offenbar herausfinden, in wievielen möglichen Reihenfolgen
+man die sechs Teilnehmer auf die sechs Plätze setzen kann.
+Dies sind $6!$ Möglichkeiten.
+\item
+Es spielt keine Rolle, ob wir untersuchen, wann die Mathematiker 
+nebeneinander sitzen und wann die Ingenieure, denn sobald die Mathematiker
+nebeneinander sitzen tun es auch die Ingenieure.
+
+Wir wissen bereits, dass die Leute auf $6!=720$ Arten platziert werden
+können.
+Wir müssen also nur herausfinden, wieviele Platzierungen
+unerwünscht sind (weil drei Mathematiker nebeneinander sitzen),
+dann wissen wir auch, auf wieviele erwünschte Arten die Teilnehmer
+sitzen können.
+An einem runden Tisch gibt es sechs Plätze, wo im Uhrzeigersinn gezählt 
+die Gruppe der Mathematiker beginnen kann.
+Und zu jeder dieser
+sechs Möglichkeiten gibt es $3!$ Anordnungen der Mathematiker innerhalb
+der Gruppe.
+Es gibt also $6 \cdot 3!$ Möglichkeiten, die Mathematiker
+in einer Dreiergruppe zu platzieren.
+Die Ingenieure sitzen zwar garantiert nebeneinander, können aber
+innerhalb ihrer Dreiergruppe auch noch beliebig die Plätze
+tauschen, und zwar auf $3!$ verschiedene Arten.
+Somit gibt es
+\[
+6\cdot 3!\cdot 3!=6\cdot 6\cdot 6=6^3=216
+\]
+unerwünschte Platzierungen.
+Folglich gibt es $720-216=504$ zulässige
+Platzierungen der Gäste.
+\end{teilaufgaben}
+\end{loesung}
+
+\end{beispiele}
+
+Die Fakultät kann man in Octave/Matlab mit der Funktion {\tt factorial}
+berechnen.
+Die letzte Aufgabe kann in Octave zum Beispiel so gerechnet
+werden:
+\begin{verbatim}
+octave> factorial(6) - 6 * factorial(3) * factorial(3)
+ans =  504
+\end{verbatim}
+\index{factorial@{\tt factorial}}
+

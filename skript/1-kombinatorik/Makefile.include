@@ -1,0 +1,14 @@
+#
+# Makefile.include
+#
+# (c) 2024 Prof Dr Andreas Müller
+#
+sources1 =								\
+	1-kombinatorik/1-motivation.tex					\
+	1-kombinatorik/2-ziele.tex					\
+	1-kombinatorik/3-produktregel.tex				\
+	1-kombinatorik/4-permutationen.tex				\
+	1-kombinatorik/5-kombinationen.tex				\
+	1-kombinatorik/6-zusatzbedingungen.tex				\
+	1-kombinatorik/7-erzeugendefunktionen.tex			\
+	1-kombinatorik/kombinatorik.tex

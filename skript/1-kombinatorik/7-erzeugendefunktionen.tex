@@ -1,0 +1,384 @@
+\section{Erzeugende Funktionen}
+\index{erzeugende Funktion}
+Oftmals lassen sich schwierige kombinatorische Fragestellungen in
+algebraische oder analytische Probleme umformulieren.
+Damit steht
+dann der Apparat der Analysis zur Verfügung.
+
+Als einführendes
+Beispiel betrachten wir nochmals die Bestimmung von $C^n_k$.
+Statt jeden Wert von $C^n_k$ einzeln zu bestimmen, packen wir
+die Koeffizienten zusammen in eine Funktion
+\[
+p_n(z)=C^n_0+C^n_1z +C^n_2z^2+\dots+C^n_{n-1}z^{n-1}+C^n_nz^n.
+\]
+Interpretieren wir zunächst $p_1(z)$.
+Die Koeffizienten dieses
+Polynoms geben an, auf wie viele Arten man kein Element aus einer
+einelementigen Menge auswählen kann, bzw.~auf wie viele Arten man 
+ein Element auswählen kann.
+Beides ist genau auf eine Art möglich,
+also
+\[
+p_1(z)=1+z
+\]
+Betrachten wir jetzt $p_1(z)^n$.
+Beim Ausmultiplizieren des
+Produktes 
+\[
+p_1(z)^n= (1+z)(1+z)\dotsm(1+z),
+\]
+stellt sich die Frage, wie viele Summanden $z^k$ für jedes
+$k$ auftreten werden.
+Damit $z^k$ entsteht, muss in $k$ Faktoren das $z$ gewählt werden,
+und in den anderen $n-k$ Faktoren die $1$.
+Dies ist auf $C^n_k$
+Arten möglich, wir haben also gezeigt, dass
+\[
+p_n(z)=(1+z)^n=\sum_{k=1}^n \binom{n}{k}z^k
+\]
+ist, woraus
+\[
+C^n_k=\binom{n}{k}
+\]
+folgt.
+
+Alternativ kann man zu diesem Resultat auch wie folgt gelangen.
+Wir kennen bereits die Rekursionsformel
+\[
+C^n_k=C^{n-1}_{k-1}+C^{n-1}_k
+\]
+Übersetzt in die erzeugende Funktion heisst dies, dass die Koeffizienten
+für den oberen Index $n-1$
+um eine Stelle verschoben und dann addiert werden müssen,
+um die Koeffizienten für den oberen Index $n$ zu ergeben.
+Verschiebt
+man die Koeffizienten von $p_{n-1}(z)$ um $1$,
+erhält man die erzeugende Funktion
+\[
+C^{n-1}_0z
++C^{n-1}_1z^2
++C^{n-1}_2z^3
++\dots
++C^{n-1}_{n-2}z^{n-1}
++C^{n-1}_{n-1}z^n
+=
+zp_{n-1}(z).
+\]
+Den Koeffizienten $C^{n-1}_{k-1}$ entspricht also die
+erzeugende Funktion $zp_{n-1}(z)$,
+den Koeffizienten $C^{n-1}_k$ dagegen die erzeugende Funktion $p_{n-1}(z)$.
+Die Rekursionsformel für $C^n_k$ lässt sich also in die Formel
+\[
+p_n(z)=p_{n-1}(z)+zp_{n-1}(z)=(1+z)p_{n-1}(z)
+\]
+übersetzen.
+Daraus folgt wieder $p_n(z)=(1+z)^n$.
+
+Falls die erzeugende Funktion auf dem Wert $1$ ausgewertet werden kann,
+liefert sie die Summe aller Glieder der Folge:
+\[
+\sum_{k=0}^\infty a_k=p(1).
+\]
+Für die Binomialkoeffizienten ergibt sich:
+\[
+\sum_{k=0}^n\binom{n}{k}=p_n(1)=(1+1)^n=2^n.
+\]
+
+Die erzeugende Funktion einer unendlichen Folge $a_0,a_1,a_2,\dots$ ist
+die Potenzreihe
+\[
+a_0+a_1z+a_2z^2+a_3z^3+\dots=\sum_{k=0}^\infty a_kz^k.
+\]
+Die erzeugende Funktion der Folge der Binomialkoeffizienten
+$\left(\binom{n}{k}\right)_{0\le k\le  n}$ ist also die Funktion $(1+z)^n$.
+Die erzeugende Funktion der konstanten Folge $1,1,1,\dots$ ist
+\begin{equation}
+1+z+z^2+z^3+\dots=\sum_{k=0}^\infty z^k=\frac1{1-z}.
+\label{kombinatorik:geometrischereihe}
+\end{equation}
+In der Analysis lernt man, dass diese Formel nur für $|z|<1$ gilt.
+Nur in diesem Fall ist die Reihe konvergent und hat damit einen
+wohldefinierten Wert.
+Im vorliegenden Fall betrachten wir die Summe aber gar nicht als Zahlenwert,
+sondern nur als algebraischen Ausdruck.
+Für den Platzhalter $z$ soll gar kein Zahlenwert substituiert werden.
+Vielmehr dienen die Potenzen $z^k$ nur dazu, die einzelnen Zahlen $a_k$
+auseinander zu halten.
+Man spricht von einer {\em formalen Potenzreihe}.
+\index{formale Potenzreihe}
+\index{Potenzreihe, formale}
+
+Die Begründung für \eqref{kombinatorik:geometrischereihe} in der 
+Analysis verwendet eine Formel für die Partialsummen und berechnet
+dann den Grenzwert der Partialsummenfolge.
+Dieses Argument funktioniert für formale Potenzreihen natürlich nicht
+mehr.
+Um \eqref{kombinatorik:geometrischereihe} für eine formale Potenzreihe
+nachzuweisen, rechnet man das Produkt
+\[
+(1-z)\sum_{k=0}^\infty z^k
+\]
+aus, welches $1$ ergeben sollte.
+Man bekommt
+\begin{align*}
+(1-z)\sum_{k=0}^\infty z^k
+=
+\sum_{k=0}^\infty z^k - z\sum_{k=0}^\infty z^k
+&=
+1 + z + z^2 + z^3+\dots
+\\
+&\phantom{\mathstrut=1}
+-z-z^2-z^3-\dots
+\end{align*}
+Formal heben sich alle Terme ausser dem ersten weg.
+
+\begin{beispiele}
+\item 
+Auf wie viele Arten kann man 90 Rappen mit den verfügbaren Münzen
+herausgeben?
+
+Die verfügbaren Münzen sind 5er, 10er, 20er und 50er.
+Statt das Problem für 90 Rappen zu lösen, lösen wir es für jeden
+denkbaren Betrag.
+Wenn wir dazu nur 5er verwenden dürfen, dann können wir ausschliesslich
+die durch fünf teilbaren Rappen-Beträge herausgeben, und zwar immer
+auf eindeutige Art.
+Die Zahl $a_n$ der Möglichkeiten, mit der der Betrag
+$n$ herausgegeben werden kann, ist also
+\[
+a_n = \begin{cases}
+1&\qquad n\equiv 0\imod{5}\\
+0&\qquad \text{sonst}.
+\end{cases}
+\]
+Die erzeugende Funktion davon ist
+\[
+C_5(x)=\sum_{k=0}^\infty a_kx^k=1+x^5+x^{10}+x^{15}+x^{20}+x^{25}+\dots
+\]
+Könnten wir ausschliesslich 10er verwenden, wäre die entsprechende
+erzeugende Funktion
+\[
+C_{10}(x)=1+x^{10}+x^{20}+x^{30}+x^{40}+x^{50}+\dots
+\]
+Wenn wir 5er und 10er verwenden dürfen, dann muss ein Teil des Betrages
+in 5ern, der Rest in 10er herausgegeben werden.
+Diese Zusammensetzung entspricht genau dem, was beim Ausmultiplizieren
+der beiden Reihen $C_5(x)$ und $C_{10}(x)$ passiert.
+Mit einem Computer-Algebra-System kann man die Multiplikation sofort vornehmen:
+\begin{align*}
+C_5(x)C_{10}(x)&=
+ 1+x^5+2 x^{10}+2 x^{15}+3 x^{20}+3 x^{25}+4 x^{30}+4 x^{35}+5 x^{40}\\
+&\qquad +5 x^{45} +6 x^{50}+6 x^{55}+7 x^{60}+7 x^{65}+8 x^{70}+8 x^{75}+9 x^{80}\\
+&\qquad +9 x^{85}+10 x^{90}+10 x^{95}+11 x^{100}+\dots
+\end{align*}
+Man kann daraus ablesen, dass es zwei Möglichkeiten gibt, 10 Rappen
+herauszugeben, entweder zwei 5er oder ein 10er.
+Ebenso kann man ablesen,
+dass es 10 Möglichkeiten gibt, 90 Rappen zu bilden, mit 0 bis 9 10ern
+und der dazu passenden Anzahl 5er.
+
+Nehmen wir jetzt noch die 20er und 50er hinzu, dann kommen die beiden
+zusätzlichen Funktionen
+\begin{align*}
+C_{20}(x)&= 1+x^{20}+x^{40}+x^{60}+x^{80}+x^{100}+\dots\\
+C_{50}(x)&=1+x^{50}+x^{100}+\dots
+\end{align*}
+hinzu.
+Die erzeugende Funktion, mit der wir die Möglichkeiten zählen
+können, auf wie viele Arten man den Betrag aus allen Münzen bilden kann,
+ist dann
+\begin{align*}
+C_5(x) C_{10}(x) C_{20}(x) C_{50}(x)
+&=
+1+x^5+2 x^{10}+2 x^{15}+4 x^{20}+4 x^{25}+6 x^{30}\\
+&\qquad
++6 x^{35} +9 x^{40} +9 x^{45}+13 x^{50}+13 x^{55}\\
+&\qquad
++18 x^{60}+18 x^{65} +24 x^{70}+24 x^{75}+31 x^{80}\\
+&\qquad
++31 x^{85}+39 x^{90}+39 x^{95} +49 x^{100}+\dots
+\end{align*}
+Daraus können wir jetzt ablesen, dass 90 Rappen auf 39 Arten
+gebildet werden können.
+\end{beispiele}
+
+Man kann diese Produkte nicht nur mit einem Computer-Algebra-System
+ausrechnen, sondern auch mit Octave.
+Octave stellt Polynome als
+Vektoren von Koeffizienten der einzelnen Monome geordnet nach Grad
+absteigend.
+Als Beispiel versuchen wir auszurechnen, auf wieviele
+Arten man 11 Franken zusammensetzen kann, wenn man 2 Fünfliber,
+5 Zweifränkler und 11 Einfränkler zur Verfügung hat.
+Die Polynome werden
+\begin{align*}
+C_1&=z^{11}+z^{10}+z^9+z^8+z^7+z^6+z^5+z^4+z^3+z^2+z+1,\\
+C_2&=z^{10}+z^8+z^6+z^4+z^2+1,\\
+C_5&=z^{10}+z^5+1.
+\end{align*}
+In Octave können diese Polynome als Zeilenvektoren eingegeben werden:
+\begin{verbatim}
+octave> c1 = [1,1,1,1,1,1,1,1,1,1,1,1]
+c1 =
+
+   1   1   1   1   1   1   1   1   1   1   1   1
+
+octave> c2 = [1,0,1,0,1,0,1,0,1,0,1]
+c2 =
+
+   1   0   1   0   1   0   1   0   1   0   1
+
+octave> c5 = [1,0,0,0,0,1,0,0,0,0,1]
+c5 =
+
+   1   0   0   0   0   1   0   0   0   0   1
+\end{verbatim}
+Das Produkt der Polynome berechnet man in Octave mit der Funktion
+{\tt conv}, also der Faltung zweier Vektoren.
+Im vorliegenden Fall bekommt man
+\begin{verbatim}
+octave:11> c = conv(c1,conv(c2,c5))
+c =
+
+ Columns 1 through 16:
+
+  1  1  2  2  3  4  5  6  7  8 10 11 11 12 12 13
+
+ Columns 17 through 32:
+
+ 13 12 12 11 11 10  8  7  6  5  4  3  2  2  1  1
+\end{verbatim}
+Um jetzt herauszufinden, auf wie viele Arten man 11 Franken
+kombinieren kann, muss man den Koeffizienten von $z^{11}$ in diesem
+Polynom finden, also den zwölften Koeffizienten vom Ende des
+Vektors, zum Beispiel so:
+\begin{verbatim}
+octave> c(length(c)-11)
+ans =  11
+\end{verbatim}
+Man kann also 11 Franken auf 11 verschiedene Arten aus Fränklern,
+Zweifränklern und Fünflibern zusammensetzen.
+
+Im Moment scheint dieses Verfahren keine wirklich Vereinfachung
+zu sein.
+Doch die Verwendung der geometrischen Reihe erlaubt, die
+Funktionen $C_n(x)$ zu vereinfachen:
+\[
+C_n(x)=1+x^n+x^{2n}+x^{3n}+\dots = \frac1{1-x^n}.
+\]
+Damit wird die uns interessierende Funktion
+\begin{align*}
+C_5(x) C_{10}(x) C_{20}(x) C_{50}(x)
+&=
+\frac1{1-x^5}\cdot
+\frac1{1-x^{10}}\cdot
+\frac1{1-x^{20}}\cdot
+\frac1{1-x^{50}}
+\\
+&=
+\frac1{
+(1-x^5)
+(1-x^{10})
+(1-x^{20})
+(1-x^{50})
+}.
+\end{align*}
+Eine solche Funktion kann von einem Computer-Algebra-System sehr effizient
+in eine Reihe umgewandelt werden, an der man das Resultat ablesen kann.
+
+Man kann allerdings noch einen Schritt weiter gehen.
+Kehren wir dazu zum
+einführenden Beispiel zurück, bei dem wir nur 5er und 10er verwenden
+dürfen.
+Wir suchen eine Reihe
+\[
+C_5(x)C_{10}(x)=c_0+c_1x+c_2x^2+c_3x^3+\dots=\sum_{k=0}^\infty c_kx^k
+\]
+derart, dass
+\[
+(1-x^5)(1-x^{10}) \sum_{k=0}^\infty c_kx^k=1
+=
+(1-x^5-x^{10}+x^{15}) \sum_{k=0}^\infty c_kx^k=1.
+\]
+Durch Ausmultiplizieren findet man aus der rechten Seite
+
+{\allowdisplaybreaks
+\begin{align*}
+C_5(x)C_{10}(x)&=c_0\\
+&+c_1x\\
+&+c_2x^2\\
+&+c_3x^3\\
+&+c_4x^4\\
+&+(c_5-c_0)x^5\\
+&+(c_6-c_1)x^6\\
+&+(c_7-c_2)x^7\\
+&+(c_8-c_3)x^8\\
+&+(c_9-c_4)x^9\\
+&+(c_{10} - c_5 -c_0)x^{10}\\
+&+(c_{11} - c_6 -c_1)x^{11}\\
+&+(c_{12} - c_7 -c_2)x^{12}\\
+&+(c_{13} - c_8 -c_3)x^{13}\\
+&+(c_{14} - c_9 -c_4)x^{14}\\
+&+(c_{15} - c_{10} - c_{5} +c_0)x^{15}\\
+&+(c_{16} - c_{11} - c_{6} +c_1)x^{16}\\
+&+(c_{17} - c_{12} - c_{7} +c_2)x^{17}\\
+&+(c_{18} - c_{13} - c_{8} +c_3)x^{18}\\
+&+(c_{19} - c_{14} - c_{9} +c_4)x^{19}\\
+&+\dots
+\end{align*}
+}
+Aus $C_{5}(x)C_{10}(x)=1$ folgt, dass $c_0=1$ sein muss, und alle
+höheren Koeffizienten müssen verschwinden.
+Insbesondere verschwinden
+alle Koeffizienten, die nicht durch 5 teilbar sind.
+Es bleiben also nur noch
+die Gleichungen:
+\begin{align*}
+c_5&=c_0=1\\
+c_{10}&=c_5+c_0=2\\
+c_{15}&=c_{10}+c_{5}-c_0=2 + 1 - 1=2\\
+c_{5n}&=c_{5(n-1)}+c_{5(n-2)}-c_{5(n-3)}.
+\end{align*}
+Für die Koeffizienten gibt es also eine Rekursionsgleichung, aus der wir
+nacheinander die Koeffizienten berechnen können.
+Es ist natürlich nicht
+überraschend, dass wir die Lösung
+\[
+1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, \dots
+\]
+finden.
+
+Für das volle Problem ist die Rekursionsgleichung etwas komplizierter, nämlich
+\begin{align*}
+c_{5(n+17)} % 0
+-c_{5(n+16)} % 5
+-c_{5(n+15)} % 10
++c_{5(n+14)} % 15
+-c_{5(n+13)} % 20
++c_{5(n+12)} % 25
+&
+\\
++c_{5(n+11)} % 30
+-c_{5(n+10)} % 35
+%c_{5(n+9)} % 40
+%-c_{5(n+8)} % 45
+-c_{5(n+7)} % 50
++c_{5(n+6)} % 55
++c_{5(n+5)} % 60
+&
+\\
+-c_{5(n+4)} % 65
++c_{5(n+3)} % 70
+-c_{5(n+2)} % 75
+-c_{5(n+1)} % 80
++c_{5(n)} % 85
+&=0
+\end{align*}
+Andererseits gibt es ein allgemeines Verfahren, wie man eine solche
+Differenzengleichung lösen kann, es gibt daher auch eine allgemeine
+Formel, mit der man die $c_{5n}$ berechnen kann.
+
+
+
+

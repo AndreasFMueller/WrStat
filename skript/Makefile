@@ -6,18 +6,19 @@
 #
 all:	skript.pdf checklist.pdf
 
+include 1-kombinatorik/Makefile.include
+include 2-ereignisse/Makefile.include
 include 3-zufallsvariable/Makefile.include
+include 4-verteilung/Makefile.include
 include 6-schaetzen/Makefile.include
 include 7-testen/Makefile.include
 
 SOURCES =								\
 	0-einleitung/einleitung.tex					\
-	1-kombinatorik/kombinatorik.tex					\
-	2-ereignisse/wahrscheinlichkeit.tex				\
-	2-ereignisse/spamfilter.tex					\
-	2-ereignisse/google.tex						\
+	$(sources1)							\
+	$(sources2)							\
 	$(sources3)							\
-	4-verteilung/verteilung.tex					\
+	$(sources4)							\
 	5-katalog/binomialverteilung.tex				\
 	5-katalog/chi2verteilung.tex					\
 	5-katalog/dgleichverteilung.tex					\

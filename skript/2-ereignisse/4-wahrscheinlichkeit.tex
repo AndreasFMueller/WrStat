@@ -1,0 +1,331 @@
+\section{Wahrscheinlichkeit} \label{section-wahrscheinlichkeit}
+In der Einleitung haben wir das Ereignis diskutiert, dass die Schweizer
+Nati ein bestimmtes Spiel an Fussball WM gewinnt.
+Wir sind zum Schluss
+gekommen dass wir nicht wissen können, was bei der konkreten
+Durchführung des Experimentes passieren wird.
+Falls der Gegner
+stark ist, zum Beispiel Deutschland, dann wird ein Sieg wohl auch
+dann kaum je eintreten, wenn man das Spiel viele Male wiederholt.
+Das wenigstens verbinden wir mit einem unwahrscheinlichen Ereignis.
+Trotzdem kann das Ereignis eintreten.
+
+\subsection{Verschiedene Wahrscheinlichkeitsbegriffe}
+Die Wahrscheinlichkeit soll ein Mass dafür sein, dass ein Ereignis
+eintritt.
+Es gibt verschiedene Ansätze, wie wir zu einem solchen Mass kommen
+könnten:
+\begin{itemize}
+\item 
+Je häufiger ein Ereignis eintritt, desto grösser sollte die
+Wahrscheinlichkeit sein.
+Dies setzt voraus, dass das Experiment im Prinzip beliebig oft wiederholbar 
+ist.
+Man nennt dies den {\em frequentistischen} Ansatz.
+\item
+Die Wahrscheinlichkeit ist ein Mass für die persönliche
+Überzeugung, dass ein Ereignis eintreten wird.
+Im Unterschied zum frequentistischen Ansatz sollte man bei diesem
+Ansatz einem Ereignis auch dann eine Wahrscheinlichkeit geben können,
+wenn sich ein Experiment nicht wirklich wiederholen lässt.
+Dies ist der Bayessche Ansatz.
+\item
+Wir könnten eine Reihe von plausiblen Axiomen postulieren, nach denen sich
+die Wahrscheinlichkeit zu verhalten hat, und dann zu untersuchen,
+ob ein solches Objekt tatsächlich existiert.
+Dabei ist uns egal, was der Wahrscheinlichkeitswert genau bedeutet.
+Dieser axiomatische Ansatz hat den Vorteil, logisch konsistent zu sein,
+was bei den anderen Ansätzen nicht von vornherein garantiert ist.
+\end{itemize}
+In allen Fällen ergibt sich eine Reihe von Gesetzmässigkeiten
+oder Formeln, welche die jeweiligen Wahrscheinlichkeitsbegriffe 
+erfüllen müssen.
+Soll die Wahrscheinlichkeit eine objektive Grösse sein, dann
+muss für wiederholbare Experimente die für den Bayesschen
+Ansatz nötige persönliche Überzeugung direkt mit der Häufigkeit
+des Eintretens zusammenhängen.
+Der frequentistische und der Bayessche Ansatz werden also in diesem
+Fall übereinstimmen.
+Die Axiome im axiomatischen Ansatz sind natürlich genau die
+Rechenregeln, die man sowohl im frequentistischen Ansatz wie
+auch im Bayesschen Ansatz von der Wahrscheinlichkeit erwartet.
+Man darf daher davon ausgehen, dass die drei Ansätze die gleichen numerischen
+Resultate liefern, sie unterscheiden sich höchstens in der Interpretation
+der Resultate.
+Wir werden daher im Folgenden vor allem den am leichtesten zu
+verstehenden frequentistischen Ansatz verfolgen.
+
+\subsection{Wahrscheinlichkeit als relative Häufigkeit}
+Wir wollen nun einen Begriff der Wahrscheinlichkeit einführen, der
+einer intuitiven Vorstellung zu diesem Wort möglichst nahe kommt.
+Wenn ``sehr
+wahrscheinlich'' heissen soll ``in der Mehrzahl der Fälle'', dann
+bedeutet das offensichtlich, dass man eine grössere Zahl von
+Experimenten durchführen soll, und dann die Fälle zählen soll,
+in denen das Ereignis tatsächlich eingetreten ist.
+Deren Anteil
+an der Gesamtzahl heisst {\em relative Häufigkeit} und ist eine erste,
+etwas präzisere Fassung des Begriffs der Wahrscheinlichkeit.
+
+Grundlegend für die Wahrscheinlichkeitsrechnung ist die aus der
+\index{Wahrscheinlichkeit!als relative Häufigkeit}
+Erfahrung mit einer grossen Zahl von Versuchen gewonnene Zuversicht,
+dass die relative Häufigkeit mit wachsender Anzahl Versuche gegen
+eine Grösse $P(A)$ strebt.
+Man verwendet diese Annahme daher als Definition.
+Wiederholt man ein Experiment $N$ Male, und tritt dabei das Ereignis $A$
+genau $n$ mal ein, dann erwartete man, dass der Quotient $\frac{n}{N}$
+eine gute Näherung für $P(A)$ ist.
+Je öfter man das Experiment
+wiederholt, desto näher sollte der Quotient der Grösse $P(A)$
+kommen, also
+\[
+P(A) := \lim_{N\to\infty}\frac{n}{N}.
+\]
+
+Leider ist es nur selten praktikabel, das Experiment tatsächlich
+sehr häufig zu wiederholen.
+Bei der Prüfung neuer Medikamente
+zum Beispiel hindern moralische Bedenken daran, eine grosse
+Zahl von Experimenten mit Menschen durchzuführen.
+Bei der
+Ausbruchswahrscheinlichkeit eines Vulkans oder der
+Einschlagwahrscheinlichkeit eines Asteroiden auf der Erde hat man
+ganz einfach keine Kontrolle über das Experiment.
+
+Das Ziel der Wahrscheinlichkeitstheorie ist daher, 
+die Abbildung $P\colon {\cal A}\to\mathbb{R}$
+abstrakt zu definieren und geeignete Axiome zu postulieren, die
+der eben skizzierten intuitiven Vorstellung der Wahrscheinlichkeit
+einen strengen Sinn geben.
+Damit wird die Funktion $P$ in vielen
+Fällen berechenbar, meist natürlich unter zusätzlichen Annahmen.
+Die grundlegenden Eigenschaften sind in den folgenden, für
+relative Häufigkeiten, unmittelbar einleuchtenden Axiomen
+% XXX
+von Kolmogorov\footnote{Andrei Nikolaiewitsch Kolmogorov, 1903-1987}
+festgehalten.
+\index{Kolmogorov, Andrei Nikolaiewitsch}
+
+\subsubsection{Axiome  eines Wahrscheinlichkeitsraumes}
+\index{Axiome eines Wahrscheinlichkeitsraumes}
+
+\begin{description}
+\item[Wertebereich.]Für jedes beliebige Ereignis $A\subset \Omega$
+gilt
+\begin{equation}
+0\le P(A)\le 1.
+\label{p-wertebereich}
+\end{equation}
+\item[Sicheres Ereignis.] Für das sichere Ereignis gilt
+\begin{equation}
+P(\Omega) = 1.
+\label{p-sicheresereignis}
+\end{equation}
+\item[Vereinigung.] Sind die Ereignisse $A_1,A_2,\dots$ paarweise
+disjunkt, also $A_i\cap A_j=\emptyset$ für $i\ne j$, dann gilt
+\begin{equation}
+P(A_1\cup A_2\cup \dots) = P(A_1) + P(A_2) + \dots
+\label{p-summenformel}
+\end{equation}
+\end{description}
+
+Die Forderung über die Vereinigung kann natürlich nur dann überhaupt
+formuliert werden, wenn die Vereinigung auch wirklich ein Ereignis ist, also in
+$\cal A$ ist.
+Bisher wissen wir nur, dass endliche
+Vereinigungen von Ereignissen gebildet werden können, jetzt müssen
+wir fordern, dass
+auch unendliche Vereinigungen von Ereignissen wieder Ereignisse sind.
+D.~h.~wir setzen im Folgenden voraus, dass in einer
+Ereignisalgebra in Erweiterung des ersten Axioms auch gilt:
+
+\begin{definition}
+$\cal A$ heisst 
+$\sigma$-Algebra, wenn 
+abzählbare Vereinigungen von Elementen von $\cal A$ ebenfalls
+in $\cal A$ sind, d.~h.~falls $A_i\in{\cal A}$ für $i\in\mathbb{N}$, dann ist
+\[
+A_1\cup A_2\cup\dots=\bigcup_{i=0}^{\infty}A_i \in{\cal A}.
+\]
+\end{definition}
+
+In allen praktischen Fällen ist diese technische Bedingung automatisch
+erfüllt, oder man kann erzwingen, dass sie erfüllt ist.
+Für die Praxis ist dies also keine Einschränkung, man kann immer davon
+ausgehen, dass die Vereinigungsformel~(\ref{p-summenformel}) ``funktioniert''.
+
+\subsection{Beispiel: Würfeln}
+Beim Würfeln mit einem Würfel erwartet man, dass jeder mögliche
+Ausgang etwa gleich häufig sein wird.
+Bei einer grossen Zahl von
+Versuchen wird man also feststellen, dass die relative Häufigkeit
+des Ereignisses, dass eine $4$ gewürfelt wird, gegen $\frac16$
+konvergieren wird.
+Die zusätzliche Annahme steckt in diesem Fall
+darin, dass man alle Ausgänge als gleich wahrscheinlich annimmt.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|r|r|r|r|r|r|r|r|}
+\hline
+Anzahl&6&96&996&9996&99996&999996&9999996&99999996\\
+\hline
+0& 0& 17& 168& 1642& 16746& 166434& 1665609& 16662248\\
+1& 1& 17& 160& 1692& 16747& 166584& 1666841& 16669513\\
+2& 1& 11& 178& 1680& 16491& 167031& 1667271& 16663991\\
+3& 0& 16& 158& 1660& 16672& 165940& 1665310& 16659406\\
+4& 3& 13& 159& 1634& 16756& 167026& 1668244& 16672749\\
+5& 1& 22& 173& 1688& 16584& 166981& 1666721& 16672089\\
+\hline
+Maximum& 3& 22& 178& 1692& 16756& 167031& 1668244& 16672749\\
+Minimum& 0& 11& 158& 1634& 16491& 165940& 1665310& 16659406\\
+$\Delta$& 3& 11& 20& 58& 265& 1091& 2934& 13343\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Computer-Simulation eines fairen Würfels\label{wuerfel-simulation}}
+\end{table}
+
+Die tatsächliche Durchführung von ``genügend'' vielen Experimenten
+kann hingegen schwierig sein.
+Eine Computer-Simulation des
+Würfel-Experiments zeigt zum Beispiel die Resultate in Tabelle
+\ref{wuerfel-simulation}.
+Offensichtlich ist selbst mit $10^8$
+Würfen die Wahrscheinlichkeit erst auf drei Stellen nach dem Komma
+genau.
+
+\subsection{Folgerungen aus den Axiomen}
+\begin{satz}Es gilt
+\begin{enumerate}
+\item Die Wahrscheinlichkeit des unmöglichen Ereignisses ist
+\begin{equation}
+P(\emptyset) = 0.
+\label{p-emptyset}
+\end{equation}
+\item Die Wahrscheinlichkeit des komplementären Ereignisses
+ist
+\begin{equation}
+P(\bar A) = P(\Omega\setminus A) = 1 -P(A).
+\label{p-negation}
+\end{equation}
+\item Die Wahrscheinlichkeit der Differenz der Ereignisse $A$ und $B$
+ist
+\begin{equation}
+P(A\setminus B) = P(A) - P(A\cap B)
+\label{p-complement} % changed
+\end{equation}
+\item Die Wahrscheinlichkeit der Vereinigung zweier beliebiger Ereignisse
+ist
+\begin{equation}
+P(A\cup B) = P(A) + P(B) - P(A\cap B)
+\label{p-union}
+\end{equation}
+(Ein-/Ausschaltformel).
+\index{Ein-/Ausschaltformel}
+\end{enumerate}
+\end{satz}
+
+\begin{proof}[Beweis]
+Wegen $\Omega = \Omega \cup\emptyset$ und
+$\Omega\cap\emptyset = \emptyset$ folgt aus dem Axiom
+über die Vereinigung  (\ref{p-summenformel})
+\[
+P(\Omega) = P(\Omega \cup \emptyset) = P(\Omega) + P(\emptyset)
+\]
+Indem man auf beiden Seiten der Gleichung $P(\Omega)$ subtrahiert,
+folgt $0 = P(\emptyset)$.
+
+Für das komplementäre Ereignis gilt $A\cap\bar A=\emptyset$ und
+$A\cup\bar A=\Omega$.
+Aus der Summenformel (\ref{p-summenformel}) folgt
+\[
+1 = P(\Omega) = P(A\cup\bar A) = P(A) + P(\bar A)
+\]
+oder
+\[
+P(\bar A) = 1 - P(A).
+\]
+
+$A$ ist die disjunkte Vereinigung $A=(A\setminus B) \cup (A\cap B)$,
+also gilt
+\[
+P(A)=P(A\setminus B) + P(A\cap B),
+\]
+oder, nach $P(A\setminus B)$ aufgelöst
+\[
+P(A\setminus B) = P(A) - P(A\cap B).
+\]
+
+Nach der de Morganschen Regel lässt sich die Vereinigungsmenge
+als disjunkte Vereinigung schreiben:
+\[
+A\cup B =  (A\setminus B) \cup (A\cap B) \cup (B\setminus A)
+\]
+Also gilt
+\begin{align*}
+P(A\cup B)&=P(A\setminus B) + P(A\cap B) + P(B\setminus A)\\
+&=P(A) - P(A\cap B) + P(A\cap B) + P(B) - P(A\cap B)\\
+&=P(A) + P(B) - P(A\cap B).
+\qedhere
+\end{align*}
+\end{proof}
+Damit stehen uns Rechenregeln zur Verfügung, mit deren Hilfe wir
+die Wahrscheinlichkeit beliebiger Ereignisse auf der Basis einiger
+weniger Annahmen berechnen können.
+
+\subsection{Wahrscheinlichkeit als Mass}
+Die Wahrscheinlichkeitsfunktion $P$ hat genau die Eigenschaften,
+die man von einer Flächenmessung erwartet.
+Die Gesamtfläche disjunkter Flächenstücke berechnet man,
+indem man den Flächeninhalt der einzelnen Flächenstücke summiert.
+Das leere Flächenstück hat keinen Inhalt.
+Einzig die zusätzliche Forderung $P(\Omega)=1$, welche
+sicherstellt, dass die Wahrscheinlichkeit nicht gross werden kann,
+hat keine Entsprechung.
+
+Demzufolge können Ereignisse oft auch als Flächen in einem Diagramm
+visualisiert werden,
+die umso grösser sind, je grösser die Wahrscheinlichkeit des Ereignisses
+ist.
+Bei einem Dart-Spiel liegt es nahe, dass die Wahrscheinlichkeit, ein
+bestimmtes Feld zu treffen, umso grösser ist, je grösser der Flächen-Anteil
+dieses Feldes an der ganzen Scheibe ist.
+Natürlich trifft dies nur bei einem
+sehr schlechten Dart-Spieler zu, dessen Pfeile gleichmässig verteilt auf
+die Scheibe treffen.
+
+Diese
+Überlegung kann jedoch dazu verwendet werden, die Wahrscheinlichkeiten
+eines Meteoriteneinschlages in der Schweiz und im Fürstentum Liechtenstein
+miteinander zu vergleichen.
+Wir erwarten, dass die Wahrscheinlichkeit
+proportional zur Fläche sein wird, also
+\[
+\frac{P(\text{CH})}{P(\text{FL})}=
+\frac{41285\text{km$\mathstrut^2$}}{160\text{km$\mathstrut^2$}}
+=258.03,
+\]
+die Wahrscheinlichkeit für einen Meteoriteneinschlag im Ländle ist also
+über 258mal kleiner.
+
+Umgekehrt könnte man die Idee zu einer Flächenberechnungs- oder
+Integra\-tions\-methode ausbauen.
+Um den Flächeninhalt einer unregelmässigen
+Teilmenge
+eines Rechteckes in der Ebene zu bestimmen, simuliert man mit dem
+Computer gleichmässig verteilte ``Schüsse'' auf diese ``Zielscheibe''.
+Der Anteil der Treffer in der Teilmenge ergibt ein Mass für dessen
+Fläche.
+Leider ist das Verfahren in dieser Form praktisch nicht
+durchführbar, weil viel zu viele ``Schüsse'' notwendig sind, um
+eine genügende Genauigkeit zu erreichen.
+Es kann aber durchaus
+zu einem praktikablen Verfahren verfeinert werden (Monte Carlo Methoden).
+
+Wegen
+der Analogie zu einer Flächenmessung heisst eine
+Wahrscheinlichkeitsfunktion $P$ oft auch ein {\em Wahrscheinlichkeitsmass}.
+Das Tripel $(\Omega,{\cal A}, P)$ heisst ein {\em Wahrscheinlichkeitsraum}.
+

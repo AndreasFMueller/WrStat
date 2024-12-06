@@ -1,0 +1,16 @@
+#
+# Makefile.include
+#
+# (c) 2024 Prof Dr Andreas Müller
+#
+sources2 =								\
+	2-ereignisse/1-versuche.tex					\
+	2-ereignisse/2-ereignisalgebra.tex				\
+	2-ereignisse/3-beispiele.tex					\
+	2-ereignisse/4-wahrscheinlichkeit.tex				\
+	2-ereignisse/5-laplace.tex					\
+	2-ereignisse/6-bedingt.tex					\
+	2-ereignisse/7-spamfilter.tex					\
+	2-ereignisse/8-google.tex					\
+	2-ereignisse/wahrscheinlichkeit.tex
+

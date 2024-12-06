@@ -1,0 +1,162 @@
+\section{Versuche und Versuchsausgänge}
+Die Wahrscheinlichkeitsrechnung befasst sich also mit dem Ausgang von
+Versuchen.
+Das in der Einleitung beschriebene Fussballspiel ist ein solches Experiment.
+Natürlich interessiert den Fussballfan viel mehr als das Ergebnis,
+für die Zwecke der Sportwetten genügen jedoch die Schlussresultate.
+Ähnliche Experimente kann man sich in grosser Zahl ausdenken:
+\begin{enumerate}
+\item
+\index{Munzwurf@Münzwurf}
+Der Wurf einer Münze ist ein Experiment mit, wenigstens
+im Prinzip, drei Versuchsausgängen: Kopf oder Zahl, ganz selten könnte
+die Münze auch auf der Kante stehen bleiben.
+\item
+\index{Wurfel@Würfel}
+Ein weiteres Experiment ist der Wurf eines Würfels.
+Klassische Würfel
+haben sechs Seitenflächen, die verschiedene Augenzahlen zeigen.
+Nach jeder Durchführung des Experimentes zeigt der Würfel ein neues
+Resultat, das Experiment hat sechs verschiedene Ausgänge.
+\item
+Der gleichzeitige Wurf zweier verschiedenfarbiger Würfel ist ein Experiment
+mit 36 verschiedenen möglichen Ausgängen:
+\begin{center}
+\def\e#1#2{\epsdice[black]{#1}\,\epsdice{#2}}
+\begin{tabular}{|c|cccccc|}
+\hline
+&\epsdice{1}&\epsdice{2}&\epsdice{3}&\epsdice{4}&\epsdice{5}&\epsdice{6}\\
+\hline
+\epsdice[black]{1}&\e{1}{1}&\e{1}{2}&\e{1}{3}&\e{1}{4}&\e{1}{5}&\e{1}{6}\\
+\epsdice[black]{2}&\e{2}{1}&\e{2}{2}&\e{2}{3}&\e{2}{4}&\e{2}{5}&\e{2}{6}\\
+\epsdice[black]{3}&\e{3}{1}&\e{3}{2}&\e{3}{3}&\e{3}{4}&\e{3}{5}&\e{3}{6}\\
+\epsdice[black]{4}&\e{4}{1}&\e{4}{2}&\e{4}{3}&\e{4}{4}&\e{4}{5}&\e{4}{6}\\
+\epsdice[black]{5}&\e{5}{1}&\e{5}{2}&\e{5}{3}&\e{5}{4}&\e{5}{5}&\e{5}{6}\\
+\epsdice[black]{6}&\e{5}{1}&\e{6}{2}&\e{6}{3}&\e{6}{4}&\e{6}{5}&\e{6}{6}\\
+\hline
+\end{tabular}
+\end{center}
+\item 
+Der gleichzeitige Wurf zweier ununterscheidbarer Würfel ist ein 
+ein ganz ähnliches Experiment, aber die Zahl der Versuchsausgänge
+ist kleiner.
+Da die Würfel nicht unterscheidbar sind, kann man das Paar
+\epsdice{5}\,\epsdice{6} nicht
+vom Paar \epsdice{6}\,\epsdice{5} unterschieden.
+Man kann beim Auflisten der Versuchsausgänge die Paare immer aufsteigend
+ordnen, es sind also nur die folgenden Versuchsausgänge möglich:
+\begin{center}
+\def\e#1#2{\epsdice{#1}\,\epsdice{#2}}
+\begin{tabular}{|c|cccccc|}
+\hline
+&\epsdice{1}&\epsdice{2}&\epsdice{3}&\epsdice{4}&\epsdice{5}&\epsdice{6}\\
+\hline
+\epsdice{1}&\e{1}{1}&\e{1}{2}&\e{1}{3}&\e{1}{4}&\e{1}{5}&\e{1}{6}\\
+\epsdice{2}&        &\e{2}{2}&\e{2}{3}&\e{2}{4}&\e{2}{5}&\e{2}{6}\\
+\epsdice{3}&        &        &\e{3}{3}&\e{3}{4}&\e{3}{5}&\e{3}{6}\\
+\epsdice{4}&        &        &        &\e{4}{4}&\e{4}{5}&\e{4}{6}\\
+\epsdice{5}&        &        &        &        &\e{5}{5}&\e{5}{6}\\
+\epsdice{6}&        &        &        &        &        &\e{6}{6}\\
+\hline
+\end{tabular}
+\end{center}
+Es bleiben also nur noch 
+\[
+1+2+\dots +6=\sum_{i=1}^6=\frac{6\cdot(6+1)}2=21
+\]
+Versuchsausgänge übrig.
+Das heisst aber noch lange nicht, dass der Versuchsausgang
+\epsdice{2}\,\epsdice{3} gleich wahrscheinlich ist wie 
+\epsdice{3}\,\epsdice{3}, denn letzterer kann nur auf genau eine
+Art entstehen, während es für \epsdice{2}\,\epsdice{3}
+zwei Möglichkeiten gibt.
+\item 
+Ein Gewitter tobt über einem Wald. 
+Es ist möglich, dass ein Blitz in einen Baum einschlägt,
+die meisten Bäume werden jedoch verschont bleiben.
+Wir können dieses Experiment zwar nicht jederzeit durchführen,
+aber wir können einfach auf das nächste Gewitter warten.
+Ist der Baum getroffen, können wir ihn auch nicht wieder verwenden,
+aber wir können die Beobachtung an einem anderen, vergleichbaren
+Baum wiederholen.
+\item
+\index{Ebola}
+Menschen, die sich mit Ebola-Viren anstecken, sterben sehr häufig
+an dieser Krankheit.
+Auch hier liegt ein Experiment vor, welches wir nicht nach belieben
+durchführen dürfen, doch wir können darauf warten, dass jemand
+erkrankt, und dann vergleichbare Krankheitsfälle untersuchen.
+\item
+Die Messung mit einem Messgerät ist ebenfalls ein wiederholbares
+Experiment, der Versuchsausgang ist der vom Messgerät angezeigte
+Messwert.
+\end{enumerate}
+
+Bevor also Aussagen über die Wahrscheinlichkeit gemacht werden können,
+muss definiert werden, welches Experiment genau durchgeführt worden ist.
+Nur Experimente, die im Prinzip wiederholbar sind, sind der Untersuchung
+durch die Wahrscheinlichkeitsrechnung zugänglich.
+Die Aussage: ``die Wahrscheinlichkeit, dass die Naturkonstanten des
+Universums so sind, dass intelligentes Leben entstehen kann, ist\dots''
+ist nicht nur deshalb Unsinn, weil wir nicht wissen, welche
+Voraussetzungen zu intelligentem Leben führen, sondern vor allem wegen
+der Tatsache, dass wir keine anderen Universen zur Verfügung haben, in denen
+wir die Frage nach intelligentem Leben erneut stellen könnten.
+
+Ein logisches Argument kann nicht eine Wahrscheinlichkeit haben,
+richtig oder falsch zu sein.
+Ein Argument ist einfach richtig oder falsch.
+Die Voraussetzungen für das logische Argument sind vielleicht Beobachtungen
+in der Natur, also Versuchsausgänge anderer Experimente, und sie
+können das Argument stützen, aber ein richtiges Argument wird nicht
+falsch, wenn die Voraussetzungen nicht mehr erfüllt sind, sondern einfach
+nur nicht anwendbar.
+Ein besonders krasses Beispiel für völliges Unverständnis
+dieser Grundtatsache ist die Conservapedia-Seite {\em Counterexamples
+to an Old Earth}\footnote{\url{http://www.conservapedia.com/Counterexamples\_to\_an\_Old\_Earth}}.
+
+Für die Zwecke der Wahrscheinlichkeitsrechnung ist der genaue Ablauf
+eines Experimentes gegenstandslos, nur das Resultat interessiert.
+Wir führen daher die folgenden Begriffe in:
+
+\begin{definition}
+Der Ausgang eines Experimentes heisst {\em Elementarereignis}, die
+Menge aller Elementarereignisse wird mit $\Omega$ bezeichnet.
+Ein Elementarereignis $\omega$ ist also ein Element von $\Omega$,
+$\omega\in\Omega$.
+\index{Elementarereignis}
+\end{definition}
+
+Die Menge $\Omega$ der Elementarereignisse für jedes der Beispiele weiter
+oben ist:
+\begin{enumerate}
+\item $\Omega=\{\text{Kopf},\text{Zahl},\text{Kante}\}$
+\item $\Omega=\{\epsdice{1},
+\epsdice{2},
+\epsdice{3},
+\epsdice{4},
+\epsdice{5},
+\epsdice{6}\}$
+\item $\Omega$ besteht aus allen Paaren von Augenzahlen.
+\item $\Omega$ besteht aus allen Paaren von Augenzahlen, in denen die
+zweite Zahl mindestens so gross ist wie die erste:
+{
+\def\e#1#2{\epsdice{#1}\,\epsdice{#2}}
+\def\p{\phantom{\epsdice{1}\,\epsdice{1},\,}}
+\begin{align*}
+\Omega=\{
+           &\e{1}{1},\e{1}{2},\e{1}{3},\e{1}{4},\e{1}{5},\e{1}{6},\\
+           &\p       \e{2}{2},\e{2}{3},\e{2}{4},\e{2}{5},\e{2}{6},\\
+           &\p       \p       \e{3}{3},\e{3}{4},\e{3}{5},\e{3}{6},\\
+           &\p       \p       \p       \e{4}{4},\e{4}{5},\e{4}{6},\\
+           &\p       \p       \p       \p       \e{5}{5},\e{5}{6},\\
+           &\p       \p       \p       \p       \p       \e{6}{6}
+\}
+\end{align*}
+}
+\item $\Omega=\{\text{Baum vom Blitz getroffen},\text{Baum verschont}\}$
+\item $\Omega=\{\text{an Ebola gestorben},\text{Ebola überlebt}\}$
+\item Die Menge der Elementarereignisse ist die Menge aller möglichen
+Messwerte, also $\Omega=\mathbb{R}$ oder eine Teilmenge davon.
+\end{enumerate}
+

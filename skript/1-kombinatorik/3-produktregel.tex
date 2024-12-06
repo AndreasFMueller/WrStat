@@ -1,0 +1,84 @@
+\section{Produktregel: Die Für--jedes--gibt--es--Regel} \label{kombinatorik-produktregel}
+\index{Produktregel}
+$k$ Position müssen unabhängig voneinander markiert werden, wobei
+$n$ verschiedene Markierungen zur Verfügung stehen.
+Da die einzelnen
+Entscheidungen unabhängig sind voneinander, ist die Zahl der Möglichkeiten
+das Produkt der Möglichkeiten an jeder einzelnen Position, also
+$n^k$.
+
+Stehen an den Positionen $i\in\{1,\dots,k\}$ jeweils die $n_i$
+Wahlmöglichkeiten
+zur Verfügung, ist die Gesamtzahl der Möglichkeiten:
+\[
+n_1\cdot n_2\dotsm n_k=\prod_{i=1}^kn_i.
+\]
+Die Produktregel ist immer dann anwendbar wenn man das Entstehen
+aller Möglichkeiten aus den Wahlmöglichkeiten an jeder Position
+mit einem Satz wie dem folgenden beschreiben kann
+\begin{quote}
+Für jede der $n_1$ Möglichkeiten an Position 1 gibt es eine
+von der ersten Position unabhängige
+Anzahl $N$ Möglichkeiten für den Rest.
+\end{quote}
+Dann ist die Gesamtzahl der Möglichkeiten $n_1\cdot N$. 
+Natürlich wird man oft die Grösse $N$ durch eine ähnliche,
+verfeinerte Analyse bestimmen müssen.
+
+\begin{beispiele}
+\item Wie viele mögliche Augenzahlbilder können entstehen, wenn zwei
+verschiedenfarbige Würfel geworfen werden?
+
+\begin{loesung}
+Der erste Würfel kann $n_1=6$ verschiedene Augenzahlen anzeigen,
+der zweite $n_2=6$.
+Die beiden Würfel sind unabhängig voneinander,
+also gibt es $n_1\cdot n_2=36$ verschiedene Augenzahlbilder.
+\end{loesung}
+
+
+\item Ein Autohändler bietet 5 verschiedene Fahrzeugtypen in 30
+verschiedenen Farben an.
+Zu jedem Fahrzeugtyp gibt es 7 verschiedene Extraausstattungen.
+Wieviele verschiedene Fahrzeuge kann der Autohändler verkaufen?
+
+\begin{loesung}
+Offenbar sind alle die $n_1=5$ Fahrzeugtypen, die $n_2=30$ Farben
+und die $n_3=7$ Extraausstattungen unabhängig voneinenander wählbar, also ist
+die Gesamtzahl der möglichen Fahrzeuge $n_1n_2n_3=1050$.
+\end{loesung}
+
+\item Nehmen wir jetzt an, statt vorgegebener Ausstattungen mit
+Extras könne jedes einzelne Extra unabhängig gewählt oder
+abgelehnt werden.
+Es gebe 7 solche Extras.
+Wieviele verschiedene Fahrzeuge können bestellt werden?
+
+\begin{loesung}
+Offenbar hat man jetzt für jedes Extra die Wahl, ob man es dazunehmen
+will oder nicht, man hat also für jedes Extra zwei Möglichkeiten.
+Für jedes Extra kommt also ein Faktor $2$ hinzu, mithin hat man
+$5\cdot 30
+\cdot 2
+\cdot 2
+\cdot 2
+\cdot 2
+\cdot 2
+\cdot 2
+\cdot 2
+=5\cdot 30\cdot 2^7=5\cdot 30 \cdot 128=19200$.
+\end{loesung}
+
+\item Als das iPhone 5 neu war, konnte man in weiss oder in schwarz
+bestellen und in drei verschiedenen
+Grössen des Flashspeichers.
+Wieviele verschiedene iPhone 5 gab es?
+
+\begin{loesung}
+Offenbar konnte man $n_1=2$ Farben und $n_2=3$ Speicherausstattungen
+unabhängig voneinander auswäh\-len, es gab
+daher $n_1n_2=6$ verschiedene iPhone 5.
+\end{loesung}
+
+\end{beispiele}
+

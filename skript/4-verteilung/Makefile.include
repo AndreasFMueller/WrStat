@@ -1,0 +1,11 @@
+#
+# Makefile.include
+#
+# (c) 2024 Prof Dr Andreas Müller
+#
+sources4 =								\
+	4-verteilung/1-verteilung.tex					\
+	4-verteilung/2-gleichverteilung.tex				\
+	4-verteilung/3-strategie.tex					\
+	4-verteilung/4-rechenregeln.tex					\
+	4-verteilung/verteilung.tex

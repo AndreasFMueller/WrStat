@@ -27,928 +27,939 @@ Universum, ganz abgesehen davon, dass wir keine Ahnung darüber haben,
 was es genau für Bedingungen braucht, damit intelligentes Leben
 entstehen kann.
 
-\section{Ziele}
-Die Kombinatorik befasst sich mit zählbaren diskreten Strukturen,
-insbesondere versucht sie Antworten zu geben auf Fragen die
-typischerweise mit ``Auf wieviele Arten \dots'' beginnen, zum Beispiel:
-\begin{itemize}
-\item Auf wieviele Arten kann man $n$ verschiedene Objekte anordnen?
-\item Auf wieviele Arten kann man $k$ Objekte aus $n$ auswählen?
-\item Auf wieviele Arten kann man $k$ mal eine Auswahl aus $n$ Objekten
-treffen?
-\end{itemize}
 
-In diesem Kapitel wollen wir jedoch nur eine Übersicht über die
-wichtigsten Zähl-Techniken zusammenstellen, damit sie uns später
-bei der Berechnung von Wahrscheinlichkeiten zur Verfügung stehen.
-
-\section{Produktregel: Die Für--jedes--gibt--es--Regel} \label{kombinatorik-produktregel}
-\index{Produktregel}
-$k$ Position müssen unabhängig voneinander markiert werden, wobei
-$n$ verschiedene Markierungen zur Verfügung stehen.
-Da die einzelnen
-Entscheidungen unabhängig sind voneinander, ist die Zahl der Möglichkeiten
-das Produkt der Möglichkeiten an jeder einzelnen Position, also
-$n^k$.
-
-Stehen an den Positionen $i\in\{1,\dots,k\}$ jeweils die $n_i$
-Wahlmöglichkeiten
-zur Verfügung, ist die Gesamtzahl der Möglichkeiten:
-\[
-n_1\cdot n_2\dotsm n_k=\prod_{i=1}^kn_i.
-\]
-Die Produktregel ist immer dann anwendbar wenn man das Entstehen
-aller Möglichkeiten aus den Wahlmöglichkeiten an jeder Position
-mit einem Satz wie dem folgenden beschreiben kann
-\begin{quote}
-Für jede der $n_1$ Möglichkeiten an Position 1 gibt es eine
-von der ersten Position unabhängige
-Anzahl $N$ Möglichkeiten für den Rest.
-\end{quote}
-Dann ist die Gesamtzahl der Möglichkeiten $n_1\cdot N$. 
-Natürlich wird man oft die Grösse $N$ durch eine ähnliche,
-verfeinerte Analyse bestimmen müssen.
-
-\begin{beispiele}
-\item Wie viele mögliche Augenzahlbilder können entstehen, wenn zwei
-verschiedenfarbige Würfel geworfen werden?
-
-\begin{loesung}
-Der erste Würfel kann $n_1=6$ verschiedene Augenzahlen anzeigen,
-der zweite $n_2=6$.
-Die beiden Würfel sind unabhängig voneinander,
-also gibt es $n_1\cdot n_2=36$ verschiedene Augenzahlbilder.
-\end{loesung}
-
-
-\item Ein Autohändler bietet 5 verschiedene Fahrzeugtypen in 30
-verschiedenen Farben an.
-Zu jedem Fahrzeugtyp gibt es 7 verschiedene Extraausstattungen.
-Wieviele verschiedene Fahrzeuge kann der Autohändler verkaufen?
-
-\begin{loesung}
-Offenbar sind alle die $n_1=5$ Fahrzeugtypen, die $n_2=30$ Farben
-und die $n_3=7$ Extraausstattungen unabhängig voneinenander wählbar, also ist
-die Gesamtzahl der möglichen Fahrzeuge $n_1n_2n_3=1050$.
-\end{loesung}
-
-\item Nehmen wir jetzt an, statt vorgegebener Ausstattungen mit
-Extras könne jedes einzelne Extra unabhängig gewählt oder
-abgelehnt werden.
-Es gebe 7 solche Extras.
-Wieviele verschiedene Fahrzeuge können bestellt werden?
-
-\begin{loesung}
-Offenbar hat man jetzt für jedes Extra die Wahl, ob man es dazunehmen
-will oder nicht, man hat also für jedes Extra zwei Möglichkeiten.
-Für jedes Extra kommt also ein Faktor $2$ hinzu, mithin hat man
-$5\cdot 30
-\cdot 2
-\cdot 2
-\cdot 2
-\cdot 2
-\cdot 2
-\cdot 2
-\cdot 2
-=5\cdot 30\cdot 2^7=5\cdot 30 \cdot 128=19200$.
-\end{loesung}
-
-\item Als das iPhone 5 neu war, konnte man in weiss oder in schwarz
-bestellen und in drei verschiedenen
-Grössen des Flashspeichers.
-Wieviele verschiedene iPhone 5 gab es?
-
-\begin{loesung}
-Offenbar konnte man $n_1=2$ Farben und $n_2=3$ Speicherausstattungen
-unabhängig voneinander auswäh\-len, es gab
-daher $n_1n_2=6$ verschiedene iPhone 5.
-\end{loesung}
-
-\end{beispiele}
-
-\section{Permutationen: Reihenfolge} \label{kombinatorik-permutation}
-\index{Permutation}
-\index{Reihenfolge}
-Die Frage ``Auf wieviele Arten lassen sich $n$ verschieden Objekte anordnen?''
-ist gleichbedeutend mit der Frage, wieviele Permutationen von $n$
-Objekten es gibt.
-Die Zahl  $P_n$ der Permutationen von $n$ Objekten
-kann durch den folgenden Abzählprozess gefunden werden.
-Offenbar muss für jedes der Objekte ein Platz gewählt werden, dies will
-man Schrittweise tun.
-Für das erste Objekt stehen $n$ Plätze
-zur Verfügung.
-Für jede Wahl des Platzes des ersten Objektes 
-ist jetzt zu bestimmen, auf wieviele Arten die verbleibenden
-$n-1$ Objekte platziert werden können.
-Für das zweite
-Objekt muss einer der $n-1$ verbleibenden Plätze gewählt werden.
-Bisher haben sind also $n(n-1)$ Möglichkeiten gefunden worden.
-Für das dritte Objekt verbleiben jetzt noch $n-2$ Plätze,
-was die bisher gefundenen Möglichkeiten auf $n(n-1)(n-2)$
-erhöht.
-So geht es weiter bis zum letzten Objekt, für welches
-genau ein Platz übrig bleibt.
-Es folgt
-\[
-P_n=n(n-1)(n-2)\dotsm 2\cdot 1=n!
-\]
-
-Man kann für $P_n$ auch eine Rekursionsformel finden.
-Um $n$ Objekte
-zu platzieren, muss man zunächst einen Platz für das erste Objekt
-platzieren, was auf $n$ Arten möglich ist.
-Für jede solche Wahl
-muss man dann $n-1$ Objekte platzieren, dafür gibt es $P_{n-1}$
-Möglichkeiten.
-Also muss gelten
-\[
-P_n=nP_{n-1}.
-\]
-Löst man die Rekursion auf, ergibt sich wieder $P_n=n!$.
-
-
-\begin{beispiele}
-\item In wievielen verschiedenen Reihenfolgen können die acht Läufer
-eines Rennens im Ziel eintreffen?
-
-\begin{loesung}
-Jede Reihenfolge ist möglich, also $8!=40320$ mögliche Reihenfolgen.
-\end{loesung}
-
-\item Einer der Läufer von Beispiel 1 ist unbestrittener Favorit,
-es ist klar, dass er gewinnen wird.
-Von einem anderen ist bekannt, dass er keine Chance hat.
-Wieviele Reihenfolgen bleiben übrig?
-
-\begin{loesung}
-Nur noch sechs der acht Läufer können in beliebiger Reihenfolge
-eintreffen, also in $6!=720$ verschiedene Reihenfolgen.
-\end{loesung}
-
-\item An einem Wettkampf treten 7 Männer und 7 Frauen an.
-Die Männer
-ermitteln untereinander einen Sieger, und die Frauen tun dasselbe.
-Am Schluss stellen sich alle für ein Erinnerungsfoto auf: links
-die Männer rechts die Frauen, beide in der im Wettkampf ermittelten
-Rangfolge.
-Wieviele Erinnerungsfotos sind möglich?
-
-\begin{loesung}
-Es gibt $7!=5040$ Rangfolgen der Männer, und ebensoviele bei den
-Frauen.
-Die Ermittelung der Rangfolge bei den Männern ist offensichtlich
-unabhängig von derjenigen bei den Frauen, so dass die Gesamtzahl der
-möglichen Anordnungen auf dem Erinnerungsfoto $7!\cdot 7!=5040^2=25401600$
-ist.
-\end{loesung}
-
-\item
-\label{nachtessen}
-Drei Mathematiker und drei Ingenieure treffen sich zu einem
-Nachtessen an einem runden Tisch.
-\begin{teilaufgaben}
-\item
-Auf wieviele Arten können die Teilnehmer die Plätze einnehmen?
-\item
-Auf wieviel Arten können 
-die Teilnehmer die Plätze einnehmen, wenn nicht alle drei Mathematiker
-oder Ingenieure nebeneinander sitzen dürfen?
-\end{teilaufgaben}
-
-\begin{loesung}
-\begin{teilaufgaben}
-\item
-Man muss offenbar herausfinden, in wievielen möglichen Reihenfolgen
-man die sechs Teilnehmer auf die sechs Plätze setzen kann.
-Dies sind $6!$ Möglichkeiten.
-\item
-Es spielt keine Rolle, ob wir untersuchen, wann die Mathematiker 
-nebeneinander sitzen und wann die Ingenieure, denn sobald die Mathematiker
-nebeneinander sitzen tun es auch die Ingenieure.
-
-Wir wissen bereits, dass die Leute auf $6!=720$ Arten platziert werden
-können.
-Wir müssen also nur herausfinden, wieviele Platzierungen
-unerwünscht sind (weil drei Mathematiker nebeneinander sitzen),
-dann wissen wir auch, auf wieviele erwünschte Arten die Teilnehmer
-sitzen können.
-An einem runden Tisch gibt es sechs Plätze, wo im Uhrzeigersinn gezählt 
-die Gruppe der Mathematiker beginnen kann.
-Und zu jeder dieser
-sechs Möglichkeiten gibt es $3!$ Anordnungen der Mathematiker innerhalb
-der Gruppe.
-Es gibt also $6 \cdot 3!$ Möglichkeiten, die Mathematiker
-in einer Dreiergruppe zu platzieren.
-Die Ingenieure sitzen zwar garantiert nebeneinander, können aber
-innerhalb ihrer Dreiergruppe auch noch beliebig die Plätze
-tauschen, und zwar auf $3!$ verschiedene Arten.
-Somit gibt es
-\[
-6\cdot 3!\cdot 3!=6\cdot 6\cdot 6=6^3=216
-\]
-unerwünschte Platzierungen.
-Folglich gibt es $720-216=504$ zulässige
-Platzierungen der Gäste.
-\end{teilaufgaben}
-\end{loesung}
-
-\end{beispiele}
-
-Die Fakultät kann man in Octave/Matlab mit der Funktion {\tt factorial}
-berechnen.
-Die letzte Aufgabe kann in Octave zum Beispiel so gerechnet
-werden:
-\begin{verbatim}
-octave> factorial(6) - 6 * factorial(3) * factorial(3)
-ans =  504
-\end{verbatim}
-\index{factorial@{\tt factorial}}
-
-\section{Kombinationen: Auswahl}
-\index{Kombinationen}
-\index{Auswahl}
-Auf wieviele Arten kann $k$ aus $n$ verschiedenen Objekten
-auswählen.
-Auch diese Frage kann ein Abzählargument
-beantworten.
-Sei $C^n_k$ die Anzahl der Möglichkeiten,
-$k$ aus $n$ Objekten auszuwählen.
-Es ist also zunächst
-$k$ mal eine Auswahl zu treffen.
-Für die erste Auswahl stehen $n$ Objekte zur Verfügung.
-Für jede solche Wahl bleiben jetzt noch $k-1$ Wahlen zu treffen.
-Für die zweite
-Auswahl stehen aber nur noch $n-1$ Alternativen zur Verfügung,
-bisher haben wir also $n(n-1)$ Möglichkeiten.
-Wiederholen wir
-dies, finden wir insgesamt $n(n-1)(n-2)\dots(n-k+1)$ Möglichkeiten
-(das Produkt hat $k$ Faktoren).
-In diesem Prozess werden
-aber all möglichen Permutationen der resultierenden Auswahl
-unabhängig voneinander erzeugt, obwohl sie uns nicht
-interessieren.
-Wir erhalten also soviel mal zu viele Lösungen, wie
-es Permutationen von $k$ Objekten gibt.
-Man muss also noch durch
-$P_k=k!$ teilen:
-\[
-C^n_k=\frac{n(n-1)(n-2)\dotsm(n-k+1)}{k!}.
-\]
-Durch Erweitern mit $(n-k)!$ bekommt man eine etwas
-kompaktere Formel:
-\[
-C^n_k
-=
-\frac{n(n-1)(n-2)\dotsm(n-k+1)\cdot(n-k)(n-k-1)\dotsm2\cdot 1}{k!(n-k)!}
-=
-\frac{n!}{k!(n-k)!}.
-\]
-
-Auch für diese Grösse kann man eine Rekursionsformel finden.
-Die Zahl der Auswahlen von $k$ Elementen aus $n$ gibt es
-offenbar $C^{n-1}_{k}$ Auswahlen, welche das erste Element nicht
-enthalten, und $C^{n-1}_{k-1}$ Auswahlen, die dadurch entstehen,
-dass man zunächst das erste Element in die Auswahl nimmt, und dann
-aus den verbleibenden Elementen deren $k-1$ hinzufügt.
-Es muss also
-gelten:
-\index{Rekursionsformel!der Binomialkoeffizienten}
-\[
-C^n_k=C^{n-1}_{k-1}+C^{n-1}_{k}.
-\]
-Diese Rekursionsformel ist aber identisch mit der Rekursionsformel
-der Binomialkoeffizienten, also gilt
-\index{Binomialkoeffizient}
-\[
-C^n_k=\binom{n}{k}.
-\]
-
-\begin{beispiele}
-\item In einen Wald mit 1000 Bäumen schlägt fünfmal der Blitz ein.
-Wir dürfen annehmen, dass kein Baum zweimal getroffen, denn der
-Einschlag wird den Baum weitgehend zerstören.
-Auf wieviele Arten
-können die getroffenen Bäume im Wald verteilt sein?
-
-\begin{loesung}
-Offenbar geht es darum, 5 von 1000 Bäumen auszuwählen, was 
-auf
-\[
-\binom{1000}{5}=8250291250200
-\]
-verschiedene Arten möglich ist.
-\end{loesung}
-
-\item Für ein Projekt stellt eine Firma mit 30 Mitarbeitern eine Taskforce
-aus 5 Leuten zusammen.
-Auf wieviele Arten ist das möglich?
-
-
-\begin{loesung}
-Es geht darum $5$ von $30$ Mitarbeiter auszuwählen, was auf
-\[
-\binom{30}{5}=142506
-\]
-Arten geht.
-\end{loesung}
-
-\item Im Gegensatz zu vorangegangenen Beispiel ist jetzt der
-Taskforceleiter schon festgelegt, wieviele Gestaltungen der
-Task-Force bleiben?
-
-\begin{loesung}
-Jetzt stehen nur noch 29 Mitarbeiter zur Verfügung (der Taskforceleiter
-steht nicht mehr zur Auswahl), es müssen aber auch nur noch 4 ausgewählt
-werden.
-Dies ist auf
-\[
-\binom{29}{4}=23751
-\]
-Arten möglich.
-\end{loesung}
-
-\item\label{meisterschaft}
-Ein Land muss für eine Meisterschaft aus einem Pool von
-20 Männern und 10 Frauen eine Delegation von je 5 Männern
-und Frauen zusammenstellen.
-Auf wieviele Arten ist dies möglich?
-
-\begin{loesung}
-Die Auswahl der Männer und Frauen erfolgt unabhängig.
-Es gibt
-$\binom{20}{5}=15504$ mögliche Auswahlen bei den Männern,
-und $\binom{10}{5}=252$ mögliche Auswahlen bei den Frauen.
-Insgesamt also
-\[
-\binom{20}{5}\binom{10}{5}=15504\cdot 252 = 3907008
-\]
-mögliche Delegationen.
-\end{loesung}
-
-\item In welchem Prozentsatz der im vorangegangenen Beispiel
-zusammengestellten Delegationen ist eine ganz bestimmte Frau
-nicht dabei, in welchem Prozentsatz ein ganz bestimmter Mann?
-
-\begin{loesung}
-Um den Prozentsatz der Delegationen zu bestimmen, bei denen
-eine ganz bestimmte Frau nicht dabei ist, müssen wir Zählen,
-wieviele Delegationen sich ohne diese Frau zusammenstellen 
-lassen.
-Dazu stehen offenbar nur 9 Frauen zur Verfügung, die 
-Anzahl der Delegationen ist also
-\[
-\binom{20}{5}\binom{9}{5}=15504\cdot 126 = 1953504.
-\]
-Der Anteil dieser Delegationen ist
-\[
-\frac{
-\binom{20}{5}\binom{9}{5}
-}{
-\binom{20}{5}\binom{10}{5}
-}
-=
-\frac{ \binom{9}{5} }{ \binom{10}{5} }
-=
-\frac{126}{252}=\frac12.
-\]
-\end{loesung}
-Bei den Männern führt die analoge Rechnung auf
-\[
-\frac{\binom{19}{5}}{\binom{20}{5}}=\frac{11628}{15504}=\frac34.
-\]
-Ein bestimmter Mann ist also bei 3 von 4 Delegationen nicht dabei,
-eine bestimmte Frau aber nur bei 2 von 4.
-\item Ein Medium behauptet, er können durch Handauflegen erspüren, ob
-der Gegenstand in einer Schachtel für ein Gewaltverbrechen verwendet
-worden sei.
-Daher wird folgender Test durchgeführt.
-$n=6$
-Schachteln werden präpariert, und eine enthält ein Messer,
-welches in einem Mordfall als Tatwaffe verwendet worden war.
-Die anderen fünf enthalten je eine Lindor Schoggikugel frisch aus der Packung.
-Wir dürfen annehmen, dass die Schoggikugeln nicht für ein Gewaltverbrechen
-verwendet worden sind.
-Das Medium soll jetzt erfühlen, in welcher
-Schachtel die Tatwaffe steckt.
-Weil das ziemlich schwierig ist, erlauben
-wir dem Medium zwei Tips und sind zufrieden wenn eine der beiden
-gewählten Schachteln die Tatwaffe enthält.
-Wie viele Möglichkeiten gibt
-es für das Medium Erfolg oder Misserfolg zu haben?
-Wie sieht es aus, wenn man $n$ grösser macht?
-
-\begin{loesung}
-Es gibt offenbar $\binom{6}{2}$ Möglichkeiten, zwei Schachteln auszuwählen,
-aber nur $\binom{5}{2}$ Möglichkeiten, zwei Schachteln auszuwählen,
-die die Tatwaffe nicht enthalten.
-\[
-\binom{6}{2}=15,\qquad\binom{5}{2}=10.
-\]
-Es gibt also 5 Möglichkeiten für Erfolg, und 10 Möglichkeiten
-für Misserfolg.
-
-Offenbar kann man das auch für beliebige $n$ ausrechnen.
-Aus $n$
-Schachteln $2$ auswählen ist auf $\binom{n}2$ Arten möglich, in
-$\binom{n-1}2$ Fällen findet man die Tatwaffe nicht.
-Die Erfolgsfälle
-sind
-\[
-\binom{n}2-\binom{n-1}2
-=
-\frac{n(n-1)}2-\frac{(n-1)(n-2)}2
-=
-\frac{n-1}2(n-(n-2))=n-1.
-\]
-Die Erfolgsquote ist also
-\[
-\frac{n-1}{\displaystyle\binom{n}2}
-=
-\frac{n-1}{\displaystyle\frac{n(n-1)}2}=\frac2n.
-\]
-Man kann daraus schliessen, dass ein Medium, welches nichts kann,
-trotzdem in $2$ von $n$ Fällen die Tatwaffe finden wird.
-Wenn wir also einen Betrüger von einem echten Medium unterscheiden
-wollen, müssen wir die Zahl $n$ so gross wählen, dass nur ganz
-wenige Betrüger eine Chance haben.
-Verlangen wir $n=20$, dann
-besteht immer noch jeder zehnte Betrüger den Test.
-Offenbar ist unser
-Test viel zu leicht.
-\end{loesung}
-
-\end{beispiele}
-Die Zahl der Kombinationen kann in Octave/Matlab mit der Funktion
-{\tt nchoosek} berechnet werden.
-Die Aufgabe~\ref{meisterschaft}
-kann zum Beispiel so gerechnet werden:
-\begin{verbatim}
-octave> nchoosek(20,5) * nchoosek(10,5)
-ans =  3907008
-\end{verbatim}
-\index{nchoosek@{\tt nchoosek}}
-
-\section{Zusatzbedingungen}
-Oft muss man Objekte zählen und dabei noch zusätzliche Einschränkungen
-berücksichtigen.
-Oft sind zu diesem Zweck Symmetriebetrachtungen
-nützlich.
-
-\begin{beispiele}
-\item Dominosteine enthalten zwei Felder, die mit je einer Augenzahl
-aus $\{0,1,2,3,4,5,6\}$ beschriftet sind.
-Wieviele verschiedene Dominosteine
-gibt es?
-
-\begin{loesung}
-Zwar ist jede Kombination möglich, aber die beiden Dominosteine
-mit den Zahlen $(x,y)$ und $(y,x)$ sind identisch.
-In den nach der
-Produktregel berechneten $7\cdot 7=49$ Paaren sind jeweils die Paare
-mit verschiedenen Zahlen doppelt gezählt.
-Wir müssen also zählen,
-auf wieviele Arten wir zwei verschiedene Zahlen auf die Dominosteine
-schreiben können.
-Dazu müssen offenbar zwei Augenzahlen aus
-der Menge $\{0,1,2,3,4,5,6\}$ gezogen werden, was auf 
-$\binom{7}{2}=21$ Arten möglich ist.
-Die Anzahl der verschiedenen
-Dominosteine ist also $49 - \binom{7}{2}=49-21=28$.
-
-Alternativ hätte man dies auch so zählen können.
-In den 49 Paaren sind
-einzige die sieben Dominosteine mit zwei gleichen Augenzahlen nicht doppelt
-gezählt worden.
-Nimmt man die nochmals hinzu, erhält man doppelt so viel
-wie es mögliche Dominosteine gibt, also gibt es
-\[
-\frac{49+7}{2}=\frac{56}2=28
-\]
-Dominosteine.
-\end{loesung}
-
-\item Beim Spiel Eile mit Weile darf man nochmals würfeln, wenn
-man eine 6 gewürfelt hat, höchstens aber drei mal.
-Wieviele
-mögliche Würfelszenarien gibt es?
-
-\begin{loesung}
-Es gibt 6 Möglichkeiten für den ersten Wurf.
-Bei 5 dieser Möglichkeiten endet das Szenario an dieser Stelle.
-In einem der
-Fälle wird nochmals gewürfelt, wobei es wieder 6 Möglichkeiten
-gibt, mit wieder genau einem Fall, in dem nochmals gewürfelt wird.
-Man hat also insgesamt 
-\[
-5 + 5 + 6=16
-\]
-mögliche Szenarien.
-\end{loesung}
-
-\end{beispiele}
-
-Komplizierte Fälle sind ebenfalls denkbar.
-Sie entstehen meist dadurch, 
-dass eine die zu zählenden Objekte beliebig vielen zusätzlichen
-Bedingungen unterworfen werden können.
-In solchen Situationen
-führt oft folgende Strategie zum Ziel:
-\begin{enumerate}
-\item Zeichne ein Mengendiagramm für die Gesamtheit aller Fälle.
-\item Zeichne in diesem Diagramm alle Teilmengen, die durch 
-die zusätzlichen Bedingungen ausgezeichnet werden.
-\item Bestimme die Anzahl Möglichkeiten in jeder Schnitt-, Vereinigungs-
-und Differenzmenge.
-\end{enumerate}
-Genau so sind wir in Beispiel~\ref{nachtessen} von
-Abschnitt~\ref{kombinatorik-permutation} vorgegangen,
-als wir zunächst die Anzahl der unerwünschten Platzierungen
-von Mathematikern und Ingenieuren ermittelt haben, und dann daraus
-die die ursprünglich gesucht Anzahl der erwünschten Platzierungen
-abgeleitet haben.
-
-\section{Erzeugende Funktionen}
-\index{erzeugende Funktion}
-Oftmals lassen sich schwierige kombinatorische Fragestellungen in
-algebraische oder analytische Probleme umformulieren.
-Damit steht
-dann der Apparat der Analysis zur Verfügung.
-
-Als einführendes
-Beispiel betrachten wir nochmals die Bestimmung von $C^n_k$.
-Statt jeden Wert von $C^n_k$ einzeln zu bestimmen, packen wir
-die Koeffizienten zusammen in eine Funktion
-\[
-p_n(z)=C^n_0+C^n_1z +C^n_2z^2+\dots+C^n_{n-1}z^{n-1}+C^n_nz^n.
-\]
-Interpretieren wir zunächst $p_1(z)$.
-Die Koeffizienten dieses
-Polynoms geben an, auf wie viele Arten man kein Element aus einer
-einelementigen Menge auswählen kann, bzw.~auf wie viele Arten man 
-ein Element auswählen kann.
-Beides ist genau auf eine Art möglich,
-also
-\[
-p_1(z)=1+z
-\]
-Betrachten wir jetzt $p_1(z)^n$.
-Beim Ausmultiplizieren des
-Produktes 
-\[
-p_1(z)^n= (1+z)(1+z)\dotsm(1+z),
-\]
-stellt sich die Frage, wie viele Summanden $z^k$ für jedes
-$k$ auftreten werden.
-Damit $z^k$ entsteht, muss in $k$ Faktoren das $z$ gewählt werden,
-und in den anderen $n-k$ Faktoren die $1$.
-Dies ist auf $C^n_k$
-Arten möglich, wir haben also gezeigt, dass
-\[
-p_n(z)=(1+z)^n=\sum_{k=1}^n \binom{n}{k}z^k
-\]
-ist, woraus
-\[
-C^n_k=\binom{n}{k}
-\]
-folgt.
-
-Alternativ kann man zu diesem Resultat auch wie folgt gelangen.
-Wir kennen bereits die Rekursionsformel
-\[
-C^n_k=C^{n-1}_{k-1}+C^{n-1}_k
-\]
-Übersetzt in die erzeugende Funktion heisst dies, dass die Koeffizienten
-für den oberen Index $n-1$
-um eine Stelle verschoben und dann addiert werden müssen,
-um die Koeffizienten für den oberen Index $n$ zu ergeben.
-Verschiebt
-man die Koeffizienten von $p_{n-1}(z)$ um $1$,
-erhält man die erzeugende Funktion
-\[
-C^{n-1}_0z
-+C^{n-1}_1z^2
-+C^{n-1}_2z^3
-+\dots
-+C^{n-1}_{n-2}z^{n-1}
-+C^{n-1}_{n-1}z^n
-=
-zp_{n-1}(z).
-\]
-Den Koeffizienten $C^{n-1}_{k-1}$ entspricht also die
-erzeugende Funktion $zp_{n-1}(z)$,
-den Koeffizienten $C^{n-1}_k$ dagegen die erzeugende Funktion $p_{n-1}(z)$.
-Die Rekursionsformel für $C^n_k$ lässt sich also in die Formel
-\[
-p_n(z)=p_{n-1}(z)+zp_{n-1}(z)=(1+z)p_{n-1}(z)
-\]
-übersetzen.
-Daraus folgt wieder $p_n(z)=(1+z)^n$.
-
-Falls die erzeugende Funktion auf dem Wert $1$ ausgewertet werden kann,
-liefert sie die Summe aller Glieder der Folge:
-\[
-\sum_{k=0}^\infty a_k=p(1).
-\]
-Für die Binomialkoeffizienten ergibt sich:
-\[
-\sum_{k=0}^n\binom{n}{k}=p_n(1)=(1+1)^n=2^n.
-\]
-
-Die erzeugende Funktion einer unendlichen Folge $a_0,a_1,a_2,\dots$ ist
-die Potenzreihe
-\[
-a_0+a_1z+a_2z^2+a_3z^3+\dots=\sum_{k=0}^\infty a_kz^k.
-\]
-Die erzeugende Funktion der Folge der Binomialkoeffizienten
-$\left(\binom{n}{k}\right)_{0\le k\le  n}$ ist also die Funktion $(1+z)^n$.
-Die erzeugende Funktion der konstanten Folge $1,1,1,\dots$ ist
-\begin{equation}
-1+z+z^2+z^3+\dots=\sum_{k=0}^\infty z^k=\frac1{1-z}.
-\label{kombinatorik:geometrischereihe}
-\end{equation}
-In der Analysis lernt man, dass diese Formel nur für $|z|<1$ gilt.
-Nur in diesem Fall ist die Reihe konvergent und hat damit einen
-wohldefinierten Wert.
-Im vorliegenden Fall betrachten wir die Summe aber gar nicht als Zahlenwert,
-sondern nur als algebraischen Ausdruck.
-Für den Platzhalter $z$ soll gar kein Zahlenwert substituiert werden.
-Vielmehr dienen die Potenzen $z^k$ nur dazu, die einzelnen Zahlen $a_k$
-auseinander zu halten.
-Man spricht von einer {\em formalen Potenzreihe}.
-\index{formale Potenzreihe}
-\index{Potenzreihe, formale}
-
-Die Begründung für \eqref{kombinatorik:geometrischereihe} in der 
-Analysis verwendet eine Formel für die Partialsummen und berechnet
-dann den Grenzwert der Partialsummenfolge.
-Dieses Argument funktioniert für formale Potenzreihen natürlich nicht
-mehr.
-Um \eqref{kombinatorik:geometrischereihe} für eine formale Potenzreihe
-nachzuweisen, rechnet man das Produkt
-\[
-(1-z)\sum_{k=0}^\infty z^k
-\]
-aus, welches $1$ ergeben sollte.
-Man bekommt
-\begin{align*}
-(1-z)\sum_{k=0}^\infty z^k
-=
-\sum_{k=0}^\infty z^k - z\sum_{k=0}^\infty z^k
-&=
-1 + z + z^2 + z^3+\dots
-\\
-&\phantom{\mathstrut=1}
--z-z^2-z^3-\dots
-\end{align*}
-Formal heben sich alle Terme ausser dem ersten weg.
-
-\begin{beispiele}
-\item 
-Auf wie viele Arten kann man 90 Rappen mit den verfügbaren Münzen
-herausgeben?
-
-Die verfügbaren Münzen sind 5er, 10er, 20er und 50er.
-Statt das Problem für 90 Rappen zu lösen, lösen wir es für jeden
-denkbaren Betrag.
-Wenn wir dazu nur 5er verwenden dürfen, dann können wir ausschliesslich
-die durch fünf teilbaren Rappen-Beträge herausgeben, und zwar immer
-auf eindeutige Art.
-Die Zahl $a_n$ der Möglichkeiten, mit der der Betrag
-$n$ herausgegeben werden kann, ist also
-\[
-a_n = \begin{cases}
-1&\qquad n\equiv 0\imod{5}\\
-0&\qquad \text{sonst}.
-\end{cases}
-\]
-Die erzeugende Funktion davon ist
-\[
-C_5(x)=\sum_{k=0}^\infty a_kx^k=1+x^5+x^{10}+x^{15}+x^{20}+x^{25}+\dots
-\]
-Könnten wir ausschliesslich 10er verwenden, wäre die entsprechende
-erzeugende Funktion
-\[
-C_{10}(x)=1+x^{10}+x^{20}+x^{30}+x^{40}+x^{50}+\dots
-\]
-Wenn wir 5er und 10er verwenden dürfen, dann muss ein Teil des Betrages
-in 5ern, der Rest in 10er herausgegeben werden.
-Diese Zusammensetzung entspricht genau dem, was beim Ausmultiplizieren
-der beiden Reihen $C_5(x)$ und $C_{10}(x)$ passiert.
-Mit einem Computer-Algebra-System kann man die Multiplikation sofort vornehmen:
-\begin{align*}
-C_5(x)C_{10}(x)&=
- 1+x^5+2 x^{10}+2 x^{15}+3 x^{20}+3 x^{25}+4 x^{30}+4 x^{35}+5 x^{40}\\
-&\qquad +5 x^{45} +6 x^{50}+6 x^{55}+7 x^{60}+7 x^{65}+8 x^{70}+8 x^{75}+9 x^{80}\\
-&\qquad +9 x^{85}+10 x^{90}+10 x^{95}+11 x^{100}+\dots
-\end{align*}
-Man kann daraus ablesen, dass es zwei Möglichkeiten gibt, 10 Rappen
-herauszugeben, entweder zwei 5er oder ein 10er.
-Ebenso kann man ablesen,
-dass es 10 Möglichkeiten gibt, 90 Rappen zu bilden, mit 0 bis 9 10ern
-und der dazu passenden Anzahl 5er.
-
-Nehmen wir jetzt noch die 20er und 50er hinzu, dann kommen die beiden
-zusätzlichen Funktionen
-\begin{align*}
-C_{20}(x)&= 1+x^{20}+x^{40}+x^{60}+x^{80}+x^{100}+\dots\\
-C_{50}(x)&=1+x^{50}+x^{100}+\dots
-\end{align*}
-hinzu.
-Die erzeugende Funktion, mit der wir die Möglichkeiten zählen
-können, auf wie viele Arten man den Betrag aus allen Münzen bilden kann,
-ist dann
-\begin{align*}
-C_5(x) C_{10}(x) C_{20}(x) C_{50}(x)
-&=
-1+x^5+2 x^{10}+2 x^{15}+4 x^{20}+4 x^{25}+6 x^{30}\\
-&\qquad
-+6 x^{35} +9 x^{40} +9 x^{45}+13 x^{50}+13 x^{55}\\
-&\qquad
-+18 x^{60}+18 x^{65} +24 x^{70}+24 x^{75}+31 x^{80}\\
-&\qquad
-+31 x^{85}+39 x^{90}+39 x^{95} +49 x^{100}+\dots
-\end{align*}
-Daraus können wir jetzt ablesen, dass 90 Rappen auf 39 Arten
-gebildet werden können.
-\end{beispiele}
-
-Man kann diese Produkte nicht nur mit einem Computer-Algebra-System
-ausrechnen, sondern auch mit Octave.
-Octave stellt Polynome als
-Vektoren von Koeffizienten der einzelnen Monome geordnet nach Grad
-absteigend.
-Als Beispiel versuchen wir auszurechnen, auf wieviele
-Arten man 11 Franken zusammensetzen kann, wenn man 2 Fünfliber,
-5 Zweifränkler und 11 Einfränkler zur Verfügung hat.
-Die Polynome werden
-\begin{align*}
-C_1&=z^{11}+z^{10}+z^9+z^8+z^7+z^6+z^5+z^4+z^3+z^2+z+1,\\
-C_2&=z^{10}+z^8+z^6+z^4+z^2+1,\\
-C_5&=z^{10}+z^5+1.
-\end{align*}
-In Octave können diese Polynome als Zeilenvektoren eingegeben werden:
-\begin{verbatim}
-octave> c1 = [1,1,1,1,1,1,1,1,1,1,1,1]
-c1 =
-
-   1   1   1   1   1   1   1   1   1   1   1   1
-
-octave> c2 = [1,0,1,0,1,0,1,0,1,0,1]
-c2 =
-
-   1   0   1   0   1   0   1   0   1   0   1
-
-octave> c5 = [1,0,0,0,0,1,0,0,0,0,1]
-c5 =
-
-   1   0   0   0   0   1   0   0   0   0   1
-\end{verbatim}
-Das Produkt der Polynome berechnet man in Octave mit der Funktion
-{\tt conv}, also der Faltung zweier Vektoren.
-Im vorliegenden Fall bekommt man
-\begin{verbatim}
-octave:11> c = conv(c1,conv(c2,c5))
-c =
-
- Columns 1 through 16:
-
-  1  1  2  2  3  4  5  6  7  8 10 11 11 12 12 13
-
- Columns 17 through 32:
-
- 13 12 12 11 11 10  8  7  6  5  4  3  2  2  1  1
-\end{verbatim}
-Um jetzt herauszufinden, auf wie viele Arten man 11 Franken
-kombinieren kann, muss man den Koeffizienten von $z^{11}$ in diesem
-Polynom finden, also den zwölften Koeffizienten vom Ende des
-Vektors, zum Beispiel so:
-\begin{verbatim}
-octave> c(length(c)-11)
-ans =  11
-\end{verbatim}
-Man kann also 11 Franken auf 11 verschiedene Arten aus Fränklern,
-Zweifränklern und Fünflibern zusammensetzen.
-
-Im Moment scheint dieses Verfahren keine wirklich Vereinfachung
-zu sein.
-Doch die Verwendung der geometrischen Reihe erlaubt, die
-Funktionen $C_n(x)$ zu vereinfachen:
-\[
-C_n(x)=1+x^n+x^{2n}+x^{3n}+\dots = \frac1{1-x^n}.
-\]
-Damit wird die uns interessierende Funktion
-\begin{align*}
-C_5(x) C_{10}(x) C_{20}(x) C_{50}(x)
-&=
-\frac1{1-x^5}\cdot
-\frac1{1-x^{10}}\cdot
-\frac1{1-x^{20}}\cdot
-\frac1{1-x^{50}}
-\\
-&=
-\frac1{
-(1-x^5)
-(1-x^{10})
-(1-x^{20})
-(1-x^{50})
-}.
-\end{align*}
-Eine solche Funktion kann von einem Computer-Algebra-System sehr effizient
-in eine Reihe umgewandelt werden, an der man das Resultat ablesen kann.
-
-Man kann allerdings noch einen Schritt weiter gehen.
-Kehren wir dazu zum
-einführenden Beispiel zurück, bei dem wir nur 5er und 10er verwenden
-dürfen.
-Wir suchen eine Reihe
-\[
-C_5(x)C_{10}(x)=c_0+c_1x+c_2x^2+c_3x^3+\dots=\sum_{k=0}^\infty c_kx^k
-\]
-derart, dass
-\[
-(1-x^5)(1-x^{10}) \sum_{k=0}^\infty c_kx^k=1
-=
-(1-x^5-x^{10}+x^{15}) \sum_{k=0}^\infty c_kx^k=1.
-\]
-Durch Ausmultiplizieren findet man aus der rechten Seite
-
-{\allowdisplaybreaks
-\begin{align*}
-C_5(x)C_{10}(x)&=c_0\\
-&+c_1x\\
-&+c_2x^2\\
-&+c_3x^3\\
-&+c_4x^4\\
-&+(c_5-c_0)x^5\\
-&+(c_6-c_1)x^6\\
-&+(c_7-c_2)x^7\\
-&+(c_8-c_3)x^8\\
-&+(c_9-c_4)x^9\\
-&+(c_{10} - c_5 -c_0)x^{10}\\
-&+(c_{11} - c_6 -c_1)x^{11}\\
-&+(c_{12} - c_7 -c_2)x^{12}\\
-&+(c_{13} - c_8 -c_3)x^{13}\\
-&+(c_{14} - c_9 -c_4)x^{14}\\
-&+(c_{15} - c_{10} - c_{5} +c_0)x^{15}\\
-&+(c_{16} - c_{11} - c_{6} +c_1)x^{16}\\
-&+(c_{17} - c_{12} - c_{7} +c_2)x^{17}\\
-&+(c_{18} - c_{13} - c_{8} +c_3)x^{18}\\
-&+(c_{19} - c_{14} - c_{9} +c_4)x^{19}\\
-&+\dots
-\end{align*}
-}
-Aus $C_{5}(x)C_{10}(x)=1$ folgt, dass $c_0=1$ sein muss, und alle
-höheren Koeffizienten müssen verschwinden.
-Insbesondere verschwinden
-alle Koeffizienten, die nicht durch 5 teilbar sind.
-Es bleiben also nur noch
-die Gleichungen:
-\begin{align*}
-c_5&=c_0=1\\
-c_{10}&=c_5+c_0=2\\
-c_{15}&=c_{10}+c_{5}-c_0=2 + 1 - 1=2\\
-c_{5n}&=c_{5(n-1)}+c_{5(n-2)}-c_{5(n-3)}.
-\end{align*}
-Für die Koeffizienten gibt es also eine Rekursionsgleichung, aus der wir
-nacheinander die Koeffizienten berechnen können.
-Es ist natürlich nicht
-überraschend, dass wir die Lösung
-\[
-1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, \dots
-\]
-finden.
-
-Für das volle Problem ist die Rekursionsgleichung etwas komplizierter, nämlich
-\begin{align*}
-c_{5(n+17)} % 0
--c_{5(n+16)} % 5
--c_{5(n+15)} % 10
-+c_{5(n+14)} % 15
--c_{5(n+13)} % 20
-+c_{5(n+12)} % 25
-&
-\\
-+c_{5(n+11)} % 30
--c_{5(n+10)} % 35
-%c_{5(n+9)} % 40
-%-c_{5(n+8)} % 45
--c_{5(n+7)} % 50
-+c_{5(n+6)} % 55
-+c_{5(n+5)} % 60
-&
-\\
--c_{5(n+4)} % 65
-+c_{5(n+3)} % 70
--c_{5(n+2)} % 75
--c_{5(n+1)} % 80
-+c_{5(n)} % 85
-&=0
-\end{align*}
-Andererseits gibt es ein allgemeines Verfahren, wie man eine solche
-Differenzengleichung lösen kann, es gibt daher auch eine allgemeine
-Formel, mit der man die $c_{5n}$ berechnen kann.
-
-
-
-
+\input{1-kombinatorik/1-motivation.tex}
+\input{1-kombinatorik/2-ziele.tex}
+\input{1-kombinatorik/3-produktregel.tex}
+\input{1-kombinatorik/4-permutationen.tex}
+\input{1-kombinatorik/5-kombinationen.tex}
+\input{1-kombinatorik/6-zusatzbedingungen.tex}
+\input{1-kombinatorik/7-erzeugendefunktionen.tex}
+
+%
+%
+%\section{Ziele}
+%Die Kombinatorik befasst sich mit zählbaren diskreten Strukturen,
+%insbesondere versucht sie Antworten zu geben auf Fragen die
+%typischerweise mit ``Auf wieviele Arten \dots'' beginnen, zum Beispiel:
+%\begin{itemize}
+%\item Auf wieviele Arten kann man $n$ verschiedene Objekte anordnen?
+%\item Auf wieviele Arten kann man $k$ Objekte aus $n$ auswählen?
+%\item Auf wieviele Arten kann man $k$ mal eine Auswahl aus $n$ Objekten
+%treffen?
+%\end{itemize}
+%
+%In diesem Kapitel wollen wir jedoch nur eine Übersicht über die
+%wichtigsten Zähl-Techniken zusammenstellen, damit sie uns später
+%bei der Berechnung von Wahrscheinlichkeiten zur Verfügung stehen.
+%
+%\section{Produktregel: Die Für--jedes--gibt--es--Regel} \label{kombinatorik-produktregel}
+%\index{Produktregel}
+%$k$ Position müssen unabhängig voneinander markiert werden, wobei
+%$n$ verschiedene Markierungen zur Verfügung stehen.
+%Da die einzelnen
+%Entscheidungen unabhängig sind voneinander, ist die Zahl der Möglichkeiten
+%das Produkt der Möglichkeiten an jeder einzelnen Position, also
+%$n^k$.
+%
+%Stehen an den Positionen $i\in\{1,\dots,k\}$ jeweils die $n_i$
+%Wahlmöglichkeiten
+%zur Verfügung, ist die Gesamtzahl der Möglichkeiten:
+%\[
+%n_1\cdot n_2\dotsm n_k=\prod_{i=1}^kn_i.
+%\]
+%Die Produktregel ist immer dann anwendbar wenn man das Entstehen
+%aller Möglichkeiten aus den Wahlmöglichkeiten an jeder Position
+%mit einem Satz wie dem folgenden beschreiben kann
+%\begin{quote}
+%Für jede der $n_1$ Möglichkeiten an Position 1 gibt es eine
+%von der ersten Position unabhängige
+%Anzahl $N$ Möglichkeiten für den Rest.
+%\end{quote}
+%Dann ist die Gesamtzahl der Möglichkeiten $n_1\cdot N$. 
+%Natürlich wird man oft die Grösse $N$ durch eine ähnliche,
+%verfeinerte Analyse bestimmen müssen.
+%
+%\begin{beispiele}
+%\item Wie viele mögliche Augenzahlbilder können entstehen, wenn zwei
+%verschiedenfarbige Würfel geworfen werden?
+%
+%\begin{loesung}
+%Der erste Würfel kann $n_1=6$ verschiedene Augenzahlen anzeigen,
+%der zweite $n_2=6$.
+%Die beiden Würfel sind unabhängig voneinander,
+%also gibt es $n_1\cdot n_2=36$ verschiedene Augenzahlbilder.
+%\end{loesung}
+%
+%
+%\item Ein Autohändler bietet 5 verschiedene Fahrzeugtypen in 30
+%verschiedenen Farben an.
+%Zu jedem Fahrzeugtyp gibt es 7 verschiedene Extraausstattungen.
+%Wieviele verschiedene Fahrzeuge kann der Autohändler verkaufen?
+%
+%\begin{loesung}
+%Offenbar sind alle die $n_1=5$ Fahrzeugtypen, die $n_2=30$ Farben
+%und die $n_3=7$ Extraausstattungen unabhängig voneinenander wählbar, also ist
+%die Gesamtzahl der möglichen Fahrzeuge $n_1n_2n_3=1050$.
+%\end{loesung}
+%
+%\item Nehmen wir jetzt an, statt vorgegebener Ausstattungen mit
+%Extras könne jedes einzelne Extra unabhängig gewählt oder
+%abgelehnt werden.
+%Es gebe 7 solche Extras.
+%Wieviele verschiedene Fahrzeuge können bestellt werden?
+%
+%\begin{loesung}
+%Offenbar hat man jetzt für jedes Extra die Wahl, ob man es dazunehmen
+%will oder nicht, man hat also für jedes Extra zwei Möglichkeiten.
+%Für jedes Extra kommt also ein Faktor $2$ hinzu, mithin hat man
+%$5\cdot 30
+%\cdot 2
+%\cdot 2
+%\cdot 2
+%\cdot 2
+%\cdot 2
+%\cdot 2
+%\cdot 2
+%=5\cdot 30\cdot 2^7=5\cdot 30 \cdot 128=19200$.
+%\end{loesung}
+%
+%\item Als das iPhone 5 neu war, konnte man in weiss oder in schwarz
+%bestellen und in drei verschiedenen
+%Grössen des Flashspeichers.
+%Wieviele verschiedene iPhone 5 gab es?
+%
+%\begin{loesung}
+%Offenbar konnte man $n_1=2$ Farben und $n_2=3$ Speicherausstattungen
+%unabhängig voneinander auswäh\-len, es gab
+%daher $n_1n_2=6$ verschiedene iPhone 5.
+%\end{loesung}
+%
+%\end{beispiele}
+%
+%\section{Permutationen: Reihenfolge} \label{kombinatorik-permutation}
+%\index{Permutation}
+%\index{Reihenfolge}
+%Die Frage ``Auf wieviele Arten lassen sich $n$ verschieden Objekte anordnen?''
+%ist gleichbedeutend mit der Frage, wieviele Permutationen von $n$
+%Objekten es gibt.
+%Die Zahl  $P_n$ der Permutationen von $n$ Objekten
+%kann durch den folgenden Abzählprozess gefunden werden.
+%Offenbar muss für jedes der Objekte ein Platz gewählt werden, dies will
+%man Schrittweise tun.
+%Für das erste Objekt stehen $n$ Plätze
+%zur Verfügung.
+%Für jede Wahl des Platzes des ersten Objektes 
+%ist jetzt zu bestimmen, auf wieviele Arten die verbleibenden
+%$n-1$ Objekte platziert werden können.
+%Für das zweite
+%Objekt muss einer der $n-1$ verbleibenden Plätze gewählt werden.
+%Bisher haben sind also $n(n-1)$ Möglichkeiten gefunden worden.
+%Für das dritte Objekt verbleiben jetzt noch $n-2$ Plätze,
+%was die bisher gefundenen Möglichkeiten auf $n(n-1)(n-2)$
+%erhöht.
+%So geht es weiter bis zum letzten Objekt, für welches
+%genau ein Platz übrig bleibt.
+%Es folgt
+%\[
+%P_n=n(n-1)(n-2)\dotsm 2\cdot 1=n!
+%\]
+%
+%Man kann für $P_n$ auch eine Rekursionsformel finden.
+%Um $n$ Objekte
+%zu platzieren, muss man zunächst einen Platz für das erste Objekt
+%platzieren, was auf $n$ Arten möglich ist.
+%Für jede solche Wahl
+%muss man dann $n-1$ Objekte platzieren, dafür gibt es $P_{n-1}$
+%Möglichkeiten.
+%Also muss gelten
+%\[
+%P_n=nP_{n-1}.
+%\]
+%Löst man die Rekursion auf, ergibt sich wieder $P_n=n!$.
+%
+%
+%\begin{beispiele}
+%\item In wievielen verschiedenen Reihenfolgen können die acht Läufer
+%eines Rennens im Ziel eintreffen?
+%
+%\begin{loesung}
+%Jede Reihenfolge ist möglich, also $8!=40320$ mögliche Reihenfolgen.
+%\end{loesung}
+%
+%\item Einer der Läufer von Beispiel 1 ist unbestrittener Favorit,
+%es ist klar, dass er gewinnen wird.
+%Von einem anderen ist bekannt, dass er keine Chance hat.
+%Wieviele Reihenfolgen bleiben übrig?
+%
+%\begin{loesung}
+%Nur noch sechs der acht Läufer können in beliebiger Reihenfolge
+%eintreffen, also in $6!=720$ verschiedene Reihenfolgen.
+%\end{loesung}
+%
+%\item An einem Wettkampf treten 7 Männer und 7 Frauen an.
+%Die Männer
+%ermitteln untereinander einen Sieger, und die Frauen tun dasselbe.
+%Am Schluss stellen sich alle für ein Erinnerungsfoto auf: links
+%die Männer rechts die Frauen, beide in der im Wettkampf ermittelten
+%Rangfolge.
+%Wieviele Erinnerungsfotos sind möglich?
+%
+%\begin{loesung}
+%Es gibt $7!=5040$ Rangfolgen der Männer, und ebensoviele bei den
+%Frauen.
+%Die Ermittelung der Rangfolge bei den Männern ist offensichtlich
+%unabhängig von derjenigen bei den Frauen, so dass die Gesamtzahl der
+%möglichen Anordnungen auf dem Erinnerungsfoto $7!\cdot 7!=5040^2=25401600$
+%ist.
+%\end{loesung}
+%
+%\item
+%\label{nachtessen}
+%Drei Mathematiker und drei Ingenieure treffen sich zu einem
+%Nachtessen an einem runden Tisch.
+%\begin{teilaufgaben}
+%\item
+%Auf wieviele Arten können die Teilnehmer die Plätze einnehmen?
+%\item
+%Auf wieviel Arten können 
+%die Teilnehmer die Plätze einnehmen, wenn nicht alle drei Mathematiker
+%oder Ingenieure nebeneinander sitzen dürfen?
+%\end{teilaufgaben}
+%
+%\begin{loesung}
+%\begin{teilaufgaben}
+%\item
+%Man muss offenbar herausfinden, in wievielen möglichen Reihenfolgen
+%man die sechs Teilnehmer auf die sechs Plätze setzen kann.
+%Dies sind $6!$ Möglichkeiten.
+%\item
+%Es spielt keine Rolle, ob wir untersuchen, wann die Mathematiker 
+%nebeneinander sitzen und wann die Ingenieure, denn sobald die Mathematiker
+%nebeneinander sitzen tun es auch die Ingenieure.
+%
+%Wir wissen bereits, dass die Leute auf $6!=720$ Arten platziert werden
+%können.
+%Wir müssen also nur herausfinden, wieviele Platzierungen
+%unerwünscht sind (weil drei Mathematiker nebeneinander sitzen),
+%dann wissen wir auch, auf wieviele erwünschte Arten die Teilnehmer
+%sitzen können.
+%An einem runden Tisch gibt es sechs Plätze, wo im Uhrzeigersinn gezählt 
+%die Gruppe der Mathematiker beginnen kann.
+%Und zu jeder dieser
+%sechs Möglichkeiten gibt es $3!$ Anordnungen der Mathematiker innerhalb
+%der Gruppe.
+%Es gibt also $6 \cdot 3!$ Möglichkeiten, die Mathematiker
+%in einer Dreiergruppe zu platzieren.
+%Die Ingenieure sitzen zwar garantiert nebeneinander, können aber
+%innerhalb ihrer Dreiergruppe auch noch beliebig die Plätze
+%tauschen, und zwar auf $3!$ verschiedene Arten.
+%Somit gibt es
+%\[
+%6\cdot 3!\cdot 3!=6\cdot 6\cdot 6=6^3=216
+%\]
+%unerwünschte Platzierungen.
+%Folglich gibt es $720-216=504$ zulässige
+%Platzierungen der Gäste.
+%\end{teilaufgaben}
+%\end{loesung}
+%
+%\end{beispiele}
+%
+%Die Fakultät kann man in Octave/Matlab mit der Funktion {\tt factorial}
+%berechnen.
+%Die letzte Aufgabe kann in Octave zum Beispiel so gerechnet
+%werden:
+%\begin{verbatim}
+%octave> factorial(6) - 6 * factorial(3) * factorial(3)
+%ans =  504
+%\end{verbatim}
+%\index{factorial@{\tt factorial}}
+%
+%\section{Kombinationen: Auswahl}
+%\index{Kombinationen}
+%\index{Auswahl}
+%Auf wieviele Arten kann $k$ aus $n$ verschiedenen Objekten
+%auswählen.
+%Auch diese Frage kann ein Abzählargument
+%beantworten.
+%Sei $C^n_k$ die Anzahl der Möglichkeiten,
+%$k$ aus $n$ Objekten auszuwählen.
+%Es ist also zunächst
+%$k$ mal eine Auswahl zu treffen.
+%Für die erste Auswahl stehen $n$ Objekte zur Verfügung.
+%Für jede solche Wahl bleiben jetzt noch $k-1$ Wahlen zu treffen.
+%Für die zweite
+%Auswahl stehen aber nur noch $n-1$ Alternativen zur Verfügung,
+%bisher haben wir also $n(n-1)$ Möglichkeiten.
+%Wiederholen wir
+%dies, finden wir insgesamt $n(n-1)(n-2)\dots(n-k+1)$ Möglichkeiten
+%(das Produkt hat $k$ Faktoren).
+%In diesem Prozess werden
+%aber all möglichen Permutationen der resultierenden Auswahl
+%unabhängig voneinander erzeugt, obwohl sie uns nicht
+%interessieren.
+%Wir erhalten also soviel mal zu viele Lösungen, wie
+%es Permutationen von $k$ Objekten gibt.
+%Man muss also noch durch
+%$P_k=k!$ teilen:
+%\[
+%C^n_k=\frac{n(n-1)(n-2)\dotsm(n-k+1)}{k!}.
+%\]
+%Durch Erweitern mit $(n-k)!$ bekommt man eine etwas
+%kompaktere Formel:
+%\[
+%C^n_k
+%=
+%\frac{n(n-1)(n-2)\dotsm(n-k+1)\cdot(n-k)(n-k-1)\dotsm2\cdot 1}{k!(n-k)!}
+%=
+%\frac{n!}{k!(n-k)!}.
+%\]
+%
+%Auch für diese Grösse kann man eine Rekursionsformel finden.
+%Die Zahl der Auswahlen von $k$ Elementen aus $n$ gibt es
+%offenbar $C^{n-1}_{k}$ Auswahlen, welche das erste Element nicht
+%enthalten, und $C^{n-1}_{k-1}$ Auswahlen, die dadurch entstehen,
+%dass man zunächst das erste Element in die Auswahl nimmt, und dann
+%aus den verbleibenden Elementen deren $k-1$ hinzufügt.
+%Es muss also
+%gelten:
+%\index{Rekursionsformel!der Binomialkoeffizienten}
+%\[
+%C^n_k=C^{n-1}_{k-1}+C^{n-1}_{k}.
+%\]
+%Diese Rekursionsformel ist aber identisch mit der Rekursionsformel
+%der Binomialkoeffizienten, also gilt
+%\index{Binomialkoeffizient}
+%\[
+%C^n_k=\binom{n}{k}.
+%\]
+%
+%\begin{beispiele}
+%\item In einen Wald mit 1000 Bäumen schlägt fünfmal der Blitz ein.
+%Wir dürfen annehmen, dass kein Baum zweimal getroffen, denn der
+%Einschlag wird den Baum weitgehend zerstören.
+%Auf wieviele Arten
+%können die getroffenen Bäume im Wald verteilt sein?
+%
+%\begin{loesung}
+%Offenbar geht es darum, 5 von 1000 Bäumen auszuwählen, was 
+%auf
+%\[
+%\binom{1000}{5}=8250291250200
+%\]
+%verschiedene Arten möglich ist.
+%\end{loesung}
+%
+%\item Für ein Projekt stellt eine Firma mit 30 Mitarbeitern eine Taskforce
+%aus 5 Leuten zusammen.
+%Auf wieviele Arten ist das möglich?
+%
+%
+%\begin{loesung}
+%Es geht darum $5$ von $30$ Mitarbeiter auszuwählen, was auf
+%\[
+%\binom{30}{5}=142506
+%\]
+%Arten geht.
+%\end{loesung}
+%
+%\item Im Gegensatz zu vorangegangenen Beispiel ist jetzt der
+%Taskforceleiter schon festgelegt, wieviele Gestaltungen der
+%Task-Force bleiben?
+%
+%\begin{loesung}
+%Jetzt stehen nur noch 29 Mitarbeiter zur Verfügung (der Taskforceleiter
+%steht nicht mehr zur Auswahl), es müssen aber auch nur noch 4 ausgewählt
+%werden.
+%Dies ist auf
+%\[
+%\binom{29}{4}=23751
+%\]
+%Arten möglich.
+%\end{loesung}
+%
+%\item\label{meisterschaft}
+%Ein Land muss für eine Meisterschaft aus einem Pool von
+%20 Männern und 10 Frauen eine Delegation von je 5 Männern
+%und Frauen zusammenstellen.
+%Auf wieviele Arten ist dies möglich?
+%
+%\begin{loesung}
+%Die Auswahl der Männer und Frauen erfolgt unabhängig.
+%Es gibt
+%$\binom{20}{5}=15504$ mögliche Auswahlen bei den Männern,
+%und $\binom{10}{5}=252$ mögliche Auswahlen bei den Frauen.
+%Insgesamt also
+%\[
+%\binom{20}{5}\binom{10}{5}=15504\cdot 252 = 3907008
+%\]
+%mögliche Delegationen.
+%\end{loesung}
+%
+%\item In welchem Prozentsatz der im vorangegangenen Beispiel
+%zusammengestellten Delegationen ist eine ganz bestimmte Frau
+%nicht dabei, in welchem Prozentsatz ein ganz bestimmter Mann?
+%
+%\begin{loesung}
+%Um den Prozentsatz der Delegationen zu bestimmen, bei denen
+%eine ganz bestimmte Frau nicht dabei ist, müssen wir Zählen,
+%wieviele Delegationen sich ohne diese Frau zusammenstellen 
+%lassen.
+%Dazu stehen offenbar nur 9 Frauen zur Verfügung, die 
+%Anzahl der Delegationen ist also
+%\[
+%\binom{20}{5}\binom{9}{5}=15504\cdot 126 = 1953504.
+%\]
+%Der Anteil dieser Delegationen ist
+%\[
+%\frac{
+%\binom{20}{5}\binom{9}{5}
+%}{
+%\binom{20}{5}\binom{10}{5}
+%}
+%=
+%\frac{ \binom{9}{5} }{ \binom{10}{5} }
+%=
+%\frac{126}{252}=\frac12.
+%\]
+%\end{loesung}
+%Bei den Männern führt die analoge Rechnung auf
+%\[
+%\frac{\binom{19}{5}}{\binom{20}{5}}=\frac{11628}{15504}=\frac34.
+%\]
+%Ein bestimmter Mann ist also bei 3 von 4 Delegationen nicht dabei,
+%eine bestimmte Frau aber nur bei 2 von 4.
+%\item Ein Medium behauptet, er können durch Handauflegen erspüren, ob
+%der Gegenstand in einer Schachtel für ein Gewaltverbrechen verwendet
+%worden sei.
+%Daher wird folgender Test durchgeführt.
+%$n=6$
+%Schachteln werden präpariert, und eine enthält ein Messer,
+%welches in einem Mordfall als Tatwaffe verwendet worden war.
+%Die anderen fünf enthalten je eine Lindor Schoggikugel frisch aus der Packung.
+%Wir dürfen annehmen, dass die Schoggikugeln nicht für ein Gewaltverbrechen
+%verwendet worden sind.
+%Das Medium soll jetzt erfühlen, in welcher
+%Schachtel die Tatwaffe steckt.
+%Weil das ziemlich schwierig ist, erlauben
+%wir dem Medium zwei Tips und sind zufrieden wenn eine der beiden
+%gewählten Schachteln die Tatwaffe enthält.
+%Wie viele Möglichkeiten gibt
+%es für das Medium Erfolg oder Misserfolg zu haben?
+%Wie sieht es aus, wenn man $n$ grösser macht?
+%
+%\begin{loesung}
+%Es gibt offenbar $\binom{6}{2}$ Möglichkeiten, zwei Schachteln auszuwählen,
+%aber nur $\binom{5}{2}$ Möglichkeiten, zwei Schachteln auszuwählen,
+%die die Tatwaffe nicht enthalten.
+%\[
+%\binom{6}{2}=15,\qquad\binom{5}{2}=10.
+%\]
+%Es gibt also 5 Möglichkeiten für Erfolg, und 10 Möglichkeiten
+%für Misserfolg.
+%
+%Offenbar kann man das auch für beliebige $n$ ausrechnen.
+%Aus $n$
+%Schachteln $2$ auswählen ist auf $\binom{n}2$ Arten möglich, in
+%$\binom{n-1}2$ Fällen findet man die Tatwaffe nicht.
+%Die Erfolgsfälle
+%sind
+%\[
+%\binom{n}2-\binom{n-1}2
+%=
+%\frac{n(n-1)}2-\frac{(n-1)(n-2)}2
+%=
+%\frac{n-1}2(n-(n-2))=n-1.
+%\]
+%Die Erfolgsquote ist also
+%\[
+%\frac{n-1}{\displaystyle\binom{n}2}
+%=
+%\frac{n-1}{\displaystyle\frac{n(n-1)}2}=\frac2n.
+%\]
+%Man kann daraus schliessen, dass ein Medium, welches nichts kann,
+%trotzdem in $2$ von $n$ Fällen die Tatwaffe finden wird.
+%Wenn wir also einen Betrüger von einem echten Medium unterscheiden
+%wollen, müssen wir die Zahl $n$ so gross wählen, dass nur ganz
+%wenige Betrüger eine Chance haben.
+%Verlangen wir $n=20$, dann
+%besteht immer noch jeder zehnte Betrüger den Test.
+%Offenbar ist unser
+%Test viel zu leicht.
+%\end{loesung}
+%
+%\end{beispiele}
+%Die Zahl der Kombinationen kann in Octave/Matlab mit der Funktion
+%{\tt nchoosek} berechnet werden.
+%Die Aufgabe~\ref{meisterschaft}
+%kann zum Beispiel so gerechnet werden:
+%\begin{verbatim}
+%octave> nchoosek(20,5) * nchoosek(10,5)
+%ans =  3907008
+%\end{verbatim}
+%\index{nchoosek@{\tt nchoosek}}
+%
+%\section{Zusatzbedingungen}
+%Oft muss man Objekte zählen und dabei noch zusätzliche Einschränkungen
+%berücksichtigen.
+%Oft sind zu diesem Zweck Symmetriebetrachtungen
+%nützlich.
+%
+%\begin{beispiele}
+%\item Dominosteine enthalten zwei Felder, die mit je einer Augenzahl
+%aus $\{0,1,2,3,4,5,6\}$ beschriftet sind.
+%Wieviele verschiedene Dominosteine
+%gibt es?
+%
+%\begin{loesung}
+%Zwar ist jede Kombination möglich, aber die beiden Dominosteine
+%mit den Zahlen $(x,y)$ und $(y,x)$ sind identisch.
+%In den nach der
+%Produktregel berechneten $7\cdot 7=49$ Paaren sind jeweils die Paare
+%mit verschiedenen Zahlen doppelt gezählt.
+%Wir müssen also zählen,
+%auf wieviele Arten wir zwei verschiedene Zahlen auf die Dominosteine
+%schreiben können.
+%Dazu müssen offenbar zwei Augenzahlen aus
+%der Menge $\{0,1,2,3,4,5,6\}$ gezogen werden, was auf 
+%$\binom{7}{2}=21$ Arten möglich ist.
+%Die Anzahl der verschiedenen
+%Dominosteine ist also $49 - \binom{7}{2}=49-21=28$.
+%
+%Alternativ hätte man dies auch so zählen können.
+%In den 49 Paaren sind
+%einzige die sieben Dominosteine mit zwei gleichen Augenzahlen nicht doppelt
+%gezählt worden.
+%Nimmt man die nochmals hinzu, erhält man doppelt so viel
+%wie es mögliche Dominosteine gibt, also gibt es
+%\[
+%\frac{49+7}{2}=\frac{56}2=28
+%\]
+%Dominosteine.
+%\end{loesung}
+%
+%\item Beim Spiel Eile mit Weile darf man nochmals würfeln, wenn
+%man eine 6 gewürfelt hat, höchstens aber drei mal.
+%Wieviele
+%mögliche Würfelszenarien gibt es?
+%
+%\begin{loesung}
+%Es gibt 6 Möglichkeiten für den ersten Wurf.
+%Bei 5 dieser Möglichkeiten endet das Szenario an dieser Stelle.
+%In einem der
+%Fälle wird nochmals gewürfelt, wobei es wieder 6 Möglichkeiten
+%gibt, mit wieder genau einem Fall, in dem nochmals gewürfelt wird.
+%Man hat also insgesamt 
+%\[
+%5 + 5 + 6=16
+%\]
+%mögliche Szenarien.
+%\end{loesung}
+%
+%\end{beispiele}
+%
+%Komplizierte Fälle sind ebenfalls denkbar.
+%Sie entstehen meist dadurch, 
+%dass eine die zu zählenden Objekte beliebig vielen zusätzlichen
+%Bedingungen unterworfen werden können.
+%In solchen Situationen
+%führt oft folgende Strategie zum Ziel:
+%\begin{enumerate}
+%\item Zeichne ein Mengendiagramm für die Gesamtheit aller Fälle.
+%\item Zeichne in diesem Diagramm alle Teilmengen, die durch 
+%die zusätzlichen Bedingungen ausgezeichnet werden.
+%\item Bestimme die Anzahl Möglichkeiten in jeder Schnitt-, Vereinigungs-
+%und Differenzmenge.
+%\end{enumerate}
+%Genau so sind wir in Beispiel~\ref{nachtessen} von
+%Abschnitt~\ref{kombinatorik-permutation} vorgegangen,
+%als wir zunächst die Anzahl der unerwünschten Platzierungen
+%von Mathematikern und Ingenieuren ermittelt haben, und dann daraus
+%die die ursprünglich gesucht Anzahl der erwünschten Platzierungen
+%abgeleitet haben.
+%
+%\section{Erzeugende Funktionen}
+%\index{erzeugende Funktion}
+%Oftmals lassen sich schwierige kombinatorische Fragestellungen in
+%algebraische oder analytische Probleme umformulieren.
+%Damit steht
+%dann der Apparat der Analysis zur Verfügung.
+%
+%Als einführendes
+%Beispiel betrachten wir nochmals die Bestimmung von $C^n_k$.
+%Statt jeden Wert von $C^n_k$ einzeln zu bestimmen, packen wir
+%die Koeffizienten zusammen in eine Funktion
+%\[
+%p_n(z)=C^n_0+C^n_1z +C^n_2z^2+\dots+C^n_{n-1}z^{n-1}+C^n_nz^n.
+%\]
+%Interpretieren wir zunächst $p_1(z)$.
+%Die Koeffizienten dieses
+%Polynoms geben an, auf wie viele Arten man kein Element aus einer
+%einelementigen Menge auswählen kann, bzw.~auf wie viele Arten man 
+%ein Element auswählen kann.
+%Beides ist genau auf eine Art möglich,
+%also
+%\[
+%p_1(z)=1+z
+%\]
+%Betrachten wir jetzt $p_1(z)^n$.
+%Beim Ausmultiplizieren des
+%Produktes 
+%\[
+%p_1(z)^n= (1+z)(1+z)\dotsm(1+z),
+%\]
+%stellt sich die Frage, wie viele Summanden $z^k$ für jedes
+%$k$ auftreten werden.
+%Damit $z^k$ entsteht, muss in $k$ Faktoren das $z$ gewählt werden,
+%und in den anderen $n-k$ Faktoren die $1$.
+%Dies ist auf $C^n_k$
+%Arten möglich, wir haben also gezeigt, dass
+%\[
+%p_n(z)=(1+z)^n=\sum_{k=1}^n \binom{n}{k}z^k
+%\]
+%ist, woraus
+%\[
+%C^n_k=\binom{n}{k}
+%\]
+%folgt.
+%
+%Alternativ kann man zu diesem Resultat auch wie folgt gelangen.
+%Wir kennen bereits die Rekursionsformel
+%\[
+%C^n_k=C^{n-1}_{k-1}+C^{n-1}_k
+%\]
+%Übersetzt in die erzeugende Funktion heisst dies, dass die Koeffizienten
+%für den oberen Index $n-1$
+%um eine Stelle verschoben und dann addiert werden müssen,
+%um die Koeffizienten für den oberen Index $n$ zu ergeben.
+%Verschiebt
+%man die Koeffizienten von $p_{n-1}(z)$ um $1$,
+%erhält man die erzeugende Funktion
+%\[
+%C^{n-1}_0z
+%+C^{n-1}_1z^2
+%+C^{n-1}_2z^3
+%+\dots
+%+C^{n-1}_{n-2}z^{n-1}
+%+C^{n-1}_{n-1}z^n
+%=
+%zp_{n-1}(z).
+%\]
+%Den Koeffizienten $C^{n-1}_{k-1}$ entspricht also die
+%erzeugende Funktion $zp_{n-1}(z)$,
+%den Koeffizienten $C^{n-1}_k$ dagegen die erzeugende Funktion $p_{n-1}(z)$.
+%Die Rekursionsformel für $C^n_k$ lässt sich also in die Formel
+%\[
+%p_n(z)=p_{n-1}(z)+zp_{n-1}(z)=(1+z)p_{n-1}(z)
+%\]
+%übersetzen.
+%Daraus folgt wieder $p_n(z)=(1+z)^n$.
+%
+%Falls die erzeugende Funktion auf dem Wert $1$ ausgewertet werden kann,
+%liefert sie die Summe aller Glieder der Folge:
+%\[
+%\sum_{k=0}^\infty a_k=p(1).
+%\]
+%Für die Binomialkoeffizienten ergibt sich:
+%\[
+%\sum_{k=0}^n\binom{n}{k}=p_n(1)=(1+1)^n=2^n.
+%\]
+%
+%Die erzeugende Funktion einer unendlichen Folge $a_0,a_1,a_2,\dots$ ist
+%die Potenzreihe
+%\[
+%a_0+a_1z+a_2z^2+a_3z^3+\dots=\sum_{k=0}^\infty a_kz^k.
+%\]
+%Die erzeugende Funktion der Folge der Binomialkoeffizienten
+%$\left(\binom{n}{k}\right)_{0\le k\le  n}$ ist also die Funktion $(1+z)^n$.
+%Die erzeugende Funktion der konstanten Folge $1,1,1,\dots$ ist
+%\begin{equation}
+%1+z+z^2+z^3+\dots=\sum_{k=0}^\infty z^k=\frac1{1-z}.
+%\label{kombinatorik:geometrischereihe}
+%\end{equation}
+%In der Analysis lernt man, dass diese Formel nur für $|z|<1$ gilt.
+%Nur in diesem Fall ist die Reihe konvergent und hat damit einen
+%wohldefinierten Wert.
+%Im vorliegenden Fall betrachten wir die Summe aber gar nicht als Zahlenwert,
+%sondern nur als algebraischen Ausdruck.
+%Für den Platzhalter $z$ soll gar kein Zahlenwert substituiert werden.
+%Vielmehr dienen die Potenzen $z^k$ nur dazu, die einzelnen Zahlen $a_k$
+%auseinander zu halten.
+%Man spricht von einer {\em formalen Potenzreihe}.
+%\index{formale Potenzreihe}
+%\index{Potenzreihe, formale}
+%
+%Die Begründung für \eqref{kombinatorik:geometrischereihe} in der 
+%Analysis verwendet eine Formel für die Partialsummen und berechnet
+%dann den Grenzwert der Partialsummenfolge.
+%Dieses Argument funktioniert für formale Potenzreihen natürlich nicht
+%mehr.
+%Um \eqref{kombinatorik:geometrischereihe} für eine formale Potenzreihe
+%nachzuweisen, rechnet man das Produkt
+%\[
+%(1-z)\sum_{k=0}^\infty z^k
+%\]
+%aus, welches $1$ ergeben sollte.
+%Man bekommt
+%\begin{align*}
+%(1-z)\sum_{k=0}^\infty z^k
+%=
+%\sum_{k=0}^\infty z^k - z\sum_{k=0}^\infty z^k
+%&=
+%1 + z + z^2 + z^3+\dots
+%\\
+%&\phantom{\mathstrut=1}
+%-z-z^2-z^3-\dots
+%\end{align*}
+%Formal heben sich alle Terme ausser dem ersten weg.
+%
+%\begin{beispiele}
+%\item 
+%Auf wie viele Arten kann man 90 Rappen mit den verfügbaren Münzen
+%herausgeben?
+%
+%Die verfügbaren Münzen sind 5er, 10er, 20er und 50er.
+%Statt das Problem für 90 Rappen zu lösen, lösen wir es für jeden
+%denkbaren Betrag.
+%Wenn wir dazu nur 5er verwenden dürfen, dann können wir ausschliesslich
+%die durch fünf teilbaren Rappen-Beträge herausgeben, und zwar immer
+%auf eindeutige Art.
+%Die Zahl $a_n$ der Möglichkeiten, mit der der Betrag
+%$n$ herausgegeben werden kann, ist also
+%\[
+%a_n = \begin{cases}
+%1&\qquad n\equiv 0\imod{5}\\
+%0&\qquad \text{sonst}.
+%\end{cases}
+%\]
+%Die erzeugende Funktion davon ist
+%\[
+%C_5(x)=\sum_{k=0}^\infty a_kx^k=1+x^5+x^{10}+x^{15}+x^{20}+x^{25}+\dots
+%\]
+%Könnten wir ausschliesslich 10er verwenden, wäre die entsprechende
+%erzeugende Funktion
+%\[
+%C_{10}(x)=1+x^{10}+x^{20}+x^{30}+x^{40}+x^{50}+\dots
+%\]
+%Wenn wir 5er und 10er verwenden dürfen, dann muss ein Teil des Betrages
+%in 5ern, der Rest in 10er herausgegeben werden.
+%Diese Zusammensetzung entspricht genau dem, was beim Ausmultiplizieren
+%der beiden Reihen $C_5(x)$ und $C_{10}(x)$ passiert.
+%Mit einem Computer-Algebra-System kann man die Multiplikation sofort vornehmen:
+%\begin{align*}
+%C_5(x)C_{10}(x)&=
+% 1+x^5+2 x^{10}+2 x^{15}+3 x^{20}+3 x^{25}+4 x^{30}+4 x^{35}+5 x^{40}\\
+%&\qquad +5 x^{45} +6 x^{50}+6 x^{55}+7 x^{60}+7 x^{65}+8 x^{70}+8 x^{75}+9 x^{80}\\
+%&\qquad +9 x^{85}+10 x^{90}+10 x^{95}+11 x^{100}+\dots
+%\end{align*}
+%Man kann daraus ablesen, dass es zwei Möglichkeiten gibt, 10 Rappen
+%herauszugeben, entweder zwei 5er oder ein 10er.
+%Ebenso kann man ablesen,
+%dass es 10 Möglichkeiten gibt, 90 Rappen zu bilden, mit 0 bis 9 10ern
+%und der dazu passenden Anzahl 5er.
+%
+%Nehmen wir jetzt noch die 20er und 50er hinzu, dann kommen die beiden
+%zusätzlichen Funktionen
+%\begin{align*}
+%C_{20}(x)&= 1+x^{20}+x^{40}+x^{60}+x^{80}+x^{100}+\dots\\
+%C_{50}(x)&=1+x^{50}+x^{100}+\dots
+%\end{align*}
+%hinzu.
+%Die erzeugende Funktion, mit der wir die Möglichkeiten zählen
+%können, auf wie viele Arten man den Betrag aus allen Münzen bilden kann,
+%ist dann
+%\begin{align*}
+%C_5(x) C_{10}(x) C_{20}(x) C_{50}(x)
+%&=
+%1+x^5+2 x^{10}+2 x^{15}+4 x^{20}+4 x^{25}+6 x^{30}\\
+%&\qquad
+%+6 x^{35} +9 x^{40} +9 x^{45}+13 x^{50}+13 x^{55}\\
+%&\qquad
+%+18 x^{60}+18 x^{65} +24 x^{70}+24 x^{75}+31 x^{80}\\
+%&\qquad
+%+31 x^{85}+39 x^{90}+39 x^{95} +49 x^{100}+\dots
+%\end{align*}
+%Daraus können wir jetzt ablesen, dass 90 Rappen auf 39 Arten
+%gebildet werden können.
+%\end{beispiele}
+%
+%Man kann diese Produkte nicht nur mit einem Computer-Algebra-System
+%ausrechnen, sondern auch mit Octave.
+%Octave stellt Polynome als
+%Vektoren von Koeffizienten der einzelnen Monome geordnet nach Grad
+%absteigend.
+%Als Beispiel versuchen wir auszurechnen, auf wieviele
+%Arten man 11 Franken zusammensetzen kann, wenn man 2 Fünfliber,
+%5 Zweifränkler und 11 Einfränkler zur Verfügung hat.
+%Die Polynome werden
+%\begin{align*}
+%C_1&=z^{11}+z^{10}+z^9+z^8+z^7+z^6+z^5+z^4+z^3+z^2+z+1,\\
+%C_2&=z^{10}+z^8+z^6+z^4+z^2+1,\\
+%C_5&=z^{10}+z^5+1.
+%\end{align*}
+%In Octave können diese Polynome als Zeilenvektoren eingegeben werden:
+%\begin{verbatim}
+%octave> c1 = [1,1,1,1,1,1,1,1,1,1,1,1]
+%c1 =
+%
+%   1   1   1   1   1   1   1   1   1   1   1   1
+%
+%octave> c2 = [1,0,1,0,1,0,1,0,1,0,1]
+%c2 =
+%
+%   1   0   1   0   1   0   1   0   1   0   1
+%
+%octave> c5 = [1,0,0,0,0,1,0,0,0,0,1]
+%c5 =
+%
+%   1   0   0   0   0   1   0   0   0   0   1
+%\end{verbatim}
+%Das Produkt der Polynome berechnet man in Octave mit der Funktion
+%{\tt conv}, also der Faltung zweier Vektoren.
+%Im vorliegenden Fall bekommt man
+%\begin{verbatim}
+%octave:11> c = conv(c1,conv(c2,c5))
+%c =
+%
+% Columns 1 through 16:
+%
+%  1  1  2  2  3  4  5  6  7  8 10 11 11 12 12 13
+%
+% Columns 17 through 32:
+%
+% 13 12 12 11 11 10  8  7  6  5  4  3  2  2  1  1
+%\end{verbatim}
+%Um jetzt herauszufinden, auf wie viele Arten man 11 Franken
+%kombinieren kann, muss man den Koeffizienten von $z^{11}$ in diesem
+%Polynom finden, also den zwölften Koeffizienten vom Ende des
+%Vektors, zum Beispiel so:
+%\begin{verbatim}
+%octave> c(length(c)-11)
+%ans =  11
+%\end{verbatim}
+%Man kann also 11 Franken auf 11 verschiedene Arten aus Fränklern,
+%Zweifränklern und Fünflibern zusammensetzen.
+%
+%Im Moment scheint dieses Verfahren keine wirklich Vereinfachung
+%zu sein.
+%Doch die Verwendung der geometrischen Reihe erlaubt, die
+%Funktionen $C_n(x)$ zu vereinfachen:
+%\[
+%C_n(x)=1+x^n+x^{2n}+x^{3n}+\dots = \frac1{1-x^n}.
+%\]
+%Damit wird die uns interessierende Funktion
+%\begin{align*}
+%C_5(x) C_{10}(x) C_{20}(x) C_{50}(x)
+%&=
+%\frac1{1-x^5}\cdot
+%\frac1{1-x^{10}}\cdot
+%\frac1{1-x^{20}}\cdot
+%\frac1{1-x^{50}}
+%\\
+%&=
+%\frac1{
+%(1-x^5)
+%(1-x^{10})
+%(1-x^{20})
+%(1-x^{50})
+%}.
+%\end{align*}
+%Eine solche Funktion kann von einem Computer-Algebra-System sehr effizient
+%in eine Reihe umgewandelt werden, an der man das Resultat ablesen kann.
+%
+%Man kann allerdings noch einen Schritt weiter gehen.
+%Kehren wir dazu zum
+%einführenden Beispiel zurück, bei dem wir nur 5er und 10er verwenden
+%dürfen.
+%Wir suchen eine Reihe
+%\[
+%C_5(x)C_{10}(x)=c_0+c_1x+c_2x^2+c_3x^3+\dots=\sum_{k=0}^\infty c_kx^k
+%\]
+%derart, dass
+%\[
+%(1-x^5)(1-x^{10}) \sum_{k=0}^\infty c_kx^k=1
+%=
+%(1-x^5-x^{10}+x^{15}) \sum_{k=0}^\infty c_kx^k=1.
+%\]
+%Durch Ausmultiplizieren findet man aus der rechten Seite
+%
+%{\allowdisplaybreaks
+%\begin{align*}
+%C_5(x)C_{10}(x)&=c_0\\
+%&+c_1x\\
+%&+c_2x^2\\
+%&+c_3x^3\\
+%&+c_4x^4\\
+%&+(c_5-c_0)x^5\\
+%&+(c_6-c_1)x^6\\
+%&+(c_7-c_2)x^7\\
+%&+(c_8-c_3)x^8\\
+%&+(c_9-c_4)x^9\\
+%&+(c_{10} - c_5 -c_0)x^{10}\\
+%&+(c_{11} - c_6 -c_1)x^{11}\\
+%&+(c_{12} - c_7 -c_2)x^{12}\\
+%&+(c_{13} - c_8 -c_3)x^{13}\\
+%&+(c_{14} - c_9 -c_4)x^{14}\\
+%&+(c_{15} - c_{10} - c_{5} +c_0)x^{15}\\
+%&+(c_{16} - c_{11} - c_{6} +c_1)x^{16}\\
+%&+(c_{17} - c_{12} - c_{7} +c_2)x^{17}\\
+%&+(c_{18} - c_{13} - c_{8} +c_3)x^{18}\\
+%&+(c_{19} - c_{14} - c_{9} +c_4)x^{19}\\
+%&+\dots
+%\end{align*}
+%}
+%Aus $C_{5}(x)C_{10}(x)=1$ folgt, dass $c_0=1$ sein muss, und alle
+%höheren Koeffizienten müssen verschwinden.
+%Insbesondere verschwinden
+%alle Koeffizienten, die nicht durch 5 teilbar sind.
+%Es bleiben also nur noch
+%die Gleichungen:
+%\begin{align*}
+%c_5&=c_0=1\\
+%c_{10}&=c_5+c_0=2\\
+%c_{15}&=c_{10}+c_{5}-c_0=2 + 1 - 1=2\\
+%c_{5n}&=c_{5(n-1)}+c_{5(n-2)}-c_{5(n-3)}.
+%\end{align*}
+%Für die Koeffizienten gibt es also eine Rekursionsgleichung, aus der wir
+%nacheinander die Koeffizienten berechnen können.
+%Es ist natürlich nicht
+%überraschend, dass wir die Lösung
+%\[
+%1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, \dots
+%\]
+%finden.
+%
+%Für das volle Problem ist die Rekursionsgleichung etwas komplizierter, nämlich
+%\begin{align*}
+%c_{5(n+17)} % 0
+%-c_{5(n+16)} % 5
+%-c_{5(n+15)} % 10
+%+c_{5(n+14)} % 15
+%-c_{5(n+13)} % 20
+%+c_{5(n+12)} % 25
+%&
+%\\
+%+c_{5(n+11)} % 30
+%-c_{5(n+10)} % 35
+%%c_{5(n+9)} % 40
+%%-c_{5(n+8)} % 45
+%-c_{5(n+7)} % 50
+%+c_{5(n+6)} % 55
+%+c_{5(n+5)} % 60
+%&
+%\\
+%-c_{5(n+4)} % 65
+%+c_{5(n+3)} % 70
+%-c_{5(n+2)} % 75
+%-c_{5(n+1)} % 80
+%+c_{5(n)} % 85
+%&=0
+%\end{align*}
+%Andererseits gibt es ein allgemeines Verfahren, wie man eine solche
+%Differenzengleichung lösen kann, es gibt daher auch eine allgemeine
+%Formel, mit der man die $c_{5n}$ berechnen kann.
+%
+%
+%
+%

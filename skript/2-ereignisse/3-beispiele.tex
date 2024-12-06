@@ -1,0 +1,232 @@
+\section{Weitere Beispiele von Ereignisalgebren} \label{section-beispiele}
+\subsection{Dominosteine}
+Die Menge aller möglichen Dominosteine wurde bereits früher untersucht.
+Jetzt möchten wir darin einzelne Ereignisse auszeichnen.
+Wir beschreiben
+einen einzelnen Dominostein als ein paar $(x,y)$, wobei $x\ge y$ sein soll.
+Beispiele von Ereignissen:
+\begin{align*}
+S_k&=\{ \text{Die Augensumme ist $k$}\}\\
+S_5&=\{ (5,0), (4,1), (3,2) \}\\
+S_4&=\{ (4,0), (3,1), (2,2) \}\\
+R&=\{\text{die Augenzahlen sind positiv haben keinen gemeinsamen Teiler $>1$}\}\\
+ &=\{ (6,5), (6,1), (5,4), (5,3), (5,2), (5,1), (4,3), (4,1), (3,2), (3,1), (2,1), (1,1) \}
+\\
+P&=\{\text{beide Augenzahlen sind Primzahlen}\}\\
+ &=\{(5,5), (5,3), (5,2), (3,3), (3,2), (2,2) \}\\
+\end{align*}
+
+\subsection{Würfeln mit zwei Würfeln}
+Bei einem Würfelspiel wirft man jeweils zwei Würfel.
+Zeigen beide Würfel
+die gleiche Zahl, man nennt dies einen {\em Pasch}, darf man genau ein
+weiteres Mal würfeln.
+Die Elementarereignisse sind also entweder einfach Paare, also von
+der Form $(x,y)$, mit $x\ne y$, oder ein Pasch gefolgt von irgend einem
+Würfelresultat, wir schreiben dies $(P_k, (x,y))$, also ein $k$-er-Pasch
+gefolgt von einem Paar $(x,y)$, wobei diesmal keine Einschränkungen für
+$x$ und $y$ gelten.
+Damit kann man jetzt alle möglichen Elementarereignisse auflisten
+\begin{align*}
+\Omega=\{
+&\phantom{(6,6),} (6,5), (6,4), (6,3), (6,2), (6,1)\\
+&(5,6), \phantom{(5,5),} (5,4), (5,3), (5,2), (5,1)\\
+&(4,6), (4,5), \phantom{(4,4),} (4,3), (4,2), (4,1)\\
+&(3,6), (3,5), (3,4), \phantom{(3,3),} (3,2), (3,1)\\
+&(2,6), (2,5), (2,4), (2,3), \phantom{(2,2),} (2,1)\\
+&(1,6), (1,5), (1,4), (1,3), (1,2), \phantom{(1,1)}
+\}
+\\
+&\cup
+\{(P_6,(x,y))\}
+\cup
+\{(P_5,(x,y))\}
+\cup
+\{(P_4,(x,y))\}
+\\
+&\cup
+\{(P_3,(x,y))\}
+\cup
+\{(P_2,(x,y))\}
+\cup
+\{(P_1,(x,y))\}.
+\end{align*}
+Man sieht daraus zum Beispiel, dass es $30 + 6\cdot 36=246$
+Elementarereignisse gibt.
+Darin enthalten sind die Ereignisse
+\begin{align*}
+P&=\{\text{Pasch im ersten Wurf}\}\\
+&=
+\{(P_6,(x,y))\}
+\cup
+\{(P_5,(x,y))\}
+\cup
+\{(P_4,(x,y))\}
+\\
+&\qquad \cup
+\{(P_3,(x,y))\}
+\cup
+\{(P_2,(x,y))\}
+\cup
+\{(P_1,(x,y))\}
+\\
+\tilde P_k&=\{\text{$k$-er Pasch im ersten Wurf}\}\\
+   &=\{(P_k,(x,y))\}
+\\
+Q&=\{\text{totale Augensumme $\ge 10$}\}\\
+&=\{\phantom{(6,6),} (6,5), (6,4), \\
+&\phantom{\;=\{}(5,6), \phantom{(5,5), (5,4)} \\
+&\phantom{\;=\{}(4,6)\phantom{, (4,5), (4,4)}
+\}
+\\
+&\qquad\cup
+\{(P_6,(x,y))\}
+\cup
+\{(P_5,(x,y))\}
+\cup
+\{(P_4,(x,y))\,|\, x+y \ge 2\}
+\\
+&\qquad\cup
+\{(P_3,(x,y))\,|\, x+y \ge 4\}
+\cup
+\{(P_2,(x,y))\,|\, x+y \ge 6\}
+\\
+&\qquad
+\cup
+\{(P_1,(x,y))\,|\, x+y \ge 8\}.
+\end{align*}
+
+\subsection{AIDS-Test}
+Wir mathematisieren das Beispiel des AIDS-Tests.
+Die frühere Diskussion führt uns vor Augen,
+dass wir hier mit zwei verschiedenen Ereignissen zu tun haben. 
+Das Experiment besteht offenbar darin, dass wir jemanden untersuchen,
+die Menge der Elementarereignisse ist also die Menge aller betrachteten
+Personen.
+Darin unterscheiden wir:
+\begin{align*}
+H&=\{\text{Person hat HIV}\},\\
+T&=\{\text{Person hat positiven AIDS-Test}\}.
+\end{align*}
+Es ist klar, dass $H\ne T$.
+Es gibt Personen, die zwar HIV haben, bei
+denen der Test dies aber noch nicht zeigen kann, $H\setminus T\ne \emptyset$.
+Andererseits gibt es falsche positive Testresultate,
+$T\setminus H\ne\emptyset$. 
+
+\subsection{Messwertalgebra}
+\begin{table}
+\begin{center}
+\begin{tabular}{|cc|cc|}
+\hline
+1&0.990
+&11&0.990\\
+2&0.989
+&12&0.989\\
+3&0.991
+&13&0.990\\
+4&0.991
+&14&0.991\\
+5&0.991
+&15&0.989\\
+6&0.989
+&16&0.990\\
+7&0.990
+&17&0.989\\
+8&0.989
+&18&0.990\\
+9&0.992
+&19&0.990\\
+10&0.992
+&20&0.991\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Werte von Stichprobe von 20 1k$\Omega$-Widerständen\label{widerstandswerte}}
+\end{table}
+Bei einer Messung wird ein Messwert ermittelt, dieser kann jedoch
+nur mit einer begrenzten Genauigkeit festgehalten werden.
+Die Elementarereignisse sind zwar immer noch alle möglichen reellen
+Zahlen $\mathbb R$, aber sinnvolle Ereignisse sind nur bestimmte Teilmengen
+$A\subset\mathbb R$.
+Wir wollen bestimmen, welche Teilmengen das sind.
+
+Zunächst führen wir dies an einem Beispiel durch.
+Bei einer am 1.~November 2006
+zufällig bei Pusterla in Zürich gekauften Stichprobe von 20 1k$\Omega$
+Widerständen ergaben sich beim Nachmessen die Widerstandswerte in 
+Tabelle \ref{widerstandswerte}.
+Offensichtlich streuen die Messwerte
+zwischen 0.989 und 0.992.
+Genauere Informationen kann das Messgerät nicht
+anzeigen.
+Wir können aus den Daten also eigentlich nur folgendes schliessen:
+der Widerstand mit der Nummer eins hat einen Wert $0.990\le R_1<0.991$.
+Der Widerstandswert $R_1$ ist ein Versuchsergebnis, also ein Elementarereignis,
+liegt aber in der Menge
+\[
+A=[0.990,0.991)\subset \mathbb{R}=\Omega.
+\]
+Ausserdem werden durch die weiteren Messungen auch noch folgende
+Ereignisse realisiert:
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Ereignis&Häufigkeit\\
+\hline
+$[0.989,0.990)$&6\\
+$[0.990,0.991)$&7\\
+$[0.991,0.992)$&5\\
+$[0.992,0.993)$&2\\
+\hline
+\end{tabular}
+\end{center}
+Diese speziellen Ereignisse beinhalten offensichtlich alle Information,
+die wir über die Widerstände haben können.
+Bei den 20 Versuchen treten aber auch noch andere Ereignisse ein,
+zum Beispiel
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Ereignis&Häufigkeit\\
+\hline
+$\{R\ge 0.990\}$&14\\
+``5\% Toleranz'' = $\{0.95\le R\le1.05\}$&20\\
+``1\% Toleranz'' = $\{0.99\le R\le 1.01\}$&14\\
+\hline
+\end{tabular}
+\end{center}
+
+Etwas formaler: Eine Genauigkeitsangabe bei einem Messwert definiert
+ein Intervall, in dem sich ein Messwert befinden muss.
+Wir
+fordern also, dass $\cal A$ alle Intervalle der Form $[a,b]\subset\mathbb R$
+enthalten muss.
+Aber auch die Aussage ``der Messwert ist kleiner als $a$''
+muss einem Ereignis in $\cal A$ entsprechen, also müssen auch Intervalle,
+die sich ins unendliche erstrecken in $\cal A$ sein:
+\begin{align*}{}
+(-\infty,r]&=\{x\in\mathbb R\;|\;x \le r\} \in \cal A\\
+% Hack: \; brauchts, damit eqnarray nicht meint [ leite ein Argument ein
+\;[r,\infty)&=\{x\in\mathbb R\;|\;x \ge r\} \in \cal A
+\end{align*}
+
+Da wir Komplemente bilden können, müssen auch die offenen Intervalle
+\begin{align*}
+\overline{[a,\infty)}&=\mathbb R\setminus [a,\infty)=(-\infty,a)\in\cal A\\
+\overline{(-\infty,b]}&=\mathbb R\setminus (-\infty,b]= (b,\infty)\in\cal A
+\end{align*}
+Ereignisse sein.
+Ein beliebiges offenes Intervall lässt sich
+als Durchschnitt zweier solcher Intervalle ausdrücken:
+\[
+(a,b)=(-\infty, b)\cap(a,\infty).
+\]
+Durch Bildung von geeigneten Durchschnitten lassen sich also alle
+Intervalle bilden.
+Ausserdem müssen alle Teilmengen von $\mathbb R$
+zu $\cal A$ hinzugenommen werden, die sich durch Bildung von Komplementen,
+Durchschnitten und Vereinigungen bilden lassen.
+Offensichtlich ist $\cal A$
+in diesem Falle sehr kompliziert.
+

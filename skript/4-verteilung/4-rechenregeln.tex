@@ -1,0 +1,374 @@
+\section{Rechenregeln für die Verteilungsfunktion}
+Beim Übergang von $\Omega$ und $P$ mit
+der Zufallsvariable $X$ zur Verteilungsfunktion $F$ 
+ging jede Information
+über den Zufallsmechanismus verloren, der im Hintergrund für das zufällige
+Auftreten der verschiedenen Werte von $X$ verantwortlich war.
+Insbesondere
+ist es bei zwei Zufallsvariablen $X$ und $Y$ nicht mehr möglich zu
+rekonstruieren, ob sie unabhängig oder wie gegebenenfalls die Abhängigkeit
+genau ausgesehen hat.
+Ohne Kenntnis von $\Omega$ ist es daher im Allgemeinen
+nicht mehr möglich, Erwartungswerte von beliebigen Funktionen von $X$ und $Y$
+zu berechnen.
+Insbesondere $E(XY)$ lässt sich nur berechnen, wenn man weiss,
+dass $X$ und $Y$ unabhängig sind.
+
+Es zeigt sich also in einigen interessanten Fällen durchaus möglich, nur mit
+Hilfe der Wahrscheinlichkeitsdichte für unabhängige
+Zufallsvariable interessante Erwartungswerte zu berechnen.
+
+\subsection{Transformation auf Gleichverteilung}
+Sei $X$ eine Zufallsvariable mit Verteilungsfunktion $F(x)$.
+Wendet man die Funktion $F$ auf die Werte $X(\omega)$ der Zufallsvariable,
+erhalten wir die Zufallsvariable $F\circ X$, wir schreiben sie auch
+$F(X)$.
+Wir berechnen die Verteilungsfunktion von $F(X)$
+\begin{align*}
+F_{F(X)}(y)
+&=
+P(F(X)\le y)
+=
+\begin{cases}
+1&\qquad y > 1\\
+y&\qquad 0\le x\le y\\
+0&\qquad y < 0
+\end{cases}
+%=
+%y
+\end{align*}
+Die Verteilungsfunktion von $F(X)$ ist also die Verteilungsfunktion einer
+Gleichverteilung auf dem Intervall $[0,1]$.
+
+\subsubsection{Anwendung: Erzeugung von Zufallszahlen mit Verteilungsfunktion \texorpdfstring{$F$}{F}}
+Typischerweise stellen Bibliotheken Zufallszahlgeneratoren für Zufallszahlen
+im Intervall $[0,1]$ zur Verfügung.
+Um Zufallszahlen mit einer beliebigen Verteilungsfunktion $F$ zu erzeugen,
+verwendet man zunächst einen solchen Zufallszahlgenerator und wendet dann die
+Funktion $F^{-1}$ an, sofern diese existiert.
+Die resultierenden Zufallszahlen haben Verteilungsfunktion $F$.
+
+\begin{beispiel}
+Die Verteilungsfunktion einer Gleichverteilung im Intervall $[a,b]$ ist
+\[
+F(x)=\frac{x-a}{b-a}
+\]
+mit der inversen Funktion
+\[
+F^{-1}(y)=a+(b-a)y.
+\]
+Ist $Y$ eine im Intervall $[0,1]$ gleichverteilte Zufallsvariable, dann ist
+$F^{-1}(Y)=a+(b-a)Y$ eine im Intervall $[a,b]$ gleichverteilte Zufallsvariable.
+\end{beispiel}
+
+\subsection{Variablentransformation}
+\index{Variablentransformation}
+Wendet man auf die Werte einer Zufallsvariablen eine Funktion an, entsteht
+eine neue Zufallsvariable, die im Allgemeinen eine gänzlich andere Verteilung
+haben wird.
+In diesem Abschnitt soll die Verteilungsfunktion und falls
+eine Dichte existiert auch diese der neuen Zufallsvariablen bestimmt werden.
+
+\index{Abbildung!umkehrbare}
+Sei $f$ eine umkehrbare, differenzierbare Abbildung
+$f\colon\mathbb{R}\to\mathbb{R}$.
+Dann ist $Y=f\circ X$ ebenfalls eine
+Zufallsvariable.
+Bezeichnen wir die Verteilungsfunktionen von $X$ und $Y$
+mit $F_X$ bzw.~$F_Y$, dann gilt offensichtlich
+\[
+F_Y(y)=P(f\circ X\le y)=P(X\le f^{-1}(y))=F_X(f^{-1}(y))
+\]
+oder kürzer $F_Y=F_X\circ f^{-1}$.
+
+Wir nehmen nun an, dass die Verteilungsfunktionen ausserdem eine
+Dichtefunktion haben, welche wir mit $\varphi_X$ bzw.~$\varphi_Y$
+bezeichnen.
+Wir schreiben $y=f(x)$, und versuchen die obigen
+Wahrscheinlichkeiten mit den Dichtefunktionen zu berechnen:
+\[
+P(a<Y\le b)
+=\int_a^b\varphi_Y(y)\,dy
+=\int_{f^{-1}(a)}^{f^{-1}(b)}\varphi_Y(f(x)) f'(x)\,dx.
+\]
+Also muss $\varphi_Y(f(x))f'(x)$ die Wahrscheinlichkeitsdichte von
+$F_X$ sein, also 
+\begin{align*}
+\varphi_Y(y)&=\frac{\varphi_X(f^{-1}(y))}{f'(f^{-1}(y))},\\
+\varphi_Y(f(x))&=\frac{\varphi_X(x)}{f'(x)}.
+\end{align*}
+Wir fassen diese Resultate in einem Satz zusammen
+
+\begin{satz}
+\label{satz-variablentransformation}
+Ist $f\colon\mathbb{R}\to\mathbb{R}$ eine invertierbare
+differenzierbare Funktion, deren Ableitung nirgends verschwindet,
+und $X$ eine Zufallsvariable mit Verteilungsfunkion $F_X$.
+Dann ist
+$f\circ X$ eine Zufallsvariable mit Verteilungsfunktion
+$F_Y=F_X\circ f^{-1}$.
+Hat $F_X$ die Dichtefunktion $\varphi_X$, dann
+hat $F_Y$ die Dichtefunktion
+\[
+\varphi_Y=\frac{\varphi_X}{f'}\circ f^{-1}.
+\]
+\end{satz}
+
+Ohne zusätzliche Annahmen ist es nicht möglich, Erwartungswert und
+Varianz zu berechnen.
+Hingegen gibt es eine Grösse, die sich in jedem
+Fall bestimmen lässt:
+\begin{definition}
+Ist $X$ eine Zufallsvariable, dann heisst die Zahl $\operatorname{med}(X)$,
+für die
+$F(\operatorname{med}(X))=\frac12$ ist, der Median von $X$. 
+Falls mehrere Zahlen diese Bedingung erfüllen, ist der Median als
+deren Infimum definiert:
+\[
+\operatorname{med}(X)=\inf \{x\in\mathbb{R}\;|\;F(x)\ge{\textstyle \frac12}\}.
+\]
+\end{definition}
+Für den Median gilt $\operatorname{med}(Y)=f(\operatorname{med}(X))$.
+
+\subsection{Standardisierung} \label{section-standardisierung}
+\index{Standardisierung}
+Ein wichtiger Spezialfall ist der folgende:
+aus einer Zufallsvariable $X$ mit Erwartungswert
+$\mu$ und Varianz $\sigma^2$ lässt sich eine neue Zufallsvariable $Y$ mit
+Erwartungswert $0$ und Varianz $1$ konstruieren, indem man setzt
+\[
+Y=\frac{X-\mu}{\sigma}.
+\]
+Dies ist eine Variablentransformation mit der Funktion
+$y=f(x)=\frac1\sigma(x-\mu)$ und der Umkehrfunktion $f^{-1}(y)=\sigma y+\mu$.
+In diesem Fall kann man den Erwartungswert von $Y$ mit Hilfe der Rechenregeln
+ausrechnen
+\[
+E(Y)=\frac1{\sigma}(E(X)-\mu)=0,
+\]
+und ebenso die Varianz
+\[
+\operatorname{var}(Y)=\frac1{\sigma^2}\operatorname{var}(X)=1.
+\]
+Der Satz \ref{satz-variablentransformation} lässt sich hier unmittelbar
+anwenden, es ergeben sich Verteilungs- und Dichtefunktion von $Y$
+wie folgt:
+\begin{align*}
+F_Y(y)&=F_X(y\sigma+\mu),\\
+\varphi_Y(y)&=\sigma\varphi_X(y\sigma+\mu).
+\end{align*}
+Wir fassen diese Resultate in einem Satz zusammen:
+
+\begin{satz}
+\label{satz-standardisierung}
+Ist $X$ eine Zufallsvariable mit Erwartungswert $\mu$ und
+Varianz $\sigma^2$, dann ist
+\[
+Y=\frac{X-\mu}\sigma
+\]
+eine Zufallsvariable mit Erwartungswert 0 und Varianz 1.
+Zwischen den Verteilungsfunktionen $F_X$ bzw.~$F_Y$ von $X$ bzw.~$Y$ 
+bestehen die Beziehungen
+\[
+F_Y(y)=F_X(y\sigma+\mu)\qquad F_X(x)=F_Y\left(\frac{x-\mu}\sigma\right).
+\]
+Hat die Verteilungsfunktion eine Dichte, dann gilt ausserdem
+\[
+\varphi_Y(y)=\sigma\varphi_X(y\sigma+\mu)\qquad
+\varphi_X(x)=\frac1{\sigma}\varphi_Y\left(\frac{x-\mu}\sigma\right).
+\]
+\end{satz}
+
+
+\subsection{Zwei Zufallsvariablen}
+Wir beschränken uns darauf, die Wahrscheinlichkeitsdichten von Summen
+und Produkten von Zufallsvariablen zu berechnen, die wir als unabhängig
+voraussetzen.
+Wir betrachten also zwei Zufallsvariablen $X_1$ und $X_2$ mit reellen
+Werten.
+Da die Werte voneinander unabhängig sind, ist
+die passende Ereignisalgebra die Produktalgebra, also
+$(x_1,x_2)\in
+\mathbb{R}\times\mathbb{R}$,
+und die Ereignisse sind kartesische Produkte von Intervallen.
+Dann sind
+die Wahrscheinlichkeiten $P(X_1\le x_1)$  und $P(X_2\le x_2)$ unabhängig
+voneinander, insbesondere ist $P(X_1\le x_1)=F_1(x_1)$ und
+$P(X_2\le x_2)=F_2(x_2)$.
+
+Die Wahrscheinlichkeit, dass $X_1$ in einem Intervall $(a_1,b_1]$,
+$X_2$ im Intervall $(a_2,b_2]$ liegt ist 
+\begin{align*}
+P(a_1<X_1\le b_1\wedge a_2<X_2\le b_2)
+&= P(a_1<X_1\le b_1) P(a_2<X_2\le b_2)\\
+&=\int_{a_1}^{b_1}\varphi_1(x_1)\,dx_1
+\int_{a_2}^{b_2}\varphi_2(x_2)\,dx_2\\
+&=\int_{a_1}^{b_1}dx_1
+\int_{a_2}^{b_2}dx_2\,
+\varphi_1(x_1) \varphi_2(x_2).
+\end{align*}
+Die zweidimensionale
+Verteilungsfunktion $F(x_1,x_2)=P(X_1\le x_1\wedge X_2\le x_2)$ hat
+also eine zweidimensionale Wahrscheinlichkeitsdichte
+\[
+\varphi(x_1,x_2)=\varphi_1(x_1)\varphi_2(x_2).
+\]
+
+\subsection{Maximum zweier Zufallsvariablen}
+\index{Maximum zweier Zufallsvariablen}
+Seien $X$ und $Y$ zwei unabhängige Zufallsvariablen mit Verteilungsfunktion
+$F_X(x)$ und $F_Y(y)$.
+Gesucht ist die Verteilungsfunktion der Zufallsvariablen
+$\max(X,Y)$.
+Es gilt
+\begin{align*}
+F_{\max(X,Y)}(z)
+&=
+P(\max(X,Y)\le z)
+=
+P(X\le z\wedge Y\le z)
+=
+P(X\le z)\,P(Y\le z)
+=
+F_X(z)F_Y(z).
+\end{align*}
+
+\subsection{Summe zweier Zufallsvariablen}
+\index{Summe zweier Zufallsvariablen}
+Seien $X_1$ und $X_2$ zwei Zufallsvariable mit Verteilungsfunktion $F_1$ und
+$F_2$.
+Gesucht ist die Verteilungsfunktion $F$ von $X_1+X_2$, sowie die
+Wahrscheinlichkeitsverteilung und gegebenenfalls die Wahrscheinlichkeitsdichte.
+
+Zunächst ist nach Definition der Verteilungsfunktion
+\[
+F(z)=P(X_1+X_2\le z).
+\]
+Die Berechnung von $F$ aus $F_1$ und $F_2$ verläuft für diskrete und
+kontinuierliche Wahrscheinlichkeitsverteilungen verschieden.
+\subsubsection{Diskreter Fall}
+In diesem Fall hat $X_i$ die Wahrscheinlichkeitsverteilung
+$p_i(x)$ auf der Menge $S_i$, und es gilt
+\begin{align*}
+F(z)&=\sum_{x_1\in S_1, x_2\in S_2, x_1+x_2\le z}p(x_1)p(x_2)\\
+&=\sum_{x_1\in S_1}p(x_1)\sum_{x_2\in S_2, x_2 \le z - x_1}p(x_2)\\
+&=\sum_{x_1\in S_1}p(x_1) F_2(z-x_1).
+\end{align*}
+Oder, wenn vor allem die Wahrscheinlichkeitsverteilung interessiert:
+\[
+p(z)=\sum_{x_1\in S_1, x_2\in S_2, x_1+x_1=z}p(x_1)p(x_2).
+\]
+\subsubsection{Stetiger Fall}
+Im stetigen Fall kann man schreiben
+\begin{align*}
+F(z)&=\int_{-\infty}^{\infty}\int_{-\infty}^{z-x_1}\varphi_1(x_1)\varphi_2(x_2)
+\,dx_2\,dx_1\\
+&=\int_{-\infty}^{\infty}
+\varphi_1(x_1)
+\int_{-\infty}^{z-x_1}
+\varphi_2(x_2)
+\,dx_2\,dx_1\\
+&=\int_{-\infty}^{\infty}
+\varphi_1(x_1)
+F_2(z-x_1)
+\,dx_1.
+\end{align*}
+Nun interessiert uns vor allem die Wahrscheinlichkeitsdichte, also die
+``Ableitung'' von $F$:
+\[
+\varphi(z)=\int_{-\infty}^{\infty}\varphi_1(x_1)\varphi_2(z-x_1)\,dx_1.
+\]
+Diese Integral heisst die Faltung der Funktionen $\varphi_1$ und $\varphi_2$,
+$\varphi=\varphi_1*\varphi_2$.
+\index{Faltung}
+
+\subsection{Verteilung von \texorpdfstring{$X^2$}{X hoch 2}}
+Wir bestimmen die Wahrscheinlichkeitsdichte für das Quadrat 
+$X^2$ einer stetig verteilte Zufallsvariable $X$.
+Sei $F_{X^2}$ die Verteilungsfunktion von $X^2$, $F_X$ jene von $X$.
+Dann gilt für $z\ge 0$
+\begin{align*}
+F_{X^2}(z)&=P(X^2\le z)=P(-\sqrt{z}\le X\le \sqrt{z})\\
+&=F_X(\sqrt{z})-F_X(-\sqrt{z})\\
+&=\int_{-\infty}^{\sqrt{z}}\varphi(x)\,dx-\int_{-\infty}^{-\sqrt{z}}\varphi(x)\,dx\\
+&=\int_{-\sqrt{z}}^{\sqrt{z}}\varphi(x)\,dx.
+\end{align*}
+Für negative $z$ verschwindet die Verteilungsfunktion natürlich, denn
+die Wahrscheinlichkeit dass $X^2\le z <0$ ist natürlich 0.
+
+Wir interessieren uns aber wieder nur für Dichtefunktion, die wir
+durch Ableiten finden können:
+\[
+\varphi_{X^2}(z)=\begin{cases}
+\frac{1}{2\sqrt{z}}\left(\varphi_X(\sqrt{z})+\varphi_X(-\sqrt{z})\right)&\qquad z\ge 0\\
+0&\qquad z<0.
+\end{cases}
+\]
+Weitere Beispiele für aus mehreren unabhängigen Zufallsvariablen
+verknüpften Verteilungen werden wir weiter unten behandeln, wobei
+dann auch eine konkrete Wahrscheinlichkeitsdichtefunktion gegeben sein
+wird.
+
+\subsection{Verteilung von \texorpdfstring{$\sqrt{X}$}{Wurzel X}} \label{verteilungsfunktion-wurzel}
+Sei $X$ eine Zufallsvariable mit $X\ge 0$.
+Hat $X$ Verteilungsfunktion $F_X$
+und Dichtefunktion
+$\varphi_X$, dann ist die Verteilungsfunktion von $\sqrt{X}$
+\[
+F_{\sqrt{X}}(x)=P(\sqrt{X}\le x)=P(X\le x^2)=F_X(x^2)
+\]
+Für die Dichtefunktionen bedeutet das
+\[
+F_{\sqrt{X}}(x)=\int_0^{x^2}\varphi_X(t)\,dt,
+\]
+woraus man die Dichtefunktion $\varphi_{\sqrt{X}}$ durch ableiten
+bestimmen kann:
+\[
+\varphi_{\sqrt{X}}(x)=2x\varphi_X(x^2).
+\]
+
+\subsection{Verteilung von \texorpdfstring{$X/Y$}{X/Y}} \label{verteilungsfunktion-quotient}
+Seien $X$ und $Y$ Zufallsvariablen mit $Y>0$, dann ist $T=X/Y$ ebenfalls
+eine Zufallsvariable.
+Ist $\varphi_Y$ die Dichtefunktion von $Y$,
+und $F_X$ die Verteilungsfunktion von $X$, dann kann man die
+Verteilungsfunktion von $T$ wie folgt berechnen:
+\[
+P(T\le t)=P(X\le tY)=\int_0^\infty F_X(ty)\varphi_Y(y)\,dy.
+\]
+Die Ableitung nach $t$ ergibt die zugehörige Dichtefunktion
+\[
+\varphi_T(t)=\int_0^\infty\varphi_X(ty)y\varphi_Y(y)\,dy.
+\]
+
+\subsection{Verteilung von \texorpdfstring{$XY$}{XY}} \label{verteilungsfunktion-produkt}
+\index{Produkt zweier Zufallsvariable}
+Seien $X$ und $Y$ unabhängige, positive Zufallsvariable, dann ist $T=XY$
+ebenfalls eine Zufallsvariable.
+Wir suchen die Warhscheinlichkeitsdichte $\varphi_T$ von $T$.
+Zunächst gilt nach Definition
+\[
+F_T(t)=P(XY\le t).
+\]
+Die Wahrscheinlichkeit, dass $X$ einen Wert in einem sehr schmalen Intervall
+$[x,x+dx]$ annimmt ist $\varphi_X(x)\,dx$.
+Damit beim Eintreffen dieses Ereignisses auch das Produkt
+$XY\le t$ ist, muss $Y$ einen Wert im Intervall $[0,t/x]$ annehmen.
+Also gilt wegen der Unabhängigkeit von $X$ und $Y$
+\begin{align*}
+P(XY\le t\;\wedge\; X\in[x,x+dx])&=P(X\in[x,x+dx]\;\wedge\; Y\le t/x)\\
+&=P(X\in[x,x+dx])\cdot P(Y\le t/x)\\
+&=\varphi_X(x)\,dx\cdot F_Y(t/x).
+\end{align*}
+Um nun die gesamte Wahrscheinlichkeit $P(XY\le t)$ zu finden, müssen die eben
+berechneten Terme ``summiert'' werden:
+\[
+P(XY\le t)=\int_0^\infty\varphi_X(x)F_Y(t/x)\,dx.
+\]
+Durch Ableiten nach $t$ findet man
+\[
+\varphi_{XY}(t)=\frac{d}{dt}F_{XY}(t)=\int_0^\infty \varphi_X(x)\varphi_Y(t/x)\,\frac{dx}x.
+\]
+
+
+

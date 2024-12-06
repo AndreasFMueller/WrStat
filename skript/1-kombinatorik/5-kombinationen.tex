@@ -1,0 +1,224 @@
+\section{Kombinationen: Auswahl}
+\index{Kombinationen}
+\index{Auswahl}
+Auf wieviele Arten kann $k$ aus $n$ verschiedenen Objekten
+auswählen.
+Auch diese Frage kann ein Abzählargument
+beantworten.
+Sei $C^n_k$ die Anzahl der Möglichkeiten,
+$k$ aus $n$ Objekten auszuwählen.
+Es ist also zunächst
+$k$ mal eine Auswahl zu treffen.
+Für die erste Auswahl stehen $n$ Objekte zur Verfügung.
+Für jede solche Wahl bleiben jetzt noch $k-1$ Wahlen zu treffen.
+Für die zweite
+Auswahl stehen aber nur noch $n-1$ Alternativen zur Verfügung,
+bisher haben wir also $n(n-1)$ Möglichkeiten.
+Wiederholen wir
+dies, finden wir insgesamt $n(n-1)(n-2)\dots(n-k+1)$ Möglichkeiten
+(das Produkt hat $k$ Faktoren).
+In diesem Prozess werden
+aber all möglichen Permutationen der resultierenden Auswahl
+unabhängig voneinander erzeugt, obwohl sie uns nicht
+interessieren.
+Wir erhalten also soviel mal zu viele Lösungen, wie
+es Permutationen von $k$ Objekten gibt.
+Man muss also noch durch
+$P_k=k!$ teilen:
+\[
+C^n_k=\frac{n(n-1)(n-2)\dotsm(n-k+1)}{k!}.
+\]
+Durch Erweitern mit $(n-k)!$ bekommt man eine etwas
+kompaktere Formel:
+\[
+C^n_k
+=
+\frac{n(n-1)(n-2)\dotsm(n-k+1)\cdot(n-k)(n-k-1)\dotsm2\cdot 1}{k!(n-k)!}
+=
+\frac{n!}{k!(n-k)!}.
+\]
+
+Auch für diese Grösse kann man eine Rekursionsformel finden.
+Die Zahl der Auswahlen von $k$ Elementen aus $n$ gibt es
+offenbar $C^{n-1}_{k}$ Auswahlen, welche das erste Element nicht
+enthalten, und $C^{n-1}_{k-1}$ Auswahlen, die dadurch entstehen,
+dass man zunächst das erste Element in die Auswahl nimmt, und dann
+aus den verbleibenden Elementen deren $k-1$ hinzufügt.
+Es muss also
+gelten:
+\index{Rekursionsformel!der Binomialkoeffizienten}
+\[
+C^n_k=C^{n-1}_{k-1}+C^{n-1}_{k}.
+\]
+Diese Rekursionsformel ist aber identisch mit der Rekursionsformel
+der Binomialkoeffizienten, also gilt
+\index{Binomialkoeffizient}
+\[
+C^n_k=\binom{n}{k}.
+\]
+
+\begin{beispiele}
+\item In einen Wald mit 1000 Bäumen schlägt fünfmal der Blitz ein.
+Wir dürfen annehmen, dass kein Baum zweimal getroffen, denn der
+Einschlag wird den Baum weitgehend zerstören.
+Auf wieviele Arten
+können die getroffenen Bäume im Wald verteilt sein?
+
+\begin{loesung}
+Offenbar geht es darum, 5 von 1000 Bäumen auszuwählen, was 
+auf
+\[
+\binom{1000}{5}=8250291250200
+\]
+verschiedene Arten möglich ist.
+\end{loesung}
+
+\item Für ein Projekt stellt eine Firma mit 30 Mitarbeitern eine Taskforce
+aus 5 Leuten zusammen.
+Auf wieviele Arten ist das möglich?
+
+
+\begin{loesung}
+Es geht darum $5$ von $30$ Mitarbeiter auszuwählen, was auf
+\[
+\binom{30}{5}=142506
+\]
+Arten geht.
+\end{loesung}
+
+\item Im Gegensatz zu vorangegangenen Beispiel ist jetzt der
+Taskforceleiter schon festgelegt, wieviele Gestaltungen der
+Task-Force bleiben?
+
+\begin{loesung}
+Jetzt stehen nur noch 29 Mitarbeiter zur Verfügung (der Taskforceleiter
+steht nicht mehr zur Auswahl), es müssen aber auch nur noch 4 ausgewählt
+werden.
+Dies ist auf
+\[
+\binom{29}{4}=23751
+\]
+Arten möglich.
+\end{loesung}
+
+\item\label{meisterschaft}
+Ein Land muss für eine Meisterschaft aus einem Pool von
+20 Männern und 10 Frauen eine Delegation von je 5 Männern
+und Frauen zusammenstellen.
+Auf wieviele Arten ist dies möglich?
+
+\begin{loesung}
+Die Auswahl der Männer und Frauen erfolgt unabhängig.
+Es gibt
+$\binom{20}{5}=15504$ mögliche Auswahlen bei den Männern,
+und $\binom{10}{5}=252$ mögliche Auswahlen bei den Frauen.
+Insgesamt also
+\[
+\binom{20}{5}\binom{10}{5}=15504\cdot 252 = 3907008
+\]
+mögliche Delegationen.
+\end{loesung}
+
+\item In welchem Prozentsatz der im vorangegangenen Beispiel
+zusammengestellten Delegationen ist eine ganz bestimmte Frau
+nicht dabei, in welchem Prozentsatz ein ganz bestimmter Mann?
+
+\begin{loesung}
+Um den Prozentsatz der Delegationen zu bestimmen, bei denen
+eine ganz bestimmte Frau nicht dabei ist, müssen wir Zählen,
+wieviele Delegationen sich ohne diese Frau zusammenstellen 
+lassen.
+Dazu stehen offenbar nur 9 Frauen zur Verfügung, die 
+Anzahl der Delegationen ist also
+\[
+\binom{20}{5}\binom{9}{5}=15504\cdot 126 = 1953504.
+\]
+Der Anteil dieser Delegationen ist
+\[
+\frac{
+\binom{20}{5}\binom{9}{5}
+}{
+\binom{20}{5}\binom{10}{5}
+}
+=
+\frac{ \binom{9}{5} }{ \binom{10}{5} }
+=
+\frac{126}{252}=\frac12.
+\]
+\end{loesung}
+Bei den Männern führt die analoge Rechnung auf
+\[
+\frac{\binom{19}{5}}{\binom{20}{5}}=\frac{11628}{15504}=\frac34.
+\]
+Ein bestimmter Mann ist also bei 3 von 4 Delegationen nicht dabei,
+eine bestimmte Frau aber nur bei 2 von 4.
+\item Ein Medium behauptet, er können durch Handauflegen erspüren, ob
+der Gegenstand in einer Schachtel für ein Gewaltverbrechen verwendet
+worden sei.
+Daher wird folgender Test durchgeführt.
+$n=6$
+Schachteln werden präpariert, und eine enthält ein Messer,
+welches in einem Mordfall als Tatwaffe verwendet worden war.
+Die anderen fünf enthalten je eine Lindor Schoggikugel frisch aus der Packung.
+Wir dürfen annehmen, dass die Schoggikugeln nicht für ein Gewaltverbrechen
+verwendet worden sind.
+Das Medium soll jetzt erfühlen, in welcher
+Schachtel die Tatwaffe steckt.
+Weil das ziemlich schwierig ist, erlauben
+wir dem Medium zwei Tips und sind zufrieden wenn eine der beiden
+gewählten Schachteln die Tatwaffe enthält.
+Wie viele Möglichkeiten gibt
+es für das Medium Erfolg oder Misserfolg zu haben?
+Wie sieht es aus, wenn man $n$ grösser macht?
+
+\begin{loesung}
+Es gibt offenbar $\binom{6}{2}$ Möglichkeiten, zwei Schachteln auszuwählen,
+aber nur $\binom{5}{2}$ Möglichkeiten, zwei Schachteln auszuwählen,
+die die Tatwaffe nicht enthalten.
+\[
+\binom{6}{2}=15,\qquad\binom{5}{2}=10.
+\]
+Es gibt also 5 Möglichkeiten für Erfolg, und 10 Möglichkeiten
+für Misserfolg.
+
+Offenbar kann man das auch für beliebige $n$ ausrechnen.
+Aus $n$
+Schachteln $2$ auswählen ist auf $\binom{n}2$ Arten möglich, in
+$\binom{n-1}2$ Fällen findet man die Tatwaffe nicht.
+Die Erfolgsfälle
+sind
+\[
+\binom{n}2-\binom{n-1}2
+=
+\frac{n(n-1)}2-\frac{(n-1)(n-2)}2
+=
+\frac{n-1}2(n-(n-2))=n-1.
+\]
+Die Erfolgsquote ist also
+\[
+\frac{n-1}{\displaystyle\binom{n}2}
+=
+\frac{n-1}{\displaystyle\frac{n(n-1)}2}=\frac2n.
+\]
+Man kann daraus schliessen, dass ein Medium, welches nichts kann,
+trotzdem in $2$ von $n$ Fällen die Tatwaffe finden wird.
+Wenn wir also einen Betrüger von einem echten Medium unterscheiden
+wollen, müssen wir die Zahl $n$ so gross wählen, dass nur ganz
+wenige Betrüger eine Chance haben.
+Verlangen wir $n=20$, dann
+besteht immer noch jeder zehnte Betrüger den Test.
+Offenbar ist unser
+Test viel zu leicht.
+\end{loesung}
+
+\end{beispiele}
+Die Zahl der Kombinationen kann in Octave/Matlab mit der Funktion
+{\tt nchoosek} berechnet werden.
+Die Aufgabe~\ref{meisterschaft}
+kann zum Beispiel so gerechnet werden:
+\begin{verbatim}
+octave> nchoosek(20,5) * nchoosek(10,5)
+ans =  3907008
+\end{verbatim}
+\index{nchoosek@{\tt nchoosek}}
+
