@@ -6,6 +6,8 @@
 #
 all:	skript.pdf checklist.pdf
 
+include 7-testen/Makefile.include
+
 SOURCES =								\
 	0-einleitung/einleitung.tex					\
 	1-kombinatorik/kombinatorik.tex					\
@@ -27,7 +29,7 @@ SOURCES =								\
 	5-katalog/potenzverteilung.tex					\
 	5-katalog/stetige-verteilungen.tex				\
 	6-schaetzen/schaetzen.tex					\
-	7-testen/testen.tex						\
+	$(sources7)							\
 	8-filter/filter.tex						\
 	8-filter/zweiquellen.tex					\
 	8-filter/einfuehrung.tex					\

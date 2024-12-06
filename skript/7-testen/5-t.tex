@@ -1,0 +1,122 @@
+\section{\texorpdfstring{$t$}{t}-Test} \label{section-t-test}
+Bei der Herstellung eines Produktes sind Verbesserungen durchgeführt worden,
+so dass sich ein charakteristischer Parameter des Produktes verbessert hat.
+In der Qualtitätssicherung wird der Parameter durch Messungen in einer
+Stichprobe ermittelt.
+Die vor der Verbesserung gemessene Stichprobe
+$X_1,\dots,X_n$
+einer normalverteilten Zufallsvariable $X$ liefert den Mittelwert
+$\bar X=\frac1n(X_1+\dots+X_n)$, nach
+der Verbesserung liefert die Stichprobe $Y_1,\dots,Y_m$ der normalverteilten
+Zufallsvariable $Y$ den Mittelwert
+$\bar Y=\frac1m(Y_1+\dots+Y_m)$.
+Selbst wenn $\bar X$ und $\bar Y$
+verschieden sind: Kann man daraus wirklich schon schliessen, dass die
+Verbesserung eine Änderung des Parameters gebracht hat, oder könnte
+das nicht auch einfach nur eine zufällige Schwankung sein?
+
+Offensichtlich geht es hier darum die Hypothese zu testen, dass sich
+durch die Verbesserung nichts geändert hat.
+Das Beobachtungsmaterial
+soll dann entscheiden, ob die Hypothese noch haltbar ist.
+Ist sie es
+auf dem Niveau $\alpha$ nicht,
+dürften wir schliessen, dass die Verbesserung tatsächlich eine Änderung
+des Parameters gebracht hat, und wir würden uns höchstens mit 
+Wahrscheinlichkeit $\alpha$ irren.
+
+Wir nehmen an, dass die Streuung der Messwerte der Stichprobe durch die
+Veränderung des Produktionsprozesses nicht verändert wurde.
+Aber durch
+die zusätzlichen Messungen dürfte die Varianz genauer bekannt sein.
+Daher bildet man aus der Stichprobenvarianz $S_X^2$ und $S_Y^2$
+die gepoolte Stichprobenvarianz
+\begin{equation}
+S_p^2=\frac{(n-1)S_X^2+(m-1)S_Y^2}{m+n-2},
+\label{pooled-variance}
+\end{equation}
+sie ist ein verbessertes Mass für die Messfehler.
+
+Man möchte nun die die Hypothese testen, dass $\delta=\mu-\nu=0$, wobei
+$\mu=E(X)$ und $\nu=E(Y)$ ist.
+Dazu braucht man offensichtliche einen
+Schätzer für $\delta$, und nicht wirklich überraschend ist
+$\hat\delta=\bar X-\bar Y$ ein erwartungstreuer Schätzer für $\delta$.
+Man kann weiter zeigen, dass $S_p^2$ ein erwartungstreuer Schätzer
+für die gemeinsame Varianz von $X$ und $Y$ ist.
+Unter der Annahme der
+Hypothese ist $\hat\delta$ eine normalverteilte Zufallsvariable
+mit Varianz $\sigma^2(1/n+1/m)$ ist.
+$S_p^2(1/n+1/m)$ ist $\chi^2$-verteilt
+mit $(m+n-2)$ Freiheitsgraden.
+Somit ist 
+\begin{equation}
+T=\frac{\hat\delta}{S_p\sqrt{1/n+1/m}}
+=\frac{\bar X-\bar Y}{\sqrt{(n-1)S_X^2+(m-1)S_Y^2}}\sqrt{\frac{nm(n+m-2)}{n+m}}
+\label{t-test-ausdruck}
+\end{equation}
+$t$-verteilt mit $m+n-2$ Freiheitsgraden.
+
+Der $t$-Test auf Gleichheit der Erwartungswerte spielt sich also wie folgt
+ab.
+Aus den beiden Stichproben $X_1,\dots,X_n$ und $Y_1,\dots,Y_m$ wird
+der Ausdruck $T$ (\ref{t-test-ausdruck}) gebildet.
+Übersteigt $T$ den $t$-Wert für die $1-\alpha$-Quantile der $t$-Verteilung
+mit $n+m-2$ Freiheitsgraden, wird die Hypothese $\mu=\nu$ verworfen.
+
+\subsubsection{War der Juli 2003 wirklich besonders warm?} \label{julitemperaturen}
+Aus den Messdaten der Wetterstation in Altendorf soll entschieden werden,
+ob der Juli 2003 wirklich signifikant wärmer war als dr Juli 2004.
+Dazu werden die im Laufe des Monats gemessenen Temperaturwerte
+ermittelt:
+
+\begin{center}
+\begin{tabular}{|r|r|r|r|r|}
+\hline
+Jahr&$T$&$T^2$&$\operatorname{var}(T)$&$n$\\
+\hline
+2001&20.351&440.855&26.659&44540\\
+2002&19.906&415.302&19.051&44086\\
+2003&21.638&493.230&25.023&44473\\
+2004&19.582&406.576&23.102&44589\\
+2005&19.861&419.796&25.319&44637\\
+2006&24.009&603.028&26.573&44623\\
+\hline
+\end{tabular}
+\end{center}
+
+Um einen signifikanten Unterschied der Temperatur nachweisen zu können,
+müssen wir für jedes Paar von Jahren den Ausdruck (\ref{t-test-ausdruck})
+berechnen, wir erhalten dabei folgende Tabelle:
+
+\begin{center}
+\begin{tabular}{|r|rrrrrr|}
+\hline
+    &    2001&    2002&    2003&    2004&    2005&     2006\\
+\hline
+2001&        &  13.849& -37.767&  23.013&  14.352& -105.860\\
+2002& -13.849&        & -54.881&  10.505&   1.422& -127.863\\
+2003&  37.767&  54.881&        &  62.542&  52.864&  -69.666\\
+2004& -23.013& -10.505& -62.542&        &  -8.469& -132.656\\
+2005& -14.352&  -1.422& -52.864&   8.469&        & -121.646\\
+2006& 105.860& 127.863&  69.666& 132.656& 121.646&         \\
+\hline
+\end{tabular}
+\end{center}
+
+Da die Zahl der Freiheitsgrade sehr gross ist, müssen wir
+uns nicht um die genaue Anzahl kümmern, sondern können stattdessen
+die Grenzwerte für unendlich viele Freiheitsgrade verwenden.
+Auf
+dem Niveau $\alpha=0.01$ finden wir $t_{\infty}^{0.005}=2.576$.
+Da alle Einträge in der Tabelle bis auf das Paar $(2002,2005)$
+betragsmässig grösser sind, können wir auf dem Niveau $\alpha=0.01$
+schliessen, dass die Juli-Durchschnittstemperatur zwischen
+2001 und 2006 verschieden war.
+Nur für die Jahre 2002 und 2005
+können wir den Unterschied nicht auf dem Niveau 0.01 sicherstellen.
+Da jedoch $t_{\infty}^{0.1}=1.282$ könnten wir auf dem Niveau
+$0.3$ beweisen, dass die Juli-Durchschnittstemperatur in den
+Jahren 2002 und 2005 verschieden war, wir würden dabei aber 
+mit Wahrscheinlichkeit $0.3$ einen Fehler erster Art machen.
+

@@ -1,0 +1,441 @@
+\section{Testen einer stetigen Verteilung}
+\label{section-testen-stetiger-wkeitsverteilung}
+Der im vorangehenden Abschnitt beschriebene $\chi^2$-Test kann prinzipbedingt
+nur diskrete Wahrscheinlichkeitsverteilungen testen.
+Will man eine stetige
+Verteilung testen, muss man zunächst Klassen von Werten bilden,
+deren Wahrscheinlichkeiten berechnen, und dann prüfen, ob die so
+künstlich konstruierte diskrete Verteilung im $\chi^2$-Test Bestand hat.
+Durch die Notwendigkeit der Klassenbildung führt man eine künstliche
+Diskretisierung in das Problem ein.
+Will man den Test verfeinern, muss man
+die Diskretisierung ebenfalls ändern.
+
+\subsection{Testprinzip}
+Diese unbefriedigende Situation korrigiert der Kolmogoroff-Smirnov-Test,
+kurz KS-Test.
+Dieser vergleicht direkt die heuristische, d.~h.~aus den Beobachtungen gewonnene
+Verteilungsfunktion mit der erwarteten Verteilungsfunktion.
+Er legt fest,
+wie die Unterschiede zwischen den zwei Funktionen gemessen werden sollen,
+und legt fest, wann eine Abweichung zu gross ist.
+
+Wir wollen testen, ob $n$ Beobachtungen $X_1,\dots,X_n$ sich mit
+der Hypothese vertragen, dass die Zufallsvariablen $X_i$ die
+Verteilungsfunktion $F$ haben.
+Dazu wird aus den $n$ Beobachtungen
+und die zugehörige empirische Verteilungsfunktion
+\[
+F_n\colon x\mapsto F_n(x)=\frac{|\{x_i|X_i\le x\}|}{n}
+\]
+gebildet.
+Wenn die Zufallsvariable $X$ tatsächlich die
+Verteilungsfunktion $F$ hat, wird man erwarten,
+dass $F$ und $F_n$ sich nicht stark unterscheiden.
+Insbesondere sollten die Grössen
+\begin{align}
+K_n^+
+&=
+\sqrt{n}\max_{-\infty<x<\infty} F_n(x)-F(x)
+\\
+K_n^-
+&=
+\sqrt{n}\max_{-\infty<x<\infty} F(x)-F_n(x)
+\end{align}
+nicht sehr gross werden.
+Um den Test durchzuführen braucht man also
+die Wahrscheinlichkeit, dass $K_n^{\pm}$ einen gewissen Wert übersteigt.
+Dafür gibt es Tabellen, zum Beispiel findet man im Anhang \ref{anhang-tabellen}
+die Tabelle \ref{KS-tabelle}, welche zu $n$ und einer Wahrscheinlichkeit
+$p$ eine Grösse $t_{n,p}$ angibt, für die
+\[
+P(K_n^+\le t)=t_{n,p}.
+\]
+
+Für die Durchführung des Tests geht man wie folgt vor:
+\begin{satz} Sei $X_1,\dots,X_n$ sei eine Stichprobe einer Zufallsvariable $X$.
+Der Kolmogorov-Smirnov-Test auf dem Niveau $\alpha$ für die Hypothese,
+dass $X$ die Verteilungsfunktion $F$ hat wird wie folgt durchgeführt:
+\begin{enumerate}
+\item Berechne
+\[
+K_n^+ = \sqrt{n}\max_{-\infty<x<\infty} (F_n(x)-F(x))
+\]
+\item Finde $t_{n,1-\alpha}$ in der Tabelle \ref{KS-tabelle}
+\item Falls
+\[
+K_n^+>t_{n,1-\alpha}
+\]
+verwerfe die Hypothese, dass $X$ die Verteilungsfunktion $F$ hat.
+\end{enumerate}
+\end{satz}
+
+\subsection{Berechnung von \texorpdfstring{$K_n^{\pm}$}{Kn-plus-minus}}
+Das Maximum der Differenz $F_n(x)-F(x)$ tritt zwangsläufig an einer
+Sprungstelle von $F_n$ auf, also bei einem der Werte der Stichprobe
+$X_1,\dots,X_n$.
+Durch sortieren können wir erreichen, dass die
+$X_i$  in aufsteigender Reihenfolge angeordnet sind, also $X_i\le X_j$
+für $i\le j$.
+Dann ist $F_n(X_j)=\frac{j}{n}$, und
+die  $K_n^{\pm}$ können mit Hilfe der einfacheren Formeln
+\begin{align}
+K_n^+
+&=
+\sqrt{n}\max_{1\le j\le n}\biggl(\frac{j}{n}-F(X_j)\biggr)
+\label{knp-berechnungs-formel}
+\\
+K_n^-
+&=
+\sqrt{n}\max_{1\le j\le n}\biggl(F(X_j)-\frac{j-1}n\biggr)
+\end{align}
+berechnet werden.
+In dieser Form ist die Berechnung der
+Verteilung von $K_n^{\pm}$ leichter möglich.
+
+\subsection{Reduktion auf Gleichverteilung}
+Das Problem wäre etwas handlicher, wenn die Verteilungsfunktion $F$
+die Verteilungsfunktion einer Gleichverteilung wäre.
+Der folgende Satz ermöglicht, eine
+beliebige Zufallsvariable mit stetiger Verteilungsfunktion in eine
+gleichverteilte Zufallsvariable zu transformieren.
+\begin{satz}\label{reduktion-auf-gleichverteilung}
+Sei $X$ eine Zufallsvariable mit stetiger Verteilungsfunktion $F$, dann
+ist $F(X)$ eine auf $[0,1]$ gleichverteilte Zufallsvariable.
+\end{satz}
+\begin{proof}[Beweis]
+Um die Verteilungsfunktion in $F(X)$ zu bestimmen, müssen wir $P(F(X)\le y)$
+für ein beliebiges $y\in[0,1]$ berechnen.
+Da $F$ stetig ist, gibt es ein
+grösstes $x$, für welches $F(x)= y$, zum Beispiel
+$x=\max\{\xi|F(\xi)= y\}$.
+Mit diesem $x$ folgt
+\[
+P(F(X)\le y)=P(X\le x)=F(x)=y.
+\]
+\end{proof}
+Aus dem Satz folgt, dass wir die Zahlen $Y_j=nF(X_j)$ darauf prüfen wollen,
+ob sie im Intervall $[0,n]$ gleichverteilt sind.
+
+\subsection{Berechnung der Verteilung von \texorpdfstring{$K_n^{\pm}$}{Kn-plus-minus}}
+Die Formel (\ref{knp-berechnungs-formel})
+für $K_n^+$ kann mit Hilfe der $Y_j$ wie folgt 
+geschrieben werden
+\begin{equation}
+K_n^+=\frac1{\sqrt{n}}\max(1-Y_1, 2-Y_2,\dots,n-Y_n).
+\end{equation}
+Die Wahrscheinlichkeit, dass $K_n^+\le t/\sqrt{n}$ ist also die
+Wahrscheinlichkeit, dass $j-Y_j\le t$ für alle $j$, oder
+$Y_j\ge j-t$ für $1\le j\le n$.
+Da die $Y_j$ gleichverteilt sind,
+kann man diese Wahrscheinlichkeit berechnen.
+
+Wir berechnen zunächst die Wahrscheinlichkeit, dass die Bedingung
+für $Y_n$ erfüllt ist unter der Annahme, dass die übrigen
+Bedingungen erfüllt sind.
+$Y_n$ muss im Intervall $[0,n]$
+liegen, darf aber auch nicht kleiner als $n-t$ sein.
+Setzt man $\alpha_j=\max(j-t,0)$, dann heisst das, dass $Y_n$ im
+Intervall $[\alpha_n, n]$ liegen muss.
+Ausserdem ist $Y_n$ gleichverteilt,
+somit ist die Wahrscheinlichkeit, dass alle Bedingungen für $Y_n$ erfüllt
+sind
+\begin{equation}
+P(\alpha_n\le Y_n\le n)=\frac{\int_{\alpha_n}^n dy_n}{\int_0^ndy_n}
+\label{kpn-erstes-integral}
+\end{equation}
+Der Nenner dient dazu, die Wahrscheinlichkeit auf $1$ zu normieren.
+
+Nun betrachten wir die analogen Bedingungen für $Y_{n-1}$.
+Offensichtlich kann $Y_{n-1}$ zwischen $\alpha_{n-1}$ und $Y_n$ variieren.
+Es ergibt sich
+als Wahrscheinlichkeit, dafür, dass die Bedingungen an $Y_{n-1}$ erfüllt
+sind, der Ausdruck
+\begin{equation}
+\frac{\int_{\alpha_{n-1}}^{y_n}dy_{n-1}}{\int_0^{y_n}dy_{n-1}}.
+\label{kpn-zweites-integral}
+\end{equation}
+In (\ref{kpn-erstes-integral}) hatten wir angenommen,
+dass die Bedingungen für $Y_{n-1}$
+bereits erfüllt sind, also die Wahrscheinlichkeit für deren zutreffen $1$
+ist. Inzwischen haben wir gelernt, dass diese Wahrscheinlichkeit in
+Wahrheit eher wie (\ref{kpn-zweites-integral}) aussieht.
+Zusammen finden wir
+\begin{equation}
+P(\alpha_n\le Y_n\le n\wedge \alpha_{n-1}\le Y_{n-1}\le Y_n)
+=
+\frac{\int_{\alpha_n}^n dy_n\int_{\alpha_{n-1}}^{y_n}dy_{n-1}}{\int_0^ndy_n\int_0^{y_n}dy_{n-1}}
+\label{kpn-zwei-integrale}
+\end{equation}
+In diesem Sinne können schrittweise die Bedingungen an $Y_{n-2},\dots,Y_1$
+erfüllt werden, wir erhalten
+\begin{equation}
+\frac{\int_{\alpha_n}^n dy_n\int_{\alpha_{n-1}}^{y_n}dy_{n-1}\dotsi\int_{\alpha_1}^{y_2}dy_1}{\int_0^ndy_n\int_0^{y_n}dy_{n-1}\dotsi\int_0^{y_2}dy_1}
+\label{kpn-alle-integrale}
+\end{equation}
+Diese Integrale sind nicht ganz selbstverständlich auszurechnen, weshalb
+wir dies hier schrittweise durchführen.
+
+\begin{satz}
+\label{kn-elementarvolumen}
+Es gilt
+\begin{equation}
+\int_0^xdy_n\int_0^{y_n}dy_{n-1}\dotsi\int_0^{y_2}dy_1=\frac{x^n}{n!}
+\end{equation}
+\end{satz}
+\begin{proof}[Beweis] Wir führen den Beweis mit vollständiger
+Induktion.
+Für $n=1$ muss das Integral
+\[
+\int_0^xdy_1=[y_1]_0^x=x
+\]
+berechnet werden, was offensichtlich mit $\frac{x^1}{1!}=x$
+übereinstimmt.
+
+Nehmen wir an, dass die Formel für $n-1$ stimmt, dann können wir den
+Fall $n$ wie folgt verifizieren:
+\[
+\int_0^xdy_n\int_0^{y_n}dy_{n-1}\dotsi\int_0^{y_2}dy_1
+=
+\int_0^x\frac{y_n^{n-1}}{(n-1)!}\,dy_n
+=
+\left[\frac{y_n^n}{n!}\right]_0^x=\frac{x^n}{n!}
+\]
+womit die Behauptung bewiesen ist.
+\end{proof}
+Der Nenner in (\ref{kpn-alle-integrale}) ist also $\frac{n^n}{n!}$,
+dabei ist $n^n$ das
+Volumen eines $n$-dimensionalen Würfels mit Kantenlänge $n$, dies wird
+durch $n!$ geteilt, weil die $Y_j$ solange vertauscht werden müssen, bis
+sie aufsteigend geordnet sind.
+Nur eine der $n!$ Permutationen der $Y_j$
+erfüllt diese Bedingung.
+
+Wir kümmern uns nun um den Zähler von (\ref{kpn-alle-integrale}).
+Die unteren Grenzen der Integrale sind $\alpha_j=\max(j-t,0)$.
+Bei gegebenem $t$ wird $\alpha_j=j-t$
+sein für genügend grosse $j$, für alle anderen wird $\alpha_j=0$ sein.
+Es gibt also eine Zahl $k$ so dass der Zähler von (\ref{kpn-alle-integrale})
+die Form
+\[
+P_{nk}(x)
+=
+\int_{n-t}^xdx_n\int_{n-1-t}^{x_n}dx_{n-1}\dotsi\int_{k+1-t}^{x_{k+2}}dx_{k+1}\int_0^{x_{k+1}}dx_k\dotsi\int_0^{x_2}dx_1
+\]
+hat, es ist dies das grösste $k$, für welches $k-t\le 0$ ist, also
+$k=\lfloor t\rfloor$.
+Der Zähler von (\ref{kpn-alle-integrale})
+ist also $P_{n\lfloor t\rfloor}(n)$.
+Mit Hilfe der folgenden Sätze berechnen wir $P_{nk}(x)$ schrittweise.
+
+Wir halten zunächst noch den Spezialfall
+\begin{equation}
+P_{nn}(x)=\frac{x^n}{n!}
+\label{spezialfall-pnn}
+\end{equation}
+fest, der unmittelbar aus dem Satz \ref{kn-elementarvolumen} folgt.
+
+\begin{satz}
+\label{kn-variablentransformation}
+Es gilt
+\begin{equation}
+P_{nk}(x)=\int_{n}^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_{k+1}^{x_{k+2}}dx_{k+1}\int_t^{x_{k+1}}dx_k\dotsi\int_t^{x_2}dx_1
+\label{kpn-variablen-transformation}
+\end{equation}
+\end{satz}
+\begin{proof}[Beweis]
+Wir substituieren $x_i+t=\xi_i$.
+Dazu müssen zu den Intervallgrenzen
+$t$ hinzuaddiert werden:
+\begin{align}
+P_{nk}(x)
+&=
+\int_{n-t}^xdx_n\int_{n-1-t}^{x_n}dx_{n-1}\dotsi\int_{k+1-t}^{x_{k+2}}dx_{k+1}\int_0^{x_{k+1}}dx_k\dotsi\int_0^{x_2}dx_1
+\nonumber\\
+&=
+\int_{n}^{x+t}d\xi_n\int_{n-1}^{x_n+t}d\xi_{n-1}\dotsi\int_{k+1}^{x_{k+2}+t}dx_{k+1}\int_t^{x_{k+1}+t}d\xi_k\dotsi\int_t^{x_2+t}d\xi_1
+\nonumber\\
+&=
+\int_{n}^{x+t}d\xi_n\int_{n-1}^{\xi_n}d\xi_{n-1}\dotsi\int_{k+1}^{\xi_{k+2}}dx_{k+1}\int_t^{\xi_{k+1}}d\xi_k\dotsi\int_t^{\xi_2}d\xi_1
+\nonumber\\
+&=
+\int_{n}^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_{k+1}^{x_{k+2}}dx_{k+1}\int_t^{x_{k+1}}dx_k\dotsi\int_t^{x_2}dx_1
+\label{kpn-umbenennung}
+\end{align}
+Im letzten Schritt (\ref{kpn-umbenennung}) haben wir die Integrationsvariablen
+wieder auf die vertrauten $x_1,\dots,x_n$ umbenannt.
+\end{proof}
+Besonders einfach sind die Fälle $k=0$, da dann keine Integral mit
+unterer Grenze $t$ auftreten.
+Der Parameter $t$ tritt in diesem Fall nur
+in der Grenze des letzten Integrals auf:
+
+\begin{satz}Für $n>0$ gilt
+\begin{equation}
+P_{n0}(x)=\frac{(x+t)^n}{n!}-\frac{(x+t)^{n-1}}{(n-1)!}
+\end{equation}
+\end{satz}
+\begin{proof}[Beweis]
+Mittels vollständiger Induktion.
+Für $n=1$ gilt
+\[
+P_{10}(x)=\int_1^{x+t}dx_1=[x_1]_1^{x+t}=(x+t)-1=\frac{(x+t)^1}{1!}-\frac{(x+t)^0}{0!}.
+\]
+Nehmen wir an, die Behauptung wäre für $n-1$ bereits bewiesen, dann
+berechnen wir $P_{n0}(x)$ wie folgt:
+\begin{align*}
+P_{n0}(x)
+&=
+\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_1^{x_2}dx_1
+\\
+&=
+\int_n^{x+t}dx_n\,P_{n-1,0}(x_n-t)
+\\
+&=
+\int_n^{x+t}\frac{x_n^{n-1}}{(n-1)!}-\frac{x_n^{n-2}}{(n-2)!}\,dx_n
+\\
+&=
+\biggl[\frac{x_n^n}{n!}-\frac{x_n^{n-1}}{(n-1)!}\biggr]_n^{x+t}
+\\
+&=
+\frac{(x+t)^n}{n!}-\frac{(x+t)^{n-1}}{(n-1)!}
+-\frac{n^n}{n!}+\frac{n^{n-1}}{(n-1)!}
+\\
+&=
+\frac{(x+t)^n}{n!}-\frac{(x+t)^{n-1}}{(n-1)!}
+\end{align*}
+wegen
+\[
+\frac{n^n}{n!}=\frac{n^{n-1}n}{(n-1)! n}=\frac{n^{n-1}}{(n-1)!},
+\]
+womit der Satz bewiesen ist.
+\end{proof}
+
+Der Fall $P_{n0}(x)$ bezieht sich auf kleine Werte von $t$.
+Sobald 
+$t\ge 1$ ist, werden Integrale mit $t$ als unterer Grenze auftreten,
+diese lassen sich jedoch rekursiv aus den bereits berechneten
+Integralen bestimmen.
+
+\begin{satz}\label{kn-rekursion}
+Für $1\le k\le n$ gilt
+\begin{equation}
+P_{nk}(x)-P_{n,k-1}(x)
+=
+\frac{(k-t)^k}{k!}P_{n-k,0}(x-k).
+\end{equation}
+\end{satz}
+
+\begin{proof}[Beweis]
+Wir schreiben
+\[
+\Delta_{nk}(x)= P_{nk}(x)-P_{n,k-1}(x)
+\]
+dann gilt
+\begin{align*}
+\Delta_{nk}(x)
+&=
+\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_{k+1}^{x_{k+2}}dx_{k+1}
+\int^{x_{k+1}}_{\color{red}t} dx_k\dotsi\int_t^{x_2}dx_1
+\\
+&\phantom{=}\quad-\int_n^{x+t} dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_{k+1}^{x_{k+2}}dx_{k+1}
+\int^{x_{k+1}}_{\color{red}k} dx_k\dotsi\int_t^{x_2}dx_1
+\\
+&=
+\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_{k+1}^{x_{k+2}}dx_{k+1}
+\int_{{\color{red}t\mathstrut}}^{\color{red}k}dx_k\dotsi\int_t^{x_2}dx_1.
+\end{align*}
+Da das Integral über $x_k$ feste Grenzen $t$ und $k$ hat, reduziert es
+sich auf eine Konstante $c_k$, welche wir weiter unten berechnen werden.
+Die verbleibenden Integrale sind
+\begin{align*}
+\Delta_{nk}(x)
+&=
+c_k\int_n^{x+t}dx_n\int_{n-1}^{x_n}dx_{n-1}\dotsi\int_{k+1}^{x_{k+2}}dx_{k+1}
+\\
+&=
+c_k\int_{n-k}^{x-k+t}dx_{n-k}\int_{n-k-1}^{x_{n-k}}dx_{n-k-1}\dotsi\int_1^{x_2}dx_1
+\\
+&=c_kP_{n-k,0}(x-k),
+\end{align*}
+dabei haben wir die selbe Variablentransformation vorgenommen wie im
+Beweis von Satz \ref{kn-variablentransformation}, und ausserdem haben
+wir die Integrationsvariablen von $x_n,\dots,x_{k+1}$ in $x_{n-k},\dots,x_1$
+umbenannt.
+
+Wir müssen uns noch um die Konstante $c_k$ kümmern.
+Aus der Definition folgt mit Hilfe von Satz \ref{kn-elementarvolumen}
+\begin{equation}
+c_k = \int_{t}^{k}dx_k\dotsi\int_t^{x_2}dx_1=P_{kk}(k-t)=\frac{(k-t)^k}{k!},
+\end{equation}
+die Behauptung.
+\end{proof}
+Mit den eben bewiesenen Sätzen lässt sich jetzt jedes beliebige 
+$P_{nk}(x)$ berechnen.
+
+\begin{satz}\label{pnk-allgemein}
+\begin{equation}
+P_{nk}(x)
+=
+\sum_{0\le r\le k}\frac{(r-t)^r}{r!}
+\cdot
+\frac{(x-r+t)^{n-r-1}}{(n-r)!}
+(x-n+t)
+\end{equation}
+\end{satz}
+\begin{proof}[Beweis]
+Um $P_{nk}(x)$ zu berechnen schreiben wir
+\begin{align*}
+P_{nk}(x)
+&=
+\sum_{1\le r\le k}(P_{nr}(x)-P_{n,r-1}(x))+P_{n0}(x)
+\\
+&=
+\sum_{1\le r\le k}\frac{(r-t)^r}{r!}P_{n-r,0}(x-r)+P_{n0}(x)
+\\
+&=
+\sum_{1\le r\le k}\frac{(r-t)^r}{r!}\biggl(
+\frac{(x-r+t)^{n-r}}{(n-r)!}-
+\frac{(x-r+t)^{n-r-1}}{(n-r-1)!}\biggr)
+\\
+&
++\frac{(x+t)^{n}}{n!}- \frac{(x+t)^{n-1}}{(n-1)!}
+\\
+&=
+\sum_{0\le r\le k}\frac{(r-t)^r}{r!}\biggl(
+\frac{(x-r+t)^{n-r}}{(n-r)!}-
+\frac{(x-r+t)^{n-r-1}}{(n-r-1)!}\biggr)
+\\
+&=
+\sum_{0\le r\le k}\frac{(r-t)^r}{r!}
+\cdot
+\frac{(x-r+t)^{n-r-1}}{(n-r-1)!}
+\biggl( \frac{x-r+t}{n-r}-1 \biggr)
+\\
+&=
+\sum_{0\le r\le k}\frac{(r-t)^r}{r!}
+\cdot
+\frac{(x-r+t)^{n-r-1}}{(n-r-1)!}
+\frac{x-n+t}{n-r}
+\\
+&=
+\sum_{0\le r\le k}\frac{(r-t)^r}{r!}
+\cdot
+\frac{(x-r+t)^{n-r-1}}{(n-r)!}
+(x-n+t).
+\end{align*}
+\end{proof}
+Die Verteilungsfunktion für $K_n^+$ findet man jetzt, indem man $x=n$
+einsetzt:
+
+\begin{satz}\label{kn-verteilung}
+Für die Verteilungsfunktion von $K_n^+$ gilt
+\begin{equation}
+P(K_n^+\le t/\sqrt{n})=\frac{t}{n^n}\sum_{0\le r\le t}\binom{n}{r}(r-t)^r(t+n-r)^{n-r-1}
+\end{equation}
+\end{satz}
+\begin{proof}[Beweis]
+Die gesuchte Wahrscheinlichkeit ist $P_{n\lfloor t\rfloor}(n)/P_{nn}(n)$,
+damit folgt die Behauptung aus Satz \ref{pnk-allgemein}
+\end{proof}
+

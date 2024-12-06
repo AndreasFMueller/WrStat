@@ -1,0 +1,85 @@
+\section{Allgemeines Prinzip}
+Als Illustration des allgemeinen Problems betrachten wir folgende Frage.
+Von einer Zufallsgrösse $X$ wird behauptet, dass sie normalverteilt ist,
+mit Erwartungswert $0$ und Varianz $1$.
+Nun wird eine Messung durchgeführt, bei der der Wert $10$ gemessen wird.
+Die Normalverteilung verbietet natürlich
+nicht, dass ein derart hoher Wert auftritt.
+Allerdings ist die
+Wahrscheinlichkeit dass bei einer Standardnormalverteilten Zufallsvariable
+ein Wert $\ge 10$ auftritt
+\[
+P(|X|\ge 10)=1.523970\cdot 10^{-23}
+\]
+das beobachtete Ereignis ist also extrem unwahrscheinlich.
+Da die Beobachtung
+real ist, muss man es als extrem unwahrscheinlich ansehen, dass die
+Zufallsvariable tatsächlich standardnormalverteilt war.
+
+Nach diesem Grundprinzip funktionieren die meisten Testverfahren.
+Auf der Basis einer Hypothese (oft auch die Nullhypothese genannt)
+wird eine Testgrösse $\varphi(\cdot)$ bestimmt, die 
+unter der Hypothese ein gewisses Intervall nur mit einer sehr kleinen
+Wahrscheinlichkeit verlässt.
+Dann wird eine Beobachtung $X$ durchgeführt, und die Testgrösse
+$\varphi(X)$ ausgewertet.
+Die Hypothese wird verworfen, wenn die
+Testgrösse das Intervall in der Beobachtung verlässt.
+
+Im erwähnten Beispiel besteht die Hypothese in der Annahme, dass die
+Messgrösse standardnormalverteilt ist.
+Die Testgrösse entspricht dem Betrag einer einzelnen Messung.
+Auf Grund der Annahme, dass die Testgrösse
+standardnormalverteilt ist, kann die Wahrscheinlichkeit dafür berechnet
+werden, dass $\varphi(X)=|X|\ge10$.
+Genau dieses Ereignis tritt dann ein.
+
+Hier sind offensichtlich zwei Arten von Fehlern möglich:
+\begin{enumerate}
+\item Fehler erster Art: Die Hypothese war richtig, und wird trotzdem verworfen.
+Das Testverfahren kann genau angeben, mit welcher Wahrscheinlichkeit
+dieser Fehler gemacht wird.
+\item Fehler zweiter Art: Die Hypothese war falsch, wird aber nicht verworfen.
+Da die Hypothese falsch war, muss die Berechnung des Intervalls in Zweifel
+gezogen werden, in dem sich die Testgrösse befinden soll.
+Damit kann
+in vielen Fällen über die Wahrscheinlichkeit eines Fehlers zweiter
+Art nichts ausgesagt werden.
+\end{enumerate}
+Man beachte, dass der Test gar nicht beweist, dass die Hypothese richtig
+war, er sagt bestenfalls aus, dass die vorhandenen Daten nicht ausreichen,
+an der Hypothese zu zweifeln.
+
+Im genannten Beispiel ist die Wahrscheinlichkeit, einen Fehler erster
+Art zu begehen $1.523970\cdot 10^{-23}$.
+Meist geht man in der Praxis von der
+Wahrscheinlichkeit aus, mit der man einen Fehler erster Art zu begehen
+bereit ist, und berechnet daraus das Intervall, in dem sich die
+Testgrösse bewegen darf.
+Verlangt man zum Beispiel, dass ein Fehler erster
+Art höchstens mit Wahrscheinlichkeit $0.01$ eintritt, dann muss die 
+Testgrösse in einem Intervall $[-m,m]$ liegen mit $P(-m\le X\le m)=0.99$.
+Die Gleichung
+\[
+0.99 = P(-m\le X\le m)
+=\frac12\left(\operatorname{erf}(\frac{m}{\sqrt{2}})-\operatorname{erf}(-\frac{m}{\sqrt{2}})\right)
+=\operatorname{erf}(\frac{m}{\sqrt{2}})
+\]
+kann mit Hilfe der inversen Fehlerfunktion aufgelöst werden:
+\[
+m=\sqrt{2}\operatorname{erf}^{-1}(0.99)=2.575829
+\]
+Somit wäre bereits eine Abweichung von mehr als dem $2.58$-fachen einer
+Standardabweichung Grund genug, die Hypothese zu verwerfen.
+
+\begin{definition}
+Ein Test auf dem Niveau $\alpha$ ist eine Regel, welche zu einer
+Beobachtung $X$ entscheidet, ob die Hypothese zu verwerfen ist, wobei
+sie höchstens mit Wahrscheinlichkeit $\alpha$ einen Fehler erster
+Art begeht.
+\end{definition}
+
+Weiter oben haben wir einen sehr primitiven Test auf dem Niveau
+$\alpha=0.01$ für die
+Hypothese formuliert, dass $X$ standardnormalverteilt ist.
+

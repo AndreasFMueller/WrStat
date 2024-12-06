@@ -1,0 +1,94 @@
+\section{\texorpdfstring{$F$}{F}-Test}
+In der Diskussion des $t$-Tests haben wir für die dort beschriebene
+Situation postuliert, dass die Varianzen von $X$ und $Y$ gleich sind.
+Wie könnte man dies testen? Gibt es einen Test, der die Hypothese
+$\operatorname{var}(X)=\operatorname{var}(Y)$ testet? 
+
+Bei der Entwicklung eines Messgerätes wurde eine Verbesserung angebracht,
+die angeblich die Messgenauigkeit erhöht.
+Der Messung einer Referenzgrösse
+mit dem ursprünglichen Messgerät entspreche die normalverteilte
+Zufallsvariable $X$ mit Varianz $\sigma_X^2$, die Messung mit dem verbesserten
+Messgerät entspreche der ebenfalls normalverteilten Zufallsvariablen
+$Y$ mit Varianz $\sigma_Y^2$.
+Ob die möglicherweise kostspielige 
+Verbesserung tatsächlich etwas gebracht hat, könnte ein Test aufdecken,
+der die Hypothese $\sigma_X=\sigma_Y$ testet.
+
+Da die Varianz positiv ist, bietet sich $\gamma=\sigma_X^2/\sigma_Y^2$ als
+Testgrösse an.
+Der Test für $\sigma_X=\sigma_Y$ ist dann einfach nur
+ein Test auf $\gamma=1$.
+
+Offensichtlich brauchen wir einen Schätzer für $\gamma$, ein solcher ist
+schnell gefunden:
+\begin{equation}
+\hat\gamma=\frac{S_X^2}{S_Y^2}.
+\label{ftest-gamma-schaetzer}
+\end{equation}
+Um einen Test zu konstruieren, muss jetzt nur noch die Verteilung von
+$\hat\gamma$ ermittelt werden.
+
+Die Grössen $(n-1)S_X^2/\sigma_X^2$ und $(m-1)S_Y^2/\sigma_Y^2$ sind jeweils
+$\chi^2$-verteilte Zufallsvariablen mit $n-1$ bzw.~$m-1$ Freiheitsgraden.
+Per Definition ist der Quotient zweier $\chi^2$-verteilter Zufallsvariablen
+$F$-verteilt:
+\begin{definition}
+Sind $X$ und $Y$ $\chi^2$-verteilte Zufallsvariable mit $n$ bzw.~$m$
+Freiheitsgraden, dann heisst die Verteilung von $X/Y$ eine $F$-Verteilung
+mit $n,m$-Freiheitsgraden, auch $F_{n,m}$ geschrieben.
+\end{definition}
+Der Quotient der genannten Grössen ist also
+\begin{equation}
+\frac{(n-1)S_X^2\sigma_Y^2}{(m-1)S_Y^2\sigma_X^2}
+=\frac{n-1}{m-1}\frac{\hat\gamma}{\gamma}
+\end{equation}
+$F_{n-1,m-1}$-verteilt.
+
+Unter der Hypothese ist $\sigma_X=\sigma_Y$, also $\gamma=1$.
+Der Test auf dem Niveau $\alpha$ wird also wie folgt durchgeführt.
+Zunächst berechnet man die Schätzung $\hat\gamma=S_X^2/S_Y^2$.
+Dann
+findet man in der Tabelle der Quantilen der $F$-Verteilung mit $n-1,m-1$
+Freiheitsgraden den kritischen Wert $F_{n-1,m-1}^\alpha$.
+Ist $\hat\gamma>F_{n-1,m-1}^\alpha$, wird die Hypothese verworfen,
+d.~h.~man muss davon ausgehen, dass die beiden Zufallsvariablen verschiedene
+Varianz haben.
+
+\subsubsection{Sind die Temperaturvarianzen gleich?}
+Im Abschnitt \ref{julitemperaturen} haben wir die
+Juli-Durchschnittstemperaturen mit Hilfe des $t$-Tests untersucht.
+Dabei haben wir nicht untersucht, ob die Varianzen, die für den
+$t$-Test ja gleich sein müssen, auch wirklich gleich sein könnten.
+Inzwischen haben wir gelernt, dass genau dies mit dem $F$-Test getestet
+werden kann, und holen dies noch nach.
+
+Zunächst berechnen wir die $F$-Werte aus der Tabelle der Temperatur-Varianzen
+aus Abschnitt \ref{julitemperaturen}
+
+\begin{center}
+\begin{tabular}{|r|rrrrrr|}
+\hline
+    &  2001&  2002&  2003&  2004&  2005&  2006\\
+\hline
+2001&      & 1.414& 1.067& 1.153& 1.051& 1.001\\
+2002& 0.707&      & 0.755& 0.815& 0.743& 0.708\\
+2003& 0.937& 1.325&      & 1.080& 0.985& 0.939\\
+2004& 0.868& 1.226& 0.926&      & 0.911& 0.869\\
+2005& 0.952& 1.346& 1.016& 1.097&      & 0.953\\
+2006& 0.999& 1.412& 1.066& 1.151& 1.049&      \\
+\hline
+\end{tabular}
+\end{center}
+
+Die Interpretation dieser Zahlen gestaltet sich etwas schwierig: Für derart
+viele Freiheitsgrade lässt sich $F_{n,k}$ wegen der darin
+vorkommenden $\Gamma$-Funktionen fast nicht berechnen, der kritische Wert
+ist jedenfalls kleiner als $1.22$.
+Dies bedeutet, dass in etwa fünf der
+fünfzehn Paare die Hypothese verworfen werden muss, dass also die Varianzen
+verschieden sind.
+Damit ist natürlich auch die Gültigkeit der Schlussweise
+beim Vergleich der Juli-Durchschnittstemperaturen in Frage gestellt.
+
+

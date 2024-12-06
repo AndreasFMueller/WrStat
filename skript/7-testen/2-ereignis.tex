@@ -1,0 +1,120 @@
+\section{Testen der Wahrscheinlichkeit eines Ereignisses}
+Mit Hilfe von Beobachtungen können wir die relative Häufigkeit ermitteln, mit
+welcher ein Ereignis $A$ eintritt, von dem wir glauben, dass es mit
+Wahrscheinlichkeit $p=P(A)$ eintreten sollte.
+Damit stellt sich automatisch die Frage, ob wir mit Hilfe der
+Beobachtungen entscheiden können, ob $p$ tatsächlich die Wahrscheinlichkeit
+von $A$ ist.
+
+Wir betrachten dazu unabhängige Zufallsvariable $(X_i)_{1\le i\le n}$,
+welche ausschliesslich
+die Werte $0$ und $1$ annehmen, und zwar mit Wahrscheinlichkeit
+$1-p$ bzw.~$p$.
+Die Zufallsvariable $X_i$ soll mit dem Wert $1$ anzeigen,
+ob bei der $i$-ten Durchführung des Experiments das Ereignis eingetreten ist.
+Die Summe der Zufallsvariablen 
+\[
+X=\sum_{i=1}^nX_i
+\]
+ist eine Zufallsvariable, die angibt, wie oft bei $n$ Versuchen das Ereignis
+eingetreten ist.
+Für Erwartungswert und Varianz von $X_i$ finden
+wir folgende Werte
+\begin{align*}
+E(X_i)
+&=
+0\cdot (1-p)+1\cdot p=p
+\\
+\operatorname{var}(X_i)
+&=
+E(X_i^2)-E(X_i)^2=0^2\cdot (1-p)+1^2\cdot p-p^2 =p-p^2
+\\
+&=
+p(1-p).
+\end{align*}
+Entsprechend hat $X$ den Erwartungswert $E(X)=np$ und
+die Varianz $\operatorname{var}(X)=np(1-p)$.
+
+Nach dem zentralen Grenzwertsatz wird die geeignet standardisierte Summe
+von genügend vielen Summanden $X_i$ eine Verteilungsfunktion haben,
+die jener einer Normalverteilung sehr nahe kommt, 
+\begin{equation}
+\frac{X-np}{\sqrt{np(1-p)}}
+\label{chi2-primitiv}
+\end{equation}
+ist also angenähert standardnormalverteilt.
+Daraus liesse sich nach den
+Ideen des voranstehenden Abschnitts bereits ein Test konstruieren.
+Etwas handlicher ist jedoch das Quadrat von (\ref{chi2-primitiv}), der
+sich mit Hilfe der Anzahl der Fälle $Y=n-X$, in denen das Ereignis
+nicht eingetreten ist, noch etwas symmetrischer Schreiben lässt
+\begin{align}
+D=\frac{(X-np)^2}{np(1-p)}
+&=
+\frac{(X-np)^2}{n}\cdot \frac{1}{p(1-p)}\nonumber
+\\
+&=
+\frac{(X-np)^2}{n}\cdot
+\biggl(
+\frac{1-p}{p(1-p)} +
+\frac{p}{p(1-p)}
+\biggr)\nonumber
+\\
+&=
+\frac{(X-np)^2}{np}+\frac{(X-np)^2}{n(1-p)}\nonumber
+\\
+&=
+\frac{(X-np)^2}{np}+\frac{(n-X-n(1-p))^2}{n(1-p)}\label{chi2-primitiv2}
+\end{align}
+Im letzten Ausdruck (\ref{chi2-primitiv2})
+steht im ersten Term die Abweichung der
+Anzahl der Eintretensfälle des Ereignisses von der erwarteten Häufigkeit,
+im zweiten Term die Anzahl der Nichteintretensfälle des Ereignisses
+von deren erwarteter Häufigkeit.
+Da wir vom Quadrat einer standardnormalverteilten Zufallsvariable ausgegangen
+sind, ist die Diskrepanz $D$ $\chi^2$-verteilt mit einem Freiheitsgrad.
+
+Um die Hypothese zu testen, dass das Ereignis mit Wahrscheinlichkeit $p$
+eintritt, brauchen wir nur genügend viele Beobachtungen durchzuführen
+(so dass die Approximation durch den zentralen Grenzwertsatz gültig wird),
+die Diskrepanz $D$ auszurechnen und mit Hilfe der $\chi^2$-Verteilung
+zu prüfen, ob dieser Wert von $D$ ``unwahrscheinlich genug'' ist.
+
+Für einen Test auf dem Niveau $\alpha=0.01$ müssten wir jenes
+$x$ finden, für welches $F_{\chi^2_1}(x)=0.99$ gilt.
+Die $\chi^2$-Tabelle \ref{chi2-tabelle} im Anhang \ref{anhang:tabellen}
+liefert $x=6.63$.
+Sobald also $D\ge 6.63$ würde die Hypothese verworfen,
+dass $p$ nicht die Wahrscheinlichkeit des Ereignisses $A$ ist.
+
+In einem Experiment wurde eine Münze 30 mal geworfen, wobei 13 mal
+Kopf erschien und 17 mal Zahl.
+Die Hypothese $p=0.5$ führt auf eine
+Diskrepanz 
+\[
+D=\frac{(13-15)^2}{15}+\frac{(17-15)^2}{15}=\frac{8}{15}=0.53333,
+\]
+also viel zu klein, um an der Hypothese zu zweifeln.
+Natürlich beweist das auch nicht, dass tatsächlich $p=0.5$.
+Berechnen wird die Diskrepanz für irgend ein $p$, dann gilt
+\[
+D(p)=\frac{(13-30p)^2}{30p}+\frac{(17-30(1-p))^2}{30(1-p)}
+=\frac{(13-30p)^2}{30p(1-p)}.
+\]
+Die vorhandenen Beobachtungen bringen uns dazu, die Hypothese eines
+bestimmten Wertes von $p$ auf dem Niveau $\alpha=0.01$ zu verwerfen,
+wenn $D(p)\ge 6.63$ ist.
+Selbst für $p=0.3$ findet man immer noch einen
+Wert $D(0.3)=2.54$, welcher nicht gestattet,
+die Hypothese $P(\text{Kopf})=0.3$ zu verwerfen.
+Hingegen liefert 
+$D(0.7)=10.16\ge 6.63$ Grund genug, auf dem Niveau $\alpha=0.01$ nicht
+länger an die Hypothese $P(\text{Kopf})=0.7$ zu glauben.
+
+Der Test lässt sich übrigens auch umkehren.
+Hat der Experimentator
+gemogelt, und seine Daten fabriziert, dann können wir erwarten, dass
+die Diskrepanz kleiner ist, als wir erwarten dürften.
+Eine Diskrepanz
+von $0$, also Kopf und Zahl gleich häufig, ist extrem unwahrscheinlich.
+

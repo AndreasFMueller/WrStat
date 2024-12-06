@@ -1,0 +1,13 @@
+#
+# Makefile.include
+#
+# (c) 2024 Prof Dr Andreas Müller
+#
+sources7 = 								\
+	7-testen/1-prinzip.tex						\
+	7-testen/2-ereignis.tex						\
+	7-testen/3-diskret.tex						\
+	7-testen/4-stetig.tex						\
+	7-testen/5-t.tex						\
+	7-testen/6-f.tex						\
+	7-testen/testen.tex

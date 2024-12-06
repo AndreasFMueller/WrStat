@@ -1,0 +1,86 @@
+\section{Testen einer diskreten Wahrscheinlichkeitsverteilung}
+\label{section-testen-diskreter-wkeitsverteilung}
+Karl Pearson hat im Jahre 1900 erkannt, dass sich der Test für die
+Wahrscheinlichkeit eines Ereignisses auf einen Test für eine
+diskrete Wahrscheinlichkeitsverteilung erweitern lässt.
+Wir nehmen
+dazu an, dass in einem Experiment $d+1$ Ausgänge möglich sind, und
+bezeichnen diese mit $0,\dots,d$.
+Das Experiment wird $n$ Mal
+durchgeführt, wobei der Ausgang $i$ $n_i$ Mal beobachtet wurde.
+Mit diesen Daten möchten wir die Hypothese testen, dass $p_i$ die
+Wahrscheinlichkeit für den Ausgang $i$ ist.
+
+In Analogie zum Test für eine Wahrscheinlichkeit bilden wird die
+Diskrepanz:
+\begin{definition}Die Grösse
+\begin{equation}
+D=\sum_{i=0}^d\frac{(n_i-np_i)^2}{np_i} \label{formel-diskrepanz}
+\end{equation}
+heisst Diskrepanz.
+\end{definition}
+Es gilt:
+\begin{satz}[Pearson] Die Diskrepanz $D$ ist für genügend grosse
+$n$ annähernd $\chi^2$-verteilt mit $d$ Freiheitsgraden.
+\end{satz}
+``Genügend gross'' heisst nach einer verbreiteten Faustregel: so
+gross, dass $n_i>5\forall i$.
+Damit ist anscheinend sichergestellt,
+dass für die Zwecke des Tests die Annäherung an die Normalverteilung
+genau genug ist.
+\begin{proof}[Beweis]
+Wie beim Fall einer Wahrscheinlichkeit können wir die Terme
+\[
+\delta_i=\frac{n_i-np_i}{\sqrt{np_i(1-p_i)}}
+\]
+als standardnormalverteilt ansehen.
+Sie sind jedoch nicht
+unabhängig, da $\sum_{i=0}^d n_i=n$ und $\sum_{i=0}^dp_i=1$
+gilt.
+Das Hauptproblem des Beweises besteht also darin zu zeigen,
+dass die Diskrepanz die Quadrat-Summe von $d$ standardnormalverteilten
+Zufallsvariablen ist, die sich aus den $\delta_i$ bilden lassen.
+Dieses etwas technische Problem bringt uns keine neuen theoretischen
+Einsichten, wir verzichten daher auf die Durchführung des Beweises.
+\end{proof}
+
+Mit diesem Satz lässt sich offensichtlich ein Test auf dem Niveau
+$\alpha$ für jede
+beliebige diskrete Verteilung bilden.
+Man geht dazu wie folgt vor:
+\begin{enumerate}
+\item Bestimme $x$ so, dass die $F_{\chi_{d}^2}(x)=1-\alpha$
+\item Berechne 
+\[
+D=\sum_{i=0}^d\frac{(n_i-np_i)^2}{np_i}
+\]
+\item Verwerfe die Hypothese, dass der Ausgang $i$ mit Wahrscheinlichkeit
+$p_i$ eintritt, wenn $D>x$ gilt.
+\end{enumerate}
+
+In 100 Würfen mit einem Würfel wurden die Augenzahlen $1$ bis $6$ gezählt,
+und dabei folgende Häufigkeiten ermittelt
+\begin{center}
+\begin{tabular}{|r|r|r|}
+\hline
+$i$&$n_i$&$(n_i-np_i)^2/np_i$\\
+\hline
+1&21&1.12671\\
+2&18&0.10668\\
+3&16&0.02666\\
+4&17&0.00667\\
+5&15&0.16665\\
+6&13&0.80664\\
+\hline
+&&$D=2.24001$\\
+\hline
+\end{tabular}
+\end{center}
+Die Tabelle der Quantilen der $\chi^2$-Verteilung \ref{chi2-tabelle}
+zeigt, dass für fünf Freiheitsgrade (sechs mögliche Versuchsausgänge)
+selbst auf dem Niveau $\alpha=0.1$ die Diskrepanz mindestens $9.236$ sein
+müsste.
+Die vorliegenden experimentellen Daten geben also noch keinen
+Anlass, daran zu zweifeln, dass jede Augenzahl mit der gleichen
+Wahrscheinlichkeit $\frac16$ auftreten wird.
+
