@@ -1,0 +1,7 @@
+#
+# Makefile.include
+#
+# (c) 2024 Prof Dr Andreas Müller
+#
+sources0 =							\
+	0-einleitung/einleitung.tex

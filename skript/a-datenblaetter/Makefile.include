@@ -1,0 +1,13 @@
+#
+# Makefile.include
+#
+# (c) 2024 Prof Dr Andreas Müller
+#
+sourcesa =								\
+	a-datenblaetter/1-db-gleichverteilung.tex			\
+	a-datenblaetter/2-db-exponentialverteilung.tex			\
+	a-datenblaetter/3-db-normalverteilung.tex			\
+	a-datenblaetter/4-db-paretoverteilung.tex			\
+	a-datenblaetter/5-db-binomialverteilung.tex			\
+	a-datenblaetter/6-db-poissonverteilung.tex			\
+	a-datenblaetter/datenblaetter.tex

@@ -1,0 +1,15 @@
+#
+# Makefile.include
+#
+# (c) 2024 Prof Dr Andreas Müller
+#
+sources8 =								\
+	8-filter/1-zweiquellen.tex					\
+	8-filter/2-wiener.tex						\
+	8-filter/3-einfuehrung.tex					\
+	8-filter/4-problemstellung.tex					\
+	8-filter/5-loesung.tex						\
+	8-filter/6-positionsmessung.tex					\
+	8-filter/7-hoehenmesser.tex					\
+	8-filter/filter.tex						\
+	8-filter/wienerpaths.tex

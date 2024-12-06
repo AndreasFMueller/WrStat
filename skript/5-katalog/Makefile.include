@@ -1,0 +1,18 @@
+#
+# Makefile.include
+#
+# (c) 2024 Prof Dr Andreas Müller
+#
+sources5 =								\
+	5-katalog/1-stetige-verteilungen.tex				\
+	5-katalog/11-gleichverteilung.tex				\
+	5-katalog/12-exponentialverteilung.tex				\
+	5-katalog/13-normalverteilung.tex				\
+	5-katalog/14-potenzverteilung.tex				\
+	5-katalog/15-chi2verteilung.tex					\
+	5-katalog/2-diskrete-verteilungen.tex				\
+	5-katalog/21-dgleichverteilung.tex				\
+	5-katalog/22-binomialverteilung.tex				\
+	5-katalog/23-hypergeometrisch.tex				\
+	5-katalog/24-poissonverteilung.tex				\
+	5-katalog/chapter.tex

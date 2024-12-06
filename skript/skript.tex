@@ -12,6 +12,7 @@
 \usepackage{times}
 \usepackage{geometry}
 \geometry{papersize={210mm,297mm},total={160mm,240mm},top=31mm,bindingoffset=15mm}
+%\geometry{papersize={168mm,240mm},text={126mm,192mm},top=24mm,bindingoffset=7mm}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
@@ -61,7 +62,7 @@ Andreas Müller
 \end{flushright}
 \vspace*{\stretch{2}}
 \begin{center}
-OST Ostschweizer Fachhochschule, Rapperswil, 2006-2022
+OST Ostschweizer Fachhochschule, Rapperswil, 2006-2024
 \end{center}
 \end{titlepage}
 
@@ -100,6 +101,26 @@ OST Ostschweizer Fachhochschule, Rapperswil, 2006-2022
     linkcolor=blue
 }
 
+\fancyfoot{}
+\fancyhead{}
+\def\kopfrechts#1{
+\global\def\kopfinhalt{#1}
+\xdef\theshortsection{\thechapter.\arabic{section}}%
+%\rhead{\theshortsection. #1}}
+\fancyhead[LO]{\theshortsection. #1}}
+% 
+\def\kopflinks#1{%\lhead{\thechapter. #1}
+\global\def\kapitelinhalt{#1}
+\fancyhead[RE]{\thechapter. #1}
+\thispagestyle{empty}
+%\rhead{}}
+\fancyhead[LO]{}}
+\fancyhead[LE]{\thepage}
+\fancyhead[RO]{\thepage}
+
+\fancyhead[RE]{Inhaltsverzeichnis}
+\fancyhead[LO]{Inhaltsverzeichnis}
+\thispagestyle{empty}
 \tableofcontents
 \newtheorem{satz}{Satz}[chapter]
 \newtheorem{hilfssatz}{Hilfssatz}[chapter]
@@ -114,8 +135,7 @@ OST Ostschweizer Fachhochschule, Rapperswil, 2006-2022
 \input{2-ereignisse/wahrscheinlichkeit.tex}
 \input{3-zufallsvariable/erwartung.tex}
 \input{4-verteilung/verteilung.tex}
-\input{5-katalog/stetige-verteilungen.tex}
-\input{5-katalog/diskrete-verteilungen.tex}
+\input{5-katalog/chapter.tex}
 \input{6-schaetzen/schaetzen.tex}
 \input{7-testen/testen.tex}
 \input{8-filter/filter.tex}
@@ -125,7 +145,11 @@ OST Ostschweizer Fachhochschule, Rapperswil, 2006-2022
 \input{b-tabellen/tabellen.tex}
 \clearpage
 \pagebreak
+\addcontentsline{toc}{chapter}{\indexname}
 \ifodd\value{page}\else\null\clearpage\fi
 
+\fancyhead[RE]{Index}
+\fancyhead[LO]{Index}
+\thispagestyle{empty}
 \input skript.ind
 \end{document}

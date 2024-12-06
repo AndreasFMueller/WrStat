@@ -6,53 +6,30 @@
 #
 all:	skript.pdf checklist.pdf
 
+include 0-einleitung/Makefile.include
 include 1-kombinatorik/Makefile.include
 include 2-ereignisse/Makefile.include
 include 3-zufallsvariable/Makefile.include
 include 4-verteilung/Makefile.include
+include 5-katalog/Makefile.include
 include 6-schaetzen/Makefile.include
 include 7-testen/Makefile.include
+include 8-filter/Makefile.include
+include a-datenblaetter/Makefile.include
+include b-tabellen/Makefile.include
 
 SOURCES =								\
-	0-einleitung/einleitung.tex					\
+	$(sources0)							\
 	$(sources1)							\
 	$(sources2)							\
 	$(sources3)							\
 	$(sources4)							\
-	5-katalog/binomialverteilung.tex				\
-	5-katalog/chi2verteilung.tex					\
-	5-katalog/dgleichverteilung.tex					\
-	5-katalog/diskrete-verteilungen.tex				\
-	5-katalog/exponentialverteilung.tex				\
-	5-katalog/gleichverteilung.tex					\
-	5-katalog/hypergeometrisch.tex					\
-	5-katalog/normalverteilung.tex					\
-	5-katalog/poissonverteilung.tex					\
-	5-katalog/potenzverteilung.tex					\
-	5-katalog/stetige-verteilungen.tex				\
+	$(sources5)							\
 	$(sources6)							\
 	$(sources7)							\
-	8-filter/filter.tex						\
-	8-filter/zweiquellen.tex					\
-	8-filter/einfuehrung.tex					\
-	8-filter/problemstellung.tex					\
-	8-filter/loesung.tex						\
-	8-filter/positionsmessung.tex					\
-	8-filter/hoehenmesser.tex					\
-	a-datenblaetter/datenblaetter.tex				\
-	a-datenblaetter/db-binomialverteilung.tex			\
-	a-datenblaetter/db-exponentialverteilung.tex			\
-	a-datenblaetter/db-gleichverteilung.tex				\
-	a-datenblaetter/db-normalverteilung.tex				\
-	a-datenblaetter/db-paretoverteilung.tex				\
-	a-datenblaetter/db-poissonverteilung.tex			\
-	b-tabellen/tabellen.tex						\
-	b-tabellen/chi2.tex						\
-	b-tabellen/ftable.tex						\
-	b-tabellen/ks.tex						\
-	b-tabellen/norm.tex						\
-	b-tabellen/normquant.tex					\
-	b-tabellen/t.tex						\
+	$(sources8)							\
+	$(sourcesa)							\
+	$(sourcesb)							\
 	skript.tex 
 
 skript.pdf:	$(SOURCES) skript.ind
