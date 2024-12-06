@@ -1,0 +1,210 @@
+\section{Konfidenzintervalle} \label{section-konfidenzintervalle}
+Mit Hilfe eines Schätzers können die Parameter einer Verteilung
+geschätzt werden.
+Wenn wir zum Beispiel bei einer Messapparatur
+wissen, dass die Messwerte normalverteilt sind, können wir durch
+Mittelwertbildung eine gute Schätzung für den Erwartungswert finden.
+Da der Schätzwert selbst eine Zufallsvariable ist, kann er
+im schlimmsten Fall ziemlich weit weg vom Erwartungswert zu liegen
+kommen.
+Wir möchten herausfinden, wie wahrscheinlich dies ist.
+
+Das Problem wäre offensichtlich gelöst, wenn wir ein Intervall
+angeben könnten, in dem der wahre Wert des Erwartungswertes mit
+grosser Wahrscheinlichkeit $1-\alpha$ liegen wird.
+In der Praxis
+wird man für $\alpha$ kleine Werte wählen, zum Beispiel $0.05$ oder $0.01$.
+Ein solches Intervall heisst $1-\alpha$-Konfidenzintervall für den
+Parameter.
+
+\begin{definition}
+Ein Intervall $[L(X_1,\dots,X_n),R(X_1,\dots,X_n)]$
+heisst ein $1-\alpha$-Konfidenzintervall
+für den Parameter $\vartheta$, wenn der wahre Wert des Parameters
+$\vartheta$ mit Wahrscheinlichkeit höchstens $\alpha$ ausserhalb
+des Intervalls liegt.
+\end{definition}
+
+\subsection{Konfidenzintervall bei bekannter Varianz}
+Nehmen wir an, die Varianz der Verteilung $\sigma^2$ sei uns bereits bekannt.
+Dann ist $\bar X$ eine normalverteilte Zufallsvariable mit Varianz
+$\sigma^2/n$, deren Erwartungswert mit dem gesuchten Erwartungswert von $X$
+übereinstimmt. 
+
+Wäre $\mu$ bekannt, wäre es recht einfach, ein Intervall zu finden,
+in dem sich der Wert von $\bar X$ mit Wahrscheinlicheit $1-\alpha$ befinden
+wird.
+Mit Hilfe der Verteilungsfunktion $F$ der Standardnormalverteilung
+könnten wir zum Beispiel die Werte $x_-$ und $x_+$ finden, für die
+gilt $F(x_-)=\frac{\alpha}{2}$ und $F(x_+)=1-\frac{\alpha}{2}$, für
+diesen Zweck gibt es spezielle Tabellen, zum Beispiel
+\ref{tabelle-normalquantilen}.
+Dann hat das Intervall
+$[\mu+\sigma x_-,\mu+\sigma x_+]$ die Eigenschaft, dass $\bar X$
+mit Wahrscheinlichkeit $1-\alpha$ darin enthalten sein wird.
+
+Nun ist zwar $\mu$ nicht bekannt, aber wenn
+$\bar X\in[\mu+\frac{\sigma}{\sqrt{n}} x_-,\mu+\frac{\sigma}{\sqrt{n}} x_+]$,
+dann ist sicher auch
+$\mu\in[\bar X+\frac{\sigma}{\sqrt{n}} x_-,\bar X+\frac{\sigma}{\sqrt{n}} x_+]$
+d.~h.~wir haben ein
+Intervall gefunden, in dem sich der Parameter mit Wahrscheinlichkeit $1-\alpha$
+befindet.
+
+\subsection{Konfidenzintervall mit geschätzer Varianz}
+Im allgemeinen ist die Varianz jedoch nicht bekannt, und wir müssen
+auch für die Varianz eine Schätzung verwenden.
+Bei bekannter Varianz
+konnte ein geeignetes Intervall gefunden werden, indem die
+standardnormalverteilte Zufallsvariable
+$\frac{\bar X-\mu}{\sigma/\sqrt{n}}$
+untersucht wurde.
+Die Normalverteilung definierte Intervallgrenzen,
+für die
+\begin{equation}
+P\biggl(x_-\le
+\frac{\bar X-\mu}{\sigma/\sqrt{n}}
+\le x_+\biggr)=1-\alpha
+\label{konfidenzintervall-bekannte-varianz}
+\end{equation}
+gilt, woraus sich dann das Konfidenzintervall ergab.
+
+Da nun die Varianz auch geschätzt werden muss, ersetzen wir in
+(\ref{konfidenzintervall-bekannte-varianz})
+$\sigma$ durch $S$ und versuchen wieder Grenzen
+$x_-$ und $x_+$ zu finden, so dass
+\begin{equation}
+P\biggl(x_-\le
+\frac{\bar X-\mu}{S/\sqrt{n}}
+\le x_+\biggr)=1-\alpha
+\label{konfidenzintervall-geschaetzte-varianz}
+\end{equation}
+gilt.
+Dazu muss die Verteilung der Zufallsvariable
+\begin{equation}
+\sqrt{n}\frac{\bar X-\mu}{S}
+=\frac{\sqrt{n}(\bar X-\mu)/\sigma}{\sqrt{(n-1)S^2/\sigma^2(n-1)}}
+\label{konfidenzintervall-verteilung}
+\end{equation}
+bekannt sein.
+Im Nenner ist $(n-1)S^2/\sigma^2$ eine
+$\chi_{n-1}^2$-verteilte Zufallsvariable,
+der Zähler ist standardnormalverteilt.
+Der Quotient ist über den
+vorliegenden Fall hinaus von Bedeutung:
+
+\begin{definition}
+Ist $Z$ eine standardnormalverteilte Zufallsvariable, und $V$ ein
+$\chi_k^2$, dann heisst die Verteilung von
+\[
+t=\frac{Z}{\sqrt{V/k}}
+\]
+die $t$-Verteilung mit $k$ Freiheitsgraden.
+\end{definition}
+
+\begin{satz}Die Wahrscheinlichkeitsdichte der $t$-Verteilung ist
+\begin{equation}
+\varphi_t(t)
+=
+\frac{\Gamma(\frac{k+1}{2})}{\sqrt{\pi k}\Gamma(\frac{k}2)}
+\biggl(1+\frac{t^2}{k}\biggr)^{-\frac{k+1}2}.
+\end{equation}
+\end{satz}
+
+\begin{proof}[Beweis]
+Die Dichtefunktion von $Z$ und $V$ sind
+\begin{align*}
+\varphi_Z(x)
+&=
+\frac1{\sqrt{2\pi}}e^{-\frac{x^2}2}
+\\
+\varphi_V(x)
+&=
+\gamma_{\frac12,\frac{k}2}(x)
+=
+\frac1{\Gamma(\frac{k}2)}\frac1{2^\frac{k}2}x^{\frac{k-2}2}e^{-\frac12x}.
+\end{align*}
+Die Dichtefunktion von $V/k$ ist $\varphi_{V/k}(x)=k\varphi_V(kx)$, aus
+den Resultaten der Abschnitte \ref{verteilungsfunktion-wurzel}
+und \ref{verteilungsfunktion-quotient} lässt sich jetzt die
+Dichtefunktion für $T$ berechnen.
+
+Zunächst berechnen wir die Dichtefunktion für den Nenner:
+\[
+\varphi_{\sqrt{V/k}}(x)=2x\varphi_{V/k}(x^2)=2xk\varphi_V(kx^2).
+\]
+Die Dichtefunktion für den Quotienten ist dann
+\begin{align*}
+\varphi_T(t)
+&=
+\int_0^\infty \varphi_X(ty)y\varphi_Y(y)\,dy
+\\
+&=
+\int_0^\infty \frac1{\sqrt{2\pi}}e^{-\frac{(ty)^2}2}y\cdot
+2yk\varphi_V(ky^2)\,dy
+\\
+&=
+\int_0^\infty \frac1{\sqrt{2\pi}}e^{-\frac{(ty)^2}2}y\cdot
+2yk
+\frac1{\Gamma(\frac{k}2)}\frac1{2^{\frac{k}2}}(ky^2)^{\frac{k-2}2}e^{-\frac12ky^2}
+\,dy
+\\
+&=
+\frac1{\sqrt{k\pi}2^{\frac{k-1}2}\Gamma(\frac{k}2)}
+\int_0^\infty e^{-\frac12(1+t^2/k)y^2} \,dy.
+\end{align*}
+Mit Hilfe der Substitution $s=\frac12(1+\frac{t^2}n)y^2$
+oder
+\[
+y=\frac{2^{\frac12}s^{\frac12}}{(1+\frac{t^2}n)^{\frac12}}
+\]
+wir daraus
+\begin{align*}
+\varphi_T(t)
+&=
+\frac{2^{\frac12}2^{\frac{k}2}}{\sqrt{k\pi}2^{\frac{k-1}2}\Gamma(\frac{k}2)(1+\frac{t^2}k)^{\frac{k+1}2}}
+\int_0^\infty \frac12e^{-s}s^{\frac{k-1}2}\,ds
+\\
+&=
+\frac{1}{\sqrt{k\pi}\Gamma(\frac{k}2)(1+\frac{t^2}k)^{\frac{k+1}2}}
+\int_0^\infty e^{-s}s^{\frac{k+1}2-1}\,ds
+\\
+&=
+\frac{\Gamma(\frac{k+1}2)}{\sqrt{k\pi}\Gamma(\frac{k}2)}\biggl(1+\frac{t^2}k\biggr)^{-\frac{k+1}2}.
+\qedhere
+\end{align*}
+\end{proof}
+
+Auch zur $t$-Verteilung existieren Tabellen ähnlich der Normalverteilung,
+mit denen sich Werte $t_-$ und $t_+$ finden lassen, sodass
+$P(t_-\le t\le t_+)=1-\alpha$.
+Mit diesen Werten lässt sich dann
+auch ein Konfidenzintervall für den Erwartungswert geben:
+
+\begin{satz}
+Ist $X$ eine normalverteilte Zufallsvariable, und $X_1,\dots,X_n$ eine
+Stichprobe, $\bar X$ der Stichprobenmittelwert, 
+und $S^2$ die Stichprobenvarianz.
+Seien $t_-$ und $t_+$ so bestimmt, dass
+$P(t_-\le t_{n-1}\le t_+)=1-\alpha$ für eine $t$-Verteilung $t_{n-1}$ mit
+$n-1$ Freiheitsgraden.
+Dann ist
+\begin{equation}
+\biggl[\bar X+t_-\frac{S}{\sqrt{n}},\bar X+t_+\frac{S}{\sqrt{n}}\biggr]
+\end{equation}
+ein $1-\alpha$-Konfidenzintervall für den Erwartungswert von $X$.
+\end{satz}
+
+\subsubsection{Konfidenzintervall für Juli-Durchschnittstemperatur}
+Die Wetterstation in Altendorf hat für Juli 2003 eine Durchschnittstemperatur
+von $21.638^\circ\text{C}$ gemessen, bei einer Stichprobenvarianz von
+$493.230\text{K}^2$ und $n=44473$.
+Der Tabelle der $t$-Verteilung
+\ref{tabelle-tverteilung} entnimmt man 
+für derart
+viele Freiheitsgrade und $\alpha=0.01$ die Werte
+$t_{\pm}=\pm2.5758$.
+Ein $0.99$-Konfidenzintervall für die
+Durchschnittstemperatur ist daher
+$[21.332, 21.944]$.
+

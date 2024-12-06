@@ -1,0 +1,15 @@
+#
+# Makefile.include
+#
+# (c) 2024 Prof Dr Andreas Müller
+#
+
+sources6 =								\
+	6-schaetzen/1-problem.tex					\
+	6-schaetzen/2-konsistent.tex					\
+	6-schaetzen/3-erwartungstreu.tex				\
+	6-schaetzen/4-ml.tex						\
+	6-schaetzen/5-beispiele.tex					\
+	6-schaetzen/6-verteilung.tex					\
+	6-schaetzen/7-konfidenzintervall.tex				\
+	6-schaetzen/schaetzen.tex

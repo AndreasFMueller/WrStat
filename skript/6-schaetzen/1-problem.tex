@@ -1,0 +1,99 @@
+\section{Das Schätzproblem} \label{section-schaetzproblem}
+In bisherigen Beispielen sind wir bei der Bestimmung von Erwartungswert
+oder Varianz jeweils davon ausgegangen, dass einige bekannte Werte der
+Zufallsvariablen bereits eine repräsentative Beschreibung der Zufallsvariablen
+darstellen.
+Wir konnten also aus den Beobachtungen die Wahrscheinlichkeiten
+für die beobachteten Werte ableiten und daraus direkt Erwartungswert
+und Varianz bestimmen.
+
+Dieses heuristische Vorgehen ist als erste Näherung durchaus akzeptabel,
+und funktioniert für den Erwartungswert auch optimal.
+Für die Varianz
+hingegen zeigt sich, dass die oben skizzierte, simplizistische Rechnung
+die Varianz vor allem bei kleinen Stichproben systematisch unterschätzt.
+Damit stellt sich automatisch die Frage, wie denn überhaupt ein geeignetes
+Schätzverfahren für eine Grösse wie die Varianz gefunden werden kann.
+
+Etwas genauer geht es um folgendes Problem.
+Von einer gegebenen Zufallsvariable
+$X$ ist die Verteilung nicht bekannt, es wird angenommen, dass die
+Verteilungsfunktion die Form $F(x,\vartheta)$ hat, wobei
+$\vartheta$ ein vorläufig noch unbekannter Parameter ist.
+Bei einer Normalverteilung sind dies zum Beispiel der Erwartungswert und
+die Varianz: $\vartheta=(\mu,\sigma^2)$.
+Nun wird das
+Experiment $n$ mal durchgeführt, dadurch entstehen $n$ neue, unabhängige
+Zufallsvariable $(X_i)_{1\le i\le n}$, welche identisch verteilt sind zu
+$X$.
+
+\begin{definition}
+Eine Folge von Zufallsvariablen $(X_i)_{1\le i\le n}$ heisst eine
+Stichprobe der Zufallsvariablen $X$, wenn die $X_i$ unabhängig 
+und identisch zu $X$ verteilt.
+\end{definition}
+Das Problem besteht nun darin, die Parameterwerte $\vartheta$
+aus den gefundenen Werten $X_1,\dots,X_n$ zu finden.
+Man braucht dazu
+eine sogenannten Schätzer, eine Funktion, die $\vartheta$ aus den
+Beobachtungen bildet: $\vartheta=\vartheta(X_1,\dots,X_n)$.
+
+Bei der Konstruktion eines Schätzverfahrens kann man sich von verschiedenen,
+teils nicht kompatiblen Prinzipien leiten lassen, und man wird verschiedene
+``vernünftige'' Eigenschaften von den Schätzern fordern wollen:
+\begin{enumerate}
+\item {\bf Konsistent:} Vergrössert man die Stichprobe, soll der
+Schätzer gegen den wahren Wert des Parameters streben, also
+$\lim_{n\to\infty}\vartheta(X_1,\dots,X_n)=\vartheta$.
+\item {\bf Erwartungstreu:} Da die $X_i$ auch wieder Zufallsvariable sind,
+kann man den Erwartungswert von $\vartheta(X_1,\dots,X_n)$ bilden. 
+Das Verfahren ist besonders vertrauenswürdig, wenn dieser Erwartungswert
+mit dem wahren Wert des Parameters übereinstimmt.
+\item {\bf Minimaler Fehler:} Selbst wenn der Schätzwert im Mittel den
+richtigen Parameterwert liefert, möchten wir doch, dass dies mit möglichst
+geringem Fehler passiert, so dass auch eine einzelne Bestimmung des
+Parameters bereits grosse Zuverlässigkeit geniesst.
+Der mittlere
+quadratische Fehler, der im Zusammenhang mit dem Erwartungswert bereits
+einmal diskutiert wurde, kann hier als Prinzip zur Konstruktion von
+Schätzern erhoben werden.
+\item {\bf ``Am Wahrscheinlichsten'':} Ein etwas anderes Prinzip der 
+Konstruktion eines Schätzers besteht darin, die Beobachtungen $X_1,\dots,X_n$
+in die Dichtefunktion der Verteilung einzusetzen und denjenigen Parameterwert
+zu wählen, der diese Funktion maximiert.
+Diese sogenannten
+``maximum likelihood'' Schätzer sind oft vernünftig, haben interessante
+asymptotische Eigenschaften, sind aber manchmal nicht erwartungstreu.
+\end{enumerate}
+
+Leider zeigt es sich, dass die Forderung nach minimalem quadratischem
+Fehler technisch oft nur schwer umzusetzen ist.
+Trotzdem liefert das verwandte
+Prinzip der kleinsten Quadrate, welches wir schon bei der Charakterisierung
+des Erwartungswertes mit Hilfe der Varianz und bei der Regression 
+getroffen haben, manchmal nützliche Vorschläge für geeignete
+Schätzer.
+
+Sobald ein Schätzverfahren festgelegt ist, muss man sich mit der Frage der
+Zuverlässigkeit des Verfahrens auseinandersetzen.
+Da das Schätzverfahren
+auch ``nur'' eine Zufallsvariable ist, wird es den Parameter auch nur
+mit einer gewissen Unsicherheit liefern können.
+Es stellt sich damit
+automatisch die Frage nach der Grösse einer möglichen Abweichung.
+Eine Antwort darauf gibt das sogenannte Konfidenzintervall, ein
+Intervall, in dem sich der wahre Wert des Parameters mit einer gewissen
+Wahrscheinlichkeit befindet.
+
+In diesem Kapitel betrachten wir zunächst die bereits bekannten 
+Schätzer für den Erwartungswert und die Varianz, und untersuchen
+sie daraufhin, ob sie erwartungstreu sind.
+In den Abschnitten \ref{section-maximum-likelihood-schaetzer}
+und \ref{section-weitere-beispiele-von-schaetzern} wird an einigen
+Beispielen gezeigt, wie man Schätzer nach dem
+Maximum-Likelihood-Prinzip konstruieren kann.
+In \ref{section-verteilung-der-schaetzwerte}
+wird die Verteilung der Schätzer studiert, eine Grundlage, damit
+anschliessend in \ref{section-konfidenzintervalle} Konfidenzintervall
+für die geschätzen Werte konstruiert werden können.
+

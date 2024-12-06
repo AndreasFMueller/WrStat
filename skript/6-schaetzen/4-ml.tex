@@ -1,0 +1,138 @@
+\section{Maximum-Likelihood-Schätzer} \label{section-maximum-likelihood-schaetzer}
+\subsection{Stetige Verteilung}
+Ein weiteres Prinzip, welches ``vernünftige'' Schätzer liefert,
+ist das Maximum-Likelihood-Prinzip.
+Ist $X$ eine Zufallsvariable, deren
+Verteilung eine Dichtefunktion $f(x,\vartheta)$ mit einem unbekannten
+Parameter $\vartheta$ besitzt. $\vartheta$ soll geschätzt werden.
+Wir bilden daraus die Likelihood-Funktion
+\index{Likelihood-Funktion}%
+\begin{equation}
+L(x_1,\dots,x_n;\vartheta)=\varphi(x_1,\vartheta)\cdots \varphi(x_n,\vartheta),
+\label{likelihood-funktion}
+\end{equation}
+also die $n$-dimensionale Dichtefunktion für die durch $n$-malige 
+Beobachtung entstehende Stichprobe $X_1,\dots,X_n$, bestehend aus
+unabhängigen, identisch zu $X$ verteilten Zufallsvariablen.
+Die Likelihood-Funktion wird um so grösser, je wahrscheinlicher
+es ist, die Werte der Stichprobe in einem $n$-dimensionalen Würfel
+$dx_1\,dx_2\dots dx_n$ zu finden.
+Das Maximum-Likelihood-Prinzip
+verlangt nun, dass man als Schätzwert für $\vartheta$ jenen Wert
+wählt, der die Likelihood-Funktion maximiert.
+
+\begin{definition}
+$\vartheta(X_1,\dots,X_n)$ heisst Maximum-Likelihood-Schätzer für
+$\vartheta$, wenn die Likelihood-Funktion (\ref{likelihood-funktion})
+maximal wird:
+\begin{equation}
+L(X_1,\dots,X_n;\vartheta(X_1,\dots,X_n)) \ge L(X_1,\dots,X_n;t)\qquad\forall t.
+\end{equation}
+\end{definition}
+
+Um das Prinzip zu illustrieren, berechnen wir den
+Maximum-Likelihood-Schätzer für den Erwartungswert
+einer normalverteilten Zufallsvariable.
+Die Dichtefunktion ist 
+\[
+\varphi(x,\vartheta)
+=
+\frac1{\sqrt{2\pi}\sigma}e^{-\frac{(x-\vartheta)^2}{2\sigma^2}}
+\]
+woraus sich die Likelihood-Funktion als
+\begin{equation}
+L(x_1,\dots,x_n;\vartheta)
+=
+\frac1{(\sqrt{2\pi}\sigma)^n}e^{-\frac1{2\sigma^2}\sum_{i=1}^n(x_i-\vartheta)^2}
+\label{likelihood-funktion-normalverteilung}
+\end{equation}
+ergibt.
+Zu den gegebenen $X_1,\dots,X_n$ muss nun $\vartheta$ so gefunden
+werden, dass die Likelihood-Funktion
+(\ref{likelihood-funktion-normalverteilung}) maximiert wird.
+Dies geschieht offensichtlich genau dann, wenn die Summe im Exponenten
+ihren kleinsten Wert annimmt, wir müssen also ein Minimum von
+\begin{equation}
+\sum_{i=1}^n (x_i-\vartheta)^2
+\end{equation}
+finden.
+Durch Ableiten nach $\vartheta$ entsteht daraus
+\begin{equation}
+\frac{d}{d\vartheta}
+\sum_{i=1}^n (x_i-\vartheta)^2
+=
+-2\sum_{i=1}^n (x_i-\vartheta)
+=
+2\biggl(n\vartheta-\sum_{i=1}^nx_i\biggr)
+=
+2n\biggl(\vartheta-\frac1n\sum_{i=1}^nx_i\biggr)
+\end{equation}
+was genau dann verschwindet, wenn der Klammerausdruck $=0$ ist, also
+\begin{equation}
+\vartheta=\frac1n\sum_{i=1}^nx_i.
+\end{equation}
+Der altbekannte Mittelwert einer Stichprobe ist also auch der
+Maximum Likelihood Schätzer für den Erwartungswert einer normalverteilten
+Zufallsvariable.
+\begin{satz}
+Der Stichprobenmittelwert ist der Maximum-Likelihood-Schätzer
+für den Erwartungswert einer normalverteilten Zufallsvariable.
+\end{satz}
+Nach demselben Muster kann man aus die Stichprobenvarianz $S^2$ als
+Maximum-Likelihood-Schätzer konstruieren.
+
+\subsection{Diskrete Verteilung}
+Das Maximum-Likelihood-Prinzip Lässt sich auch bei diskreten Verteilungen
+anwenden.
+Anstelle der Dichtefunktion treten die Wahrscheinlichkeiten
+$p(x, \vartheta)$, welche nur für eine diskrete Menge von $x$-Werten
+von $0$ verschieden sind.
+Die Likelihood-Funktion ist dann
+\begin{equation}
+L(x_1,\dots,x_n;\vartheta)=p(x_1,\vartheta)\dots p(x_n,\vartheta),
+\label{likelihood-funktion-diskret}
+\end{equation}
+und die Konstruktion des Maximum-Likelihood-Schätzers lässt sich genau
+wie im stetigen Fall durchziehen.
+
+Als Beispiel betrachten wir eine Zufallsvariable $X$ mit Werten $0$ und
+$1$, wobei $1$ mit der Wahrscheinlichkeit $p$ angenommen wird,
+und versuchen, den Parameter $p$ zu schätzen.
+Die Wahrscheinlichkeit
+für den Wert $0$ ist $1-p$.
+Daraus lässt sich die Likelihood-Funktion konstruieren
+\begin{equation}
+L(k_1,\dots,k_n;p)=p^{\sum_{i=1}^nk_i}(1-p)^{n-\sum_{i=1}^nk_i},
+\label{likelihood-funktion-p}
+\end{equation}
+wobei die $k_i$ nur die Werte $0$ und $1$ annehmen können.
+Die Summe 
+$K=\sum_{i=1}^nk_i$ ist die Anzahl der Fälle, in denen der Wert $1$
+angenommen wurde.
+Nach dem Maximum-Likelihood-Prinzip ist $p$ so zu bestimmen,
+dass die Likelihood-Funktion
+(\ref{likelihood-funktion-p})
+maximal wird.
+Dabei bleibt $K$ unverändert, es ist also der Ausdruck
+\begin{equation}
+f(p)=p^K(1-p)^{n-K}
+\label{p-schaetzer-funktion}
+\end{equation}
+zu maximieren.
+Die Ableitung von (\ref{p-schaetzer-funktion}) ist
+\begin{equation}
+f'(p)=Kp^{K-1}(1-p)^{n-K}-(n-K)p^K(1-p)^{n-K-1}=0
+\end{equation}
+Nach Division durch $p^{K-1}(1-p)^{n-K-1}$ wird daraus
+\begin{equation}
+K(1-p)-(n-K)p=K-np=0.
+\end{equation}
+Diese Gleichung kann man nach $p$ auflösen: $p=K/n$.
+Somit ist die relative Häufigkeit der Maximum-Likelihood-Schätzer
+für die Wahrscheinlichkeit $p$.
+\begin{satz}
+Der Stichprobenmittelwert ist der Maximum-Likelihood-Schätzer
+für die Wahrscheinlichkeit $p$ eines
+positiven Ausgangs eines Bernoulliexperimentes.
+\end{satz}
+

@@ -6,6 +6,8 @@
 #
 all:	skript.pdf checklist.pdf
 
+include 3-zufallsvariable/Makefile.include
+include 6-schaetzen/Makefile.include
 include 7-testen/Makefile.include
 
 SOURCES =								\
@@ -14,8 +16,7 @@ SOURCES =								\
 	2-ereignisse/wahrscheinlichkeit.tex				\
 	2-ereignisse/spamfilter.tex					\
 	2-ereignisse/google.tex						\
-	3-zufallsvariable/erwartung.tex					\
-	3-zufallsvariable/learning.tex					\
+	$(sources3)							\
 	4-verteilung/verteilung.tex					\
 	5-katalog/binomialverteilung.tex				\
 	5-katalog/chi2verteilung.tex					\
@@ -28,7 +29,7 @@ SOURCES =								\
 	5-katalog/poissonverteilung.tex					\
 	5-katalog/potenzverteilung.tex					\
 	5-katalog/stetige-verteilungen.tex				\
-	6-schaetzen/schaetzen.tex					\
+	$(sources6)							\
 	$(sources7)							\
 	8-filter/filter.tex						\
 	8-filter/zweiquellen.tex					\

@@ -1,0 +1,143 @@
+\section{Erwartungstreue Schätzer} \label{section-erwartungstreue-schaetzer}
+Nach \ref{section-konsistente-schaetzer} ist der Stichprobenmittelwert
+ein konsistenter Schätzer,
+aber er ist sogar erwartungstreu:
+\[
+E(\mu(X_1,\dots,X_n))=\frac{E(X_1)+\dots+E(X_n)}{n}=\frac{E(X)+\dots+E(X)}{n}
+=E(X),
+\]
+der Mittelwert ist also durchaus ein Schätzer mit ``guten'' Eigenschaften.
+
+Für die Schätzung der Varianz wurde bisher aus beobachteten Werten
+$(x_i)_{1\le i\le n}$ der Zufallsvariable der Ausdruck
+\begin{equation}
+\frac1n\sum_{i=1}^n x_i^2-\biggl(\frac1n\sum_{i=1}^nx_i\biggr)^2
+\end{equation}
+verwendet.
+Dem entspricht die Schätzformel
+\begin{equation}
+V=f(X_1,\dots,X_n)=\frac1n\sum_{i=1}^nX_i^2-\biggl(\frac1n\sum_{i=1}^nX_i\biggr)^2.
+\label{schaetzer-sstern}
+\end{equation}
+Die Zufallsvariable $V$ soll angeblich die Varianz möglichst gut
+wiedergeben, also sollte auch der Erwartungswert von $V$ mit der Varianz
+übereinstimmen.
+
+Ein numerisches Experiment zeigt jedoch ein anderes Bild.
+In einer
+Simulation wurde jeweils 10000 mal die Varianz einer kleinen Anzahl von
+standardnormalverteilten Zufallsvariablen mit obiger Schätzformel ermittelt.
+In der Tabelle~\ref{varianzschaetzung} sind die Resultate von acht
+Läufen dieser Simulation untereinander dargestellt.
+Man kann gut erkennen, 
+dass die Schätzformel für geringe Anzahlen von Werten, also für kleine
+$n$, deutlich falsch liegt.
+Statt dem wahren Wert $1$ der Varianz
+werden Werte gefunden, die deutlich kleiner sind, die Zahlenwerte
+suggerieren, dass die Schätzformel statt $1$ im Mittel den Wert
+$\frac{n-1}n$ liefert.
+Dies ist ein Indiz, dass die Schätzformel nicht
+erwartungstreu ist.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|ccccccccc|}
+\hline
+$n$&2&3&4&5&6&7&8&9&10\\
+\hline
+&0.502&0.674&0.745&0.802&0.839&0.853&0.871&0.892&0.896\\
+&0.488&0.670&0.746&0.800&0.837&0.858&0.875&0.890&0.899\\
+&0.501&0.668&0.746&0.800&0.843&0.861&0.872&0.892&0.900\\
+&0.487&0.670&0.743&0.805&0.826&0.854&0.868&0.883&0.898\\
+&0.506&0.672&0.745&0.797&0.841&0.856&0.873&0.887&0.904\\
+&0.506&0.659&0.763&0.794&0.835&0.855&0.874&0.888&0.908\\
+&0.513&0.666&0.751&0.795&0.832&0.853&0.868&0.897&0.903\\
+&0.499&0.669&0.748&0.799&0.833&0.856&0.873&0.894&0.903\\
+\hline
+$\frac{n-1}{n}$&0.500&0.667&0.750&0.800&0.833&0.857&0.875&0.889&0.900\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Mittelwerte von 10000 Varianzberechnungen von jeweils $n$
+Werten einer standardnormalverteilten Zufallsvariable\label{varianzschaetzung}}
+\end{table}
+
+Das dies tatsächlich so ist wird deutlich, wenn wir den
+Erwartungswert von $V$ berechnen:
+\begin{align*}
+E(V)
+&=
+E(f(X_1,\dots,X_n))
+\\
+&=
+E\biggl(
+\frac1n\sum_{i=1}^nX_i^2-\biggl(\frac1n\sum_{i=1}^nX_i\biggr)^2
+\biggr)
+\\
+&=
+\frac1n\sum_{i=1}^nE(X_i^2)-\frac1{n^2}\sum_{i=1}^n\sum_{j=1}^n E(X_iX_j)
+\\
+&=
+\frac1n\sum_{i=1}^nE(X_i^2)-
+\frac1{n^2}\sum_{i=1}^nE(X_i^2)
+-\frac1{n^2}\sum_{i\ne j} E(X_iX_j)
+\\
+&=
+\frac{n-1}{n^2}\sum_{i=1}^nE(X_i^2)
+-\frac1{n^2}\sum_{i\ne j} E(X_i)E(X_j).
+\end{align*}
+Nun sind aber alle Zufallsvariable $X_i$ identisch verteilt, insbesondere
+sind alle Erwartungswerte der $X_i$ und der $X_i^2$ jeweils identisch,
+wir können also die Indizes weglassen:
+\begin{align*}
+E(V)
+&=
+\frac{n-1}{n^2}\sum_{i=1}^nE(X^2) -\frac1{n^2}\sum_{i\ne j} E(X)^2
+\\
+&=
+\frac{n-1}{n^2}E(X^2) -\frac{n^2-n}{n^2}E(X)^2
+\\
+&=
+\frac{n-1}{n}(E(X^2) -E(X)^2)=\frac{n-1}n\operatorname{var}(X).
+\end{align*}
+Folglich ist der Schätzer $V$ für kleine Stichproben eine schlechte
+Wahl, man muss erwarten, dass er einen zu kleinen Wert liefert.
+Es
+wäre besser, ihn mit $\frac{n}{n-1}$ zu multiplizieren, denn der so
+gebildete Schätzer hat als Erwartungswert wie gewünscht die Varianz.
+
+\begin{definition}
+Ist $X_i$ eine Stichprobe von $X$, dann heisst
+\begin{equation}
+S^2=\frac1{n-1}\sum_{i=1}^n (X_i -\bar X)^2
+\end{equation}
+die {\em Stichprobenvarianz} von $X$.
+\end{definition}
+
+\begin{satz}Die Stichprobenvarianz ist ein erwartungstreuer Schätzer
+für die Varianz einer Zufallsvariable.
+\end{satz}
+
+Dem Schätzer
+\begin{equation}
+S^{*}\mathstrut^{2}=\frac1n\sum_{i=1}^n(X_i-\mu)^2
+\end{equation}
+für die Varianz fehlt nicht viel zu einem erwartungstreuen Schätzer,
+er unterscheidet sich vom eben gefundenen besseren Schätzer
+\begin{equation}
+S^2=\frac1{n-1}\sum_{i=1}^n(X_i-\bar X)^2
+\end{equation}
+nur durch einen Faktor $\frac{n}{n-1}$.
+Für eine kleine Stichprobe ist
+der bisherige Schätzer also nicht erwartungstreu, aber je grösser $n$
+wird, desto kleiner wird die Abweichung von der Erwartungstreue.
+Man
+nennt $S^{*}\mathstrut^{2}$ einen asymptotisch erwartungstreuen Schätzer:
+\begin{definition}
+Ein Schätzer $\vartheta(X_1,\dots,X_n)$ heisst asymptotisch erwartungstreu,
+wenn
+\begin{equation}
+\lim_{n\to\infty}E(\vartheta(X_1,\dots,X_n))=\vartheta.
+\end{equation}
+\end{definition}
+

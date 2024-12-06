@@ -1,0 +1,153 @@
+\section{Zufallsvariable}
+In einem Experiment, das mit Hilfe des Ohmschen Gesetzes der Widerstand eines
+Bauteils ermitteln soll, wird ein Strom durch das Bauteil geleitet und die
+darüber abfallende Spannung gemessen.
+Der Versuchsausgang ist also mindestens ein Paar $\omega=(U,I)$ von Spannung und
+Strom, möglicherweise aber auch noch mehr, zum Beispiel die Temperatur, die
+auch noch gemessen wurde.
+Der Versuchsausgang ist also keine Zahl, aber es lassen sich daraus zwei
+Zahlen ableiten.
+Zu jedem Versuchsausgang $\omega$ gibt es die Zahlen $U(\omega)$
+und $I(\omega)$, die in diesem Versuch gemessenen Spannung und der Strom.
+
+Roulette als das Glücksspiel par excellence besteht aus einzelnen
+Spielen, in denen jeweils eine Kugel im Roulettekessel in eines von
+37 Fächern fällt.
+Der Versuchsausgang ist also eine ganze Zahl zwischen $0$ und $36$.
+Für den Spieler ist diese Zahl jedoch nur mittelbar von Bedeutung.
+Ihn interessiert vor allem, ob die Chips, die er auf dem Roulette-Tisch
+gesetzt hat, etwas gewonnen haben, ob als für einen Chip das Ereignis
+``Einsatz gewinnt'' eingetreten ist.
+Nach den Regeln des Spiels kann man dann aus dem Versuchsausgang den
+Gewinn des Spielers ableiten.
+
+Zahlen, die am Ende eines Zufallsprozesses stehen, können also durch
+folgendes Modell beschrieben werden.
+Zunächst wird ein Experiment durchgeführt, bei welchem wie bisher
+ein Versuchsausgang $\omega$ aus den möglichen Versuchsausgängen $\Omega$
+ausgewählt wird.
+Dann wird aus dem Versuchsausgang über einen deterministischen Prozess
+eine Zahl $X(\omega)$ abgeleitet.
+
+\begin{definition}
+\index{Zufallsvariable}
+\index{Zufallsvariable!stetige}
+\index{Zufallsvariable!diskrete}
+Eine {\em Zufallsvariable} ist eine Funktion $\Omega\to\mathbb R$.
+Eine {\em diskrete} Zufallsvariable nimmt nur diskrete Werte in $\mathbb R$ an.
+Bei einer {\em stetigen} Zufallsvariable sind beliebige Werte $X(\omega)\in\mathbb R$
+möglich.
+\end{definition}
+
+Mit einer Zufallsvariablen $X\colon\Omega\to\mathbb R$ kann man wieder
+neue Ereignisse definieren
+\begin{align*}
+\{X=a\}&=\{\omega\in\Omega\,|\,X(\omega)=a\}
+\\
+\{a<X\le b\}
+&=
+\{\omega\in\Omega\,|\, a<X(\omega)\le b\}.
+\end{align*}
+Bei einer stetigen Zufallsvariable sind die Ereignisse der Form
+$\{X=a\}$ nur von beschränktem Nutzen, da nur ganz wenige Versuche
+dazu führen werden, dass das Ereignis eintritt.
+
+\subsection{Wurf eines Würfels}
+Wirft man einen Würfel, zeigt dieser ein Bild mit einem oder mehreren Punkten, 
+dies sind die Elementarereignisse:
+\[
+\Omega = \{
+\epsdice{1},
+\epsdice{2},
+\epsdice{3},
+\epsdice{4},
+\epsdice{5},
+\epsdice{6}
+\}.
+\]
+Leute, die Zahlen kennen, können diese Bilder auch als Zahlen interpretieren.
+Sie verwenden die Abbildung
+\[
+X\colon \Omega \to \{1,2,3,4,5,6\}
+\]
+mit den Werten
+\begin{align*}
+\epsdice{1}&\mapsto 1,\\
+\epsdice{2}&\mapsto 2,\\
+\epsdice{3}&\mapsto 3,\\
+\epsdice{4}&\mapsto 4,\\
+\epsdice{5}&\mapsto 5,\\
+\epsdice{6}&\mapsto 6.
+\end{align*}
+Dass diese Zuordnung von Elementarereignissen zu Zahlenwerten tatsächlich
+ein zusätzlicher Schritt ist, sieht man zum Beispiel auch daran, dass
+in Spielen für Kinder, die die Zahlen noch nicht kennen, Farbwürfel
+verwendet werden, und keine Zuordnung von Zahlenwerten vorgenommen wird.
+
+Die Menge $\Omega$ der Elementarereignisse beschreibt alle möglichen Würfe
+des Würfels.
+Wenn wir uns nur für die gezeigte Augenzahl interessieren,
+brauchen wir eine Funktion, welche jedem Elementarereignis diesen speziellen
+Ausgang zuordnet:
+\[
+X: \Omega\to{\mathbb Z}: \omega\mapsto X(\omega).
+\]
+Eine solche Abbildung heisst eine Zufallsvariable.
+Mit Hilfe der Zufallsvariable kann man jetzt das Ereignis, dass eine Sechs
+gewürfelt wurde, auch so formulieren:
+\[
+A_6=\{\omega\in\Omega\;|\;X(\omega) = 6\}.
+\]
+In $\mathbb{Z}\subset\mathbb{R}$ kann natürlich gerechnet werden, und
+auch eine intuitive Vorstellung davon, was ``im Mittel'' etwa heissen
+könnte, ist bereits vorhanden.
+
+\subsection{Ein technisches Detail}
+Wir hatten früher bemerkt, dass die Menge aller Teilmengen nicht unbedingt
+als die Menge der Ereignisse geeignet ist, und dazu die Menge
+$\cal A$ der Ereignisse eingeführt.
+Wenn aber nicht alle Teilmengen von $\Omega$ Ereignisse sind,
+dann ist auch nicht automatisch sichergestellt, dass die
+Mengen $\{X < a\}$ für jeden Wert von $a$  Ereignisse sind.
+Die technisch korrekte Definition einer Zufallsvariablen ist daher:
+
+\begin{definition}
+Eine Zufallsvariable $X$ ist eine Funktion $X\colon \Omega\to \mathbb R$,
+die zusätzlich die Eigenschaft hat, dass die Mengen 
+$\{\omega | X(\omega) < x\}$ Ereignisse sind.
+\end{definition}
+
+Für unsere Zwecke hat dieses Detail keine Konsequenzen, da alle Zufallsvariablen,
+die wir betrachten, diese Bedingung automatisch erfüllen.
+
+\subsection{Rechnen mit Zufallsvariablen}
+Selbstverständlich können Zufallsvariable auch andere Wertebereiche haben.
+Eine Abbildung $X:\Omega\to W$ ist eine $W$-wertige Zufallsvariable.
+Alle Operationen im Wertebereich sind auch für Zufallsvariable möglich.
+Kann man im Wertebereich $W$ addieren, dann ist auch die Summe zweier
+Zufallsvariable $X_1$ und $X_2$ definiert durch
+\[
+X_1+X_2:\Omega\to W:\omega\mapsto(X_1+X_2)(\omega) := X_1(\omega) + X_2(\omega),
+\]
+und entsprechend für alle anderen Operationen in $W$.
+
+Bei einer analogen Messung ist zum Beispiel jeder beliebige reelle
+Wert möglich, eine reelle Zufallsvariable wäre demnach eine Abbildung
+\[
+X:\Omega\to\mathbb R:\omega\mapsto X(\omega)\in\mathbb R.
+\]
+Die Messung von Strom und Spannung an einem Verbraucher definiert zwei
+Zufallsvariable $I:\Omega\to\mathbb R$ und $U:\Omega\to \mathbb R$.
+Die vom Verbraucher verbrauchte Leistung ist die Zufallsvariable
+\[
+U\cdot I:\Omega\to\mathbb R: \omega\mapsto (U\cdot I)(\omega) = U(\omega)I(\omega).
+\]
+Eine komplexe Zufallsvariable wäre die Impedanz
+\index{Impedanz}
+\[
+Z:\Omega\to\mathbb C:\omega\mapsto Z(\omega)\in\mathbb C,
+\]
+Realteil $\operatorname{Re}Z$ und Imaginärteil $\operatorname{Im}Z$
+sind ebenfalls zwei Zufallsvariablen,
+für die $Z=\operatorname{Re}Z + i \operatorname{Im}Z$ gilt.
+

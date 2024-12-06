@@ -1,0 +1,13 @@
+#
+# Makefile.include
+#
+# (c) 2024 Prof Dr Andreas Müller
+#
+sources3 =								\
+	3-zufallsvariable/1-zufallsvariable.tex				\
+	3-zufallsvariable/2-erwartungswert.tex				\
+	3-zufallsvariable/3-varianz.tex					\
+	3-zufallsvariable/4-tschebyscheff.tex				\
+	3-zufallsvariable/5-lineareregression.tex			\
+	3-zufallsvariable/6-learning.tex				\
+	3-zufallsvariable/erwartung.tex

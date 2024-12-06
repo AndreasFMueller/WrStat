@@ -1,0 +1,126 @@
+\section{Weitere Beispiele von Schätzern} \label{section-weitere-beispiele-von-schaetzern}
+\subsection{Länge eines Intervalls}
+Von der Zufallsvariable $X$ ist bekannt, dass sie im Intervall $[0,\vartheta]$
+gleichverteilt ist.
+Der Parameter $\vartheta$ soll geschätzt werden.
+Offensichtlich ist $\vartheta \ge \max(X_1,\dots,X_n)$,
+aber $T=\max(X_1,\dots,X_n)$ ist fast sicher kleiner als der wahre
+Wert von $\vartheta$, wir können also nicht erwarten, dass $T$ ein
+erwartungstreuer Schätzer ist.
+
+In der Hoffnung, später einen erwartungstreuen Schätzer konstruieren
+zu können, berechnen wir den Erwartungswert von $T$.
+Die Verteilungsfunktion von $X$ auf dem Intervall $[0,\vartheta]$ ist
+\begin{equation}
+F(x)=P(X\le x)= \frac{x}{\vartheta}.
+\end{equation}
+Die Verteilungsfunktion von $T(X_1,\dots,X_n)$ ist dann
+\begin{align*}
+P(\max(X_1,\dots,X_n)\le x)
+&=
+P(X_1\le x\wedge\dots\wedge X_n\le x)
+\\
+&=
+P(X_1\le x)\dots P(X_n\le x)
+\\
+&=
+F(x)^n=\frac{x^n}{\vartheta^n},
+\end{align*}
+im Intervall $[0,\vartheta]$ entspricht dies der Dichtefunktion
+\begin{equation}
+\frac{nx^{n-1}}{\vartheta^n}.
+\end{equation}
+Damit wird der Erwartungswert
+\begin{align*}
+E(\max(X_1,\dots,X_n))
+&=
+\int_0^{\vartheta}x\frac{nx^{n-1}}{\vartheta^n}\,dx
+\\
+&=
+\frac{n}{n+1}\biggl[\frac{x^{n+1}}{\vartheta^n}\biggr]_0^\vartheta
+\\
+&=
+\frac{n}{n+1}\vartheta,
+\end{align*}
+bis auf den Faktor $\frac{n}{n+1}$ ist das genau die gesuchte Intervalllänge.
+\begin{satz}
+Ist $X_i$ eine Stichprobe einer auf dem Intervall $[0,\vartheta]$
+gleichverteilten Zufallsvariable $X$, dann ist
+\begin{equation}
+\vartheta(X_1,\dots,X_n)=\frac{n+1}{n}\max(X_1,\dots, X_n)
+\end{equation}
+ein erwartungstreuer Schätzer für die Intervalllänge $\vartheta$.
+\end{satz}
+
+\subsection{Schätzung des Parameters \texorpdfstring{$\lambda$}{lambda} einer Poissonverteilung}
+Die Zufallsvariable $X$ sei poissonverteilt, d.~h.
+\begin{equation}
+p(k, \lambda)=\frac{\lambda^k}{k^!}e^{-\lambda}.
+\end{equation}
+Der Parameter $\lambda$ soll aus einer Stichprobe geschätzt werden.
+Dazu bilden wir die Likelihood Funktion
+\begin{equation}
+L(k_1,\dots k_n;\lambda)=\frac{\lambda^{k_1+\dots+k_n}}{k_1!\dotsm k_n!}
+\,e^{-n\lambda}.
+\label{poisson-likelihood-funktion}
+\end{equation}
+Das Maximum der Likelihood-Funktion wird durch Ableiten von
+(\ref{poisson-likelihood-funktion}) nach $\lambda$
+bestimmt:
+\begin{align}
+\frac{d}{d\lambda}L(k_1,\dots,k_n;\lambda)
+&=
+\frac{1}{k_1!\dotsm k_n!}(K\lambda^{K-1}-n\lambda^K)e^{-n\lambda}\nonumber
+\\
+&=
+\frac{1}{k_1!\dotsm k_n!}(K-n\lambda)\lambda^{K-1}e^{-n\lambda}.
+\label{poisson-likelihood-ableitung}
+\end{align}
+Die Ableitung verschwindet genau dann, wenn der Klammerausdruck in
+(\ref{poisson-likelihood-ableitung}) verschwindet, also ist
+\begin{equation}
+\lambda(k_1,\dots,k_n) =\frac1n\sum_{i=1}^nk_i
+\end{equation}
+der Maximum Likelihood Schätzer für $\lambda$.
+Offensichtlich ist er
+konsistent und erwartungstreu.
+
+\subsection{Schätzung von \texorpdfstring{$p$}{p} in einer Binomialverteilung}
+Von der Zufallsvariablen $X$ sei bekannt, dass sie binomialverteilt ist
+mit Parameter $(m, p)$, der Parameter $p$ ist zu schätzen.
+Die Likelihood-Funktion ist in diesem Fall
+\begin{equation}
+L(k_1,\dots,k_n;p)=\biggl(\prod_{i=1}^n\binom{m}{k_i}\biggr)
+p^{K}(1-p)^{nm-K},
+\label{binomial-likelihood-funktion}
+\end{equation}
+wobei wir wieder $K=\sum_{i=1}^nk_i$ setzen. 
+Das grosse Produkt in (\ref{binomial-likelihood-funktion})
+ist nur ein konstanter Faktor, den wir mit $P$ abkürzen
+\begin{equation}
+P= \prod_{i=1}^n\binom{m}{k_i}
+\end{equation}
+Die Ableitung von (\ref{binomial-likelihood-funktion}) ist
+\begin{equation}
+\frac{d}{dp}L(k_1,\dots,k_n;p)=P
+\bigl(Kp^{K-1}(1-p)^{nm-K}-(nm-K)p^K(1-p)^{nm-K-1}\bigr)=0.
+\end{equation}
+Der zweite Klammerausdruck lässt sich vereinfachen zu
+\[
+(K(1-p)-(nm-K)p)p^{K-1}(1-p)^{nm-K-1}=
+(K-nmp)p^{K-1}(1-p)^{nm-K-1}=0
+\]
+er verschwindet genau dann, wenn $p=K/nm$.
+Somit ist
+\begin{equation}
+p(k_1,\dots,k_n)=\frac1{nm}\sum_{i=1}^nk_i
+\end{equation}
+der Maximum-Likelihood-Schätzer für $p$.
+Offensichtlich ist er konsistent
+und erwartungstreu.
+\begin{satz}
+Ein erwartungstreuer Schätzer für die Wahrscheinlichkeit einer
+Binomialverteilung $\operatorname{Bin}(m,k,p)$ ist
+$\frac1{m}\bar X$.
+\end{satz}
+

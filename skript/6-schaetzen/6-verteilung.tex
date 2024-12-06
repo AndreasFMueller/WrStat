@@ -1,0 +1,188 @@
+\section{Verteilung der Schätzwerte} \label{section-verteilung-der-schaetzwerte}
+Schätzwerte entstehen dadurch, dass die Werte einer Stichprobe, also
+gewisse Realisierungen von Zufallsvariablen in die Schätzfunktion
+eingesetzt werden.
+Somit sind die Schätzwerte selbst wieder Zufallsvariablen,
+und es stellt sich die Frage, welcher Verteilung sie gehorchen.
+
+Für einen Spezialfall haben wir uns um diese Problem bereits gekümmert.
+Bei der Schätzung der Intervalllänge haben wir die Verteilungsfunktion
+des Schätzwertes bestimmt, um einen erwartungstreuen Schätzer konstruieren
+zu können.
+
+Ein anderer Spezialfall ist die Schätzung der Parameter einer normalverteilten
+Zufallsvariable.
+Die Stichprobenelemente $X_i$ sind alle normalverteilt
+mit dem gleichen Erwartungswert und der gleichen Varianz wie $X$. 
+Somit ist der Schätzwert für den Erwartungswert
+$\bar X$
+ebenfalls normalverteilt mit Erwartungswert $E(X)$ (wir wissen ja bereits,
+dass dieser Schätzer erwartungstreu ist), und Varianz
+$\frac1n\operatorname{var}(X)$.
+Wie ist der
+Schätzwert für die Stichprobenvarianz
+$S^2=$
+verteilt? Dazu gibt der folgende, vielleicht etwas überraschende Satz Auskunft.
+\begin{satz}
+Seien $X_1,\dots,X_n$ unabhängige, normalverteilte Zufallsvariablen mit
+Erwartungswert $\mu$ und Varianz $\sigma^2$.
+Dann gilt
+\begin{enumerate}
+\item $\bar X$ und $S^2$ sind unabhängig.
+\item $\bar X$ ist normalverteilt mit Erwartungswert $\mu$ und Varianz
+$\frac{\sigma^2}{n}$.
+\item $\frac{n-1}{\sigma^2}S^2$ ist $\chi^2_{n-1}$-verteilt.
+\end{enumerate}
+\end{satz}
+\begin{proof}[Beweis]
+Wir beweisen zunächst die Unabhängigkeit mit Hilfe der momenterzeugenden
+Funktion.
+Zunächst gilt
+\begin{equation}
+M_{X_i}(t_i)=\exp\biggl(\mu t_i+\frac{\sigma^2t_i^2}2\biggr).
+\end{equation}
+Wir betrachten jetzt den Vektor $U=(U_1,\dots,U_n)$, bestehend aus
+den Zufallsvariablen $U_i=X_i-\bar X$, und $V=\bar X$.
+Wir setzen $\bar s=(s_1+\dots +s_n)/n$.
+Die gemeinsame momenterzeugende Funktione
+von $U$ und $V$ ist dann
+\begin{align}
+M_{U,V}(s_1,\dots,s_n,r)
+&=
+E\biggl(\exp\biggl(Vr+\sum_{i=1}^nU_is_i\biggr)\biggr)
+\nonumber\\
+&=
+E\biggl(\exp\biggl(\bar X(r-n\bar s)+\sum_{i=1}^nX_is_i\biggr)\biggr)
+\nonumber\\
+&=
+E\biggl(\exp\biggl(\sum_{i=1}^nX_i\bigl(s_i-\bar s+\frac{r}{n}\bigr)\biggr)\biggr)
+\nonumber\\
+&=
+M_{X_i}\biggl(s_1-\bar s+\frac{r}{n}\biggr)\cdots
+M_{X_n}\biggl(s_n-\bar s+\frac{r}{n}\biggr)
+\nonumber\\
+&=
+\exp\biggl(
+\mu\biggl(\sum_{i=1}^n(s_i-\bar s+r/n)\biggr)+\frac{\sigma^2}2\sum_{i=1}^n(s_i-\bar s+r/n)^2
+\biggr)
+\nonumber\\
+&=
+\exp\biggl(\mu r+\frac{\sigma^2r^2}{2n}\biggr)
+\exp\biggl(\frac{\sigma^2}{2}\sum_{i=1}^n(s_i-\bar s)^2\biggr)\label{umformung-mittelwert}
+\\
+&=
+M_{U,V}(0,\dots,0,r)M_{U,V}(s_1,\dots,s_n,0).
+\nonumber
+\end{align}
+In (\ref{umformung-mittelwert}) haben wir folgende zwei Identitäten verwendet:
+\begin{align}
+\sum_{i=1}^n(s_i-\bar s)
+&=
+\sum_{i=1}^ns_i-n\bar s
+\nonumber\\
+&=
+\sum_{i=1}^ns_i-n\frac1n\sum_{i=1}^ns_i=0 \label{si-mittelwert}
+\\
+\sum_{i=1}^n(s_i-\bar s+\frac{r}{n})^2
+&=
+\sum_{i=1}^n(s_i-\bar s)^2
++\frac{2r}{n}\sum_{i=1}^n(s_i-\bar s)
++\sum_{i=1}^n\frac{r^2}{n^2}
+\nonumber\\
+&=
+\sum_{i=1}(s_i-\bar s)^2
++\frac{2r}{n}\sum_{i=1}^ns_i-2r\bar s
++\frac{r^2}{n}
+\nonumber\\
+&=
+\sum_{i=1}^n(s_i-\bar s)^2+\frac{r^2}{n}.
+\label{si-varianz}
+\end{align}
+Da sich die gemeinsame momenterzeugende Funktion faktorisieren
+lässt, sind die Zufallsvariablen $U_i$ und $V$ unabhängig,
+und damit natürlich auch $S^2=\frac1{n-1}(U_1^2+\dots+U_n^2)$ und
+$\bar X=V$.
+
+Die Verteilung von $\bar X$ wurde bereits früher bestimmt, und bei
+dieser Gelegenheit alles im zweiten Punkt behauptete nachgerechnet.
+
+Da nach obigem die Zufallsvariablen $Z_i=(X_i-\mu)/\sigma$ unabhängig
+standardnormalverteilt sind, ist deren Quadratsumme
+\begin{equation}
+T=\sum_{i=1}^nZ_i^2=\sum_{i=1}^n\frac{(X_i-\mu)^2}{\sigma^2}
+\end{equation}
+$\chi^2_{n}$-verteilt.
+Da ausserdem $Z=\sqrt{n}(\bar X-\mu)/\sigma$ standardnormalverteilt
+ist, ist ihr Quadrat
+\begin{equation}
+W=Z^2=\frac{n(\bar X-\mu)^2}{\sigma^2}
+\end{equation}
+$\chi^2_1$-verteilt.
+Wir setzen $Y=(n-1)S^2/\sigma^2$.
+$W$ und $Y$ sind nach dem eben Bewiesenen unabhängig.
+Wir behaupten
+\[
+T=W+Y.
+\]
+In der Tat 
+\begin{align}
+W+Y
+&=
+\frac{n(\bar X-\mu)^2}{\sigma^2}
++
+\frac{1}{\sigma^2}\sum_{i=1}^n(X_i-\bar X)^2
+\nonumber\\
+&=
+\frac{1}{\sigma^2}\sum_{i=1}^n\bigl((\bar X-\mu)^2+(X_i-\bar X)^2\bigr)
+\nonumber\\
+&=
+\frac{1}{\sigma^2}\sum_{i=1}^n(X_i-\mu)^2
+\label{wy-chi2}
+\end{align}
+Im letzten Schritt (\ref{wy-chi2}) haben wir den Hilfssatz
+\ref{hilfssatz-varianz-mittelwert}
+weiter unten verwendet.
+Für die momenterzeugenden Funktionen bedeutet dies
+\begin{equation}
+M_T(t)=M_W(t)M_Y(t)
+\end{equation}
+oder nach Satz \ref{chi2}
+\begin{equation}
+M_Y(t)=\frac{M_T(t)}{M_W(t)}=\frac{(1-2t)^{-n/2}}{(1-2t)^{-1/2}}
+=(1-2t)^{-(n-1)/2},
+\end{equation}
+dies ist die momenterzeugende Funktion einer $\chi^2_{n-1}$-Verteilung.
+Somit ist $Y$ $\chi_{n-1}^2$ verteilt, wie behauptet.
+\end{proof}
+
+\begin{hilfssatz}
+\label{hilfssatz-varianz-mittelwert}
+Seien $(x_i)_{1\le i\le n}$ reelle Zahlen und $\bar x$ so gewählt,
+dass $\sum_{i=1}^n(x_i-\bar x)^2$ minimal wird.
+Dann ist 
+\begin{equation}
+\bar x=\frac1n\sum_{i=1}^nx_i
+\end{equation}
+und für jedes $\mu\in\mathbb{R}$ gilt
+\begin{equation}
+\sum_{i=1}^n\bigl((\bar x-\mu)^2 + (x_i-\bar x)^2\bigr)
+=\sum_{i=1}^n(x_i-\mu)^2.
+\end{equation}
+\end{hilfssatz}
+\begin{proof}[Beweis]
+Wir betrachten die Vektoren $(t,\dots,t)$, also eine Gerade im
+$n$-dimensionalen Raum.
+$\bar x$ ist so gewählt, dass $(\bar x,\dots,\bar x)$
+der Fusspunkt des Lotes von $(x_1,\dots,x_n)$ auf die Gerade ist.
+Insbesondere bilden die Punkte $(\bar x,\dots,\bar x)$, $(\mu,\dots,\mu)$
+und $(x_1,\dots,x_n)$ bilden ein rechtwinkliges Dreieck.
+Dies erlaubt,
+die Entfernung zwischen $(\mu,\dots,\mu)$ und $(x_1,\dots,x_n)$ 
+als Hypotenuse mit Hilfe des Satzes von Pythagoras zu berechnen:
+\[
+\sum_{i=1}^n(x_i-\mu)^2
+=\sum_{i=1}^n(\bar x-\mu)^2+\sum_{i=1}^n(x_i-\bar x)^2,
+\]
+die Behauptung des Hilfssatzes.
+\end{proof}
+
