@@ -11,7 +11,28 @@ a(1-\sin x)&\qquad 0\le x \le \pi\\
 \]
 ist wie in dem folgenden Graphen:
 \begin{center}
-\includeagraphics[]{graph-1.pdf}
+\begin{tikzpicture}[>=latex,thick]
+\def\h{3}
+\fill[color=darkred!10]
+	plot[domain=0:3.1415,samples=40]
+		({\x*\h},{(\x-3.14159/2)*(\x-3.14159/2)/(3.14159-2)})
+	-- ({3.14159*\h},0) -- (0,0) -- cycle;
+\draw[->] ({-1.1*\h},0) -- ({4.1*\h},0) coordinate[label={$x$}];
+\draw[->] (0,-0.1) -- (0,{1.1*\h}) coordinate[label={right:$\varphi_X(x)$}];
+\draw[color=darkred,line width=1.4pt] ({-1.1*\h},0) -- (0,0);
+\draw[color=darkred,line width=1.4pt]
+	plot[domain=0:3.1415,samples=40]
+		({\x*\h},{(\x-3.14159/2)*(\x-3.14159/2)/(3.14159-2)});
+\draw[color=darkred,line width=1.4pt] ({3.14159*\h},0) -- ({4.1*\h},0);
+\foreach \x in {-1,{3.14159/2},3.14159}{
+	\draw ({\x*\h},-0.1) -- ({\x*\h},0.1);
+}
+\node at ({-1*\h},-0.1) [below] {$-1$};
+\node at (0,-0.1) [below] {$0$};
+\node at ({0.5*3.14159*\h},-0.1) [below] {$\displaystyle\frac{\pi}{2}$};
+\node at ({3.14156*\h},-0.1) [below] {$\pi$};
+\end{tikzpicture}
+%\includeagraphics[]{graph-1.pdf}
 \end{center}
 \begin{teilaufgaben}
 \item
@@ -94,7 +115,38 @@ E(X^2)-E(X)^2
 Die Resultate sind in Abbildung~\ref{50000030:graphplus} visualisiert
 \begin{figure}
 \centering
-\includeagraphics[]{graph-2.pdf}
+\begin{tikzpicture}[>=latex,thick]
+\def\h{3}
+\fill[color=darkred!10]
+	plot[domain=0:3.1415,samples=40]
+		({\x*\h},{(\x-3.14159/2)*(\x-3.14159/2)/(3.14159-2)})
+	-- ({3.14159*\h},0) -- (0,0) -- cycle;
+\draw[->] ({-1.1*\h},0) -- ({4.1*\h},0) coordinate[label={$x$}];
+\draw[->] (0,-0.1) -- (0,{1.1*\h}) coordinate[label={right:$\varphi_X(x)$}];
+\draw[color=darkred,line width=1.4pt] ({-1.1*\h},0) -- (0,0);
+\draw[color=darkred,line width=1.4pt]
+	plot[domain=0:3.1415,samples=40]
+		({\x*\h},{(\x-3.14159/2)*(\x-3.14159/2)/(3.14159-2)});
+\draw[color=darkred,line width=1.4pt] ({3.14159*\h},0) -- ({4.1*\h},0);
+\foreach \x in {-1,{3.14159/2},3.14159}{
+	\draw ({\x*\h},-0.1) -- ({\x*\h},0.1);
+}
+\node at ({-1*\h},-0.1) [below] {$-1$};
+\node at (0,-0.1) [below] {$0$};
+\node at ({0.5*3.14159*\h},-0.1) [below] {$\displaystyle\frac{\pi}{2}$};
+\node at ({3.14156*\h},-0.1) [below] {$\pi$};
+\draw[color=blue] ({0.5*3.14159*\h},-0.1) -- ++(0,{1.1*\h});
+\draw[color=blue] ({(0.5*3.14159-sqrt(1.44452))*\h},-0.1) -- ++(0,{1.1*\h});
+\draw[color=blue] ({(0.5*3.14159+sqrt(1.44452))*\h},-0.1) -- ++(0,{1.1*\h});
+\draw[<->,color=blue] ({0.5*3.14159*\h},{0.6*\h}) -- ++({-sqrt(1.44452)*\h},0);
+\draw[<->,color=blue] ({0.5*3.14159*\h},{0.6*\h}) -- ++({sqrt(1.44452)*\h},0);
+\node[color=blue] at ({0.5*(3.14159-sqrt(1.4452))*\h},{0.6*\h})
+	[above] {$\sqrt{\operatorname{var}(X)}$};
+\node[color=blue] at ({0.5*(3.14159+sqrt(1.4452))*\h},{0.6*\h})
+	[above] {$\sqrt{\operatorname{var}(X)}$};
+\node[color=blue] at ({0.5*3.14159*\h},{\h}) [above] {$E(X)$};
+\end{tikzpicture}
+%\includeagraphics[]{graph-2.pdf}
 \caption{Wahrscheinlichkeitsdichte $\varphi_X(x)$ aus Aufgabe~\ref{50000030}
 mit $E(X)$ und Varianz.
 \label{50000030:graphplus}}
