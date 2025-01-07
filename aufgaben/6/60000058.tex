@@ -17,7 +17,7 @@ Dann würde es wohl nur ganz selten eine Übereinstimmung geben.
 Wie gross wäre dann die Wahrscheinlichkeit, genau 37 mal das richtige
 Spielzeug zu bringen?
 \item
-Wie wahrscheinlich wäre, dass Rico auch nur ein einziges Spielzeug richtig
+Wie wahrscheinlich wäre, dass Rico mindestens ein Spielzeug richtig
 bringt?
 \item
 Wie wahrscheinlich wäre, dass Rico das unbekannte Spielzeug mindestens
@@ -30,7 +30,7 @@ einmal finden würde?
 Rein zufällig könnte Rico das richtige Spielzeug nur mit Wahrscheinlichkeit
 $p=1/200$ bringen.
 In $n=40$ Versuchen könnte man so nur mit $np=0.2$ richtigen rechnen.
-Sie $K$ die Anzahl der richtigen Spielzeuge, die Rico gefunden hat.
+Sei $K$ die Anzahl der richtigen Spielzeuge, die Rico gefunden hat.
 Wir können die Wahrscheinlichkeit $P(K=k)$ in diesem Experiment mit der
 Poisson-Verteilung
 \[
@@ -70,18 +70,18 @@ Mit Binomialverteilung:
 \[
 \binom{40}{1}p^1(1-p)^{40-1}=40\cdot0.005\cdot 0.995^39 = 0.16449.
 \]
-Die Aufgabe wurde auch so verstanden: Wie gross ist die Wahrscheinlichkeit,
-dass Rico höchstens 1 Spielzeug richtig bringt.
-In diesem Fall ist 
-\[
-P(K\le 1)
-=
-P_\lambda(0)
-+
-P_\lambda(1)
-=
-0.98248.
-\]
+%Die Aufgabe wurde auch so verstanden: Wie gross ist die Wahrscheinlichkeit,
+%dass Rico höchstens 1 Spielzeug richtig bringt.
+%In diesem Fall ist 
+%\[
+%P(K\le 1)
+%=
+%P_\lambda(0)
+%+
+%P_\lambda(1)
+%=
+%0.98248.
+%\]
 \item
 In diesem Experiment ist $p=1/201$ und $n=10$, also $\lambda=0.049751$.
 Die gleiche Rechnung wie in Teilaufgabe b) liefert jetzt
