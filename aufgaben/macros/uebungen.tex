@@ -1,0 +1,129 @@
+%
+% uebungen.tex
+%
+% (c) 2025 Prof Dr Andreas Müller
+%
+\newenvironment{beispiel}[1][Beispiel]{%
+\begin{proof}[#1]%
+\renewcommand{\qedsymbol}{$\bigcirc$}
+}{\end{proof}}
+\newcounter{uebungsaufgabe}
+\newboolean{loesungen}
+% environment fuer uebungsaufgaben
+\newenvironment{uebungsaufgaben}{
+\begin{list}{\arabic{uebungsaufgabe}.}
+  {\usecounter{uebungsaufgabe}
+  \setlength{\labelwidth}{2cm}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\labelsep}{5mm}
+  \setlength{\rightmargin}{0pt}
+  \setlength{\itemindent}{0pt}
+}}{\end{list}\vfill\pagebreak}
+% Teilaufgaben
+\newenvironment{teilaufgaben}{
+\begin{enumerate}
+\renewcommand{\labelenumi}{\alph{enumi})}
+}{\end{enumerate}}
+% Loesung
+\NewEnviron{loesung}{%
+\begin{proof}[Lösung]%
+\renewcommand{\qedsymbol}{$\bigcirc$}
+\BODY
+\end{proof}}
+\NewEnviron{diskussion}{
+\BODY
+\bigskip
+}
+\def\keineloesungen{%
+\RenewEnviron{loesung}{\relax}
+\RenewEnviron{diskussion}{\relax}
+\setboolean{loesungen}{false}
+}
+% Hinweis
+\newenvironment{hinweis}{%
+\renewcommand{\qedsymbol}{}
+\begin{proof}[Hinweis]}{\end{proof}}
+% Aufgabe aus der Sammlung wiedergeben
+\newboolean{pruefung}
+\setboolean{pruefung}{false}
+\newboolean{showthema}
+\setboolean{showthema}{false}
+\newboolean{themastatus}
+\setboolean{themastatus}{false}
+\newcounter{problemcounter}[chapter]
+\def\aufgabepath{./}
+\def\ainput#1{\input\aufgabepath/#1}
+\def\verbatimainput#1{\expandafter\verbatiminput{\aufgabepath/#1}}
+\def\aufgabetoplevel#1{%
+\expandafter\def\expandafter\inputpath{#1}%
+\let\aufgabepath=\inputpath
+}
+\def\includeagraphics[#1]#2{\expandafter\includegraphics[#1]{\aufgabepath#2}}
+% \aufgabe
+\newcommand{\aufgabe}[1]{%
+\StrRemoveBraces{#1}[\FirstChar]%
+\StrChar{\FirstChar}{1}[\FirstChar]%
+  \expandafter\def\csname themalist\endcsname{}
+  \setboolean{themastatus}{false}
+  \refstepcounter{problemcounter}%
+  \label{#1}
+  \bigskip{\parindent0pt\strut}\hbox{\bf\theproblemcounter. }%
+  \marginpar{\raggedright\tiny #1}%
+  \expandafter\def\csname currentaufgabe\endcsname{#1}%
+  \expandafter\def\csname aufgabepath\endcsname{\inputpath/\FirstChar/#1/}%
+  \expandafter\input{\inputpath\FirstChar/#1.tex}
+  %\medskip
+  \ifthenelse{\boolean{themastatus}}{
+   \ifthenelse{\boolean{showthema}}{
+    \parindent 0pt
+    {\sc Thema:} {\small \themalist.}}{%
+   }{}
+  }
+  \bigskip
+
+}
+\renewcommand\theproblemcounter{\thechapter.\arabic{problemcounter}}
+% Bewertung
+\NewEnviron{bewertung}{\footnotesize
+\renewcommand{\qedsymbol}{}
+\begin{proof}[Bewertung]
+\BODY
+\end{proof}}
+% oft benutzte Macros
+\def\blank{\text{\textvisiblespace}}
+%
+% macros fuer den thema-Index
+%
+\newcommand{\openthemaindex}{%
+  \newwrite\themaindex
+  \immediate\openout\themaindex=thema.tix
+}
+%
+\newcommand{\closethemaindex}{\immediate\closeout\themaindex}
+%
+\def\themalink#1#2{\hyperref[thema:#1]{#2}}
+\def\themaL#1#2{%
+  \ifthenelse{\boolean{themastatus}}{%
+    \xappto{\themalist}{, \noexpand\themalink{#1}{#2}}
+  }{%
+    \xdef\themalist{\noexpand\themalink{#1}{#2}}
+    \setboolean{themastatus}{true}
+  }
+  \immediate\write\themaindex%
+  {{\thechapter}{#1}{#2}{\arabic{problemcounter}}{\thechapter.\arabic{problemcounter}}{\currentaufgabe}}%
+}
+\def\thema#1{\themaL{#1}{#1}}
+% Thema-Information anzeigen
+\def\themasection#1#2{
+\item[#2] \label{thema:#1}
+}
+\newcommand{\printthemata}{
+  \IfFileExists{work/thema.tex}{
+    \chapter*{Aufgaben nach Themen}
+    \addcontentsline{toc}{chapter}{Themenindex}
+    \begin{description}
+    \input{work/thema.tex}
+    \end{description}
+  }{}
+}
+\definecolor{darkgreen}{rgb}{0,0.6,0}

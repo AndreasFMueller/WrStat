@@ -4,60 +4,98 @@
 # (c) 2013 Prof Dr Andreas Mueller, Hochschule Rapperswil
 # $Id$
 #
-all:	aufgabensammlung.pdf
+all:
+	@echo choose test, sammlung or 'woche(0[1-9]|1[0-4])'
 
-TEXFILES = aufgabensammlung.tex uebungen.tex \
-	1.tex 2.tex 4.tex 5.tex 6.tex 7.tex 8.tex 9.tex r.tex
+test:	test.pdf
 
-aufgabensammlung.pdf:	$(TEXFILES) aufgabensammlung.ind thema.tex
-	pdflatex aufgabensammlung.tex uebungen.tex
+sammlung:	aufgabensammlung.pdf
 
-thema.tex:      thema.tix mkthemaidx
-	./mkthemaidx thema.tix thema.tex
+topdir := ${PWD}
+workdir := work
 
-thema.tix:      $(TEXFILES)
-	pdflatex aufgabensammlung.tex
+makeindex = makeindex
+pdflatex = pdflatex --output-directory=$(workdir)
+bibtex = bibtex
+touch = touch
 
-aufgabensammlung.ind:	$(TEXFILES) images
-	touch aufgabensammlung.ind
-	pdflatex aufgabensammlung.tex
-	makeindex aufgabensammlung.idx
+TEXFILES = aufgabensammlung.tex						\
+	macros/uebungen.tex						\
+	macros/packages.tex						\
+	macros/front.tex						\
+	macros/content.tex						\
+	$(workdir)/1.tex						\
+	$(workdir)/2.tex						\
+	$(workdir)/4.tex						\
+	$(workdir)/5.tex						\
+	$(workdir)/6.tex						\
+	$(workdir)/7.tex						\
+	$(workdir)/8.tex						\
+	$(workdir)/9.tex						\
+	$(workdir)/r.tex
 
-mkthemaidx:     mkthemaidx.cpp
-	g++ -Wall -g -O -o mkthemaidx mkthemaidx.cpp
+aufgabensammlung.pdf:	$(workdir)/aufgabensammlung.pdf
+	cp $(workdir)/aufgabensammlung.pdf .
 
-clean:
-	rm -f *.dvi *.log ?.tex aufgabensammlung.pdf
+$(workdir)/aufgabensammlung.pdf:	$(TEXFILES) \
+	$(workdir)/aufgabensammlung.ind $(workdir)/thema.tex
+	$(pdflatex) aufgabensammlung.tex
 
-1.tex:	buildchapter.sh 1/*.tex
-	./buildchapter.sh 1 > 1.tex
+$(workdir)/aufgabensammlung.ind:	$(TEXFILES) \
+	$(workdir)/aufgabensammlung.idx
+	cd $(workdir) ; $(makeindex) aufgabensammlung.idx
 
-2.tex:	buildchapter.sh 2/*.tex
-	./buildchapter.sh 2 > 2.tex
+$(workdir)/aufgabensammlung.idx:	$(TEXFILES) \
+	aufgabensammlung.tex
+	$(touch) $(workdir)/aufgabensammlung.ind
+	$(pdflatex) aufgabensammlung.tex
 
-3.tex:	buildchapter.sh 3/*.tex
-	./buildchapter.sh 3 > 3.tex
+$(workdir)/thema.tex:      $(workdir)/thema.tix bin/mkthemaidx
+	cd $(workdir); ../bin/mkthemaidx thema.tix thema.tex
 
-4.tex:	buildchapter.sh 4/*.tex
-	./buildchapter.sh 4 > 4.tex
+bin/mkthemaidx:     bin/mkthemaidx.cpp
+	cd bin; make
 
-5.tex:	buildchapter.sh 5/*.tex
-	./buildchapter.sh 5 > 5.tex
+$(workdir)/thema.tix:      $(TEXFILES) 
+	cd $(workdir); $(pdflatex) aufgabensammlung.tex
 
-6.tex:	buildchapter.sh 6/*.tex
-	./buildchapter.sh 6 > 6.tex
+$(workdir)/1.tex:	bin/buildchapter.sh 1/*.tex
+	bin/buildchapter.sh 1 > $(workdir)/1.tex
 
-7.tex:	buildchapter.sh 7/*.tex
-	./buildchapter.sh 7 > 7.tex
+$(workdir)/2.tex:	bin/buildchapter.sh 2/*.tex
+	bin/buildchapter.sh 2 > $(workdir)/2.tex
 
-8.tex:	buildchapter.sh 8/*.tex
-	./buildchapter.sh 8 > 8.tex
+$(workdir)/3.tex:	bin/buildchapter.sh 3/*.tex
+	bin/buildchapter.sh 3 > $(workdir)/3.tex
 
-9.tex:	buildchapter.sh 9/*.tex
-	./buildchapter.sh 9 > 9.tex
+$(workdir)/4.tex:	bin/buildchapter.sh 4/*.tex
+	bin/buildchapter.sh 4 > $(workdir)/4.tex
 
-r.tex:	buildchapter.sh r/*.tex
-	./buildchapter.sh r > r.tex
+$(workdir)/5.tex:	bin/buildchapter.sh 5/*.tex
+	bin/buildchapter.sh 5 > $(workdir)/5.tex
+
+$(workdir)/6.tex:	bin/buildchapter.sh 6/*.tex
+	bin/buildchapter.sh 6 > $(workdir)/6.tex
+
+$(workdir)/7.tex:	bin/buildchapter.sh 7/*.tex
+	bin/buildchapter.sh 7 > $(workdir)/7.tex
+
+$(workdir)/8.tex:	bin/buildchapter.sh 8/*.tex
+	bin/buildchapter.sh 8 > $(workdir)/8.tex
+
+$(workdir)/9.tex:	bin/buildchapter.sh 9/*.tex
+	bin/buildchapter.sh 9 > $(workdir)/9.tex
+
+$(workdir)/r.tex:	bin/buildchapter.sh r/*.tex
+	bin/buildchapter.sh r > $(workdir)/r.tex
+
+wochen:	woche01 woche02 woche03 woche04 woche05 woche06 woche07 woche08 \
+	woche09 woche10 woche11 woche12 woche13
+
+woche01:	woche01.pdf
+woche01.pdf:	woche01.tex
+	$(pdflatex) woche01.tex
+	cp $(workdir)/woche01.pdf .
 
 images:
 	for d in ?/*; \
@@ -70,3 +108,9 @@ images:
 			cd ../..; \
 		fi; \
 	done
+
+$(workdir)/test.pdf:	test.tex testaufgabe.tex $(TEXFILES)
+	$(pdflatex) test.tex
+
+test.pdf:	$(workdir)/test.pdf
+	cp $(workdir)/test.pdf .

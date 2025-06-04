@@ -1,0 +1,20 @@
+%
+% woche01.tex -- 
+%
+% (c) 2023 Prof. Dr. Andreas Mueller, OST
+%
+\documentclass[a4paper,12pt]{book}
+\input{macros/packages.tex}
+\externaldocument{work/aufgabensammlung}
+\makeindex
+\begin{document}
+\pagestyle{fancy}
+\let\thechapter=1
+\lhead{Kapitel~\thechapter, Woche 1}
+\rhead{Kombinatorik}
+\input{macros/uebungen.tex}
+\setboolean{loesungen}{true}
+\aufgabetoplevel{./}
+\setcounter{problemcounter}{22}
+\aufgabe{10000029}
+\end{document}

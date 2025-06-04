@@ -1,0 +1,25 @@
+%
+% test.tex -- Skript zur Vorlesung Wahrscheinlichkeitsrechnung und Statistik
+%                         an der Hochschule Rapperswil
+%
+% (c) 2009-2017 Prof. Dr. Andreas Mueller, HSR
+%
+\documentclass[a4paper,12pt]{book}
+\input{macros/packages.tex}
+\makeindex
+\begin{document}
+\pagestyle{fancy}
+\input{macros/uebungen.tex}
+\setboolean{loesungen}{true}
+\setboolean{showthema}{false}
+\aufgabetoplevel{./}
+\setcounter{chapter}{7}
+\lhead{Kapitel~\thechapter}
+\rhead{Formattiertest}
+\openthemaindex
+\noindent
+\bigskip
+
+\input{testaufgabe.tex}
+\closethemaindex
+\end{document}
