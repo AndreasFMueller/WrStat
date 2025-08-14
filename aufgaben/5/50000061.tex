@@ -1,0 +1,182 @@
+Die Funktion
+\[
+\varphi(x)
+=
+\begin{cases}
+a/\!\sqrt{x(1-x)}&\qquad 0 < x < 1\\
+0                &\qquad\text{sonst}
+\end{cases}
+\]
+ist bei korrekter Wahl von $a$ die Wahrscheinlichkeitsdichte der sogenannten
+{\em Arkussinus-Verteilung}, die zum Beispiel in der Theorie des
+Wiener-Prozesses eine grosse Bedeutung hat.
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[>=latex,thick,scale=4]
+\begin{scope}
+\clip (-0.5,0) rectangle (1.5,1.5);
+\fill[color=red!20] (0,0) -- (0,3)
+	-- plot[domain=0.01:0.99,samples=100]
+		({\x},{1/(3.1415*sqrt(\x*(1-\x)))})
+	-- (1,3) -- (1,0) -- cycle;
+\draw[color=red,line width=1.4pt] (-0.5,0) -- (0,0);
+\draw[color=red,line width=1.4pt] (1.0,0) -- (1.5,0);
+\draw[color=red,line width=1.4pt] plot[domain=0.01:0.99,samples=100]
+	({\x},{1/(3.1415*sqrt(\x*(1-\x)))});
+\end{scope}
+\draw[->] (-0.5,0) -- (1.5,0) coordinate[label={$x$}];
+\draw[->] (0,-0.02) -- (0,1.5) coordinate[label={left:$\varphi(x)$}];
+\draw (1,-0.02) -- (1,0.02);
+\node at (1,0) [below] {$1$};
+\node at (0,0) [below] {$0$};
+\draw (-0.02,1) -- (0.02,1);
+\node at (0,1) [left] {$1$};
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{scope}[xshift=2.1cm]
+\draw[line width=0.3pt] (-0.5,1) -- (1.5,1);
+\draw[->] (-0.5,0) -- (1.5,0) coordinate[label={$x$}];
+\draw[->] (0,-0.02) -- (0,1.1) coordinate[label={right:$F_X(x)$}];
+\draw[color=darkgreen,line width=1.4pt] (-0.5,0) -- (0,0)
+	-- plot[domain=0:1,samples=100] ({\x},{2*asin(2*\x-1)/360+0.5}) 
+	-- (1,1) -- (1.5,1);
+\draw (1,-0.02) -- (1,0.02);
+\node at (1,0) [below] {$1$};
+\node at (0,0) [below] {$0$};
+\draw (-0.02,1) -- (0.02,1);
+\node at (0,1) [below left] {$1$};
+\end{scope}}{}
+\end{tikzpicture}
+\ifthenelse{\boolean{loesungen}}{
+\caption{Graph der Funktion $\varphi(x)$ von Aufgabe~\ref{50000061}.
+Die Verteilungsfunktion ist im rechten Graphen dargestellt.
+\label{50000061:fig}}
+}{
+\caption{Graph der Funktion $\varphi(x)$ von Aufgabe~\ref{50000061}.
+\label{50000061:fig}}
+}
+\end{figure}
+
+\begin{teilaufgaben}
+\item
+Wie muss $a$ gewählt werden, damit $\varphi$ tatsächlich eine
+Wahrscheinlichkeitsdichte einer Zufallsvariable $X$ ist?
+\item
+Bestimmen Sie die Verteilungsfunktion $F_X(x)$.
+\item
+Betimmen Sie den Erwartungswert $E(X)$.
+\item
+Bestimmen Sie die Varianz $\operatorname{var}(X)$.
+\end{teilaufgaben}
+
+\begin{hinweis}
+Verwenden Sie die Stammfunktionen
+\begin{align}
+\int\frac{dx}{\sqrt{x(1-x)}}
+&=
+\arcsin(2x-1) + C,
+\label{50000061:int0}
+\\
+\int\frac{x\,dx}{\sqrt{x(1-x)}}
+&=
+\frac12\arcsin(2x-1) - \sqrt{x(1-x)} + C,
+\label{50000061:int1}
+\\
+\int\frac{x^2\,dx}{\sqrt{x(1-x)}}
+&=
+\frac38\arcsin(2x-1) - \frac{x}2\sqrt{x(1-x)} - \frac34\sqrt{x(1-x)} + C.
+\label{50000061:int2}
+\end{align}
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Damit $\varphi(x)$ eine Wahrscheinlichkeitsdichte ist, muss die
+Normierungsbedingung
+\[
+1
+=
+\int_{-\infty}^\infty \varphi(x)\,dx
+\]
+erfüllt sein.
+Aus der Formel~\eqref{50000061:int0} folgt
+\begin{align*}
+1
+&=
+\int_{-\infty}^\infty \frac{a\,dx}{\sqrt{x(1-x)}}
+=
+a\int_0^1 \frac{dx}{\!\sqrt{x(1-x)}}
+\\
+&=
+a
+\biggl[
+\arcsin(2x-1)
+\biggr]_0^1
+=
+a\bigl(\arcsin(1) - \arcsin(-1)\bigr)
+=
+a\pi
+\qquad\Rightarrow\qquad
+a=\frac{1}{\pi}\approx 0.318309886.
+\end{align*}
+\item
+Als Verteilungsfunktion im Intervall $[0,1]$ kann die Funktion
+\eqref{50000061:int0} verwendet werden, es muss allerdings die
+richtige Integrationskonstante gewählt werden.
+Sie muss so sein, dass $0$ der Funktionswert bei $x=0$ wird,
+also $C=$
+\[
+F_X(x)
+=
+\begin{cases}
+0&\qquad x\le 0\\
+\frac{1}{\pi}\bigl(\arcsin(2x-1)+\frac{\pi}2\bigr) &\qquad 0<x\le 1\\
+1&\qquad x>1
+\end{cases}
+\]
+\item
+Die Funktion $\varphi(x)$ ist symmetrisch bezüglich $x=\frac12$, daher ist
+$E(X)=\frac12$.
+\item
+Zur Bestimmung der Varianz muss auch $E(X^2)$ bestimmt werden, dies ist
+mit der Formel \eqref{50000061:int2} möglich:
+\begin{align*}
+E(X^2)
+&=
+\int_{-\infty}^\infty x^2 \varphi(x)\,dx
+=
+\int_0^1 \frac{x^2\,dx}{\pi x(1-x)}
+=
+\frac{1}{\pi}
+\biggl[
+\frac38 \arcsin(2x-1)
+\biggr]_0^1
+=
+\frac{1}{\pi}\cdot
+\frac{3\pi}{8}
+=
+\frac{3}{8}
+\\
+\operatorname{var}(X)
+&=
+E(X^2)-E(X)^2
+=
+\frac{3}{8} -\frac14
+=
+\frac38-\frac28
+=
+\frac18.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Normierungsbedingung ({\bf N}) 1 Punkt,
+Konstante $a$ ({\bf A}) 1 Punkt,
+Verteilungsfunktion ({\bf F}) 1 Punkt,
+Erwartungswert ({\bf E}) 1 Punkt,
+Varianzformel ({\bf V}) 1 Punkt,
+Erwartungswert $E(X^2)$ und Varianz ({\bf E2}) 1 Punkt.
+\end{bewertung}

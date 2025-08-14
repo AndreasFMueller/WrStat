@@ -1,0 +1,130 @@
+Betrachten Sie die Funktion
+\[
+\varphi(x)
+=
+\begin{cases}
+a\!\sqrt{1-x^2}&\qquad -1<x<1\\
+0&\qquad\text{sonst.}
+\end{cases}
+\]
+\begin{figure}[h]
+\centering
+\pgfmathparse{2/3.1415926}
+\xdef\a{\pgfmathresult}
+\begin{tikzpicture}[>=latex,thick,scale=4]
+\fill[color=red,color=red!20] (-1,0) 
+	-- plot[domain=0:180,samples=100] ({-cos(\x)},{\a*sin(\x)})
+	-- cycle;
+\draw[->] (-2.0,0) -- (2.0,0) coordinate[label={$x$}];
+\draw[->] (0,-0.02) -- (0,0.9) coordinate[label={right:$\varphi(x)$}];
+\draw[color=red,line width=1.4pt] (-1.9,0)
+	-- plot[domain=0:180,samples=100] ({-cos(\x)},{\a*sin(\x)})
+	-- (1.9,0);
+\node at (0,{\a}) [above left] {$a\mathstrut$};
+\node at (0,0) [below] {$0\mathstrut$};
+\draw (-1,-0.02) -- (-1,0.02);
+\node at (-1,0) [below] {$-1$};
+\draw (1,-0.02) -- (1,0.02);
+\node at (1,0) [below] {$1$};
+\draw (-0.02,{\a}) -- (0.02,{\a});
+\end{tikzpicture}
+\end{figure}
+\begin{teilaufgaben}
+\item
+Für welchen Wert von $a$ ist die Funktion
+die Dichtefunktion einer Wahrscheinlichkeitsverteilung?
+\item
+Bestimmen Sie den Erwartungswert.
+\item
+Bestimmen Sie die Varianz.
+\end{teilaufgaben}
+
+
+\begin{hinweis}
+Verwenden Sie für die Berechnung der Integrale die folgenden Stammfunktionen:
+\begin{align}
+\int\sqrt{1-x^2}\,dx
+&=
+\frac12\arcsin x + C,
+\label{50000060:kreisformel}
+\\
+\int x^2\sqrt{1-x^2}\,dx
+&=
+\frac{1}{8}\arcsin x - \frac{x}{4}(1-x^2)^{\frac32} + \frac{x}{8}\sqrt{1-x^2}
++C.
+\label{50000060:quadrat}
+\end{align}
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Konstante $a$ muss so bestimmt werden, dass das Integral über $\mathbb{R}$
+den Wert $1$ hat.
+Es gilt also
+\begin{align*}
+1
+&=
+\int_{-\infty}^{\infty}
+\varphi(x)
+\,dx
+=
+\int_{-1}^1
+a\sqrt{1-x^2}
+\,dx
+=
+a\frac{\pi}{2}
+\qquad\Rightarrow\qquad
+a=\frac{2}{\pi}.
+\end{align*}
+Die im Hinweis angegebene Integralformel~\eqref{50000060:kreisformel}
+ist nicht nötig, da das Integral den Flächeninhalt eines halben
+Einheitskreises berechnet, der $\frac{\pi}2$ ist.
+\item
+Wegen der Symmetrie der Funktion $\varphi(x)$ ist der Erwartungswert
+$E(X)=0$.
+\item 
+Für die Varianz muss das Integral
+\[
+E(X^2)
+=
+\int_{-\infty}^\infty x^2\varphi(x)\,dx
+=
+\frac{2}{\pi}\int_{-1}^1 x^2\sqrt{1-x^2}\,dx
+\]
+bestimmt werden.
+Mit der Formel~\eqref{50000060:quadrat} aus dem Hinweis folgt:
+\begin{align*}
+E(X^2)
+&=
+\frac{2}{\pi}
+\biggl[
+\frac18\arcsin x - \frac{x}4(1-x^2)^{\frac32}+\frac{x}8\sqrt{1-x^2}
+\bigg]_{-1}^1
+=
+\frac{2}{\pi}\biggl(
+\frac18\biggl(\frac{\pi}{2}-\biggl(-\frac{\pi}2\biggr)\biggr)
+\biggr)
+=
+\frac{1}{4}
+\\
+\operatorname{var}(X)
+&=
+E(X^2)-E(X)^2
+=
+\frac{1}{4}-0
+=
+\frac{1}{4}.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Normierungsbedingung ({\bf N}) 1 Punkt,
+Konstante $a$ ({\bf A}) 1 Punkt,
+Erwartungswert ({\bf E}) 1 Punkt,
+Erwartungswert $E(X^2)$ 1 Punkt,
+Varianzformel ({\bf V}) 1 Punkt,
+Wert der Varianz ({\bf W}) 1 Punkt.
+\end{bewertung}
