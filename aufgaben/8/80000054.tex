@@ -1,0 +1,61 @@
+Der Ertrag von zwei Arten von Kautschukbäumen wird untersucht.
+%\ainput{t.tex} %
+Folgende Erträge wurden von 16 bzw.~12 Bäumen der zwei Arten gemessen:
+\begin{center}
+\begin{tabular}{|l|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+&\text{Stichprobengrösse}&\text{Mittelwert}&\text{Standardabweichung}\\
+\hline
+Art I  &    16 &    6.25 &     0.885\\
+Art II &    12 &    6.96 &     0.994\\
+\hline
+\end{tabular}
+\end{center}
+Kann man daraus ableiten, dass eine der Arten ertragreicher ist?
+
+\begin{loesung}
+Die beiden Mittelwerte können mit einem $t$-Test verglichen werden.
+Die Null-Hypothese dafür lautet
+\begin{quote}
+Der Ertrag der beiden Arten von Kautschukbäumen ist gleich.
+\end{quote}
+Angesichts der kleinen Datenmenge ist $\alpha = 0.05$ angemessen.
+Die Zahl der Freiheitsgrade ist $16+12-2=26$, dies führt auf einen
+kritischen Wert $t_{\text{krit}}=2.0555$.
+Die Berechnung der Grösse $T$ ergibt
+\begin{align*}
+T
+&=
+\frac{\overline{X}-\overline{Y}}{\sqrt{(n-1)S_X^2+(m-1)S_Y^2}}
+\sqrt{\frac{nm(n+m-2)}{n+m}}
+\\
+&=
+\frac{6.25-6.96}{\sqrt{15\cdot 0.885^2 + 11\cdot 0.994^2}}
+\sqrt{\frac{16\cdot 12\cdot 26}{28}}
+=
+-1.993
+\end{align*}
+Da $|T|<t_{\text{krit}}$ ist, kann man die Nullhypothese nicht
+verwerfen und auch nicht folgern, dass keine der Arten einen
+signifikant höheren Ertrag hat.
+\end{loesung}
+
+\begin{diskussion}
+Das negative Vorzeichen von $T$ kann als Anzeichen dafür gesehen
+werden, dass zweiseitig getestet werden muss, dass also der kritische
+Wert in der Spalte $p=0.975$ der $t$-Tabelle abgelesen werden muss.
+
+Der Wert $\alpha=0.01$ ist für die gegebene Datenmenge zu gering.
+\end{diskussion}
+
+\begin{bewertung}
+$t$-Test ({\bf T}) 1 Punkt,
+Nullhypothese ({\bf N}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Freiheitsgrade und kritischer Wert ({\bf K}) 1 Punkt,
+Berechnung von $T$ ({\bf W}) 1 Punkt,
+Schlussfolgerung von $S$ ({\bf S}) 1 Punkt.
+\end{bewertung}
+
+
+
