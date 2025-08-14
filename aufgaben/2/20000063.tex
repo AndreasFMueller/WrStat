@@ -1,0 +1,77 @@
+Eine Internatsschule unterrichtet auch externe Schüler.
+60\% der Schüler wohnen im Internat, der Rest lebt extern.
+Am Ende des Jahres wird die Leistung der Internatsschüler mit
+den Externen verglichen.
+30\% der Internatsschüler erreichen die Höchstnote, aber nur
+20\% der Externen.
+\begin{teilaufgaben}
+\item
+Wie wahrscheinlich ist es, dass ein Schüler die Höchstnote erreicht?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass ein Schüler, der die
+Höchstnote erreicht, ein externer Schüler ist?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir verwenden die Ereignisse:
+\begin{align*}
+I&=\{\text{Internatsschüler}\}
+&
+H&=\{\text{Höchstnote}\}
+\\
+E&=\{\text{externer Schüler}\}=\overline{I}.
+\end{align*}
+Aus dem Text lesen wir die folgenden Erreignisse
+\begin{align*}
+P(H|I)            &= 0.3 \\
+P(H|\overline{I}) &= 0.2 \\
+P(I)              &= 0.6
+\end{align*}
+\begin{teilaufgaben}
+\item
+Es muss $P(H)$ bestimmt werden.
+Dazu kann der Satz von der totalen Wahrscheinlichkeit verwendet werden:
+\begin{align*}
+P(H)
+&=
+P(H|I) P(I) + P(H|\overline{I}) P(\overline{I})
+=
+P(H|I) P(I) + P(H|\overline{I}) (1-P(I))
+=
+0.3\cdot 0.6 + 0.2\cdot 0.4
+=
+0.26.
+\end{align*}
+\item
+Es muss die Wahrscheinlichkeit $P(\overline{I}|H)$ bestimmt werden.
+Es gilt
+\begin{align*}
+P(\overline{I}|H)
+&=
+1-P(I|H)
+\\
+P(I|H)
+&=
+P(H|I)
+\frac{P(I)}{P(H)}
+=
+0.3\cdot\frac{0.6}{0.26}
+=
+0.6923.
+\intertext{Aus den beiden Gleichungen folgt das Resultat}
+P(\overline{I}|H)
+&= 1-0.6923=0.3077.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Ereignisse ({\bf E}) 1 Punkt,
+bedinge Wahrscheinlichkeiten ({\bf C}) 1 Punkt,
+Satz von der totalen Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Satz von Bayes ({\bf B}) 1 Punkt,
+Wahrscheinlichkeit $P(H)$ ({\bf H}) 1 Punkt,
+Wahrscheinlichkeit $P(\overline{I}|H)$ ({\bf I}) 1 Punkt.
+\end{bewertung}
+
