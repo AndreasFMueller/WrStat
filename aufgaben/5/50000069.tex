@@ -1,0 +1,151 @@
+Bei einer Untersuchung in Äthiopien im Jahr 2014 wurde der Blutdruck
+von 1669 Erwachsenen gemessen.
+Dabei wurde festgestellt, dass 18.1\% der Bevölkerung einen 
+systolischen Blutdruck von über 130\,\text{mmHg} haben, was die
+American Heart Association (AHA) als {\em Bluthochdruck} definiert.
+{\em Erhöhter Blutdruck} ist dagegen definiert als ein systolischer
+Blutdruck zwischen 120 und 130\,\text{mmHg}.
+Diesen Zustand findet man bei 37.2\% der Studienteilnehmer.
+Wie gross ist die Wahrscheinlichkeit, dass ein Studienteilnehmer
+einen systolischen Blutdruck unter 110\,\text{mmHg} hat?
+
+\begin{loesung}
+\begin{figure}
+\centering
+\def\punkt#1#2{({(#1-100)/4},{(#2)*4})}
+\begin{tikzpicture}[>=latex,thick,
+declare function = {
+	p(\t) = exp(-(\t-121.275)*(\t-121.275)/(2*9.5712*9.5712));
+}]
+
+\fill[color=darkred!20]
+	plot[domain=130:145,samples=20]
+		({(\x-100)/4},{4*exp(-(\x-121.275)*(\x-121.275)/(2*9.5712*9.5712))})
+		--
+		\punkt{145}{0} -- \punkt{130}{0} -- cycle;
+\fill[color=blue!20]
+	plot[domain=120:130,samples=20]
+		({(\x-100)/4},{4*exp(-(\x-121.275)*(\x-121.275)/(2*9.5712*9.5712))})
+		--
+		\punkt{130}{0} -- \punkt{120}{0} -- cycle;
+\fill[color=darkgreen!20]
+	plot[domain=99:110,samples=20]
+		({(\x-100)/4},{4*exp(-(\x-121.275)*(\x-121.275)/(2*9.5712*9.5712))})
+		--
+		\punkt{110}{0} -- \punkt{99}{0} -- cycle;
+
+\node[color=darkred] at \punkt{135}{0.17} {$18.1\%$};
+\node[color=blue] at \punkt{125}{0.3} {$37.2\%$};
+\node[color=darkgreen] at \punkt{105}{0.1} {gesucht};
+
+\draw[->] \punkt{99}{0} -- \punkt{150}{0} coordinate[label={$x$}];
+\draw[->] \punkt{100}{-0.01} -- \punkt{100}{1.01} coordinate[label={$\varphi$}];;
+\draw plot[domain=99:145,samples=100]
+	({(\x-100)/4},{4*exp(-(\x-121.275)*(\x-121.275)/(2*9.5712*9.5712))});
+
+\foreach \x in {110,120,130}{
+	\draw \punkt{\x}{-0.01} -- \punkt{\x}{0.01};
+}
+\foreach \x in {110,120,130}{
+	\node at \punkt{\x}{-0.01} [below] {$\x$};
+}
+
+\end{tikzpicture}
+\caption{Normalverteilung der Blutdruckmessungen für Aufgabe~\ref{50000069}.
+\label{50000069:blutdruck}}
+\end{figure}
+Der Blutdruck $X$ ist eine normalverteilte Zufallsvariable
+mit Erwartungswert $\mu$ und $\sigma$.
+Aus den Informationen der Aufgabe leitet man ab (siehe auch
+Abbildung~\ref{50000069}), dass
+\begin{equation*}
+\left.
+\begin{aligned}
+P(X\ge 130) &= 0.181 \\
+P(120\le X\le 130) &= 0.372
+\end{aligned}
+\right\}
+\qquad\Rightarrow\qquad
+P(X\ge 120) = 0.553
+\end{equation*}
+Durch Standardisierung
+\begin{align*}
+P\biggl(
+\frac{X-\mu}{\sigma} \le \frac{130-\mu}{\sigma}
+\biggr)
+&=
+0.819
+&
+P\biggl(
+\frac{X-\mu}{\sigma} \le \frac{120-\mu}{\sigma}
+\biggr)
+&=
+0.447
+\intertext{$Z=(X-\mu)/\sigma$ ist standardnormalverteilt.
+Die Umkehrfunktion der Verteilungsfunktion $\Phi$ der Standardnormalverteilung
+führt auf die Gleichungen}
+\frac{130-\mu}{\sigma}
+&=
+0.9116
+&
+\frac{120-\mu}{\sigma}
+&=
+-0.1332
+\end{align*}
+Das Gleichungssystem
+\[
+\renewcommand{\arraycolsep}{3pt}
+\begin{array}{rcrcr}
+\mu &+& 0.9116 \sigma &=& 130\phantom{.}\\
+\mu &-& 0.1332 \sigma &=& 120.
+\end{array}
+\]
+Die Differenz der beiden Gleichungen ist
+\[
+(0.9116+0.1332)\sigma
+=
+1.0448\sigma
+=
+10
+\qquad\Rightarrow\qquad
+\sigma
+=
+9.5712.
+\]
+Eingesetzt in die erste Gleichung kann man daraus auch 
+\[
+\mu
+=
+130-0.9116\sigma
+= 
+121.275
+\]
+bekommen.
+Daraus kann man jetzt die Wahrscheinlichkeit für einen systolischen
+Blutdruck unter 110\,\text{mmHg} ableiten:
+\[
+P(X\le 110)
+=
+P\biggl(Z\le \frac{X-\mu}{\sigma}\biggr)
+=
+\Phi\biggl(
+\frac{X-\mu}{\sigma}
+\biggr)
+=
+\Phi(-1.178)
+=
+0.1193
+=
+11.93\%.
+\qedhere
+\]
+\end{loesung}
+
+\begin{bewertung}
+Normalverteilung ({\bf N}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Gleichungssystem für ({\bf G}) 1 Punkt,
+Werte für $\mu$ ({\bf M}) und $\sigma$ ({\bf D}) je 1 Punkt,
+Wahrscheinlichkeit ({\bf W}) 1 Punkt.
+\end{bewertung}
+

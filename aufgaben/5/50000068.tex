@@ -1,0 +1,68 @@
+Jedes Jahr werden weltweit über 20 Millionen Babies mit einem
+Geburtsgewicht unter $x_{\text{min}}=\text{2.5\,kg}$ geboren,
+was nach Definition der WHO als {\em low birth weight} gilt und
+oft besondere Pflege verlangt.
+Dies entspricht einem Anteil von 8.2\% aller Babies.
+Das mittlere Geburtsgewicht ist dagegen 3.5\,kg.
+Wie schwer ist ein Baby mindestens, welches schwerer als 95\% aller
+Babies ist?
+(Quelle: Wikipedia)
+
+\begin{loesung}
+Das Geburtsgewicht dürfte normalverteilt sein, wir wissen bereits, dass
+$\mu=3.5$ gilt.
+Aus der Information über die Häufigkeit von Babies mit niedrigem
+Geburtsgewicht schliesst man, dass
+\begin{align*}
+0.082
+&=
+P(X\le x_{\text{min}})
+=
+P\biggl(
+\frac{X-\mu}{\sigma} \le \frac{x_{\text{min}} - \mu}{\sigma}
+\biggr)
+=
+P\biggl(
+Z \le \frac{x_{\text{min}}-\mu}{\sigma}
+\biggr)
+=
+\Phi\biggl(
+\frac{x_{\text{min}}-\mu}{\sigma}
+\biggr)
+\\
+-1.392
+&=
+\frac{x_{\text{min}}-\mu}{\sigma}
+\qquad\Rightarrow\qquad
+\sigma
+=
+-
+\frac{x_{\text{min}}-\mu}{1.39}
+=
+\frac{2.5-3.5}{-1.39}
+=
+0.7184.
+\end{align*}
+Die 95\%-Quantile der Normalverteilung liegt bei $\Phi(1.6449)=0.95$,
+woraus folgt, dass das kritische Gewicht bei
+\[
+x
+=
+\mu + 1.6449\cdot\sigma
+=
+3.5 + 1.6449\cdot 0.7184
+=
+4.682\,\text{kg}
+\]
+liegt.
+\end{loesung}
+
+\begin{bewertung}
+Normalverteilung ({\bf N}) 1 Punkt,
+Erwartungswert $\mu$ ({\bf M}) 1 Punkt,
+Bestimmung der 8.2\%-Quantile ({\bf 8}) 1 Punkt,
+Gleichung für $\sigma$ ({\bf S}) 1 Punkt,
+95\% Quantile ({\bf Q}) 1 Punkt,
+Gewichtsschranke ({\bf G}) 1 Punkt.
+\end{bewertung}
+
