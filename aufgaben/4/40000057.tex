@@ -1,0 +1,122 @@
+Gibt es einen Zusammenhang zwischen dem Budget für TV-Werbung und
+Verkäufen?
+Die Tabelle
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}>{$}r<{$}|}
+\hline
+   &\text{TV-Werbeausgaben}&\text{Verkäufe}\\
+\hline
+ 0 & 230.1 & 22.1 \\
+ 1 &  44.5 & 10.4 \\
+ 2 &  17.2 & 12.0 \\
+ 3 & 151.5 & 16.5 \\
+ 4 & 180.8 & 17.9 \\
+\hline
+\end{tabular}
+\end{center}
+gibt Auskunft.
+\begin{teilaufgaben}
+\item
+Finden Sie eine einfaches Modell für die Abhängigkeit der Verkäufe vom
+TV-Werbebudget.
+\item
+Wieviele Verkäufe prognostiziert Ihr Modell für ein TV-Werbebudget von
+von $100$?
+\item
+Welches Werbebudget ist nötig, damit die Verkäufe den Wert
+$20$ erreichen.
+\item
+Beurteilen Sie die Qualität Ihres Modells.
+\end{teilaufgaben}
+
+\begin{loesung}
+Die Punkte und die Regressionsgerade sind in Abbildung~\ref{40000057:fig}
+dargestellt.
+\def\dx{0.05}
+\def\dy{0.25}
+\ainput{daten.tex}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\def\p#1#2{ ({\dx*(#1)},{\dy*(#2)}) }
+\def\punkt#1#2{ \fill[color=darkred] \p{#1}{#2} circle[radius=0.08]; }
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex,thick]
+\draw[line width=0.3pt] \p{\ux}{0} -- \p{\ux}{\uy} -- \p{0}{\uy};
+\draw[line width=0.3pt] \p{\hx}{0} -- \p{\hx}{\hy} -- \p{0}{\hy};
+\draw[->] \p{-1}{0} -- \p{270}{0} coordinate[label={$x$}];
+\draw[->] \p{0}{-0.5} -- \p{0}{25} coordinate[label={right:$y$}];
+\foreach \x in {50,100,...,250}{
+	\draw \p{\x}{-0.3} -- \p{\x}{0.3};
+	\node at \p{\x}{-0.3} [below] {$\x$};
+}
+\foreach \y in {0,5,...,20}{
+	\draw \p{-1}{\y} -- \p{1}{\y};
+	\node at \p{-1}{\y} [left] {$\y$};
+}
+\begin{scope}
+\clip \p{0}{0} rectangle \p{250}{23.3};
+\gerade{blue}
+\end{scope}
+\punkte
+\end{tikzpicture}
+\caption{Datenpunkte und Regressionsgerade für Aufgabe~\ref{40000057}.
+\label{40000057:fig}}
+\end{figure}
+\begin{teilaufgaben}
+\item
+Mit der Berechnungstabelle
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+i&x_i&y_i&x_i^2&y_i^2&x_iy_i\\
+\hline
+\tabelle
+\hline
+\summen
+\hline
+\mittelwerte
+\hline
+\end{tabular}
+\end{center}
+lassen sich die Koeffizienten eines linearen Modells wie folgt
+berechnen:
+\begin{align*}
+a
+&=
+\frac{E(XY)-E(X)E(Y)}{E(X^2)-E(X)^2}
+=
+\steigung,
+\\
+b&=
+E(Y)-aE(X)
+=
+\achsabschnitt.
+\end{align*}
+\item
+Aus den Koeffizienten des Modells ergibt sich für das Budget $x_5=\ux$
+der Wert
+\[
+y_5 = ax_5+b = \steigung\cdot \ux + \achsabschnitt = \uy.
+\]
+\item
+Auflösen der Gleichung $ax+b=100$ nach $x$ ergibt
+\[
+x = \frac{100-b}{a} = \hx.
+\]
+\item
+Mit $r^2=\rr$ ist die Qualität nicht besonders gut.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Lineare Regression ({\bf LR}) 1 Punkt,
+Berechnung von $a$ ({\bf A}) 1 Punkt,
+Berechnung von $b$ ({\bf B}) 1 Punkt,
+Berechnung von $y_u$ in Teilaufgabe b) ({\bf Y}) 1 Punkt,
+Berechnung von $h$ in Teilaufgabe c) ({\bf H}) 1 Punkt,
+Beurteilung mit dem Regressionskoeffizienten in Teilaufgabe d)
+({\bf R}) 1 Punkt.
+\end{bewertung}
+
+
