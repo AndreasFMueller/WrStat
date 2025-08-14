@@ -1,0 +1,99 @@
+Komplexe Passwörter erhöhen die Datensicherheit, es ist aber auch
+entsprechend schwieriger, sich an sie zu erinnern.
+Eine Hilfe für Benutzer kann sein, nicht nur zufällige Zeichenfolgen
+sondern aussprechbare Passwörter zu erzeugen.
+Die Forderung der Aussprechbarkeit hat zur Folge, dass weniger
+Passwörter bei gleicher Passwortlänge zur Verfügung stehen.
+In dieser Aufgabe soll untersucht werden, wieviel länger die Passwörter
+sein müssen, um die gleiche Sicherheit zu erreichen.
+Es soll angenommen werden, dass nur $a=26$ Buchstaben zur Verfügung
+stehen, wovon 5 Vokale sind.
+\begin{teilaufgaben}
+\item
+Wieviele verschiedene Passwörter der Länge $2n$ gibt es?
+\item
+Wieviele Silben aus genau einem Konsonanten und einem Vokal
+gibt es?
+Solche Kombinationen werden auch {\em Digraphen} genannt.
+\item
+Wieviele Passwörter der Längen $2n$ gibt es, die nur aus
+Digraphen wie in Teilaufgaben b) zusammengesetzt sind?
+\item
+Wieviele Passwörter der Länge $2n$ gibt es, die aus genau
+$n$ Vokalen und $n$ Konsonanten bestehen?
+\item
+Deutsch und Englisch lassen sich besser approximieren, wenn man
+Silben aus drei Buchstaben verwendet, die {\em Trigraphen} heissen.
+Wieviele Trigraphen gibt es, die mit einem Konsonanten beginnen,
+an der zweiten Stelle einen Vokal haben und mit einem beliebigen
+Buchstaben Enden?
+\item
+Wieviele Passwörter der Länge $12$ lassen sich aus Trigraphen
+zusammensetzen?
+Wieviel mehr Trigraphen-Passwörter als Digraphen-Passwörter gibt es?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Perlenkettenproblem: $26^{2n}$.
+\item
+$21$ Konsonanten und $5$ Vokale ergibt $21\cdot 5=105$ verschiedene 
+Digraphen.
+\item
+Passwortlänge $2n$ bedeutet, dass sich das Passwort aus $n$ Digraphen
+zusammensetzt.
+Daher gibt es $101^n$ verschiedene Passwörter.
+\item
+Dazu müssen erst die Stellen ausgewählt werden, an denen Vokale stehen
+sollen.
+Dies ist ein Auswahlproblem: es gibt $\binom{2n}{n}$ Möglichkeiten.
+Dann müssen die $n$ Vokale bestimmt werden, das geht auf $5^n$ Arten.
+Für die Konsonanten gibt es entsprechend $21^n$ Arten.
+Die Gesamtzahl der Passwörter ist damit
+\[
+\binom{2n}{n}\cdot 5^n 21^n 
+=
+\binom{2n}{n} \cdot 105^n
+\]
+\item
+$5\cdot 21\cdot 26=2730$
+\item
+Ein Trigraphen-Passwort der Länge 12 besteht aus 4 Trigraphen, also
+gibt es $2730^4$ solche Passwörter.
+Da es $105^6$ Digraphen-Passwörter gibt, gibt es
+\[
+\frac{2730^4}{105^6}
+=
+\frac{5^4\cdot 21^4\cdot 26^4}{21^6\cdot 5^6}
+=
+\frac{26^4}{21^2\cdot 5^2}
+=
+\biggl(
+\frac{676}{105}
+\biggr)^2
+\approx
+41.44907
+\]
+mal mehr Trigraphen-Passwörter.
+Trotz der auf den ersten Blick einschränkenderen Struktur mit
+weniger Elementen gibt es vor allem wegen des dritten, freien Buchstabens
+in jedem Trigraphen über 40 mal mehr Trigraphen-Passwörter.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Die Erzeugung aussprechbarer Passwörter mit Digraphen und Trigraphen
+wurde in den Sechzigerjahren gut untersucht.
+Der FIPS-181-Standard beschreibt eine noch viel ausgefeiltere Methode,
+englisch aussprechbare Passwörter zu erzeugen.
+Sie leitet sich ab aus einem Algorithmus von Morrie Gasser, der für
+das Multics-Projekt geschrieben wurde.
+Eine Adaption an moderne Systeme ist das Programm \texttt{gpw} von
+Tom Van Vleck vom Projekt \url{multicians.org}.
+Das Programm ist auch für Linux verfügbar, auf Debian im Packet 
+\texttt{gpw}.
+Eine Javascript-basiert Web-Implementation findet man unter
+\url{https://multicians.org/thvv/gpw-js.html}.
+\end{diskussion}

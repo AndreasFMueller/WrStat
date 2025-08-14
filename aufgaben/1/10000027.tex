@@ -1,0 +1,147 @@
+Zum Schutz der eigenen Daten wird empfohlen, Passwörter zu wählen,
+die nicht so leicht erraten werden können.
+Meist wird dazu eine minimale Passwortlänge verlangt, oft werden
+aber zusätzliche Forderungen gestellt, wie zum Beispiel Gross-
+und Kleinbuchstaben, Ziffern und Sonderzeichen, die im Passwort
+vorkommen müssen.
+In dieser Aufgabe soll untersucht werden, welche Anforderungen an
+ein Passwort die Wahrscheinlichkeit, das Passwort zu erraten, 
+tatsächlich senken und damit den Schutz des Benutzers verbessern.
+Nehmen Sie an, dass das zur Verfügung stehende Alphabet aus den
+folgenden Arten Zeichen besteht:
+\begin{center}
+\begin{tabular}{|lr|}
+\hline
+Zeichenklasse                 & Anzahl Zeichen \\
+\hline
+Buchstaben                    &             52 \\
+\qquad davon Kleinbuchstaben  &             26 \\
+\qquad oder Grossbuchstaben   &             26 \\
+Ziffern                       &             10 \\
+Sonderzeichen                 &             39 \\
+\hline
+Total                         &            101 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item
+Wieviele verschiedene Passwörter mit $n$ Zeichen gibt es?
+\item
+Wieviele verschiedene Passwörter gibt es, die nur Buchstaben verwenden?
+\item
+Oft wird versucht, die Robustheit der Passwörter dadurch zu erhöhen, dass
+man von den Benutzern verlangt, dass sie in ihren Passwörtern gewisse
+Zeichen verwenden müssen.
+Vergleichen Sie die Anzahlen verschiedener Passwörter der Länge $n$
+unter folgenden Einschränkungen:
+\begin{enumerate}[i)]
+\item
+Passwörter aus $n$ Kleinbuchstaben.
+\item
+Passwörter der Länge $n$, die genau
+eine Ziffer, ein Sonderzeichen und ein Grossbuchstaben enthalten
+und sonst aus nur Kleinbuchstaben bestehen.
+\item
+Um wieviele Zeichen längere Passwörter muss man verlangen, wenn die
+Benutzer nur Kleinbuchstaben verwenden, um mehr verschiedene
+Passwörter als in (ii) zu bekommen.
+\end{enumerate}
+\end{teilaufgaben}
+
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Dies ist ein Perlenkettenproblem, es gibt daher $101^n$
+Passwörter.
+\item Desgleichen: $52^n$
+\item
+\begin{enumerate}[i)]
+\item Es handelt sich um ein Perlenkettenproblem, die Anzahl ist $26^n$.
+\item
+Zunächst müssen die Plätze für die besonderen Zeichen ausgewählt
+werden: es gibt $n$ mögliche Plätze für die Ziffer, $n-1$ Plätze
+für das Sonderzeichen und $n-2$ für den Grossbuchstaben.
+Mit den Anzahlen für die einzelnen Zeichen in der Tabelle folgt,
+dass die Anzahl der Passwörter
+\begin{equation}
+\underbrace{\mathstrut n\cdot 10}_{\text{Ziffer}}
+\cdot
+\underbrace{(n-1)\cdot 39}_{\text{Sonderzeichen}}
+\cdot
+\underbrace{(n-2)\cdot 26}_{\text{Grossbuchstabe}}
+\cdot
+26^{n-3}
+\label{10000027:komplex}
+\end{equation}
+\item
+Statt $n$ Kleinbuchstaben haben wir jetzt $n+k$ Kleinbuchstaben, also
+$26^{n+k}$ verschiedene Passwörter.
+Es muss jetzt $k$ so gefunden werden, dass
+diese Anzahl grösser wird als \eqref{10000027:komplex}:
+\begin{align*}
+n(n-1)(n-2)\cdot 10 \cdot 39 \cdot 26^{n-2}
+&<
+26^{n+k}
+\\
+n(n-1)(n-2)\cdot 10 \cdot 39
+&<
+26^{k+2}
+\intertext{Da wir uns für den Exponenten interessieren,
+nehmen wir den Logarithmus zur Basis 26 und bekommen}
+\log_{26} \bigl(n(n-1)(n-2)\cdot 10\cdot 39\bigr)
+&<
+k+2.
+\\
+k&> \frac{\log\bigl(n(n-1)(n-2)\cdot 10 \cdot 39\bigr)}{\log 26} -2
+\intertext{Für $n=6$ ergibt sich}
+k&>
+\frac{\log (6\cdot 5 \cdot 4\cdot 10 \cdot 39)}{\log 26} -2
+=
+1.300589
+\end{align*}
+Wenn Benutzer also die Komplexitätsanforderungen nur minimal erfüllen,
+ist es leichter mit etwas längeren Passwörtern mehr Sicherheit zu erhalten
+als mit komplizierten Komplexitätsanforderungen.
+\qedhere
+\end{enumerate}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Man kann in c) auc die Frage stellen, wie lang Passwörter sein
+müssen, damit es mindestens um zwei Zeichen längere Passwörter braucht,
+um die Wahrscheinlichkeit, dass ein Passwort erraten wird, gleichermassen
+zu erhöhen wie durch die in (ii) verlangten Komplexitätsanforderungen.
+Dazu muss
+\begin{align*}
+\log_{26}(n(n-1)(n-2)\cdot10\cdot 39) -2 &> 2 
+\intertext{sein}
+n(n-1)(n-2)\cdot 10 \cdot 39 &> 26^{4}
+\\
+n(n-1)(n-2) &> \frac{26^4}{390} \approx 1171.733
+\end{align*}
+Dies ist ein kubisches Polynom und es ist etwas umständlich, $n$ direkt
+zu bestimmen. 
+Indem man die dritte Wurzel zieht, kann man ungefähr abschätzen, wie
+gross $n$ sein muss, man erhält $n\approx 10.543$.
+Man kann jetzt mit verschiedenen $n$ probieren:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}|}
+\hline
+n&n(n-1)(n-2)
+\\
+\hline
+10 & 720 \\
+11 & 990 \\
+12 & 1320 \\
+\hline
+\end{tabular}
+\end{center}
+Erst für Passwörter mit einer Länge von mindestens 12 Zeichen braucht
+es mindestens zwei zusätzliche Zeichen.
+Man kann dies so interpretieren: wenn man davon ausgehen muss, dass
+Benutzer nur die minimalen Anforderungen an die Passwortkomplexität
+erfüllen, dann gewinnt man mehr Sicherheit dadurch, dass man die minimale
+Passwortlänge um ein einziges Zeichen vergrössert.
+\end{diskussion}

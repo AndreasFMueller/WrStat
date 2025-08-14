@@ -1,0 +1,102 @@
+Das Institut für Raum Quanten Physik von Hans Lehner ist eine
+pseudowissenschafltliche Randerscheinung.
+Es ging hervor aus dem Konkurs der Rapperswiler Raum-Quanten-Motoren AG,
+die seit den frühen 90er Jahren mit abstrusen pseudophysikalischen
+Theorien verspricht, Energie aus dem Nichts zu gewinnen.
+Hunderte von Investoren glauben zum Teil immer noch,
+dass die Ablehnung Lehners durch Leute, die etwas von Physik verstehen,
+eine Verschwörung rückständiger Forscher sei.
+Über 11~Mio Franken Schaden sind durch den Konkurs entstanden.
+das Institut führte die agressive Akquisition von leichtgläubigen
+Investoren fort, seit 2015 gab es auf der Website allerdings
+keine Updates mehr.
+In diesem Jahr ist Lehner in Thailand gestorben.
+
+Die Corona-Leugner dagegen sind eine vergleichsweise verbreitete
+Erscheinung.
+Waren es im Jahre 2020 noch etwa 14\%, ist die Zahl 2021 auf 9\%
+gesunken.
+Will man die Anzahl Google-Suchresultate als Mass für die Akzeptanz
+einer Verschwörungstheorie ansehen, dann hat der Raum-Quanten-Motor 
+mindstens 100mal weniger Anhänger\footnote{Anzahl Suchresultate zu
+\texttt{raum quanten physik}: 528, Anzahl resultate zu
+\texttt{``mass-voll'' corona}: 56100.}.
+
+\begin{teilaufgaben}
+\item 
+Wie gross ist die Wahrscheinlichkeit, dass in einer Gemeinde mit
+1000 Einwohnern weniger als 70 Schwurbler leben?
+\item 
+Wie gross ist die Wahrscheinlichkeit, in der gleichen Gemeinde
+mehr als zwei Einwohner zu finden, die an den Raum-Quanten-Motor
+glauben?
+\end{teilaufgaben}
+
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Sei $X$ die Zufallsvariable der Anzahl der Schwurbler.
+Sie ist binomialverteilt mit $n=1000$ und $p=0.09$.
+Der Erwartungswert ist $\mu=np=90$ und die Standardabweichung
+ist $\sigma=\sqrt{np(1-p)}\approx 9.04986$.
+Mit der Normalverteilungsapproximation der Binomialverteilung
+kann man jetzt die Wahrscheinlichkeit ausrechnen.
+Dazu bestimmt man die Standardisierung $Z=(X-\mu)/\sigma$ und
+bekommt
+\begin{align*}
+P(X< 90)
+&\approx
+P\biggl(Z < \frac{69.5 -\mu}{\sigma}\biggr)
+=
+P(Z < -2.2652)
+=
+1-P(Z>2.2652)
+=
+1-0.98825
+\approx
+0.01174935,
+\end{align*}
+die gesuchte Wahrscheinlichkeit ist $1.17\%$.
+\item
+Da der Glaube an Raum Quanten Motor so selten ist, kann man ihn
+mit einer
+Poisson-Verteilung mit dem Parameter $\lambda = n\cdot 0.0009=0.9$
+beschreiben.
+Sei $X$ die Anzahl der RQM-Anhänger, dann ist die Wahrscheinlichkeit,
+mehr als 2 RQM-Anhänger zu finden
+\begin{align*}
+P(X>2)
+&\approx
+1-\sum_{k=0}^2 P_\lambda(k)
+=
+1-e^{-\lambda} \sum_{k=0}^2 \frac{\lambda^k}{k!}
+\\
+&=
+1-e^{-\lambda}\biggl(1+\lambda+\frac{\lambda^2}{2}\biggr)
+=
+1- 0.9371
+=
+0.062857.
+\end{align*}
+Die Wahrscheinlichkeit, mehr als 2 RQM-Anhänger zu finden, ist daher 
+höchstens 6.28\%.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Binomialverteilung ({\bf B}) 1~Punkt,
+Erwartungswert und Varianz ({\bf E}) 1~Punkt,
+Standardisierung ({\bf S}) 1~Punkt,
+Wahrscheinlichkeit ({\bf W}) 1~Punkt,
+\item
+Poisson-Verteilung und Wert des Parameters ({\bf P}) 1~Punkt,
+Resultierende Wahrscheinlichkeit ({\bf R}) 1~Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
+
+
