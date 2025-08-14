@@ -1,0 +1,106 @@
+In einem Zugwagen gibt es 16 Plätze, davon 8 Fenster- und 8 Gangplätze.
+Je die Hälfte der Plätze ist in Fahrtrichtung gerichtet, die anderen
+fahren mit dem Rücken zur Fahrtrichtung.
+Eine Gesellschaft von zwölf Personen will im Zug Platz nehmen.
+\begin{teilaufgaben}
+\item 
+Auf wieviele Arten können die Reisenden die Plätze einnehmen?
+\item
+Vier der Personen möchten unbedingt einen Fensterplatz haben, den anderen
+spielt es keine Rolle.
+Auf wieviele Arten können die Reisenden Platz nehmen?
+\item
+Einer Person wird übel, wenn sie nicht in Fahrtrichtung schauen kann.
+Sie verlangt nicht unbedingt nach einem Fensterplatz.
+Auf wieviele Arten können sich die Reisenden setzen, wenn diese
+Person einen Fensterplatz einnimmt?
+\item
+Auf wieviele Arten können sich die Fahrgäste setzen, wenn die Person,
+der übel wird, keinen Fensterplatz einnimmt?
+\item
+Auf wieviele Arten können sich die Reisenden setzen, wenn beide Bedingungen
+(Fensterplätze und Fahrtrichtung) erfüllt sein sollen?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Zunächst müssen 12 der 16 Plätze ausgewählt werden, dies ist auf
+$\binom{16}{12}$ Arten möglich.
+Auf den zwölf gewählten Plätzen können die Fahrgäste auf $12!$
+Arten angeordnet werden.
+Die Reisenden können die Plätze daher auf
+\[
+\binom{16}{12}\cdot 12!
+=
+\frac{16!}{12!\cdot 4!}\cdot 12!
+=
+\frac{16!}{4!}
+=
+16\cdot 15\cdot 14\cdot\ldots\cdot 6\cdot 5
+=
+871782912000
+\]
+Arten Platz nehmen.
+\item
+Zunächst werden 4 der 8 Fensterplätze auf $\binom{8}{4}$ Arten gewählt
+und die Fensterplatzfahrer in $4!$ möglichen Anordnungen platziert.
+Dann werden 8 von 12 Plätzen für die verbleibenden Gäste gewählt und
+die Gäste auf $8!$ Arten angeordnet.
+So ergeben sich
+\[
+\binom{8}{4}\cdot 4! \cdot \binom{12}{8}\cdot 8!
+=
+70 \cdot 24 \cdot 495 \cdot 40320
+=
+33530112000
+\]
+mögliche Platzierungen.
+\item
+Die Person $U$, der übel wird, nimmt einen von 4 Fensterplätzen ein,
+die auch in Fahrtrichtung schauen.
+Dann werden von den 7 verbleibenden Fensterplätzen 4 für die 
+Fensterplatzfahrer gewählt.
+Schliesslich werden 7 der verbleibenden 11 Plätze gewählt.
+So ergeben sich
+\[
+4\cdot\binom{7}{4}\cdot 4! \cdot\binom{11}{7}\cdot 7!
+=
+4\cdot 35 \cdot 24\cdot 330\cdot 5040
+=
+5588352000
+\]
+Anordnungen.
+\item
+Die Person $U$ nimmt einen von 4 Nicht-Fensterplätzen in Fahrtrichtung
+ein.
+Dann werden 4 Gäste auf die 8 vorhandenen Fensterplätze platziert und
+schliesslich die 7 verbleibenden Gäste auf die 11 übrigen Plätze.
+Die gesuchte Anzahl ist
+\[
+4\cdot \binom{8}{4}\cdot 4!\cdot\binom{11}{7}\cdot 7!
+=
+4\cdot 70\cdot 24\cdot 330\cdot 5040
+=
+11176704000
+\]
+\item
+Die beiden Situationen der vorgegangenen zwei Teilaufgaben schliessen sich
+aus, sie können daher addiert werden.
+Es gibt also
+\[
+5588352000
++
+11176704000
+=
+16765056000
+\]
+Platzierungen der verlangten Art.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Auswahl-Problem (Binomialkoeffizient) ({\bf W}) 1 Punkt,
+jede Teilaufgabe ein Punkt ({\bf A} bis {\bf E}) ein Punkt.
+\end{bewertung}
