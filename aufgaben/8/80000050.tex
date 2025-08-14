@@ -1,0 +1,65 @@
+Ein grosses Unternehmen möchte die Ausfälle durch Grippeerkrankungen
+vermeiden und bietet daher allen Mitarbeitern rechtzeitig eine Impfung
+an.
+Zu Beginn der Grippe-Saison sind mehrere Impfstoffe verfügbar, es ist
+aber nicht bekannt, welcher am besten wirken wird.
+Nach der Saison kann man allerdings feststellen, wie erfolgreich
+die Impfung war.
+Die Tabelle zeigt einerseits die verzeichneten Grippefälle trotz
+Impfung mit Impfstoff $i$ und
+andererseits den Anteil der Mitarbeiter, die mit dem Impfstoff $i$
+geimpft worden waren.
+\begin{center}
+\begin{tabular}{|>{$}r<{$}|>{$}r<{$}>{$}r<{$}|}
+\hline
+\text{Impfstoff}&\text{Grippefälle}&\text{Anteil der MA}\\
+\hline
+1&  43&    20.74\%\\
+2&  52&    18.52\%\\
+3&  25&    20.00\%\\
+4&  48&    19.26\%\\
+5&  57&    21.48\%\\
+\hline
+\end{tabular}
+\end{center}
+Kann man daraus einen Schluss ziehen, ob ein Impfstoff besonders
+wirksam war?
+
+\begin{loesung}
+Wir führen einen $\chi^2$-Gest für die Nullhypothese
+\begin{quote}
+Die Fallzahlen passen zur Verteilung der Impfstoff in der
+Belegschaft.
+\end{quote}
+durch.
+\ainput{d.tex}
+Wegen der geringen Fallzahlen ist ein $\alpha=5\%$ angemessen.
+Die Fallzahlen $n_i$ entnehmen wir der zweiten Spalte der Tabelle,
+die Wahrscheinlichkeiten $p_i$ der dritten Spalte.
+Damit lässt sich jetzt die Diskrepanz berechnen:
+\begin{center}
+\begin{tabular}{|>{$}r<{$}|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+i&     n_i&       p_i & np_i & n_i - np_i & (n_i-np_i)^2/np_i\\
+\hline
+\tabelle
+\hline
+\end{tabular}
+\end{center}
+Der kritische Wert der Diskrepanz für 4 Freiheitsgrade ist
+$D_{\text{krit}}=9.488$.
+Da $D=\D>D_{\text{krit}}$ ist, kann man die Nullhypothese verwerfen
+und folgern, dass es tatsächlich einen Unterschied zwischen den 
+verschiedenen Impfungen gibt.
+Es scheint, dass Impfung 3 besonders wirkungsvoll war.
+\end{loesung}
+
+\begin{bewertung}
+Nullhypothese ({\bf H$\mathstrut_0$}) 1 Punkt,
+$\chi^2$-Test ({\bf X}) 1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Freiheitsgrade und kritischer Wert ({\bf K}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+

@@ -1,0 +1,77 @@
+Eine Untersuchung geht einem möglichen Zusammenhang zwischen 
+Schulbildung und Zivilstand nach.
+In einer Umfrage ergaben sich für alle Teilnehmer die folgenden Resultate
+\begin{equation}
+\begin{tabular}{|>{$}c<{$}|l|>{$}r<{$}|}
+\hline
+&Zivilstand&\text{Häufigkeit}\\
+\hline
+1&ledig       &  30\%\\
+2&verheiratet &  50\%\\
+3&geschieden  &  10\%\\
+4&verwittwet  &  10\%\\
+\hline
+\end{tabular}
+\label{80000049:tab1}
+\end{equation}
+Die Untersuchung vermutet, dass Teilnehmer, die nur die
+obligatorischen Schulen besucht haben, geringere Chancen haben,
+verheiratet zu sein.
+Die Umfrage fand für diese Untergruppe die folgenden Zahlen:
+\begin{equation}
+\begin{tabular}{|>{$}c<{$}|l|>{$}r<{$}|}
+\hline
+&Zivilstand&\text{Anzahl}\\
+\hline
+1&ledig       &  18\\
+2&verheiratet &  12\\
+3&geschieden  &   6\\
+4&verwittwet  &   3\\
+\hline
+\end{tabular}
+\label{80000049:tab2}
+\end{equation}
+Können Sie die Vermutung bestätigen oder widerlegen?
+
+\begin{loesung}
+Wir führen einen $\chi^2$-Test für die Nullhypothese
+\begin{quote}
+Die beobachteten Zahlen des Zivilstands weichen nicht wesentlich von
+den Häufigkeiten der Zivilstände in der gesamten Untersuchung ab.
+\end{quote}
+durch.
+Die erwarteten Wahrscheinlichkeiten $p_i$ entnehmen wir der dritten
+Spalte der Tabelle~\eqref{80000049:tab1}.
+Wir berchnen die Diskrepanz zu den Zahlen $n_i$ aus
+Tabelle~\eqref{80000049:tab2}.
+Dazu dient die folgende Tabelle:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|}
+\hline
+i&  n_i& p_i& np_i& n_i-np_i& (n_i-np_i)^2/np_i\\
+\hline
+1&   18& 0.3& 11.7&      6.3&            3.3923\\
+2&   12& 0.5& 19.5&     -7.5&            2.8846\\
+3&    6& 0.1&  3.9&      2.1&            1.1308\\
+4&    3& 0.1&  3.9&     -0.9&            0.2077\\
+\hline
+ & n=39&    &     &         &        D = 7.6153\\
+\hline
+\end{tabular}
+\end{center}
+Aufgrund der geringen Datenmenge ist $\alpha=5\%$ angemessen, der zugehörige
+kritische Wert der Diskrepanz für 3 Freiheitsgrade ist $D_{\text{krit}}=7.815$.
+Da $D < D_{\text{krit}}$ ist, erlauben die Daten nicht, die Nullhypothese
+zu verwerden, man kann also nicht schliessen, dass weniger gebildete
+Leute weniger oft heiraten.
+\end{loesung}
+
+\begin{bewertung}
+Nullhypothese ({\bf H$\mathstrut_0$}) 1 Punkt,
+$\chi^2$-Test ({\bf X}) 1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Freiheitsgrade und kritischer Wert ({\bf K}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+
