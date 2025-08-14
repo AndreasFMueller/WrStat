@@ -1,5 +1,44 @@
-Rechnen mit Wahrscheinlichkeit
+Von den Ereignissen $A$ und $B$ sind die folgenden Wahrscheinlichkeiten
+bekannt
+\begin{align*}
+P(A) &= 0.6
+&
+P(A \cap B) &= 0.2
+&
+P(A \cup B) &= 0.8
+\end{align*}
+\begin{teilaufgaben}
+\item Wie gross ist die Wahrscheinlichkeit von $B$?
+\item Wie gross ist die Wahrscheinlichkeit von $A\setminus B$?
+\end{teilaufgaben}
 
 \begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Regel
+\[
+P(A\cup B) = P(A) + P(B) - P(A\cap B)
+\]
+können wir nach $P(B)$ auflösen:
+\begin{align*}
+P(B)
+&=
+P(A\cup B)+P(A\cap B) - P(A).
+\intertext{Alle Wahrscheinlichkeiten auf der rechten Seite sind bekannt,
+also folgt}
+0.8 + 0.2 - 0.6
+=
+0.4.
+\end{align*}
+\item
+$P(A\setminus B)
+=
+P(A \setminus (A\cap B))
+=
+P(A) - P(A\cap B)
+=
+0.6 - 0.2 = 0.4.$
+\qedhere
+\end{teilaufgaben}
 \end{loesung}
 

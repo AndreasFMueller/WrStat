@@ -93,9 +93,14 @@ wochen:	woche01 woche02 woche03 woche04 woche05 woche06 woche07 woche08 \
 	woche09 woche10 woche11 woche12 woche13
 
 woche01:	woche01.pdf
-woche01.pdf:	woche01.tex
+woche01.pdf:	woche01.tex $(TEXFILES)
 	$(pdflatex) woche01.tex
 	cp $(workdir)/woche01.pdf .
+
+woche02:	woche02.pdf
+woche02.pdf:	woche02.tex $(TEXFILES)
+	$(pdflatex) woche02.tex
+	cp $(workdir)/woche02.pdf .
 
 images:
 	for d in ?/*; \

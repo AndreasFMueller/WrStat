@@ -1,5 +1,47 @@
-Wahrscheinlichkeit, erste Beispiele
+Bestimmen Sie die Wahrscheinlichkeit der folgenden Ereignisse.
+\begin{teilaufgaben}
+\item
+Aus einem Kartenspiel mit 52 Karten wird eine Karte gezogen.
+Das Ereignis $A$ tritt ein, wenn ein König gezogen wird.
+\item
+Die berühmte grüne Box enthält 4 rote, 2 blaue,
+2 silbrige und 2 goldene Lindor-Kugeln.
+Es wird eine Lindor-Kugel aus der grünen Box gezogen.
+Das Ereignis $B$ tritt ein, wenn die Kugel nicht rot ist.
+\end{teilaufgaben}
 
 \begin{loesung}
+\begin{teilaufgaben}
+\item
+In einem solchen Kartenspiel gibt es 4 Könige.
+Bei $N$ Versuchen erwarten wir $\frac4{52}N$ Fälle, in denen ein König
+gezogen wird.
+Daher ist die Wahrscheinlichkeit
+\[
+P(A)
+=
+\lim_{N\to\infty}
+\frac{\frac4{52}N}{N}
+=
+\frac{4}{52}.
+\]
+\item
+In der Box gibt es 6 von 10 Kugeln, die nicht rot sind.
+Bei $N$ versuchen erwarten wir daher $\frac{6}{10}N$ Fälle, in denen
+keine rote Kugel gezogen wird.
+Daher ist die Wahrscheinlichkeit
+\[
+P(B)
+=
+\lim_{N\to\infty} \frac{\frac{6}{10}N}{N}
+=
+\frac{6}{10}
+=
+\frac{3}{5}
+=
+0.6.
+\qedhere
+\]
+\end{teilaufgaben}
 \end{loesung}
 

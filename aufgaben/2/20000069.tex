@@ -1,5 +1,101 @@
-Ereignisalgebra
+Aus einem Kartenspiel mit 52 Karten werden 5 Karten gezogen, dabei
+können die folgenden Ereignisse eintreten.
+\begin{teilaufgaben}
+\item
+$P=\{\text{enthält zwei Karten mit gleichem Wert}\}$, d.~h.~ein Paar
+\item
+$Z=\{\text{enthält zwei verschiedene Paare}\}$
+\item
+$T=\{\text{enthält drei Karten mit gleichem Wert}\}$, d.~h.~ein Tripel
+\item
+$V=\{\text{enthält vier Karten mit gleichem Wert}\}$, d.~h.~Poker
+\item
+$F=\{\text{full house}\}$, d.~h.~ein Paar und ein Tripel, jeweils mit
+verschiedenem Wert
+\end{teilaufgaben}
+Zeichnen Sie die Ereignisse in einem Venn-Diagramm und geben Sie
+ein Beispiel für ein Elementarereignis in
+\[
+X
+=
+(P\cap T)\setminus(F\cup V)
+.
+\]
 
 \begin{loesung}
+Die Ereignisse können wie folgt gezeichnet werden:
+\begin{center}
+\begin{tikzpicture}[>=latex,thick]
+\coordinate (ur) at (12,8);
+\def\pathall{ (0,0) rectangle (ur) }
+\draw (0,0) rectangle (ur);
+\node at (ur) [above left] {$\Omega$};
+
+\def\pathp{ (1,1) rectangle (8,6) }
+\def\patht{ (4,2) rectangle (11,7) }
+\def\pathz{ (2,2.5) rectangle (6,4.5) }
+\def\pathf{
+	(4,2.5) -- (5.6,2.5) arc(-90:0:0.4) -- (6,4.1) arc(0:90:0.4) -- (4,4.5) -- cycle
+}
+\def\pathv{ (6,4.5) rectangle (8,6) }
+
+\begin{scope}
+	\clip[rounded corners=0.4cm] \pathp;
+	\fill[color=red!20,opacity=0.5] \pathall;
+\end{scope}
+
+\begin{scope}
+	\clip[rounded corners=0.4cm] \patht;
+	\fill[color=blue!20,opacity=0.5] \pathall;
+\end{scope}
+
+\begin{scope}
+	\clip[rounded corners=0.4cm] \pathz;
+	\fill[color=orange!20,opacity=0.5] \pathall;
+\end{scope}
+
+\begin{scope}
+	\clip \pathf;
+	\fill[color=darkgreen!20,opacity=0.5] \pathall;
+\end{scope}
+
+\begin{scope}
+	\clip[rounded corners=0.4cm] \pathv;
+	\fill[color=brown!20,opacity=0.5] \pathall;
+\end{scope}
+
+\draw[color=darkred,rounded corners=0.4cm] \pathp;
+\draw[color=blue,rounded corners=0.4cm] \patht;
+\draw[color=orange,rounded corners=0.4cm] \pathz;
+\draw[color=darkgreen] \pathf;
+\draw[color=brown,rounded corners=0.4cm] \pathv;
+
+\node[color=darkred] at (1,6) [below right,distance=0.7cm] {$P$};
+\node[color=orange] at (2,4.5) [below right,distance=0.7cm] {$Z$};
+\node[color=brown] at (7,5.25) {$V$};
+\node[color=darkgreen] at (5.15,3.5) {$F$};
+\node[color=blue] at (11,7) [below left,distance=0.7cm] {$T$};
+
+\coordinate (omega) at (7,3);
+\fill (omega) circle[radius=0.08];
+\node at (omega) [above] {$\omega$};
+
+\node at (4.5,5.5) {$X$};
+
+\end{tikzpicture}
+\end{center}
+Ein Elementarereignis $\omega$ in $X$ muss ein Tripel enthalten, darf aber 
+weder eine weiter Karte wie im Tripel noch ein vom Tripel
+verschiedenes Paar enthalten.
+Es ist daher von der Form
+\[
+\omega
+=
+\{
+a_1, a_2, a_3, b, c
+\},
+\]
+also drei gleiche Karten $a_i$ mit dem gleichen Wert und zwei 
+Karten $b$ und $c$ mit von $a_i$ und untereinander verschiedenem Wert.
 \end{loesung}
 
