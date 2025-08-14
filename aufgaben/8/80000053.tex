@@ -1,0 +1,54 @@
+Es wird oft behauptet, dass Frauen einen höheren Körperfettanteil
+haben als Männer.
+Zur Untersuchung dieser Behauptung wurde bei 13 Männern und 10 Frauen
+der Körperfettanteil gemessen mit den folgenden Resultaten:
+\begin{center}
+\begin{tabular}{|l|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+&\text{Stichprobengrösse}&\text{Mittelwert}&\text{Standardabweichung}\\
+\hline
+Männer &     13&    14.95&     6.48\\
+Frauen &     10&    22.29&     5.32\\
+\hline
+\end{tabular}
+\end{center}
+Kann man aus diesen Daten eine Aussage über die ursprüngliche Behauptung
+ableiten?
+
+\begin{loesung}
+Die beiden Mittelwerte können mit einem $t$-Test verglichen werden.
+Die Null-Hypothese dafür lautet
+\begin{quote}
+Der Körperfettanteil von Männern und Frauen ist gleich.
+\end{quote}
+Angesichts der kleinen Datenmenge ist $\alpha = 0.05$ angemessen.
+Die Zahl der Freiheitsgrade ist $13+10-2=21$, dies führt auf einen
+kritischen Wert $t_{\text{krit}}=2.0796$.
+Die Berechnung der Grösse $T$ ergibt
+\begin{align*}
+T
+&=
+\frac{\overline{X}-\overline{Y}}{\sqrt{(n-1)S_X^2+(m-1)S_Y^2}}
+\sqrt{\frac{nm(n+m-2)}{n+m}}
+\\
+&=
+\frac{14.95-22.29}{\sqrt{12\cdot 6.48^2 + 9\cdot 5.32^2}}
+\sqrt{\frac{10\cdot 13\cdot 21}{23}}
+=
+-2.9034
+\end{align*}
+Da $|T|>t_{\text{krit}}$ ist, kann man die Nullhypothese verwerfen und 
+folgern, dass Frauen tatsächlich einen höheren Körperfettanteil haben.
+\end{loesung}
+
+\begin{bewertung}
+$t$-Test ({\bf T}) 1 Punkt,
+Nullhypothese ({\bf N}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Freiheitsgrade und kritischer Wert ({\bf K}) 1 Punkt,
+Berechnung von $T$ ({\bf W}) 1 Punkt,
+Schlussfolgerung von $S$ ({\bf S}) 1 Punkt.
+\end{bewertung}
+
+
+
