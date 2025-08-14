@@ -1,0 +1,76 @@
+In den Kalenderwochen 40-43 des Jahres 2021
+waren waren in deutschen Intensivstationen
+34\% der über 60-jährigen Corona-Patienten geimpft.
+85\% aller über 60-jähriger ist bereits geimpft.
+Der Anteil der über 60-jährigen, die auf der Intensivstation zu landen,
+ist trotzdem klein und es ist schwierig, darüber genaue Daten zu finden.
+Arbeiten Sie mit dem Parameter $p$.
+\begin{teilaufgaben}
+\item 
+Wie gross ist die Wahrscheinlichkeit, dass ein Geimpfter auf der
+Instenstation landet?
+\item
+Wieviel mal grösser ist die Wahrscheinlichkeit, dass ein Geimpfter
+auf der Intensivstation landet als ein Ungeimpfter?
+\end{teilaufgaben}
+
+%https://www.youtube.com/watch?v=mVdKwSY6FLg
+
+\begin{hinweis}
+Ihre Resultate werden zum Teil den Parameter $p$ enthalten.
+\end{hinweis}
+
+\begin{loesung}
+Wir verwenden die folgenden Ereignisse:
+\begin{align*}
+\Omega&=\{\text{alle über 60-jährigen}\}
+\\
+I&=\{\text{Covid-19-Patienten, die auf der Intensivstation landen}\}
+\\
+G&=\{\text{geimpfte}\}
+\\
+U&=\overline{G}=\{\text{ungeimpfte}\}
+\end{align*}
+Bekannt sind aus der Aufgabenstellung die folgenden Wahrscheinlichkeiten:
+\begin{align*}
+P(G)       &= 0.85 &
+P(G\mid I) &= 0.34 \\
+P(U)       &= 0.15 &
+P(U\mid I) &= 0.66 \\
+P(I)       &= p
+\end{align*}
+\begin{teilaufgaben}
+\item
+Gesucht ist
+\[
+P(I|G)
+=
+P(G|I) \frac{P(I)}{P(G)}
+=
+\frac{P(G|I)p}{P(G)}.
+\]
+\item
+Wir müssen $P(I\mid G)$ und $P(I\mid U)$ bestimmen.
+Dazu kann der Satz von Bayes verwendet werden:
+\[
+\left.
+\begin{aligned}
+P(I|G) &= \frac{P(G|I)p}{P(G)}
+\\
+P(I|U) &= \frac{P(U|I)p}{P(U)}
+\end{aligned}
+\right\}
+\Rightarrow
+\frac{P(I|U)}{P(I|G)}
+=
+\frac{P(U|I)P(I)}{P(U)} \frac{P(G)}{P(G|I)P(I)}
+=
+\frac{P(U|I)P(G)}{P(G|I)P(U)}
+=
+\frac{0.66\cdot 0.85}{0.34\cdot 0.15}
+\approx
+10.68
+\]
+\end{teilaufgaben}
+\end{loesung}
+
