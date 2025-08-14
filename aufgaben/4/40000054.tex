@@ -1,0 +1,119 @@
+Gemäss der Daten der Tabelle
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|l|>{$}r<{$}>{$}r<{$}|}
+\hline
+i&Wasserfall&x_i&y_i\\
+\hline
+1&Fort Greeley      &    5 &   0.03 \\
+2&Firehole          &   13 &   0.05 \\
+3&Canadian Niagara  &   50 &   0.16 \\
+4&Yosemite          &   72 &   0.25 \\
+\hline
+\end{tabular}
+\end{center}
+scheint es einen Zusammenhang zwischen der Fallhöhe $x$ eines Wasserfalls
+und der Wellenlänge $y$ der dominierenden Bodenfrequenz zu geben, die der
+Aufprall des Wasserfalls erzeugt.
+\begin{teilaufgaben}
+\item
+Bestimmen Sie ein lineares Modell für diesen Zusammenhang.
+\item
+Welche Wellenlänge erwarten Sie für den {\em Upper Yellowstone},
+der eine Fallhöhe von 35\,m aufweist?
+\item
+Wie hoch müsste nach diesem Modell die Fallhöhe eines Wasserfalls sein,
+dessen dominierende Frequenz die Wellenlänge 0.4 hat?
+\item
+Beurteilen Sie die Qualität Ihres Modells.
+\end{teilaufgaben}
+
+\begin{loesung}
+Die Punkte und die Regressionsgerade sind in Abbildung~\ref{40000054:fig}
+dargestellt.
+\ainput{daten.tex}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\def\dx{0.1}
+\def\dy{10}
+\def\p#1#2{ ({\dx*(#1)},{\dy*(#2)}) }
+\def\punkt#1#2{ \fill[color=darkred] \p{#1}{#2} circle[radius=0.08]; }
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex,thick]
+\draw[line width=0.3pt] \p{35}{0} -- \p{35}{\uy} -- \p{0}{\uy};
+\draw[line width=0.3pt] \p{\h}{0} -- \p{\h}{0.4} -- \p{0}{0.4};
+\draw[->] (-0.1,0) -- \p{130}{0} coordinate[label={$x$}];
+\draw[->] (0,-0.1) -- \p{0}{0.42} coordinate[label={right:$y$}];
+\foreach \x in {10,20,...,120}{
+	\draw \p{\x}{-0.01} -- \p{\x}{0.01};
+	\node at \p{\x}{-0.01} [below] {$\x$};
+}
+\foreach \y in {1,...,4}{
+	\draw \p{-1}{0.1*\y} -- \p{1}{0.1*\y};
+	\node at \p{-1}{0.1*\y} [left] {$0.\y$};
+}
+\gerade{blue}
+\punkte
+\end{tikzpicture}
+\caption{Datenpunkte und Regressionsgerade für Aufgabe~\ref{40000054}.
+\label{40000054:fig}}
+\end{figure}
+\begin{teilaufgaben}
+\item
+Mit der Berechnungstabelle
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+i&x_i&y_i&x_i^2&y_i^2&x_iy_i\\
+\hline
+\tabelle
+\hline
+\summen
+\hline
+\mittelwerte
+\hline
+\end{tabular}
+\end{center}
+lassen sich die Koeffizienten eines linearen Modells wie folgt
+berechnen:
+\begin{align*}
+a
+&=
+\frac{E(XY)-E(X)E(Y)}{E(X^2)-E(X)^2}
+=
+\steigung,
+\\
+b&=
+E(Y)-aE(X)
+=
+\achsabschnitt.
+\end{align*}
+\item
+Aus den Koeffizienten des Modells ergibt sich für die Höhe $x_u=35$
+der Wert
+\[
+y_u = ax_u+b = \steigung\cdot 35 + \achsabschnitt = \uy.
+\]
+\item
+Auflösen der Gleichung $ah+b=0.4$ nach $h$ ergibt
+\[
+h = \frac{0.4-b}{a} = \h.
+\]
+\item
+Mit $r^2=\rr$ ist die Qualität recht gut.
+Allerdings ist der Datensatz auch sehr klein und möglicherweise sogar
+selektiert.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Lineare Regression ({\bf LR}) 1 Punkt,
+Berechnung von $a$ ({\bf A}) 1 Punkt,
+Berechnung von $b$ ({\bf B}) 1 Punkt,
+Berechnung von $y_u$ in Teilaufgabe b) ({\bf Y}) 1 Punkt,
+Berechnung von $h$ in Teilaufgabe c) ({\bf H}) 1 Punkt,
+Beurteilung mit dem Regressionskoeffizienten in Teilaufgabe d)
+({\bf R}) 1 Punkt.
+\end{bewertung}
+
+
