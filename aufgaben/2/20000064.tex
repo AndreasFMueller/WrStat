@@ -1,0 +1,92 @@
+Ein Arzt wird zu einem kranken Kind gerufen.
+Er weiss, dass eine Grippe ``umgeht''.
+90\% der Kinder in dieser Gegend haben die Grippe.
+Aber auch Masern sind im Moment recht verbreitet, 10\% der Kinder,
+die er behandelt, sind betroffen.
+Die Masern unterscheiden sich aber dadurch, dass sie oft mit
+einem Ausschlag zusammen auftreten, in etwa 95\% der Fälle.
+Aber auch bei der Grippe ist manchmal ein Ausschlag zu beobachten,
+jedoch in nur 8\% der Grippefälle.
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, dass ein Kind keinen Ausschlag
+hat?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass ein Kind mit Ausschlag doch
+nur eine Grippe hat?
+\end{teilaufgaben}
+
+\begin{hinweis}
+Sie dürfen annehmen, dass das Kind entweder Masern oder Grippe hat,
+also nicht beides.
+\end{hinweis}
+
+\begin{loesung}
+Wir verwenden die folgenden Ereignisse:
+\begin{align*}
+A&=\{\text{Ausschlag}\}
+\\
+G&=\{\text{Grippe}\}
+\\[-2pt]
+M=\overline{G}&=\{\text{Masern}\}.
+\end{align*}
+Aus der Aufgabenstellung lesen wir die folgenden Wahrscheinlichkeiten
+ab:
+\begin{align*}
+P(G) &= 0.9
+&
+P(A|M) &= 0.95
+&
+P(\overline{A}|M) &= 0.05
+\\
+P(M) &= 1-P(G) = 0.1
+&
+P(A|G) &= 0.08
+&
+P(\overline{A}|G) &= 0.92
+\end{align*}
+\begin{teilaufgaben}
+\item
+Die Wahrscheinlichkeit $P(\overline{A})$ kann mit dem Satz von der totalen
+Wahrscheinlichkeit berechnet werden:
+\begin{align*}
+P(\overline{A})
+&=
+P(\overline{A}|G) P(G) + P(\overline{A}|M) P(M)
+=
+0.92\cdot 0.9 + 0.05\cdot 0.1
+=
+0.833.
+\end{align*}
+\item
+Es ist die bedingte Wahrscheinlichkeit $P(G|A)$ zu berechnen, dazu
+verwendet man den Satz von Bayes:
+\begin{align*}
+P(G|A)
+&=
+P(A|G)\frac{P(G)}{P(A)}
+=
+P(A|G)\frac{P(G)}{1-P(\overline{A})}
+=
+0.08\frac{0.9}{0.166}
+=
+0.4337.
+\end{align*}
+Wegen der überwiegenden Zahl der Grippefälle ist die Diagnose von
+Masern nur aufgrund des Ausschlages eher unsicher, man muss in etwa
+43.4\% der Fälle mit einer Fehldiagnose rechnen.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Ereignisse ({\bf E}) 1 Punkt,
+bedinge Wahrscheinlichkeiten ({\bf C}) 1 Punkt,
+Satz von der totalen Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Satz von Bayes ({\bf B}) 1 Punkt,
+Wahrscheinlichkeit $P(A)$ ({\bf A}) 1 Punkt,
+Wahrscheinlichkeit $P(G|A)$ ({\bf G}) 1 Punkt.
+\end{bewertung}
+
+
+
