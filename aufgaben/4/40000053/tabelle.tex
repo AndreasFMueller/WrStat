@@ -1,0 +1,42 @@
+\def\tabelle{
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|}
+\hline
+     i      &   x_i\phantom{.00}&       x_i^2\phantom{.00}&     y_i\phantom{.00}&        y_i^2\phantom{.00}&     x_iy_i\phantom{.00}\\
+\hline
+     1      &    30\phantom{.00}&         900\phantom{.00}&    2866\phantom{.00}&      8213956\phantom{.00}&      85980\phantom{.00}\\
+     2      &    61\phantom{.00}&        3721\phantom{.00}&    5232\phantom{.00}&     27373824\phantom{.00}&     319152\phantom{.00}\\
+     3      &    91\phantom{.00}&        8281\phantom{.00}&    7266\phantom{.00}&     52794756\phantom{.00}&     661206\phantom{.00}\\
+     4      &   122\phantom{.00}&       14884\phantom{.00}&    8900\phantom{.00}&     79210000\phantom{.00}&    1085800\phantom{.00}\\
+\hline
+\text{Summe}&   304\phantom{.00}&       27786\phantom{.00}&   24264\phantom{.00}&    167592536\phantom{.00}&    2152138\phantom{.00}\\
+\hline
+E(\,\cdot\,)& 76.00&     6946.50& 6066.00&  41898134.00&  538034.50\\
+\hline
+\end{tabular}
+}
+\def\resultate{
+\begin{align*}
+\operatorname{var}(X)  &=    1170.50 & a &= \phantom{0}65.7997&&\\
+\operatorname{var}(Y)  &= 5101778.00 & b &=           1065.2260&&\\
+\operatorname{cov}(X,Y)&=   77018.50 & r &= \phantom{00}0.99666353&r^2&=0.99333820
+\end{align*}
+}
+\def\aufgabea{
+x = 365\qquad\Rightarrow\qquad y = a\cdot 365 + b = 25082.1012}
+\def\awert{25.0821}
+\def\aufgabeb{
+10000 = ax+b\quad\Rightarrow\qquad x = \frac{10000-b}{a}= \frac{10000-1065.23}{65.80} = 135.79
+}
+\def\bwert{135.7875}
+\def\aufgabec{
+r^2=0.993338\quad\Rightarrow\quad r = 0.99666353
+}
+\def\punkte{
+\punkt{30.0000}{2.8660}
+\punkt{61.0000}{5.2320}
+\punkt{91.0000}{7.2660}
+\punkt{122.0000}{8.9000}
+}
+\def\gerade{
+\draw[color=blue,line width=1pt] (0,{1.0652*\dy}) -- ({400*\dx},{27.3851*\dy});
+}
