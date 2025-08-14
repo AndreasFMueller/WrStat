@@ -1,0 +1,92 @@
+Ein auf Internet-Sicherheit spezialisiertes Unternehmen hat 2019 geschätzt,
+dass 45\% aller Anrufe auf Mobiltelefone Werbeanrufe seien.
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, dass mehr als die Hälfte von
+50 zufällig ausgewählten Anrufen Werbeanrufe sind?
+\item
+Da es nur elf nigerianische Prinzen gibt%
+\footnote{Quelle: \url{https://en.wikipedia.org/wiki/Category:Nigerian_princes}},
+sind Anrufe von einem nigerianischen Prinzen, der einem Geld schicken 
+möchte, eher selten.
+Für die Zwecke dieser Aufgabe nehmen wir gross\-zügig an, dass die
+nigerianischen Prinzen mit ihrem Stab und Computerhilfe erreichen können,
+dass 1\% aller Anrufe von ihnen stammen.
+Wie gross ist die Wahrscheinlichkeit, mehr als zwei solche Anrufe in
+der oben genannten Stichprobe von 50 Anrufen zu finden?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Unterschiedung zwischen Werbeanruf und normalem Anruf ist ein
+Bernoulli-Experiment.
+Die Anzahl $X$ der Werbeanrufe innerhalb der Stichprobe ist binomialverteilt
+mit $p=0.45$ und $n=50$.
+Die gesuchte Wahrscheinlichkeit ist
+\begin{align}
+P(X > 25) &= 1 -P(X\le 25)
+\\
+P(X\le 25)
+&=
+P\biggl(\frac{X-\mu}{\sigma} \le \frac{25-\mu}{\sigma}\biggr)
+\notag
+\intertext{wobei $\mu=np=22.5$ und $\sigma=\sqrt{np(1-p)}=3.517812$.
+Die Normalapproximation approximiert dies durch}
+&=
+P\biggl(Z \le \frac{25.5-\mu}{\sigma}\biggr)
+=
+P(Z\le 0.8528029)
+=
+0.8031157
+\label{50000065:korrektur}
+\intertext{für eine standardnormalverteilte Zufallsvariable $Z$.
+Die gesuchte Wahrscheinlichkeit ist daher}
+P(X>25)
+&\cong
+0.197.
+\notag
+\end{align}
+Ohne die Korrektur $+0.5$ in \eqref{50000065:korrektur}
+ergibt sich $P(0.7107)=0.7613649$ und ein Schlussresultat von
+$P(X>25)\cong 0.239$.
+\item
+Mit einer Wahrscheinlichkeit von 1\% erwartet man $\lambda=0.5$ Anrufe
+von nigerianischen Prinzen auf 50 Anrufe.
+Mit der Poisson-Verteilung lässt sich die Wahrscheinlichkeit von
+mehr als 2 Anrufen abschätzen:
+\begin{align*}
+P(Y>2)
+&=
+1-P(Y\le 2)
+\\
+P(Y\le 2)
+&\cong
+e^{-\lambda}\sum_{k=0}^3 \frac{\lambda^k}{k!}
+=
+e^{-\lambda}
+\biggl(
+1+\lambda+\frac{\lambda^2}{2!}
+\biggr)
+=
+0.98561
+\\
+P(Y>2)
+&\cong
+0.014388
+=
+1.4388\%
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Binomialverteilung ({\bf B}) 1 Punkt,
+Berechnung von $\mu$ und $\sigma$ ({\bf M}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Normalapproximation und Wahrscheinlichkeit ({\bf N}) 1 Punkt,
+Parameter $\lambda$ ({\bf L}) 1 Punkt,
+Poisson-Verteilung und Wahrscheinlichkeit ({\bf P}) 1 Punkt.
+\end{bewertung}
+

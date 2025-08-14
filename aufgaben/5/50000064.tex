@@ -1,0 +1,95 @@
+In dieser Aufgabe geht es um Würfe eines fairen Sechserwürfels.
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, in hundert Würfen 
+eine um mehr als 5 von der erwarteten Anzahl abweichende
+Anzahl gerader Augenzahlen zu erhalten?
+\item
+Viel seltener passiert es, dass beim Werfen von 10 solchen Würfeln
+genau fünf Würfel eine Fünf zeigen.
+Wie wahrscheinlich ist, dass dies in 100 Versuchen mehr als 2 mal passiert?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Anzahl $X$ gerader Augenzahlen ist binomialverteilt mit $n=100$
+und $p=\frac12$.
+Die erwartete Anzahl ist daher $\mu=np=50$ mit $\sigma=\sqrt{np(1-p)}=5$.
+Mit der Normalapproximation der Binomialverteilung findet man
+\begin{align*}
+P(X<45\wedge X> 55)
+&=
+1
+-
+P(45\le X\le 55)
+\\
+P(45\le X\le 55)
+&
+P\biggl(
+\frac{45-\mu}{\sigma} \le \frac{X-\mu}{\sigma} \le \frac{55-\mu}{\sigma}
+\biggr)
+\intertext{Die Normalapproximation der Binomialverteilung liefert}
+&\cong
+P\biggl(
+\frac{-5.5}{\sigma} \le Z \le \frac{5.5}{\sigma}
+\biggr)
+=
+P(-1.1\le Z \le 1.1),
+\intertext{für eine standardnormalverteilte Zufallsvariable $Z$.
+Die Wahrscheinlichkeit ist damit}
+&=
+\Phi(1.1) - \Phi(-1.1)
+=
+\Phi(1.1) - (1 - \Phi(1.1))
+=
+2\Phi(1.1)-1
+\\
+&=
+2\cdot 0.8643-1
+=
+0.7286.
+\end{align*}
+Die gesuchte Wahrscheinlichkeit ist aber das Komplement, d.~h.~$0.2714$.
+\item
+Genau fünf Fünfer beim Wurf von 10 Würfeln haben die Wahrscheinlichkeit
+\[
+p
+=
+\binom{10}{5}\frac{1^5\cdot 5^5} {6^{10}}
+=
+0.013024.
+\]
+Man erwartet also, dass dies in $n=100$ Versuchen $\lambda=np=1.3024$ mal
+passiert.
+Die Poisson-Verteilung erlaubt, die Wahrscheinlichkeit zu berechnen:
+\begin{align*}
+P(Y>2)&=1-P(X \le 2)
+\\
+P(X\le 2)
+&=
+e^{-\lambda}
+\sum_{k=0}^2 \frac{\lambda^k}{k!}
+=
+e^{-\lambda}\biggl(
+1 + \lambda + \frac{\lambda^2}2
+\biggr)
+=
+0.8566
+\\
+\Rightarrow\qquad
+P(Y>2) &= 0.1434.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Binomialverteilung ({\bf B}) 1 Punkt,
+Berechnung von $\mu$ und $\sigma$ ({\bf M}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Normalapproximation und Wahrscheinlichkeit ({\bf N}) 1 Punkt,
+Parameter $\lambda$ ({\bf L}) 1 Punkt,
+Poisson-Verteilung und Wahrscheinlichkeit ({\bf P}) 1 Punkt.
+\end{bewertung}
+
