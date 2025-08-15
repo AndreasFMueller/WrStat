@@ -1,0 +1,92 @@
+Eine Karte wir aus einem Kartenspiel mit 52 Karten gezogen.
+Dabei können folgende Ereignisse eintreten
+\begin{align*}
+R&=\{\text{rote Karte}\}
+&
+S&=\{\text{schwarze Karte}\}
+&
+H&=\{\text{Herz}\}
+&
+E&=\{\text{Ecke}\}
+\\
+K&=\{\text{König}\}
+&
+Q&=\{\text{Dame}\}
+&
+J&=\{\text{Bube}\}
+&
+A&=\{\text{Ass}\}
+\end{align*}
+\begin{teilaufgaben}
+\item
+Berechnen Sie $P(S|A)$
+\item
+Berechnen Sie
+$P(Q|E)$
+und
+$P(Q|R)$.
+\item
+Wie gross ist die Wahrscheinlichkeit, dass eine rote Karte ein
+König ist?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass eine König-Karte rot ist?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+$
+P(Q|E)
+=
+\frac{P(Q\cap E)}{P(E)}
+=
+\frac{1/52}{13/52}
+=
+\frac{1}{13}
+=
+0.\overline{076923}
+$
+\item
+Die beiden bedingten Wahrscheinlichkeiten sind gleich:
+\begin{align*}
+P(Q|E)
+&=
+\frac{P(Q\cap E)}{P(E)} = \frac{1/52}{13/52} = \frac{1}{13}
+\\
+P(Q|R)
+&=
+\frac{P(Q\cap R)}{P(R)} = \frac{2/52}{26/52} = \frac{2}{26}
+= \frac{1}{13}.
+\end{align*}
+\item
+Gesucht ist die Wahrscheinlichkeit
+\[
+P(K|R)
+=
+\frac{P(K\cap R)}{P(R)}
+=
+\frac{2/52}{13/52}
+=
+\frac{2}{13}
+=
+0.\overline{153846}.
+\]
+\item
+Gesucht ist die Wahrscheinlichkeit
+\[
+P(R|K)
+=
+\frac{P(R\cap K)}{P(K)}
+=
+\frac{2/52}{4/52}
+=
+\frac{2}{4}
+=
+\frac{1}{2}
+=
+0.5.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+

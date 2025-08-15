@@ -1,0 +1,65 @@
+Betrachten Sie wieder das Ziehen einer Karte aus einem Kartenspiel
+mit 52 Karten und das Ereignis
+\[
+X
+=
+\{
+\text{schwarze Bildkarte oder rote Zahlkarte}
+\}.
+\]
+
+\begin{teilaufgaben}
+\item
+In Aufgabe~\ref{20000073} wurde $P(K|R)$ und $P(R|K)$.
+Verwenden Sie den Satz von Bayes um die gefundenen Resultate zu
+verifizieren.
+\item
+Bestimmen Sie $P(X)$ mit Hilfe des Satzes von der totalen Wahrscheinlichkeit.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Der Satz von Bayes besagt
+\begin{align*}
+\frac{1}{13}
+=
+P(K|R)
+&=
+P(R|K)\cdot \frac{P(K)}{P(R)}
+=
+\frac{1}{2}
+\cdot
+\frac{4/52}{26/52}
+=
+\frac{2}{26}
+=
+\frac{1}{13}.
+\end{align*}
+\item
+Nach dem Satz von der totalen Wahrscheinlichkeit ist
+\begin{align*}
+P(X)
+&=
+P(X|R) \cdot P(R) + P(X|S) \cdot P(S)
+\\
+&=
+\frac{10/52}{26/52}\cdot \frac{26}{52}
++
+\frac{3/52}{26/52}\cdot \frac{26}{52}
+\\
+&=
+\frac{10}{26} \cdot \frac{26}{52}
++
+\frac{4}{26} \cdot \frac{26}{52}
+\\
+&=
+\frac{14}{26}
+=
+\frac{7}{13}
+=
+0.\overline{538461}.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}

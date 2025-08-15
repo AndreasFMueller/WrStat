@@ -1,0 +1,46 @@
+Betrachten Sie wieder das Ziehen einer Karte aus einem Kartenspiel
+mit 52 Karten und das Ereignis
+\[
+X
+=
+\{
+\text{schwarze Karte mit Wert $>8$ oder rote Karte mit Wert $\le 10$}
+\}.
+\]
+Sind die Ereignisse $X$ und $R$ unabhängig?
+
+\begin{hinweis}
+Berechnen Sie $P(X|R)$ und $P(X)$?
+\end{hinweis}
+
+Wir berechnen die Wahrscheinlichkeiten
+\begin{loesung}
+\begin{align*}
+P(X|R)
+&=
+\frac{P(X\cap R)}{P(R)}
+=
+\frac{20/52}{26/52}
+=
+\frac{20}{26}
+=
+\frac{10}{13}
+=
+0.\overline{769230}
+\\
+P(X)
+&=
+\frac{|X|}{|\Omega|}
+=
+\frac{10+20}{52}
+=
+\frac{30}{52}
+=
+\frac{15}{26}
+=
+0.5\overline{769230}
+\end{align*}
+Wegen $P(X|R)\ne P(X)$ sind die Ereignisse abhängig.
+\end{loesung}
+
+
