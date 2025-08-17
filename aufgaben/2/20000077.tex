@@ -1,0 +1,68 @@
+In einem Behälter befinden sich $N=105$ Stecknadeln, wovon $M=23$ einen
+schwarzen Kopf haben (Abbildung links).
+Wie gross ist die Wahrscheinlichkeit dass beim zufälligen Ziehen von
+$n=4$ Nadeln alle einen schwarzen Kopf haben (Abbildung rechts)?
+\begin{center}
+\begin{tikzpicture}[>=latex,thick]
+\begin{scope}[xshift=-0.25\textwidth]
+\node at (0,0) {\includeagraphics[width=0.48\textwidth]{nadeln.jpg}};
+\end{scope}
+\begin{scope}[xshift=0.25\textwidth]
+\node at (0,0) {\includeagraphics[width=0.48\textwidth]{nadel4.jpg}};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+% weiss    23
+% schwarz  23
+% gelb     14
+% grün     22
+% blau      8
+% rot      15
+% N     = 105
+
+
+\begin{loesung}
+Sei $X$ die Anzahl der Nadeln mit schwarzem Kopf in der Auswahl.
+Die Wahrscheinlichkeit für das Ereignis $X=4$ wird durch die
+hypergeometrische Verteilung gegeben:
+\begin{align*}
+P(X=m)
+&=
+\frac{ \binom{M}{m} \binom{N-M}{n-m} }{ \binom{N}{n} }
+\\
+P(X=4)
+&=
+\frac{ \binom{M}{4} \binom{N-M}{4-4} }{ \binom{N}{4} }
+\\
+&=
+\frac{
+\frac{M(M-1)(M-2)(M-3)}{1\cdot 2 \cdot 3\cdot 4}\cdot 1
+}{
+\frac{N(N-1)(N-2)(N-3)}{1\cdot 2 \cdot 3\cdot 4}
+}
+\\
+&=
+\frac{
+M(M-1)(M-2)(M-3)
+}{
+N(N-1)(N-2)(N-3)
+}
+\\
+&=
+\frac{
+23\cdot 22\cdot 21\cdot 20
+}{
+105\cdot 104\cdot 103\cdot 102
+}
+=
+\frac{
+212520
+}{
+114725520
+}
+=
+0.00185242.
+\end{align*}
+Die Wahrscheinlichkeit dieses Ereignisses ist also nur etwa $0.18\%$.
+\end{loesung}
