@@ -1,24 +1,35 @@
 Schreiben Sie die erzeugenden Funktionen zu den folgenden Zahlenfolgen auf:
 \begin{teilaufgaben}
-\item $(a_k)_{k\ge 1} = 1,1,1,1,\dots$ oder allgemein $a_k = 1$.
-\item $(b_k)_{k\ge 1} = 1,2,3,4,\dots$ oder allgemein $b_k = k$.
-\item $(c_k)_{k\ge 1} = 1,\frac12,\frac13,\frac14,\dots$ oder allgemein $c_k = \frac1k$.
+\item
+$(a_k)_{k\ge 0} = 1,1,1,1,1,\dots$ oder allgemein $a_k = 1$.
+\item
+$(b_k)_{k\ge 0} = 0,1,2,3,4,\dots$ oder allgemein $b_k = k$.
+\item
+$(c_k)_{k\ge 0} = 0,1,\frac12,\frac13,\frac14,\dots$ oder allgemein
+$c_k = \frac1k$.
 \end{teilaufgaben}
 Können Sie die Funktionen in geschlossener Form schreiben?
 
 \begin{loesung}
 \begin{teilaufgaben}
-\item Die erzeugende Funktion ist die geometrische Reihe
+\item
+Die erzeugende Funktion ist die geometrische Reihe
 \[
 a(z)
 =
-\sum_{k=1}^\infty a_kz^k = \sum_{k=1}^\infty z^k = \frac{1}{1-z}.
+\sum_{k=0}^\infty a_kz^k
+=
+\sum_{k=0}^\infty z^k = \frac{1}{1-z}.
 \]
-\item Die erzeugende Funktion ist 
+
+\item
+Die erzeugende Funktion ist 
 \begin{align*}
 b(z)
 &=
-\sum_{k=1}^\infty b_kz^k
+\sum_{k=0}^\infty b_kz^k
+=
+\sum_{k=0}^\infty kz^k
 =
 \sum_{k=1}^\infty kz^k
 \intertext{Durch Ausklammern eines Faktors $z$ erhält man die folgende
@@ -44,10 +55,14 @@ z\frac{d}{dz}
 =
 \frac{z}{(1-z)^2}.
 \end{align*}
-\item Die erzeugende Funktion ist die Stammfunktion der Funktion $a(z)$:
+
+\item
+Die erzeugende Funktion ist die Stammfunktion der Funktion $a(z)$:
 \begin{align*}
 c(z)
 &=
+\sum_{k=0}^\infty c_kz^k
+=
 \sum_{k=1}^\infty c_kz^k
 =
 \sum_{k=1}^\infty \frac{z^k}{k}
