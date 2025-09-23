@@ -26,13 +26,14 @@ X
 Die Ereignisse können wie folgt gezeichnet werden:
 \begin{center}
 \begin{tikzpicture}[>=latex,thick]
-\coordinate (ur) at (12,8);
+\coordinate (ur) at (9,7);
 \def\pathall{ (0,0) rectangle (ur) }
 \draw (0,0) rectangle (ur);
 \node at (ur) [above left] {$\Omega$};
 
 \def\pathp{ (1,1) rectangle (8,6) }
-\def\patht{ (4,2) rectangle (11,7) }
+%\def\patht{ (4,2) rectangle (11,7) }
+\def\patht{ (4,2) rectangle (8,6) }
 \def\pathz{ (2,2.5) rectangle (6,4.5) }
 \def\pathf{
 	(4,2.5) -- (5.6,2.5) arc(-90:0:0.4) -- (6,4.1) arc(0:90:0.4) -- (4,4.5) -- cycle
@@ -74,13 +75,13 @@ Die Ereignisse können wie folgt gezeichnet werden:
 \node[color=orange] at (2,4.5) [below right,distance=0.7cm] {$Z$};
 \node[color=brown] at (7,5.25) {$V$};
 \node[color=darkgreen] at (5.15,3.5) {$F$};
-\node[color=blue] at (11,7) [below left,distance=0.7cm] {$T$};
+\node[color=blue] at (8,2) [above left,distance=0.7cm] {$T$};
 
 \coordinate (omega) at (7,3);
 \fill (omega) circle[radius=0.08];
 \node at (omega) [above] {$\omega$};
 
-\node at (4.5,5.5) {$X$};
+\node at (4.9,5.25) {$X$};
 
 \end{tikzpicture}
 \end{center}
