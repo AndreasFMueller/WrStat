@@ -1,0 +1,53 @@
+Berechnen Sie Erwartungswert $E(X)$ und Varianz $\operatorname{var}(X)$
+der Zufallsvariablen $X$ mit den folgenden Werten:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}|}
+\hline
+\text{Wert von $X$}&\text{Häufigkeit}
+\\
+\hline
+1& 0.4260\\
+2& 0.1392\\
+3& 0.3091\\
+4& 0.1258\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{loesung}
+Für den Erwartungswert findet man:
+\begin{align*}
+E(X)
+&=
+\sum_{x=1}^4 x \cdot P(X=x)\\
+&=
+1 \cdot 0.4260 +
+2 \cdot 0.1392 +
+3 \cdot 0.3091 +
+4 \cdot 0.1258 
+\\
+&=
+2.1346.
+\end{align*}
+Für die Varianz braucht man
+\begin{align*}
+E(X^2)
+&=
+\sum_{x=1}^4 x^2 \cdot P(X=x)\\
+&=
+1^2 \cdot 0.4260 +
+2^2 \cdot 0.1392 +
+3^2 \cdot 0.3091 +
+4^2 \cdot 0.1258 
+\\
+&=5.7764.
+\intertext{Daher ist die Varianz}
+\operatorname{var}(X)
+&=E(X^2)-E(X)^2
+\\
+&=
+1.2199.
+\qedhere
+\end{align*}
+\end{loesung}
+

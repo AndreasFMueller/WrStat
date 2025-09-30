@@ -1,0 +1,55 @@
+Welche Auszahlung ist zu erwarten, wenn nach dem Ziehen einer Karte aus
+einem Kartenspiel mit 52 Karten die folgenden Gewinne ausbezahlt werden:
+\begin{center}
+\begin{tabular}{|l>{$}l<{$}|>{$}r<{$}|}
+\hline
+Ereignis&&\text{Gewinn}\\
+\hline
+Zahlkarte (2--9)             & A & 1\\
+Bildkarte (J, Q, K) rot      & B & 2\\
+Bildkarte (J, Q, K) schwarz  & C & 3\\
+sonst                        &   & 0\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{loesung}
+Zunächst müssen die Wahrscheinlichkeiten der Ereignisse $A$, $B$ und $C$ ermittel werden.
+Sie sind
+\begin{align*}
+P(A) &= \frac{4\cdot 9}{52},
+&
+P(B) &= \frac{3\cdot 2}{52},
+&
+P(C) &= \frac{3\cdot 2}{52}.
+\end{align*}
+Damit kann jetzt der Erwartungswert ermittelt werden:
+\begin{align*}
+E(X)
+&=
+X(A)\cdot P(A)
++
+X(B)\cdot P(B)
++
+X(C)\cdot P(C)
++
+0\cdot P(\overline{A\cup B \cup C})
+\intertext{Da der Wert auf dem Ereignis $\overline{A\cup B\cup C}$ Null ist,
+wird die Wahrscheinlichkeit gar nicht benötigt und der Erwartungswert
+vereinfacht sich zu}
+&=
+1\cdot \frac{36}{52}
++
+2\cdot \frac{6}{52}
++
+3\cdot \frac{6}{52}
+\\
+&=
+\frac{36 + 12 + 18}{52}
+=
+\frac{66}{52}
+\approx
+1.2692.
+\qedhere
+\end{align*}
+\end{loesung}
