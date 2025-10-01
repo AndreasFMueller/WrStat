@@ -1,5 +1,48 @@
-% Auszahlung beim Kartenspiel
-Wir zahlen
+Aus einem Kartenspiel mit 52 Karten wird eine Karte gezogen und denn
+die Auszahlung $X(\omega)$ wie folgt berechnet:
+\[
+X = m(\omega)\cdot w(\omega),
+\]
+wobei $w(\omega)$ der Wert der Karte ist (Das As hat den Wert 1, der König
+den Wert 13), und $m(\omega)$ ein Multiplikator, der von der Farbe abhängt:
+\def\V#1{\raisebox{-0.1cm}{\includeagraphics[]{#1}}}
+\begin{center}
+\begin{tabular}{|>{$}l<{$}|cccc|}
+\hline
+\omega & \V{heartsuit.pdf} & \V{spadesuit.pdf} & \V{diamondsuit.pdf} & \V{clubsuit.pdf} \\
+\hline
+m      &     1     &          2      &     3      &       4       \\
+\hline
+\end{tabular}
+\end{center}
+Bestimmen Sie das Ereignis
+\[
+A
+=
+\{ X \ge 17 \}
+\]
+und seine Wahrscheinlichkeit.
 
 \begin{loesung}
+Für eine \V{heartsuit.pdf}-Karte wird der Wert nie mindestens 17, diese
+Karten kommen also in $A$ nicht vor.
+Die \V{spadesuit.pdf}-Kartenwerte werden mit 2 multipliziert, der Kartenwert
+muss daher mindestens 9 sein.
+Bei den \V{diamondsuit.pdf}-Karten ist der minimale Wert 6 und bei
+den \V{clubsuit.pdf}-Karten ist er 5.
+Das Ereignis ist daher:
+\begin{center}
+\begin{tabular}{c|>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c>{\tt}c|}
+\hline
+\V{heartsuit.pdf}   &  &  &  &  &  &  &  &  &   &    &   &   &   \\
+\V{spadesuit.pdf}   &  &  &  &  &  &  &  &  & 9 & 10 & J & Q & K \\
+\V{diamondsuit.pdf} &  &  &  &  &  & 6& 7& 8& 9 & 10 & J & Q & K \\
+\V{clubsuit.pdf}    &  &  &  &  & 5& 6& 7& 8& 9 & 10 & J & Q & K \\
+\hline
+\end{tabular}
+\end{center}
+Dies sind insgesamt  $0 + 5 + 8 + 9 = 22$ Karten.
+Das Ereignis hat also die Wahrscheinlichkeit $P(A)=22/52 = 0.4231$.
 \end{loesung}
+
+
