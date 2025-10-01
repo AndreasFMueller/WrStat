@@ -1,0 +1,109 @@
+Eine Zufallsvariable nimmt gnazzahlige Werte mit den Wahrscheinlichkeiten
+in der folgenden Tabelle an, die auch im Histogramm rechts visualisiert
+sind:
+\bigskip
+
+\hbox to\textwidth{\hfill
+\raisebox{2.0cm}{\begin{tabular}{>{$}c<{$}>{$}r<{$}}
+\hline
+x&      p_x\\
+\hline
+1& 0.142889\\
+2& 0.352938\\
+3& 0.302219\\
+4& 0.162637\\
+5& 0.039317\\
+\hline
+\end{tabular}}
+\hfill
+\def\s{6}
+\def\balken#1#2{
+	\fill[color=darkred!20] ({#1-0.5},0) rectangle ++(1,{\s*#2});
+	\draw[color=darkred] ({#1-0.5},0) rectangle ++(1,{\s*#2});
+}
+\begin{tikzpicture}[>=latex,thick]
+\balken{1}{0.142889}
+\balken{2}{0.352938}
+\balken{3}{0.302219}
+\balken{4}{0.162637}
+\balken{5}{0.039317}
+
+\draw[->] (-0.1,0) -- (5.8,0) coordinate[label={$x$}];
+\draw[->] (0,-0.1) -- (0,2.8) coordinate[label={right:$p$}];
+\foreach \x in {1,...,5}{
+	\draw (\x,-0.05) -- ++(0,0.1);
+	\node at (\x,0) [below] {$\x\mathstrut$};
+}
+\end{tikzpicture}
+\hfill}
+
+\noindent
+Visualisieren Sie die Erwartungswert und Streuung im Histogramm.
+
+\begin{loesung}
+Wir müssen zuerst Erwartungswerte und Varianz berechnen:
+\begin{align*}
+E(X)
+&=
+\sum_{x=1}^5 x\cdot p_x
+=
+2.6026
+\\
+E(X^2)
+&=
+\sum_{x=1}^5 x^2\cdot p_x
+=
+7.8597
+\\
+\operatorname{var}(X)
+&=
+E(X^2)-E(X)^2
+=
+7.8597
+-
+6.7735
+=
+1.0864.
+\intertext{Für die Visualisierung muss die Wurzel gezogen werden:}
+\sqrt{\operatorname{var}(X)}
+&=
+1.0423.
+\end{align*}
+Den Erwartungswert $E(X)$ visualisieren wir als blaue vertikale Linie
+bei $x=E(X)$, die Streuung als grüne vertikale Linien bei
+$x=E(X)\pm\sqrt{\operatorname{var}(X)}:$
+\begin{equation*}
+\def\s{6}
+\def\balken#1#2{
+	\fill[color=darkred!20] ({#1-0.5},0) rectangle ++(1,{\s*#2});
+	\draw[color=darkred] ({#1-0.5},0) rectangle ++(1,{\s*#2});
+}
+\begin{tikzpicture}[>=latex,thick]
+\balken{1}{0.142889}
+\balken{2}{0.352938}
+\balken{3}{0.302219}
+\balken{4}{0.162637}
+\balken{5}{0.039317}
+
+\draw[->] (-0.1,0) -- (5.8,0) coordinate[label={$x$}];
+\draw[->] (0,-0.1) -- (0,3.3) coordinate[label={right:$p$}];
+\foreach \x in {1,...,5}{
+	\draw (\x,-0.05) -- ++(0,0.1);
+	\node at (\x,0) [below] {$\x\mathstrut$};
+}
+\def\ex{2.6026}
+\def\var{1.0423}
+\def\h{2.4}
+\draw[color=blue,line width=1.2pt] (\ex,-0.1) -- ++(0,{\h+0.3});
+\draw[<->,color=darkgreen,line width=1pt] (\ex,\h) -- ++(-\var,0);
+\draw[<->,color=darkgreen,line width=1pt] (\ex,\h) -- ++(\var,0);
+\node[color=blue] at (\ex,{\h+0.5}) {$E(X)\mathstrut$};
+\draw[color=darkgreen,line width=1.2pt] ({\ex-\var},-0.1) -- ++(0,{\h+0.3});
+\draw[color=darkgreen,line width=1.2pt] ({\ex+\var},-0.1) -- ++(0,{\h+0.3});
+\draw[color=darkgreen,line width=0.4pt] ({\ex+0.5*\var},\h) -- ++(0.7,0.5);
+\node[color=darkgreen] at ({\ex+0.5*\var+0.7},{\h+0.5})
+	[right] {$\!\sqrt{\operatorname{var}(X)}$};
+\end{tikzpicture}
+\qedhere
+\end{equation*}
+\end{loesung}
