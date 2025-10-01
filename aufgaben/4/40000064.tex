@@ -1,0 +1,29 @@
+Für einen Widerstand $R$ wurde bei der Spannung $U$ der Strom $I$ gemäss der
+Tabelle
+\begin{center}
+\begin{tabular}{>{$}c<{$}|rrrrr|l}
+U & 20\phantom{.0} & 40\phantom{.0} & 60\phantom{.0} & 80\phantom{.0} & 100\phantom{.0} & [mV] \\
+\hline
+I & 18.4 & 36.9 & 54.9 & 72.9 & 91.5 & [\textmu A]\\
+\end{tabular}
+\end{center}
+gemessen.
+Bestimmen Sie den bestmöglichen Wert des Widerstandes $R$.
+
+\begin{hinweis}
+Verwenden Sie den Regressions-Rechner \url{https://wrstat.ch/apps/lr}
+\end{hinweis}
+
+\begin{loesung}
+Die Rechnung mit dem Regressionsrechner ergibt
+\begin{center}
+\includeagraphics[width=\textwidth]{lr.jpg}
+\end{center}
+Daraus kann man die Steigung $a=0.911$ ablesen, was eine Widerstand
+von 
+\[
+R=\frac{1}{0.911}\,\text{k$\Omega$} \approx 1.1\,\text{k$\Omega$}
+\]
+entspricht.
+\end{loesung}
+

@@ -112,6 +112,11 @@ woche04.pdf:	woche04.tex $(TEXFILES)
 	$(pdflatex) woche04.tex
 	cp $(workdir)/woche04.pdf .
 
+woche05:	woche05.pdf
+woche05.pdf:	woche05.tex $(TEXFILES)
+	$(pdflatex) woche05.tex
+	cp $(workdir)/woche05.pdf .
+
 images:
 	for d in ?/*; \
 	do \
