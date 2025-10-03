@@ -1,0 +1,48 @@
+Zeichnen Sie die Verteilungsfunktion für die Zufallsvariable
+\[
+X
+=
+\text{Augenzahl eines Würfels}
+\]
+
+\begin{loesung}
+Die Verteilungsfunktion springt um $\frac16$ bei den möglichen
+Augenzahlen:
+\begin{center}
+\def\r{0.08}
+\begin{tikzpicture}[>=latex,thick]
+\draw[->] (0,-0.1) -- (0,4) coordinate[label={$F(x)$}];
+\draw[->] (-1,0) -- (7.5,0) coordinate[label={$x$}];
+\foreach \x in {1,...,6}{
+	\node at (\x,0) [below] {$\x$};
+	%\draw[line width=0.2pt] (\x,0) -- ++(0,{0.5*\x});
+}
+\foreach \x in {2,...,6}{
+	\draw (\x,-0.05) -- ++(0,0.1);
+}
+\draw[line width=0.2pt] (0,3) -- (6,3);
+\draw (-0.05,3) -- ++(0.1,0);
+\node at (-0.05,3) [left] {$1$};
+\draw[color=darkgreen,line width=1.4pt] (-1,0) -- ({1-\r},0);
+\draw[color=darkgreen,line width=1.4pt] (1,0.5) -- ++({1-\r},0);
+\draw[color=darkgreen,line width=1.4pt] (2,1.0) -- ++({1-\r},0);
+\draw[color=darkgreen,line width=1.4pt] (3,1.5) -- ++({1-\r},0);
+\draw[color=darkgreen,line width=1.4pt] (4,2.0) -- ++({1-\r},0);
+\draw[color=darkgreen,line width=1.4pt] (5,2.5) -- ++({1-\r},0);
+\draw[color=darkgreen,line width=1.4pt] (6,3) -- (7,3);
+\fill[color=darkgreen] (1,0.5) circle[radius=0.08];
+\fill[color=darkgreen] (2,1.0) circle[radius=0.08];
+\fill[color=darkgreen] (3,1.5) circle[radius=0.08];
+\fill[color=darkgreen] (4,2.0) circle[radius=0.08];
+\fill[color=darkgreen] (5,2.5) circle[radius=0.08];
+\fill[color=darkgreen] (6,3.0) circle[radius=0.08];
+\draw[color=darkgreen,line width=1.4pt] (1,{0.0+\r-0.02}) arc(90:270:{\r-0.02});
+\draw[color=darkgreen,line width=1.4pt] (2,{0.5+\r-0.02}) arc(90:270:{\r-0.02});
+\draw[color=darkgreen,line width=1.4pt] (3,{1.0+\r-0.02}) arc(90:270:{\r-0.02});
+\draw[color=darkgreen,line width=1.4pt] (4,{1.5+\r-0.02}) arc(90:270:{\r-0.02});
+\draw[color=darkgreen,line width=1.4pt] (5,{2.0+\r-0.02}) arc(90:270:{\r-0.02});
+\draw[color=darkgreen,line width=1.4pt] (6,{2.5+\r-0.02}) arc(90:270:{\r-0.02});
+\end{tikzpicture}
+\end{center}
+\end{loesung}
+

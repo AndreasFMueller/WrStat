@@ -1,0 +1,43 @@
+Die Zufallsvariable $X$ ist gleichverteilt auf dem Intervall $I=[a,b]$,
+d.~h. die Wahrscheinlichkeit, dass $X$ in einem Teilintervall $[a,b]\subset I$
+enthalten ist, ist
+proportional zur Intervallänge:
+\[
+P(a\le X\le b) = b-a.
+\]
+Zeichnen Sie die Verteilungsfunktion.
+
+\begin{loesung}
+Für das Intervall $[0,x]$, also für $a=0$ und $b=x$ folgt
+\[
+P(0\le X\le x)
+=
+x-0
+=
+x
+\]
+Damit ist die Verteilungsfunktion
+\[
+F(x)
+=
+\begin{cases}
+0&\qquad x < 0\\
+x&\qquad 0\le x < 1\\
+1&\qquad x \ge 1
+\end{cases}
+\]
+mit dem Graphen 
+\begin{center}
+\begin{tikzpicture}[>=latex,thick]
+\draw[line width=0.2pt] (0,5) -- (5,5) -- (5,0);
+\draw (-0.05,5) -- ++(0.1,0);
+\draw (5,-0.05) -- ++(0,0.1);
+\node at (-0.05,5) [left] {1};
+\node at (5,-0.05) [below] {1};
+\draw[->] (0,-0.1) -- (0,6.5) coordinate[label={left:$F(x)$}];
+\draw[->] (-1,0) -- (6,0) coordinate[label={$x$}];
+\draw[color=darkgreen,line width=1.4pt] (-1,0) -- (0,0) -- (5,5) -- ++(1,0);
+\end{tikzpicture}
+\end{center}
+\end{loesung}
+

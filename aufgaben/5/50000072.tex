@@ -1,0 +1,57 @@
+Werfen Sie fünf Würfel\ifthenelse{\boolean{loesungen}}{ 120 mal}{}
+und halten Sie die maximale Augenzahl
+in einer Tabelle fest:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|l|r|>{$}r<{$}|}
+\hline
+\max & Würfe & \text{Anzahl} & h \\
+\hline
+    1
+	&\ifthenelse{\boolean{loesungen}}{|}{\hspace*{4cm}}
+	&\ifthenelse{\boolean{loesungen}}{1}{\phantom{00}}
+	&\ifthenelse{\boolean{loesungen}}{0.0083}{\phantom{0.0000}}
+\\
+    2   &\ifthenelse{\boolean{loesungen}}{}{}
+	&\ifthenelse{\boolean{loesungen}}{0}{}
+	&\ifthenelse{\boolean{loesungen}}{0.0000}{}
+\\
+    3   &\ifthenelse{\boolean{loesungen}}{||}{}
+	&\ifthenelse{\boolean{loesungen}}{2}{}
+	&\ifthenelse{\boolean{loesungen}}{0.0166}{}
+\\
+    4   &\ifthenelse{\boolean{loesungen}}{||||||||}{}
+	&\ifthenelse{\boolean{loesungen}}{8}{}
+	&\ifthenelse{\boolean{loesungen}}{0.0666}{}
+\\
+    5   &\ifthenelse{\boolean{loesungen}}{|||||||||| |||||||||| |||||||||}{}
+	&\ifthenelse{\boolean{loesungen}}{29}{}
+	&\ifthenelse{\boolean{loesungen}}{0.2416}{}
+\\
+    6   &\ifthenelse{\boolean{loesungen}}{|||||||||| |||||||||| |||||||||| |||||||||| |||||||||| |||||||||| |||||||||| ||||||||||}{}
+	&\ifthenelse{\boolean{loesungen}}{80}{}
+	&\ifthenelse{\boolean{loesungen}}{0.6666}{}
+\\
+\hline
+\end{tabular}
+\qquad
+\qrcode[height=2.0cm]{https://www.random.org/dice/?num=5}
+\end{center}
+Wie häufig ist das Ereignis $\{\max X_i = 6 \}$?
+
+\begin{hinweis}
+Verwenden Sie den Würfelgenerator \url{https://www.random.org/dice/?num=5}
+\end{hinweis}
+
+\begin{loesung}
+Die Wahrscheinlichkeit des Ereignisses ist
+\[
+P(\max X_i = 6)
+=
+1-
+{\textstyle\frac56}^5
+=
+0.5981,
+\]
+was zu den gefundenen empirischen Daten passt.
+\end{loesung}
+

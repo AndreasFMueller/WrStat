@@ -1,0 +1,36 @@
+Beim radioaktiven Zerfall nimmt die Konzentration eines Isotops
+exponentiell ab.
+\begin{teilaufgaben}
+\item
+Finden Sie ein Modell für den Zusammenhang zwischen der Zeit $T$
+und der Konzentration $X$ des Isotops.
+\item
+Konstruieren Sie ein lineares Regressionsproblem, um die Parameter
+Ihres Modells zu bestimmen.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Exponentieller Zerfall wird durch ein exponentielles Gesetz
+\[
+X
+=
+{\color{darkred}C}e^{-{\color{darkred}k}T}
+\]
+modelliert.
+Zu bestimmen sind die Parameter ${\color{darkred}C}$ und
+${\color{darkred}k}$.
+\item
+Durch Logarithmieren entsteht ein lineare Zusammenhang
+\[
+\log X
+=
+\log{\color{darkred}C} - {\color{darkred}k} T.
+\]
+Mit einer linearen Regression für den Zusammenhang zwischen $T$ und $\log X$
+kann die Steigung $a=-k$ und der Achsabschnitt $b=\log C$ bestimmt werden.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
