@@ -1,0 +1,129 @@
+Bestimmen Sie Median, Spannweite, Quartilabstand und Mittelwert
+des folgenden Datensatzes:
+\begin{center}
+\begin{tabular}{>{$}c<{$}|rrrrrrrrr}
+ i &  1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+\hline
+x_i&
+   0.762 & % 1
+   0.693 & % 2
+   0.708 & % 3
+   0.466 & % 4
+   0.248 & % 5
+   0.242 & % 6
+   0.680 & % 7
+   0.211 & % 8
+   0.285   % 9
+\end{tabular}
+\end{center}
+
+\begin{loesung}
+Zunächst müssen die Datenpunkte sortiert werden:
+\begin{center}
+\begin{tabular}{>{$}c<{$}|rrrrrrrrr}
+ i &
+ 8 &
+ 6 &
+ 5 &
+ 9 &
+ 4 &
+ 7 &
+ 2 &
+ 3 &
+ 1 
+\\
+\hline
+ x_i  &
+0.211 & % 8
+0.242 & % 6
+0.248 & % 5
+0.285 & % 9
+0.466 & % 4
+0.680 & % 7
+0.693 & % 2
+0.708 & % 3
+0.762   % 1
+\end{tabular}
+\end{center}
+Daraus kann man jetzt ablesen, dass der Median
+$x_{\text{med}} = 0.466$ ist.
+Für Spannweite findet man $R=0.762-0.211=0.551$.
+\begin{center}
+\begin{tikzpicture}[>=latex,thick]
+\xdef\s{0.5555}
+\xdef\u{5}
+
+\fill[color=darkgreen!10] (0,0) -- (5.8,0) -- ++(0,5) -- (5,5) -- cycle;
+
+\draw[->] (-1,0) -- (6.1,0) coordinate[label={$x$}];
+\draw[->] (0,-0.1) -- (0,5.5) coordinate[label={left:$F(x)$}];
+
+\foreach \y in {0.25,0.5,0.75,1}{
+	\draw[line width=0.2] (-1,{\y*\u}) -- (5.8,{\y*\u});
+}
+
+\draw[color=blue,line width=0.2pt] ({0.248*\u},0) -- ++(0,{0.25*5});
+\draw[color=blue,line width=0.2pt] ({0.466*\u},0) -- ++(0,{0.50*5});
+\draw[color=blue,line width=0.2pt] ({0.693*\u},0) -- ++(0,{0.75*5});
+
+\draw[color=darkgreen,line width=2pt] (-1,0) -- ({0.211*\u},0);
+
+\draw[color=darkgreen,line width=0.2pt] ({0.211*\u},0) -- ++(0,\s);
+
+\draw[color=darkgreen,line width=2pt]
+	({0.211*\u},{1*\s}) -- ({0.242*\u},{1*\s});
+
+\draw[color=darkgreen,line width=0.2pt] ({0.242*\u},{1*\s}) -- ++(0,\s);
+
+\draw[color=darkgreen,line width=2pt]
+	({0.242*\u},{2*\s}) -- ({0.248*\u},{2*\s});
+
+\draw[color=darkgreen,line width=0.2pt] ({0.248*\u},{2*\s}) -- ++(0,\s);
+
+\draw[color=darkgreen,line width=2pt]
+	({0.248*\u},{3*\s}) -- ({0.285*\u},{3*\s});
+
+\draw[color=darkgreen,line width=0.2pt] ({0.285*\u},{3*\s}) -- ++(0,\s);
+
+\draw[color=darkgreen,line width=2pt]
+	({0.285*\u},{4*\s}) -- ({0.466*\u},{4*\s});
+
+\draw[color=darkgreen,line width=0.2pt] ({0.466*\u},{4*\s}) -- ++(0,\s);
+
+\draw[color=darkgreen,line width=2pt]
+	({0.466*\u},{5*\s}) -- ({0.680*\u},{5*\s});
+
+\draw[color=darkgreen,line width=0.2pt] ({0.680*\u},{5*\s}) -- ++(0,\s);
+
+\draw[color=darkgreen,line width=2pt]
+	({0.680*\u},{6*\s}) -- ({0.693*\u},{6*\s});
+
+\draw[color=darkgreen,line width=0.2pt] ({0.693*\u},{6*\s}) -- ++(0,\s);
+
+\draw[color=darkgreen,line width=2pt]
+	({0.693*\u},{7*\s}) -- ({0.708*\u},{7*\s});
+
+\draw[color=darkgreen,line width=0.2pt] ({0.708*\u},{7*\s}) -- ++(0,\s);
+
+\draw[color=darkgreen,line width=2pt]
+	({0.708*\u},{8*\s}) -- ({0.762*\u},{8*\s});
+
+\draw[color=darkgreen,line width=0.2pt] ({0.762*\u},{8*\s}) -- ++(0,\s);
+
+\draw[color=darkgreen,line width=2pt] ({0.762*\u},5) -- (5.8,5);
+
+\draw ({0.211*\u},-0.05) -- ++(0,0.1);
+\draw ({0.242*\u},-0.05) -- ++(0,0.1);
+\draw ({0.248*\u},-0.05) -- ++(0,0.1);
+\draw ({0.285*\u},-0.05) -- ++(0,0.1);
+\draw ({0.466*\u},-0.05) -- ++(0,0.1);
+\draw ({0.680*\u},-0.05) -- ++(0,0.1);
+\draw ({0.693*\u},-0.05) -- ++(0,0.1);
+\draw ({0.708*\u},-0.05) -- ++(0,0.1);
+\draw ({0.762*\u},-0.05) -- ++(0,0.1);
+
+\end{tikzpicture}
+\end{center}
+ und für den
+Quartilabstand $Q = 0.693 - 0.248=0.445 $.
+\end{loesung}

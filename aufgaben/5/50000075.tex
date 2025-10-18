@@ -1,0 +1,63 @@
+Finden Sie die die Wahrscheinlichkeitsdichte der Gleichverteilung
+auf dem Intervall $[0,1]$, deren Verteilungsfunktion durch
+\[
+F(x)
+=
+\begin{cases}
+0&\quad \text{für}\;\phantom{0<\mathstrut}x \le 0\\
+x&\quad \text{für}\;0         < x \le 1\\
+1&\quad \text{für}\;1         < x
+\end{cases}
+\qquad
+\qquad
+\raisebox{-1.5cm}{
+\begin{tikzpicture}[>=latex,thick]
+\draw[->] (-1.1,0) -- (4.5,0) coordinate[label={$x$}];
+\draw[->] (0,-0.1) -- (0,2.3) coordinate[label={right:$F(x)$}];
+\draw[line width=0.2pt] (-1.1,2) -- (3.3,2);
+\draw[line width=0.2pt] (2,0) -- (2,2);
+\draw (2,-0.05) -- (2,0.05);
+\draw (-0.05,2) -- (0.05,2);
+\node at (2,0) [below] {$1$};
+\node at (0,0) [below] {$0$};
+\node at (0,2) [below left] {$1$};
+\draw[color=darkgreen,line width=1.4pt] (-1,0) -- (0,0) -- (2,2) -- (4,2);
+\end{tikzpicture}}
+\]
+gegeben ist.
+Zeichnen sie die zugehörige Wahrscheinlichkeitsdichte.
+
+\begin{loesung}
+Die Dichtefunktion ist die Ableitung, also die stückweise
+konstante Funktion
+\[
+\varphi(x)
+=
+\begin{cases}
+0&\qquad \phantom{0<\mathstrut}x \le 0\\
+1&\qquad 0         < x \le 1\\
+0&\qquad 1         < x
+\end{cases}
+\]
+Die folgende Abbildung zeigt den Graphen, sie hat das Intervall
+$[0,1]$ als Träger:
+\[
+\definecolor{darkred}{rgb}{0.8,0,0}
+\raisebox{-0.5cm}{
+\begin{tikzpicture}[>=latex,thick]
+\draw[->] (-1.1,0) -- (4.5,0) coordinate[label={$x$}];
+\draw[->] (0,-0.1) -- (0,2.3) coordinate[label={left:$F(x)$}];
+\draw (2,-0.05) -- (2,0.05);
+\draw (-0.05,2) -- (0.05,2);
+\node at (2,0) [below] {$1$};
+\node at (0,0) [below] {$0$};
+\fill[color=darkred!10] (0,0) rectangle (2,2);
+\draw[color=darkred,line width=1.4pt] (-1,0) -- (0,0);
+\draw[color=darkred,line width=0.1pt] (0,0) -- (0,2);
+\draw[color=darkred,line width=1.4pt] (0,2) -- (2,2);
+\draw[color=darkred,line width=0.1pt] (2,2) -- (2,0);
+\draw[color=darkred,line width=1.4pt] (2,0) -- (4,0);
+\end{tikzpicture}}
+\qedhere
+\]
+\end{loesung}
