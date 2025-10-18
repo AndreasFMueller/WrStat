@@ -1,0 +1,35 @@
+Berechnen Sie die Wahrscheinlichkeitsdichte für die Verteilungsfunktion
+\[
+F(x)
+=
+\begin{cases}
+0        &\qquad \text{für $x\le 0$}\\
+1-e^{-ax}&\qquad \text{für $ x>0$}
+\end{cases}
+\]
+und stellen Sie das Integral für den Erwartungswert auf.
+
+
+\begin{loesung}
+Die Wahrscheinlichkeitsdichte ist die Ableitung
+\[
+\varphi(x)
+=
+F'(x)
+=
+\begin{cases}
+0        &\qquad \text{für $x\le 0$}\\
+ae^{-ax} &\qquad \text{für $ x>0$.}
+\end{cases}
+\]
+Das Integral für den Erwartungswert ist daher
+\[
+E(X)
+=
+\int_{-\infty}^\infty x \varphi(x)\,dx
+=
+\int_0^\infty  x e^{-ax}\,dx.
+\qedhere
+\]
+\end{loesung}
+

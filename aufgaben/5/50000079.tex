@@ -1,0 +1,64 @@
+Die Exponentialverteilung hat die Verteilungsfunktion
+\[
+F(x)
+=
+\begin{cases}
+0&\qquad\text{für $x\le 0$}\\
+1-e^{-ax}&\qquad\text{für $x>0$.}
+\end{cases}
+\qquad\qquad
+\raisebox{-1cm}{\begin{tikzpicture}
+\node at (0,0) {\qrcode[height=2cm]{https://www.random.org/decimal-fractions/?num=10&dec=10&col=1&format=html&rnd=new}};
+\end{tikzpicture}}
+\]
+\begin{teilaufgaben}
+\item
+Bestimmen Sie die Umkehrfunktion $F^{-1}(y)$ für $y>0$.
+\item
+Erzeugen Sie einige gleichverteilte Zufallszahlen $y$ mit dem
+Zufallszahlgenerator im QR-Code und zeichnen Sie die zugehörigen
+$F^{-1}(y)$-Werte für $a=1$ auf.
+Es sollte ziemlich grosse Werte dabei haben, aber die meisten Werte
+sind nahe bei $0$.
+Die $F^{-1}(y)$ sind nicht mehr gleichverteilt.
+\end{teilaufgaben}
+
+%\begin{center}
+%\qrcode[height=2cm]{https://www.random.org/decimal-fractions/?num=10&dec=10&col=1&format=html&rnd=new}
+%\end{center}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Aus $y=1-e^{-ax}$ erhalten wir durch Auflösen nach der Exponentialfunktion
+\begin{align*}
+e^{-ax}&=1-y
+\intertext{und durch Anwendung des natürlichen Logarithmus}
+-ax &= \log(1-y)\\
+\Rightarrow\qquad
+x &=F^{-1}(y) = -\frac{1}{a}\log(1-y).
+\end{align*}
+\item
+Der QR-Code liefert die $y$-Werte mit den zugehörigen $F^{-1}(y)$-Werten
+\begin{center}
+\begin{tabular}{|>{$}r<{$}|>{$}r<{$}|>{$}r<{$}|}
+\hline
+y&1-y&-\log(1-y) \\
+\hline
+0.5746481160 & 0.4253518840 & 0.854838490276530 \\
+0.1418307476 & 0.8581692524 & \color{darkred}0.152953935078669 \\
+0.9087866743 & 0.0912133257 & \color{darkgreen}2.394554277444048 \\
+0.3912439839 & 0.6087560161 & \color{darkred}0.496337721923698 \\
+0.7665202854 & 0.2334797146 & 1.454660081021801 \\
+0.2433549105 & 0.7566450895 & \color{darkred}0.278860973660684 \\
+0.3535949332 & 0.6464050668 & \color{darkred}0.436328933315873 \\
+0.1437008172 & 0.8562991828 & \color{darkred}0.155135451288878 \\
+0.1139949198 & 0.8860050802 & \color{darkred}0.121032594533449 \\
+0.3845952556 & 0.6154047444 & \color{darkred}0.485475106666649 \\
+\hline
+\end{tabular}
+\end{center}
+Rot: Zahlenwerte $-\log(1-y)<0.5$, Grün: Zahlenwerte $-\log(1-y)>2$.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}

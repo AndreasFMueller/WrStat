@@ -1,0 +1,130 @@
+Stellen Sie das Faltungsintegral für die Faltung der beiden
+Wahrscheinlichkeitsdichten
+\[
+\varphi_1(x)
+=
+\frac{1}{\sqrt{2\pi}}e^{-x^2/2}
+\qquad\text{und}\qquad
+\varphi_2(x)
+=
+\frac{1}{\sqrt{8\pi}}e^{-x^2/8}
+\]
+auf.
+
+\begin{loesung}
+Das Integral ist
+\begin{align}
+\varphi_1*\varphi_2(z)
+&=
+\int_{-\infty}^\infty
+\varphi_1(x) \varphi_2(z-x)\,dx
+\notag
+\\
+&=
+\int_{-\infty}^\infty
+\frac{1}{\sqrt{2\pi}}e^{-x^2/2}
+\frac{1}{\sqrt{8\pi}}e^{(z-x)^2/8}
+\,dx
+\notag
+\\
+&=
+\frac{1}{4\pi}
+\int_{-\infty}^\infty
+\exp\biggl(
+-\frac{x^2}2-\frac{z^2-2xz+x^2}8
+\biggr)
+\,dx
+\notag
+\\
+&=
+\frac{1}{4\pi}
+\int_{-\infty}^\infty
+\exp\biggl(
+-\frac{4x^2}8-\frac{z^2-2xz+x^2}8
+\biggr)
+\,dx
+\notag
+\\
+&=
+\frac{1}{4\pi}
+\int_{-\infty}^\infty
+\exp\biggl(
+-\frac{5x^2-2xz+z^2}8
+\biggr)
+\,dx.
+\notag
+\intertext{Mit quadratischem Ergänzen kann man es weiter zu}
+&=
+\frac{1}{4\pi}
+\int_{-\infty}^\infty
+\exp\biggl(
+-\frac{5(x-\frac15z)^2+\frac45z^2}8
+\biggr)
+\,dx
+\notag
+\intertext{vereinfachen.
+Der letzte Summand im Exponenten hängt nicht von der
+Integrationsvariable ab und kann daher aus dem Integral gezogen werden.
+Der Summand $-\frac15z$ ist nur eine Verschiebung, die auf das
+uneigentliche Integral keinen Einfluss hat.
+Es bleibt daher}
+&=
+\frac{1}{4\pi}
+e^{-\frac{1}{2\cdot 5}z^2}
+\int_{-\infty}^\infty
+e^{-\frac58x^2}\,dx.
+\label{50000078:eqn:integral}
+\end{align}
+Das letzte Integral ist eine Konstante, die zusammen mit
+den Faktoren vor der Exponentialfunktion eine Wahrscheinlichkeitsdichte
+ergeben muss.
+Es folgt, dass die Faltung der Funktionen $\varphi_1$ und $\varphi_2$
+wieder eine Funktion der selben Form
+\[
+\varphi_\sigma=\frac{1}{\sqrt{2\pi}\sigma}e^{-x^2/2\sigma^2}
+\]
+mit $\sigma^2=5$ oder $\sigma=\!\sqrt{5}$ ist, die wir später als die
+Normalverteilung bezeichnen werden.
+
+Das Integral auf der rechten Seite von \eqref{50000078:eqn:integral}
+kann durch die Substition $\xi = \frac{\sqrt{5}}2x$
+bwz.~$dx=\frac{2}{\sqrt{5}}\xi$ in die Form
+\begin{align*}
+\int_{-\infty}^\infty
+e^{-\frac58x^2}\,dx
+&=
+\int_{-\infty}^\infty
+e^{-\frac{\xi^2}{2}}
+\,
+\frac{2}{\!\sqrt{5}}
+\,d\xi
+=
+\frac{2}{\!\sqrt{5}}
+\cdot
+\sqrt{2\pi}
+\cdot
+\underbrace{
+\frac{1}{\sqrt{2\pi}}
+\int_{-\infty}^\infty
+e^{-\frac{\xi^2}{2}}
+\,d\xi
+}_{\displaystyle=1}
+=
+\sqrt{\frac{8\pi}{5}}.
+\end{align*}
+Einsetzen in \eqref{50000078:eqn:integral} ergibt
+\begin{align*}
+\varphi_1*\varphi_2(z)
+&=
+\frac{1}{4\pi}
+\sqrt{\frac{8\pi}{5}}
+e^{-\frac{z^2}{2(\!\sqrt{5})^2}}
+=
+\frac{1}{\sqrt{2\pi}\sqrt{5}}
+e^{-\frac{z^2}{2(\!\sqrt{5})^2}}
+=
+\frac{1}{\!\sqrt{2\pi}\sigma}
+e^{-\frac{x^2}{2\sigma^2}}.
+\qedhere
+\end{align*}
+\end{loesung}

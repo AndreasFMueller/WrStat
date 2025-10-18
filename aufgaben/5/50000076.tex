@@ -48,6 +48,7 @@ Zunächst müssen die Datenpunkte sortiert werden:
 Daraus kann man jetzt ablesen, dass der Median
 $x_{\text{med}} = 0.466$ ist.
 Für Spannweite findet man $R=0.762-0.211=0.551$.
+Aus der Graphik
 \begin{center}
 \begin{tikzpicture}[>=latex,thick]
 \xdef\s{0.5555}
@@ -124,6 +125,24 @@ Für Spannweite findet man $R=0.762-0.211=0.551$.
 
 \end{tikzpicture}
 \end{center}
- und für den
-Quartilabstand $Q = 0.693 - 0.248=0.445 $.
+kann man den Quartilabstand $Q = 0.693 - 0.248=0.445$ ablesen.
+
+Der Mittelwert ist
+\begin{align*}
+\bar{x}
+&=
+\frac{1}{9}
+\sum_{i=1}^9
+x_i
+=
+\frac{
+   0.762 + 0.693 + 0.708 + 0.466 + 0.248 + 0.242 + 0.680 + 0.211 + 0.285
+}{9}
+\\
+&=
+\frac{4.295}{9}
+=
+0.477\overline{2}.
+\qedhere
+\end{align*}
 \end{loesung}
