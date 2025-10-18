@@ -1,0 +1,23 @@
+Sei $\varphi_k$ die Wahrscheinlichkeitsdichte einer Summe
+$X_1+\dots+X_k$ von $k$ exponentialverteilten Zufallsvariablen.
+Stellen Sie das Faltungsintegral für die Berechnung der
+Wahrscheinlichkeitsdichte der Summe
+\[
+X_1+\dots+X_{k+1}
+=
+(X_1+\dots+X_{k\mathstrut}) + X_{k+1}
+\]
+auf.
+
+\begin{loesung}
+Wir müssen die Faltung $\varphi_{k+1}=\varphi_k * \varphi_1$ aufstellen,
+dies ist das Integral
+\begin{align*}
+\varphi_{k+1}(z)
+&=
+\int_{-\infty}^\infty
+\varphi_k(x) \varphi_{k}(z-x)\,dx.
+\qedhere
+\end{align*}
+\end{loesung}
+
