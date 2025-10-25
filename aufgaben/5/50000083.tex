@@ -1,0 +1,34 @@
+Ein Atom des radioaktiven Caesium-Isotops $\prescript{137}{}{\text{Cs}}$ 
+zerfällt mit einer durchschnittlichen Lebensdauer von 43.34 Jahren.
+\begin{teilaufgaben}
+\item
+Bestimmen Sie den Parameter $a$ der zugehörigen Exponentialverteilung.
+\item
+Verwenden Sie die Verteilungsfunktion der Exponentialverteilung zum die
+Wahrsscheinlichkeit zu berechnen, dass das Atom nach 30.04 Jahren
+zerfallen ist.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+$a$ ist der Kehrwert der mittleren Lebensdauer, also
+$a=1/43.34\,\text{yr}^{-1}$.
+\item
+Die Verteilungsfunktion ist
+\[
+F(30.04\,\text{yr})
+=
+1-e^{-a\cdot 30.04\,\text{yr}}
+=
+1-e^{-30.04/43.34}
+=
+1-e^{-0.69312}
+=
+0.499986
+\approx
+0.5.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
