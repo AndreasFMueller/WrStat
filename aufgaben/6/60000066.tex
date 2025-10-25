@@ -1,0 +1,45 @@
+Die Zufallsvariable $X$ von Aufgabe~\ref{60000065} hat Erwartungswert
+$\mu$ und Varianz $\sigma^2=4$.
+\begin{teilaufgaben}
+\item
+Welchen Wert muss man in einer Tabelle der Standardnormalverteilung
+nachschlagen, wenn man die Wahrscheinlichkeit $P(X\le \pi)$ bestimmen
+will?
+\item
+Finden Sie $P(X\le \pi)$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Grösse $Z=(X-\mu)/\sigma$ ist standardnormalverteilt, d.~h.
+\[
+P(X\le \pi)
+=
+P\biggl(
+\frac{X-\mu}{\sigma}
+\le
+\frac{\pi-\mu}{\sigma}
+\biggr)
+=
+P\biggl(
+Z
+\le
+\frac{\pi-2}{2}
+\biggr).
+\]
+Es muss also der Wert $(\pi-2)/2 = \frac{\pi}2-1$ nachgeschlagen werden.
+\item
+Die Verteilungsfunktion der Standardnormalverteilung liefert:
+\[
+\Phi\biggl(
+\frac{\pi-2}{2}
+\biggr)
+=
+\Phi(0.571)
+=
+0.7160.
+\]
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
