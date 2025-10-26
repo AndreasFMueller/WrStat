@@ -1,0 +1,29 @@
+Die Wahrscheinlichkeit dafür, mit einem Tipp im Lotto (6 aus 42) einen
+Sechser zu erzielen, ist $p=1.9063\cdot10^{-7}$.
+Nehmen Sie an, dass $n=10^6$ Tipps abgegeben werden.
+\begin{teilaufgaben}
+\item
+Wieviele Sechser werden erwartet?
+\item
+Finden Sie approximativ die Wahrscheinlichkeit dafür, dass 
+2 einen Sechser erziehlt haben.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+$\lambda = np = 0.1906$.
+\item
+Wahrscheinlichkeit für
+genau $k=2$ Sechser approximiert mit Poisson-Verteilung:
+\[
+P_\lambda(2)
+= 
+e^{-\lambda}\frac{\lambda^2}{2!}
+=
+0.015016.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+

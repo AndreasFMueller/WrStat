@@ -1,0 +1,25 @@
+Ein Anbieter behauptet, dass von 100 von ihm gelieferten Äpfeln
+höchstens 10 die vereinbarten Qualitiätsanforderungen nicht erfüllen.
+Ein Kunde zählt nach und findet in einer Stichprobe von 12 Äpfeln
+deren 7, die die Anforderungen nicht erfüllen.
+Wie wahrscheinlich ist dies?
+
+\begin{loesung}
+Die Wahrscheinlichkeit wird durch die hypergeometrische Verteilung
+\[
+h(7\mid 100; 10; 12)
+=
+\frac{
+\binom{10}{7}
+\binom{100-10}{12-7}
+}{
+\binom{100}{12}
+}
+=
+\frac{120\cdot 43949268}{1050421051106700}
+=
+5.3949\cdot 10^{-6}.
+\]
+gegeben.
+\end{loesung}
+

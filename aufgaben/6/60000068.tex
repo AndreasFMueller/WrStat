@@ -1,0 +1,37 @@
+Ein Würfel wird 10 Mal geworfen. 
+Die Zufallsvariable $X$ ist die Anzahl gewürfelter Sechser.
+$X$ ist binomialverteilt.
+\begin{teilaufgaben}
+\item 
+Bestimmen Sie die Parameter $n$ und $p$ der Verteilung von $X$.
+\item
+Wie gross ist die erwartete Anzahl gewürfelter Sechser?
+\item
+Wie gross ist die Varianz der Anzahl gewürfelter Sechser?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass genau zwei Sechser
+gewürfelt werden?
+\end{teilaufgaben}
+
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item $n=10$, $p=\frac16$.
+\item $E(X)=np = 10\cdot\frac16=\frac53=1.\overline{6}$
+\item $\operatorname{var}(X) = np(1-p) = 10\cdot\frac16\cdot\frac56
+=1.3\overline{8}$
+\item 
+\(
+\displaystyle
+P(X=2)
+=
+\binom{n}{2} p^2 (1-p)^{n-2}
+=
+0.2907.
+\qedhere
+\)
+\end{teilaufgaben}
+\end{loesung}
+
+
+

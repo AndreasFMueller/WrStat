@@ -1,0 +1,65 @@
+Sei $X$ die binomialverteilte Zufallsvariable von Aufgabe \ref{60000068}
+($n=10$ und $p=\frac16$).
+Wie kann die Wahrscheinlichkeit für $X\le 2$ approximativ berechnet
+werden?
+
+\begin{loesung}
+Aus der Lösung von Aufgabe~\ref{60000068} ist $\mu=np=\frac53$ und
+$\sigma=\!\sqrt{np(1-p)}=\!\sqrt{\frac{25}{18}}=\frac{5}{6}\sqrt{2}$.
+Die Approximationsformel sagt dann
+\begin{align*}
+P(X\le 2)
+&\approx
+P\biggl(
+\frac{X-\mu}{\sigma}
+\le
+\frac{2-\mu}{\sigma}
+\biggr)
+\\
+&=
+P\biggl(Z \le \frac{2-\frac53}{\frac56\sqrt{2}}\biggr)
+=
+P\biggl(Z \le \frac{\frac13}{\frac56\sqrt{2}}\biggr)
+=
+P\biggl(Z \le \frac{1}{\frac52\sqrt{2}}\biggr)
+=
+P\biggl(Z \le \frac{\!\sqrt{2}}{5}\biggr)
+\\
+&=
+\Phi\biggl( \frac{\!\sqrt{2}}{5}\biggr)
+=
+\Phi(0.283)
+=
+0.6114.
+\end{align*}
+Die exakte Berechnung ergibt
+\[
+P(X\le 2)
+=
+\sum_{k=0}^2
+\binom{n}{k}p^k(1-p)^{n-k}
+=
+(1-p)^10
++
+\binom{10}{1}
+p(1-p)^9
++
+\binom{10}{2}
+p^2(1-p)^8
+=
+0.7752.
+\]
+Verwendet man die Korrektur von de Moivre, setzt man also 2.5 in die
+Standardisierungsformel ein statt 2, erhält man
+\begin{align*}
+P(X\le 2)
+&=
+\Phi\biggl( \frac{2.5-\mu}{\sigma}\biggr)
+=
+\Phi(0.707)
+=
+0.7602.
+\end{align*}
+Die korrigierte Formel liefert also ein wesentlich genaueres Resultat.
+\end{loesung}
+
