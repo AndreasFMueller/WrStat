@@ -1,0 +1,34 @@
+Stellen Sie die Likelihood-Funktion
+$L(a; x_1,\dots,x_n)$ zur Schätzung des Parameters $a$ einer 
+Exponentialverteilung aus einer Stichprobe $x_1,\dots,x_n$ auf.
+
+
+\begin{loesung}
+Die Wahrscheinlichkeitsdichte der Exponentialverteilung ist
+\[
+\varphi(x)
+=
+\begin{cases}
+ae^{-ax} &\qquad \text{für $x> 0$}\\
+0        &\qquad \text{für $x\le 0$.}
+\end{cases}
+\]
+Die Likelihood-Funktion entsteht, indem man die Werte der Stichprobe
+in $\varphi$ einsetzt und das Produkt bildet:
+\begin{align*}
+L(a;x_1,\dots,x_n)
+&=
+\prod_{i=1}^n \varphi(x_i)
+=
+\begin{cases}
+\displaystyle
+\prod_{i=1}^n ae^{-ax_i} &\qquad \text{falls $x_i>0\,\forall i$}\\[15pt]
+0                        &\qquad \text{falls $\exists\, i\,(x_i\le0)$.}
+\end{cases}
+\intertext{Unter Ausschluss des Falls, in dem eines der $x_i\le0$ ist, gilt}
+&=
+a^n e^{-a(x_1+\dots+x_n)}.
+\end{align*}
+Der Parameter $a$ kann jetzt geschätzt werden durch Minimierung der
+Likelihood-Funktion.
+\end{loesung}
