@@ -47,12 +47,31 @@ P\biggl(
 =
 1-\Phi(1.5745)
 =
-0.0576744
+0.0576744.
 \end{align*}
 Die Wahrscheinlichkeit, höchstens 100 farbenfehlsichtige Männer unter
 der männlichen Studentenschaft zu finden, ist also nur 5.8\%, sind
 also fast sicher mehr als 100 männliche Studenten an der HSR
 farbenfehlsichtig.
+
+Man kann die Genauigkeit noch etwas erhöhen, indem man die de~Moivre-Laplace-Korrektur anwendet.
+Dann ist
+\begin{align*}
+P(X\le 100)
+&=
+P\biggl(
+\frac{X-\mu}{\sigma}\le \frac{100.5-\mu}{\sigma}
+\biggr)
+=
+P\biggl(
+\frac{X-\mu}{\sigma}\le -1.5259
+\biggr)
+=
+1-\Phi(1.5259)
+=
+0.063517.
+\end{align*}
+
 \item
 Die Anzahl $X$ der farbenfehlsichtigen Frauen ist ebenfalls binomialverteilt
 mit $n=217$ und $p=0.008$. Wir erwarten also $np=1.73$ farbenfehlsichtige
