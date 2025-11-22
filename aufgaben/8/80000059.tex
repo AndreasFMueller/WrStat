@@ -1,0 +1,30 @@
+Es wird manchmal vermutet, dass Studierende verschiedener Studiengänge in
+der WrStat-Prüfung unterschiedlich gut abschneiden.
+Die relativ hohen Anmeldezahlen für die Prüfung im HS 2025 ermöglichen,
+dies zu testen.
+Dazu werden Durchschnittsnoten $m_i$ pro Studiengang berechnet, wobei $i$ den
+Studiengang bezeichnet.
+Ausserdem sind die Teilnehmerzahlen $n_i$ pro Studiengang bekannt.
+\begin{teilaufgaben}
+\item Wie lautet die Nullhypothese?
+\item Welches $\alpha$ ist angemessen?
+\item Welche Teststatistik ist zu verwenden?
+\item Wie ist der kritische Wert zu betimmen?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Nullhypothese:
+\begin{quote}
+Die Durschnittsnoten unterscheiden sich nicht.
+\end{quote}
+\item $\alpha=0.05$ ist angemessen.
+\item Zum Vergleich von Mittelwerten wird der $t$-Test verwendet.
+Beim Vergleich der Mittelwerte $m_i$ und $m_k$ ist daher der Wert
+der $t$-Statistik zu berechnen.
+\item Beim Vergleich der Mittelwerte $m_i$ und $m_k$ ist zunächst mit
+der Zahl $n_i+n_k-2$ der Freiheitsgrade die Quantile 97.5\%-Quantile
+der $t$-Verteilung bestimmt werden.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
