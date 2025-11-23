@@ -17,9 +17,10 @@ damit Sie die Nullhypothese verwerfen?
 \begin{minipage}{0.3\textwidth}
 \begin{center}
 \begin{tikzpicture}[>=latex,thick]
-\node at (0,0) {\qrcode[height=2.5cm]{https://wrstat.ch/apps/binomial/}};
+\node at (0,0) {\qrcode[height=2.5cm]{https://wrstat.ch/binomial/}};
 \fill[color=white,opacity=1.0] (0,0) circle[radius=0.4];
 \node at (0,0) {\includeagraphics[width=0.85cm]{stern.png}};
+\node at (0,-1.25) [below] {\small https://wrstat.ch/binomial};
 \end{tikzpicture}
 \end{center}
 \end{minipage}}
@@ -33,7 +34,7 @@ $p=1/\text{Anzahl Formen}$.
 \item $\alpha = 0.05$ ist angemessen.
 \item Gezählt wird die Anzahl $k$ der Sterne und die Gesamtzahl $n$ der
 Mailänderli.
-\item $p=\frac14$
+\item $p=\frac14$.
 \item Es muss getestet werden, ob $k$ um mehr als $\pm1.96\!\sqrt{np(1-p)}$
 vom Erwartungswert $np$ abweicht.
 Der Faktor $1.96$ ist die 97.5\%-Quantile der Standardnormalverteilung.
