@@ -1,0 +1,33 @@
+Verwenden Sie den Graphen von Aufgabe~\ref{80000062}, um die Grössen 
+$K_n^+$ und $K_n^-$ zu bestimmen.
+
+\begin{loesung}
+\ainput{data.tex}
+Aus der Lösung von Aufgaben~\ref{80000062} kann man ablesen, dass
+\begin{align*}
+\max_{1\le i\le n}
+\biggl(\frac{i}{n} - F(x_i)\biggr)
+&=
+\Kplus
+&&\Rightarrow&
+K_n^+
+&=
+\!\sqrt{10}\cdot\Kminus
+=
+\pgfmathparse{sqrt(10)*\Kplus}
+\pgfmathprintnumber[fixed,precision=4]{\pgfmathresult}
+\\
+\max_{1\le i\le n}
+\biggl(F(x_i) - \frac{i-1}{n}\biggr)
+&=
+\Kminus
+&&\Rightarrow&
+K_n^-
+&=
+\!\sqrt{10}\cdot\Kminus
+=
+\pgfmathparse{sqrt(10)*\Kminus}
+\pgfmathprintnumber[fixed,precision=4]{\pgfmathresult}
+\end{align*}
+ist.
+\end{loesung}

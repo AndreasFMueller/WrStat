@@ -1,0 +1,110 @@
+\def\normal{
+	-1.6449, -0.3585, 0.3853, 0.1764, -0.4959, 0.9542, -0.9945, -1.2816, -0.0502, 0.2793
+}
+\def\werte{
+	0.05, 0.36, 0.65, 0.57, 0.31, 0.83, 0.16, 0.10, 0.48, 0.61
+}
+\def\vertikal{
+	\draw[color=darkred,line width=0.3pt] ({0.05*\h},0) -- ++(0,{0*\s-0.05});
+	\draw[color=darkred,line width=0.3pt] ({0.05*\h},{0*\s+0.05}) -- ++(0,{\s-0.05});
+	\draw[color=darkred] ({0.05*\h},-0.05) -- ++(0,0.1);
+	\node[color=darkred] at ({0.05*\h},0) [below] {\tiny $x_{1}$};
+
+	\draw[color=darkred,line width=0.3pt] ({0.10*\h},0) -- ++(0,{1*\s-0.05});
+	\draw[color=darkred,line width=0.3pt] ({0.10*\h},{1*\s+0.05}) -- ++(0,{\s-0.05});
+	\draw[color=darkred] ({0.10*\h},-0.05) -- ++(0,0.1);
+	\node[color=darkred] at ({0.10*\h},0) [below] {\tiny $x_{2}$};
+
+	\draw[color=darkred,line width=0.3pt] ({0.16*\h},0) -- ++(0,{2*\s-0.05});
+	\draw[color=darkred,line width=0.3pt] ({0.16*\h},{2*\s+0.05}) -- ++(0,{\s-0.05});
+	\draw[color=darkred] ({0.16*\h},-0.05) -- ++(0,0.1);
+	\node[color=darkred] at ({0.16*\h},0) [below] {\tiny $x_{3}$};
+
+	\draw[color=darkred,line width=0.3pt] ({0.31*\h},0) -- ++(0,{3*\s-0.05});
+	\draw[color=darkred,line width=0.3pt] ({0.31*\h},{3*\s+0.05}) -- ++(0,{\s-0.05});
+	\draw[color=darkred] ({0.31*\h},-0.05) -- ++(0,0.1);
+	\node[color=darkred] at ({0.31*\h},0) [below] {\tiny $x_{4}$};
+
+	\draw[color=darkred,line width=0.3pt] ({0.36*\h},0) -- ++(0,{4*\s-0.05});
+	\draw[color=darkred,line width=0.3pt] ({0.36*\h},{4*\s+0.05}) -- ++(0,{\s-0.05});
+	\draw[color=darkred] ({0.36*\h},-0.05) -- ++(0,0.1);
+	\node[color=darkred] at ({0.36*\h},0) [below] {\tiny $x_{5}$};
+
+	\draw[color=darkred,line width=0.3pt] ({0.48*\h},0) -- ++(0,{5*\s-0.05});
+	\draw[color=darkred,line width=0.3pt] ({0.48*\h},{5*\s+0.05}) -- ++(0,{\s-0.05});
+	\draw[color=darkred] ({0.48*\h},-0.05) -- ++(0,0.1);
+	\node[color=darkred] at ({0.48*\h},0) [below] {\tiny $x_{6}$};
+
+	\draw[color=darkred,line width=0.3pt] ({0.57*\h},0) -- ++(0,{6*\s-0.05});
+	\draw[color=darkred,line width=0.3pt] ({0.57*\h},{6*\s+0.05}) -- ++(0,{\s-0.05});
+	\draw[color=darkred] ({0.57*\h},-0.05) -- ++(0,0.1);
+	\node[color=darkred] at ({0.57*\h},0) [below] {\tiny $x_{7}$};
+
+	\draw[color=darkred,line width=0.3pt] ({0.61*\h},0) -- ++(0,{7*\s-0.05});
+	\draw[color=darkred,line width=0.3pt] ({0.61*\h},{7*\s+0.05}) -- ++(0,{\s-0.05});
+	\draw[color=darkred] ({0.61*\h},-0.05) -- ++(0,0.1);
+	\node[color=darkred] at ({0.61*\h},0) [below] {\tiny $x_{8}$};
+
+	\draw[color=darkred,line width=0.3pt] ({0.65*\h},0) -- ++(0,{8*\s-0.05});
+	\draw[color=darkred,line width=0.3pt] ({0.65*\h},{8*\s+0.05}) -- ++(0,{\s-0.05});
+	\draw[color=darkred] ({0.65*\h},-0.05) -- ++(0,0.1);
+	\node[color=darkred] at ({0.65*\h},0) [below] {\tiny $x_{9}$};
+
+	\draw[color=darkred,line width=0.3pt] ({0.83*\h},0) -- ++(0,{9*\s-0.05});
+	\draw[color=darkred,line width=0.3pt] ({0.83*\h},{9*\s+0.05}) -- ++(0,{\s-0.05});
+	\draw[color=darkred] ({0.83*\h},-0.05) -- ++(0,0.1);
+	\node[color=darkred] at ({0.83*\h},0) [below] {\tiny $x_{10}$};
+
+}
+\def\treppe{
+	\draw[color=orange,line width=1.4pt] (-0.1,0) -- ({0.05*\h-0.05},0);
+	\draw[color=orange] ({0.05*\h},0.05) arc(90:270:0.05);
+
+	\fill[color=orange] ({0.05*\h},{1*\s}) circle[radius=0.05];
+	\draw[color=orange,line width=1.4pt] ({0.05*\h},{1*\s}) -- ({0.10*\h-0.05},{1*\s});
+	\draw[color=orange] ({0.10*\h},{1*\s+0.05}) arc(90:270:0.05);
+
+	\fill[color=orange] ({0.10*\h},{2*\s}) circle[radius=0.05];
+	\draw[color=orange,line width=1.4pt] ({0.10*\h},{2*\s}) -- ({0.16*\h-0.05},{2*\s});
+	\draw[color=orange] ({0.16*\h},{2*\s+0.05}) arc(90:270:0.05);
+
+	\fill[color=orange] ({0.16*\h},{3*\s}) circle[radius=0.05];
+	\draw[color=orange,line width=1.4pt] ({0.16*\h},{3*\s}) -- ({0.31*\h-0.05},{3*\s});
+	\draw[color=orange] ({0.31*\h},{3*\s+0.05}) arc(90:270:0.05);
+
+	\fill[color=orange] ({0.31*\h},{4*\s}) circle[radius=0.05];
+	\draw[color=orange,line width=1.4pt] ({0.31*\h},{4*\s}) -- ({0.36*\h-0.05},{4*\s});
+	\draw[color=orange] ({0.36*\h},{4*\s+0.05}) arc(90:270:0.05);
+
+	\fill[color=orange] ({0.36*\h},{5*\s}) circle[radius=0.05];
+	\draw[color=orange,line width=1.4pt] ({0.36*\h},{5*\s}) -- ({0.48*\h-0.05},{5*\s});
+	\draw[color=orange] ({0.48*\h},{5*\s+0.05}) arc(90:270:0.05);
+
+	\fill[color=orange] ({0.48*\h},{6*\s}) circle[radius=0.05];
+	\draw[color=orange,line width=1.4pt] ({0.48*\h},{6*\s}) -- ({0.57*\h-0.05},{6*\s});
+	\draw[color=orange] ({0.57*\h},{6*\s+0.05}) arc(90:270:0.05);
+
+	\fill[color=orange] ({0.57*\h},{7*\s}) circle[radius=0.05];
+	\draw[color=orange,line width=1.4pt] ({0.57*\h},{7*\s}) -- ({0.61*\h-0.05},{7*\s});
+	\draw[color=orange] ({0.61*\h},{7*\s+0.05}) arc(90:270:0.05);
+
+	\fill[color=orange] ({0.61*\h},{8*\s}) circle[radius=0.05];
+	\draw[color=orange,line width=1.4pt] ({0.61*\h},{8*\s}) -- ({0.65*\h-0.05},{8*\s});
+	\draw[color=orange] ({0.65*\h},{8*\s+0.05}) arc(90:270:0.05);
+
+	\fill[color=orange] ({0.65*\h},{9*\s}) circle[radius=0.05];
+	\draw[color=orange,line width=1.4pt] ({0.65*\h},{9*\s}) -- ({0.83*\h-0.05},{9*\s});
+	\draw[color=orange] ({0.83*\h},{9*\s+0.05}) arc(90:270:0.05);
+
+	\draw[color=orange,line width=1.4pt] ({0.83*\h},\h) -- ({\h+0.1},\h);
+	\fill[color=orange] ({0.83*\h},\h) circle[radius=0.05];
+}
+\def\hintergrund{
+	\fill[color=darkgreen!10] (0,0) 
+		-- ({0.0500*\h},0) -- (\h,{(1-0.0500)*\h})
+		-- (\h,\h)
+		-- ({(1-0.2500)*\h},\h) -- (0,{0.2500*\h})
+		-- cycle;
+	\draw[color=darkgreen,line width=0.3pt] ({0.0500*\h},0) -- (\h,{(1-0.0500)*\h});
+	\draw[color=darkgreen,line width=0.3pt] (0,{0.2500*\h}) -- ({(1-0.2500)*\h},\h);
+}

@@ -1,0 +1,56 @@
+\ifthenelse{\boolean{presentation}}{
+\def\h{5}
+}{
+\def\h{10}
+}
+\pgfmathparse{\h/10}
+\xdef\s{\pgfmathresult}
+\ainput{data.tex}
+\begin{tikzpicture}[>=latex,thick]
+\ifthenelse{\boolean{loesungen}}{
+\hintergrund
+}{}
+\foreach \y in {1,...,9}{
+	\draw[line width=0.5pt] (0,{\y*\s}) -- ++(\h,0);
+	\draw[line width=0.5pt] ({\y*\s},0) -- ++(0,\h);
+}
+\begin{scope}
+\clip (0,0) rectangle (\h,\h);
+\foreach \x in {0,...,9}{
+	\foreach \y in {0,...,10}{
+		\foreach \u in {1,...,4}{
+			\draw[line width=0.2pt]
+				({(\x+\u/10)*\s},{\y*\s-0.025})
+				-- ++(0,0.05);
+			\draw[line width=0.2pt]
+				({(\x+(\u+5)/10)*\s},{\y*\s-0.025})
+				-- ++(0,0.05);
+		}
+		\draw[line width=0.3pt]
+			({(\x+5/10)*\s},{\y*\s-0.035}) -- ++(0,0.07);
+	}
+}
+\foreach \y in {0,...,9}{
+	\foreach \x in {0,...,10}{
+		\foreach \u in {1,...,4}{
+			\draw[line width=0.2pt]
+				({\x*\s-0.025},{(\y+\u/10)*\s})
+				-- ++(0.05,0);
+			\draw[line width=0.2pt]
+				({\x*\s-0.025},{(\y+(\u+5)/10)*\s})
+				-- ++(0.05,0);
+		}
+		\draw[line width=0.3pt]
+			({\x*\s-0.035},{(\y+5/10)*\s}) -- ++(0.07,0);
+	}
+}
+\end{scope}
+\draw[color=darkgreen] (0,0) -- (\h,\h);
+\draw (\h,0) -- (\h,\h) -- (0,\h);
+\draw[->] (-0.1,0) -- ({\h+0.3},0) coordinate[label={$x$}];
+\draw[->] (0,-0.1) -- (0,{\h+0.3}) coordinate[label={right:$F(x)$}];
+\ifthenelse{\boolean{loesungen}}{
+\vertikal
+\treppe
+}{}
+\end{tikzpicture}

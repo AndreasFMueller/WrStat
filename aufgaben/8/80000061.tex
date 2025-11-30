@@ -1,0 +1,25 @@
+\bgroup
+\ainput{data.tex}
+Transformieren Sie die standardnormalverteilten Zahlen
+\[
+\werte
+\]
+mithilfe der Verteilungsfunktion $\Phi(x)$ in das Intervall $[0,1]$.
+Verwenden Sie die folgende Tabelle und runden Sie auf zwei Nachkommastellen.
+\begin{center}
+\newboolean{Loesungen}
+\ifthenelse{\boolean{loesungen}}{\setboolean{Loesungen}{true}}{\setboolean{Loesungen}{false}}
+\setboolean{loesungen}{false}
+\wertetabelle
+\ifthenelse{\boolean{Loesungen}}{\setboolean{loesungen}{true}}{\setboolean{loesungen}{false}}
+\end{center}
+\egroup
+
+\begin{loesung}
+\ainput{data.tex}
+Die Werte aus der Normalverteilungstabelle ergeben
+\begin{center}
+\wertetabelle
+\end{center}
+Man beachte, dass die Werte noch nicht sortiert sind.
+\end{loesung}

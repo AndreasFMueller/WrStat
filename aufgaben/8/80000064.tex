@@ -1,0 +1,28 @@
+Testen Sie mit dem Kolmogorov-Smirnov-Test, ob die Daten von Aufgabe~\ref{80000061}
+eine Stichprobe einer standardnormalverteilten Zufallsvariable ist.
+
+\begin{loesung}
+\ainput{data.tex}
+Die Nullhypothese ist
+\begin{center}
+$H_0$: die Zahlen bilden eine Stichprobe einer standardnormalverteilten Zufallsvariable.
+\end{center}
+In Aufgabe~\ref{80000063} wurden die Werte 
+\[
+K_n^+
+=
+\pgfmathparse{sqrt(10)*\Kplus}
+\pgfmathprintnumber[fixed,precision=4]{\pgfmathresult}
+\qquad\text{und}\qquad
+K_n^-
+=
+\pgfmathparse{sqrt(10)*\Kminus}
+\pgfmathprintnumber[fixed,precision=4]{\pgfmathresult}
+\]
+bestimmt.
+Aufgrund der geringen Datenmenge wählen wir $\alpha=5\%$.
+Aus der K-S-Tabelle liest man für $n=10$ den zugehörigen kritischen Wert
+für $p=0.95$ als $K_\text{krit}=1.16582$ ab.
+Da weder $K_n^+$ noch $K_n^-$ den kritischen Wert überschreitet, gibt es keinen
+Grund, an der Nullhypothese zu zweifeln.
+\end{loesung}
