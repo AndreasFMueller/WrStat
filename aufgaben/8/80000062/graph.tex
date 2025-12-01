@@ -1,8 +1,11 @@
 \ifthenelse{\boolean{presentation}}{
 \def\h{5}
 }{
+\ifthenelse{\boolean{handout}}{
+\def\h{5}
+}{
 \def\h{10}
-}
+}}
 \pgfmathparse{\h/10}
 \xdef\s{\pgfmathresult}
 \ainput{data.tex}

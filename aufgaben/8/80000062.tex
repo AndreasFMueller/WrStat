@@ -1,6 +1,6 @@
 Zeichnen Sie die empirische Verteilungsfunktion der Zahlen $F(x_i)$ aus der
 Aufgabe~\ref{80000061}.
-\ifthenelse{\boolean{presentation}}{
+\def\folieninhalt{
 \vspace*{-7pt}
 \begin{center}
 \ainput{graph.tex}
@@ -12,11 +12,17 @@ Aufgabe~\ref{80000061}.
 \end{tikzpicture}}
 \end{center}
 \vspace*{-20pt}
+}
+\ifthenelse{\boolean{presentation}}{
+\folieninhalt
 }{%
+\ifthenelse{\boolean{handout}}{
+\folieninhalt
+}{
 \ifthenelse{\boolean{loesungen}}{}{
 \begin{center}
 \ainput{graph.tex}
-\end{center}}}
+\end{center}}}}
 
 \begin{loesung}
 In Aufgabe~\ref{80000061} wurden die transformierten Zahlen $F(x_i)$ bereits

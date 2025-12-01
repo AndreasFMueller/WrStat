@@ -155,7 +155,7 @@ end
 %
 fn = fopen("../80000061/data.tex", "w");
 
-werte(fn, wunsorted);
+normal(fn, p);
 wertetabelle(fn, p, wunsorted);
 
 fclose(fn);
