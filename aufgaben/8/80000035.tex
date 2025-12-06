@@ -28,7 +28,7 @@ schliessen, dass Donald Trump tatsächlich unbeliebter ist?
 \themaL{tTest}{$t$-Test}
 
 \begin{loesung}
-Wir führen eine $t$-Test durch mit $\alpha=0.05$ durch.
+Wir führen eine $t$-Test mit $\alpha=0.05$ durch.
 Die Nullhypothese ist, dass die beiden Mittelwerte zur gleichen Verteilung
 gehören.
 Die Anzahl der Freiheitsgrade ist $k=11+13-2=22$, dazu gehört der kritische
@@ -38,11 +38,12 @@ Die Testgrösse ist
 \begin{align*}
 T
 &=
-\frac{\bar X -\bar Y}{\sqrt{(n-1)S_X^2 + (m-1)S_Y^2}}
+\frac{\bar X -\bar Y}{\!\sqrt{(n-1)S_X^2 + (m-1)S_Y^2}}
 \sqrt{\frac{nm(n+m-2)}{n+m}}
 \\
 &=
-\frac{1.6-1.8}{10\cdot0.23^2 + 12\cdot 0.24^2}\sqrt{\frac{11\cdot13\cdot22}{24}}
+\frac{1.6-1.8}{\!\sqrt{10\cdot0.23^2 + 12\cdot 0.24^2}}
+\sqrt{\frac{11\cdot13\cdot22}{24}}
 =
 -2.072947
 \end{align*}
