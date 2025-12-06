@@ -1,0 +1,71 @@
+Ein Drehteller dreht sich mit Variabler Winkelgeschwindigkeit $\omega$,
+die langsam verändert werden kann, d.~h.~die Winkelbeschleunigung $\alpha$
+ist klein.
+Die aktuelle Position des Drehtellers wird durch den Winkel $\vartheta$ 
+gegeben, der mit Hilfe eines Encoders ermittelt werden kann.
+Stellen Sie die Systemmatrix $\varphi$ und die Messmatrix $H$ auf.
+
+\begin{loesung}
+Die kinematischen Gleichungen für die Drehung sind
+\begin{align*}
+\vartheta(t+\Delta t)
+&=
+\vartheta(t)
++
+\omega(t)\Delta t
++
+{\textstyle \frac12}
+\alpha(t)\Delta t^2
+\\
+\omega(t+\Delta t)
+&=
+\phantom{\vartheta(t)+\mathstrut}%
+\omega(t)\phantom{\Delta t}+\phantom{\textstyle\frac12}\alpha(t)\Delta t
+\\
+\alpha(t+\Delta t)
+&=
+\phantom{\vartheta(t)+\omega(t)\Delta t + \textstyle\frac12}\alpha(t).
+\end{align*}
+Für einen Zustandsvektor, der $\vartheta(t)$, $\omega(t)$ und $\alpha(t)$ enthält,
+lauten diese in Matrixform
+\[
+\begin{pmatrix}
+\vartheta(t+\Delta t)\\
+\omega(t+\Delta t)\\
+\alpha(t+\Delta t)
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & \Delta t & \frac12 \Delta t^2 \\
+0 &    1     & \Delta t \\
+0 &    0     & 1
+\end{pmatrix}
+\begin{pmatrix}
+\vartheta(t)\\
+\omega(t)\\
+\alpha(t)
+\end{pmatrix}.
+\]
+Diese Gleichungen drücken die Tatsache, dass sich $\omega$ langsam ändert dadurch
+aus, dass $\alpha(t)$ konstant ist.
+Veränderungen von $\alpha(t)$ werden also durch Modellfehler abgebildet.
+
+Die Messmatrix ermittelt $\vartheta(t)$ aus dem Zustandsvektor, somit ist
+\[
+\vartheta(t)
+=
+\begin{pmatrix}1&0&0\end{pmatrix}
+\begin{pmatrix}
+\vartheta(t)\\
+\omega(t)\\
+\alpha(t)
+\end{pmatrix}
+\qquad\Rightarrow\qquad
+H
+=
+\begin{pmatrix}1&0&0\end{pmatrix}.
+\qedhere
+\]
+\end{loesung}
+
+

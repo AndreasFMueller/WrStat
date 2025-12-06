@@ -1,0 +1,33 @@
+In einer Wohnung soll die relative Luftfeuchtigkeit $h$ gemessen werden.
+Feuchtigkeitssensoren sind nicht sehr genau.
+\begin{teilaufgaben}
+\item
+Mit welchen zusätzlichen Zustandsvariablen könnte man $h$ zu einem Systemzustand
+erweitern?
+\item
+Wie beeinflussen sich die Zustandsvariablen gegenseitig?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Innentemperatur $T_i$, Aussentemperatur $T_a$, Heizleistung $P$
+\item
+Wenn die Innentemperatur sinkt, wird die Luftfeuchtigkeit ansteigen.
+Je grösser die Temperaturdifferenz zwischen Innen- und Aussentemperatur ist, desto
+schneller verändert sich die Innentemperatur in Richtung zur Aussentemperatur.
+Der Zusammenhang ist allerdings nichtlinear.
+Je höher die Heizleistung, desto schneller steigt die Innentemperatur.
+Es gilt die Differentialgleichung
+\[
+\frac{dT_i}{dt}
+=
+\kappa
+(T_a-T_i)
++
+cP.
+\]
+Ein Heizungssteuerung würde zusätzlich die Heizleistung reduzieren, wenn die Temperatur
+dem Zielwert nahe kommt.
+\end{teilaufgaben}
+\end{loesung}
