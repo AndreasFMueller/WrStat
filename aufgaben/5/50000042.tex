@@ -18,6 +18,9 @@ mehr als zwei Personen davon überzeugt sind, dass die Erde flach ist?
 \thema{Normalapproximation}
 
 \begin{loesung}
+Die Anzahlen sind binomialverteilt, aber die grossen Summen können nur
+schwer von Hand ausgerechnet werden, daher müssen Approximationen
+verwendet werden.
 \begin{teilaufgaben}
 \item
 Sei $X$ die Anzahl der Mondlandungsverweigerer in der Stichprobe.
@@ -46,6 +49,20 @@ P(X>20)&\simeq 1-0.7424 = 0.2576.
 \end{align*}
 Die Wahrscheinlichkeit, mehr als 20 Mondlandungsverschwörer in der
 Stichprobe zu finden ist also $25.76\%$.
+
+Verzichtet man auf die Korrektur nach deMoivre-Laplace, ergibt sich
+\[
+\Phi\biggl(\frac{20-\mu}{\sigma}\biggr)
+=
+\Phi(0.52058)
+=
+0.69867
+\quad\Rightarrow\quad
+P(X>20)
+\approx
+0.30133,
+\]
+was nicht genau genug ist.
 \item
 Da Flat Earther so selten sind, approximieren wir die Binomialverteilung
 mit der Poisson-Verteilung.
