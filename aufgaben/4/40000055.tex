@@ -1,0 +1,116 @@
+Auf einer Website findet man die folgende Tabelle über RAM-Preise
+im Jahr 2023:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}>{$}r<{$}|}
+\hline
+ i &\text{Kapazität\,[GB]}&\text{Preis\,[USD]}\\
+\hline
+ 1 &  2 & 12 \\
+ 2 &  4 & 16 \\
+ 3 &  8 & 28 \\
+ 4 & 16 & 62 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item
+Finden Sie eine einfaches Modell für die Abhängigkeit des Preises von
+der RAM-Kapazität.
+\item
+Was für einen Preis prognostiziert Ihr Modell für einen 32\,GB RAM-Riegel?
+\item
+Welche RAM-Kapazität wäre für 100\,USD zu bekommen?
+\item
+Beurteilen Sie die Qualität Ihres Modells.
+\end{teilaufgaben}
+
+\begin{loesung}
+Die Punkte und die Regressionsgerade sind in Abbildung~\ref{40000055:fig}
+dargestellt.
+\def\dx{0.45}
+\def\dy{0.05}
+\ainput{daten.tex}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\def\p#1#2{ ({\dx*(#1)},{\dy*(#2)}) }
+\def\punkt#1#2{ \fill[color=darkred] \p{#1}{#2} circle[radius=0.08]; }
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex,thick]
+\draw[line width=0.3pt] \p{32}{0} -- \p{32}{\uy} -- \p{0}{\uy};
+\draw[line width=0.3pt] \p{\h}{0} -- \p{\h}{100} -- \p{0}{100};
+\draw[->] (-0.1,0) -- \p{34}{0} coordinate[label={$x\text{\,[GB]}$}];
+\draw[->] (0,-0.1) -- \p{0}{128} coordinate[label={right:$y$}];
+\foreach \x in {2,4,8,16,32}{
+	\draw \p{\x}{-1} -- \p{\x}{1};
+	\node at \p{\x}{-0.1} [below] {$\x$};
+}
+\foreach \y in {10,20,...,120}{
+	\draw \p{-0.1}{\y} -- \p{0.1}{\y};
+	\node at \p{-0.1}{\y} [left] {$\y$};
+}
+\gerade{blue}
+\punkte
+\end{tikzpicture}
+\caption{Datenpunkte und Regressionsgerade für Aufgabe~\ref{40000055}.
+\label{40000055:fig}}
+\end{figure}
+\begin{teilaufgaben}
+\item
+Mit der Berechnungstabelle
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+i&x_i&y_i&x_i^2&y_i^2&x_iy_i\\
+\hline
+\tabelle
+\hline
+\summen
+\hline
+\mittelwerte
+\hline
+\end{tabular}
+\end{center}
+lassen sich die Koeffizienten eines linearen Modells wie folgt
+berechnen:
+\begin{align*}
+a
+&=
+\frac{E(XY)-E(X)E(Y)}{E(X^2)-E(X)^2}
+=
+\steigung,
+\\
+b&=
+E(Y)-aE(X)
+=
+\achsabschnitt.
+\end{align*}
+\item
+Aus den Koeffizienten des Modells ergibt sich für die Kapazität $x_5=32$
+der Wert
+\[
+y_5 = ax_5+b = \steigung\cdot 32 + \achsabschnitt = \uy\text{\,USD}.
+\]
+\item
+Auflösen der Gleichung $ax+b=100$ nach $x$ ergibt
+\[
+x = \frac{100-b}{a} = \h\text{\,GB}.
+\]
+\item
+Mit $r^2=\rr$ ist die Qualität recht gut.
+Allerdings ist der Datensatz auch sehr klein und möglicherweise sogar
+selektiert.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Lineare Regression ({\bf LR}) 1 Punkt,
+Berechnung von $a$ ({\bf A}) 1 Punkt,
+Berechnung von $b$ ({\bf B}) 1 Punkt,
+Berechnung von $y_u$ in Teilaufgabe b) ({\bf Y}) 1 Punkt,
+Berechnung von $h$ in Teilaufgabe c) ({\bf H}) 1 Punkt,
+Beurteilung mit dem Regressionskoeffizienten in Teilaufgabe d)
+({\bf R}) 1 Punkt.
+\end{bewertung}
+
+

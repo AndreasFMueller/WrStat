@@ -1,0 +1,166 @@
+Betrachten Sie die Funktion
+\[
+\varphi(x)
+=
+\begin{cases}
+a(1-x^4) &\qquad -1\le x \le 1\\
+       0 &\qquad \text{sonst.}
+\end{cases}
+\]
+\begin{teilaufgaben}
+\item
+Wie muss $a$ gewählt werden, damit $\varphi(x)$ die Wahrscheinlichkeitsdichte
+einer Zufallsvariable $X$ ist?
+\item
+Bestimmen Sie die Verteilungsfunktion von $X$.
+\item
+Bestimmen Sie den Erwartungswert $E(X)$.
+\item
+Bestimmen Sie die Varianz $\operatorname{var}(X)$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex,thick,scale=4]
+\fill[color=red!20] plot[domain=-1:1,samples=100]
+	({\x},{(5/8)*(1-\x*\x*\x*\x)}) -- cycle;
+\draw[->] (-1.5,0) -- (1.5,0) coordinate[label={$x$}];
+\draw[->] (0,-0.02) -- (0,0.8) coordinate[label={right:$\varphi(x)$}];
+\draw[color=red,line width=1.4pt] (-1.45,0)
+	-- plot[domain=-1:1,samples=100] ({\x},{(5/8)*(1-\x*\x*\x*\x)})
+	-- (1.45,0);
+\node at (0,{5/8}) [above left] {$a\mathstrut$};
+\draw (-1,-0.02) -- (-1,0.02);
+\draw (1,-0.02) -- (1,0.02);
+\node at (-1,0) [below] {$-1\mathstrut$};
+\node at (0,0) [below] {$0\mathstrut$};
+\node at (1,0) [below] {$1\mathstrut$};
+
+\begin{scope}[yshift=-1.3cm]
+
+\draw[->] (-1.5,0) -- (1.5,0) coordinate[label={$x$}];
+\draw[->] (0,-0.02) -- (0,1.1) coordinate[label={right:$F_X(x)$}];
+\draw[line width=0.3pt] (-1.5,1) -- (1.5,1);
+\draw[color=darkgreen,line width=1.4pt]
+	(-1.45,0)
+	-- plot[domain=-1:1,samples=100]
+		({\x},{(5/8)*\x*(1-\x*\x*\x*\x/5)+0.5})
+	-- (1.45,1);
+\draw (-1,-0.02) -- (-1,0.02);
+\draw (1,-0.02) -- (1,0.02);
+\node at (-1,0) [below] {$-1\mathstrut$};
+\node at (1,0) [below] {$1\mathstrut$};
+\node at (0,0) [below] {$0\mathstrut$};
+\draw (-0.02,1) -- (0.02,1);
+\node at (0,1) [below left] {$1$};
+\end{scope}
+\end{tikzpicture}
+\caption{Wahrscheinlichkeitsdichte und Verteilungsfunktion in 
+Aufgabe~\ref{50000062}.
+\label{50000062:fig}}
+\end{figure}
+\begin{teilaufgaben}
+\item
+Der Wert von $a$ muss so gewählt werden, dass die Normierungsbedingung
+\[
+1
+=
+\int_{-\infty}^\infty \varphi(x)\,dx
+\]
+erfüllt ist.
+Die Rechnung ergibt
+\begin{align*}
+1
+&=
+\int_{-\infty}^\infty \varphi(x) \,dx
+=
+a
+\int_{-1}^{1} 1-x^4 \,dx
+=
+a
+\biggl[
+x-\frac15x^5
+\biggr]_{-1}^{1}
+\\
+&=
+a\biggl(
+1-\frac15-(-1)+\frac15(-1)^5
+\biggr)
+=
+a\frac{8}{5}
+\\
+\Rightarrow
+\qquad
+a
+&=
+\frac{5}{8} = 0.625.
+\end{align*}
+\item
+Für das Intervall $[-1,1]$ muss die Verteilungsfunktion eine Stammfunktion
+von $\varphi(x)$ sein, die an der Stelle $x=-1$ verschwindet:
+\begin{align*}
+F_X(x)
+&=
+\int_{-\infty}^x \varphi(\xi)\,d\xi
+=
+a
+\int_{-1}^x 1-\xi^4\,d\xi
+=
+\frac{5}{8}
+\biggl[
+\xi-\frac15\xi^5
+\biggr]_{-1}^x
+=
+\frac{5x-x^5}{8} + \frac{1}{2}.
+\end{align*}
+Ausserhalb des Intervalls ist $F_X$ konstant und zwar $F_X(x)=0$ für $x<-1$
+und $F_X(x) = 1$ für $x > 1$.
+\item
+Da die Funktion $\varphi(x)$ gerade ist, folgt $E(X)=0$.
+\item
+Zur Berechnung der Varianz muss $E(X^2)$ bestimmt werden:
+\begin{align*}
+E(X^2)
+&=
+\int_{-\infty}^\infty x^2\varphi(x)\,dx
+=
+\int_{-1}^{1} ax^2(1-x^4)\,dx
+=
+a\biggl[
+\frac{x^3}{3}
+-
+\frac{x^7}{7}
+\biggr]_{-1}^1
+=
+\frac58
+\biggl(
+\frac13-\frac17+\frac13-\frac17
+\biggr)
+\\
+&=
+\frac54\cdot \frac{7-3}{21}
+=
+\frac{5}{21},
+\\
+\Rightarrow\qquad
+\operatorname{var}(X)
+&=
+E(X^2) - E(X)^2
+=
+\frac{5}{21}
+\approx
+0.238095.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Normierungsbedingung ({\bf N}) 1 Punkt,
+Konstante $a$ ({\bf A}) 1 Punkt,
+Verteilungsfunktion ({\bf F}) 1 Punkt,
+Erwartungswert ({\bf E}) 1 Punkt,
+Varianzformel ({\bf V}) 1 Punkt,
+Erwartungswert $E(X^2)$ und Varianz ({\bf E2}) 1 Punkt.
+\end{bewertung}

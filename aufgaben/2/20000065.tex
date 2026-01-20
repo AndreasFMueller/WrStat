@@ -1,0 +1,73 @@
+Ein Mathematiker lebt in einem Quartier, in dem die Wahrscheinlichkeit
+für einen Einbruch in sein Haus 10\% ist.
+Um die Situation zu verbessern, schafft er einen Hund an.
+Dieser bellt in 95\% der Fälle, wenn ein Einbrecher in der Gegend ist.
+Andernfalls ist der Hund ziemlich ruhig, er bellt nur mit Wahrscheinlichkeit
+1\%, wenn kein Einbrecher in der Nähe ist.
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, dass der Hund bellt?
+\item
+Wie gross ist die Wahrscheinlichkeit, dass tatsächlich ein Einbrecher
+zugegen ist, wenn der Hund bellt?
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir verwenden die Ereignisse
+\begin{align*}
+B&=\{\text{Hund bellt}\}
+&
+E&=\{\text{Einbrecher}\}.
+\end{align*}
+Aus dem Text entnehmen wir die folgenden Wahrscheinlichkeiten
+\begin{align*}
+P(E)&=0.1 &
+P(B|E) &= 0.95
+\\
+&&
+P(B|\overline{E}) &= 0.01.
+\end{align*}
+Damit können die Fragen der Teilaufgaben beantwortet werden.
+\begin{teilaufgaben}
+\item
+Die Wahrscheinlichkeit $P(B)$ kann mit dem Satz von der totalen
+Wahrscheinlichkeit berechnet werden:
+\begin{align*}
+P(B)
+&=
+P(B|E)P(E) + P(B|\overline{E}) P(\overline{E})
+\\
+&=
+P(B|E)P(E) + P(B|\overline{E}) (1-P(E))
+=
+0.95\cdot 0.1 + 0.01\cdot 0.9
+=
+0.104.
+\end{align*}
+\item
+Mit dem Satz von Bayes kann die gesuchte Wahrscheinlichkeit $P(E|B)$
+berechnet werden:
+\begin{align*}
+P(E|B)
+&=
+P(B|E)\frac{P(E)}{P(B)}
+=
+0.95\frac{0.1}{0.104}
+=
+0.913462.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Ereignisse ({\bf E}) 1 Punkt,
+bedinge Wahrscheinlichkeiten ({\bf C}) 1 Punkt,
+Satz von der totalen Wahrscheinlichkeit ({\bf T}) 1 Punkt,
+Satz von Bayes ({\bf B}) 1 Punkt,
+Wahrscheinlichkeit $P(B)$ ({\bf W}) 1 Punkt,
+Wahrscheinlichkeit $P(E|B)$ ({\bf E}) 1 Punkt.
+\end{bewertung}
+
+
+

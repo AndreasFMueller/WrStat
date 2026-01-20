@@ -1,0 +1,55 @@
+In seinem Buch ``Analyzing Linguistic Data'' untersucht R.~H.~Baayen,
+ob Männer und Frauen das {\em ont-}Präfix im Holländischen verschieden
+lang aussprechen.
+Als Grundlagen stellt er die folgenden Messresultate zusammen:
+\begin{center}
+\begin{tabular}{|l|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+&\text{Stichprobengrösse}&\text{Mittelwert [ms]}&\text{Standardabweichung [ms]}\\
+\hline
+Männer &     53&    144.362&     42.63\\
+Frauen &     49&    153.657&     34.47\\
+\hline
+\end{tabular}
+\end{center}
+Kann man daraus schliessen, dass Frauen das Präfix länger aussprechen?
+
+\begin{loesung}
+Die beiden Mittelwerte können mit einem $t$-Test verglichen werden.
+Die Nullhypothese dafür lautet
+\begin{quote}
+Männer und Frauen sprechen das Präfix gleich lang aus.
+\end{quote}
+Angesichts der kleinen Datenmenge ist $\alpha = 0.05$ angemessen.
+Die Zahl der Freiheitsgrade ist $53+49-2=100$, dies führt auf einen
+kritischen Wert $t_{\text{krit}}=1.9840$ für einen zweiseitigen Test passend
+zur Formulierung der Nullhypothese.
+Die Berechnung der Grösse $T$ ergibt
+\begin{align*}
+T
+&=
+\frac{\overline{X}-\overline{Y}}{\sqrt{(n-1)S_X^2+(m-1)S_Y^2}}
+\sqrt{\frac{nm(n+m-2)}{n+m}}
+\\
+&=
+\frac{144.362-153.657}{\sqrt{52\cdot 42.63^2 + 48\cdot 34.47^2}}
+\sqrt{\frac{53\cdot 49\cdot 100}{102}}
+=
+-1.20484
+\end{align*}
+Da $|T|<t_{\text{krit}}$ ist, kann man die Nullhypothese nicht verwerfen und 
+hat keine ausreichende Grundlage um zu schliessen, dass Männer und Frauen
+das Präfix verschieden lang aussprechen.
+\end{loesung}
+
+\begin{bewertung}
+$t$-Test ({\bf T}) 1 Punkt,
+Nullhypothese ({\bf N}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Freiheitsgrade und kritischer Wert ({\bf K}) 1 Punkt,
+Berechnung von $T$ ({\bf W}) 1 Punkt,
+Schlussfolgerung von $S$ ({\bf S}) 1 Punkt.
+\end{bewertung}
+
+
+

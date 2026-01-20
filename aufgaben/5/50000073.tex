@@ -1,0 +1,99 @@
+Im Jahr 2019 wurde in der Zeitschrift Nature eine Studie publiziert,
+die 1.2 Millionen Fussabdrücke analysiert hat.
+Ziel war, Grundlagen für die Schuhgrössenraster der Schuhindustrie zu
+schaffen.
+Zum Beispiel ergab sich bei der Untersuchung der Füsse der
+270\,mm-Längenklasse, dass 5\% schmaler als 94.4\,mm sind und 5\% breiter
+als 110.2\,mm.
+Wie wahrscheinlich ist, dass ein Fuss in dieser Klasse schmaler als
+100\,mm ist?
+
+\begin{loesung}
+Die Breite eines Fusses ist eine normalverteilte Zufallsvariable $X$
+mit Erwartungswert $\mu$ und Standardabweichung $\sigma$.
+Aus den Informationen in der Aufgabenstellung
+\begin{align*}
+P(X\le 94.4)
+&= 0.05
+&
+P(X\le 110.2)
+&=
+0.95.
+\intertext{Durch Standardisierung wird daraus}
+P\biggl(
+\frac{X-\mu}{\sigma} \le \frac{94.4-\mu}{\sigma}
+\biggr)
+&=
+0.05
+&
+P\biggl(
+\frac{X-\mu}{\sigma} \le \frac{110.2-\mu}{\sigma}
+\biggr)
+&=
+0.95.
+\intertext{Da $Z=(X-\mu)/\sigma$ eine standardnormalverteilte
+Zufallsvariable ist, folgt}
+\frac{94.4-\mu}{\sigma}
+&=
+-1.6449
+&
+\frac{110.2-\mu}{\sigma}
+&=
+1.6449.
+\end{align*}
+Daraus ergibt sich das lineare Gleichungssystem
+\begin{equation*}
+\renewcommand{\arraycolsep}{3pt}
+\begin{array}{rcrcr}
+\mu &-& 1.6449\sigma &=&  94.4\phantom{.}\\
+\mu &+& 1.6449\sigma &=& 110.2.
+\end{array}
+\end{equation*}
+Die Differenz der beiden Gleichungen ist
+\[
+-2\cdot 1.6449\sigma = -15.8
+\qquad\Rightarrow\qquad
+\sigma=4.803.
+\]
+Durch Einsetzen in die erste Gleichung kann man auch
+\[
+\mu
+=
+94.4 + 1.6449\sigma
+=
+102.3
+\]
+bestimmen.
+Dasselbe Resultat kann man natürlich auch aus der Summe der beiden
+Gleichungen erhalten.
+Die gesuchte Wahrscheinlichkeit wird damit
+\[
+P(X\le 100)
+=
+P\biggl(
+\frac{X-\mu}{\sigma}
+\le
+\frac{100-\mu}{\sigma}
+\biggr)
+=
+\Phi\biggl(
+\frac{100-\mu}{\sigma}
+\biggr)
+=
+\Phi(
+-0.4789
+)
+=
+0.316.
+\qedhere
+\]
+\end{loesung}
+
+\begin{bewertung}
+Normalverteilung ({\bf N}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Gleichungssystem für $\mu$ und $\sigma$ ({\bf G}) 1 Punkt,
+Bestimmung von $\mu$ ({\bf M}) und $\sigma$ ({\bf D}) je 1 Punkt,
+Berechnung der Wahrscheinlichkeit ({\bf W}) 1 Punkt.
+\end{bewertung}
+

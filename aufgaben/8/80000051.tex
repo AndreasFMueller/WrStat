@@ -1,0 +1,61 @@
+Eine Marketingorganisation untersucht die Wirksamkeit verschiedener
+Werbematerialien.
+Zu diesem Zweck werden Kunden mit verschiedenen Arten von Werbematerialien
+beschenkt und es wird gezählt,
+wie viele Kunden sich zu einem Meeting mit
+einem Verkäufer bewegen lassen.
+In der folgenden Tabelle ist zusammengestellt, welcher Anteil der
+Kunden mit welcher Art von Werbematrial beschenkt wurde und wieviele
+sich zu einem Meeting bewegen liessen.
+\begin{center}
+\begin{tabular}{|l|>{$}r<{$}>{$}r<{$}|}
+\hline
+Werbematrial  &\text{Anteil der Kunden}&\text{Meeting}\\
+\hline
+Logo T-Shirt                          &      0.3342&     61\\
+Geschenkkarte                         &      0.2426&     32\\
+Flyers                                &      0.1806&     18\\
+Deko-Gegenstand für den Schreibtisch  &      0.2426&     42\\
+\hline
+\end{tabular}
+\end{center}
+Kann man daraus einen Schluss darüber ziehen, ob eine Art von Werbematerial
+besonders wirksam war?
+
+\begin{loesung}
+Wir führen einen $\chi^2$-Test für die Nullhypothese
+\begin{quote}
+Die Zahl der Meetings passt zur Verteilung der Werbematerialien in der
+Kundschaft.
+\end{quote}
+durch.
+\ainput{d.tex}
+Wegen der geringen Zahl der Kunden ist ein $\alpha=5\%$ angemessen.
+Die Anzahl der Meetings $n_i$ entnehmen wir der zweiten Spalte der Tabelle,
+die Wahrscheinlichkeiten $p_i$ der dritten Spalte.
+Damit lässt sich jetzt die Diskrepanz berechnen:
+\begin{center}
+\begin{tabular}{|>{$}r<{$}|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+i&     n_i&       p_i & np_i & n_i - np_i & (n_i-np_i)^2/np_i\\
+\hline
+\tabelle
+\hline
+\end{tabular}
+\end{center}
+Der kritische Wert der Diskrepanz für 3 Freiheitsgrade ist
+$D_{\text{krit}}=7.815$.
+Da $D=\D<D_{\text{krit}}$ ist, kann man die Nullhypothese nicht
+verwerfen, es gibt keinen signifikanten Unterschied in der Wirksamkeit
+der verschiedenen Werbematerialien.
+\end{loesung}
+
+\begin{bewertung}
+Nullhypothese ({\bf H$\mathstrut_0$}) 1 Punkt,
+$\chi^2$-Test ({\bf X}) 1 Punkt,
+Berechnung der Diskrepanz ({\bf D}) 1 Punkt,
+Wahl von $\alpha$ ({\bf A}) 1 Punkt,
+Freiheitsgrade und kritischer Wert ({\bf K}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+

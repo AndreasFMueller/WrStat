@@ -1,0 +1,27 @@
+\def\tabelle{
+ 1 & 2 & 12\phantom{.0} & 4 & 144 & 24 \\
+ 2 & 4 & 16\phantom{.0} & 16 & 256 & 64 \\
+ 3 & 8 & 28\phantom{.0} & 64 & 784 & 224 \\
+ 4 & 16 & 62\phantom{.0} & 256 & 3844 & 992 \\
+}
+\def\summen{
+ \Sigma & 30 & 118\phantom{.0} & 340 & 5028 & 1304 \\
+}
+\def\mittelwerte{
+ E & 8 & 29.5 & 85 & 1257 & 326 \\
+}
+\def\steigung{3.6435}
+\def\achsabschnitt{2.1739}
+\def\r{0.9934}
+\def\rr{0.9868}
+\def\punkte{
+\punkt{2.0000}{12.0000}
+\punkt{4.0000}{16.0000}
+\punkt{8.0000}{28.0000}
+\punkt{16.0000}{62.0000}
+}
+\def\gerade#1{
+\draw[color=#1,line width=1.2pt] \p{0.0000}{2.1739} -- \p{32.0000}{118.7652};
+}
+\def\uy{118.77}
+\def\h{26.85}

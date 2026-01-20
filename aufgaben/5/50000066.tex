@@ -1,0 +1,108 @@
+Die Arbeitsgruppe \emph{Digitale Migration} hat im Rahmen des Swiss Radio Day
+am 31.~August 2023 mitgeteilt, dass 81\% aller gehörten Radiominuten
+in der Schweiz digital sind (Quelle: BAKOM).
+Die Hälfte davon erfolgt über DAB+, vor allem bei den über 55-jährigen,
+der Rest über das Internet.
+Sogar im Auto erfolgt 70\% der Radionutzung digital, 54\% der
+Autos in der Schweiz sind DAB+-fähig.
+8 von 100 Radiohörern in der Schweiz hören Radio immer noch nur analog
+über UKW.
+\begin{teilaufgaben}
+\item
+Wie gross ist die Wahrscheinlichkeit, in einer Stichprobe von
+100 Autos bei weniger als der Hälfte DAB+-fähige Radios zu finden?
+\item
+UKW-Hörer scheinen ziemlich selten geworden zu sein.
+Wie gross ist die Wahrscheinlichkeit, dass von 10 zufällig gewählten
+Radiohörern in der Schweiz mehr als 2 ausschliesslich über UKW Radio hören?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Anzahl $X$ der DAB+-fähigen Autos ist eine binomialverteilte
+Zufallsvariable mit $p=0.54$ und $n=100$.
+Gesucht ist die Wahrscheinlichkeit
+\begin{align*}
+P(X < 50)
+&=
+P\biggl(
+\frac{X-\mu}{\sigma}\le \frac{50-\mu}{\sigma}
+\biggr)
+\intertext{mit $\mu=np=54$ und $\sigma=\sqrt{np(1-p)}=4.984$.
+Da $(X-\mu)/\sigma$ ungefähr standardnormalverteilt ist, kann
+man die Wahrscheinlichkeit administrieren}
+P(X<50)
+&\approx
+P\biggl(Z\le \frac{49.5-\mu}{\sigma}\biggr)
+=
+P(Z\le -0.9029)
+\\
+&=
+\Phi(-0.9029)
+=
+1-\Phi(0.9029)
+=
+0.1833.
+\end{align*}
+Unterlässt man die Korrektur nach deMoivre-Laplace, findet man 
+$P(X<50)\approx 0.2044$.
+Die direkte Berechnung mit der Binomialverteilung für $n=100$, $p=0.54$ ergibt
+die Wahrscheinlichkeit $0.1832$, die Approximation durch die Normalverteilung
+ist also sehr genau.
+\item
+Da es sich bei Nur-UKW-Hörern um seltene Ereignisse handelt, kann deren
+Zahl $Y$ mit der Poisson-Verteilung modelliert werden kann.
+Die erwartete Anzahl von Nur-UKW-Hörern pro 10 Radiohörern ist
+$\lambda=0.08\cdot 10=0.8$.
+Mit der Poisson-Verteilung ergibt sich daraus
+\begin{align*}
+P(Z > 2)
+&=
+1-P(Z\le 2)
+\\
+P(Z\le 2)
+&\approx
+e^{-\lambda} \sum_{k=0}^2 \frac{\lambda^2}{2!}
+=
+e^{-\lambda} \biggl(1+\lambda+\frac{\lambda^2}{2!}\biggr)
+=
+0.9525774
+\\
+P(Z>2)
+&\approx
+0.0474226
+\approx
+4.74\%
+\end{align*}
+Die direkte Berechnung mit der Binomialverteilung für $n=10$ und
+$p=0.08$ ergibt 4.01\%.
+
+Die Approximation ist in diesem Fall nicht so gut, weil $n$ relativ
+klein ist.
+Für $n=1000$ und $p=0.0008$ liefert die Binomialverteilung eine
+Wahrscheinlichkeit von 4.735354\%, der Fehler der Approximation ist
+nur noch $0.000069$.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Binomialverteilung ({\bf B}) 1 Punkt,
+Berechnung von $\mu$ und $\sigma$ ({\bf M}) 1 Punkt,
+Standardisierung ({\bf S}) 1 Punkt,
+Normalapproximation und Wahrscheinlichkeit ({\bf N}) 1 Punkt,
+Parameter $\lambda$ ({\bf L}) 1 Punkt,
+Poisson-Verteilung und Wahrscheinlichkeit ({\bf P}) 1 Punkt.
+\end{bewertung}
+
+\begin{diskussion}
+Die ursprüngliche Formulierung der Teilaufgabe b) war leider etwas
+unglücklich und hat zu einer Interpretation verleitet, nach der ein
+Ereignis mit Wahrscheinlichkeit 0.19 als selten hätte betrachtet werden
+müssen, was sicher nicht sinnvoll ist.
+Die obige Formulierung korrigiert dies und stellt sicher, dass ein
+Ereignis mit Wahrscheinlichkeit 0.08 betrachtet wird, für das die
+Approximation mit der Poisson-Verteilung, um die es in dieser Teilaufgabe
+ging, angemessener ist.
+\end{diskussion}

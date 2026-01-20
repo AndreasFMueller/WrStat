@@ -1,0 +1,16 @@
+#! /bin/bash
+#
+bc -l <<EOF
+mx = 144.362
+my = 153.657
+nx = 53
+ny = 49
+sx = 42.63
+sy = 34.47
+
+t = mx - my
+s = sqrt((nx-1) * sx^2 + (ny-1) * sy^2)
+f = sqrt(nx*ny*(nx+ny-2)/(nx+ny))
+t*f/s
+EOF
+
