@@ -39,7 +39,7 @@ declare function = {
 \node[color=darkgreen] at \punkt{105}{0.1} {gesucht};
 
 \draw[->] \punkt{99}{0} -- \punkt{150}{0} coordinate[label={$x$}];
-\draw[->] \punkt{100}{-0.01} -- \punkt{100}{1.01} coordinate[label={$\varphi$}];;
+\draw[->] \punkt{100}{-0.01} -- \punkt{100}{1.01} coordinate[label={$\varphi$}];
 \draw plot[domain=99:145,samples=100]
 	({(\x-100)/4},{4*exp(-(\x-121.275)*(\x-121.275)/(2*9.5712*9.5712))});
 
