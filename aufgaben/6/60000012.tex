@@ -31,8 +31,10 @@ wenn die Laufzeit für
 dass für $n=1436$ Durchläufe mehr als 24 Stunden benötigt werden, 
 ist $P(X > 86400) = 1-P(X\le 86400)$.
 Durch Standardisierung finden wir
-\[
-P(X\le 86400)=P\biggl(
+\begin{align*}
+P(X\le 86400)
+&=
+P\biggl(
 \frac{X-\mu}{\sigma}
 \le
 \frac{86400-\mu}{\sigma}
@@ -43,11 +45,12 @@ P\biggl(
 \le
 \frac{86400-n\mu_0}{\sqrt{n}\sigma_0}
 \biggr)
-=
+\\
+&=
 P\biggl(
 Z\le\frac{(1440-n)\cdot 60}{\sqrt{n}\sigma_0}
 \biggr),
-\]
+\end{align*}
 wobei $Z$ eine standardnormalverteilte Zufallsvariable ist. Für $n=1436$
 finden wir
 \[

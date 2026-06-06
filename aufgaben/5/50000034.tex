@@ -14,13 +14,14 @@ er erreichen?
 Man darf annehmen, dass die Punktzahl $X$ eine normalverteilte
 Zufallsvariable mit Erwartungswert $\mu$ und Varianz $\sigma^2$ ist.
 Wir müssen $\mu$ und $\sigma$ aus den gegebenen Informationen bestimmen.
-Die beiden Schranken erfüllen
+Wegen $P(X>540)=1-P(X\le 540)$ folgt aus $P(X>540)=0.33$ auch
+$P(X\le 540)=0.66$.
+Die beiden Schranken erfüllen daher
 \begin{align*}
 P(X\le 420)&= 0.05
 &
-&%\Rightarrow
+&\Rightarrow
 &
-&\hspace{-10pt}&
 P\biggl(\frac{X-\mu}{\sigma}\le \frac{420-\mu}{\sigma}\biggr)
 &=
 0.05
@@ -34,8 +35,7 @@ P(X> 540)&=0.33
 &
 &\Rightarrow
 &
-P(X\le 540)=\mathstrut
-&\hspace{-10pt}&
+%P(X\le 540)=
 P\biggl(\frac{X-\mu}{\sigma}\le \frac{540-\mu}{\sigma}\biggr)
 &=
 0.66

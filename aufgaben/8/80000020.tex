@@ -39,19 +39,23 @@ Unter der Annahme einer Normalverteilung mit obigem $\mu$ und $\sigma$
 ist die Wahrscheinlichkeit
 $1-P(995 < X \le 1005)$ gesucht.
 Diese kann mit der Funktion {\tt pnorm} berechnet werden:
+\begin{small}
 \verbatimainput{pnorm.txt}
+\end{small}
 Die Wahrscheinlichkeit für dieses Ereignis ist also $0.0032768$.
 \item
 Die Wahrscheinlichkeit $1-P(990 < X \le 1010)$ ist 
+\begin{small}
 \verbatimainput{pnorm2.txt}
+\end{small}
 die erwartete Anzahl von Widerständen ist also
 $1000000 \cdot 4.9\cdot 10^{-9}=0.004$, eine Abweichung von mehr als 1\%
 kommt also praktisch nicht vor.
 \item
 Der Kolmogorov-Smirnov-Test auf den Widerstandsdaten liefert:
-{\small
+\begin{small}
 \verbatimainput{ks.txt}
-}
+\end{small}
 Der $p$-Wert ist die Wahrscheinlichkeit, unter der Annahme der Null-Hypothese
 zu einer derart grossen Abweichung zwischen empirischer Verteilungsfunktion
 und Verteilungsfunktion der Normalverteilung zu kommen. Da der $p$-Wert
@@ -60,7 +64,9 @@ ausgehen, dass keine Normalverteilung vorliegt.
 
 Der Shapiro-Wilk-Test, der darauf spezialisiert ist, Daten auf Normalverteilung
 zu testen, bestätigt dies mit einem ebenfalls sehr kleinen $p$-Wert.
+\begin{small}
 \verbatimainput{shapiro.txt}
+\end{small}
 
 Die Ursache für die Abweichung von der Normalverteilung ist in den Plots
 \ref{80000020-ecdf} und \ref{80000020-qq} zu

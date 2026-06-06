@@ -27,9 +27,11 @@ wie häufig jeder dieser Gewinne vorkommt. Dies geschieht am einfachsten
 mit folgender Tabelle, in der vertikal die Würfelzahl, horizontal die
 Roulettradzahl und in den Zellen der Gewinn dargestellt ist.
 \begin{center}
+\begin{small}
+\renewcommand{\tabcolsep}{3pt}
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\\
+\phantom{0}&\phantom{0}&&&&&&\phantom{0}&&&&\phantom{0}&&\phantom{0}&&&&\phantom{0}&&\phantom{0}&&&&\phantom{0}&&&&&&\phantom{0}&&\phantom{0}&&&&&\\
 \hline
 &&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2&&2\\
 \hline
@@ -42,10 +44,12 @@ Roulettradzahl und in den Zellen der Gewinn dargestellt ist.
 &&2&3&2&&6&&2&3&2&&6&&2&3&2&&6&&2&3&2&&6&&2&3&2&&6&&2&3&2&&6\\
 \hline
 \end{tabular}
+\end{small}
 \end{center}
 Daraus liest man die folgenden Häufigkeiten für die einzelnen
 Gewinne ab:
 \begin{center}
+\renewcommand{\arraystretch}{1.2}
 \begin {tabular}{|c|c|c|}
 \hline
 Gewinn&Häufigkeit&Wahrscheinlichkeit\\

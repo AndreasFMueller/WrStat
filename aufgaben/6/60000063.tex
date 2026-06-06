@@ -48,7 +48,7 @@ P\biggl(\frac{X-np}{\sqrt{np(1-p)}} < \frac{0.284 n -np}{\sqrt{np(1-p)}}\biggr)
 nicht wirklich numerisch berechenbar, siehe auch Teilaufgabe c).
 Man kann aber numerisch wie folgt rechnen:}
 P(X < 0.284\cdot n) 
-=
+&=
 \Phi(-235.7).
 \end{align*}
 Das Argument von $\Phi$ ist derart klein, dass man auch mit den 
@@ -112,7 +112,7 @@ zwar kleiner ist als mit jedem beliebigen Maschinentypen darstellbar,
 aber mit Sicherheit grösser ist also $10^{-12166}$.
 
 Man kann den Wert $\Phi(-235.7)$ mit Hilfe einer geeigneten
-Bibliothek für hochgenaue Gleitkomma-Typen wie die GNU MPFR
+Bibliothek für hochgenaue Gleitkommatypen wie die GNU MPFR
 berechnen.
 Die MPFR beinhaltet eine Implementation der komplementären Fehlerfunktion
 $\operatorname{erfc}(x) = 1-\operatorname{erfc}(x)$.
